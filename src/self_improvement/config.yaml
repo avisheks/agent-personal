@@ -1,0 +1,22 @@
+skills:
+  tour-planner-v2:
+    sop_path: skills/tour-planner-v2.md
+    data_dir: .local/data/tour-planner
+    validation: layer2_checks
+  options-pnl:
+    sop_path: skills/options-pnl.md
+    data_dir: .local/data/options-pnl
+    validation: reference_xlsx
+  news-summarizer:
+    sop_path: skills/news-summarizer.md
+    data_dir: .local/data/news-summarizer
+    validation: structural_completeness
+
+reflection:
+  trigger_after_n_executions: 5
+  min_feedback_entries: 3
+
+improvement:
+  auto_propose: true
+  require_human_approval: true
+  confidence_threshold: medium
