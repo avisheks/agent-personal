@@ -1,0 +1,126 @@
+name: Senior AI Jobs & Market Intelligence
+display_name: AI Jobs Weekly Briefing
+slug: jobs-in-ai
+description: >
+  Weekly intelligence briefing on senior IC (Staff+, Principal+) job openings
+  and hiring trends in AI. Focused on Bay Area roles solving impactful business
+  problems with AI science and engineering. Tracks Mag-7, frontier labs, well-funded
+  startups, and emerging companies.
+
+output_dir: agent-personal/.local/data/news-jobs-in-ai
+file_prefix: jobs-in-ai
+
+topics_of_interest:
+  Mag-7 Hiring (Google, Meta, Amazon, Apple, Microsoft, NVIDIA, Tesla):
+    - Staff/Principal/Distinguished AI scientist and engineer roles
+    - New AI divisions, lab expansions, and reorgs signaling hiring intent
+    - Compensation benchmarks and equity trends (RSU, refreshers, sign-on)
+    - Return-to-office policies and remote/hybrid stance affecting Bay Area talent
+    - Layoff-and-rehire patterns (teams cut vs. teams growing)
+
+  Frontier Labs (OpenAI, Anthropic, Google DeepMind, xAI, Meta FAIR, Mistral, Cohere):
+    - Research scientist and engineering roles (Staff+)
+    - New team formations and research directions signaling future hiring
+    - Fundraising rounds and headcount growth (funding → hiring pipeline)
+    - Culture, work style, and attrition signals (Glassdoor, Blind, X discourse)
+
+  Well-Funded AI Startups ($100M+ raised):
+    - Series B+ companies actively hiring senior AI roles in Bay Area
+    - Notable hires (who left where for where — talent flow signals)
+    - Companies crossing the "product-market fit" threshold (hiring to scale)
+    - Specific companies to track: Databricks, Scale AI, Anyscale, Modal, Weights & Biases, Runway, Character.ai, Adept, Inflection, Cohere, Mistral, Together AI, Fireworks AI, Perplexity, Glean, Harvey, Sierra, Cognition (Devin)
+
+  Emerging Startups (Seed to Series A):
+    - New AI startups founded by notable researchers or engineers
+    - YC and notable accelerator AI cohort highlights
+    - Stealth companies emerging from stealth with Bay Area presence
+    - Early-stage companies in search/ads AI, agentic AI, embodied AI
+
+  Solving Business Problems with AI (Cross-Cutting):
+    - Applied AI/ML roles (not pure research) at Staff+ level
+    - AI for revenue, growth, efficiency, cost optimization
+    - Full-stack AI roles (model + infra + product)
+    - AI leadership roles (Head of AI, VP ML, Chief AI Officer)
+    - Roles requiring both science depth AND business impact orientation
+
+  Search & Ads AI Jobs:
+    - Ranking, retrieval, recommendation, and personalization roles
+    - LLM-for-search and agentic search positions
+    - Ads ML (bidding, targeting, creative optimization, measurement)
+    - Commerce AI (product search, conversational commerce)
+    - Companies: Google, Amazon (Ads/A9), Meta (Ads), Microsoft (Bing/Ads), Pinterest, Snap, Walmart, Instacart, DoorDash, Uber, Perplexity
+
+  Senior IC Interview Trends:
+    - How are interviews changing for Staff+/Principal+/Distinguished engineers?
+    - Traditional coding rounds — are they being replaced, reduced, or augmented by AI-assisted coding?
+    - System design interviews — are they evolving to include AI system design (RAG, agent architectures, ML pipelines)?
+    - New competency areas being tested (agent orchestration, prompt engineering, MCP/tool-use design, RL for LLMs, evaluation design)
+    - AI-assisted interviews — companies allowing or requiring candidates to use Copilot/Claude during coding rounds
+    - Take-home projects vs. live coding vs. portfolio review — shifting formats
+    - "Build with AI" rounds — candidates asked to build something using AI tools in real-time
+    - Behavioral shifts — emphasis on AI judgment, risk assessment, safety awareness at senior levels
+    - How companies evaluate "AI fluency" vs. "AI depth" for senior ICs
+    - Interview prep implications — what should senior candidates study now vs. 2 years ago
+    - Specific company interview process changes (Google, Meta, Anthropic, OpenAI, startups)
+    - Signals from recruiter posts, Blind threads, and candidate experience reports
+
+  Emerging Areas AI Jobs:
+    - Robotics (Physical Intelligence, Figure, 1X, Boston Dynamics, NVIDIA Isaac)
+    - Autonomous driving (Waymo, Cruise, Wayve, Tesla FSD, Aurora, Nuro)
+    - World models and simulation (NVIDIA Cosmos, Wayve GAIA)
+    - Embodied AI and VLA models
+    - AI for scientific discovery (drug design, materials, climate)
+    - AI safety and alignment research roles
+
+trusted_sources:
+  prefer:
+    - LinkedIn job postings and recruiter activity (primary signal)
+    - Greenhouse, Lever, Ashby career pages of tracked companies
+    - levels.fyi compensation data and new postings
+    - Blind (anonymous employee intel on headcount, reorgs, comp)
+    - Hacker News "Who is Hiring" monthly threads
+    - Y Combinator job board and batch announcements
+    - ai-jobs.net, MLJobs, and AI-specific job aggregators
+    - TechCrunch and The Information (funding → hiring signals)
+    - Company engineering blogs (team growth announcements)
+    - X/Twitter recruiter posts and "we're hiring" threads
+  avoid:
+    - Generic job boards with stale postings (Indeed, Monster)
+    - Recruiter spam and staffing agency aggregation
+    - Roles below Staff level (senior is the floor for this report)
+    - Non-Bay-Area roles (unless remote-first and notable)
+    - Contract and consulting roles (focus on FTE)
+
+personalized_relevance:
+  weight_highest:
+    - Staff+ Applied Scientist / Research Scientist roles in search, ads, or recommendation
+    - Principal+ roles combining AI science with business impact
+    - Roles at companies building AI for commerce, advertising, or information retrieval
+    - AI leadership roles (Head of AI, VP ML) at growth-stage companies
+  weight_medium:
+    - Staff+ MLE/infrastructure roles at frontier labs
+    - Founding engineer / first-ML-hire roles at well-funded startups
+    - Robotics and embodied AI roles (adjacent interest)
+  weight_lower:
+    - Pure research roles with no applied component
+    - Roles outside Bay Area (unless remote and compelling)
+    - Junior-senior level roles (below staff)
+
+implications_sections:
+  - title: "Implications for Job Seekers"
+    focus: >
+      What changed this week for senior AI professionals exploring opportunities?
+      New openings, compensation shifts, team formations, reorg signals, and
+      which companies are expanding vs. contracting. Concrete advice on where
+      to look and what skills are in highest demand. Include a subsection on
+      **Interview Trends**: how are interview formats and competency tests
+      changing for Staff+/Principal+ candidates? What new topics are being asked?
+      Are coding rounds being replaced? What should candidates prepare for now?
+  - title: "Implications for Hiring Managers"
+    focus: >
+      What changed for teams trying to hire senior AI talent? Market tightness,
+      compensation benchmarks, competing offers, talent flow patterns, and what
+      candidates are optimizing for (mission, comp, autonomy, equity upside).
+      Include a subsection on **Interview Design**: how should interview loops
+      evolve to test AI-era competencies? Should you allow AI tools in interviews?
+      What signals differentiate strong senior candidates in 2026 vs. 2024?

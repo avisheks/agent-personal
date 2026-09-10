@@ -1,0 +1,98 @@
+name: RL for Agentic AI
+display_name: RL for Agentic AI Weekly Briefing
+slug: rl-in-agentic-ai
+description: >
+  Weekly intelligence briefing on Reinforcement Learning applied to AI agents —
+  training agents to plan, use tools, recover from failures, and self-improve
+  through environment interaction. Distinct from RL for LLM alignment (see
+  rl-in-ai), this topic covers RL as the optimization loop for agent behavior.
+
+output_dir: agent-personal/.local/data/news-rl-in-agentic-ai
+file_prefix: rl-in-agentic-ai
+
+topics_of_interest:
+  RL for Agent Policy Optimization:
+    - GRPO/PPO for agent planning and orchestration
+    - Multi-agent RL for LLM-based systems (UnityMAS-O, MAPPO)
+    - RL for tool selection and sequencing
+    - RL for multi-step workflow optimization
+    - Session-level and long-horizon reward optimization
+    - Confidence-gated deployment (RL policy with SFT fallback)
+
+  Agent Self-Improvement via RL:
+    - Retrospective Harness Optimization (RHO) and self-preference
+    - Online policy distillation for agent behavior
+    - Self-play and self-training loops for agents
+    - Skill discovery and curriculum learning (Voyager, Eureka)
+    - Reflection-guided RL (SCFT, RLERR)
+    - Trajectory-based reward shaping
+
+  RL Environments for Agents:
+    - Simulated agent environments (RLGym, AgentGym, WebArena-RL)
+    - Sim-to-real for agent deployment (simulated → production traffic)
+    - Reward model design for agentic tasks (composite, verifiable, process-based)
+    - Offline RL from agent trajectories (logged interactions)
+    - World models for agent planning (DreamerV3, MuZero applied to agents)
+
+  RL for Coding & Software Agents:
+    - RL-trained coding agents (SWE-bench optimization)
+    - RL for test generation, debugging, and code repair
+    - Execution-based reward (unit tests, CI pass rates)
+    - RLVR (RL with Verifiable Rewards) for code generation
+
+  RL for Search, Ads & Enterprise Agents:
+    - RL for search ranking policies (counterfactual LTR, offline RL)
+    - RL for ad campaign optimization (bidding, budget, targeting)
+    - RL for recommendation systems (session-level optimization)
+    - RL for enterprise workflow agents (task completion rewards)
+
+  RL for Embodied & Physical Agents:
+    - RL for robot skill acquisition (sim-to-real, diffusion policy + RL)
+    - RL for autonomous driving planning
+    - LLM-generated reward functions for physical tasks (Eureka, Language-to-Reward)
+    - Multi-robot coordination via MARL
+
+trusted_sources:
+  prefer:
+    - arXiv cs.AI, cs.LG, cs.MA, cs.RO (agent RL papers)
+    - NeurIPS, ICML, ICLR agent and RL tracks
+    - Google DeepMind (agent research, world models)
+    - Microsoft Research (AutoGen RL, RHO)
+    - Physical Intelligence (pi-zero, embodied RL)
+    - NVIDIA (Isaac Lab, Eureka, GR00T)
+    - Anthropic (tool-use improvement, agent patterns)
+    - Berkeley (BAIR blog, RLGym, AgentGym)
+    - SWE-bench and AgentBench leaderboards
+    - Latent Space podcast (agent episodes)
+  avoid:
+    - Pure LLM alignment/RLHF papers (belongs in rl-in-ai)
+    - Generic agent framework announcements without RL component
+    - Pure supervised fine-tuning results (no RL signal)
+
+personalized_relevance:
+  weight_highest:
+    - RL for orchestrator/planner optimization (AAO-relevant)
+    - Agent self-improvement loops (harness + weight updates)
+    - Reward design for agentic tasks
+    - Sim-to-real for agent deployment
+    - Session-level and multi-turn RL
+  weight_medium:
+    - RL for coding agents (SWE-bench, code verification)
+    - Multi-agent RL for collaborative systems
+    - RL environments and benchmarks
+  weight_lower:
+    - Robotics-specific RL (unless techniques transfer to software agents)
+    - Game-playing RL (unless novel agentic technique)
+    - Pure theory without agent application
+
+implications_sections:
+  - title: "Implications for Agent Training"
+    focus: >
+      What changed for teams training agents with RL? New algorithms, reward
+      design patterns, training environments, sim-to-real transfer, and
+      efficiency techniques for agent policy optimization.
+  - title: "Implications for Agent Deployment"
+    focus: >
+      How do RL-trained agent policies change deployment? Confidence gating,
+      fallback strategies, online learning from production, safety constraints,
+      and the SFT-to-RL progression in production systems.

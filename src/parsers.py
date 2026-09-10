@@ -153,7 +153,12 @@ def _parse_tasty_new_format(filepath: Path) -> List[Dict]:
             # Can also be multi-leg: "-300 STC\n-3 May 15 Exp 470 Put STC"
             # Handle multi-line descriptions
             if "\n" in description:
-                # Multi-leg order, take only option lines
+                # Multi-leg order — this is a spread. Check if it contains
+                # BTO or STC legs alongside STO/BTC legs.
+                is_spread = ("BTO" in description or "STC" in description)
+                if is_spread:
+                    # Skip entire order — spread legs are not standalone CSP/CC
+                    continue
                 for sub_desc in description.split("\n"):
                     sub_desc = sub_desc.strip()
                     if "STO" in sub_desc or "BTC" in sub_desc:

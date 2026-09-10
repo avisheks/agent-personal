@@ -1,0 +1,100 @@
+name: RL for LLM Post-Training & Alignment
+display_name: RL for LLM Training Weekly Briefing
+slug: rl-in-ai
+description: >
+  Weekly intelligence briefing on Reinforcement Learning for LLM post-training,
+  alignment, and reasoning — RLHF, DPO, GRPO, preference optimization, reward
+  modeling, and RL-enhanced reasoning. For RL applied to agents, see rl-in-agentic-ai.
+
+output_dir: agent-personal/.local/data/news-rl-in-ai
+file_prefix: rl-in-ai
+
+topics_of_interest:
+  RLHF & Preference Optimization:
+    - RLHF (Reinforcement Learning from Human Feedback)
+    - DPO, IPO, KTO, SimPO, ORPO and offline preference variants
+    - Online iterative DPO and hybrid approaches
+    - Constitutional AI and RLAIF
+    - Reward model training, calibration, and scaling laws
+    - Reward hacking detection and mitigation
+    - KL divergence management and reference policy design
+
+  RL for Reasoning:
+    - GRPO, RLOO, and online RL for reasoning (DeepSeek-R1 lineage)
+    - Process reward models vs. outcome reward models
+    - Monte Carlo Tree Search (MCTS) for LLM reasoning
+    - Chain-of-thought via RL (STaR, V-STaR, STILL)
+    - Test-time compute scaling with RL
+    - Self-play and iterative self-improvement for reasoning
+
+  Core RL Algorithms for LLMs:
+    - PPO adaptations for language models (clipping, KL penalty, GAE)
+    - GRPO internals (group sampling, advantage normalization)
+    - Value function design for text (critic-free vs. critic-based)
+    - On-policy vs. off-policy for LLM training
+    - Sample efficiency techniques for LLM RL
+
+  Reward Modeling & Verification:
+    - Bradley-Terry reward models and alternatives
+    - RLVR (RL with Verifiable Rewards) for math and code
+    - LLM-as-judge for reward signal
+    - Process reward models for step-level credit assignment
+    - Reward model generalization and distribution shift
+
+  Training Infrastructure:
+    - TRL (Hugging Face Transformer Reinforcement Learning)
+    - veRL, NeMo Aligner, OpenRLHF
+    - Distributed RLHF/GRPO training at scale
+    - Memory-efficient RL training (critic-free methods)
+    - Synthetic preference data generation pipelines
+
+  Policy Distillation & Model Merging:
+    - Online policy distillation (GKD, on-policy KD)
+    - Multi-teacher distillation for capability merging
+    - Knowledge distillation from RL-trained to SFT models
+    - Model soups, TIES, DARE for RL checkpoint merging
+
+trusted_sources:
+  prefer:
+    - arXiv cs.CL, cs.LG, cs.AI (LLM RL papers)
+    - NeurIPS, ICML, ICLR, ACL proceedings
+    - DeepSeek technical reports
+    - Anthropic alignment and safety research
+    - OpenAI post-training research
+    - Meta FAIR (Llama post-training)
+    - Hugging Face TRL blog and releases
+    - Lilian Weng's blog, The Gradient
+    - Berkeley AI Research (BAIR) blog
+  avoid:
+    - Introductory RL tutorials (too basic)
+    - Agent-specific RL (belongs in rl-in-agentic-ai)
+    - Robotics RL (belongs in rl-in-agentic-ai)
+    - Pure game-playing RL
+    - Clickbait about "AGI through RL"
+
+personalized_relevance:
+  weight_highest:
+    - GRPO and preference optimization advances
+    - Reward modeling and verification
+    - Process reward models and verifiers
+    - RL for reasoning (math, code, planning)
+    - Training infrastructure and efficiency
+  weight_medium:
+    - RLHF scaling and distributed training
+    - Policy distillation and model merging
+    - Synthetic preference data generation
+  weight_lower:
+    - Pure algorithmic theory without LLM application
+    - Historical RLHF (InstructGPT-era, unless revisited with new insights)
+
+implications_sections:
+  - title: "Implications for LLM Builders"
+    focus: >
+      What changed for teams training or fine-tuning LLMs? New alignment
+      techniques, reward modeling advances, training recipes, and infrastructure
+      for post-training with RL.
+  - title: "Implications for Post-Training Strategy"
+    focus: >
+      How should post-training pipelines evolve? SFT vs. DPO vs. GRPO
+      selection criteria, when to use RL vs. preference optimization, reward
+      model investment decisions, and the SFT→RL progression.

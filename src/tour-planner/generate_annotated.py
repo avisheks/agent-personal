@@ -94,7 +94,7 @@ def restyle(source_docx: Path, reference_doc: Path, output_docx: Path, output_md
     # Re-render with reference-doc styles
     result = subprocess.run(
         ["pandoc", str(output_md), "-o", str(output_docx),
-         "--from", "gfm", "--to", "docx", "--reference-doc", str(reference_doc)],
+         "--from", "markdown", "--to", "docx", "--reference-doc", str(reference_doc)],
         capture_output=True, text=True,
     )
     if result.returncode != 0:
@@ -197,7 +197,7 @@ def merge(base_md: Path, annotations_source: Path, reference_doc: Path,
     # Convert
     result = subprocess.run(
         ["pandoc", str(output_md), "-o", str(output_docx),
-         "--from", "gfm", "--to", "docx", "--reference-doc", str(reference_doc)],
+         "--from", "markdown", "--to", "docx", "--reference-doc", str(reference_doc)],
         capture_output=True, text=True,
     )
     if result.returncode != 0:

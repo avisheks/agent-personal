@@ -1,0 +1,94 @@
+name: Agentic AI
+display_name: Agentic AI Weekly Briefing
+slug: agentic-ai
+description: >
+  Weekly intelligence briefing on AI agents — autonomous systems that plan,
+  reason, use tools, and take actions with minimal human oversight.
+
+output_dir: agent-personal/.local/data/news-agentic-ai
+file_prefix: agentic-ai
+
+topics_of_interest:
+  Agent Architectures:
+    - Planning and reasoning agents (ReAct, Tree-of-Thought, MCTS-based)
+    - Multi-agent systems and coordination protocols
+    - Agent memory (short-term, long-term, episodic, semantic)
+    - Agent-computer interfaces (browser, desktop, terminal, IDE)
+    - Hierarchical and recursive agent patterns
+    - Self-improving and meta-learning agents
+
+  Tool Use & Integration:
+    - Model Context Protocol (MCP) and tool-calling standards
+    - Function calling, structured output, tool orchestration
+    - Code generation and execution sandboxes
+    - API integration patterns and authentication
+    - File system, database, and infrastructure access
+
+  Orchestration & Frameworks:
+    - LangGraph, CrewAI, AutoGen, OpenAI Agents SDK
+    - Claude Code SDK, Anthropic agent patterns
+    - Workflow engines (temporal, durable execution)
+    - Agent-as-a-service platforms
+    - Prompt chaining vs. autonomous loops
+
+  Evaluation & Safety:
+    - Agent benchmarks (SWE-bench, WebArena, GAIA, AgentBench)
+    - Guardrails, sandboxing, and capability control
+    - Human-in-the-loop patterns and escalation
+    - Observability, tracing, and debugging agents
+    - Failure modes and recovery strategies
+
+  Enterprise & Production:
+    - Agent deployment patterns (hosted, local, hybrid)
+    - Cost optimization (token budgets, caching, routing)
+    - Compliance, audit trails, and explainability
+    - Agent marketplaces and composability
+    - Real-world case studies and ROI
+
+  Coding Agents:
+    - Autonomous software engineering (Devin, Claude Code, Cursor, Codex)
+    - CI/CD integration and automated PRs
+    - Test generation and bug fixing agents
+    - Code review and refactoring agents
+    - Documentation agents
+
+trusted_sources:
+  prefer:
+    - arXiv cs.AI, cs.MA (multi-agent systems)
+    - Anthropic, OpenAI, Google DeepMind engineering blogs
+    - LangChain/LangGraph blog and changelog
+    - AutoGen and CrewAI release notes
+    - GitHub Trending (agent repos)
+    - Latent Space podcast
+    - AI Engineer newsletter and conference talks
+    - Hacker News, r/LocalLLaMA, r/MachineLearning agent threads
+    - SWE-bench and WebArena leaderboards
+  avoid:
+    - Generic "top 10 AI agent tools" listicles
+    - Marketing demos without technical depth
+    - Vaporware announcements without code or papers
+
+personalized_relevance:
+  weight_highest:
+    - Agent orchestration patterns and frameworks
+    - Self-improving agent architectures
+    - MCP ecosystem and tool integration
+    - Evaluation and benchmarking agents
+    - Production deployment patterns
+  weight_medium:
+    - Multi-agent coordination
+    - Coding agent capabilities
+    - Enterprise adoption case studies
+  weight_lower:
+    - Theoretical multi-agent game theory
+    - Robotics-specific embodied agents
+
+implications_sections:
+  - title: "Implications for Agent Builders"
+    focus: >
+      What changed for teams building AI agents? New patterns, frameworks,
+      failure modes, cost dynamics, and deployment strategies.
+  - title: "Implications for Enterprise Adoption"
+    focus: >
+      What should enterprises know about deploying agents? Security, compliance,
+      cost, reliability, and organizational readiness.

@@ -150,28 +150,11 @@ def match_trades(trades: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
                     close_idx += 1
 
             if remaining_qty > 0:
-                now = datetime.now().strftime("%Y-%m-%d")
                 expiry_date = open_trade["expiry"]
-                if expiry_date and expiry_date <= now:
-                    open_credit = open_trade["price"] * remaining_qty * 100
-                    fee_share = (open_trade["commission"] + open_trade["fees"]) * remaining_qty / open_trade["qty"]
-                    strategy = "CC" if open_trade["option_type"] == "CALL" else "CSP"
-                    closed_trades.append({
-                        "date_closed": expiry_date,
-                        "date_opened": open_trade["date"],
-                        "broker": open_trade["broker"],
-                        "underlying": open_trade["underlying"],
-                        "strategy": strategy,
-                        "strike": open_trade["strike"],
-                        "expiry": open_trade["expiry"],
-                        "qty": remaining_qty,
-                        "open_price": open_trade["price"],
-                        "close_price": 0.0,
-                        "gross_pnl": round(open_credit, 2),
-                        "fees": round(fee_share, 2),
-                        "net_pnl": round(open_credit - fee_share, 2),
-                    })
-                else:
-                    unmatched_opens.append({**open_trade, "qty": remaining_qty})
+                # Only treat as expired if we have explicit EXPIRED/ASSIGNED
+                # data in the closes list for this key. Never infer expiry from
+                # the current date — without closing data we cannot confirm
+                # whether the option expired, was assigned, or was closed.
+                unmatched_opens.append({**open_trade, "qty": remaining_qty})
 
     return closed_trades, unmatched_opens

@@ -1,0 +1,115 @@
+name: World Models
+slug: world-models
+description: >
+  Weekly research briefing on World Models — systems that learn internal
+  representations of environment dynamics for planning, simulation, reasoning,
+  and decision making. Tracks the evolving relationship between World Models
+  and LLMs, with emphasis on applications to Search, Recommendation,
+  Advertising, Robotics, and Autonomous Agents.
+
+output_dir: agent-personal/.local/data/news-world-models
+file_prefix: world-models
+
+topics_of_interest:
+  World Model Architectures:
+    - Latent world models (JEPA, latent dynamics)
+    - Video world models (Sora-style, generative simulation)
+    - Action-conditioned dynamics models
+    - Counterfactual world models
+    - Memory-augmented world models
+    - Retrieval-augmented world models
+    - Multimodal world models (vision + language + action)
+    - Hierarchical world models
+    - Interactive environment modeling
+    - Multi-agent world models
+
+  Model-Based RL & Planning:
+    - Model-based reinforcement learning (MuZero, Dreamer, TD-MPC)
+    - Long-horizon planning with learned dynamics
+    - Agentic planning (web agents, computer use, search agents)
+    - Offline RL with world models
+    - Monte Carlo Tree Search with learned models
+    - Hierarchical planning and subgoal discovery
+    - World models for exploration and curiosity
+
+  World Models vs LLMs:
+    - LLMs as implicit world models (state tracking, simulation)
+    - Hybrid systems (LLM + world model + planner)
+    - Architecture evolution (LLM → LLM+Memory → LLM+Planning → LLM+WorldModel)
+    - Limitations of LLMs that world models address
+    - Limitations of world models that LLMs address
+    - Counterfactual reasoning capabilities comparison
+    - Planning and lookahead comparison
+
+  Search, Recommendation & Ads Applications:
+    - World models for search (query understanding, retrieval planning, session modeling)
+    - User simulation and synthetic user generation
+    - Sequential recommendation with learned dynamics
+    - Campaign world models (advertiser simulation, marketplace modeling)
+    - Bid and budget optimization via simulation
+    - Counterfactual policy learning for ranking and recommendation
+    - Multi-agent marketplace simulation
+    - Auction simulation and mechanism design
+    - LLM-powered campaign planning
+    - Long-term engagement optimization
+    - Personalized search with world models
+
+  Robotics & Physical World Models:
+    - World models for robotics (manipulation, navigation, locomotion)
+    - World models for autonomous driving
+    - Physics-informed world models
+    - Sim-to-real transfer
+    - World models for scientific discovery
+
+  Evaluation & Benchmarks:
+    - World model evaluation metrics (prediction accuracy, planning quality)
+    - Environment benchmarks (MiniGrid, NetHack, Atari, DMControl)
+    - Agent benchmarks where world models help (WebArena, OSWorld, SWE-bench)
+    - Counterfactual evaluation frameworks
+
+trusted_sources:
+  prefer:
+    - Top-tier ML venues (NeurIPS, ICML, ICLR, CoRL, RSS, ICAPS, KDD, SIGIR, WWW, RecSys)
+    - arXiv cs.LG, cs.AI, cs.RO, cs.IR
+    - Google DeepMind, OpenAI, Anthropic, Meta AI research blogs
+    - NVIDIA Research, Amazon Science, Microsoft Research
+    - Physical Intelligence, Sakana AI, Adept
+    - GitHub trending (world model implementations, planning libraries, simulators)
+    - Hugging Face releases
+    - Search/Ads research from Google, Amazon, Meta, Walmart Connect, Instacart
+  avoid:
+    - SEO content and marketing blogs
+    - Generic AI tool roundups
+    - Hype without technical substance
+    - Press releases without papers or code
+
+personalized_relevance:
+  weight_highest:
+    - Agentic AI + world models (planning, simulation, decision)
+    - World models for search and retrieval
+    - World models for advertising and marketplace optimization
+    - World models for recommendation systems
+    - Counterfactual reasoning and offline RL
+  weight_medium:
+    - Model-based RL advances (MuZero, Dreamer family)
+    - User simulation and synthetic data
+    - Multi-agent world models and marketplace dynamics
+    - LLM evaluation via world models
+    - Planning and long-horizon reasoning
+  weight_lower:
+    - Pure robotics without transfer to digital domains
+    - Video generation without planning applications
+    - Game-specific world models without broader lessons
+
+implications_sections:
+  - title: "Implications for Search, Recommendation & Ads"
+    focus: >
+      What changed for teams building search, recommendation, and advertising
+      systems? New world model techniques for user simulation, counterfactual
+      evaluation, campaign optimization, marketplace modeling, and sequential
+      decision making.
+  - title: "Implications for Agentic AI & Planning"
+    focus: >
+      What changed for teams building AI agents? New world model techniques
+      for planning, lookahead, environment simulation, and decision making
+      that complement or replace LLM-based reasoning.

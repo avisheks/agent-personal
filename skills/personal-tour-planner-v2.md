@@ -281,6 +281,7 @@ Every restaurant — whether the primary recommendation or an Indian backup — 
 1. **Hyperlinked name:** `[Restaurant Name](https://www.google.com/maps/place/Restaurant+Name+City)` — embedded in the restaurant name, never as a bare URL.
 2. **Rating:** Yelp star rating (e.g., `4.5★`). If the restaurant is not on Yelp, use Google rating instead and note `(Google)`.
 3. **Cost tier:** `€` (budget, under €15/person) / `€€` (mid-range, €15–30) / `€€€` (upscale, €30+).
+4. **Delivery app availability:** After the cost tier, note which local or global food delivery apps support the restaurant. Use the format `🛵 Delivery: AppName1, AppName2` (or `🛵 Delivery: none` if the restaurant is not on any platform). Use the locally dominant apps for each city (e.g., Wolt & Lieferando for Vienna; Wolt & Bolt Food for Prague). This helps families order in when kids are exhausted or plans change last-minute.
 
 **Format in the detailed body (primary restaurant):**
 ```markdown
@@ -360,6 +361,39 @@ EARLY OUTDOOR (before 11 AM)  →  INDOOR MIDDAY (11 AM – 4 PM)  →  LATE OUT
 
 ## Output Format
 
+### Page Breaks (mandatory)
+
+Sections are grouped to minimize empty space and empty pages. A page break is inserted only at the **start of each group**, not between sections within a group. Insert a raw OpenXML page break block before the first heading of each group.
+
+**Markdown syntax:**
+
+````markdown
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
+
+### Section Heading Here
+````
+
+**Section groups (page break before the FIRST heading in each group only):**
+
+| # | Group | Sections (no page break between these) | Rationale |
+|---|-------|---------------------------------------|-----------|
+| 1 | Front Matter | Title, Summarized Itinerary | Long section, naturally fills pages |
+| 2 | Trip Overview | 🗓️ Trip at a Glance, 🏙️ City Overviews, 🎟️ Pre-Trip Booking Checklist | 3 short reference tables that fit on 1–2 pages |
+| 3–11 | Daily Itinerary | Each Day (Day 1 through Day 9) individually | Each is substantial (7–24 paragraphs), deserves its own page |
+| 12 | Reference Tables | 🍽️ Restaurant Summary, 🏛️ Attraction Summary, 👔 What to Wear, 🌧️ Rainy Day Alternatives | 4 compact tables that share pages well |
+| 13 | Recommendations | 🏆 Top Experiences, 🛝 Best Playgrounds, 🍰 Best Dessert & Coffee, 🛍️ Best Souvenir Streets | Short lists that fit together on 1–2 pages |
+| 14 | Cross-Reference | 📋 Cross-Reference Summary + all subsections (Sources Consulted, Suggestions Overview, Attractions Not Included, Key Agreements) | One logical unit — related tables and analysis |
+| 15 | Packing Checklist | ✅ Packing Checklist + all category subsections (Clothing, Footwear, Toiletries, Gear, Kids, Documents) | One checklist — scanning across categories flows better without breaks |
+| 16 | Things to Remember | 📝 Things to Remember + all subsections (Before the Trip, During the Trip, Day-of Reminders) | One action-item list — keep together for printing |
+
+**Rules:**
+1. Page break goes before the **first heading** of each group only. Sections within the same group flow continuously.
+2. The page break block must be separated from surrounding content by blank lines.
+3. The document title (`# ✈️ ...`) does NOT get a page break before it (it's the first element). Group 1 has no page break.
+4. The pandoc input format must be `--from markdown` (not `--from gfm`) for raw OpenXML blocks to be recognized.
+
 ### Document Header
 
 ```markdown
@@ -407,6 +441,14 @@ Immediately after the intro, include a **one-line-per-day summarized itinerary**
 6. Note "pack for transit" or "Home TIME" on pre-transit evenings.
 7. Transit/travel days show the full chain including station buffers and train duration.
 8. The numbered list format makes it easy to reference specific activities ("Day 3, item 5") and scan vertically.
+9. **Blank line before numbered list (mandatory for docx rendering):** A blank line MUST separate the bold day header from the first numbered item. Without it, pandoc collapses the header and all numbered items into a single paragraph in the .docx. Correct format:
+
+```markdown
+**Day 2 | Aug 8 (Sat) | 31°C**
+                                    ← blank line here
+1. Activity A (outdoor) 9:30 (60 min)
+2. Activity B (indoor) 10:30 (75 min)
+```
 
 ### Summary-Body Alignment (mandatory)
 
@@ -494,7 +536,7 @@ Include ALL stops: accommodation → attractions → lunch → attractions → d
 Each bullet MUST start with a **type emoji** before the time:
 
 ```markdown
-- 🏛️ **9:30 AM: [Place Name](maps-url).** Brief description (1–2 sentences).
+🏛️ [**9:30 AM: [Place Name](maps-url).**]{.underline} Brief description (1–2 sentences).
 
   - 👶 Kid-friendly: X/5 | 🚼 Stroller: Yes/No
   - 💰 Cost: €/€€/€€€
@@ -514,11 +556,12 @@ Each bullet MUST start with a **type emoji** before the time:
 - ✈️ = Airport / Flight
 
 **Formatting rules:**
-- Bold time + place name, period at the end.
+- Bold AND underline the time + place name portion, period at the end. Use pandoc bracketed-span syntax: `[**TIME: Place Name.**]{.underline}` — this produces bold+underline in the .docx output.
 - 1–2 sentence description max.
 - Sub-bullets for metadata: use inline `|` separator for compactness.
 - For restaurants: include `🌟 Must-try:` line when there's a standout dish.
 - Hyperlink EVERY place name on first mention: `[Name](https://www.google.com/maps/place/Name+City)`
+- The pandoc input format MUST be `--from markdown` (not `--from gfm`) to support the `{.underline}` bracketed span syntax.
 
 #### Must-Try Food Highlights
 
@@ -904,6 +947,38 @@ python3 src/tour-planner/generate_annotated.py \
 ```
 
 Note: After running in restyle mode, verify the output .md contains all days in the Summarized Itinerary. If the `--summary-md` source is incomplete, manually add missing days to the output .md and re-run pandoc.
+
+**⚠️ Mode 3 — Markdown-authoritative regeneration** (use when .md has content not in any .docx):
+
+The `.md` file is the single source of truth for annotated content. Restyle mode (Mode 1) extracts content from a prior `.docx` via pandoc `docx→GFM`, which is **lossy** — pandoc drops indented sub-bullets (e.g., `🍛 **Indian backup:**` lines, booking callouts, metadata sub-bullets) that don't map cleanly to docx paragraph styles. This means content that was manually added to the `.md` (or generated in Layer 1/2 but never round-tripped through a `.docx`) will silently vanish.
+
+**Rule:** If the authoritative annotated `.md` contains content not present in the source `.docx` (Indian backup lines, newly added metadata like delivery annotations, booking sub-bullets), do NOT use Mode 1. Instead, generate directly from the `.md`:
+
+```bash
+pandoc {TRIP-SLUG}/output/v2-trip-itinerary-annot-latest.md \
+  -o {TRIP-SLUG}/output/v2-trip-itinerary-annot-latest.docx \
+  --from markdown --to docx \
+  --reference-doc {TRIP-SLUG}/output/v2-trip-itinerary-latest.docx
+```
+
+**When to use which mode:**
+| Scenario | Mode |
+|----------|------|
+| Styles changed, content unchanged, source .docx has all content | Mode 1 (Restyle) |
+| Base itinerary changed, need to re-place annotations | Mode 2 (Merge) |
+| `.md` has content not in any `.docx` (new metadata, backup lines, delivery annotations) | Mode 3 (Markdown-authoritative) |
+| First-time generation | Mode 3 (Markdown-authoritative) |
+
+**Validation after ANY docx generation:** Verify the output `.docx` contains all expected content categories. Run:
+```python
+from docx import Document
+doc = Document(output_path)
+# Must find: Indian backup lines, delivery annotations, booking callouts, underlined activity starters
+assert any('🍛' in p.text for p in doc.paragraphs), "MISSING: Indian backup lines in detailed itinerary"
+assert any('🛵' in p.text for p in doc.paragraphs), "MISSING: Delivery annotations"
+assert any(run.underline for p in doc.paragraphs for run in p.runs if run.text and 'AM:' in run.text or 'PM:' in run.text), "MISSING: Underlined time+place activity starters"
+```
+If assertions fail, the generation mode was wrong — switch to Mode 3. For missing underlines, verify the `.md` uses `[**TIME: Place.**]{.underline}` syntax and pandoc is invoked with `--from markdown` (not `--from gfm`).
 
 **Mode 2 — Merge** (base itinerary changed, re-place annotations):
 

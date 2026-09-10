@@ -1,0 +1,100 @@
+name: AI for TPM & Product Management
+slug: ai-for-tpm-pm
+description: >
+  Weekly intelligence briefing on AI developments most useful for Technical
+  Program Managers, Product Managers, Product Owners, Engineering Managers,
+  and Technical Leaders. Optimized for actionable learning — tools, workflows,
+  and techniques you can apply this week.
+
+output_dir: agent-personal/.local/data/news-ai-for-tpm-pm
+file_prefix: ai-for-tpm-pm
+
+topics_of_interest:
+  AI for Product Management:
+    - AI copilots for PMs (roadmapping, prioritization, discovery)
+    - AI-assisted product analytics and customer research
+    - Requirements generation and user story authoring
+    - AI-native product development patterns
+    - Market research automation and competitive intelligence
+    - Voice-of-customer analysis and sentiment
+    - Feature prioritization and experiment design
+    - Product discovery workflows with AI
+    - AI product strategy and monetization
+
+  AI for Technical Program Management:
+    - Program planning and dependency analysis with AI
+    - Executive communication and status report automation
+    - Meeting summarization and action-item extraction
+    - Risk prediction and early-warning systems
+    - Project tracking and roadmap management
+    - Release planning and cross-team coordination
+    - Jira, Confluence, Slack automation with AI agents
+    - Program analytics and velocity forecasting
+
+  AI Agents for PM/TPM Workflows:
+    - Agentic workflows for planning and research
+    - Tool calling, MCP, Claude Skills for productivity
+    - OpenAI Agents, CrewAI, LangGraph, AutoGen, Semantic Kernel
+    - AI copilots that integrate with PM/TPM toolchains
+    - Multi-agent orchestration for program management
+    - Workflow automation (approvals, escalations, notifications)
+
+  LLM Technology (PM/TPM-Relevant):
+    - Reasoning models and their impact on planning tasks
+    - Context engineering and prompt engineering for professionals
+    - RAG for enterprise knowledge (wikis, docs, tickets)
+    - Evaluation and LLM judges for content quality
+    - Fine-tuning for domain-specific PM/TPM tasks
+
+  Industry (PM/TPM Tooling):
+    - Atlassian (Jira, Confluence) AI features
+    - Notion AI, Linear, GitHub Copilot
+    - Anthropic Claude, OpenAI ChatGPT, Google Gemini
+    - Figma AI, Stripe AI, Slack AI
+    - Emerging PM/TPM-specific AI startups
+
+trusted_sources:
+  prefer:
+    - Official company blogs (Atlassian, Notion, Linear, GitHub, Anthropic, OpenAI)
+    - Engineering and product blogs from tech companies
+    - Research papers on AI-assisted planning and coordination
+    - Practitioner podcasts (Lenny's Podcast, Product Thinking, Latent Space)
+    - GitHub repositories with PM/TPM-relevant tools
+    - High-quality Reddit (r/ProductManagement, r/TechnicalProgramManagers)
+    - Hacker News discussions on AI productivity tools
+    - Technical newsletters (TLDR, Pragmatic Engineer, ByteByteGo)
+  avoid:
+    - SEO articles and marketing blogs
+    - AI-generated spam and affiliate content
+    - Generic "Top 10 AI Tools" listicles
+    - Clickbait and hype without substance
+    - Press releases unless introducing genuinely useful capabilities
+
+personalized_relevance:
+  weight_highest:
+    - AI agents for program/project management workflows
+    - Meeting summarization and status report automation
+    - Dependency analysis and risk prediction tools
+    - Cross-team coordination and communication AI
+    - AI-assisted roadmapping and planning
+  weight_medium:
+    - Product analytics and customer research AI
+    - Prompt engineering techniques for professional work
+    - RAG systems for enterprise knowledge access
+    - AI copilot updates (Claude, ChatGPT, Gemini features)
+  weight_lower:
+    - Pure LLM research without clear PM/TPM application
+    - Infrastructure and training advances (unless cost-relevant)
+    - Robotics and embodied AI
+
+implications_sections:
+  - title: "Implications for TPMs & Program Managers"
+    focus: >
+      What changed for TPMs and program managers this week? New tools for
+      dependency tracking, status automation, risk prediction, cross-team
+      coordination, and executive communication. Concrete workflow changes.
+  - title: "Implications for Product Managers"
+    focus: >
+      What changed for PMs and product owners this week? New capabilities for
+      discovery, analytics, customer research, roadmapping, and AI-native
+      product development. Tools to try immediately.

@@ -1,0 +1,88 @@
+# Skills Configuration — Sample / Placeholder Values
+# Copy this to .local/skills-config.yaml and fill in your org-specific values.
+# This file is safe to commit. It contains no confidential information.
+
+interviewer:
+  interview_resources:
+    question_bank:
+      name: "Interview Questions Bank (primary)"
+      url: "https://your-internal-wiki.example.com/interview-questions-bank"
+      access: "Internal wiki tool — fully accessible"
+    question_bank_quick_links:
+      name: "Questions Bank Quick Links"
+      url: "https://your-internal-portal.example.com/interview-questions-quick-links"
+      access: "Internal wiki tool — partial"
+    lp_calibration_guide:
+      name: "Leadership Principles Calibration Guide"
+      url: "https://your-internal-wiki.example.com/lp-calibration-guide"
+      access: "Internal wiki tool"
+    functional_competency_guide:
+      name: "Functional Competency Guide"
+      url: "https://your-internal-wiki.example.com/functional-competency-guide"
+      access: "Internal wiki tool"
+  terminology:
+    bar_language:
+      - "meets the bar for {Level}"
+      - "raises the bar"
+      - "does not meet the bar"
+    recommendation_phone_screen:
+      move_forward: "move to onsite"
+      do_not_move_forward: "do not move forward"
+    recommendation_onsite:
+      positive: "inclined"
+      negative: "not inclined"
+      strong_positive: "strongly inclined"
+    candidate_alias: "TC"
+    candidate_alias_expansion: "The Candidate"
+    level_system: ["L5", "L6", "L7"]
+  level_expectations:
+    L5: "Demonstrates solid technical depth, can execute independently, delivers results with guidance on ambiguity"
+    L6: "Demonstrates technical breadth + depth, drives cross-team impact, navigates ambiguity independently, thinks strategically"
+    L7: "Sets technical vision, influences org-wide direction, mentors senior ICs, drives multi-team outcomes"
+
+tpm:
+  notification_email: "your-email@example.com"
+  user_gid: "000000000000000"
+  user_alias: "your-username"
+  projects:
+    project-alpha:
+      gid: "000000000000001"
+      asana_name: "Your Project Alpha"
+      display_name: "Project Alpha"
+    project-beta:
+      gid: "000000000000002"
+      asana_name: "Your Project Beta"
+      display_name: "Project Beta"
+    project-gamma:
+      gid: "000000000000003"
+      asana_name: "Your Project Gamma"
+      display_name: "Project Gamma"
+  cron:
+    daily_script: "scripts/run-daily-status.sh"
+    weekly_script: "scripts/run-weekly-status.sh"
+    daily_schedule: "3 9 * * 1-5"
+    weekly_schedule: "27 8 * * 1"
+    daily_log: "/tmp/agent-tpm-daily.log"
+    weekly_log: "/tmp/agent-tpm-weekly.log"
+    base_path: "/path/to/your/agent-coworker-local"
+  asana_mcp_tools:
+    status_updates: "mcp__enterprise-asana-mcp__asana___GetStatusUpdatesFromObject"
+    tasks_from_project: "mcp__enterprise-asana-mcp__asana___GetTasksFromProject"
+    project_sections: "mcp__enterprise-asana-mcp__asana___GetProjectSections"
+    search: "mcp__enterprise-asana-mcp__asana___AsanaSearch"
+    task_details: "mcp__enterprise-asana-mcp__asana___GetTaskDetails"
+
+doc-writer:
+  writing_convention: "Narrative 6-Pager"
+  example_systems:
+    training_platform: "YourTrainingPlatform"
+    compute_cluster: "YourComputeCluster"
+
+paper-reviewer:
+  llm:
+    region_pool:
+      - "us-west-2"
+      - "us-east-1"
+      - "us-east-2"
+    model_id: "us.anthropic.claude-sonnet-4-20250514-v1:0"
+    model_prefix: "us."
