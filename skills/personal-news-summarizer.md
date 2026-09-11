@@ -692,7 +692,7 @@ Each section MUST use the exact same HTML element pattern regardless of topic:
 Instead of manually writing HTML, use the rendering script:
 
 ```bash
-python3 src/news-report/render_html.py \
+python3 src/skills/news-report/render_html.py \
   --input .notlocal/data/personal-news/news-rl-in-ai/rl-in-ai-2026-07-WK30-news.md
 ```
 
@@ -976,7 +976,7 @@ A single agent receives all Phase 1 outputs plus the Phase 0 prior-state context
 After the markdown is complete and validated (23 sections confirmed), render HTML:
 
 ```bash
-python3 src/news-report/render_html.py --input <path-to-md-file>
+python3 src/skills/news-report/render_html.py --input <path-to-md-file>
 ```
 
 The script handles all CSS, JS, TOC generation, and structural formatting. Do NOT manually write HTML for news reports.

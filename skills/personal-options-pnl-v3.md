@@ -88,10 +88,12 @@ As a result, the short leg of a spread (the STO side) is parsed identically to a
 ```
 agent-personal/
 ├── src/
-│   ├── parsers.py         # Broker-specific CSV parsers
-│   ├── matcher.py         # Trade filtering, spread detection, FIFO matching, PnL math
-│   ├── compute_pnl.py     # Main compute entry point → outputs JSON
-│   └── render_report.py   # Reads JSON → generates .md and .html reports
+│   └── skills/
+│       └── options-pnl/
+│           ├── parsers.py         # Broker-specific CSV parsers
+│           ├── matcher.py         # Trade filtering, spread detection, FIFO matching, PnL math
+│           ├── compute_pnl.py     # Main compute entry point → outputs JSON
+│           └── render_report.py   # Reads JSON → generates .md and .html reports
 ├── tst/
 │   └── test_parsers.py    # Unit and integration tests
 ├── skills/
@@ -179,16 +181,16 @@ If the user asks to run this SOP but does not specify all three inputs, ask:
 cd agent-personal
 
 # 1a. Compute PnL from VAL_DATA
-python3 src/compute_pnl.py --input <VAL_DATA_DIR> --output .local/options-pnl/out/val-computed-pnl.json
+python3 src/skills/options-pnl/compute_pnl.py --input <VAL_DATA_DIR> --output .local/options-pnl/out/val-computed-pnl.json
 
 # 1b. Validate computed output against VAL_REPORT
-python3 src/validate_pnl.py \
+python3 src/skills/options-pnl/validate_pnl.py \
     --computed .local/options-pnl/out/val-computed-pnl.json \
     --reference "<VAL_REPORT_PATH>" \
     --output .local/options-pnl/out/val-validation-report.json
 
 # 1c. Render report from VAL_DATA (for visual comparison)
-python3 src/render_report.py --input .local/options-pnl/out/val-computed-pnl.json --output-dir .local/options-pnl/out/val
+python3 src/skills/options-pnl/render_report.py --input .local/options-pnl/out/val-computed-pnl.json --output-dir .local/options-pnl/out/val
 ```
 
 **Gate:** Phase 1 MUST pass (exit code 0 from validate_pnl.py, or all discrepancies explained) before proceeding. If validation fails:
@@ -208,10 +210,10 @@ python3 src/render_report.py --input .local/options-pnl/out/val-computed-pnl.jso
 cd agent-personal
 
 # 2a. Inspect VAL_DATA structure (columns, date ranges, broker coverage)
-python3 src/compute_pnl.py --input <VAL_DATA_DIR> --dry-run --output .local/options-pnl/out/val-data-schema.json
+python3 src/skills/options-pnl/compute_pnl.py --input <VAL_DATA_DIR> --dry-run --output .local/options-pnl/out/val-data-schema.json
 
 # 2b. Inspect INP_DATA structure
-python3 src/compute_pnl.py --input <INP_DATA_DIR> --dry-run --output .local/options-pnl/out/inp-data-schema.json
+python3 src/skills/options-pnl/compute_pnl.py --input <INP_DATA_DIR> --dry-run --output .local/options-pnl/out/inp-data-schema.json
 ```
 
 If `--dry-run` is not implemented, perform the validation manually by checking:
@@ -248,10 +250,10 @@ If `--dry-run` is not implemented, perform the validation manually by checking:
 cd agent-personal
 
 # 3a. Compute PnL from INP_DATA
-python3 src/compute_pnl.py --input <INP_DATA_DIR> --output .local/options-pnl/out/inp-computed-pnl.json
+python3 src/skills/options-pnl/compute_pnl.py --input <INP_DATA_DIR> --output .local/options-pnl/out/inp-computed-pnl.json
 
 # 3b. Render INP_DATA report (standalone, for inspection)
-python3 src/render_report.py --input .local/options-pnl/out/inp-computed-pnl.json --output-dir .local/options-pnl/out/inp-preview
+python3 src/skills/options-pnl/render_report.py --input .local/options-pnl/out/inp-computed-pnl.json --output-dir .local/options-pnl/out/inp-preview
 ```
 
 **Gate:** Compute must succeed without errors. Review the preview report for obvious anomalies (negative trade counts, impossible PnL values, missing brokers expected from Phase 2).
@@ -268,7 +270,7 @@ python3 src/render_report.py --input .local/options-pnl/out/inp-computed-pnl.jso
 cd agent-personal
 
 # 4a. Compute PnL from BOTH input sets combined
-python3 src/compute_pnl.py \
+python3 src/skills/options-pnl/compute_pnl.py \
     --input <VAL_DATA_DIR> --input <INP_DATA_DIR> \
     --output .local/options-pnl/out/computed-pnl.json
 ```
@@ -285,7 +287,7 @@ cp <INP_DATA_DIR>/fidelity/* .local/options-pnl/inp-combined/fidelity/
 cp <INP_DATA_DIR>/tasty/* .local/options-pnl/inp-combined/tasty/
 cp <INP_DATA_DIR>/thinknswim/* .local/options-pnl/inp-combined/thinknswim/
 
-python3 src/compute_pnl.py --input .local/options-pnl/inp-combined --output .local/options-pnl/out/computed-pnl.json
+python3 src/skills/options-pnl/compute_pnl.py --input .local/options-pnl/inp-combined --output .local/options-pnl/out/computed-pnl.json
 ```
 
 **CRITICAL: Deduplication.** When combining directories, ensure no CSV file appears twice (e.g., a June-only file alongside a full Jan-Jun file that contains the same June data). Before running compute:
@@ -302,7 +304,7 @@ python3 src/compute_pnl.py --input .local/options-pnl/inp-combined --output .loc
 ```bash
 cd agent-personal
 
-python3 src/validate_pnl.py \
+python3 src/skills/options-pnl/validate_pnl.py \
     --computed .local/options-pnl/out/computed-pnl.json \
     --reference "<VAL_REPORT_PATH>" \
     --output .local/options-pnl/out/validation-report.json
@@ -350,7 +352,7 @@ cd agent-personal
 # END_DATE = latest trade close date across all data
 # Format: YYYYMMDD
 
-python3 src/render_report.py \
+python3 src/skills/options-pnl/render_report.py \
     --input .local/options-pnl/out/computed-pnl.json \
     --output-dir .local/options-pnl/out
 ```
@@ -385,23 +387,23 @@ cd agent-personal
 
 # --- Stage 1: Validation ---
 # Phase 1: SOP self-validation
-python3 src/compute_pnl.py --input <VAL_DATA_DIR> --output .local/options-pnl/out/val-computed-pnl.json
-python3 src/validate_pnl.py --computed .local/options-pnl/out/val-computed-pnl.json --reference "<VAL_REPORT_PATH>" --output .local/options-pnl/out/val-validation-report.json
+python3 src/skills/options-pnl/compute_pnl.py --input <VAL_DATA_DIR> --output .local/options-pnl/out/val-computed-pnl.json
+python3 src/skills/options-pnl/validate_pnl.py --computed .local/options-pnl/out/val-computed-pnl.json --reference "<VAL_REPORT_PATH>" --output .local/options-pnl/out/val-validation-report.json
 
 # Phase 2: Data-format validation (manual inspection + dedup check)
 
 # Phase 3: Compute & validate INP_DATA standalone
-python3 src/compute_pnl.py --input <INP_DATA_DIR> --output .local/options-pnl/out/inp-computed-pnl.json
+python3 src/skills/options-pnl/compute_pnl.py --input <INP_DATA_DIR> --output .local/options-pnl/out/inp-computed-pnl.json
 
 # --- Stage 2: Production ---
 # Phase 4: Combined compute (with dedup guard)
-python3 src/compute_pnl.py --input .local/options-pnl/inp-combined --output .local/options-pnl/out/computed-pnl.json
+python3 src/skills/options-pnl/compute_pnl.py --input .local/options-pnl/inp-combined --output .local/options-pnl/out/computed-pnl.json
 
 # Phase 5: Validate combined + run assertions
-python3 src/validate_pnl.py --computed .local/options-pnl/out/computed-pnl.json --reference "<VAL_REPORT_PATH>" --output .local/options-pnl/out/validation-report.json
+python3 src/skills/options-pnl/validate_pnl.py --computed .local/options-pnl/out/computed-pnl.json --reference "<VAL_REPORT_PATH>" --output .local/options-pnl/out/validation-report.json
 
 # Phase 6: Render + version
-python3 src/render_report.py --input .local/options-pnl/out/computed-pnl.json --output-dir .local/options-pnl/out
+python3 src/skills/options-pnl/render_report.py --input .local/options-pnl/out/computed-pnl.json --output-dir .local/options-pnl/out
 # (apply versioning script above)
 ```
 
@@ -733,13 +735,13 @@ compute_pnl.py → computed-pnl.json → analyze_insights.py → insights.json �
 cd agent-personal
 
 # After compute_pnl.py produces computed-pnl.json:
-python3 src/analyze_insights.py \
+python3 src/skills/options-pnl/analyze_insights.py \
     --input .local/data/options-pnl/out/computed-pnl.json \
     --sector-map .local/data/options-pnl/sector-map.json \
     --output .local/data/options-pnl/out/insights.json
 
 # Then render as usual (render_report.py auto-detects insights.json in same dir)
-python3 src/render_report.py --input .local/data/options-pnl/out/computed-pnl.json --output-dir .local/data/options-pnl/out
+python3 src/skills/options-pnl/render_report.py --input .local/data/options-pnl/out/computed-pnl.json --output-dir .local/data/options-pnl/out
 ```
 
 ### Rule Engine (Step 1 — deterministic)
@@ -834,21 +836,21 @@ Implementation details (parsing logic, FIFO matching, spread detection algorithm
 
 | File | What it does |
 |------|-------------|
-| `src/parsers.py` | Reads each broker's CSV format, normalizes to a common trade dict |
-| `src/matcher.py` | Filters CSP/CC, detects spreads by order ID or timestamp, matches opens to closes via FIFO, computes PnL per closed position |
-| `src/compute_pnl.py` | Orchestrates: reads all files, calls parsers and matcher, aggregates by month/week/broker/underlying/strategy, writes JSON |
-| `src/analyze_insights.py` | Rule engine + LLM polish: detects monthly patterns, generates takeaways |
-| `src/validate_pnl.py` | Compares computed JSON against reference xlsx; reports matched, mismatched, missing, and extra trades |
-| `src/render_report.py` | Reads JSON + insights, generates .md tables and .html with charts, handles backup |
+| `src/skills/options-pnl/parsers.py` | Reads each broker's CSV format, normalizes to a common trade dict |
+| `src/skills/options-pnl/matcher.py` | Filters CSP/CC, detects spreads by order ID or timestamp, matches opens to closes via FIFO, computes PnL per closed position |
+| `src/skills/options-pnl/compute_pnl.py` | Orchestrates: reads all files, calls parsers and matcher, aggregates by month/week/broker/underlying/strategy, writes JSON |
+| `src/skills/options-pnl/analyze_insights.py` | Rule engine + LLM polish: detects monthly patterns, generates takeaways |
+| `src/skills/options-pnl/validate_pnl.py` | Compares computed JSON against reference xlsx; reports matched, mismatched, missing, and extra trades |
+| `src/skills/options-pnl/render_report.py` | Reads JSON + insights, generates .md tables and .html with charts, handles backup |
 | `tst/test_parsers.py` | Unit tests for parsing, filtering, and matching; integration test on real data |
 
 ## Adding a New Broker
 
 To support a new brokerage:
-1. Add a parser function in `src/parsers.py` that returns the same normalized trade dict format
-2. Add the broker's directory scan in `src/compute_pnl.py`
+1. Add a parser function in `src/skills/options-pnl/parsers.py` that returns the same normalized trade dict format
+2. Add the broker's directory scan in `src/skills/options-pnl/compute_pnl.py`
 3. Add tests in `tst/test_parsers.py`
-4. Add a color for the broker in `src/render_report.py` (for chart lines)
+4. Add a color for the broker in `src/skills/options-pnl/render_report.py` (for chart lines)
 
 ---
 
@@ -1126,14 +1128,14 @@ cd agent-personal
 # Step 1-6: Same as v2 (compute, validate, render PnL report)
 
 # Step 7: Generate trade recommendations
-python3 src/recommend_trades.py \
+python3 src/skills/options-pnl/recommend_trades.py \
     --computed .local/data/options-pnl/out/v2/computed-pnl.json \
     --sector-map .local/data/options-pnl/sector-map.json \
     --risk-limits .local/data/options-pnl/risk-limits.json \
     --output .local/data/options-pnl/out/v3/recommendations.json
 
 # Step 8: Render v3 report (includes PnL + recommendations)
-python3 src/render_report_v3.py \
+python3 src/skills/options-pnl/render_report_v3.py \
     --input .local/data/options-pnl/out/v2/computed-pnl.json \
     --recommendations .local/data/options-pnl/out/v3/recommendations.json \
     --output-dir .local/data/options-pnl/out/v3

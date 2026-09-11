@@ -602,7 +602,8 @@ For any technical role study plan (ML, AI, engineering, research), the plan MUST
 
 **Integration rules:**
 - Each SOTA topic should be woven into the relevant foundational week, not dumped into a separate "frontier topics" week. Self-improving agents belong in the training week, not in a miscellaneous catchall.
-- For each SOTA topic, include: 1-2 key papers or resources, one practice/design question that probes the topic, and a note on how it connects to the role.
+- **For each SOTA topic, include at least 5 highly regarded references** — a mix of academic papers (top venues: NeurIPS, ICML, ICLR, ACL, EMNLP, UIST, or high-citation arXiv) and industry blogs (from frontier labs, recognized practitioners, or authoritative sources). Present them in a numbered reading list with type, estimated reading time, and a one-line "read this for" note explaining what insight the reader should extract. Prioritize: (a) the seminal paper that introduced the concept, (b) the best survey or tutorial, (c) 2-3 recent papers or blogs that show current SOTA or production application, (d) at least one contrarian or limitations-focused piece if available. For topics with especially rich literature (e.g., agent safety, evaluation, training), include 6-7 references rather than capping at 5.
+- For each SOTA topic, also include one practice/design question that probes the topic, and a note on how it connects to the role.
 - Mark SOTA items with a 🔬 (research-only), 🧪 (early adoption), or 🚀 (breakout) maturity tag so the user can prioritize.
 - **Refresh on generation**: When creating or updating a study plan, always search for the latest developments — SOTA topics from 6 months ago may be outdated. Include the search date in the plan.
 

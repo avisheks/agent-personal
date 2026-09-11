@@ -90,29 +90,31 @@ agent-personal/
 │   ├── personal-*.md              # Personal productivity skills
 │   └── news-topics/               # Topic configs for news-summarizer
 ├── src/                           # Supporting Python scripts
-│   ├── compute_pnl.py             # Options PnL computation
-│   ├── validate_pnl.py            # PnL validation against reference
-│   ├── render_report.py           # PnL report rendering (md + html)
-│   ├── matcher.py                 # Trade filtering and FIFO matching
-│   ├── parsers.py                 # Broker CSV parsers
-│   ├── analyze_insights.py        # Portfolio insight generation
-│   ├── recommend_trades.py        # Wheel trade recommendations
 │   ├── evals/
 │   │   ├── constitution.yaml      # 21 evaluation rules (source of truth)
 │   │   ├── evaluate.py            # Top-level evaluator (Tier 1 + Tier 2)
 │   │   ├── deterministic_tests_tier1.py  # 16 deterministic rule checkers
 │   │   ├── llm_judge_tier2.py     # 5 LLM-judge rules (fixed rubric)
 │   │   └── reliability.py         # pass@k, pass^k, consistency scoring
-│   ├── news-report/
-│   │   └── render_html.py         # News report HTML renderer
-│   └── tour-planner/
-│       ├── generate_itinerary.py  # Itinerary generation
-│       ├── generate_annotated.py  # Annotated docx generation
-│       ├── align_body.py          # Body alignment post-processing
-│       ├── insert_summary.py      # Summary insertion
-│       ├── lookup_hours.py        # Opening hours lookup
-│       ├── compact_docx.py        # Docx compaction
-│       └── fix_html_colwidths.py  # HTML table column width fixes
+│   └── skills/
+│       ├── options-pnl/
+│       │   ├── compute_pnl.py     # Options PnL computation
+│       │   ├── validate_pnl.py    # PnL validation against reference
+│       │   ├── render_report.py   # PnL report rendering (md + html)
+│       │   ├── matcher.py         # Trade filtering and FIFO matching
+│       │   ├── parsers.py         # Broker CSV parsers
+│       │   ├── analyze_insights.py # Portfolio insight generation
+│       │   └── recommend_trades.py # Wheel trade recommendations
+│       ├── news-report/
+│       │   └── render_html.py     # News report HTML renderer
+│       └── tour-planner/
+│           ├── generate_itinerary.py  # Itinerary generation
+│           ├── generate_annotated.py  # Annotated docx generation
+│           ├── align_body.py      # Body alignment post-processing
+│           ├── insert_summary.py  # Summary insertion
+│           ├── lookup_hours.py    # Opening hours lookup
+│           ├── compact_docx.py    # Docx compaction
+│           └── fix_html_colwidths.py  # HTML table column width fixes
 ├── tst/                           # Tests
 ├── proposals/                     # Design proposals
 ├── .notlocal/                     # Non-sensitive skill data (committable)
@@ -284,7 +286,7 @@ Weekly AI research briefing generator. Produces structured 23-section reports co
 
 Topic configs live in [skills/news-topics/](skills/news-topics/). See [news-topics/README.md](skills/news-topics/README.md) for the schema and how to add new topics.
 
-**Rendering:** HTML reports are generated via [src/news-report/render_html.py](src/news-report/render_html.py).
+**Rendering:** HTML reports are generated via [src/skills/news-report/render_html.py](src/skills/news-report/render_html.py).
 
 **Data:** `.notlocal/data/personal-news/` (generated reports by topic)
 
@@ -296,14 +298,14 @@ Options wheel trading PnL reporter and trade recommendation engine. Computes rea
 
 | Phase | What It Does | Key Script |
 |-------|-------------|------------|
-| Phase 1 | SOP self-validation against known-good data | [src/compute_pnl.py](src/compute_pnl.py), [src/validate_pnl.py](src/validate_pnl.py) |
-| Phase 2 | Data-format validation of new broker CSVs | [src/parsers.py](src/parsers.py) |
-| Phase 3 | Standalone PnL computation on new data | [src/compute_pnl.py](src/compute_pnl.py) |
-| Phase 4 | Combined computation (validated + new) | [src/compute_pnl.py](src/compute_pnl.py) |
-| Phase 5 | Cross-validation of combined output | [src/validate_pnl.py](src/validate_pnl.py) |
-| Phase 6 | Report rendering (md + html + charts) | [src/render_report.py](src/render_report.py) |
+| Phase 1 | SOP self-validation against known-good data | [src/skills/options-pnl/compute_pnl.py](src/skills/options-pnl/compute_pnl.py), [src/skills/options-pnl/validate_pnl.py](src/skills/options-pnl/validate_pnl.py) |
+| Phase 2 | Data-format validation of new broker CSVs | [src/skills/options-pnl/parsers.py](src/skills/options-pnl/parsers.py) |
+| Phase 3 | Standalone PnL computation on new data | [src/skills/options-pnl/compute_pnl.py](src/skills/options-pnl/compute_pnl.py) |
+| Phase 4 | Combined computation (validated + new) | [src/skills/options-pnl/compute_pnl.py](src/skills/options-pnl/compute_pnl.py) |
+| Phase 5 | Cross-validation of combined output | [src/skills/options-pnl/validate_pnl.py](src/skills/options-pnl/validate_pnl.py) |
+| Phase 6 | Report rendering (md + html + charts) | [src/skills/options-pnl/render_report.py](src/skills/options-pnl/render_report.py) |
 
-Supporting code: [src/matcher.py](src/matcher.py) (trade filtering, spread detection, FIFO matching), [src/analyze_insights.py](src/analyze_insights.py) (portfolio insights), [src/recommend_trades.py](src/recommend_trades.py) (wheel trade recommendations).
+Supporting code: [src/skills/options-pnl/matcher.py](src/skills/options-pnl/matcher.py) (trade filtering, spread detection, FIFO matching), [src/skills/options-pnl/analyze_insights.py](src/skills/options-pnl/analyze_insights.py) (portfolio insights), [src/skills/options-pnl/recommend_trades.py](src/skills/options-pnl/recommend_trades.py) (wheel trade recommendations).
 
 Prior versions: [v1](skills/personal-options-pnl.md), [v2](skills/personal-options-pnl-v2.md).
 
@@ -319,7 +321,7 @@ Family travel itinerary generator. Reads trip parameters, accommodation details,
 
 **Output:** `{TRIP-SLUG}/output/trip-itinerary-latest.docx`
 
-Supporting code: [src/tour-planner/](src/tour-planner/) — `generate_itinerary.py`, `generate_annotated.py`, `align_body.py`, `insert_summary.py`, `lookup_hours.py`, `compact_docx.py`, `fix_html_colwidths.py`.
+Supporting code: [src/skills/tour-planner/](src/skills/tour-planner/) — `generate_itinerary.py`, `generate_annotated.py`, `align_body.py`, `insert_summary.py`, `lookup_hours.py`, `compact_docx.py`, `fix_html_colwidths.py`.
 
 Prior versions: [v1](skills/personal-tour-planner-v1.md), [v2](skills/personal-tour-planner-v2.md).
 
