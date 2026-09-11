@@ -20,6 +20,18 @@ def get_events(events: list[dict], event_type: str) -> list[dict]:
     return [e for e in events if e["event"] == event_type]
 
 
+def get_nearest_query(events: list[dict], target_event_type: str) -> dict | None:
+    """Get the query event closest to (just before) the target event type.
+    For sessions with clarification, the skill_selection happens after the
+    second query — we need that query, not the first ambiguous one."""
+    target = get_event(events, target_event_type)
+    if not target:
+        return get_event(events, "query")
+    target_ts = target.get("ts", "")
+    queries = [e for e in events if e["event"] == "query" and e.get("ts", "") <= target_ts]
+    return queries[-1] if queries else get_event(events, "query")
+
+
 def get_approved_skills(events: list[dict]) -> set[str]:
     approved = set()
     pr = get_event(events, "plan_response")
@@ -35,10 +47,22 @@ def get_approved_skills(events: list[dict]) -> set[str]:
 
 
 def query_trigger_matches(query: str, catalog: dict) -> dict[str, list[str]]:
+    """Match triggers against query using two strategies:
+    1. Exact substring match (e.g., trigger "weekly briefing" in query)
+    2. Bag-of-words match: all words in the trigger appear in the query
+       (e.g., trigger "project status" matches "What's the status of my project?")
+    """
     matches = {}
     query_lower = query.lower()
+    query_words = set(query_lower.split())
     for skill_id, skill in catalog.items():
-        hits = [t for t in skill.get("triggers", []) if t.lower() in query_lower]
+        hits = []
+        for t in skill.get("triggers", []):
+            t_lower = t.lower()
+            if t_lower in query_lower:
+                hits.append(t)
+            elif all(w in query_words for w in t_lower.split()):
+                hits.append(t)
         if hits:
             matches[skill_id] = hits
     return matches
@@ -88,7 +112,7 @@ def check_e3(events, rule, catalog):
 
 def check_r1(events, rule, catalog):
     ss = get_event(events, "skill_selection")
-    query_ev = get_event(events, "query")
+    query_ev = get_nearest_query(events, "skill_selection")
     if not ss or not query_ev:
         return "SKIP", "No skill_selection or query event"
     trigger_map = query_trigger_matches(query_ev.get("query", ""), catalog)
@@ -101,7 +125,7 @@ def check_r1(events, rule, catalog):
 
 def check_r2(events, rule, catalog):
     ss = get_event(events, "skill_selection")
-    query_ev = get_event(events, "query")
+    query_ev = get_nearest_query(events, "skill_selection")
     if not ss or not query_ev:
         return "SKIP", "No skill_selection or query event"
     trigger_map = query_trigger_matches(query_ev.get("query", ""), catalog)
