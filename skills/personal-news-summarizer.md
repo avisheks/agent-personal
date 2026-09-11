@@ -219,7 +219,7 @@ Avoid:
 
 # Persistent Memory & Cross-Report State
 
-Each report builds on all prior reports. Reference previous reports stored in `agent-personal/.notlocal/data/news/news-summarizer/` to:
+Each report builds on all prior reports. Reference previous reports stored in `agent-personal/.notlocal/data/personal-news/news-summarizer/` to:
 
 - **Quantify trend acceleration:** When a theme appears again, note how many consecutive weeks it has appeared and whether momentum is increasing, stable, or fading (e.g., "MCP ecosystem — 8th consecutive week, accelerating").
 - **Track predictions:** Record predictions made in prior reports. Revisit them in future reports and mark as confirmed, evolving, or invalidated.
@@ -622,7 +622,7 @@ Use styled callout blocks within sections to highlight critical information:
 - Content within sections
 - Sections present (topic configs may have fewer/different implications sections)
 
-**Canonical template:** `agent-personal/.notlocal/data/news/news-summarizer/2026-07-WK30-news.html`
+**Canonical template:** `agent-personal/.notlocal/data/personal-news/news-summarizer/2026-07-WK30-news.html`
 
 When generating HTML for any topic, use this file as the structural reference. Copy the CSS verbatim. Use the same HTML patterns:
 
@@ -693,7 +693,7 @@ Instead of manually writing HTML, use the rendering script:
 
 ```bash
 python3 src/news-report/render_html.py \
-  --input .notlocal/data/news/news-rl-in-ai/rl-in-ai-2026-07-WK30-news.md
+  --input .notlocal/data/personal-news/news-rl-in-ai/rl-in-ai-2026-07-WK30-news.md
 ```
 
 This:
@@ -713,8 +713,8 @@ Save both outputs to:
 
 **Default topic:**
 ```
-agent-personal/.notlocal/data/news/news-summarizer/YYYY-MM-WK#-news.md
-agent-personal/.notlocal/data/news/news-summarizer/YYYY-MM-WK#-news.html
+agent-personal/.notlocal/data/personal-news/news-summarizer/YYYY-MM-WK#-news.md
+agent-personal/.notlocal/data/personal-news/news-summarizer/YYYY-MM-WK#-news.html
 ```
 
 **Topic-specific (from config):**
@@ -730,6 +730,135 @@ Where:
 
 Example: A report for July 20–26, 2025 → `2025-07-WK30-news.md` and `2025-07-WK30-news.html`.
 Example (RL topic): → `rl-in-ai-2025-07-WK30-news.md` and `rl-in-ai-2025-07-WK30-news.html`.
+
+---
+
+## Quarterly Rollup
+
+Once per week, after generating the weekly report, check whether a new quarter has started. If the previous quarter's weekly reports have not yet been rolled up, produce a quarterly report and purge the weeklies.
+
+### When to Trigger
+
+A rollup is needed when ALL of these are true:
+1. The current date is in a new quarter (Q1=Jan-Mar, Q2=Apr-Jun, Q3=Jul-Sep, Q4=Oct-Dec)
+2. Weekly reports from the previous quarter exist in the topic's output directory
+3. No quarterly report for that quarter exists yet (no `YYYY-Q#-*-quarterly.*` file)
+
+Check this at the end of every weekly report generation run. If conditions are met, run the rollup immediately after the weekly report is written.
+
+### Rollup Scope
+
+Run one rollup per topic directory. If 7 topic directories have weekly reports from the previous quarter, produce 7 quarterly reports.
+
+### Output Naming
+
+```
+{output_dir}/YYYY-Q#-{topic-slug}-quarterly.md
+{output_dir}/YYYY-Q#-{topic-slug}-quarterly.html
+```
+
+Examples:
+- `.notlocal/data/personal-news/news-summarizer/2026-Q3-news-summarizer-quarterly.md`
+- `.notlocal/data/personal-news/news-agentic-ai/2026-Q3-agentic-ai-quarterly.md`
+- `.notlocal/data/personal-news/news-rl-in-ai/2026-Q3-rl-in-ai-quarterly.md`
+
+### Quarterly Report Structure
+
+The quarterly report has two parts: a **synthesis front-matter** and an **appendix of verbatim weekly reports**.
+
+```markdown
+# {Topic Name} Quarterly Report (YYYY Q#)
+**{Month}–{Month} {YYYY} | {N} weekly reports consolidated**
+⏱️ {N} min read (synthesis) | Full weekly archives in appendix
+
+---
+
+## 📋 Quarter in Review
+2-3 paragraph executive summary of the quarter's arc: what started, what
+accelerated, what faded, what surprised. Written as narrative, not bullets.
+
+## 📈 Top 10 Developments This Quarter
+Ranked list of the quarter's most significant items across all weeks.
+Each entry: title, one-line summary, which week(s) it appeared in
+(linked to the appendix), and a cumulative impact assessment.
+
+| # | Development | Weeks | Impact |
+|---|------------|-------|--------|
+| 1 | {title} | [WK27](#appendix-wk27), [WK29](#appendix-wk29) | {assessment} |
+
+## 📊 Trend Evolution
+For each tracked trend from the weekly Watch Lists and Trend Tracking sections:
+- **Trajectory:** how it evolved week-over-week across the quarter
+- **Inflection points:** when momentum shifted and why
+- **Quarter-end status:** accelerating / stable / fading / graduated
+
+## 🏢 Frontier Lab Quarterly Scorecards
+Consolidated scorecard per lab, showing quarter-level activity
+(major releases, papers, announcements) rather than weekly snapshots.
+
+## 🔮 Contrarian View — Quarter Retrospective
+Which contrarian calls from the weekly reports proved right? Which were wrong?
+What new contrarian positions emerge from the quarter's full picture?
+
+## 🧭 Strategic Implications
+Quarter-level strategic analysis. What should leaders act on now that wasn't
+clear from any single weekly report? Cross-reference implications sections
+from individual weeks to identify patterns only visible at quarterly scale.
+
+## ✅ Quarterly Recommendations
+Top 5-10 recommendations synthesized from the quarter's weekly recommendations.
+Deduplicated, prioritized by cumulative evidence, each linked to the weekly
+appendix entries that support it.
+
+---
+
+## 📎 Appendix: Weekly Reports
+
+Each week's full report is preserved verbatim below. Synthesis sections
+above link to specific weeks using anchor IDs.
+
+### <a id="appendix-wk{N}"></a>Week {N} — {date range}
+
+{Full content of YYYY-MM-WK{N}-news.md pasted verbatim, with all 23 sections intact.
+ Original ## headers are demoted to ### to avoid TOC conflicts with the quarterly structure.}
+
+---
+
+### <a id="appendix-wk{N+1}"></a>Week {N+1} — {date range}
+
+{Next weekly report verbatim...}
+```
+
+### Rollup Procedure
+
+1. **Identify weekly reports.** List all `*-WK*-news.md` files in the topic's output directory whose dates fall within the target quarter.
+2. **Sort chronologically** by week number (ascending).
+3. **Generate synthesis front-matter.** Read all weekly reports, then write the synthesis sections (Quarter in Review through Quarterly Recommendations). Each synthesis entry links to the relevant week in the appendix using `[WK{N}](#appendix-wk{N})`.
+4. **Append verbatim weeklies.** For each weekly report (chronological order), paste the full `.md` content under an appendix heading. Demote all `##` headers to `###` within the appendix to maintain heading hierarchy.
+5. **Write the quarterly .md file** using chunked writes (same rules as weekly reports — max 25KB per chunk).
+6. **Render .html** using `render_html.py` if compatible, otherwise generate self-contained HTML with the same CSS template.
+7. **Validate.** Confirm: synthesis links resolve to appendix anchors; every weekly report is present in the appendix; no weekly report is truncated.
+
+### Post-Rollup Purge
+
+After the quarterly report is written and validated:
+
+1. **Delete the weekly `.md` and `.html` files** for that quarter from the topic's output directory.
+2. **Do NOT delete** the quarterly report itself, or any weekly reports from the current quarter.
+3. **Log the purge** — print:
+   ```
+   🗃️ Quarterly rollup complete: {output_file}
+   🗑️ Purged {N} weekly reports from {YYYY} Q{#}
+   📎 Weekly content preserved verbatim in quarterly appendix
+   ```
+
+### Safety Rules
+
+- **Never purge weeklies before the quarterly report is fully written and validated.** If the rollup fails mid-way, the weeklies must survive.
+- **Never roll up the current quarter.** Only the previous quarter is eligible.
+- **Idempotent.** If a quarterly report already exists for a quarter, skip that topic — don't regenerate or double-purge.
+
+---
 
 ## Report & Page Titles
 

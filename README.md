@@ -111,7 +111,7 @@ agent-personal/
 ├── proposals/                     # Design proposals
 ├── .notlocal/                     # Non-sensitive skill data (committable)
 │   └── data/
-│       ├── news/                  # AI news briefing reports
+│       ├── personal-news/          # AI news briefing reports
 │       ├── personal-career/       # Career state, study plans, mock sessions
 │       └── tour-planner/          # Trip itineraries by slug
 ├── .local/                        # Sensitive runtime data (gitignored)
@@ -194,7 +194,7 @@ Topic configs live in [skills/news-topics/](skills/news-topics/). See [news-topi
 
 **Rendering:** HTML reports are generated via [src/news-report/render_html.py](src/news-report/render_html.py).
 
-**Data:** `.notlocal/data/news/` (generated reports by topic)
+**Data:** `.notlocal/data/personal-news/` (generated reports by topic)
 
 ---
 

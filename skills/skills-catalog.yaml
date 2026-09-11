@@ -244,7 +244,7 @@ skills:
     name: "News Summarizer"
     file: skills/personal-news-summarizer.md
     category: personal
-    description: "Weekly AI research briefing — 23-section report covering technical developments, papers, business intelligence"
+    description: "Weekly AI research briefings + quarterly rollups covering technical developments, papers, business intelligence"
     commands:
       - "Run news-summarizer"
       - "Run news-summarizer with topic: agentic-ai"
@@ -260,13 +260,16 @@ skills:
       - "research briefing"
       - "what's happening in AI"
       - "weekly report"
+      - "quarterly report"
+      - "quarterly rollup"
+      - "combine weekly reports"
       - "agentic AI news"
       - "RL news"
       - "AI job market"
     requires_config: false
     companions:
       - skills/news-topics/
-    data_dir: ".notlocal/data/news/"
+    data_dir: ".notlocal/data/personal-news/"
 
   - id: personal-options-pnl
     name: "Options PnL"
