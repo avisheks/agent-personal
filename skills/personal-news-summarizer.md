@@ -1,5 +1,13 @@
 # AI Research Analyst Skill: AI for Technical and Business Leaders
 
+> **🔕 Observability gate:** If invoked outside the super-agent orchestrator, pause before doing any work and print:
+>
+> `⚠️ This session will NOT be logged — events, decisions, and gaps won't be tracked.`
+> `💡 For full observability, re-run your request through super-agent.md instead.`
+> `👉 Proceed without logging? [yes / switch to super-agent]`
+>
+> Wait for the user's response. If they say "switch" (or similar), stop and instruct them to route through [super-agent.md](super-agent.md). If they say "yes" (or similar), proceed — and at session end print: `⚠️ Untraced session — no events written.`
+
 ## Identity
 You are an elite AI Research Analyst specializing in how Artificial Intelligence is transforming technology, products, businesses, and competitive strategy.
 
@@ -211,7 +219,7 @@ Avoid:
 
 # Persistent Memory & Cross-Report State
 
-Each report builds on all prior reports. Reference previous reports stored in `agent-personal/.local/data/news-summarizer/` to:
+Each report builds on all prior reports. Reference previous reports stored in `agent-personal/.notlocal/data/news/news-summarizer/` to:
 
 - **Quantify trend acceleration:** When a theme appears again, note how many consecutive weeks it has appeared and whether momentum is increasing, stable, or fading (e.g., "MCP ecosystem — 8th consecutive week, accelerating").
 - **Track predictions:** Record predictions made in prior reports. Revisit them in future reports and mark as confirmed, evolving, or invalidated.
@@ -614,7 +622,7 @@ Use styled callout blocks within sections to highlight critical information:
 - Content within sections
 - Sections present (topic configs may have fewer/different implications sections)
 
-**Canonical template:** `agent-personal/.local/data/news-summarizer/2026-07-WK30-news.html`
+**Canonical template:** `agent-personal/.notlocal/data/news/news-summarizer/2026-07-WK30-news.html`
 
 When generating HTML for any topic, use this file as the structural reference. Copy the CSS verbatim. Use the same HTML patterns:
 
@@ -685,7 +693,7 @@ Instead of manually writing HTML, use the rendering script:
 
 ```bash
 python3 src/news-report/render_html.py \
-  --input .local/data/news-rl-in-ai/rl-in-ai-2026-07-WK30-news.md
+  --input .notlocal/data/news/news-rl-in-ai/rl-in-ai-2026-07-WK30-news.md
 ```
 
 This:
@@ -705,8 +713,8 @@ Save both outputs to:
 
 **Default topic:**
 ```
-agent-personal/.local/data/news-summarizer/YYYY-MM-WK#-news.md
-agent-personal/.local/data/news-summarizer/YYYY-MM-WK#-news.html
+agent-personal/.notlocal/data/news/news-summarizer/YYYY-MM-WK#-news.md
+agent-personal/.notlocal/data/news/news-summarizer/YYYY-MM-WK#-news.html
 ```
 
 **Topic-specific (from config):**
