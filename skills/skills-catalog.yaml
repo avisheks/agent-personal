@@ -1,0 +1,312 @@
+# Skills Catalog — Machine-readable index for the super-agent orchestrator.
+# Human-readable docs live in README.md. This file is the routing source of truth.
+#
+# Fields:
+#   id:           Unique identifier (matches filename without .md)
+#   name:         Short display name for plans
+#   file:         Path to the skill SOP
+#   category:     "personal" or "coworker"
+#   description:  One-line summary of what the skill does
+#   commands:     List of commands the skill accepts
+#   triggers:     Keywords/phrases that suggest this skill is relevant
+#   requires_config: Whether .local/skills-config.yaml is needed
+#   companions:   Other files the skill depends on (style guides, topic configs)
+#   data_dir:     Where the skill reads/writes data
+#   latest:       true if this is the current version (false for superseded versions)
+
+skills:
+  - id: coworker-tpm
+    name: "TPM"
+    file: skills/coworker-tpm.md
+    category: coworker
+    description: "Project management — status reports, daily plans, Asana ticket updates, drift detection across workstreams"
+    commands:
+      - "/review-project"
+      - "/plan-today"
+      - "/update-asana"
+      - "/detail-ticket [ID]"
+      - "/status [SLUG]"
+      - "/status-all"
+      - "/weekly-status [SLUG]"
+      - "/weekly-status-all"
+      - "/progress-report [SLUG]"
+      - "/refresh"
+    triggers:
+      - "project status"
+      - "what's blocked"
+      - "daily plan"
+      - "asana"
+      - "ticket"
+      - "sprint"
+      - "workstream"
+      - "progress report"
+      - "weekly status"
+      - "what changed this week"
+      - "at risk"
+      - "escalation"
+      - "overdue"
+    requires_config: true
+    data_dir: ".local/data/tpm/"
+
+  - id: coworker-interviewer
+    name: "Interviewer"
+    file: skills/coworker-interviewer.md
+    category: coworker
+    description: "Interview prep (questions + rubrics from JD/resume) and post-interview feedback writing"
+    commands:
+      - "/prep"
+      - "/write-feedback"
+    triggers:
+      - "interview"
+      - "interview prep"
+      - "interview questions"
+      - "interview feedback"
+      - "write feedback"
+      - "candidate"
+      - "rubric"
+      - "behavioral questions"
+      - "LP questions"
+      - "phone screen"
+      - "onsite"
+      - "debrief"
+    requires_config: true
+    data_dir: ".local/data/interviewer/"
+
+  - id: coworker-doc-writer
+    name: "Doc Writer"
+    file: skills/coworker-doc-writer.md
+    category: coworker
+    description: "Generate narrative documents (proposals, design docs, science docs, roadmaps) in 6-pager tradition"
+    commands:
+      - "/write-doc"
+      - "/plan"
+      - "/science-strategy"
+      - "/science-doc"
+      - "/science-deep-dive"
+    triggers:
+      - "write a doc"
+      - "write a document"
+      - "design doc"
+      - "proposal"
+      - "6-pager"
+      - "narrative"
+      - "roadmap"
+      - "milestones"
+      - "science strategy"
+      - "science doc"
+      - "deep dive"
+      - "landscape analysis"
+      - "PRFAQ"
+      - "write up"
+    requires_config: true
+    companions:
+      - skills/coworker-doc-writer-style-guide.md
+    data_dir: ".local/data/doc-writer/"
+
+  - id: coworker-doc-reviewer
+    name: "Doc Reviewer"
+    file: skills/coworker-doc-reviewer.md
+    category: coworker
+    description: "Review technical and strategic documents (PRFAQ, design doc, PRD, OP narrative, runbook, COE) with structured feedback"
+    commands: []
+    triggers:
+      - "review this doc"
+      - "review document"
+      - "doc review"
+      - "feedback on this doc"
+      - "PRFAQ review"
+      - "design doc review"
+      - "PRD review"
+      - "runbook review"
+      - "COE review"
+      - "post-mortem review"
+      - "is this doc ready"
+    requires_config: false
+    data_dir: ".local/data/doc-reviewer/"
+
+  - id: coworker-paper-reviewer
+    name: "Paper Reviewer"
+    file: skills/coworker-paper-reviewer.md
+    category: coworker
+    description: "Academic paper review — reads PDFs, evaluates against a rubric, produces structured reviews with consistency verification"
+    commands:
+      - "/review-papers --input <path> --rubric <path> --output <path>"
+    triggers:
+      - "review paper"
+      - "review papers"
+      - "paper review"
+      - "academic review"
+      - "arxiv"
+      - "research paper"
+      - "evaluate this paper"
+      - "conference review"
+    requires_config: true
+    data_dir: null
+
+  - id: coworker-code-cracker
+    name: "Code Cracker"
+    file: skills/coworker-code-cracker.md
+    category: coworker
+    description: "Deep technical analysis of unfamiliar codebases — architecture, capabilities, ecosystem comparison"
+    commands:
+      - "/crack"
+      - "/compare"
+    triggers:
+      - "analyze this codebase"
+      - "analyze this repo"
+      - "what does this code do"
+      - "code analysis"
+      - "codebase analysis"
+      - "vendor evaluation"
+      - "technology scouting"
+      - "how does this project work"
+      - "ramp up on this repo"
+    requires_config: false
+    data_dir: ".local/data/code-cracker/"
+
+  - id: coworker-scientist
+    name: "Scientist"
+    file: skills/coworker-scientist.md
+    category: coworker
+    description: "ML experiment strategy — analyze experiment history, detect patterns, suggest next experiments, compare runs"
+    commands:
+      - "/analyze-experiments"
+      - "/suggest-next"
+      - "/compare-runs <A> <B>"
+      - "/patterns"
+      - "/feedback <id> <outcome>"
+    triggers:
+      - "experiment"
+      - "experiments"
+      - "what should I try next"
+      - "analyze runs"
+      - "compare runs"
+      - "hyperparameter"
+      - "training results"
+      - "ML experiment"
+      - "patterns in experiments"
+      - "suggest next experiment"
+    requires_config: false
+    data_dir: "data/scientist/"
+
+  - id: personal-career
+    name: "Career Advisor"
+    file: skills/personal-career.md
+    category: personal
+    description: "Multi-persona career advisor — career strategy, job sourcing, interview prep and mock sessions"
+    commands:
+      # Career Counselor
+      - "kickoff"
+      - "evaluate [move]"
+      - "trajectory"
+      - "pivot"
+      - "promote"
+      - "compare"
+      - "skill-gap"
+      - "negotiate-offer"
+      # Job Sourcer
+      - "search [criteria]"
+      - "market-scan [role/domain]"
+      - "company-research [company]"
+      - "decode [JD]"
+      - "batch-triage"
+      - "track"
+      # Interview Buddy
+      - "study-plan [company] [role]"
+      - "stories"
+      - "practice [type]"
+      - "mock [format]"
+      - "analyze"
+      - "prep [company]"
+      - "concerns"
+      - "hype"
+      - "debrief"
+      - "progress"
+    triggers:
+      - "career"
+      - "job search"
+      - "interview prep"
+      - "mock interview"
+      - "resume"
+      - "career pivot"
+      - "promotion"
+      - "offer negotiation"
+      - "job market"
+      - "study plan"
+      - "STAR stories"
+      - "practice interview"
+      - "salary"
+      - "company research"
+    requires_config: false
+    data_dir: ".notlocal/data/personal-career/"
+
+  - id: personal-news-summarizer
+    name: "News Summarizer"
+    file: skills/personal-news-summarizer.md
+    category: personal
+    description: "Weekly AI research briefing — 23-section report covering technical developments, papers, business intelligence"
+    commands:
+      - "Run news-summarizer"
+      - "Run news-summarizer with topic: agentic-ai"
+      - "Run news-summarizer with topic: rl-in-ai"
+      - "Run news-summarizer with topic: rl-in-agentic-ai"
+      - "Run news-summarizer with topic: ai-for-tpm-pm"
+      - "Run news-summarizer with topic: world-models"
+      - "Run news-summarizer with topic: jobs-in-ai"
+    triggers:
+      - "news"
+      - "weekly briefing"
+      - "AI news"
+      - "research briefing"
+      - "what's happening in AI"
+      - "weekly report"
+      - "agentic AI news"
+      - "RL news"
+      - "AI job market"
+    requires_config: false
+    companions:
+      - skills/news-topics/
+    data_dir: ".notlocal/data/news/"
+
+  - id: personal-options-pnl
+    name: "Options PnL"
+    file: skills/personal-options-pnl-v3.md
+    category: personal
+    description: "Options wheel trading PnL reporting and trade recommendations across Fidelity, Tastytrade, Thinkorswim"
+    commands: []
+    triggers:
+      - "options"
+      - "PnL"
+      - "trades"
+      - "options report"
+      - "wheel"
+      - "covered call"
+      - "cash secured put"
+      - "CSP"
+      - "brokerage"
+      - "Fidelity"
+      - "Tastytrade"
+      - "Thinkorswim"
+      - "trade recommendations"
+    requires_config: false
+    data_dir: ".local/options-pnl/"
+
+  - id: personal-tour-planner
+    name: "Tour Planner"
+    file: skills/personal-tour-planner-v3.md
+    category: personal
+    description: "Family travel itinerary generator — day-by-day plans with timing, booking links, weather, transit routing"
+    commands: []
+    triggers:
+      - "trip"
+      - "travel"
+      - "itinerary"
+      - "vacation"
+      - "tour"
+      - "travel plan"
+      - "family trip"
+      - "flight"
+      - "hotel"
+      - "sightseeing"
+    requires_config: false
+    data_dir: ".notlocal/data/tour-planner/"

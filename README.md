@@ -9,29 +9,125 @@ Skills are organized into two categories:
 
 ## Quick Start
 
+### Using the Super-Agent (recommended)
+
+The **super-agent** is a unified orchestrator that routes any question to the right skill(s) automatically. Just ask your question in natural language:
+
 ```
-# Point your agent at a skill file:
+"What's the status of campaign-intent and help me prep for Friday's interview"
+"Generate my weekly AI briefing"
+"Review this design doc and then write a progress report"
+"Plan a family trip to Japan for next summer"
+```
+
+The super-agent will:
+1. Read the [skills catalog](skills/skills-catalog.yaml) to determine which skill(s) to invoke
+2. Present an execution plan for your approval
+3. On your signoff, execute the plan autonomously — no repeated consent needed
+4. If a new skill is needed mid-session that wasn't in the original plan, it will ask before using it
+
+The orchestrator SOP lives at [skills/super-agent.md](skills/super-agent.md). Point your agent at this file as the entry point.
+
+### Using skills directly
+
+You can also invoke any skill directly by pointing your agent at its SOP file:
+
+```
 skills/personal-career.md          # Career counseling, job search, interview prep
 skills/coworker-tpm.md             # Technical project management
 skills/personal-news-summarizer.md # Weekly AI research briefings
 ```
 
-Coworker skills reference a runtime config for org-specific values:
+### Configuration
 
-```
-.local/skills-config.yaml          # Your real config (gitignored, sensitive)
-skills/sample-config.yaml          # Template with placeholder values
-```
+Coworker skills reference a runtime config for org-specific values (internal URLs, project IDs, etc.):
 
-To set up coworker skills: copy [skills/sample-config.yaml](skills/sample-config.yaml) to `.local/skills-config.yaml` and fill in your org-specific values (URLs, project IDs, email, etc.).
+| File | Purpose | Committed? |
+|------|---------|------------|
+| [skills/sample-config.yaml](skills/sample-config.yaml) | Template with placeholder values | Yes |
+| `.local/skills-config.yaml` | Your real config (sensitive) | No (gitignored) |
+
+To set up: copy [skills/sample-config.yaml](skills/sample-config.yaml) to `.local/skills-config.yaml` and fill in your values.
 
 ---
 
-## Skills Reference
+## Skills Overview
 
 ### Personal Skills
 
-#### Career Advisor — [personal-career.md](skills/personal-career.md)
+| Skill | File | What It Does |
+|-------|------|-------------|
+| **Career Advisor** | [personal-career.md](skills/personal-career.md) | Career strategy, job sourcing, interview prep with 3 personas and persistent state |
+| **News Summarizer** | [personal-news-summarizer.md](skills/personal-news-summarizer.md) | Weekly 23-section AI research briefings with topic specializations |
+| **Options PnL** | [personal-options-pnl-v3.md](skills/personal-options-pnl-v3.md) | Wheel trading PnL reporting + trade recommendations across 3 brokerages |
+| **Tour Planner** | [personal-tour-planner-v3.md](skills/personal-tour-planner-v3.md) | Family travel itinerary generation with day-by-day timing and booking links |
+
+### Coworker Skills
+
+| Skill | File | What It Does |
+|-------|------|-------------|
+| **TPM** | [coworker-tpm.md](skills/coworker-tpm.md) | Project status, daily plans, Asana ticket updates, drift detection |
+| **Interviewer** | [coworker-interviewer.md](skills/coworker-interviewer.md) | Interview question generation + post-interview feedback writing |
+| **Doc Writer** | [coworker-doc-writer.md](skills/coworker-doc-writer.md) | Narrative documents, roadmaps, science docs in 6-pager tradition |
+| **Doc Reviewer** | [coworker-doc-reviewer.md](skills/coworker-doc-reviewer.md) | Review PRFAQ, design docs, PRDs, OP narratives, runbooks, COEs |
+| **Paper Reviewer** | [coworker-paper-reviewer.md](skills/coworker-paper-reviewer.md) | Academic paper review with rubric evaluation and consistency verification |
+| **Code Cracker** | [coworker-code-cracker.md](skills/coworker-code-cracker.md) | Deep technical analysis of unfamiliar codebases |
+| **Scientist** | [coworker-scientist.md](skills/coworker-scientist.md) | ML experiment strategy — patterns, suggestions, run comparisons |
+
+All coworker skills load org-specific values from `.local/skills-config.yaml`. See [Configuration](#configuration) above.
+
+---
+
+## Project Structure
+
+```
+agent-personal/
+├── skills/                        # Skill SOPs (markdown)
+│   ├── super-agent.md             # Unified orchestrator (entry point)
+│   ├── skills-catalog.yaml        # Machine-readable skill index
+│   ├── sample-config.yaml         # Config template (safe to commit)
+│   ├── coworker-*.md              # Professional/work skills
+│   ├── personal-*.md              # Personal productivity skills
+│   └── news-topics/               # Topic configs for news-summarizer
+├── src/                           # Supporting Python scripts
+│   ├── compute_pnl.py             # Options PnL computation
+│   ├── validate_pnl.py            # PnL validation against reference
+│   ├── render_report.py           # PnL report rendering (md + html)
+│   ├── matcher.py                 # Trade filtering and FIFO matching
+│   ├── parsers.py                 # Broker CSV parsers
+│   ├── analyze_insights.py        # Portfolio insight generation
+│   ├── recommend_trades.py        # Wheel trade recommendations
+│   ├── news-report/
+│   │   └── render_html.py         # News report HTML renderer
+│   └── tour-planner/
+│       ├── generate_itinerary.py  # Itinerary generation
+│       ├── generate_annotated.py  # Annotated docx generation
+│       ├── align_body.py          # Body alignment post-processing
+│       ├── insert_summary.py      # Summary insertion
+│       ├── lookup_hours.py        # Opening hours lookup
+│       ├── compact_docx.py        # Docx compaction
+│       └── fix_html_colwidths.py  # HTML table column width fixes
+├── tst/                           # Tests
+├── proposals/                     # Design proposals
+├── .notlocal/                     # Non-sensitive skill data (committable)
+│   └── data/
+│       ├── news/                  # AI news briefing reports
+│       ├── personal-career/       # Career state, study plans, mock sessions
+│       └── tour-planner/          # Trip itineraries by slug
+├── .local/                        # Sensitive runtime data (gitignored)
+│   ├── skills-config.yaml         # Org-specific config (sensitive)
+│   ├── data/options-pnl/          # Brokerage CSVs, PnL reports (financial PII)
+│   └── logs/super-agent/          # Event log (events.jsonl)
+└── README.md                      # This file
+```
+
+---
+
+## Appendix: Skill Catalog
+
+Detailed command reference for each skill. For machine-readable metadata, see [skills/skills-catalog.yaml](skills/skills-catalog.yaml).
+
+### A.1 Career Advisor — [personal-career.md](skills/personal-career.md)
 
 Multi-persona career advisor with persistent session state. Activates one of three personas based on user intent.
 
@@ -74,13 +170,13 @@ Multi-persona career advisor with persistent session state. Activates one of thr
 | `debrief` | Post-interview rapid capture and reflection |
 | `progress` | Review trends across practice sessions and interviews |
 
-Practice drills follow an 8-stage progression (`practice ladder` → `practice pushback` → ... → `practice technical`), each unlocking when the prior stage scores ≥ 3 on all dimensions.
+Practice drills follow an 8-stage progression (`practice ladder` → `practice pushback` → ... → `practice technical`), each unlocking when the prior stage scores >= 3 on all dimensions.
 
-**Data:** `.local/data/career/` (session state, study plans, mock transcripts, job search results)
+**Data:** `.notlocal/data/personal-career/` (session state, study plans, mock transcripts, job search results)
 
 ---
 
-#### News Summarizer — [personal-news-summarizer.md](skills/personal-news-summarizer.md)
+### A.2 News Summarizer — [personal-news-summarizer.md](skills/personal-news-summarizer.md)
 
 Weekly AI research briefing generator. Produces structured 23-section reports covering technical developments, research papers, open-source projects, business intelligence, and strategic analysis. Output is both `.md` and `.html` (self-contained, styled).
 
@@ -98,11 +194,11 @@ Topic configs live in [skills/news-topics/](skills/news-topics/). See [news-topi
 
 **Rendering:** HTML reports are generated via [src/news-report/render_html.py](src/news-report/render_html.py).
 
-**Data:** `.local/data/news-summarizer/` (generated reports by topic)
+**Data:** `.notlocal/data/news/` (generated reports by topic)
 
 ---
 
-#### Options PnL — [personal-options-pnl-v3.md](skills/personal-options-pnl-v3.md)
+### A.3 Options PnL — [personal-options-pnl-v3.md](skills/personal-options-pnl-v3.md)
 
 Options wheel trading PnL reporter and trade recommendation engine. Computes realized PnL for Cash-Secured Puts and Covered Calls across three brokerages (Fidelity, Tastytrade, Thinkorswim). Produces consolidated reports with monthly/weekly breakdowns, trendline charts, and trade-level detail. v3 adds forward-looking trade recommendations.
 
@@ -123,7 +219,7 @@ Prior versions: [v1](skills/personal-options-pnl.md), [v2](skills/personal-optio
 
 ---
 
-#### Tour Planner — [personal-tour-planner-v3.md](skills/personal-tour-planner-v3.md)
+### A.4 Tour Planner — [personal-tour-planner-v3.md](skills/personal-tour-planner-v3.md)
 
 Family travel itinerary generator. Reads trip parameters, accommodation details, traveler composition, and optional preferences from structured input files. Produces detailed day-by-day itineraries with timing, booking links, weather-appropriate dress codes, and transit routing. Output is `.docx`.
 
@@ -137,11 +233,7 @@ Prior versions: [v1](skills/personal-tour-planner-v1.md), [v2](skills/personal-t
 
 ---
 
-### Coworker Skills
-
-All coworker skills load org-specific values (URLs, project IDs, terminology) from `.local/skills-config.yaml` at runtime. See [skills/sample-config.yaml](skills/sample-config.yaml) for the config schema.
-
-#### TPM — [coworker-tpm.md](skills/coworker-tpm.md)
+### A.5 TPM — [coworker-tpm.md](skills/coworker-tpm.md)
 
 AI Technical Project Manager. Aggregates signals from Asana, Slack, Git, meeting notes, and design docs to produce project status reports, daily plans, and ticket updates. Detects drift between planned and actual state.
 
@@ -166,7 +258,7 @@ Also supports free-form questions (e.g., "Why is the auth service blocked?").
 
 ---
 
-#### Interviewer — [coworker-interviewer.md](skills/coworker-interviewer.md)
+### A.6 Interviewer — [coworker-interviewer.md](skills/coworker-interviewer.md)
 
 Interview assistant operating in two modes: pre-interview question generation and post-interview feedback writing.
 
@@ -181,7 +273,7 @@ Interview assistant operating in two modes: pre-interview question generation an
 
 ---
 
-#### Doc Writer — [coworker-doc-writer.md](skills/coworker-doc-writer.md)
+### A.7 Doc Writer — [coworker-doc-writer.md](skills/coworker-doc-writer.md)
 
 Document generator with multiple personas. Produces narrative prose documents following the 6-pager tradition. Output is `.md` + `.docx` (via pandoc).
 
@@ -201,7 +293,7 @@ Companion file: [coworker-doc-writer-style-guide.md](skills/coworker-doc-writer-
 
 ---
 
-#### Doc Reviewer — [coworker-doc-reviewer.md](skills/coworker-doc-reviewer.md)
+### A.8 Doc Reviewer — [coworker-doc-reviewer.md](skills/coworker-doc-reviewer.md)
 
 Document reviewer that auto-detects document type and applies the matching reviewer persona.
 
@@ -218,7 +310,7 @@ Document reviewer that auto-detects document type and applies the matching revie
 
 ---
 
-#### Paper Reviewer — [coworker-paper-reviewer.md](skills/coworker-paper-reviewer.md)
+### A.9 Paper Reviewer — [coworker-paper-reviewer.md](skills/coworker-paper-reviewer.md)
 
 Academic paper reviewer. Reads research paper PDFs, evaluates them against a provided rubric, and produces structured review output (`.md` + `.html`). Includes a 3-phase pipeline: draft review, consistency verification against source paper, then fix and finalize. Supports parallel multi-paper review with region-based load distribution.
 
@@ -230,7 +322,7 @@ Academic paper reviewer. Reads research paper PDFs, evaluates them against a pro
 
 ---
 
-#### Code Cracker — [coworker-code-cracker.md](skills/coworker-code-cracker.md)
+### A.10 Code Cracker — [coworker-code-cracker.md](skills/coworker-code-cracker.md)
 
 Deep technical analysis of unfamiliar codebases. Produces structured intelligence reports answering: what does it do, how does it do it, and how does it compare to the ecosystem. Designed for fast ramp-up on new repos, vendor evaluations, and technology scouting.
 
@@ -243,7 +335,7 @@ Output: `report.md` + `report.html` in `.local/data/code-cracker/{project-name}/
 
 ---
 
-#### Scientist — [coworker-scientist.md](skills/coworker-scientist.md)
+### A.11 Scientist — [coworker-scientist.md](skills/coworker-scientist.md)
 
 Experiment strategy agent for iterative ML research. Analyzes experiment history, detects patterns, generates next-experiment suggestions, and provides run comparisons.
 
@@ -258,50 +350,3 @@ Experiment strategy agent for iterative ML research. Analyzes experiment history
 Pattern detection includes: hyperparameter sensitivity (Pearson correlation), diminishing returns, metric tradeoffs, and top configuration clustering.
 
 **Data:** `data/scientist/results/` (experiment JSONs), `data/scientist/notebooks/` (Jupyter files), `data/scientist/tracking/` (MLflow/W&B exports)
-
----
-
-## Project Structure
-
-```
-agent-personal/
-├── skills/                        # Skill SOPs (markdown)
-│   ├── coworker-*.md              # Professional/work skills
-│   ├── personal-*.md              # Personal productivity skills
-│   ├── sample-config.yaml         # Config template (safe to commit)
-│   └── news-topics/               # Topic configs for news-summarizer
-├── src/                           # Supporting Python scripts
-│   ├── compute_pnl.py             # Options PnL computation
-│   ├── validate_pnl.py            # PnL validation against reference
-│   ├── render_report.py           # PnL report rendering (md + html)
-│   ├── matcher.py                 # Trade filtering and FIFO matching
-│   ├── parsers.py                 # Broker CSV parsers
-│   ├── analyze_insights.py        # Portfolio insight generation
-│   ├── recommend_trades.py        # Wheel trade recommendations
-│   ├── news-report/
-│   │   └── render_html.py         # News report HTML renderer
-│   └── tour-planner/
-│       ├── generate_itinerary.py  # Itinerary generation
-│       ├── generate_annotated.py  # Annotated docx generation
-│       ├── align_body.py          # Body alignment post-processing
-│       ├── insert_summary.py      # Summary insertion
-│       ├── lookup_hours.py        # Opening hours lookup
-│       ├── compact_docx.py        # Docx compaction
-│       └── fix_html_colwidths.py  # HTML table column width fixes
-├── tst/                           # Tests
-├── .local/                        # Runtime data (gitignored)
-│   ├── skills-config.yaml         # Org-specific config (sensitive)
-│   └── data/                      # Skill working directories
-└── README.md                      # This file
-```
-
-## Configuration
-
-Coworker skills separate sensitive org-specific values from the skill logic:
-
-| File | Contains | Committed? |
-|------|----------|------------|
-| [skills/sample-config.yaml](skills/sample-config.yaml) | Placeholder values showing the config schema | Yes |
-| `.local/skills-config.yaml` | Real values (internal URLs, project IDs, email) | No (gitignored) |
-
-Config sections: `interviewer` (question bank URLs, terminology), `tpm` (project GIDs, email, cron), `doc-writer` (convention name, system examples), `paper-reviewer` (LLM region pool, model ID).
