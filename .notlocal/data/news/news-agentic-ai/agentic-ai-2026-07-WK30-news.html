@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AI Weekly Briefing (Week 30)</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #7c3aed); z-index: 1000; transition: width 0.1s; }
+body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.7; color: #1a1a2e; background: #fafafa; padding: 2rem 1.5rem; margin: 0; }
+.layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 2rem; }
+.toc { position: sticky; top: 1rem; width: 220px; min-width: 220px; height: fit-content; max-height: calc(100vh - 2rem); overflow-y: auto; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; padding: 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; scrollbar-width: thin; }
+.toc h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.75rem; }
+.toc a { display: block; padding: 0.3rem 0.5rem; color: #475569; text-decoration: none; border-radius: 4px; margin-bottom: 2px; transition: all 0.2s; }
+.toc a:hover, .toc a.active { background: #eff6ff; color: #2563eb; }
+.main-content { flex: 1; max-width: 900px; min-width: 0; }
+h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; font-weight: 700; color: #0f0f23; margin-bottom: 0.25rem; letter-spacing: -0.5px; }
+.header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.subtitle { font-style: italic; color: #555; font-size: 0.95rem; }
+.reading-time { display: inline-block; background: #eff6ff; color: #2563eb; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 12px; }
+h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.4rem; font-weight: 600; color: #16213e; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e8e8f0; }
+h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 600; color: #1a1a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; font-weight: 600; color: #333; margin-top: 1rem; margin-bottom: 0.4rem; }
+p { margin-bottom: 1rem; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.baseline-note { background: #f0f4ff; border-left: 4px solid #2563eb; padding: 0.75rem 1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #1e40af; }
+.executive-briefing { background: #f8f9fc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+.executive-briefing p { margin-bottom: 0.75rem; }
+.executive-briefing strong { color: #0f0f23; }
+.hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2rem; }
+.hero-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem; text-align: center; transition: box-shadow 0.2s; }
+.hero-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.hero-card .hero-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+.hero-card .hero-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.9rem; color: #1a1a2e; margin-bottom: 0.4rem; }
+.hero-card .hero-link { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; }
+.callout { border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; }
+.callout-insight { background: #eff6ff; border-left: 4px solid #2563eb; }
+.callout-risk { background: #fef2f2; border-left: 4px solid #dc2626; }
+.callout-opportunity { background: #f0fdf4; border-left: 4px solid #16a34a; }
+.callout-number { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; text-align: center; margin: 1rem 0; }
+.callout-number .big-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2.2rem; font-weight: 700; color: #0f0f23; }
+.callout-number .number-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
+.key-numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.88rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+th { background: #f1f5f9; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; color: #334155; border-bottom: 2px solid #cbd5e1; }
+td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #eff6ff; }
+ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+.score-pill { display: inline-block; border-radius: 4px; padding: 0.2rem 0.5rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; font-weight: 600; margin-right: 0.4rem; margin-bottom: 0.25rem; }
+.score-high { background: #dcfce7; color: #166534; }
+.score-mid { background: #fef9c3; color: #854d0e; }
+.score-low { background: #fee2e2; color: #991b1b; }
+.dev-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+.dev-card h3 { margin-top: 0; color: #0f0f23; }
+.signal { display: inline-block; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; }
+.signal-research { background: #ede9fe; color: #6d28d9; }
+.signal-prototype { background: #fef3c7; color: #92400e; }
+.signal-production { background: #d1fae5; color: #065f46; }
+.section-divider { border: none; border-top: 1px solid #e8e8f0; margin: 2.5rem 0; }
+.action-list { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.action-list li { font-size: 0.95rem; }
+.contrarian { background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.watch-list-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+details { margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+details summary { padding: 0.75rem 1rem; background: #f8fafc; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; color: #334155; }
+details summary:hover { background: #f1f5f9; }
+details[open] summary { border-bottom: 1px solid #e2e8f0; }
+details .details-content { padding: 1rem; }
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: #2563eb; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(37,99,235,0.3); z-index: 999; }
+.back-to-top.visible { display: flex; }
+.meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
+@media (max-width: 768px) { .layout { flex-direction: column; } .toc { display: none; } .hero-grid { grid-template-columns: 1fr; } body { padding: 1rem; } h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } table { font-size: 0.8rem; } .key-numbers-grid { grid-template-columns: repeat(2, 1fr); } }</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+<div class="layout">
+<nav class="toc" id="toc">
+    <h4>Contents</h4>
+    <a href="#executive-briefing">📋 Executive Briefing</a>
+    <a href="#what-changed">⚡ What Changed</a>
+    <a href="#top-technical">🔬 Top Technical</a>
+    <a href="#lab-scorecards">🏢 Lab Scorecards</a>
+    <a href="#open-source">🌐 Open-Source</a>
+    <a href="#business">💰 Business & Market</a>
+    <a href="#research">📄 Research Papers</a>
+    <a href="#research-blogs">🧬 Research Blogs</a>
+    <a href="#blogs">🛠️ Engineering Blogs</a>
+    <a href="#github">📦 GitHub Projects</a>
+    <a href="#media">🎙️ Videos & Podcasts</a>
+    <a href="#community">💬 Community</a>
+    <a href="#themes">📈 Emerging Themes</a>
+    <a href="#trends">📊 Trend Tracking</a>
+    <a href="#implications-1">🏗️ Implications fo</a>
+    <a href="#implications-2">🔍 Implications fo</a>
+    <a href="#watchlist">👀 Watch List</a>
+    <a href="#contrarian">🔮 Contrarian View</a>
+    <a href="#strategy">🧭 Strategic Analysis</a>
+    <a href="#relevance">🎯 Personalized</a>
+    <a href="#recommendations">✅ Recommendations</a>
+    <a href="#takeaways">🏆 Takeaways</a>
+    <a href="#next-week">📌 Next Week</a>
+</nav>
+<main class="main-content">
+<h1>Agentic AI Weekly Briefing (Week 30)</h1>
+<div class="header-meta"><span class="subtitle">Week 30 | July 19–25, 2026</span><span class="reading-time">⏱️ 15 min read</span></div>
+<div class="baseline-note"><strong>First report &mdash; baseline established.</strong> All trend tracking, Watch List, and prediction scoring begin from this issue.</div>
+<h2 id="executive-briefing">📋 Executive Briefing</h2>
+<p>This was a defining week for the agent ecosystem. **<a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a> launched** — the first frontier model explicitly designed for multi-hour autonomous operations with error recovery, at Opus-tier pricing ($5/$25 per M tokens). It surpasses Fable 5 on <a href="https://os-world.github.io/">OSWorld 2.0</a> at one-third the cost and scores 3x the next-best on <a href="https://arcprize.org/">ARC-AGI 3</a>.</p>
+<p>**Agent infrastructure leaped forward**: <a href="https://github.com/sgl-project/sglang/releases">SGLang v0.5.16</a> hit 383.7 tok/s via DSpark speculative decoding. NVIDIA published the <a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NOOA framework</a> achieving 82.2% on SWE-bench at half the token cost. <a href="https://github.com/modelcontextprotocol">MCP</a> crossed 89K stars with its first <a href="https://arxiv.org/abs/2607.23884">empirical comparison against A2A</a>.</p>
+<p>**Agent security matured critically**: <a href="https://arxiv.org/abs/2607.19430">ChannelGuard</a> proves safe models don't compose safely in multi-agent systems, <a href="https://arxiv.org/abs/2607.20759">IssueTrojanBench</a> shows 66.5% of malicious inputs penetrate coding agent guardrails, and a <a href="https://arxiv.org/abs/2607.22611">production access control framework</a> demonstrated 8 months of zero unauthorized writes across 20+ agents.</p>
+<p>**Key recommendations:** Upgrade to Opus 5 for agent workloads. Implement inter-agent communication security (<a href="https://arxiv.org/abs/2607.19430">ChannelGuard</a> pattern). Evaluate <a href="https://arxiv.org/abs/2607.22465">TRACE-ROUTER</a> for cost optimization. Adopt NVIDIA's <a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">six harness capabilities</a> for framework design.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="what-changed">⚡ What Changed Since Last Week</h2>
+<ul>
+<li><a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a>: multi-hour autonomous agents with error recovery; SOTA on <a href="https://os-world.github.io/">OSWorld 2.0</a>; mid-conversation tool changes without cache invalidation</li>
+<li><a href="https://github.com/sgl-project/sglang/releases">SGLang v0.5.16</a>: 383.7 tok/s DSpark speculative decoding; 74% KV memory reduction; 574 PRs from 169 contributors</li>
+<li><a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NVIDIA NOOA framework</a>: 82.2% SWE-bench at half token cost; pass-by-reference = "same performance, half the tokens"</li>
+<li><a href="https://arxiv.org/abs/2607.23884">MCP vs A2A</a>: first empirical head-to-head comparison published</li>
+<li><a href="https://arxiv.org/abs/2607.19430">ChannelGuard</a>: proves safe models don't compose safely; blocks tool poisoning completely</li>
+<li><a href="https://arxiv.org/abs/2607.22611">Decentralized Access Control</a>: 8 months production, zero unauthorized writes, 20+ agents</li>
+<li><a href="https://arxiv.org/abs/2607.23929">MemTX</a>: transactional ACID semantics for shared agent memory; 5.5M protocol scenarios</li>
+<li><a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a>: 32.8K stars; 290+ providers, 104 MCP tools, 89% token compression</li>
+<li><a href="https://github.com/tirth8205/code-review-graph">code-review-graph</a>: 27.2K stars; 82x token reduction via 30 MCP tools</li>
+<li><a href="https://arxiv.org/abs/2607.22465">TRACE-ROUTER</a>: workflow-level model routing; +7-8 accuracy, -36% latency</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="top-technical">🔬 Top Technical Developments</h2>
+<h3>1. Claude Opus 5 — Long-Running Agent SOTA</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>10</td></tr>
+<tr><td>Technical Innovation</td><td>9</td></tr>
+<tr><td>Practical Adoption</td><td>10</td></tr>
+<tr><td>Business Impact</td><td>10</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://www.anthropic.com/news/claude-opus-5">Anthropic</a> | **Reading time:** 5 min</p>
+<p>Multi-hour autonomous operations with error recovery. SOTA on <a href="https://huggingface.co/spaces/AI-Secure/Frontier-Bench">Frontier-Bench</a> (2x Opus 4.8), <a href="https://arcprize.org/">ARC-AGI 3</a> (3x next-best), <a href="https://os-world.github.io/">OSWorld 2.0</a> (surpasses Fable 5 at 1/3 cost). New: mid-conversation tool add/remove without cache invalidation. Proactive tool-building — creates tools it needs.</p>
+<p>**Implications:** Resets agent economics. <a href="https://devin.ai/">Devin</a>, <a href="https://cursor.sh/">Cursor</a>, JetBrains already integrating. Automatic fallback routing enables production resilience.</p>
+<hr class="section-divider">
+<h3>2. NVIDIA NOOA: Six Agent Harness Capabilities</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>9</td></tr>
+<tr><td>Practical Adoption</td><td>8</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NVIDIA Developer Blog</a> | **Reading time:** 12 min</p>
+<p>Identifies six capabilities (typed I/O, pass-by-reference, code-as-action, programmable loops, explicit state, model-callable APIs) that achieve 82.2% on <a href="https://www.swebench.com/">SWE-bench</a>. Pass-by-reference alone: "same performance, half the tokens." Persistent SQLite memory adds +11.8pt on <a href="https://arcprize.org/">ARC-AGI-3</a>.</p>
+<p>**Implications:** Codifies best practices for agent framework design. Any framework not implementing these six is leaving performance on the table.</p>
+<hr class="section-divider">
+<h3>3. Decentralized Access Control (8 Months Production)</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>8</td></tr>
+<tr><td>Practical Adoption</td><td>10</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2607.22611">arXiv:2607.22611</a> | **Reading time:** 15 min</p>
+<p>Zero unauthorized writes over 8 months. Compound identity binds agent actions to delegated human authority. 5 granularity levels of hierarchical permissions. Progressive trust escalation with safety interlocks. 20+ agents across hundreds of datacenters at a major cloud provider.</p>
+<p>**Implications:** The production governance blueprint. Answers "how do I safely deploy agents at scale" with battle-tested patterns aligned with OWASP Top 10 for LLM Applications.</p>
+<hr class="section-divider">
+<h3>4. MCP vs A2A — First Empirical Comparison</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>6</td></tr>
+<tr><td>Practical Adoption</td><td>10</td></tr>
+<tr><td>Business Impact</td><td>8</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2607.23884">arXiv:2607.23884</a> | **Reading time:** 12 min</p>
+<p>Head-to-head on same software engineering task evaluating discoverability, multi-turn conversations, async communication, observability, and access control. <a href="https://github.com/modelcontextprotocol">MCP</a>: lightweight, lower complexity. A2A: stronger lifecycle management, higher operational overhead.</p>
+<p>**Implications:** MCP wins for tool integration; A2A wins for stateful multi-agent workflows. Most production systems will need both.</p>
+<hr class="section-divider">
+<h3>5. ChannelGuard — Safe Models Don't Compose Safely</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>7</td></tr>
+<tr><td>Practical Adoption</td><td>8</td></tr>
+<tr><td>Business Impact</td><td>8</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2607.19430">arXiv:2607.19430</a> | **Reading time:** 10 min</p>
+<p>2,100 attack traces across 8 attack families. Individually safe models become vulnerable at inter-agent channels. Training-free information-bottleneck gates block tool poisoning completely, halve prompt injection success. No additional LLM calls required.</p>
+<p>**Implications:** Multi-agent security is a distinct discipline from single-model safety. Deploy monitoring gates on ALL inter-agent communication channels.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="lab-scorecards">🏢 Frontier Lab Scorecards</h2>
+<table>
+<thead><tr><th>Lab</th><th>Agent-Relevant Releases</th><th>Research</th><th>Strategic Direction</th></tr></thead><tbody>
+<tr><td>**<a href="https://www.anthropic.com/news">Anthropic</a>**</td><td><a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a> (multi-hour agents, mid-conversation tools)</td><td><a href="https://www.anthropic.com/research/project-pilot">Project Pilot</a> (drone autonomy); <a href="https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models">Context Engineering guide</a></td><td><a href="https://www.anthropic.com/news/position-open-weights-models">Open-weights position</a>: supports availability, advocates safety testing</td></tr>
+<tr><td>**OpenAI**</td><td><a href="https://aws.amazon.com/blogs/machine-learning/get-started-with-openai-gpt-5-6-sol-terra-and-luna-on-amazon-bedrock/">GPT-5.6 Sol/Terra/Luna</a> on Bedrock</td><td>—</td><td><a href="https://ads.openai.com/">Ads in ChatGPT</a></td></tr>
+<tr><td>**Amazon/AWS**</td><td><a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AgentCore</a> eval blueprint + <a href="https://aws.amazon.com/blogs/machine-learning/detecting-silent-agent-failures-with-amazon-bedrock-agentcore-optimization/">silent failure detection</a> + <a href="https://aws.amazon.com/blogs/machine-learning/agentic-retrieval-for-amazon-bedrock-managed-knowledge-base/">agentic retrieval</a> + <a href="https://aws.amazon.com/blogs/machine-learning/best-practices-for-applying-amazon-bedrock-guardrails-to-code-generation-workflows/">guardrails for code gen</a></td><td>—</td><td>$1B forward-deployed AI engineers</td></tr>
+<tr><td>**<a href="https://developer.nvidia.com/blog">NVIDIA</a>**</td><td><a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NOOA framework</a> (82.2% SWE-bench); <a href="https://developer.nvidia.com/blog/inside-nvidia-vera-cpu-olympus-cores-built-for-maximum-single-threaded-performance-in-agentic-ai/">Vera CPU</a>; <a href="https://developer.nvidia.com/blog/modelexpress-distributing-model-artifacts-at-the-speed-of-light/">ModelExpress</a> (<10s model loading)</td><td><a href="https://developer.nvidia.com/blog/nvidia-nemotron-3-ultra-leads-open-models-on-accuracy-and-efficiency-in-agentic-rtl-coding/">Nemotron 3 Ultra</a> (97.1% agentic RTL at 71% fewer tokens)</td><td><a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai/">Rubin GPU</a> (10x agentic throughput)</td></tr>
+<tr><td>**Moonshot AI**</td><td><a href="https://arxiv.org/abs/2510.26692">Kimi Linear</a> (6x throughput at 1M context, 75% less KV cache)</td><td>—</td><td>—</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="open-source">🌐 Open-Source Ecosystem Tracking</h2>
+<table>
+<thead><tr><th>Project</th><th>Stars</th><th>This Week</th><th>Trajectory</th></tr></thead><tbody>
+<tr><td>**<a href="https://github.com/modelcontextprotocol">MCP</a>**</td><td>89K</td><td>10 SDKs; Google/Microsoft/JetBrains collaboration</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://github.com/mattpocock/skills">mattpocock/skills</a>**</td><td>192.5K</td><td>+12.7K; composable agent workflows</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://github.com/earendil-works/pi">Pi</a>**</td><td>79.5K</td><td>+5.7K; 3-package coding agent</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a>**</td><td>32.8K</td><td>+11K; 290+ providers, 104 MCP tools, A2A</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://github.com/tirth8205/code-review-graph">code-review-graph</a>**</td><td>27.2K</td><td>+4.6K; 82x token reduction, 30 MCP tools</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://github.com/bojieli/ai-agent-book">ai-agent-book</a>**</td><td>24.1K</td><td>+13.6K; 10-chapter textbook, 92 experiments</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://github.com/sgl-project/sglang/releases">SGLang</a>**</td><td>—</td><td>v0.5.16; 383.7 tok/s DSpark; 574 PRs</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://github.com/ollama/ollama/releases">Ollama</a>**</td><td>—</td><td>v0.32.3-5; Laguna tool calling, Claude Code Channels</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://github.com/langchain-ai/langgraph/releases">LangGraph</a>**</td><td>—</td><td>v1.2.9; prebuild deploy images</td><td>➡️ Stable</td></tr>
+<tr><td>**<a href="https://github.com/ctrlb-hq/ctrlb-decompose">ctrlb-decompose</a>**</td><td>—</td><td>99.9% log compression for agent consumption</td><td>📈 Accelerating</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="business">💰 Business & Market Intelligence</h2>
+<h3>Agent Infrastructure Deals</h3>
+<ul>
+<li>**<a href="https://nvidianews.nvidia.com/">NVIDIA + SK Group: $500B+</a>** — comprehensive AI infrastructure deal covering AI factories and next-gen memory; <a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai/">Rubin GPU</a> (10x agentic throughput) is the anchor product</li>
+<li>**<a href="https://nvidianews.nvidia.com/">SSI (Ilya Sutskever) + NVIDIA partnership</a>** — safety-focused research lab gets dominant compute; signal for safety-aware agent infrastructure</li>
+<li>**AWS: $1B in forward-deployed AI engineers** — embedding agent expertise directly with enterprise customers</li>
+</ul>
+<h3>Agent Ecosystem Funding & Valuations</h3>
+<ul>
+<li>**<a href="https://techcrunch.com/category/artificial-intelligence/">Etched AI chip: $10.3B valuation</a>** — transformer inference ASICs challenging NVIDIA's GPU dominance for agent workloads</li>
+<li>**<a href="https://techcrunch.com/category/artificial-intelligence/">AMD Helios rack-scale system</a>** — first credible NVIDIA alternative for agent inference clusters</li>
+</ul>
+<h3>Agent Economics</h3>
+<ul>
+<li>**<a href="https://techcrunch.com/category/artificial-intelligence/">OpenAI spending at $750B</a>** — questions sustainability of frontier model costs for agent workloads</li>
+<li>**<a href="https://ads.openai.com/">OpenAI launches ads in ChatGPT</a>** — monetization of conversational agents; massive community backlash (1,094 pts HN)</li>
+<li>**Agent cost reduction stacking**: <a href="https://arxiv.org/abs/2607.22465">TRACE-ROUTER</a> (-36% latency) + <a href="https://github.com/sgl-project/sglang/releases">SGLang</a> (-74% KV) + <a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a> (-89% tokens) + <a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NOOA pass-by-reference</a> (-50% tokens) = 3-10x total cost reduction achievable today</li>
+</ul>
+<h3>Enterprise Agent Adoption</h3>
+<ul>
+<li>**<a href="https://aws.amazon.com/blogs/machine-learning/building-trade-assistant-how-jefferies-optimized-front-office-trading-operations-with-ai/">Jefferies trading ops</a>** — production MCP-based multi-agent in regulated finance; planning global rollout</li>
+<li>**<a href="https://aws.amazon.com/blogs/machine-learning/ai-teammates-how-monday-com-runs-production-ai-agents-on-amazon-bedrock/">monday.com AI Teammates</a>** — enterprise production agents at scale on Bedrock</li>
+<li>**<a href="https://techcrunch.com/category/artificial-intelligence/">Anthropic $1.5B copyright settlement</a>** — sets pricing benchmark for training data; affects agent model economics</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research">📄 Research Papers</h2>
+<h3>Must-Read (Top 10)</h3>
+<p>**1. <a href="https://arxiv.org/abs/2607.23929">MemTX: Transactional Belief Commit for Stateful Agent Memory</a>**</p>
+<ul>
+<li>*TL;DR:* Database-style ACID semantics for shared agent memory. Snapshot isolation, validation-before-commit, cascading rollback. Zero unauthorized harm across 5.5M protocol states and five model backbones.</li>
+<li>*Why it matters:* Solves agents acting on stale/incorrect shared state — the only method tested with zero violations.</li>
+<li>🚀 Production-ready</li>
+</ul>
+<p>**2. <a href="https://arxiv.org/abs/2607.22611">Decentralized Granular Access Control for Agentic AI</a>**</p>
+<ul>
+<li>*TL;DR:* 8 months production, zero unauthorized writes. Compound identity, 5 granularity levels, progressive trust escalation. 20+ agents, hundreds of datacenters.</li>
+<li>*Why it matters:* First credible production governance with real deployment data. OWASP-aligned.</li>
+<li>🚀 Production-ready</li>
+</ul>
+<p>**3. <a href="https://arxiv.org/abs/2607.22465">TRACE-ROUTER: Workflow-Level Model Routing</a>**</p>
+<ul>
+<li>*TL;DR:* Contextual bandit assigns entire workflows to one model. +7-8 accuracy on tau2-Bench, +7.1 on Terminal-Bench, 36% lower latency.</li>
+<li>*Why it matters:* Production-ready cost optimization for multi-model agent pipelines.</li>
+<li>🧪 Early prototype</li>
+</ul>
+<p>**4. <a href="https://arxiv.org/abs/2607.23884">MCP vs A2A: Comparative Study for Inter-Agent Coordination</a>**</p>
+<ul>
+<li>*TL;DR:* First empirical head-to-head. MCP: lightweight, needs separate state. A2A: stateful multi-turn, higher overhead.</li>
+<li>*Why it matters:* Essential reading for protocol selection decisions.</li>
+<li>🧪 Early prototype</li>
+</ul>
+<p>**5. <a href="https://arxiv.org/abs/2607.24162">Agent-UCT: MCTS for Agentic Workflow Optimization</a>**</p>
+<ul>
+<li>*TL;DR:* UCT tree search for RAG workflows. Prefix-reuse reduces search cost by 73.6%. 4.2x wall-clock speedup.</li>
+<li>*Why it matters:* Directly applicable to tuning complex agent pipelines within cost budgets.</li>
+<li>🧪 Early prototype</li>
+</ul>
+<p>**6. <a href="https://arxiv.org/abs/2607.19430">ChannelGuard: Safe Models Do Not Compose Safely</a>**</p>
+<ul>
+<li>*TL;DR:* 2,100 attack traces. Info-bottleneck gates block tool poisoning completely, halve prompt injection. No extra LLM calls.</li>
+<li>*Why it matters:* Multi-agent security requires explicit inter-channel protection.</li>
+<li>🧪 Early prototype</li>
+</ul>
+<p>**7. <a href="https://arxiv.org/abs/2607.20495">Workload-Aware Caching for Multi-Agent Systems</a>**</p>
+<ul>
+<li>*TL;DR:* DAG-aware eviction scoring recomputation cost × dependency count × frequency. Up to 64.7% latency reduction.</li>
+<li>*Why it matters:* Directly actionable for reducing cost in production agent DAGs.</li>
+<li>🧪 Early prototype</li>
+</ul>
+<p>**8. <a href="https://arxiv.org/abs/2607.24604">Looping Is Not Reliability: Evidence-Bound Revision Contracts</a>**</p>
+<ul>
+<li>*TL;DR:* Proves retry loops degrade correctness (82%→67.3%) when verification evidence becomes stale. Evidence-bound contracts: +22.2pt.</li>
+<li>*Why it matters:* Stop trusting naive generate-test-revise loops in coding agents.</li>
+<li>🔬 Research-only</li>
+</ul>
+<p>**9. <a href="https://arxiv.org/abs/2607.22642">CRAFT: Learn the Schema, Execute the Plan</a>**</p>
+<ul>
+<li>*TL;DR:* Post-training (SFT + RL) learns schemas and tool-use, reducing input tokens 9x while improving agent score +9.6pp.</li>
+<li>*Why it matters:* Makes domain-specific agents cheaper and faster via training rather than prompting.</li>
+<li>🧪 Early prototype</li>
+</ul>
+<p>**10. <a href="https://arxiv.org/abs/2607.24368">Keep It InMind: Agent Memory Blind Spot</a>**</p>
+<ul>
+<li>*TL;DR:* 84% accuracy in-context drops to 14.4% when memory must be retrieved. 125-task benchmark pinpoints retrieval routing as the failure.</li>
+<li>*Why it matters:* Your agent memory is probably broken. Test with implicit queries.</li>
+<li>🔬 Research-only</li>
+</ul>
+<h3>Noteworthy</h3>
+<table>
+<thead><tr><th>Paper</th><th>Key Contribution</th><th>Signal</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2607.24167">FCPAgent</a></td><td>Falsifiable planning; +13.8% WebArena</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.23438">Separating Capability from Permission</a></td><td>5-level autonomy governance framework</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.20536">AppWorld-UL</a></td><td>Agent-user interaction benchmark; Opus 4.7 at 48.6%</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.20759">IssueTrojanBench</a></td><td>66.5% malicious input penetration rate</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.22917">Agent Team Work Zone</a></td><td>Persistent workspace for Claude Code Agent Teams</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.24112">Scaling GUI Agents with Visual State Transitions</a></td><td>State transition pretraining for computer-use agents</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.24720">Physics of Multi-Turn Planning</a></td><td>Training recipes for long-horizon agents</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.24054">Success Provenance Auditing</a></td><td>Detecting inflated benchmark scores from info leakage</td><td>🔬</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research-blogs">🧬 Research Blogs</h2>
+<details><summary>Research Blogs</summary><div class="details-content"><p>**1. <a href="https://www.latent.space/p/aiewf26trends">5 Trends at AI Engineering World's Fair 2026</a>** — Latent Space | Jul 14</p>
+<ul>
+<li>Industry consensus: systems over agents, loop engineering, skills-based development. "Complete agent autonomy is not only unreliable, it isn't even desirable."</li>
+</ul>
+<p>**2. <a href="https://www.latent.space/p/poolside">Inside the Model Factory — Poolside AI</a>** — Latent Space | Jul 23</p>
+<ul>
+<li>10K-20K experiments/month with <70 researchers. "MCP and traditional tool calls are stupid — future agents will write code scripts."</li>
+</ul>
+<p>**3. <a href="https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/">China's Open-Weights Strategy Is Winning</a>** — werd.io | Jul 20 | 1,241 pts HN</p>
+<ul>
+<li>Open-weight agents may commoditize the capability layer, forcing differentiation on services.</li>
+</ul>
+<p>**4. <a href="https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md">SlopCodeBench: Opus 5 Reality Check</a>** — HumanLayer | Jul 25</p>
+<ul>
+<li>Opus 5 at 24% strict pass (vs 6% Opus 4.8) on sequential coding. "Models can't be relied on lights-off without steering."</li>
+</ul>
+<p>**5. <a href="https://dylancastillo.co/posts/pelicanmaxxing.html">Are AI Labs Pelicanmaxxing?</a>** — dylancastillo.co | Jul 22 | 681 pts HN</p>
+<ul>
+<li>Agent compute costs may be unsustainable at current trajectories.</li>
+</ul>
+<p>**6. <a href="https://ptrchm.com/posts/nothing-works-and-everyone-is-euphoric/">If Coding Has Been Solved, Why Does Software Keep Getting Worse?</a>** — ptrchm.com | Jul 24 | 872 pts HN</p>
+<ul>
+<li>Coding agents boost individual output but degrade system quality.</li>
+</ul>
+<p>**7. <a href="https://tobi.knaup.me/2026-07-25-open-weight-ai-is-having-its-kubernetes-moment/">Open-Weight AI Is Having Its Kubernetes Moment</a>** — tobi.knaup.me | Jul 25 | 408 pts HN</p>
+<ul>
+<li>Open agents as shared infrastructure. Debate: no practical agentic coding with open-weight matching Claude Code Pro.</li>
+</ul>
+<p>**8. <a href="https://www.emergingtrajectories.com/lh/frontier-lab-economics/">Frontier Lab Economics</a>** — Emerging Trajectories | Jul 20 | 371 pts HN</p>
+<ul>
+<li>Chinese open-weight threatens Western proprietary agent business models.</li>
+</ul>
+<p>**9. <a href="https://siepr.stanford.edu/publications/policy-brief/what-really-happening-jobs-separating-ai-hype-reality">What Is Happening to Jobs?</a>** — Stanford SIEPR | Jul 25</p>
+<ul>
+<li>Agent productivity claims vs. observed outcomes. Study may be measuring the wrong era.</li>
+</ul>
+<p>**10. <a href="https://www.latent.space/p/modal2026">Why AI Infrastructure Must Evolve for Agent Experience</a>** — Latent Space / Modal | Jul 8</p>
+<ul>
+<li>Agents need 100K sandboxes for RL rollouts. Hard security guardrails required. "Agent experience" > "developer experience."</li>
+</ul>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="blogs">🛠 ️ Engineering Blogs</h2>
+<table>
+<thead><tr><th>#</th><th>Post</th><th>Source</th><th>Key Insight</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">Six Agent Harness Capabilities (NOOA)</a></td><td>NVIDIA</td><td>82.2% SWE-bench at half tokens; pass-by-reference = 50% savings</td></tr>
+<tr><td>2</td><td><a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">Agent Evaluation Blueprint</a></td><td>AWS</td><td>pass^k metric; Motorway: 12→2 incidents/month</td></tr>
+<tr><td>3</td><td><a href="https://aws.amazon.com/blogs/machine-learning/detecting-silent-agent-failures-with-amazon-bedrock-agentcore-optimization/">Detecting Silent Agent Failures</a></td><td>AWS</td><td>11 behavioral failure categories; backward-trace RCA</td></tr>
+<tr><td>4</td><td><a href="https://aws.amazon.com/blogs/machine-learning/introducing-claude-opus-5-on-aws-anthropics-most-capable-opus-model/">Claude Opus 5 on AWS</a></td><td>AWS</td><td>Multi-hour agents; zero data retention default</td></tr>
+<tr><td>5</td><td><a href="https://aws.amazon.com/blogs/machine-learning/agentic-retrieval-for-amazon-bedrock-managed-knowledge-base/">Agentic Retrieval for Knowledge Bases</a></td><td>AWS</td><td>+37.3% recall on 4-hop; $4/1K agentic calls</td></tr>
+<tr><td>6</td><td><a href="https://aws.amazon.com/blogs/machine-learning/best-practices-for-applying-amazon-bedrock-guardrails-to-code-generation-workflows/">Bedrock Guardrails for Code Generation</a></td><td>AWS</td><td>~1,500 eval reqs/sec for 15 users; 6 optimization patterns</td></tr>
+<tr><td>7</td><td><a href="https://developer.nvidia.com/blog/inside-nvidia-vera-cpu-olympus-cores-built-for-maximum-single-threaded-performance-in-agentic-ai/">NVIDIA Vera CPU for Agentic AI</a></td><td>NVIDIA</td><td>Max single-thread for sequential agent operations</td></tr>
+<tr><td>8</td><td><a href="https://developer.nvidia.com/blog/modelexpress-distributing-model-artifacts-at-the-speed-of-light/">ModelExpress: Sub-10s Model Distribution</a></td><td>NVIDIA</td><td>DeepSeek-V4-Pro loading in <10s (was 8 min); eliminates cold-start</td></tr>
+<tr><td>9</td><td><a href="https://developer.nvidia.com/blog/nvidia-nemotron-3-ultra-leads-open-models-on-accuracy-and-efficiency-in-agentic-rtl-coding/">Nemotron 3 Ultra Agentic RTL</a></td><td>NVIDIA</td><td>97.1% CVDP at 71% fewer tokens than Kimi K2.6</td></tr>
+<tr><td>10</td><td><a href="https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models">Context Engineering for Claude 5 Generation</a></td><td>Anthropic</td><td>CLAUDE.md, auto-memory, system prompt patterns for agents</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="github">📦 GitHub Projects</h2>
+<details><summary>GitHub Projects</summary><div class="details-content"><table>
+<thead><tr><th>Project</th><th>Stars</th><th>Key Innovation</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/mattpocock/skills">mattpocock/skills</a></td><td>192.5K</td><td>Composable agent workflows; /tdd, /grill-me, /code-review</td></tr>
+<tr><td><a href="https://github.com/earendil-works/pi">Pi</a></td><td>79.5K</td><td>Open coding agent; 3-package architecture; multi-provider LLM</td></tr>
+<tr><td><a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a></td><td>32.8K</td><td>290+ providers, 89% compression, 104 MCP tools, A2A, self-healing</td></tr>
+<tr><td><a href="https://github.com/tirth8205/code-review-graph">code-review-graph</a></td><td>27.2K</td><td>82x token reduction; Tree-sitter AST; blast-radius analysis</td></tr>
+<tr><td><a href="https://github.com/bojieli/ai-agent-book">ai-agent-book</a></td><td>24.1K</td><td>10-chapter textbook; 92 experiments; 8 languages</td></tr>
+<tr><td><a href="https://github.com/ctrlb-hq/ctrlb-decompose">ctrlb-decompose</a></td><td>—</td><td>99.9% log compression; LLM-optimized markdown output</td></tr>
+<tr><td><a href="https://github.com/MoonshotAI/kimi-code">Kimi Code</a></td><td>5.3K</td><td>New CLI coding agent from Moonshot AI</td></tr>
+</tbody></table>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="media">🎙 ️ Videos & Podcasts</h2>
+<details><summary>️ Videos & Podcasts</summary><div class="details-content"><p>**1. <a href="https://www.latent.space/p/poolside">Inside the Model Factory — Eiso Kant, Poolside AI</a>** (Latent Space, Jul 23, ~1h54m)</p>
+<ul>
+<li>10K-20K experiments/month. Laguna S 2.1 (118B MoE, 8B active) outperforms 10x larger models. Contrarian: "MCP and traditional tool calls are stupid."</li>
+<li>**Strategic Importance: 9**</li>
+</ul>
+<p>**2. <a href="https://practicalai.show/365">Surviving the Post-Agentic World</a>** (Practical AI #365, Jul 23, 35 min)</p>
+<ul>
+<li>Companies deploying thousands to tens of thousands of agents. Traditional software economics eroding. Organizational restructuring.</li>
+<li>**Strategic Importance: 8**</li>
+</ul>
+<p>**3. <a href="https://www.latent.space/p/aiewf26trends">5 Trends at AI Engineering World's Fair 2026</a>** (Latent Space, Jul 14, 15 min read)</p>
+<ul>
+<li>Systems over agents. Loop engineering. Skills-based development. "Complete autonomy is not desirable."</li>
+<li>**Strategic Importance: 9**</li>
+</ul>
+<p>**4. <a href="https://www.latent.space/p/modal2026">Why AI Infrastructure Must Evolve for Agent Experience</a>** (Latent Space / Modal, Jul 8, ~58 min)</p>
+<ul>
+<li>100K simultaneous sandboxes for RL. "Agent experience" as design target. Hard security guardrails.</li>
+<li>**Strategic Importance: 8**</li>
+</ul>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="community">💬 Community Insights</h2>
+<h3>Consensus</h3>
+<ul>
+<li><a href="https://github.com/modelcontextprotocol">MCP</a> is the de facto tool integration standard — <a href="https://arxiv.org/abs/2607.23884">empirical comparison</a> confirms it wins for tool-use; 89K stars; 10 SDKs</li>
+<li><a href="https://www.latent.space/p/aiewf26trends">"Complete agent autonomy is not desirable"</a> (World's Fair consensus)</li>
+<li><a href="https://github.com/mattpocock/skills">Skills-based development</a> (192.5K stars) replacing custom orchestration code</li>
+<li>Agent eval/observability is the bottleneck — <a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS pass^k</a> addresses this</li>
+</ul>
+<h3>Disagreements</h3>
+<ul>
+<li>Whether <a href="https://www.latent.space/p/poolside">"MCP and traditional tool calls are stupid"</a> (Poolside) vs. MCP as necessary infrastructure (89K stars says otherwise)</li>
+<li>Whether coding agents <a href="https://ptrchm.com/posts/nothing-works-and-everyone-is-euphoric/">improve or degrade</a> software quality (872 pts HN)</li>
+<li>Whether <a href="https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md">Opus 5 can run "lights-off"</a> (24% strict pass on SlopCodeBench)</li>
+</ul>
+<h3>Emerging Viewpoints</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/2607.24604">"Looping is not reliability"</a> — retry loops degrade agent performance empirically</li>
+<li>Agent memory has a <a href="https://arxiv.org/abs/2607.24368">devastating retrieval gap</a> (84% vs 14.4%)</li>
+<li><a href="https://arxiv.org/abs/2607.19430">Safe models don't compose safely</a> — multi-agent security is a distinct discipline</li>
+<li><a href="https://news.ycombinator.com/">$500 RL fine-tunes beat frontier</a> on narrow agent tasks</li>
+<li><a href="https://www.anthropic.com/news/position-open-weights-models">Anthropic supports open-weights availability</a> (1,070 pts, 1,541 comments HN)</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="themes">📈 Emerging Themes</h2>
+<ol>
+<li>**Agent security as distinct discipline** — <a href="https://arxiv.org/abs/2607.19430">ChannelGuard</a>, <a href="https://arxiv.org/abs/2607.20759">IssueTrojanBench</a>, <a href="https://arxiv.org/abs/2607.22611">Decentralized Access Control</a>, <a href="https://aws.amazon.com/blogs/machine-learning/best-practices-for-applying-amazon-bedrock-guardrails-to-code-generation-workflows/">Bedrock Guardrails</a></li>
+<li>**Agent memory faces fundamental challenges** — <a href="https://arxiv.org/abs/2607.24368">InMind</a> (84% vs 14.4%), <a href="https://arxiv.org/abs/2607.23929">MemTX</a> (ACID semantics), MemChain</li>
+<li>**Token efficiency as agent economics** — <a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NOOA pass-by-reference</a> (50%), <a href="https://github.com/tirth8205/code-review-graph">code-review-graph</a> (82x), <a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a> (89%), <a href="https://github.com/sgl-project/sglang/releases">SGLang</a> (74% KV), <a href="https://arxiv.org/abs/2607.22642">CRAFT</a> (9x)</li>
+<li>**MCP winning the protocol war** — 89K stars, <a href="https://arxiv.org/abs/2607.23884">empirical validation</a>, financial institution deployments, 10 SDK languages</li>
+<li>**Skills > frameworks** — <a href="https://github.com/mattpocock/skills">192.5K stars</a> on curated workflows; <a href="https://www.latent.space/p/aiewf26trends">World's Fair consensus</a></li>
+<li>**Cost optimization maturing** — <a href="https://arxiv.org/abs/2607.22465">TRACE-ROUTER</a> (bandit routing), <a href="https://arxiv.org/abs/2607.24162">Agent-UCT</a> (MCTS), <a href="https://arxiv.org/abs/2607.20495">Workload-Aware Caching</a> (DAG-aware eviction)</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="trends">📊 Trend Tracking Over Time</h2>
+<p>*First report — baseline established.*</p>
+<table>
+<thead><tr><th>Theme</th><th>First Noted</th><th>Consecutive Weeks</th><th>Momentum</th></tr></thead><tbody>
+<tr><td>MCP as dominant protocol</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Agent security as distinct discipline</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Skills-based agent development</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Agent memory retrieval gap</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Multi-agent composition risks</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Agent cost optimization (routing/caching)</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Coding agent reliability limits</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Token efficiency as primary design goal</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-1">🏗 ️ Implications for Agent Builders</h2>
+<ol>
+<li>**Adopt <a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NVIDIA's six harness capabilities</a>** — 82.2% SWE-bench at half the tokens. If your framework lacks typed I/O, pass-by-reference, code-as-action, programmable loops, explicit state, and model-callable APIs, you're leaving performance on the table.</li>
+</ol>
+<ol>
+<li>**Upgrade to <a href="https://www.anthropic.com/news/claude-opus-5">Opus 5</a>** — multi-hour autonomous ops, error recovery, proactive tool-building. Mid-conversation tool changes without cache invalidation is a production game-changer.</li>
+</ol>
+<ol>
+<li>**Inter-agent communication is your attack surface** — <a href="https://arxiv.org/abs/2607.19430">ChannelGuard</a> proves composing safe models creates vulnerabilities. Deploy monitoring gates on ALL channels.</li>
+</ol>
+<ol>
+<li>**Stop trusting retry loops** — <a href="https://arxiv.org/abs/2607.24604">"Looping Is Not Reliability"</a> proves correctness degrades per iteration (82%→67.3%). Use evidence-bound revision contracts.</li>
+</ol>
+<ol>
+<li>**Your memory system is broken** — <a href="https://arxiv.org/abs/2607.24368">InMind</a> shows 84% in-context → 14.4% retrieved. Consider <a href="https://arxiv.org/abs/2607.23929">MemTX</a> transactional patterns.</li>
+</ol>
+<p>**Action items:**</p>
+<ul>
+<li>Benchmark <a href="https://www.anthropic.com/news/claude-opus-5">Opus 5</a> on your longest-running task</li>
+<li>Implement <a href="https://arxiv.org/abs/2607.19430">ChannelGuard</a>-style gates on inter-agent channels</li>
+<li>Audit memory with <a href="https://arxiv.org/abs/2607.24368">InMind</a>-style implicit queries</li>
+<li>Evaluate <a href="https://github.com/tirth8205/code-review-graph">code-review-graph</a> for 82x context reduction</li>
+<li>Read the <a href="https://arxiv.org/abs/2607.23884">MCP vs A2A paper</a> for protocol decisions</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-2">🔍 Implications for Enterprise Adoption</h2>
+<ol>
+<li>**Agent governance is solved** — <a href="https://arxiv.org/abs/2607.22611">Decentralized Access Control</a> (8 months, 20+ agents, 0 breaches) + <a href="https://arxiv.org/abs/2607.23438">5-level autonomy framework</a> provide the blueprints.</li>
+</ol>
+<ol>
+<li>**<a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS AgentCore</a> delivers a complete stack** — evaluation (pass^k), <a href="https://aws.amazon.com/blogs/machine-learning/detecting-silent-agent-failures-with-amazon-bedrock-agentcore-optimization/">silent failure detection</a> (11 categories), <a href="https://aws.amazon.com/blogs/machine-learning/agentic-retrieval-for-amazon-bedrock-managed-knowledge-base/">agentic retrieval</a> (+37.3%), <a href="https://aws.amazon.com/blogs/machine-learning/best-practices-for-applying-amazon-bedrock-guardrails-to-code-generation-workflows/">guardrails</a> (~1,500 eval reqs/sec optimization).</li>
+</ol>
+<ol>
+<li>**Financial services production-validated** — <a href="https://aws.amazon.com/blogs/machine-learning/building-trade-assistant-how-jefferies-optimized-front-office-trading-operations-with-ai/">Jefferies</a> deployed MCP-based trading ops using Strands + Bedrock with audit integration.</li>
+</ol>
+<ol>
+<li>**Security posture must include agent-specific controls** — <a href="https://arxiv.org/abs/2607.20759">66.5% malicious input penetration</a> + <a href="https://arxiv.org/abs/2607.19430">multi-agent composition risks</a> + guardrails generating 1,500 eval reqs/sec require capacity planning.</li>
+</ol>
+<ol>
+<li>**Cost optimization is production-ready** — <a href="https://arxiv.org/abs/2607.22465">TRACE-ROUTER</a> (-36% latency), <a href="https://github.com/sgl-project/sglang/releases">SGLang</a> (-74% KV), <a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a> (-89% tokens), <a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NOOA pass-by-reference</a> (-50% tokens).</li>
+</ol>
+<p>**Action items:**</p>
+<ul>
+<li>Adopt the <a href="https://arxiv.org/abs/2607.23438">5-level autonomy governance</a> framework</li>
+<li>Deploy <a href="https://aws.amazon.com/blogs/machine-learning/detecting-silent-agent-failures-with-amazon-bedrock-agentcore-optimization/">AgentCore</a> observability before scaling past pilot</li>
+<li>Add input validation for coding agents (<a href="https://arxiv.org/abs/2607.20759">66.5% penetration</a>)</li>
+<li>Plan guardrail capacity (<a href="https://aws.amazon.com/blogs/machine-learning/best-practices-for-applying-amazon-bedrock-guardrails-to-code-generation-workflows/">1,500 reqs/sec per 15 users</a>)</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="watchlist">👀 Watch List</h2>
+<div class="watch-list-box"><table>
+<thead><tr><th>Technology</th><th>Status</th><th>This Week's Evidence</th></tr></thead><tbody>
+<tr><td>Transactional agent memory (<a href="https://arxiv.org/abs/2607.23929">MemTX</a>)</td><td>🚀 Breakout</td><td>Zero violations across 5.5M scenarios; production-ready</td></tr>
+<tr><td>A2A protocol</td><td>🧪 Early</td><td><a href="https://arxiv.org/abs/2607.23884">First comparison vs MCP</a>; richer but heavier</td></tr>
+<tr><td>MCTS for agents (<a href="https://arxiv.org/abs/2607.24162">Agent-UCT</a>)</td><td>🧪 Early</td><td>73.6% search cost reduction; 4.2x speedup</td></tr>
+<tr><td>Evidence-bound revision (<a href="https://arxiv.org/abs/2607.24604">Looping paper</a>)</td><td>🧪 Early</td><td>+22.2pt over naive retry loops</td></tr>
+<tr><td>Agent workspace persistence (<a href="https://arxiv.org/abs/2607.22917">ATWZ</a>)</td><td>🧪 Early</td><td>Filesystem layer for Claude Code Agent Teams</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2510.26692">Kimi Linear architecture</a></td><td>🔬 Research</td><td>6x throughput at 1M context; 75% less KV cache</td></tr>
+<tr><td>Post-training for schemas (<a href="https://arxiv.org/abs/2607.22642">CRAFT</a>)</td><td>🧪 Early</td><td>9x input token reduction; +9.6pp agent score</td></tr>
+<tr><td><a href="https://developer.nvidia.com/blog/modelexpress-distributing-model-artifacts-at-the-speed-of-light/">ModelExpress</a> (sub-10s model loading)</td><td>🧪 Early</td><td>DeepSeek-V4-Pro in <10s (was 8 min)</td></tr>
+</tbody></table>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="contrarian">🔮 Contrarian View</h2>
+<div class="contrarian"><h3>What the agent community may be overestimating</h3>
+<ul>
+<li>**Full autonomy timelines** — <a href="https://www.latent.space/p/aiewf26trends">World's Fair consensus</a>: "not desirable." <a href="https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md">SlopCodeBench</a>: even Opus 5 at only 24% strict pass. <a href="https://arxiv.org/abs/2607.24604">Evidence-bound contracts</a> beat autonomous retries.</li>
+<li>**Memory system maturity** — <a href="https://arxiv.org/abs/2607.24368">InMind</a> exposes 84%→14.4% gap. Most deployed memory is broken.</li>
+<li>**MCP as sufficient** — <a href="https://arxiv.org/abs/2607.23884">A2A comparison</a> shows MCP lacks stateful multi-turn. Complex workflows need more.</li>
+</ul>
+<h3>What the agent community may be underestimating</h3>
+<ul>
+<li>**Multi-agent composition risks** — <a href="https://arxiv.org/abs/2607.19430">ChannelGuard</a> proves safe models don't compose safely. Most pipelines are unprotected.</li>
+<li>**Token efficiency as the dominant lever** — <a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NOOA</a> (50%), <a href="https://github.com/tirth8205/code-review-graph">code-review-graph</a> (82x), <a href="https://arxiv.org/abs/2607.22642">CRAFT</a> (9x) compound to make agents 10-100x cheaper.</li>
+<li>**$500 specialized agents** — cheap RL fine-tunes beating frontier on narrow tasks. "One model to rule them all" is wrong for production.</li>
+<li>**Schema learning via post-training** — <a href="https://arxiv.org/abs/2607.22642">CRAFT</a> shows you can train tool-use into models rather than prompting it. This changes agent economics fundamentally.</li>
+</ul>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="strategy">🧭 Strategic Analysis</h2>
+<h3>Short-term (0–6 months)</h3>
+<ul>
+<li><a href="https://github.com/modelcontextprotocol">MCP</a> becomes required for any new agent tool</li>
+<li>Agent observability (<a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS AgentCore</a>) consolidates around 2-3 winners</li>
+<li><a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NVIDIA NOOA</a> six capabilities become baseline for framework design</li>
+<li>Inter-agent security becomes table-stakes after first major incident</li>
+</ul>
+<h3>Mid-term (6–18 months)</h3>
+<ul>
+<li>A2A matures and coexists with MCP (tools vs coordination)</li>
+<li><a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai/">NVIDIA Rubin</a> ships purpose-built for agentic workloads</li>
+<li>Agent memory rebuilt around transactional semantics (<a href="https://arxiv.org/abs/2607.23929">MemTX</a> patterns)</li>
+<li>Post-training for schemas (<a href="https://arxiv.org/abs/2607.22642">CRAFT</a>) replaces mega-prompts for domain agents</li>
+<li>Specialized $500 RL agents replace frontier models for narrow production tasks</li>
+</ul>
+<h3>Long-term (2–5 years)</h3>
+<ul>
+<li>Multi-agent systems become standard enterprise architecture (not experimental)</li>
+<li>Agent governance frameworks become compliance requirements</li>
+<li>Open-weight agents commoditize capability; differentiation on orchestration and safety</li>
+<li><a href="https://arxiv.org/abs/2510.26692">Kimi Linear</a>-style architectures enable always-on agents with 1M+ context</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="relevance">🎯 Personalized Relevance</h2>
+<table>
+<thead><tr><th>Development</th><th>Relevance Areas</th><th>Score</th></tr></thead><tbody>
+<tr><td><a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a> (multi-hour agents)</td><td>Agent orchestration</td><td>10</td></tr>
+<tr><td><a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NVIDIA NOOA</a> (6 capabilities, 82.2% SWE-bench)</td><td>Agent orchestration, Frameworks</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.23884">MCP vs A2A</a> comparison</td><td>Agent orchestration, Evaluation</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.19430">ChannelGuard</a> (multi-agent security)</td><td>Agent orchestration, Production</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.22611">Decentralized Access Control</a> (governance)</td><td>Production deployment</td><td>10</td></tr>
+<tr><td><a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS Agent Eval Blueprint</a></td><td>Evaluation frameworks</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.22465">TRACE-ROUTER</a> (workflow routing)</td><td>Production deployment</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.24368">InMind</a> (memory blind spot)</td><td>Self-improving agents</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.23929">MemTX</a> (transactional memory)</td><td>Agent orchestration</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.22642">CRAFT</a> (schema post-training)</td><td>Production deployment</td><td>8</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="recommendations">✅ Recommendations</h2>
+<h3>For Agent Builders</h3>
+<ol>
+<li>**Adopt <a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NVIDIA's six harness capabilities</a>** — 82.2% SWE-bench at 50% token cost</li>
+<li>**Upgrade to <a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a>** for long-running workloads (mid-conversation tools, error recovery)</li>
+<li>**Implement <a href="https://arxiv.org/abs/2607.19430">ChannelGuard</a>-style gates** on all inter-agent channels</li>
+<li>**Read the <a href="https://arxiv.org/abs/2607.23884">MCP vs A2A paper</a>** — use MCP for tools, evaluate A2A for stateful coordination</li>
+<li>**Replace retry loops** with <a href="https://arxiv.org/abs/2607.24604">evidence-bound contracts</a> (+22.2pt improvement)</li>
+</ol>
+<h3>For Enterprise Teams</h3>
+<ol>
+<li>**Adopt the <a href="https://arxiv.org/abs/2607.23438">5-level autonomy governance</a>** framework for graduated deployment</li>
+<li>**Deploy <a href="https://aws.amazon.com/blogs/machine-learning/detecting-silent-agent-failures-with-amazon-bedrock-agentcore-optimization/">AWS AgentCore</a>** (eval + observability + guardrails) before scaling</li>
+<li>**Add input validation** for coding agents (<a href="https://arxiv.org/abs/2607.20759">66.5% penetration</a>)</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2607.22465">TRACE-ROUTER</a>** for cost optimization (-36% latency)</li>
+<li>**Plan guardrail capacity** — <a href="https://aws.amazon.com/blogs/machine-learning/best-practices-for-applying-amazon-bedrock-guardrails-to-code-generation-workflows/">1,500 eval reqs/sec for 15 users</a></li>
+</ol>
+<h3>For Everyone</h3>
+<ol>
+<li>**Read the <a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NOOA blog post</a>** — defines the state of the art for agent frameworks</li>
+<li>**Listen to <a href="https://www.latent.space/p/poolside">Poolside Model Factory</a>** — contrarian take on MCP and tool calling</li>
+<li>**Explore <a href="https://github.com/mattpocock/skills">mattpocock/skills</a>** (192.5K stars) — the future of reusable agent workflows</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="takeaways">🏆 Executive Takeaways</h2>
+<h3>Top 5 Technical Advances</h3>
+<ol>
+<li>**<a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a>** — multi-hour agents at Opus pricing | 5 min</li>
+<li>**<a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NVIDIA NOOA</a>** — 82.2% SWE-bench at half tokens | 12 min</li>
+<li>**<a href="https://arxiv.org/abs/2607.19430">ChannelGuard</a>** — safe models don't compose safely | 10 min</li>
+<li>**<a href="https://github.com/sgl-project/sglang/releases">SGLang v0.5.16</a>** — 383.7 tok/s agent inference | 4 min</li>
+<li>**<a href="https://arxiv.org/abs/2607.23884">MCP vs A2A</a>** — first empirical protocol comparison | 12 min</li>
+</ol>
+<h3>Top 5 Business Developments</h3>
+<ol>
+<li>**<a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS AgentCore</a>** — complete production agent eval/observability stack</li>
+<li>**<a href="https://aws.amazon.com/blogs/machine-learning/building-trade-assistant-how-jefferies-optimized-front-office-trading-operations-with-ai/">Jefferies trading ops</a>** — production MCP multi-agent in regulated finance</li>
+<li>**<a href="https://arxiv.org/abs/2607.22611">Decentralized Access Control</a>** — 8 months, zero breaches, production governance</li>
+<li>**<a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a>** (+11K stars) — open agent gateway with 104 MCP tools</li>
+<li>**<a href="https://github.com/modelcontextprotocol">MCP ecosystem</a>** — 89K stars, 10 SDKs, Google/Microsoft/JetBrains backing</li>
+</ol>
+<h3>Top 5 Must-Read Resources</h3>
+<ol>
+<li>**<a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NVIDIA NOOA: Six Capabilities</a>** — agent framework design guide | 12 min</li>
+<li>**<a href="https://arxiv.org/abs/2607.23884">MCP vs A2A paper</a>** — protocol selection | 12 min</li>
+<li>**<a href="https://arxiv.org/abs/2607.22611">Decentralized Access Control</a>** — governance blueprint | 15 min</li>
+<li>**<a href="https://www.latent.space/p/poolside">Inside the Model Factory</a>** — contrarian agent architecture | 1h54m</li>
+<li>**<a href="https://arxiv.org/abs/2607.24604">Looping Is Not Reliability</a>** — coding agent reliability | 12 min</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="next-week">📌 What Leaders Should Do Next Week</h2>
+<ol>
+<li>**Read the <a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">NVIDIA NOOA post</a>** — verify your framework implements all six capabilities</li>
+<li>**Benchmark <a href="https://www.anthropic.com/news/claude-opus-5">Opus 5</a>** vs current model on your longest-running agent task</li>
+<li>**Map multi-agent communication paths** — identify where <a href="https://arxiv.org/abs/2607.19430">ChannelGuard</a> monitoring is needed</li>
+<li>**Run an <a href="https://arxiv.org/abs/2607.24368">InMind</a>-style audit** on your agent memory (implicit queries)</li>
+<li>**Read the <a href="https://arxiv.org/abs/2607.23884">MCP vs A2A paper</a>** — inform your protocol architecture decisions</li>
+<li>**Evaluate <a href="https://github.com/tirth8205/code-review-graph">code-review-graph</a>** for context reduction (82x savings)</li>
+<li>**Review <a href="https://arxiv.org/abs/2607.22465">TRACE-ROUTER</a>** for multi-model cost optimization</li>
+<li>**Share <a href="https://arxiv.org/abs/2607.20759">IssueTrojanBench</a>** (66.5% penetration) with your security team</li>
+<li>**Pilot <a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a>** for agent gateway (89% compression, A2A support)</li>
+<li>**Plan <a href="https://aws.amazon.com/blogs/machine-learning/best-practices-for-applying-amazon-bedrock-guardrails-to-code-generation-workflows/">guardrail capacity</a>** — 1,500 eval reqs/sec for 15 users</li>
+</ol>
+<hr class="section-divider">
+<p>*Report generated: July 28, 2026 | Covering: July 19–25, 2026 (WK30)*</p>
+<p>*Topic: Agentic AI | Sources: arXiv cs.AI/cs.MA, NVIDIA Developer Blog, AWS ML Blog, Anthropic, GitHub Trending, Latent Space, Practical AI, Hacker News*</p>
+<hr class="section-divider">
+<div class="meta"><p>Generated by render_html.py from markdown source.</p></div>
+</main>
+</div>
+<script>window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+    const btn = document.getElementById('backToTop');
+    btn.classList.toggle('visible', winScroll > 400);
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));</script>
+</body>
+</html>

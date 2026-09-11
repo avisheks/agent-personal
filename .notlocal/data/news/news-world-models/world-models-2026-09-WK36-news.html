@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Models Weekly Briefing (Week 36)</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #7c3aed); z-index: 1000; transition: width 0.1s; }
+body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.7; color: #1a1a2e; background: #fafafa; padding: 2rem 1.5rem; margin: 0; }
+.layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 2rem; }
+.toc { position: sticky; top: 1rem; width: 220px; min-width: 220px; height: fit-content; max-height: calc(100vh - 2rem); overflow-y: auto; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; padding: 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; scrollbar-width: thin; }
+.toc h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.75rem; }
+.toc a { display: block; padding: 0.3rem 0.5rem; color: #475569; text-decoration: none; border-radius: 4px; margin-bottom: 2px; transition: all 0.2s; }
+.toc a:hover, .toc a.active { background: #eff6ff; color: #2563eb; }
+.main-content { flex: 1; max-width: 900px; min-width: 0; }
+h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; font-weight: 700; color: #0f0f23; margin-bottom: 0.25rem; letter-spacing: -0.5px; }
+.header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.subtitle { font-style: italic; color: #555; font-size: 0.95rem; }
+.reading-time { display: inline-block; background: #eff6ff; color: #2563eb; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 12px; }
+h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.4rem; font-weight: 600; color: #16213e; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e8e8f0; }
+h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 600; color: #1a1a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; font-weight: 600; color: #333; margin-top: 1rem; margin-bottom: 0.4rem; }
+p { margin-bottom: 1rem; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.baseline-note { background: #f0f4ff; border-left: 4px solid #2563eb; padding: 0.75rem 1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #1e40af; }
+.executive-briefing { background: #f8f9fc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+.executive-briefing p { margin-bottom: 0.75rem; }
+.executive-briefing strong { color: #0f0f23; }
+.hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2rem; }
+.hero-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem; text-align: center; transition: box-shadow 0.2s; }
+.hero-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.hero-card .hero-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+.hero-card .hero-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.9rem; color: #1a1a2e; margin-bottom: 0.4rem; }
+.hero-card .hero-link { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; }
+.callout { border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; }
+.callout-insight { background: #eff6ff; border-left: 4px solid #2563eb; }
+.callout-risk { background: #fef2f2; border-left: 4px solid #dc2626; }
+.callout-opportunity { background: #f0fdf4; border-left: 4px solid #16a34a; }
+.callout-number { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; text-align: center; margin: 1rem 0; }
+.callout-number .big-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2.2rem; font-weight: 700; color: #0f0f23; }
+.callout-number .number-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
+.key-numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.88rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+th { background: #f1f5f9; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; color: #334155; border-bottom: 2px solid #cbd5e1; }
+td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #eff6ff; }
+ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+.score-pill { display: inline-block; border-radius: 4px; padding: 0.2rem 0.5rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; font-weight: 600; margin-right: 0.4rem; margin-bottom: 0.25rem; }
+.score-high { background: #dcfce7; color: #166534; }
+.score-mid { background: #fef9c3; color: #854d0e; }
+.score-low { background: #fee2e2; color: #991b1b; }
+.dev-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+.dev-card h3 { margin-top: 0; color: #0f0f23; }
+.signal { display: inline-block; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; }
+.signal-research { background: #ede9fe; color: #6d28d9; }
+.signal-prototype { background: #fef3c7; color: #92400e; }
+.signal-production { background: #d1fae5; color: #065f46; }
+.section-divider { border: none; border-top: 1px solid #e8e8f0; margin: 2.5rem 0; }
+.action-list { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.action-list li { font-size: 0.95rem; }
+.contrarian { background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.watch-list-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+details { margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+details summary { padding: 0.75rem 1rem; background: #f8fafc; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; color: #334155; }
+details summary:hover { background: #f1f5f9; }
+details[open] summary { border-bottom: 1px solid #e2e8f0; }
+details .details-content { padding: 1rem; }
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: #2563eb; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(37,99,235,0.3); z-index: 999; }
+.back-to-top.visible { display: flex; }
+.meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
+@media (max-width: 768px) { .layout { flex-direction: column; } .toc { display: none; } .hero-grid { grid-template-columns: 1fr; } body { padding: 1rem; } h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } table { font-size: 0.8rem; } .key-numbers-grid { grid-template-columns: repeat(2, 1fr); } }</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+<div class="layout">
+<nav class="toc" id="toc">
+    <h4>Contents</h4>
+    <a href="#executive-briefing">📋 Executive Briefing</a>
+    <a href="#what-changed">⚡ What Changed</a>
+    <a href="#top-technical">🔬 Top Technical</a>
+    <a href="#lab-scorecards">🏢 Lab Scorecards</a>
+    <a href="#open-source">🌐 Open-Source</a>
+    <a href="#business">💰 Business & Market</a>
+    <a href="#research">📄 Research Papers</a>
+    <a href="#research-blogs">🧬 Research Blogs</a>
+    <a href="#blogs">🛠️ Engineering Blogs</a>
+    <a href="#github">📦 GitHub Projects</a>
+    <a href="#media">🎙️ Videos & Podcasts</a>
+    <a href="#community">💬 Community</a>
+    <a href="#themes">📈 Emerging Themes</a>
+    <a href="#trends">📊 Trend Tracking</a>
+    <a href="#implications-1">🏗️ Implications fo</a>
+    <a href="#implications-2">🔍 Implications fo</a>
+    <a href="#watchlist">👀 Watch List</a>
+    <a href="#contrarian">🔮 Contrarian View</a>
+    <a href="#strategy">🧭 Strategic Analysis</a>
+    <a href="#relevance">🎯 Personalized</a>
+    <a href="#recommendations">✅ Recommendations</a>
+    <a href="#takeaways">🏆 Takeaways</a>
+    <a href="#next-week">📌 Next Week</a>
+</nav>
+<main class="main-content">
+<h1>World Models Weekly Briefing (Week 36)</h1>
+<div class="header-meta"><span class="subtitle">Week 36 | August 30–September 5, 2026</span><span class="reading-time">⏱️ 18 min read</span></div>
+
+<h2 id="executive-briefing">📋 Executive Briefing</h2>
+<p>World model research hit an inflection point this week with **three convergent waves**: autonomous driving WAMs reached production quality, digital world models arrived for web agents, and the evaluation/safety infrastructure matured to match.</p>
+<p>**<a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a> scaled WAMs to 120,000+ hours of egocentric video**, achieving 36.1% to 77.8% zero-shot real-robot success via a Slow+Fast architecture that separates high-capacity dynamics modeling from real-time 30 Hz control. This extends the Riemann-1.0 pattern from WK35 with a cleaner scaling story.</p>
+<p>**Autonomous driving became the dominant WAM application domain** — four papers (<a href="https://arxiv.org/abs/2609.03602">SV-WAM</a>, <a href="https://arxiv.org/abs/2609.03572">Drive-HWM</a>, <a href="https://arxiv.org/abs/2609.03225">StyleDrive</a>, <a href="https://arxiv.org/abs/2609.00111">Qwen-Drive-1.0</a>) delivered surround-view, hierarchical, and multi-style driving world models in a single week, with SV-WAM achieving SOTA on NAVSIMv2 while maintaining six-camera coverage.</p>
+<p>**Digital world models emerged as a distinct subfield** — <a href="https://arxiv.org/abs/2609.02885">Discriminative World Models for Web Agents</a> introduced predicted-state matching that improves web agent task success, while <a href="https://arxiv.org/abs/2608.30530">WebWorld</a> proposed using the browser itself as a world model for code verification.</p>
+<p>**World model evaluation infrastructure matured significantly** — <a href="https://arxiv.org/abs/2609.03153">VeriPhy</a> deployed agentic physical reasoning to catch 228/304 physics failures in generated video, <a href="https://arxiv.org/abs/2609.03952">WorldReward</a> introduced VLM-based reward modeling, and <a href="https://arxiv.org/abs/2609.03774">RIWM</a> proposed risk-informed world models for safety-critical systems.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="what-changed">⚡ What Changed Since Last Week</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a>: WAM via scalable video pre-training; 120K+ hours; 36.1% to 77.8% zero-shot robot success; Slow+Fast architecture at 30 Hz</li>
+<li><a href="https://arxiv.org/abs/2609.02542">WM-LOCO</a>: world-model-augmented humanoid locomotion; 93.3% real-world deployment success on Unitree G1</li>
+<li><a href="https://arxiv.org/abs/2609.03681">WISE</a>: world-model-guided imagination scheduling for VLA post-training; 80% GPU reduction</li>
+<li><a href="https://arxiv.org/abs/2609.03602">SV-WAM</a>: surround-view WAM for autonomous driving; SOTA NAVSIMv2; six-camera preservation</li>
+<li><a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a>: predicted-state matching objective; WebArena-Lite improvements</li>
+<li><a href="https://arxiv.org/abs/2609.04196">Puffin-World</a>: unified multimodal model with native 3D world states; 15M triplets; physics+geometry+appearance</li>
+<li><a href="https://arxiv.org/abs/2609.03153">VeriPhy</a>: agentic physical reasoning for WM evaluation; 228/304 failures detected with full provenance</li>
+<li><a href="https://arxiv.org/abs/2609.03952">WorldReward</a>: VLM-based reward modeling for camera-conditioned WMs; outperforms GPT-4.5-Vision</li>
+<li><a href="https://arxiv.org/abs/2609.03774">RIWM</a>: risk-informed world models for safety-critical embodied systems; counterfactual + safety memory</li>
+<li><a href="https://arxiv.org/abs/2609.02886">SolarWM</a>: open data + scalable training for video WMs; 1.43M clips; 5B-33B models; fully open</li>
+<li><a href="https://arxiv.org/abs/2609.03572">Drive-HWM</a>: hierarchical slow-fast WMs for autonomous driving; dynamic-aware latents via optical flow</li>
+<li><a href="https://arxiv.org/abs/2609.03565">Physically Grounded JEPA</a>: JEPA + inverse dynamics + state alignment; 100% TwoRoom, 98% PushT; accepted IROS 2026</li>
+<li><a href="https://arxiv.org/abs/2608.29910">Matrix-Game 3.5</a>: real-time streaming interactive WMs with patch memory; minute-long generation</li>
+<li><a href="https://arxiv.org/abs/2608.30530">WebWorld</a>: browser as world model; quality ratchet for web code verification</li>
+<li><a href="https://arxiv.org/abs/2609.01560">H3-World</a>: language as natural control interface for video world models; 0.199% trainable parameters</li>
+<li><a href="https://openrouter.ai/openai/gpt-6-astra">GPT-6 Astra</a> released on OpenRouter — new frontier model from OpenAI</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="top-technical">🔬 Top Technical Developments</h2>
+<h3>1. ZimaBlue — Scaling WAMs Through Video Pre-Training</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>10</td></tr>
+<tr><td>Technical Innovation</td><td>9</td></tr>
+<tr><td>Practical Adoption</td><td>9</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.00188">arXiv:2609.00188</a> | **Confidence:** High | **Reading time:** 25 min | 🚀 Production-ready</p>
+<p>Three-stage WAM training pipeline: causal video pre-training on large-scale egocentric footage, mid-training grounding with unified action representation, and specialization for target robots. Employs a high-capacity Slow world model paired with a lightweight Fast branch for real-time 30 Hz control. Scaling from target-robot data alone to 120,000+ hours of embodied video improves zero-shot real-robot success from 36.1% to 77.8%.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** ZimaBlue provides the clearest evidence yet of a scaling law for WAMs — more diverse egocentric video yields monotonically better zero-shot robot performance. The Slow+Fast architecture solves the capacity-vs-latency tradeoff that has limited real-time WAM deployment.</p>
+</div>
+<hr class="section-divider">
+<h3>2. WM-LOCO — Humanoid Locomotion with World Models Achieves 93% Real Deployment</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>8</td></tr>
+<tr><td>Practical Adoption</td><td>9</td></tr>
+<tr><td>Business Impact</td><td>8</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.02542">arXiv:2609.02542</a> | **Confidence:** High | **Reading time:** 20 min | 🚀 Production-ready</p>
+<p>Jointly trains a recurrent world model and PPO policy processing proprioception and depth imagery for anticipatory foot-placement on stepping stones, gaps, and stairs. Achieves 93.3% deployment success on a physical <a href="https://arxiv.org/abs/2609.02542">Unitree G1</a> humanoid without requiring explicit foothold labels — the world model learns to predict terrain affordances from raw depth.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** 93.3% real-world deployment on a commercial humanoid validates world-model-augmented locomotion as production-ready. Unitree G1 is widely available — this is immediately reproducible.</p>
+</div>
+<hr class="section-divider">
+<h3>3. WISE — 80% GPU Reduction for VLA Post-Training via Imagination Scheduling</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>8</td></tr>
+<tr><td>Practical Adoption</td><td>9</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.03681">arXiv:2609.03681</a> | **Confidence:** High | **Reading time:** 20 min | 🧪 Early prototype</p>
+<p>Selectively activates world-model imagination at task-critical states during VLA policy refinement rather than imagining everywhere. Constrains rollout horizons to prevent prediction error accumulation. Achieves ~80% reduction in GPU computation versus full imagination while maintaining consistent performance gains across diverse manipulation tasks on both pi-0 and pi-0.5 models. Validated in real-world conditions with distribution shifts.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** Not all states benefit equally from world-model imagination. WISE's selective scheduling is the training analog of test-time compute allocation — spend imagination budget where it matters most.</p>
+</div>
+<hr class="section-divider">
+<h3>4. Discriminative World Models for Web Agents</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>8</td></tr>
+<tr><td>Practical Adoption</td><td>8</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.02885">arXiv:2609.02885</a> | **Confidence:** High | **Reading time:** 20 min | 🧪 Early prototype</p>
+<p>Introduces predicted-state matching — the world model must distinguish the true resulting state from those reached by alternative actions, fixing the objective mismatch between generative training and discriminative use. Outperforms supervised next-state prediction on <a href="https://arxiv.org/abs/2609.02885">WebPRMBench</a> and improves end-to-end task success on <a href="https://arxiv.org/abs/2609.02885">WebArena-Lite</a> when used for test-time action selection.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** World models for digital agents don't need to generate — they need to discriminate. Predicted-state matching is a fundamentally better training objective for action selection in web/GUI environments.</p>
+</div>
+<hr class="section-divider">
+<h3>5. SV-WAM — Surround-View WAM for Autonomous Driving</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>8</td></tr>
+<tr><td>Practical Adoption</td><td>8</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.03602">arXiv:2609.03602</a> | **Confidence:** High | **Reading time:** 20 min | 🧪 Early prototype</p>
+<p>Preserves full six-camera surround-view coverage while maintaining efficient inference via action-centered causal masking that prevents action tokens from attending to future-video tokens. Video generation component can be removed at deployment. Achieves SOTA on <a href="https://arxiv.org/abs/2609.03602">NAVSIMv2</a> closed-loop benchmark with strong zero-shot transfer across datasets. Includes safety penalty when corners approach drivable boundaries.</p>
+<div class="callout callout-risk">
+<p>⚠️ **Risk:** Most driving world models sacrifice spatial coverage for efficiency (front-camera only). SV-WAM shows this tradeoff is unnecessary — deploying coverage-limited driving WMs risks blind spots in safety-critical scenarios.</p>
+</div>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="lab-scorecards">🏢 Frontier Lab Scorecards</h2>
+<table>
+<thead><tr><th>Lab</th><th>World Model Activity</th><th>Research</th><th>Strategic Direction</th></tr></thead><tbody>
+<tr><td>**<a href="https://developer.nvidia.com/blog/">NVIDIA</a>**</td><td><a href="https://developer.nvidia.com/blog/scale-av-perception-across-vehicle-platforms-with-nvidia-omniverse-nurec/">Omniverse NuRec</a> for AV perception scaling</td><td>AV simulation infrastructure</td><td>Post-HuggingFace acquisition integration underway</td></tr>
+<tr><td>**<a href="https://openrouter.ai/openai/gpt-6-astra">OpenAI</a>**</td><td><a href="https://openrouter.ai/openai/gpt-6-astra">GPT-6 Astra</a> released on OpenRouter; agent message board <a href="https://collusion.wiki/">discovered</a></td><td>Frontier LLM as implicit world model backbone</td><td>New model generation; agent infrastructure expanding</td></tr>
+<tr><td>**<a href="https://anthropic.com/research/formalizing-fermats-last-theorem">Anthropic</a>**</td><td><a href="https://anthropic.com/research/formalizing-fermats-last-theorem">Formalizing Fermat's Last Theorem</a> (663 HN points)</td><td>Formal reasoning and proof verification</td><td>Mathematical reasoning capabilities as planning foundation</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.00111">Qwen (Alibaba)</a>**</td><td><a href="https://arxiv.org/abs/2609.00111">Qwen-Drive-1.0</a>: VLA foundation model for autonomous driving</td><td>VLM + driving world models</td><td>Expanding from language to embodied driving</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.29910">Tencent</a>**</td><td><a href="https://arxiv.org/abs/2608.29910">Matrix-Game 3.5</a>: real-time streaming interactive WMs with patch memory</td><td>Persistent real-time world generation</td><td>Continued gaming-native world model investment (WK35: GameWAM)</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.30821">ByteDance</a>**</td><td><a href="https://arxiv.org/abs/2608.30821">Lucida</a>: composable real-to-sim scene modeling</td><td>Scene reconstruction for simulation</td><td>Sim data generation for world model training</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.04196">ACE Robotics</a>**</td><td><a href="https://arxiv.org/abs/2609.04196">Puffin-World</a>: unified multimodal model with native 3D world states; 15M dataset released</td><td>Physics+geometry+appearance unification</td><td>Emerging lab with ambitious open-source world model release</td></tr>
+<tr><td>**Google DeepMind**</td><td>No new world model-specific releases this week</td><td>—</td><td>Sustaining Gemini Robotics ecosystem</td></tr>
+<tr><td>**Meta FAIR**</td><td>No new world model releases (post-LpWM from WK35)</td><td>—</td><td>Consolidating sparse JEPA representation theory</td></tr>
+</tbody></table>
+<p>**Power Ranking Shift:** OpenAI re-enters the conversation with GPT-6 Astra — while not world-model-specific, each frontier model upgrade strengthens LLM-as-implicit-world-model capabilities. Qwen expands into autonomous driving. ACE Robotics emerges as a new player with Puffin-World's ambitious 15M-sample open release. Tencent ships its second consecutive week of world model research (Matrix-Game 3.5 after GameWAM).</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="open-source">🌐 Open-Source Ecosystem Tracking</h2>
+<table>
+<thead><tr><th>Project</th><th>Category</th><th>This Week</th><th>Trajectory</th></tr></thead><tbody>
+<tr><td>**<a href="https://arxiv.org/abs/2609.02886">SolarWM</a>**</td><td>Video World Model</td><td>NEW: fully open; 1.43M clips; 5B-33B models; training recipes released</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.04196">Puffin-World</a>**</td><td>3D World Model</td><td>NEW: code + models + Puffin-16M dataset (15M triplets) released</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a>**</td><td>World Action Model</td><td>NEW: Slow+Fast WAM; 120K+ hours video pre-training</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.29910">Matrix-Game 3.5</a>**</td><td>Interactive World Model</td><td>NEW: patch memory; real-time streaming; minute-long generation</td><td>📈 Accelerating</td></tr>
+<tr><td>**JEPA implementations**</td><td>Representation Learning</td><td><a href="https://arxiv.org/abs/2609.03565">Physically Grounded JEPA</a> accepted at IROS 2026; 7th consecutive week of JEPA variants</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>**</td><td>World Action Model</td><td>Cited as baseline by multiple WK36 papers; ZimaBlue extends pattern</td><td>➡️ Stable (baseline)</td></tr>
+<tr><td>**<a href="https://github.com/danijar/dreamerv3">DreamerV3</a>**</td><td>Model-based RL</td><td>Referenced by WM-LOCO and LEAP</td><td>➡️ Stable (baseline)</td></tr>
+<tr><td>**<a href="https://huggingface.co/">HuggingFace</a>**</td><td>Model Hub</td><td>Post-NVIDIA acquisition; SolarWM and Puffin-World hosted</td><td>➡️ Stable</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="business">💰 Business & Market Intelligence</h2>
+<h3>GPT-6 Astra Released</h3>
+<ul>
+<li>**<a href="https://openrouter.ai/openai/gpt-6-astra">GPT-6 Astra</a>** appeared on OpenRouter (258 HN points). Each frontier model upgrade strengthens LLM-as-implicit-world-model capabilities for planning, state tracking, and counterfactual reasoning. Relevant as backbone for hybrid LLM+world model systems.</li>
+</ul>
+<h3>Corporate America Embraces Open-Source AI</h3>
+<ul>
+<li>**<a href="https://www.nytimes.com/2026/09/04/technology/open-source-ai-anthropic-openai.html">Corporate America is getting hooked on open-source AI</a>** (305 HN points). Enterprise adoption of open-weight models accelerates. For world models: <a href="https://arxiv.org/abs/2609.02886">SolarWM</a>'s fully open release (datasets, code, weights, recipes) and <a href="https://arxiv.org/abs/2609.04196">Puffin-World</a>'s 15M-sample dataset align with this enterprise trend toward open infrastructure.</li>
+</ul>
+<h3>NVIDIA Omniverse NuRec for AV Simulation</h3>
+<ul>
+<li>**<a href="https://developer.nvidia.com/blog/scale-av-perception-across-vehicle-platforms-with-nvidia-omniverse-nurec/">NVIDIA Omniverse NuRec</a>** scales AV perception across vehicle platforms via re-rendering. Complements this week's driving WAM papers (SV-WAM, Drive-HWM, StyleDrive) by providing simulation infrastructure for world model training data generation.</li>
+</ul>
+<h3>OpenAI Agent Infrastructure Discovery</h3>
+<ul>
+<li>**<a href="https://collusion.wiki/">OpenAI agent message board discovered</a>** (1,833 HN points — week's top story). Reveals internal agent coordination infrastructure. Relevant to multi-agent world model architectures where agents must share and negotiate world state representations.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research">📄 Research Papers</h2>
+<p>**1. <a href="https://arxiv.org/abs/2609.00188">ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training</a>**</p>
+<ul>
+<li>*Authors:* Xionghao Wu, Yijun Yang, Shiyang Zhou et al. (20 authors)</li>
+<li>*TL;DR:* Three-stage WAM training on 120K+ hours of egocentric video. Slow+Fast architecture enables 30 Hz real-time control. Zero-shot success improves from 36.1% to 77.8% with scale.</li>
+<li>*Why it matters:* Clearest WAM scaling law evidence — more diverse video yields monotonically better zero-shot performance. The Slow+Fast split solves the capacity-vs-latency problem.</li>
+<li>*Strengths:* Massive scale; real-time deployment; strong zero-shot. *Limitations:* Training compute requirements at 120K+ hours.</li>
+<li>Strategic: 10 | Innovation: 9 | Adoption: 9 | Business: 9 | 🚀 Production-ready</li>
+</ul>
+<p>**2. <a href="https://arxiv.org/abs/2609.02542">WM-LOCO: World-Model-Augmented Visual Locomotion for Humanoids on Foothold-Constrained Terrain</a>**</p>
+<ul>
+<li>*Authors:* Yuxi Liu, Lijun Han, Ziming Wang, Ao Zhang, Cong Yang, Wei Sui</li>
+<li>*TL;DR:* Recurrent world model + PPO policy for humanoid locomotion on stepping stones, gaps, stairs. 93.3% real-world success on Unitree G1 without explicit foothold labels.</li>
+<li>*Why it matters:* Validates world-model-augmented locomotion as production-ready on commercial hardware. No foothold annotations needed — world model learns terrain affordances from raw depth.</li>
+<li>*Strengths:* 93.3% real deployment; no annotations; commercial hardware. *Limitations:* Tested on structured terrains only.</li>
+<li>Strategic: 9 | Innovation: 8 | Adoption: 9 | Business: 8 | 🚀 Production-ready</li>
+</ul>
+<p>**3. <a href="https://arxiv.org/abs/2609.03681">WISE: World-model-guided Imagination Scheduling for Efficient VLA Post-training</a>**</p>
+<ul>
+<li>*Authors:* Chenhao Zhang, Hanyu Zhao, Hang Cheng, Tengfei Pan, Long Zeng</li>
+<li>*TL;DR:* Selective imagination at task-critical states during VLA refinement. 80% GPU reduction vs. full imagination. Validated on pi-0 and pi-0.5 with real-world distribution shifts.</li>
+<li>*Why it matters:* Makes world-model-guided training economically viable. The selective scheduling principle applies broadly to any imagination-augmented training loop.</li>
+<li>*Strengths:* 80% compute savings; architecture-agnostic; real-world validated. *Limitations:* Requires identifying task-critical states.</li>
+<li>Strategic: 9 | Innovation: 8 | Adoption: 9 | Business: 9 | 🧪 Early prototype</li>
+</ul>
+<p>**4. <a href="https://arxiv.org/abs/2609.02885">Discriminative World Models for Web Agents</a>**</p>
+<ul>
+<li>*Authors:* Kelvin Li, Dhruv Pendharkar, Anish Pahilajani, Chuyi Shang, Leon Oks, Leonid Karlinsky, Rogerio Feris, Trevor Darrell, Roei Herzig</li>
+<li>*TL;DR:* Predicted-state matching objective replaces generative next-state prediction. Improves action ranking on <a href="https://arxiv.org/abs/2609.02885">WebPRMBench</a> and task success on <a href="https://arxiv.org/abs/2609.02885">WebArena-Lite</a>.</li>
+<li>*Why it matters:* World models for digital agents should discriminate, not generate. This reframes the training objective for all non-physical world model applications.</li>
+<li>*Strengths:* Novel objective; strong WebArena results; principled fix. *Limitations:* Tested on web domain only; transfer to other digital domains unclear.</li>
+<li>Strategic: 9 | Innovation: 8 | Adoption: 8 | Business: 9 | 🧪 Early prototype</li>
+</ul>
+<p>**5. <a href="https://arxiv.org/abs/2609.03602">SV-WAM: Surround-View World-Action Model for End-to-End Autonomous Driving</a>**</p>
+<ul>
+<li>*Authors:* Jinyang Wang, Shiwei Li, Junjian Wang et al. (15 authors)</li>
+<li>*TL;DR:* Six-camera surround-view WAM with action-centered causal masking. SOTA on NAVSIMv2 closed-loop. Video branch removable at deployment for efficiency. Safety penalty at drivable boundaries.</li>
+<li>*Why it matters:* Proves WAMs can maintain full spatial coverage without sacrificing efficiency. Front-camera-only driving WMs are now insufficient.</li>
+<li>*Strengths:* Full coverage; SOTA; deployment-friendly. *Limitations:* Requires surround-view training data.</li>
+<li>Strategic: 9 | Innovation: 8 | Adoption: 8 | Business: 9 | 🧪 Early prototype</li>
+</ul>
+<p>**6. <a href="https://arxiv.org/abs/2609.04196">Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States</a>**</p>
+<ul>
+<li>*Authors:* Kang Liao, Yihang Luo, Xiao-Ming Wu et al. (10 authors)</li>
+<li>*TL;DR:* Integrates physics, geometry, and appearance as native 3D world states without external modules. Puffin-16M dataset: 15M vision-language-camera triplets. Code, models, data released.</li>
+<li>*Why it matters:* First unified architecture coupling all three world state dimensions. The 15M open dataset is a major community resource.</li>
+<li>*Strengths:* Comprehensive world state modeling; massive open dataset. *Limitations:* Evaluation of cross-modal coherence still developing.</li>
+<li>Strategic: 9 | Innovation: 8 | Adoption: 8 | Business: 7 | 🧪 Early prototype</li>
+</ul>
+<p>**7. <a href="https://arxiv.org/abs/2609.03153">VeriPhy: Agentic Physical Reasoning for World Model Evaluation and Refinement</a>**</p>
+<ul>
+<li>*Authors:* Wenzhuo Xu, Yuchen Zhu, Chongjian Ge et al. (11 authors)</li>
+<li>*TL;DR:* Text-only planner compiles typed physical obligations before frame observation. Low-level experts generate evidence with full provenance. Three-valued resolver (plausible/implausible/abstain). Detected 228/304 physics failures.</li>
+<li>*Why it matters:* First auditable, traceable WM evaluation system. Every verdict links to supporting evidence — essential for safety-critical deployment.</li>
+<li>*Strengths:* Auditable provenance; 228/304 detection; modular. *Limitations:* Expert modules add pipeline complexity.</li>
+<li>Strategic: 9 | Innovation: 8 | Adoption: 7 | Business: 8 | 🧪 Early prototype</li>
+</ul>
+<p>**8. <a href="https://arxiv.org/abs/2609.03952">WorldReward: Reward Modeling for Camera-Conditioned World Models</a>**</p>
+<ul>
+<li>*Authors:* Yibin Wang, Zehan Wang, Junshu Tang et al. (16 authors)</li>
+<li>*TL;DR:* VLM-based preference rewards evaluating action consistency (+3.42pp over GPT-4.5-Vision), appearance quality (+1.45pp), and motion quality (+3.56pp). WorldReward-Bench released.</li>
+<li>*Why it matters:* Bridges the gap between trajectory-based and visual-quality rewards. Enables RL post-training that improves both action execution and visual fidelity simultaneously.</li>
+<li>*Strengths:* Outperforms GPT-4.5-Vision; multi-dimensional evaluation. *Limitations:* Requires VLM inference overhead.</li>
+<li>Strategic: 8 | Innovation: 8 | Adoption: 7 | Business: 8 | 🧪 Early prototype</li>
+</ul>
+<p>**9. <a href="https://arxiv.org/abs/2609.03774">RIWM: Rethinking World Models for Safety-Critical Embodied Systems</a>**</p>
+<ul>
+<li>*Authors:* Kailang Ma, Heye Huang, Inhi Kim, Kitae Jang</li>
+<li>*TL;DR:* Identifies three structural mismatches (likelihood vs. risk, prediction vs. intervention, finite-horizon vs. accumulated consequences). Proposes Risk-Informed World Model with counterfactual reasoning and safety memory.</li>
+<li>*Why it matters:* The first principled framework shifting world model objectives from "predict accurately" to "identify which futures matter for safety." Required reading before deploying WMs in safety-critical applications.</li>
+<li>*Strengths:* Principled framework; addresses fundamental gaps. *Limitations:* Perspective paper — no implementation yet.</li>
+<li>Strategic: 8 | Innovation: 7 | Adoption: 6 | Business: 8 | 🔬 Research-only</li>
+</ul>
+<p>**10. <a href="https://arxiv.org/abs/2609.02886">SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models</a>**</p>
+<ul>
+<li>*Authors:* Junchao Huang, Guian Fang, Shengju Qian et al. (18 authors)</li>
+<li>*TL;DR:* Fully open video WM framework: 1.43M clips from 10 datasets in unified format. 5B-33B parameter models across 3 architectures. Three-stage training (bidirectional adaptation, teacher-forced init, distribution matching). Trains on 5-second clips, generates minutes to hours.</li>
+<li>*Why it matters:* Democratizes long-horizon video world model training. The fully open stack (data, code, recipes, weights) is the most complete open WM training resource to date.</li>
+<li>*Strengths:* Fully open; 4 model sizes; 3 architectures. *Limitations:* Long-horizon quality at hour-scale still limited.</li>
+<li>Strategic: 8 | Innovation: 7 | Adoption: 9 | Business: 7 | 🧪 Early prototype</li>
+</ul>
+<h3>Noteworthy</h3>
+<table>
+<thead><tr><th>Paper</th><th>Key Contribution</th><th>Signal</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2609.03572">Drive-HWM</a></td><td>Hierarchical slow-fast WMs for driving; dynamic-aware latents via optical flow</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03565">Physically Grounded JEPA</a></td><td>JEPA + inverse dynamics + state alignment; 100% TwoRoom, 98% PushT; IROS 2026</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.04193">GIFT</a></td><td>Action-oriented structural supervision; +12.6pp on LIBERO-Plus; +12.6pp on RoboCasa</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03225">StyleDrive</a></td><td>Long-horizon consistent WMs; multi-style driving policies; interaction disentanglement</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.01560">H3-World</a></td><td>Language as natural WM control interface; 0.199% trainable params; MiniMax-H3 adapted</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.30530">WebWorld</a></td><td>Browser as WM; quality ratchet for web code; +14.9pp on MiniAppBench</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.29910">Matrix-Game 3.5</a></td><td>Patch memory + progressive distillation; minute-long real-time interactive generation</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03294">LEAP</a></td><td>Latent energy action planning; differentiable action horizons; terminal energy minimization</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03673">Statebench</a></td><td>Video continuation state tracking benchmark; Stateagent with entity-state representations</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03557">Unreal Engine WM Pipeline</a></td><td>8,767 hours synthetic action-conditioned video via two-stage UE pipeline</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03834">Semantic Bayesian WMs</a></td><td>Knowledge graphs + Bayesian conditioning; ontological axioms constrain priors</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03067">GPU Astrodynamics WMs</a></td><td>World models for spacecraft rendezvous; flow matching for orbital dynamics</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.04200">Principia</a></td><td>Relational physics tests for video models; physics understanding evaluation</td><td>🔬</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research-blogs">🧬 Research Blogs</h2>
+<details><summary>Research Blogs</summary><div class="details-content"><p>**1. <a href="https://arxiv.org/abs/2609.03681">WISE: Imagination Scheduling Changes the VLA Training Economics</a>**</p>
+<ul>
+<li>Framework demonstrating that selective world-model imagination during VLA post-training achieves comparable performance at 80% lower GPU cost. Applies to both <a href="https://arxiv.org/abs/2609.03681">pi-0</a> and <a href="https://arxiv.org/abs/2609.03681">pi-0.5</a> models. The scheduling principle — spend imagination where it matters — is broadly applicable.</li>
+<li>Strategic: 9 | Innovation: 8 | 🧪 Early prototype</li>
+</ul>
+<p>**2. <a href="https://arxiv.org/abs/2609.03774">Rethinking World Models for Safety-Critical Systems</a>**</p>
+<ul>
+<li>Perspective article reframing WM objectives from predictive accuracy to consequence-awareness. The three structural mismatches (likelihood vs. risk, prediction vs. intervention, finite-horizon vs. consequences) provide a rigorous vocabulary for the emerging WM safety debate.</li>
+<li>Strategic: 8 | Innovation: 7 | 🔬 Research-only</li>
+</ul>
+<p>**3. <a href="https://arxiv.org/abs/2609.03927">Unified Robot Learning Survey: Representation + VLA + World Models</a>**</p>
+<ul>
+<li>Comprehensive survey organizing the robot learning landscape across three axes. Identifies uncertainty quantification and long-horizon planning as key integration challenges. Essential map for teams positioning world models within the broader robot learning stack.</li>
+<li>Strategic: 8 | Innovation: 5 | 🔬 Research-only</li>
+</ul>
+<p>**4. <a href="https://arxiv.org/abs/2609.03153">VeriPhy: Auditable World Model Evaluation</a>**</p>
+<ul>
+<li>Agentic physical reasoning system providing traceable verdicts on generated video physics. The text-only planning + low-level expert architecture creates auditable chains linking every verdict to evidence. 228/304 failure detection rate sets a new bar.</li>
+<li>Strategic: 9 | Innovation: 8 | 🧪 Early prototype</li>
+</ul>
+<p>**5. <a href="https://arxiv.org/abs/2609.02885">Discriminative vs. Generative World Models for Web Agents</a>**</p>
+<ul>
+<li>Theoretical and empirical argument that web agent world models should be trained with discriminative (state-matching) rather than generative objectives. The predicted-state matching objective is a paradigm shift for digital world model applications.</li>
+<li>Strategic: 9 | Innovation: 8 | 🧪 Early prototype</li>
+</ul>
+<p>**6. <a href="https://arxiv.org/abs/2609.02886">SolarWM: The Most Open Video World Model Stack</a>**</p>
+<ul>
+<li>Fully open release covering datasets (1.43M clips), pipeline code, training recipes, and model weights from 5B to 33B parameters. Three-stage training methodology achieves long-horizon generation (minutes to hours) from 5-second training clips.</li>
+<li>Strategic: 8 | Innovation: 7 | 🧪 Early prototype</li>
+</ul>
+<p>**7. <a href="https://arxiv.org/abs/2609.03952">WorldReward: VLM-Based Reward Modeling for World Models</a>**</p>
+<ul>
+<li>Introduces structured pairwise comparison via VLMs for evaluating world model outputs. Action-aligned chunking + visual evidence aggregation outperforms GPT-4.5-Vision on action consistency, appearance quality, and motion quality. <a href="https://arxiv.org/abs/2609.03952">WorldReward-Bench</a> released.</li>
+<li>Strategic: 8 | Innovation: 8 | 🧪 Early prototype</li>
+</ul>
+<p>**8. <a href="https://anthropic.com/research/formalizing-fermats-last-theorem">Anthropic: Formalizing Fermat's Last Theorem</a>**</p>
+<ul>
+<li>While not world-model-specific, Anthropic's formal mathematical reasoning achievement (663 HN points) demonstrates the planning and proof-search capabilities that underpin world-model-based reasoning in abstract spaces.</li>
+<li>Strategic: 7 | Innovation: 7 | 🔬 Research-only</li>
+</ul>
+<p>**9. <a href="https://arxiv.org/abs/2609.03834">Semantic Bayesian World Models</a>**</p>
+<ul>
+<li>Proposes integrating knowledge graphs with probabilistic reasoning for world models where ontological axioms constrain priors and observations update beliefs via Bayesian conditioning. A theoretical bridge between symbolic AI and learned dynamics.</li>
+<li>Strategic: 7 | Innovation: 7 | 🔬 Research-only</li>
+</ul>
+<p>**10. <a href="https://developer.nvidia.com/blog/scale-av-perception-across-vehicle-platforms-with-nvidia-omniverse-nurec/">NVIDIA Omniverse NuRec for AV Perception Scaling</a>**</p>
+<ul>
+<li>NVIDIA ships infrastructure for re-rendering AV perception data across vehicle platforms. Complements this week's driving WAM papers by providing the simulation backbone for training data generation.</li>
+<li>Strategic: 7 | Innovation: 6 | 🚀 Production-ready</li>
+</ul>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="blogs">🛠 ️ Engineering Blogs</h2>
+<table>
+<thead><tr><th>#</th><th>Post</th><th>Source</th><th>Signal</th><th>Key Insight</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://arxiv.org/abs/2609.02886">SolarWM: Open Data and Scalable Training</a></td><td>CUHK-Shenzhen</td><td>🧪</td><td>Fully open 5B-33B video WMs; 1.43M clips; 3-stage training from 5s to hours</td></tr>
+<tr><td>2</td><td><a href="https://arxiv.org/abs/2609.03602">SV-WAM: Surround-View Driving WAM</a></td><td>SV-WAM Team</td><td>🧪</td><td>Six-camera WAM; SOTA NAVSIMv2; action-centered causal masking</td></tr>
+<tr><td>3</td><td><a href="https://arxiv.org/abs/2609.04196">Puffin-World: Native 3D World States</a></td><td>ACE Robotics</td><td>🧪</td><td>Physics+geometry+appearance unified; Puffin-16M dataset released</td></tr>
+<tr><td>4</td><td><a href="https://arxiv.org/abs/2609.04193">GIFT: Action-Oriented Feature Training</a></td><td>GIFT Team</td><td>🧪</td><td>Bridging VLMs and WAMs; +12.6pp LIBERO-Plus; +12.6pp RoboCasa</td></tr>
+<tr><td>5</td><td><a href="https://arxiv.org/abs/2608.29910">Matrix-Game 3.5: Streaming Interactive WMs</a></td><td>Tencent</td><td>🧪</td><td>Patch memory + progressive distillation; minute-long real-time generation</td></tr>
+<tr><td>6</td><td><a href="https://arxiv.org/abs/2609.03572">Drive-HWM: Hierarchical Driving WMs</a></td><td>Drive-HWM Team</td><td>🧪</td><td>Slow-fast hierarchy; dynamic-aware latents via optical flow; NAVSIM v1+v2</td></tr>
+<tr><td>7</td><td><a href="https://arxiv.org/abs/2609.03557">Unreal Engine WM Data Pipeline</a></td><td>UE-WM Team</td><td>🧪</td><td>8,767 hours synthetic action-conditioned video; two-stage trajectory+rendering</td></tr>
+<tr><td>8</td><td><a href="https://arxiv.org/abs/2608.30530">WebWorld: Browser as World Model</a></td><td>IQuest</td><td>🧪</td><td>Quality ratchet for web code; +14.9pp MiniAppBench; browser-backed certificates</td></tr>
+<tr><td>9</td><td><a href="https://arxiv.org/abs/2609.02542">WM-LOCO: Humanoid Locomotion</a></td><td>WM-LOCO Team</td><td>🚀</td><td>Recurrent WM + PPO; 93.3% real Unitree G1 deployment; no foothold labels</td></tr>
+<tr><td>10</td><td><a href="https://developer.nvidia.com/blog/scale-av-perception-across-vehicle-platforms-with-nvidia-omniverse-nurec/">NVIDIA Omniverse NuRec</a></td><td>NVIDIA</td><td>🚀</td><td>AV perception re-rendering across vehicle platforms</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="github">📦 GitHub Projects</h2>
+<details><summary>GitHub Projects</summary><div class="details-content"><table>
+<thead><tr><th>Project</th><th>Stars</th><th>This Week</th><th>Category</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2609.02886">SolarWM</a></td><td>NEW</td><td>Fully open: data + code + weights + recipes</td><td>Video World Model (5B-33B)</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.04196">Puffin-World</a></td><td>NEW</td><td>Code + models + Puffin-16M dataset</td><td>3D World Model</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a></td><td>NEW</td><td>Slow+Fast WAM; 120K+ hours training</td><td>World Action Model</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.29910">Matrix-Game 3.5</a></td><td>NEW</td><td>Patch memory for real-time interactive WMs</td><td>Interactive World Model</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03952">WorldReward</a></td><td>NEW</td><td>VLM-based reward model + WorldReward-Bench</td><td>WM Evaluation</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a></td><td>—</td><td>Cited as baseline by ZimaBlue, GIFT</td><td>World Action Model (WK35)</td></tr>
+<tr><td><a href="https://github.com/danijar/dreamerv3">DreamerV3</a></td><td>—</td><td>Referenced by WM-LOCO, LEAP</td><td>Model-based RL reference</td></tr>
+<tr><td><a href="https://huggingface.co/">HuggingFace</a></td><td>—</td><td>Hosting SolarWM, Puffin-World releases</td><td>Model Hub</td></tr>
+</tbody></table>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="media">🎙 ️ Videos & Podcasts</h2>
+<details><summary>️ Videos & Podcasts</summary><div class="details-content"><p>**1. <a href="https://collusion.wiki/">OpenAI Agent Message Board Discovery</a>** (HN, Sep 4, 1,833 points)</p>
+<ul>
+<li>Discovery of internal OpenAI agent coordination infrastructure. Reveals how agents negotiate shared state — a core world model concern in multi-agent systems where agents must maintain consistent environment representations.</li>
+<li>**Relevance: 7**</li>
+</ul>
+<p>**2. <a href="https://anthropic.com/research/formalizing-fermats-last-theorem">Anthropic: Formalizing Fermat's Last Theorem</a>** (HN, Sep 4, 663 points)</p>
+<ul>
+<li>Anthropic demonstrates formal mathematical proof capabilities. Planning and proof-search in abstract spaces parallels world model planning in physical spaces — both require lookahead, state tracking, and counterfactual reasoning.</li>
+<li>**Relevance: 7**</li>
+</ul>
+<p>**3. <a href="https://eebench.org/blog/can-ai-design-circuit-boards-yet/">Can AI Design Circuit Boards Yet?</a>** (HN, Sep 4, 294 points)</p>
+<ul>
+<li>Benchmarking AI capabilities in hardware design. Circuit board design requires spatial reasoning and physical constraint satisfaction — core world model capabilities applied to EDA.</li>
+<li>**Relevance: 6**</li>
+</ul>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="community">💬 Community Insights</h2>
+<h3>Consensus</h3>
+<ul>
+<li>**Autonomous driving is the WAM proving ground** — four driving papers in one week (<a href="https://arxiv.org/abs/2609.03602">SV-WAM</a>, <a href="https://arxiv.org/abs/2609.03572">Drive-HWM</a>, <a href="https://arxiv.org/abs/2609.03225">StyleDrive</a>, <a href="https://arxiv.org/abs/2609.00111">Qwen-Drive-1.0</a>) confirm that WAMs are reaching production quality for autonomous driving. The automotive domain has well-defined benchmarks (<a href="https://arxiv.org/abs/2609.03602">NAVSIMv2</a>), safety requirements, and abundant data — making it the natural deployment frontier.</li>
+<li>**World model evaluation is no longer optional** — <a href="https://arxiv.org/abs/2609.03153">VeriPhy</a>, <a href="https://arxiv.org/abs/2609.03952">WorldReward</a>, <a href="https://arxiv.org/abs/2609.03673">Statebench</a>, <a href="https://arxiv.org/abs/2609.04200">Principia</a>, and the <a href="https://arxiv.org/abs/2609.02811">WM evaluation study</a> all address evaluation gaps. The field has matured past "can we build it?" to "how do we know it works?"</li>
+<li>**Open-source world model infrastructure is viable** — <a href="https://arxiv.org/abs/2609.02886">SolarWM</a> and <a href="https://arxiv.org/abs/2609.04196">Puffin-World</a> provide fully open training stacks, aligning with the <a href="https://www.nytimes.com/2026/09/04/technology/open-source-ai-anthropic-openai.html">broader enterprise open-source trend</a> (305 HN points).</li>
+</ul>
+<h3>Disagreements</h3>
+<ul>
+<li>**Generative vs. discriminative world models** — <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a> argues digital world models should use predicted-state matching instead of generation. The robotics community (ZimaBlue, Riemann-1.0) doubles down on generative WAMs. The optimal objective may be domain-dependent.</li>
+<li>**Full-coverage vs. efficient driving WMs** — <a href="https://arxiv.org/abs/2609.03602">SV-WAM</a> maintains six cameras while <a href="https://arxiv.org/abs/2609.03572">Drive-HWM</a> and most prior work use front-camera only. Is surround-view necessary or is front-camera sufficient for deployment?</li>
+<li>**Open-loop vs. closed-loop WM evaluation** — the <a href="https://arxiv.org/abs/2609.02811">controlled study</a> shows measurement-update schedule significantly affects metric reliability, challenging the assumption that better open-loop prediction means better control.</li>
+</ul>
+<h3>Emerging Viewpoints</h3>
+<ul>
+<li>**Safety-first world modeling** — <a href="https://arxiv.org/abs/2609.03774">RIWM</a>'s argument that WMs should optimize for consequence-awareness rather than predictive accuracy is gaining traction. Expect "risk-informed" to become a modifier as common as "physics-informed."</li>
+<li>**Browser/digital environments as world model training grounds** — <a href="https://arxiv.org/abs/2608.30530">WebWorld</a> and <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs</a> suggest digital environments may be easier and more impactful WM deployment targets than physical robotics.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="themes">📈 Emerging Themes</h2>
+<ol>
+<li>**Autonomous driving WAM convergence** — 4 driving papers in one week (<a href="https://arxiv.org/abs/2609.03602">SV-WAM</a>, <a href="https://arxiv.org/abs/2609.03572">Drive-HWM</a>, <a href="https://arxiv.org/abs/2609.03225">StyleDrive</a>, <a href="https://arxiv.org/abs/2609.00111">Qwen-Drive-1.0</a>); surround-view, hierarchical, and multi-style architectures all reaching <a href="https://arxiv.org/abs/2609.03602">NAVSIMv2</a> SOTA quality</li>
+<li>**World model evaluation infrastructure wave** — <a href="https://arxiv.org/abs/2609.03153">VeriPhy</a> (auditable physics verification), <a href="https://arxiv.org/abs/2609.03952">WorldReward</a> (VLM-based rewards), <a href="https://arxiv.org/abs/2609.03673">Statebench</a> (state tracking), <a href="https://arxiv.org/abs/2609.04200">Principia</a> (physics tests), <a href="https://arxiv.org/abs/2609.02811">WM eval study</a> (open vs. closed loop) — 5 evaluation-focused contributions</li>
+<li>**Digital world models as distinct subfield** — <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a>, <a href="https://arxiv.org/abs/2608.30530">WebWorld</a>, <a href="https://arxiv.org/abs/2609.01560">H3-World</a> all apply world model frameworks to digital environments (web, browser, video game)</li>
+<li>**WAM scaling law evidence mounts (week 2)** — <a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a>'s 36.1% to 77.8% with 120K+ hours extends <a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>'s 200K+ hour result from WK35; Slow+Fast architecture addresses real-time deployment</li>
+<li>**Safety-first world modeling** — <a href="https://arxiv.org/abs/2609.03774">RIWM</a> (risk-informed framework), <a href="https://arxiv.org/abs/2609.03602">SV-WAM</a> (safety boundary penalty), <a href="https://arxiv.org/abs/2609.03153">VeriPhy</a> (auditable verification) collectively push world models toward consequence-awareness</li>
+<li>**Open WM training infrastructure** — <a href="https://arxiv.org/abs/2609.02886">SolarWM</a> (fully open 5B-33B stack) and <a href="https://arxiv.org/abs/2609.04196">Puffin-World</a> (15M triplets) democratize world model development</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="trends">📊 Trend Tracking Over Time</h2>
+<table>
+<thead><tr><th>Theme</th><th>First Noted</th><th>Consecutive Weeks</th><th>Momentum</th></tr></thead><tbody>
+<tr><td>JEPA paradigm dominance</td><td>WK30</td><td>7 (WK30–WK36)</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.03565">Physically Grounded JEPA</a> accepted IROS 2026</td></tr>
+<tr><td>Search-free world model deployment</td><td>WK30</td><td>7</td><td>➡️ Stable — pattern established; no new papers</td></tr>
+<tr><td>Dynamics-centric supervision</td><td>WK30</td><td>7</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.03952">WorldReward</a> dynamics-based reward modeling</td></tr>
+<tr><td>World model security</td><td>WK30</td><td>7</td><td>➡️ Stable — no new papers</td></tr>
+<tr><td>Code as world model</td><td>WK30</td><td>7</td><td>➡️ Stable — <a href="https://arxiv.org/abs/2608.30530">WebWorld</a> uses browser but different pattern</td></tr>
+<tr><td>Hybrid classical + generative</td><td>WK30</td><td>7</td><td>➡️ Stable — <a href="https://arxiv.org/abs/2609.03834">Semantic Bayesian WMs</a> bridges symbolic + learned</td></tr>
+<tr><td>Multi-modal world models</td><td>WK30</td><td>7</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.04196">Puffin-World</a> native 3D; 3 modalities</td></tr>
+<tr><td>LLMs as implicit world models</td><td>WK30</td><td>7</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.01560">H3-World</a>; <a href="https://openrouter.ai/openai/gpt-6-astra">GPT-6 Astra</a> strengthens backbone</td></tr>
+<tr><td>Continuous-time world models</td><td>WK31</td><td>6</td><td>➡️ Stable — no new papers</td></tr>
+<tr><td>Context Collapse in WMs</td><td>WK31</td><td>6</td><td>➡️ Stable — sparse representations from WK35 not extended</td></tr>
+<tr><td>Mental world modeling</td><td>WK31</td><td>6</td><td>➡️ Stable — no new papers</td></tr>
+<tr><td>Environment co-evolution</td><td>WK31</td><td>6</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2608.29910">Matrix-Game 3.5</a> persistent environments</td></tr>
+<tr><td>Action-conditioned video WMs</td><td>WK34</td><td>3</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.03602">SV-WAM</a>, <a href="https://arxiv.org/abs/2609.03572">Drive-HWM</a>, <a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a></td></tr>
+<tr><td>WM-guided test-time compute</td><td>WK34</td><td>3</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.03681">WISE</a> selective imagination scheduling</td></tr>
+<tr><td>World model benchmarking</td><td>WK34</td><td>3</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.03153">VeriPhy</a>, <a href="https://arxiv.org/abs/2609.03952">WorldReward</a>, <a href="https://arxiv.org/abs/2609.03673">Statebench</a>, <a href="https://arxiv.org/abs/2609.04200">Principia</a> — 4 evaluation papers</td></tr>
+<tr><td>Physical AI funding surge</td><td>WK34</td><td>3</td><td>➡️ Stable — no new major deals; post-NVIDIA-HF acquisition digestion</td></tr>
+<tr><td>WAM paradigm (policy+simulator)</td><td>WK35</td><td>2</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a> extends with 120K+ hours; <a href="https://arxiv.org/abs/2609.03602">SV-WAM</a> for driving</td></tr>
+<tr><td>Sparse world model representations</td><td>WK35</td><td>2</td><td>➡️ Stable — no new papers; WK35 <a href="https://arxiv.org/abs/2608.22764">LpWM</a> not yet extended</td></tr>
+<tr><td>Action adherence alignment</td><td>WK35</td><td>2</td><td>➡️ Stable — <a href="https://arxiv.org/abs/2609.03952">WorldReward</a> addresses action consistency but different framing</td></tr>
+<tr><td>In-context embodied learning</td><td>WK35</td><td>2</td><td>➡️ Stable — no new papers extending <a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a></td></tr>
+<tr><td>**Autonomous driving WAMs**</td><td>**WK36**</td><td>**1**</td><td>**📈 NEW — 4 driving papers; <a href="https://arxiv.org/abs/2609.03602">SV-WAM</a> SOTA NAVSIMv2**</td></tr>
+<tr><td>**Digital world models (web/browser)**</td><td>**WK36**</td><td>**1**</td><td>**📈 NEW — <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs</a>; <a href="https://arxiv.org/abs/2608.30530">WebWorld</a>**</td></tr>
+<tr><td>**WM evaluation infrastructure**</td><td>**WK36**</td><td>**1**</td><td>**📈 NEW — 5 evaluation papers; auditable verification**</td></tr>
+<tr><td>**Safety-first world modeling**</td><td>**WK36**</td><td>**1**</td><td>**📈 NEW — <a href="https://arxiv.org/abs/2609.03774">RIWM</a>; consequence > prediction**</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-1">🏗 ️ Implications for Search, Recommendation & Ads</h2>
+<ol>
+<li>**Discriminative world models for recommendation ranking** — <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a>'s predicted-state matching objective maps directly to recommendation: train world models to distinguish the true user response from counterfactual responses to alternative rankings, rather than generating predicted user behavior. This could improve off-policy evaluation for search ranking and ad placement.</li>
+</ol>
+<ol>
+<li>**WorldReward as recommendation reward model** — <a href="https://arxiv.org/abs/2609.03952">WorldReward</a>'s VLM-based preference framework decomposes evaluation into action consistency and quality dimensions. For search/ads: decompose reward into query relevance (action consistency) and user experience quality, training preference models that optimize both simultaneously.</li>
+</ol>
+<ol>
+<li>**Risk-informed user simulation** — <a href="https://arxiv.org/abs/2609.03774">RIWM</a>'s framework applies to ads: shift from predicting the most likely user behavior to identifying which user behaviors matter for business outcomes (conversions, lifetime value, churn risk). Safety-critical thinking translates to business-critical user modeling.</li>
+</ol>
+<ol>
+<li>**Open training infrastructure for recommendation WMs** — <a href="https://arxiv.org/abs/2609.02886">SolarWM</a>'s fully open stack and <a href="https://arxiv.org/abs/2609.04196">Puffin-World</a>'s 15M dataset demonstrate viable open training infrastructure. Adapt the three-stage training recipe (pre-train on broad data, mid-train on task-aligned data, specialize) for recommendation world models.</li>
+</ol>
+<ol>
+<li>**Imagination scheduling for A/B test optimization** — <a href="https://arxiv.org/abs/2609.03681">WISE</a>'s selective imagination principle applies to counterfactual evaluation: don't simulate all user sessions — focus world model compute on sessions at decision boundaries where the ranking change most impacts outcomes.</li>
+</ol>
+<p>**Action items:**</p>
+<ul>
+<li>Prototype <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs</a> predicted-state matching for recommendation off-policy evaluation</li>
+<li>Adapt <a href="https://arxiv.org/abs/2609.03952">WorldReward</a> preference decomposition for search relevance + experience quality</li>
+<li>Apply <a href="https://arxiv.org/abs/2609.03681">WISE</a> selective scheduling to focus counterfactual simulation on high-impact sessions</li>
+<li>Evaluate <a href="https://arxiv.org/abs/2609.03774">RIWM</a> consequence-aware framework for business-critical user modeling</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-2">🔍 Implications for Agentic AI & Planning</h2>
+<ol>
+<li>**Discriminative world models change agent planning** — <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a> shows agents don't need generative world models for action selection — predicted-state matching is more compute-efficient and more aligned with the actual use case (choosing the best action). This applies to any agent that uses world models for lookahead.</li>
+</ol>
+<ol>
+<li>**Imagination scheduling reduces agent planning cost** — <a href="https://arxiv.org/abs/2609.03681">WISE</a>'s 80% GPU reduction via selective imagination applies directly to agent planning: don't imagine at every step — allocate world model compute to decision points where lookahead changes the selected action.</li>
+</ol>
+<ol>
+<li>**Safety-first agent planning** — <a href="https://arxiv.org/abs/2609.03774">RIWM</a>'s risk-informed framework shifts agent planning from "predict the most likely outcome" to "identify which outcomes matter." For safety-critical agents (autonomous driving, medical, financial), this means world models that flag dangerous action sequences rather than merely predicting likely ones.</li>
+</ol>
+<ol>
+<li>**Browser as agent world model** — <a href="https://arxiv.org/abs/2608.30530">WebWorld</a> demonstrates that the execution environment itself can serve as the world model, providing objective verification via browser certificates. For web agents, this eliminates the need for learned world models entirely — the browser gives exact state transitions.</li>
+</ol>
+<ol>
+<li>**Auditable world model evaluation for agent certification** — <a href="https://arxiv.org/abs/2609.03153">VeriPhy</a>'s traceable verification chains enable auditing agent world models before deployment. Each physics verdict links to supporting evidence — essential for agent certification in regulated domains.</li>
+</ol>
+<p>**Action items:**</p>
+<ul>
+<li>Adopt <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs</a> predicted-state matching for agent action selection — more efficient than generative lookahead</li>
+<li>Implement <a href="https://arxiv.org/abs/2609.03681">WISE</a> imagination scheduling in agent planning loops to reduce compute cost</li>
+<li>Apply <a href="https://arxiv.org/abs/2609.03153">VeriPhy</a> auditable evaluation to agent world models before deployment</li>
+<li>Use <a href="https://arxiv.org/abs/2608.30530">WebWorld</a> browser-as-WM pattern for web agent verification</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="watchlist">👀 Watch List</h2>
+<div class="watch-list-box"><table>
+<thead><tr><th>Technology</th><th>First Noted</th><th>Status</th><th>This Week's Movement</th></tr></thead><tbody>
+<tr><td>Search-free world models (<a href="https://arxiv.org/abs/2607.26056">INTACT</a>)</td><td>WK30</td><td>🚀 Breakout</td><td>Stable; pattern established</td></tr>
+<tr><td>JEPA for planning (<a href="https://arxiv.org/abs/2607.25337">TD-JEPA</a>)</td><td>WK30</td><td>🚀 Breakout</td><td><a href="https://arxiv.org/abs/2609.03565">Physically Grounded JEPA</a> accepted IROS 2026; 7th consecutive week</td></tr>
+<tr><td>Code as world model (<a href="https://arxiv.org/abs/2607.25236">VisualPatchWorld</a>)</td><td>WK30</td><td>🧪 Early</td><td><a href="https://arxiv.org/abs/2608.30530">WebWorld</a> uses browser but different execution pattern</td></tr>
+<tr><td>World model security (<a href="https://arxiv.org/abs/2607.23147">False Prophets</a>)</td><td>WK30</td><td>🚀 Breakout</td><td>Stable</td></tr>
+<tr><td>Hybrid physics + generative (<a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">NVIDIA Cosmos</a>)</td><td>WK30</td><td>🚀 Breakout</td><td>Stable; post-acquisition integration underway</td></tr>
+<tr><td>Visuo-tactile world models (<a href="https://arxiv.org/abs/2607.24267">FeelWorld</a>)</td><td>WK30</td><td>🧪 Early</td><td>No new evidence; 7 weeks without progress</td></tr>
+<tr><td>Video world models at interactive speed</td><td>WK30</td><td>🧪 Early → 📈 Growing</td><td><a href="https://arxiv.org/abs/2608.29910">Matrix-Game 3.5</a> minute-long real-time with patch memory</td></tr>
+<tr><td>World model serving (<a href="https://arxiv.org/abs/2607.21686">PCS</a>)</td><td>WK30</td><td>🚀 Breakout</td><td>Stable</td></tr>
+<tr><td>Continuous-time world models (<a href="https://arxiv.org/abs/2607.27924">ODEWorld</a>)</td><td>WK31</td><td>🔬 Research → 🧪 Early</td><td>No new papers; stable</td></tr>
+<tr><td>Context Collapse diagnosis (<a href="https://arxiv.org/abs/2607.26712">ActSWM</a>)</td><td>WK31</td><td>🧪 Early → 📈 Growing</td><td>Stable; WK35 LpWM not yet extended</td></tr>
+<tr><td>Mental world modeling (<a href="https://arxiv.org/abs/2607.27201">MENTIS</a>)</td><td>WK31</td><td>🔬 Research</td><td>No new papers; 6 weeks without progress</td></tr>
+<tr><td>Environment co-evolution (<a href="https://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/">Echoverse</a>)</td><td>WK31</td><td>🧪 Early → 📈 Growing</td><td><a href="https://arxiv.org/abs/2608.29910">Matrix-Game 3.5</a> persistent environments</td></tr>
+<tr><td>Action-conditioned video WMs (<a href="https://arxiv.org/abs/2608.13489">DreamX-Phi</a>)</td><td>WK34</td><td>🧪 Early → 📈 Growing</td><td>4 driving WAMs + <a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a> all action-conditioned</td></tr>
+<tr><td>WM-guided test-time compute (<a href="https://arxiv.org/abs/2608.16885">tau-zero-VLA</a>)</td><td>WK34</td><td>🧪 Early → 📈 Growing</td><td><a href="https://arxiv.org/abs/2609.03681">WISE</a> selective imagination scheduling</td></tr>
+<tr><td>World model benchmarking (<a href="https://arxiv.org/abs/2608.13552">PlayWorld</a>)</td><td>WK34</td><td>🧪 Early → 📈 Growing</td><td>5 evaluation papers; approaching graduation to mainstream</td></tr>
+<tr><td>WAM paradigm (<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>)</td><td>WK35</td><td>🧪 Early → 📈 Growing</td><td><a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a>, <a href="https://arxiv.org/abs/2609.03602">SV-WAM</a>, <a href="https://arxiv.org/abs/2609.04193">GIFT</a> all WAM-framed</td></tr>
+<tr><td>Sparse world model representations (<a href="https://arxiv.org/abs/2608.22764">LpWM</a>)</td><td>WK35</td><td>🔬 Research</td><td>No new papers; monitoring</td></tr>
+<tr><td>Action adherence alignment (<a href="https://arxiv.org/abs/2608.24885">WorldSync</a>)</td><td>WK35</td><td>🧪 Early</td><td><a href="https://arxiv.org/abs/2609.03952">WorldReward</a> addresses action consistency via reward</td></tr>
+<tr><td>**Autonomous driving WAMs**</td><td>**WK36**</td><td>**🧪 Early**</td><td>**NEW: 4 papers; <a href="https://arxiv.org/abs/2609.03602">SV-WAM</a> SOTA NAVSIMv2**</td></tr>
+<tr><td>**Digital world models (web/browser)**</td><td>**WK36**</td><td>**🧪 Early**</td><td>**NEW: <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs</a>; <a href="https://arxiv.org/abs/2608.30530">WebWorld</a>**</td></tr>
+<tr><td>**WM evaluation infrastructure**</td><td>**WK36**</td><td>**🧪 Early**</td><td>**NEW: 5 papers; auditable <a href="https://arxiv.org/abs/2609.03153">VeriPhy</a>**</td></tr>
+<tr><td>**Safety-first world modeling (<a href="https://arxiv.org/abs/2609.03774">RIWM</a>)**</td><td>**WK36**</td><td>**🔬 Research**</td><td>**NEW: consequence > prediction; framework only**</td></tr>
+</tbody></table>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="contrarian">🔮 Contrarian View</h2>
+<div class="contrarian"><h3>What the field may be overestimating</h3>
+<ul>
+<li>**Generative world models for digital agents** — <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a> shows predicted-state matching outperforms generative next-state prediction for action selection. The field's default assumption — that world models must generate — may be wrong for non-physical domains. Generating full web page states is expensive and unnecessary when the goal is to rank actions.</li>
+<li>**Driving WAM benchmark saturation** — Four driving papers in one week (<a href="https://arxiv.org/abs/2609.03602">SV-WAM</a>, <a href="https://arxiv.org/abs/2609.03572">Drive-HWM</a>, <a href="https://arxiv.org/abs/2609.03225">StyleDrive</a>, <a href="https://arxiv.org/abs/2609.00111">Qwen-Drive-1.0</a>) converging on similar benchmarks (<a href="https://arxiv.org/abs/2609.03602">NAVSIMv2</a>, <a href="https://arxiv.org/abs/2609.03602">nuScenes</a>). When multiple architectures achieve SOTA simultaneously, the benchmark may be saturating rather than the problem being solved. Real-world driving safety requires evaluation beyond these closed-loop simulators.</li>
+<li>**Open-loop prediction quality** — The <a href="https://arxiv.org/abs/2609.02811">controlled study</a> showing that measurement-update schedule significantly affects rollout metric reliability challenges the widespread use of open-loop prediction accuracy (FID, FVD) as the primary WM metric. Teams optimizing for these metrics may not be optimizing for control quality.</li>
+</ul>
+<h3>What the field may be underestimating</h3>
+<ul>
+<li>**Discriminative objectives for world models** — <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a> may represent a broader paradigm shift. Many world model applications (recommendation, search ranking, ad placement, agent action selection) fundamentally require discrimination, not generation. The field's generative default may be costing both compute efficiency and alignment with actual use cases.</li>
+<li>**Safety-consequence alignment** — <a href="https://arxiv.org/abs/2609.03774">RIWM</a>'s three structural mismatches (likelihood vs. risk, prediction vs. intervention, finite-horizon vs. consequences) suggest most world models are optimizing for the wrong objective in safety-critical settings. The gap between "predicts accurately" and "identifies dangerous futures" may be larger than assumed.</li>
+<li>**Browser/digital environment world models** — <a href="https://arxiv.org/abs/2608.30530">WebWorld</a> (+14.9pp on MiniAppBench) and <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs</a> (WebArena-Lite improvements) suggest digital world models may reach production deployment faster than physical world models because digital environments provide exact state transitions and objective verification.</li>
+<li>**Imagination scheduling efficiency** — <a href="https://arxiv.org/abs/2609.03681">WISE</a>'s 80% GPU reduction via selective imagination suggests most current world-model-augmented training wastes compute on uninformative imagination at low-decision-impact states.</li>
+</ul>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="strategy">🧭 Strategic Analysis</h2>
+<h3>Short-term (0-6 months)</h3>
+<ul>
+<li>Autonomous driving WAMs (<a href="https://arxiv.org/abs/2609.03602">SV-WAM</a>, <a href="https://arxiv.org/abs/2609.03572">Drive-HWM</a>) reach pilot deployment; surround-view coverage becomes table stakes</li>
+<li><a href="https://arxiv.org/abs/2609.03681">WISE</a> imagination scheduling adopted to reduce VLA training costs across robotics labs</li>
+<li><a href="https://arxiv.org/abs/2609.03153">VeriPhy</a> auditable evaluation becomes standard for world model certification in safety-critical applications</li>
+<li><a href="https://arxiv.org/abs/2609.02886">SolarWM</a> open stack enables academic/startup world model research without massive data collection</li>
+<li><a href="https://arxiv.org/abs/2609.02542">WM-LOCO</a> pattern replicated on other humanoid platforms beyond <a href="https://arxiv.org/abs/2609.02542">Unitree G1</a></li>
+</ul>
+<h3>Mid-term (6-18 months)</h3>
+<ul>
+<li>Discriminative world models (<a href="https://arxiv.org/abs/2609.02885">predicted-state matching</a>) become default for digital agent planning, displacing generative WMs in web/GUI domains</li>
+<li><a href="https://arxiv.org/abs/2609.03952">WorldReward</a> VLM-based reward modeling enables RL post-training loops for world models analogous to RLHF for language models</li>
+<li><a href="https://arxiv.org/abs/2609.03774">RIWM</a> risk-informed framework adopted as regulatory requirement for autonomous driving world models</li>
+<li>WAM scaling laws (<a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a> pattern) drive investment in large-scale egocentric video collection</li>
+</ul>
+<h3>Long-term (2-5 years)</h3>
+<ul>
+<li>World model evaluation infrastructure (<a href="https://arxiv.org/abs/2609.03153">VeriPhy</a>, <a href="https://arxiv.org/abs/2609.03952">WorldReward</a>, <a href="https://arxiv.org/abs/2609.03673">Statebench</a>) matures into certification frameworks for embodied AI</li>
+<li>Discriminative and generative world models coexist: generative for physical simulation, discriminative for digital agent planning and recommendation</li>
+<li>Safety-first world modeling (<a href="https://arxiv.org/abs/2609.03774">RIWM</a> lineage) becomes mandatory for deployment in regulated industries</li>
+<li>Open world model training stacks (<a href="https://arxiv.org/abs/2609.02886">SolarWM</a>, <a href="https://arxiv.org/abs/2609.04196">Puffin-World</a>) create a vibrant open ecosystem parallel to the LLM open-weight movement</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="relevance">🎯 Personalized Relevance</h2>
+<table>
+<thead><tr><th>Development</th><th>Relevance Areas</th><th>Score</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a></td><td>Agentic AI, Search/Recommendation, Planning</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a> (WAM scaling)</td><td>World Models, Agentic AI, Training methodology</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03681">WISE</a> (imagination scheduling)</td><td>World Models, Agentic AI, Training efficiency</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03952">WorldReward</a> (VLM rewards)</td><td>Evaluation frameworks, World Models, RL</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03153">VeriPhy</a> (auditable evaluation)</td><td>Evaluation frameworks, Safety, World Models</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03602">SV-WAM</a> (driving WAM)</td><td>World Models, Autonomous driving, Planning</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.03774">RIWM</a> (safety-first WMs)</td><td>Evaluation frameworks, Safety, Architecture</td><td>8</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.02886">SolarWM</a> (open stack)</td><td>World Models, Enterprise AI adoption</td><td>8</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.02542">WM-LOCO</a> (humanoid locomotion)</td><td>World Models, Robotics, Deployment</td><td>8</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.30530">WebWorld</a> (browser-as-WM)</td><td>Agentic AI, Search, Verification</td><td>8</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="recommendations">✅ Recommendations</h2>
+<h3>For Research Scientists</h3>
+<ol>
+<li>**Read <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a>** — predicted-state matching is a fundamentally different training objective that may be superior for all non-physical world model applications. Evaluate whether your domain needs generation or discrimination.</li>
+<li>**Study <a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a>'s scaling curve** — the 36.1% to 77.8% improvement with video scale provides the clearest WAM scaling law evidence. Use this to estimate data requirements for your target performance.</li>
+<li>**Adopt <a href="https://arxiv.org/abs/2609.03153">VeriPhy</a> auditable evaluation** for world model research — traceable verdicts with evidence provenance set a new standard for evaluation rigor.</li>
+<li>**Read <a href="https://arxiv.org/abs/2609.03774">RIWM</a>** before deploying world models in safety-critical settings — the three structural mismatches (likelihood vs. risk, prediction vs. intervention, finite-horizon vs. consequences) reframe evaluation priorities.</li>
+<li>**Benchmark on <a href="https://arxiv.org/abs/2609.03952">WorldReward-Bench</a>** — the first standardized reward model benchmark for world models.</li>
+</ol>
+<h3>For Applied Scientists & Engineers</h3>
+<ol>
+<li>**Implement <a href="https://arxiv.org/abs/2609.03681">WISE</a> imagination scheduling** in VLA training loops — 80% GPU reduction is immediately actionable.</li>
+<li>**Follow the <a href="https://arxiv.org/abs/2609.03602">SV-WAM</a> pattern** for autonomous driving — surround-view coverage with action-centered causal masking maintains safety without sacrificing efficiency.</li>
+<li>**Use <a href="https://arxiv.org/abs/2609.02886">SolarWM</a> open stack** for video world model prototyping — fully open data, code, weights, and recipes from 5B to 33B parameters.</li>
+<li>**Deploy <a href="https://arxiv.org/abs/2609.02542">WM-LOCO</a> pattern** for humanoid locomotion — 93.3% real deployment on commercially available <a href="https://arxiv.org/abs/2609.02542">Unitree G1</a>.</li>
+<li>**Use <a href="https://arxiv.org/abs/2608.30530">WebWorld</a> browser-as-WM** for web agent verification — the browser provides exact state transitions, eliminating learned WM errors.</li>
+</ol>
+<h3>For Search & Ads Teams</h3>
+<ol>
+<li>**Prototype <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs</a> for recommendation** — predicted-state matching could replace generative user simulation for off-policy evaluation.</li>
+<li>**Adapt <a href="https://arxiv.org/abs/2609.03952">WorldReward</a> preference decomposition** — separate relevance (action consistency) from experience quality when training recommendation reward models.</li>
+<li>**Apply <a href="https://arxiv.org/abs/2609.03681">WISE</a> selective scheduling** to focus counterfactual simulation compute on high-impact user sessions at decision boundaries.</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2609.03774">RIWM</a> consequence-aware modeling** for business-critical outcomes — shift from predicting likely user behavior to identifying behaviors that impact revenue and retention.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="takeaways">🏆 Executive Takeaways</h2>
+<h3>Top 5 Technical Advances</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a>** — WAM scaling via 120K+ hours video; 36.1% to 77.8% zero-shot success; Slow+Fast at 30 Hz | 25 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a>** — Predicted-state matching outperforms generative WMs for digital agent action selection | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.03681">WISE</a>** — 80% GPU reduction for VLA post-training via selective imagination scheduling | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.02542">WM-LOCO</a>** — World-model-augmented humanoid locomotion; 93.3% real deployment on Unitree G1 | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.03153">VeriPhy</a>** — Auditable physics verification for world models; 228/304 failures detected with traceable provenance | 20 min</li>
+</ol>
+<h3>Top 5 Business Developments</h3>
+<ol>
+<li>**<a href="https://openrouter.ai/openai/gpt-6-astra">GPT-6 Astra released</a>** — New OpenAI frontier model; strengthens LLM-as-implicit-world-model backbone</li>
+<li>**<a href="https://arxiv.org/abs/2609.02886">SolarWM fully open release</a>** — First complete open video WM stack (data + code + weights + recipes, 5B-33B)</li>
+<li>**<a href="https://www.nytimes.com/2026/09/04/technology/open-source-ai-anthropic-openai.html">Corporate America embraces open-source AI</a>** — Enterprise open-source adoption accelerates; aligns with SolarWM/Puffin-World releases</li>
+<li>**<a href="https://arxiv.org/abs/2609.03602">4 driving WAMs in one week</a>** — Autonomous driving WAMs reach benchmark maturity; deployment imminent</li>
+<li>**<a href="https://developer.nvidia.com/blog/scale-av-perception-across-vehicle-platforms-with-nvidia-omniverse-nurec/">NVIDIA Omniverse NuRec</a>** — AV simulation infrastructure for world model training data</li>
+</ol>
+<h3>Top 5 Must-Read Resources</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a>** — WAM scaling law evidence via video pre-training | 25 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a>** — Paradigm shift: discriminate, don't generate | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.03681">WISE</a>** — Imagination scheduling for efficient VLA training | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.03153">VeriPhy</a>** — Auditable world model evaluation | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.03774">RIWM</a>** — Safety-first world model framework | 15 min</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="next-week">📌 What Leaders Should Do Next Week</h2>
+<ol>
+<li>**Read <a href="https://arxiv.org/abs/2609.02885">Discriminative WMs for Web Agents</a>** — evaluate whether your world model applications need generation or discrimination; predicted-state matching may be fundamentally better for digital domains</li>
+<li>**Study <a href="https://arxiv.org/abs/2609.00188">ZimaBlue</a>'s scaling curve** — the clearest WAM scaling law evidence; use to plan data collection and compute investment</li>
+<li>**Implement <a href="https://arxiv.org/abs/2609.03681">WISE</a> imagination scheduling** — 80% GPU reduction in VLA training is immediately actionable for any team using world-model-augmented training</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2609.03153">VeriPhy</a> for world model certification** — auditable verification with traceable provenance is the new standard for safety-critical deployment</li>
+<li>**Read <a href="https://arxiv.org/abs/2609.03774">RIWM</a>** before deploying world models in regulated settings — the consequence-vs-prediction distinction is fundamental</li>
+<li>**Use <a href="https://arxiv.org/abs/2609.02886">SolarWM</a> open stack** for prototyping — the most complete open world model training resource available</li>
+<li>**Track autonomous driving WAM convergence** — <a href="https://arxiv.org/abs/2609.03602">SV-WAM</a>, <a href="https://arxiv.org/abs/2609.03572">Drive-HWM</a>, <a href="https://arxiv.org/abs/2609.03225">StyleDrive</a>, and <a href="https://arxiv.org/abs/2609.00111">Qwen-Drive-1.0</a> signal imminent deployment</li>
+<li>**Assess <a href="https://openrouter.ai/openai/gpt-6-astra">GPT-6 Astra</a> capabilities** for hybrid LLM+world model systems — each frontier model upgrade strengthens the implicit world model backbone</li>
+</ol>
+<hr class="section-divider">
+<p>*Report generated: September 5, 2026 | Covering: August 30–September 5, 2026 (WK36)*</p>
+<p>*Topic: World Models | Sources: arXiv cs.LG/cs.AI/cs.RO, HuggingFace Papers, NVIDIA Developer, Hacker News, Google Scholar*</p>
+<p>*Prior reports: <a href="world-models-2026-07-WK30-news.md">WK30</a>, <a href="world-models-2026-08-WK31-news.md">WK31</a>, <a href="world-models-2026-08-WK34-news.md">WK34</a>, <a href="world-models-2026-08-WK35-news.md">WK35</a> | Next report: WK37*</p>
+<hr class="section-divider">
+<div class="meta"><p>Generated by render_html.py from markdown source.</p></div>
+</main>
+</div>
+<script>window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+    const btn = document.getElementById('backToTop');
+    btn.classList.toggle('visible', winScroll > 400);
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));</script>
+</body>
+</html>

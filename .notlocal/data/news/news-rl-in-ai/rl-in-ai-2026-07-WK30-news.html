@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RL in AI Weekly Briefing (Week 30)</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #7c3aed); z-index: 1000; transition: width 0.1s; }
+body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.7; color: #1a1a2e; background: #fafafa; padding: 2rem 1.5rem; margin: 0; }
+.layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 2rem; }
+.toc { position: sticky; top: 1rem; width: 220px; min-width: 220px; height: fit-content; max-height: calc(100vh - 2rem); overflow-y: auto; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; padding: 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; scrollbar-width: thin; }
+.toc h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.75rem; }
+.toc a { display: block; padding: 0.3rem 0.5rem; color: #475569; text-decoration: none; border-radius: 4px; margin-bottom: 2px; transition: all 0.2s; }
+.toc a:hover, .toc a.active { background: #eff6ff; color: #2563eb; }
+.main-content { flex: 1; max-width: 900px; min-width: 0; }
+h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; font-weight: 700; color: #0f0f23; margin-bottom: 0.25rem; letter-spacing: -0.5px; }
+.header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.subtitle { font-style: italic; color: #555; font-size: 0.95rem; }
+.reading-time { display: inline-block; background: #eff6ff; color: #2563eb; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 12px; }
+h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.4rem; font-weight: 600; color: #16213e; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e8e8f0; }
+h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 600; color: #1a1a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; font-weight: 600; color: #333; margin-top: 1rem; margin-bottom: 0.4rem; }
+p { margin-bottom: 1rem; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.baseline-note { background: #f0f4ff; border-left: 4px solid #2563eb; padding: 0.75rem 1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #1e40af; }
+.executive-briefing { background: #f8f9fc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+.executive-briefing p { margin-bottom: 0.75rem; }
+.executive-briefing strong { color: #0f0f23; }
+.hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2rem; }
+.hero-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem; text-align: center; transition: box-shadow 0.2s; }
+.hero-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.hero-card .hero-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+.hero-card .hero-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.9rem; color: #1a1a2e; margin-bottom: 0.4rem; }
+.hero-card .hero-link { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; }
+.callout { border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; }
+.callout-insight { background: #eff6ff; border-left: 4px solid #2563eb; }
+.callout-risk { background: #fef2f2; border-left: 4px solid #dc2626; }
+.callout-opportunity { background: #f0fdf4; border-left: 4px solid #16a34a; }
+.callout-number { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; text-align: center; margin: 1rem 0; }
+.callout-number .big-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2.2rem; font-weight: 700; color: #0f0f23; }
+.callout-number .number-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
+.key-numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.88rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+th { background: #f1f5f9; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; color: #334155; border-bottom: 2px solid #cbd5e1; }
+td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #eff6ff; }
+ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+.score-pill { display: inline-block; border-radius: 4px; padding: 0.2rem 0.5rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; font-weight: 600; margin-right: 0.4rem; margin-bottom: 0.25rem; }
+.score-high { background: #dcfce7; color: #166534; }
+.score-mid { background: #fef9c3; color: #854d0e; }
+.score-low { background: #fee2e2; color: #991b1b; }
+.dev-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+.dev-card h3 { margin-top: 0; color: #0f0f23; }
+.signal { display: inline-block; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; }
+.signal-research { background: #ede9fe; color: #6d28d9; }
+.signal-prototype { background: #fef3c7; color: #92400e; }
+.signal-production { background: #d1fae5; color: #065f46; }
+.section-divider { border: none; border-top: 1px solid #e8e8f0; margin: 2.5rem 0; }
+.action-list { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.action-list li { font-size: 0.95rem; }
+.contrarian { background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.watch-list-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+details { margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+details summary { padding: 0.75rem 1rem; background: #f8fafc; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; color: #334155; }
+details summary:hover { background: #f1f5f9; }
+details[open] summary { border-bottom: 1px solid #e2e8f0; }
+details .details-content { padding: 1rem; }
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: #2563eb; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(37,99,235,0.3); z-index: 999; }
+.back-to-top.visible { display: flex; }
+.meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
+@media (max-width: 768px) { .layout { flex-direction: column; } .toc { display: none; } .hero-grid { grid-template-columns: 1fr; } body { padding: 1rem; } h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } table { font-size: 0.8rem; } .key-numbers-grid { grid-template-columns: repeat(2, 1fr); } }</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+<div class="layout">
+<nav class="toc" id="toc">
+    <h4>Contents</h4>
+    <a href="#executive-briefing">📋 Executive Briefing</a>
+    <a href="#what-changed">⚡ What Changed</a>
+    <a href="#top-technical">🔬 Top Technical</a>
+    <a href="#lab-scorecards">🏢 Lab Scorecards</a>
+    <a href="#open-source">🌐 Open-Source</a>
+    <a href="#business">💰 Business & Market</a>
+    <a href="#research">📄 Research Papers</a>
+    <a href="#research-blogs">🧬 Research Blogs</a>
+    <a href="#blogs">🛠️ Engineering Blogs</a>
+    <a href="#github">📦 GitHub Projects</a>
+    <a href="#media">🎙️ Videos & Podcasts</a>
+    <a href="#community">💬 Community</a>
+    <a href="#themes">📈 Emerging Themes</a>
+    <a href="#trends">📊 Trend Tracking</a>
+    <a href="#implications-1">🏗️ Implications fo</a>
+    <a href="#implications-2">🔍 Implications fo</a>
+    <a href="#watchlist">👀 Watch List</a>
+    <a href="#contrarian">🔮 Contrarian View</a>
+    <a href="#strategy">🧭 Strategic Analysis</a>
+    <a href="#relevance">🎯 Personalized</a>
+    <a href="#recommendations">✅ Recommendations</a>
+    <a href="#takeaways">🏆 Takeaways</a>
+    <a href="#next-week">📌 Next Week</a>
+</nav>
+<main class="main-content">
+<h1>RL in AI Weekly Briefing (Week 30)</h1>
+<div class="header-meta"><span class="subtitle">Week 30 | July 19–25, 2026</span><span class="reading-time">⏱️ 15 min read</span></div>
+<div class="baseline-note"><strong>First report &mdash; baseline established.</strong> All trend tracking, Watch List, and prediction scoring begin from this issue.</div>
+<h2 id="executive-briefing">📋 Executive Briefing</h2>
+<p>A landmark week for RL theory and GRPO practice. Three developments stand out: (1) a **fundamental impossibility result** (<a href="https://arxiv.org/abs/2607.23364">2607.23364</a>) proves no GRPO variant can be simultaneously unbiased and length-invariant, forcing practitioners to choose; (2) **RLSVR** (<a href="https://arxiv.org/abs/2607.23802">2607.23802</a>) extends verifiable-reward RL to open-ended tasks via self-play task transformation, breaking RLVR out of its math/code silo; and (3) a **"dark room" pathology** (<a href="https://arxiv.org/abs/2607.21273">2607.21273</a>) exposes how dense prediction rewards collapse GRPO-trained agents, with the surprising finding that even shuffled labels perform comparably.</p>
+<p>The broader signal: GRPO has become the de facto RL method for LLM post-training, appearing in 30+ papers this week alone. But its limitations are now being rigorously characterized — length bias, normalization pathologies, and efficiency gaps are all under active attack.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="what-changed">⚡ What Changed Since Last Week</h2>
+<ul>
+<li>**<a href="https://arxiv.org/abs/2607.23364">Impossibility result for GRPO</a>** — no weighting can be both unbiased and length-invariant</li>
+<li>**<a href="https://arxiv.org/abs/2607.23802">RLSVR breaks RLVR out of math/code</a>** — self-play enables RL on summarization, creative writing</li>
+<li>**<a href="https://arxiv.org/abs/2607.21273">Dark Room collapse identified</a>** — dense rewards + GRPO normalization = degenerate agents</li>
+<li>**<a href="https://arxiv.org/abs/2607.24484">Reward model memorization exposed</a>** — RMs learn shortcuts, not preferences</li>
+<li>**<a href="https://arxiv.org/abs/2607.22186">ESTR achieves 2.6× async speedup</a>** — entropy-scaled trust regions match GRPO accuracy</li>
+<li>**<a href="https://arxiv.org/abs/2607.22002">VIGOR reduces rollouts 2.3×</a>** — variance-guided allocation for efficient GRPO</li>
+<li>**<a href="https://github.com/huggingface/trl/pull/6024">TRL fixes DAPO/CISPO/VESPO normalization</a>** — critical bug fix for GRPO variants</li>
+<li>**<a href="https://arxiv.org/abs/2607.24653">Kimi K3 released</a>** — 3T parameter open-weight model with RL across general/agentic/coding domains</li>
+<li>**<a href="https://arxiv.org/abs/2607.21655">Progress Reward Models survey</a>** — unified framework for step-level rewards in robotic/agentic learning</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="top-technical">🔬 Top Technical Developments</h2>
+<h3>1. The Impossibility of Unbiased + Length-Invariant GRPO</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>9/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>6/10</td></tr>
+<tr><td>Personal Relevance</td><td>10/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2607.23364">On the Impossibility of Unbiased and Length-Invariant Policy Optimization with Outcome Rewards</a> — Ding et al. | **Reading time:** 15 min</p>
+<p>Proves that no weighting scheme for GRPO can simultaneously achieve gradient unbiasedness and length invariance. Characterizes the tradeoff via a parametric family f_α(L) = L^(α-1), where α=0 is GRPO and α=1 is Dr. GRPO. Longer trajectories dominate updates proportional to the length ratio.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** Every team training reasoning models with GRPO must now consciously choose which property to sacrifice. This explains observed length bias in practice.</p>
+</div>
+<hr class="section-divider">
+<h3>2. RLSVR: Self-Verifiable Rewards for Open-Ended Tasks</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Personal Relevance</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2607.23802">From RLVR to RLSVR: Task Transformation Induces Self-Verifiable Rewards</a> — Wang et al. | **Reading time:** 12 min</p>
+<p>Transforms open-ended tasks (summarization, creative writing) into multi-agent self-play environments (SpyRL, inspired by "Who Is the Spy?") where voting outcomes provide fully verifiable rewards. Outperforms self-improvement baselines on non-verifiable tasks while maintaining math/code gains.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** If the approach generalizes, it unlocks RL self-improvement for instruction-following, creative tasks, and dialogue — domains previously locked out of RLVR.</p>
+</div>
+<hr class="section-divider">
+<h3>3. The Dark Room: Dense Rewards Collapse GRPO Agents</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>6/10</td></tr>
+<tr><td>Personal Relevance</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2607.21273">The Dark Room in the Reward Channel</a> — Wang | **Reading time:** 10 min</p>
+<p>Shows that dense per-step prediction rewards cause GRPO-trained LLM agents to collapse into degenerate states (prediction accuracy → 1.0, task success → 0). Isolates GRPO's z-score normalization as the culprit. Proposes a "variance-profile criterion" to predict vulnerable reward signals. Auxiliary-loss channels outperform reward channels by ~20 points. Even shuffled labels perform comparably to true signals.</p>
+<div class="callout callout-risk">
+<p>⚠️ **Risk:** Any team using dense reward signals with GRPO should immediately audit their training for this pathology.</p>
+</div>
+<hr class="section-divider">
+<h3>4. What Do Reward Models Memorize?</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Personal Relevance</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2607.24484">What do Reward Models Memorize?</a> — Verhoeven, Mishra, Shutova | **Reading time:** 12 min</p>
+<p>Counterfactual memorization analysis reveals three failure modes: (1) RMs focus on easy, high-margin pairs rather than hard cases; (2) they learn dataset-specific shortcuts (model identity, sampling strategy); (3) they overgeneralize heuristics like response length. Concludes RMs are "not yet capable of judging response quality in context-dependent scenarios."</p>
+<div class="callout callout-risk">
+<p>⚠️ **Risk:** This challenges the RLHF pipeline's foundational assumption that reward models learn generalizable preferences.</p>
+</div>
+<hr class="section-divider">
+<h3>5. Entropy-Scaled Trust Regions (ESTR) for Async RL</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Personal Relevance</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2607.22186">Deconstructing Off-Policy Ratios: Entropy-Scaled Trust Regions</a> — Zhao et al. | **Reading time:** 10 min</p>
+<p>Reveals that importance ratio scale varies systematically with token entropy. Low-entropy tokens amplify noise; high-entropy tokens represent legitimate exploration. ESTR adjusts deviation tolerance per-token based on local entropy. Achieves GRPO-comparable accuracy with **2.6× training speedup**.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** Drop-in efficiency win for any team running async GRPO at scale.</p>
+</div>
+<hr class="section-divider">
+<h3>6. VIGOR: Progressive Rollout Allocation for Efficient GRPO</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Personal Relevance</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2607.22002">Learning as Reasoning Unfolds: Progressive Rollout Allocation</a> — Jiang, Liu, Mirzasoleiman | **Reading time:** 10 min</p>
+<p>VIGOR allocates rollouts adaptively based on reward variance rather than uniformly. High-variance examples get more rollouts; converged examples get fewer. Achieves 2.3× fewer rollouts for math reasoning, 1.49× for coding, with 3.4-point pass rate improvement.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** GRPO's compute cost scales linearly with rollouts-per-example. Adaptive allocation is a simple, architecture-agnostic efficiency win.</p>
+</div>
+<hr class="section-divider">
+<h3>7. ACRL: Managing FP8 Training-Inference Discrepancy</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>6/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Personal Relevance</td><td>6/10</td></tr>
+<tr><td>Confidence</td><td>Medium</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2607.24062">ACRL: Adaptive Control of Training-Inference Discrepancy for Stable RL</a> — Fan et al. | **Reading time:** 8 min</p>
+<p>Addresses instability when RL inference uses FP8 quantization while training runs at higher precision. ACRL keeps discrepancy bounded while inherently increasing policy entropy (better exploration). Matches BF16 accuracy while outperforming importance sampling alternatives.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** Enables cheaper RL pipelines without sacrificing stability — directly relevant to anyone running GRPO at scale with quantized inference.</p>
+</div>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="lab-scorecards">🏢 Frontier Lab Scorecards</h2>
+<table>
+<thead><tr><th>Lab</th><th>Releases</th><th>Research</th><th>Strategic Direction</th></tr></thead><tbody>
+<tr><td>**Anthropic**</td><td>—</td><td><a href="https://www.anthropic.com/research">Off switch for dual-use knowledge</a> (Jul 8); <a href="https://www.anthropic.com/research">Global workspace in language models</a> (Jul 6)</td><td>Alignment-focused interpretability; no direct RL publications this week</td></tr>
+<tr><td>**Moonshot AI**</td><td><a href="https://arxiv.org/abs/2607.24653">Kimi K3</a> (3T params, open-weight)</td><td>RL across general, agentic, and coding domains with reasoning-effort levels</td><td>Aggressive open-weight strategy competing with Qwen/DeepSeek</td></tr>
+<tr><td>**Baidu (PaddlePaddle)**</td><td>—</td><td><a href="https://arxiv.org/abs/2607.22186">ESTR</a> async RL speedup (2.6×)</td><td>Investing in RL training infrastructure efficiency</td></tr>
+</tbody></table>
+<p>No significant RL-specific activity from OpenAI, Google DeepMind, Meta AI, Microsoft, NVIDIA, or xAI this week.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="open-source">🌐 Open-Source Ecosystem Tracking</h2>
+<table>
+<thead><tr><th>Project</th><th>Activity</th><th>Trajectory</th></tr></thead><tbody>
+<tr><td>**<a href="https://github.com/huggingface/trl">TRL</a>**</td><td>7 commits: GRPO variant fixes, PPO entropy, async metrics, reward validation</td><td>➡️ Stable</td></tr>
+<tr><td>**CleanRL**</td><td>No releases this week</td><td>➡️ Stable</td></tr>
+<tr><td>**Stable Baselines3**</td><td>No releases this week</td><td>➡️ Stable</td></tr>
+<tr><td>**<a href="https://huggingface.co/moonshotai/Kimi-K3">Kimi-K3</a>**</td><td>Model release on HuggingFace</td><td>📈 New entry</td></tr>
+<tr><td>**<a href="https://github.com/cactus-compute/cactus-hybrid">cactus-hybrid</a>**</td><td>New — teaching Gemma 4 uncertainty awareness</td><td>📈 New entry</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="business">💰 Business & Market Intelligence</h2>
+<ul>
+<li>**<a href="https://arxiv.org/abs/2607.24653">Kimi K3</a> (Moonshot AI)** released as open-weight (3T parameters), intensifying the competition for RL-trained frontier models. Chinese labs continue aggressive open-weight strategy.</li>
+<li>**TRL production-readiness milestone** — the <a href="https://github.com/huggingface/trl/pull/6024">DAPO/CISPO/VESPO normalization fix</a> signals these GRPO variants are moving from experimental to production in HuggingFace's stack.</li>
+<li>**Async RL infrastructure** (ESTR, ACRL) enables 2–3× cost reduction at scale — material for any team running RLHF training budgets in the millions.</li>
+<li>**RLSVR** potentially unlocking RL for non-technical product domains (summarization, dialogue) — could expand the market for RL-as-a-service platforms.</li>
+<li>**Reward model quality concerns** (<a href="https://arxiv.org/abs/2607.24484">2607.24484</a>) may slow RM-as-a-service adoption until memorization issues are addressed.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research">📄 Research Papers</h2>
+<h3>Tier 1 — Must-Read</h3>
+<table>
+<thead><tr><th>#</th><th>Paper</th><th>ArXiv</th><th>Key Insight</th></tr></thead><tbody>
+<tr><td>1</td><td>Impossibility of Unbiased + Length-Invariant PO</td><td><a href="https://arxiv.org/abs/2607.23364">2607.23364</a></td><td>Fundamental tradeoff in GRPO</td></tr>
+<tr><td>2</td><td>From RLVR to RLSVR</td><td><a href="https://arxiv.org/abs/2607.23802">2607.23802</a></td><td>Self-play enables RL on open-ended tasks</td></tr>
+<tr><td>3</td><td>The Dark Room in the Reward Channel</td><td><a href="https://arxiv.org/abs/2607.21273">2607.21273</a></td><td>Dense rewards collapse GRPO agents</td></tr>
+<tr><td>4</td><td>What do Reward Models Memorize?</td><td><a href="https://arxiv.org/abs/2607.24484">2607.24484</a></td><td>RMs memorize shortcuts, not preferences</td></tr>
+<tr><td>5</td><td>Entropy-Scaled Trust Regions</td><td><a href="https://arxiv.org/abs/2607.22186">2607.22186</a></td><td>2.6× speedup for async GRPO</td></tr>
+<tr><td>6</td><td>VIGOR Progressive Rollout</td><td><a href="https://arxiv.org/abs/2607.22002">2607.22002</a></td><td>2.3× fewer rollouts via variance-guided allocation</td></tr>
+<tr><td>7</td><td>ACRL Training-Inference Discrepancy</td><td><a href="https://arxiv.org/abs/2607.24062">2607.24062</a></td><td>FP8 stability for RL</td></tr>
+<tr><td>8</td><td>Progress Reward Models Survey</td><td><a href="https://arxiv.org/abs/2607.21655">2607.21655</a></td><td>Unified framework for step-level rewards</td></tr>
+<tr><td>9</td><td>When RLVR Shrinks Reasoning Boundary</td><td><a href="https://arxiv.org/abs/2607.20543">2607.20543</a></td><td>Pass@k inversion diagnosis</td></tr>
+<tr><td>10</td><td>Rushes: Pluralistic Alignment</td><td><a href="https://arxiv.org/abs/2607.20767">2607.20767</a></td><td>Population RLHF fails personalization</td></tr>
+</tbody></table>
+<h3>Tier 2 — Noteworthy</h3>
+<table>
+<thead><tr><th>#</th><th>Paper</th><th>ArXiv</th><th>Key Insight</th></tr></thead><tbody>
+<tr><td>11</td><td>QLPO Length-Aware Optimization</td><td><a href="https://arxiv.org/abs/2607.21793">2607.21793</a></td><td>Implicit length control in GRPO</td></tr>
+<tr><td>12</td><td>Kimi K3</td><td><a href="https://arxiv.org/abs/2607.24653">2607.24653</a></td><td>RL across general/agentic/coding domains</td></tr>
+<tr><td>13</td><td>Nanbeige4.2-3B</td><td><a href="https://arxiv.org/abs/2607.22083">2607.22083</a></td><td>Mixed-mode RLHF for compact reasoning</td></tr>
+<tr><td>14</td><td>LA-RL Label-Aware Self-Reflection</td><td><a href="https://arxiv.org/abs/2607.23420">2607.23420</a></td><td>Two-stage GRPO without process RMs</td></tr>
+<tr><td>15</td><td>Reliability-Aware LLM Alignment</td><td><a href="https://arxiv.org/abs/2607.20515">2607.20515</a></td><td>Handling inconsistent annotations</td></tr>
+<tr><td>16</td><td>HyGAE Hybrid Advantage Estimation</td><td><a href="https://arxiv.org/abs/2607.23605">2607.23605</a></td><td>Token + turn-level objectives for VLM agents</td></tr>
+<tr><td>17</td><td>Domyn-Small 10B</td><td><a href="https://arxiv.org/abs/2607.20448">2607.20448</a></td><td>Multi-environment GRPO (math + code + IF)</td></tr>
+<tr><td>18</td><td>Offline-Online Curriculum RL</td><td><a href="https://arxiv.org/abs/2607.23700">2607.23700</a></td><td>Critical reasoning steps via O²-CritiCuRL</td></tr>
+<tr><td>19</td><td>Discrete Action Prerequisite for GRPO</td><td><a href="https://arxiv.org/abs/2607.21626">2607.21626</a></td><td>GRPO fails on continuous control</td></tr>
+<tr><td>20</td><td>Adversarial Style Optimization via GRPO</td><td><a href="https://arxiv.org/abs/2607.21619">2607.21619</a></td><td>Structured reward for VLM jailbreaks</td></tr>
+</tbody></table>
+<h3>Tier 3 — Domain Applications</h3>
+<table>
+<thead><tr><th>#</th><th>Paper</th><th>ArXiv</th><th>Domain</th></tr></thead><tbody>
+<tr><td>21</td><td>EviBack: Search-Agent RL</td><td><a href="https://arxiv.org/abs/2607.23955">2607.23955</a></td><td>RAG with verifiable rewards</td></tr>
+<tr><td>22</td><td>MemChain: Memory Policy Optimization</td><td><a href="https://arxiv.org/abs/2607.24097">2607.24097</a></td><td>Agent memory management</td></tr>
+<tr><td>23</td><td>CALM: Controller-Aware Training</td><td><a href="https://arxiv.org/abs/2607.23771">2607.23771</a></td><td>Multi-task inference-time control</td></tr>
+<tr><td>24</td><td>Continual-RL for Autonomous Racing</td><td><a href="https://arxiv.org/abs/2607.24320">2607.24320</a></td><td>Sim-to-real robotics</td></tr>
+<tr><td>25</td><td>Hierarchical SAC for Sparse Rewards</td><td><a href="https://arxiv.org/abs/2607.23726">2607.23726</a></td><td>Long-horizon HRL</td></tr>
+<tr><td>26</td><td>GNN Multi-Agent Traffic Control</td><td><a href="https://arxiv.org/abs/2607.23792">2607.23792</a></td><td>Decentralized MARL</td></tr>
+<tr><td>27</td><td>LEACL: LLM-Enhanced Curriculum</td><td><a href="https://arxiv.org/abs/2607.23515">2607.23515</a></td><td>Curriculum generation</td></tr>
+<tr><td>28</td><td>PathScale-R1</td><td><a href="https://arxiv.org/abs/2607.23794">2607.23794</a></td><td>RL for pathology VQA</td></tr>
+<tr><td>29</td><td>ObsDriveBench</td><td><a href="https://arxiv.org/abs/2607.23537">2607.23537</a></td><td>Adverse-weather driving RL</td></tr>
+<tr><td>30</td><td>Constrained RL via Successor Representations</td><td><a href="https://arxiv.org/abs/2607.24057">2607.24057</a></td><td>Safe RL theory</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research-blogs">🧬 Research Blogs</h2>
+<details><summary>Research Blogs</summary><div class="details-content"><table>
+<thead><tr><th>#</th><th>Title</th><th>Source</th><th>Summary</th></tr></thead><tbody>
+<tr><td>1</td><td>From GRPO to DAPO and GSPO: What, Why, and How</td><td><a href="https://huggingface.co/blog">HuggingFace Blog</a></td><td>Deep-dive into GRPO variants — DAPO removes KL penalty, GSPO adds group-level baselines</td></tr>
+<tr><td>2</td><td>An off switch for dual-use knowledge</td><td><a href="https://www.anthropic.com/research">Anthropic Research</a></td><td>Mechanisms for selectively disabling dangerous capabilities in trained models</td></tr>
+<tr><td>3</td><td>A global workspace in language models</td><td><a href="https://www.anthropic.com/research">Anthropic Research</a></td><td>Discovery of emergent internal workspace — implications for RL-shaped reasoning</td></tr>
+<tr><td>4</td><td>Cactus Hybrid: Teaching Gemma 4 uncertainty</td><td><a href="https://github.com/cactus-compute/cactus-hybrid">GitHub</a></td><td>Open-source project training models to recognize when they're wrong</td></tr>
+<tr><td>5</td><td>The Physics of Multi-Turn Long-Horizon Planning</td><td><a href="https://arxiv.org/abs/2607.24720">arXiv:2607.24720</a></td><td>Planning ability via GRPO and on-policy distillation</td></tr>
+<tr><td>6</td><td>Beyond Shapley: Data Auditing for LLM Alignment</td><td><a href="https://arxiv.org/abs/2607.22766">arXiv:2607.22766</a></td><td>Uncovers hidden preference inversions in HH-RLHF dataset</td></tr>
+<tr><td>7</td><td>Codifying the Judge: Scalable Evaluation</td><td><a href="https://arxiv.org/abs/2607.22561">arXiv:2607.22561</a></td><td>Programmatic judges outperform proprietary LLM-based reward models</td></tr>
+<tr><td>8</td><td>Artificial Epanorthosis: Why LLMs Overuse Rhetoric</td><td><a href="https://arxiv.org/abs/2607.21498">arXiv:2607.21498</a></td><td>Preference tuning rewards cause rhetorical artifacts</td></tr>
+<tr><td>9</td><td>From Evaluation to Optimisation: Hierarchy-Aware Signals</td><td><a href="https://arxiv.org/abs/2607.21069">arXiv:2607.21069</a></td><td>GRPO with hierarchical penalties beats SFT under distribution shift</td></tr>
+<tr><td>10</td><td>VlogReward: Multi-Dimensional Evaluation</td><td><a href="https://arxiv.org/abs/2607.22632">arXiv:2607.22632</a></td><td>Adjustable inter-group comparison rewards for video assessment</td></tr>
+</tbody></table>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="blogs">🛠 ️ Engineering Blogs</h2>
+<table>
+<thead><tr><th>#</th><th>Title</th><th>Source</th><th>Impact</th></tr></thead><tbody>
+<tr><td>1</td><td>Fix DAPO/CISPO/VESPO loss normalization</td><td><a href="https://github.com/huggingface/trl/pull/6024">TRL #6024</a></td><td>Critical GRPO variant bug fix</td></tr>
+<tr><td>2</td><td>Exclude padding tokens from PPO entropy</td><td><a href="https://github.com/huggingface/trl/pull/6121">TRL #6121</a></td><td>Exploration-exploitation balance</td></tr>
+<tr><td>3</td><td>Validate reward functions return one reward per completion</td><td><a href="https://github.com/huggingface/trl/pull/6534">TRL #6534</a></td><td>Prevents silent reward failures</td></tr>
+<tr><td>4</td><td>AsyncGRPO step time metric</td><td><a href="https://github.com/huggingface/trl/pull/6490">TRL #6490</a></td><td>Profiling distributed RL bottlenecks</td></tr>
+<tr><td>5</td><td>Respect TQDM_DISABLE in DPO/KTO/BCO loops</td><td><a href="https://github.com/huggingface/trl/pull/6507">TRL #6507</a></td><td>CI/headless environment compatibility</td></tr>
+<tr><td>6</td><td>Allow packing and padding-free on VLMs</td><td><a href="https://github.com/huggingface/trl">TRL</a></td><td>Mixed modality training efficiency</td></tr>
+<tr><td>7</td><td>Hotfix Xfail NemotronH GRPO/RLOO tests</td><td><a href="https://github.com/huggingface/trl">TRL</a></td><td>CI stability for GRPO/RLOO</td></tr>
+<tr><td>8</td><td>Kimi K3 Technical Report</td><td><a href="https://arxiv.org/abs/2607.24653">arXiv:2607.24653</a></td><td>Engineering details of 3T param RL training</td></tr>
+<tr><td>9</td><td>Nanbeige4.2-3B Agentic Capabilities</td><td><a href="https://arxiv.org/abs/2607.22083">arXiv:2607.22083</a></td><td>Compact reasoning model with mixed-mode RLHF</td></tr>
+<tr><td>10</td><td>Domyn-Small European 10B</td><td><a href="https://arxiv.org/abs/2607.20448">arXiv:2607.20448</a></td><td>Multi-environment GRPO for sovereign model</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="github">📦 GitHub Projects</h2>
+<details><summary>GitHub Projects</summary><div class="details-content"><table>
+<thead><tr><th>Project</th><th>Activity</th><th>Trajectory</th></tr></thead><tbody>
+<tr><td>**<a href="https://github.com/huggingface/trl">huggingface/trl</a>**</td><td>7 commits (GRPO fixes, PPO entropy, async metrics)</td><td>➡️ Stable</td></tr>
+<tr><td>**<a href="https://github.com/cactus-compute/cactus-hybrid">cactus-compute/cactus-hybrid</a>**</td><td>New — teaching Gemma 4 uncertainty awareness</td><td>📈 New entry</td></tr>
+<tr><td>**<a href="https://huggingface.co/moonshotai/Kimi-K3">moonshotai/Kimi-K3</a>**</td><td>Model release on HuggingFace</td><td>📈 New entry</td></tr>
+</tbody></table>
+<p>No major RL-specific framework releases this week (CleanRL, Stable Baselines3, RLlib quiet).</p>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="media">🎙 ️ Videos & Podcasts</h2>
+<details><summary>️ Videos & Podcasts</summary><div class="details-content"><p>No significant RL-focused podcast episodes or talks identified for July 19–25, 2026. The broader AI podcast ecosystem (Latent Space, Gradient Dissent) focused on Claude Opus 5 and NVIDIA Rubin this week.</p>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="community">💬 Community Insights</h2>
+<p>**Hacker News (Jul 22–24):**</p>
+<ul>
+<li><a href="https://github.com/cactus-compute/cactus-hybrid">Cactus Hybrid</a> (186 pts, 44 comments) — teaching models to know when they're wrong. Community debate around calibration vs. RL-based uncertainty.</li>
+<li>GRPO-related papers did not independently reach the front page this week, suggesting RL-for-LLMs discourse remains primarily within the research community.</li>
+</ul>
+<p>**Key tension:** Practitioners are increasingly aware that GRPO "just works" on math/code but are uncertain about its generalization. The impossibility result and dark-room finding haven't yet percolated to mainstream dev communities.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="themes">📈 Emerging Themes</h2>
+<ol>
+<li>**GRPO's dominance is being rigorously stress-tested.** Impossibility results, collapse pathologies, length bias — the community is moving from "GRPO works" to "here's exactly when and why it breaks."</li>
+<li>**Self-play as the path beyond verifiable rewards.** <a href="https://arxiv.org/abs/2607.23802">RLSVR</a> and similar approaches suggest multi-agent games can generate reward signals for tasks that lack ground truth.</li>
+<li>**Async/distributed RL is the scaling bottleneck.** <a href="https://arxiv.org/abs/2607.22186">ESTR</a> and <a href="https://arxiv.org/abs/2607.24062">ACRL</a> both address the practical reality that large-scale RL training is inherently asynchronous and quantized.</li>
+<li>**Process rewards vs. outcome rewards remains unresolved.** The <a href="https://arxiv.org/abs/2607.21273">dark-room finding</a> and the <a href="https://arxiv.org/abs/2607.21655">progress-RM survey</a> show ongoing tension between dense step-level feedback (more signal, but fragile) and sparse outcome rewards (robust, but sample-inefficient).</li>
+<li>**GRPO variant fragmentation.** DAPO, CISPO, VESPO, QLPO, Dr. GRPO, Discriminative GRPO — the ecosystem is splintering with no clear winner yet.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="trends">📊 Trend Tracking Over Time</h2>
+<p>*First report — baseline established. Tracking begins:*</p>
+<table>
+<thead><tr><th>Theme</th><th>First Noted</th><th>Consecutive Weeks</th><th>Momentum</th></tr></thead><tbody>
+<tr><td>GRPO as default LLM RL optimizer</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>GRPO limitations being characterized</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Self-play for non-verifiable rewards</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Async RL infrastructure</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Process vs. outcome rewards tension</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-1">🏗 ️ Implications for LLM Builders</h2>
+<ol>
+<li>**The impossibility result (<a href="https://arxiv.org/abs/2607.23364">2607.23364</a>) demands a stance:** choose length bias or gradient bias. For reasoning models where output length varies 10×, this choice materially affects what the model learns. Consider α ∈ (0, 1) as a hyperparameter rather than defaulting to α=0.</li>
+<li>**Audit dense rewards for dark-room collapse:** If you use per-step prediction rewards (common in agentic training), check whether your reward signal's variance profile is vulnerable. The <a href="https://arxiv.org/abs/2607.21273">variance-profile criterion</a> is a cheap diagnostic.</li>
+<li>**<a href="https://arxiv.org/abs/2607.22186">ESTR</a> is a drop-in win for async pipelines:** 2.6× speedup with no accuracy loss. If you're running async GRPO (standard at scale), this should be straightforward to integrate.</li>
+<li>**Reward models need stress-testing:** The <a href="https://arxiv.org/abs/2607.24484">memorization findings</a> suggest RMs trained on standard preference datasets may not generalize. Consider adversarial evaluation before deploying RM-based filtering.</li>
+<li>**<a href="https://github.com/huggingface/trl">TRL</a> infrastructure is maturing:** The DAPO/CISPO/VESPO normalization fix and PPO entropy fix suggest these GRPO variants are now production-ready.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-2">🔍 Implications for Agent Designers</h2>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2607.23802">RLSVR</a> opens self-improvement for agents on open-ended tasks.** If your agents do summarization, planning, or creative generation, the SpyRL self-play environment pattern is worth prototyping.</li>
+<li>**Dense reward signals in agentic RL are risky with GRPO.** The <a href="https://arxiv.org/abs/2607.21273">dark-room finding</a> applies directly to agents trained with step-by-step rewards. Consider auxiliary losses instead of reward channels, or use sparse outcome rewards.</li>
+<li>**<a href="https://arxiv.org/abs/2607.21655">Progress Reward Models survey</a> provides a taxonomy** for designing step-level feedback in robotic and agentic tasks. The interface/mechanism/data framework helps structure reward engineering decisions.</li>
+<li>**<a href="https://arxiv.org/abs/2607.24097">MemChain</a> introduces RL for agent memory management** — Trace-Guided Memory Policy Optimization optimizes what to remember. Relevant for long-horizon agents.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="watchlist">👀 Watch List</h2>
+<div class="watch-list-box"><table>
+<thead><tr><th>Technology</th><th>First Noted</th><th>Status</th><th>This Week's Movement</th></tr></thead><tbody>
+<tr><td>GRPO impossibility tradeoff</td><td>WK30</td><td>🔬 Research-only</td><td>New — theoretical result, no algorithm fix yet</td></tr>
+<tr><td>Self-play for open-ended RL (RLSVR/SpyRL)</td><td>WK30</td><td>🧪 Early prototype</td><td>Validated on summarization/writing</td></tr>
+<tr><td>Entropy-scaled trust regions (ESTR)</td><td>WK30</td><td>🧪 Early prototype</td><td>2.6× speedup shown, awaiting replication</td></tr>
+<tr><td>Dense reward collapse (dark room)</td><td>WK30</td><td>🔬 Research-only</td><td>Diagnostic criterion proposed, no fix yet</td></tr>
+<tr><td>Adaptive rollout allocation (VIGOR)</td><td>WK30</td><td>🧪 Early prototype</td><td>Clear efficiency wins, easy to integrate</td></tr>
+<tr><td>GRPO on continuous control</td><td>WK30</td><td>🔬 Research-only</td><td>Documented failure; discrete abstraction required</td></tr>
+</tbody></table>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="contrarian">🔮 Contrarian View</h2>
+<div class="contrarian"><h3>What the community may be overestimating</h3>
+<p>**GRPO's generality.** With 30+ papers using GRPO this week, there's an implicit assumption it works everywhere. But the impossibility result, dark-room collapse, and <a href="https://arxiv.org/abs/2607.21626">discrete-action prerequisite</a> collectively suggest GRPO's success on math/code may not transfer cleanly to other domains. The next generation of RL for LLMs may need fundamentally different algorithms.</p>
+<h3>What the community may be underestimating</h3>
+<p>**The reward model bottleneck.** The <a href="https://arxiv.org/abs/2607.24484">memorization paper</a> shows RMs learn shortcuts rather than preferences. Most teams focus on the RL algorithm while treating the RM as solved. The RM may be the weakest link in the RLHF pipeline — and improvements there would compound through everything downstream.</p>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="strategy">🧭 Strategic Analysis</h2>
+<p>**Short-term (0–6 months):**</p>
+<ul>
+<li>GRPO variants will continue to dominate LLM post-training. The <a href="https://github.com/huggingface/trl">TRL</a> ecosystem will standardize around DAPO/VESPO.</li>
+<li>Async RL techniques (<a href="https://arxiv.org/abs/2607.22186">ESTR</a>, <a href="https://arxiv.org/abs/2607.24062">ACRL</a>) will be adopted by teams training at scale, reducing costs 2–3×.</li>
+<li>The impossibility result will motivate new algorithms that explicitly parameterize the length-bias tradeoff.</li>
+</ul>
+<p>**Mid-term (6–18 months):**</p>
+<ul>
+<li>Self-play approaches (<a href="https://arxiv.org/abs/2607.23802">RLSVR</a>) will expand RLVR to instruction-following and dialogue, making RL self-improvement general-purpose.</li>
+<li>Process reward models will mature, with the <a href="https://arxiv.org/abs/2607.21655">survey's taxonomy</a> becoming standard vocabulary.</li>
+<li>GRPO may face a challenger — possibly from the offline RL community or from direct preference optimization descendants.</li>
+</ul>
+<p>**Long-term (2–5 years):**</p>
+<ul>
+<li>Self-improving agents via continuous RL will become the norm for frontier labs.</li>
+<li>The reward model / verifier distinction will blur as models learn to self-verify (RLSVR direction).</li>
+<li>RL training infrastructure will commoditize, with ESTR/VIGOR-style optimizations baked into standard frameworks.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="relevance">🎯 Personalized Relevance</h2>
+<table>
+<thead><tr><th>Area</th><th>Score</th><th>This Week's Highlight</th></tr></thead><tbody>
+<tr><td>RL for LLM reasoning and alignment</td><td>10/10</td><td>Impossibility result, RLSVR, dark room</td></tr>
+<tr><td>Process reward models and verifiers</td><td>9/10</td><td>Survey paper, dark room critique</td></tr>
+<tr><td>Self-play and self-improvement loops</td><td>9/10</td><td>RLSVR/SpyRL breakthrough</td></tr>
+<tr><td>Test-time compute and inference-time RL</td><td>6/10</td><td>CALM controller-aware training</td></tr>
+<tr><td>Core algorithm improvements</td><td>8/10</td><td>ESTR, VIGOR, QLPO, ACRL</td></tr>
+<tr><td>RL infrastructure and training frameworks</td><td>7/10</td><td>TRL fixes, async metrics</td></tr>
+<tr><td>Multi-agent RL</td><td>5/10</td><td>GNN traffic control, SpyRL (tangential)</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="recommendations">✅ Recommendations</h2>
+<h3>For LLM training teams</h3>
+<ol>
+<li>Read the <a href="https://arxiv.org/abs/2607.23364">impossibility result</a> and choose your GRPO α consciously</li>
+<li>Implement the <a href="https://arxiv.org/abs/2607.21273">dark-room variance-profile diagnostic</a> on your reward signals</li>
+<li>Evaluate <a href="https://arxiv.org/abs/2607.22186">ESTR</a> if running async training — 2.6× speedup is material</li>
+<li>Stress-test your reward models with the <a href="https://arxiv.org/abs/2607.24484">counterfactual memorization framework</a></li>
+<li>Update <a href="https://github.com/huggingface/trl">TRL</a> to get the DAPO/CISPO/VESPO normalization fix</li>
+</ol>
+<h3>For agent builders</h3>
+<ol>
+<li>Prototype <a href="https://arxiv.org/abs/2607.23802">RLSVR/SpyRL</a> for self-improvement on non-verifiable tasks</li>
+<li>Prefer sparse outcome rewards over dense step rewards when using GRPO</li>
+<li>Consider auxiliary losses as an alternative to the reward channel for agentic training</li>
+<li>Review the <a href="https://arxiv.org/abs/2607.21655">Progress Reward Models survey</a> for reward engineering guidance</li>
+</ol>
+<h3>For everyone</h3>
+<ol>
+<li>Track GRPO variants (QLPO, DAPO, VESPO) — the space is fragmenting rapidly</li>
+<li>Process reward models remain promising but fragile — the <a href="https://arxiv.org/abs/2607.21655">survey</a> is a good orientation</li>
+<li>The async RL infrastructure layer (<a href="https://arxiv.org/abs/2607.22186">ESTR</a>, <a href="https://arxiv.org/abs/2607.24062">ACRL</a>) is where practical speedups live</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="takeaways">🏆 Executive Takeaways</h2>
+<h3>Top 5 Technical Advances</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2607.23364">GRPO impossibility theorem</a>** — fundamental tradeoff proven (15 min)</li>
+<li>**<a href="https://arxiv.org/abs/2607.23802">RLSVR self-play for open tasks</a>** — breaks RLVR out of math/code (12 min)</li>
+<li>**<a href="https://arxiv.org/abs/2607.21273">Dark Room GRPO collapse</a>** — practical failure mode exposed (10 min)</li>
+<li>**<a href="https://arxiv.org/abs/2607.22186">ESTR async speedup</a>** — 2.6× faster GRPO training (10 min)</li>
+<li>**<a href="https://arxiv.org/abs/2607.24484">Reward model memorization</a>** — RMs don't learn what we think (12 min)</li>
+</ol>
+<h3>Top 5 Must-Read Resources</h3>
+<ol>
+<li><a href="https://arxiv.org/abs/2607.23364">On the Impossibility of Unbiased and Length-Invariant PO</a> (15 min)</li>
+<li><a href="https://arxiv.org/abs/2607.23802">From RLVR to RLSVR</a> (12 min)</li>
+<li><a href="https://arxiv.org/abs/2607.21273">The Dark Room in the Reward Channel</a> (10 min)</li>
+<li><a href="https://arxiv.org/abs/2607.24484">What do Reward Models Memorize?</a> (12 min)</li>
+<li><a href="https://arxiv.org/abs/2607.21655">Progress Reward Models Survey</a> (20 min)</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="next-week">📌 What Leaders Should Do Next Week</h2>
+<ol>
+<li>**Audit your GRPO training** for the dark-room pathology using the variance-profile criterion</li>
+<li>**Choose your α** in the impossibility tradeoff — document the decision and its rationale</li>
+<li>**Benchmark ESTR** against your current async GRPO setup — the 2.6× claim needs validation on your workloads</li>
+<li>**Prototype SpyRL** on one non-verifiable task to assess RLSVR feasibility for your domain</li>
+<li>**Update TRL** to latest and verify DAPO/VESPO normalization is correct in your configs</li>
+<li>**Run counterfactual memorization analysis** on your reward models before the next training run</li>
+<li>**Review the Progress RM survey** to align your reward engineering vocabulary with the emerging taxonomy</li>
+<li>**Track the GRPO variant landscape** — QLPO and ESTR may converge into best practices within weeks</li>
+</ol>
+<hr class="section-divider">
+<p>*Reading time: ~18 minutes*</p>
+<p>*Sources: 30+ arXiv papers, TRL commits, Anthropic Research, HN, HuggingFace*</p>
+<p>*First report — baseline established*</p>
+<p>*Next report: WK31 (July 26 – Aug 1, 2026)*</p>
+<hr class="section-divider">
+<div class="meta"><p>Generated by render_html.py from markdown source.</p></div>
+</main>
+</div>
+<script>window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+    const btn = document.getElementById('backToTop');
+    btn.classList.toggle('visible', winScroll > 400);
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));</script>
+</body>
+</html>

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RL in AI Weekly Briefing (Week 36)</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #7c3aed); z-index: 1000; transition: width 0.1s; }
+body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.7; color: #1a1a2e; background: #fafafa; padding: 2rem 1.5rem; margin: 0; }
+.layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 2rem; }
+.toc { position: sticky; top: 1rem; width: 220px; min-width: 220px; height: fit-content; max-height: calc(100vh - 2rem); overflow-y: auto; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; padding: 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; scrollbar-width: thin; }
+.toc h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.75rem; }
+.toc a { display: block; padding: 0.3rem 0.5rem; color: #475569; text-decoration: none; border-radius: 4px; margin-bottom: 2px; transition: all 0.2s; }
+.toc a:hover, .toc a.active { background: #eff6ff; color: #2563eb; }
+.main-content { flex: 1; max-width: 900px; min-width: 0; }
+h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; font-weight: 700; color: #0f0f23; margin-bottom: 0.25rem; letter-spacing: -0.5px; }
+.header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.subtitle { font-style: italic; color: #555; font-size: 0.95rem; }
+.reading-time { display: inline-block; background: #eff6ff; color: #2563eb; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 12px; }
+h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.4rem; font-weight: 600; color: #16213e; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e8e8f0; }
+h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 600; color: #1a1a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; font-weight: 600; color: #333; margin-top: 1rem; margin-bottom: 0.4rem; }
+p { margin-bottom: 1rem; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.baseline-note { background: #f0f4ff; border-left: 4px solid #2563eb; padding: 0.75rem 1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #1e40af; }
+.executive-briefing { background: #f8f9fc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+.executive-briefing p { margin-bottom: 0.75rem; }
+.executive-briefing strong { color: #0f0f23; }
+.hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2rem; }
+.hero-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem; text-align: center; transition: box-shadow 0.2s; }
+.hero-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.hero-card .hero-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+.hero-card .hero-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.9rem; color: #1a1a2e; margin-bottom: 0.4rem; }
+.hero-card .hero-link { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; }
+.callout { border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; }
+.callout-insight { background: #eff6ff; border-left: 4px solid #2563eb; }
+.callout-risk { background: #fef2f2; border-left: 4px solid #dc2626; }
+.callout-opportunity { background: #f0fdf4; border-left: 4px solid #16a34a; }
+.callout-number { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; text-align: center; margin: 1rem 0; }
+.callout-number .big-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2.2rem; font-weight: 700; color: #0f0f23; }
+.callout-number .number-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
+.key-numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.88rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+th { background: #f1f5f9; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; color: #334155; border-bottom: 2px solid #cbd5e1; }
+td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #eff6ff; }
+ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+.score-pill { display: inline-block; border-radius: 4px; padding: 0.2rem 0.5rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; font-weight: 600; margin-right: 0.4rem; margin-bottom: 0.25rem; }
+.score-high { background: #dcfce7; color: #166534; }
+.score-mid { background: #fef9c3; color: #854d0e; }
+.score-low { background: #fee2e2; color: #991b1b; }
+.dev-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+.dev-card h3 { margin-top: 0; color: #0f0f23; }
+.signal { display: inline-block; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; }
+.signal-research { background: #ede9fe; color: #6d28d9; }
+.signal-prototype { background: #fef3c7; color: #92400e; }
+.signal-production { background: #d1fae5; color: #065f46; }
+.section-divider { border: none; border-top: 1px solid #e8e8f0; margin: 2.5rem 0; }
+.action-list { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.action-list li { font-size: 0.95rem; }
+.contrarian { background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.watch-list-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+details { margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+details summary { padding: 0.75rem 1rem; background: #f8fafc; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; color: #334155; }
+details summary:hover { background: #f1f5f9; }
+details[open] summary { border-bottom: 1px solid #e2e8f0; }
+details .details-content { padding: 1rem; }
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: #2563eb; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(37,99,235,0.3); z-index: 999; }
+.back-to-top.visible { display: flex; }
+.meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
+@media (max-width: 768px) { .layout { flex-direction: column; } .toc { display: none; } .hero-grid { grid-template-columns: 1fr; } body { padding: 1rem; } h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } table { font-size: 0.8rem; } .key-numbers-grid { grid-template-columns: repeat(2, 1fr); } }</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+<div class="layout">
+<nav class="toc" id="toc">
+    <h4>Contents</h4>
+    <a href="#executive-briefing">📋 Executive Briefing</a>
+    <a href="#what-changed">⚡ What Changed</a>
+    <a href="#top-technical">🔬 Top Technical</a>
+    <a href="#lab-scorecards">🏢 Lab Scorecards</a>
+    <a href="#open-source">🌐 Open-Source</a>
+    <a href="#business">💰 Business & Market</a>
+    <a href="#research">📄 Research Papers</a>
+    <a href="#research-blogs">🧬 Research Blogs</a>
+    <a href="#blogs">🛠️ Engineering Blogs</a>
+    <a href="#github">📦 GitHub Projects</a>
+    <a href="#media">🎙️ Videos & Podcasts</a>
+    <a href="#community">💬 Community</a>
+    <a href="#themes">📈 Emerging Themes</a>
+    <a href="#trends">📊 Trend Tracking</a>
+    <a href="#implications-1">🏗️ Implications fo</a>
+    <a href="#implications-2">🔍 Implications fo</a>
+    <a href="#watchlist">👀 Watch List</a>
+    <a href="#contrarian">🔮 Contrarian View</a>
+    <a href="#strategy">🧭 Strategic Analysis</a>
+    <a href="#relevance">🎯 Personalized</a>
+    <a href="#recommendations">✅ Recommendations</a>
+    <a href="#takeaways">🏆 Takeaways</a>
+    <a href="#next-week">📌 Next Week</a>
+</nav>
+<main class="main-content">
+<h1>RL in AI Weekly Briefing (Week 36)</h1>
+<div class="header-meta"><span class="subtitle">Week 36 | August 30–September 5, 2026</span><span class="reading-time">⏱️ 18 min read</span></div>
+
+<h2 id="executive-briefing">📋 Executive Briefing</h2>
+<p><a href="https://arcprize.org/blog/astra">GPT-6 Astra</a> dominated the news cycle this week (2,192 HN points), scoring 62.7% on <a href="https://arcprize.org/">ARC-AGI-3</a> standard and 99.9% with Provider Adapter -- but OpenAI disclosed no post-training details, leaving the RL community to speculate about the role of reinforcement learning in its training pipeline. The RL research community, meanwhile, produced its most productive week yet on three converging fronts.</p>
+<p>On-policy distillation continued its WK35 breakout with six more papers. <a href="https://arxiv.org/abs/2609.04108">Sequential Beats Joint</a> (Li et al.) established that OPD-then-RLVR outperforms joint optimization -- "OPD expands coverage, RL sharpens within it." <a href="https://arxiv.org/abs/2609.04172">Rethinking OPD II</a> (Fu et al.) showed a single training query achieves 71.5% state coverage, proving OPD is "data-overfed but algorithm-starved." <a href="https://arxiv.org/abs/2609.02998">Verify Before You Distill</a> (TGOPD) adds teacher reliability gating, routing unreliable prompts to GRPO, boosting GPU utilization from 9.8% to 78.9%.</p>
+<p>GRPO's fundamental limitations received sharp scrutiny. <a href="https://arxiv.org/abs/2609.04063">Spurious Advantage Hidden in GRPO</a> (Wang et al.) identified that GRPO's advantage estimator rewards guessing on bounded-answer tasks, proposing <a href="https://arxiv.org/abs/2609.04063">SIGNBALANCE</a> as a fix. <a href="https://arxiv.org/abs/2609.00444">GAPO</a> (EMNLP 2026) showed fixed clipping suppresses difficult-problem gradients and introduced adaptive thresholds. <a href="https://arxiv.org/abs/2609.01274">From Base Rollouts to RL Reasoning</a> challenged whether RLVR creates new reasoning at all, finding gains largely reflect sampling efficiency toward existing capabilities.</p>
+<p><a href="https://github.com/huggingface/trl">TRL</a> removed PPOTrainer (<a href="https://github.com/huggingface/trl/pull/7020">#7020</a>), marking the official end of the PPO era in favor of GRPO. The same week, <a href="https://arxiv.org/abs/2609.02849">Nemotron-3-Ultra-CC</a> (NVIDIA) became the first AI to outscore the highest human at IOI 2026 (535.4 vs 498.27), using SFT+RL post-training.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="what-changed">⚡ What Changed Since Last Week</h2>
+<ul>
+<li>**<a href="https://arcprize.org/blog/astra">GPT-6 Astra released</a>** -- 62.7% ARC-AGI-3 standard, 99.9% Provider Adapter; no post-training methodology disclosed</li>
+<li>**<a href="https://arxiv.org/abs/2609.04108">Sequential Beats Joint: OPD then RLVR</a>** -- two-stage outperforms joint; OPD validation score signals transition point</li>
+<li>**<a href="https://arxiv.org/abs/2609.04172">Rethinking OPD II: One Training Example</a>** -- single query reaches 71.5% state coverage; OPD is data-overfed, algorithm-starved</li>
+<li>**<a href="https://arxiv.org/abs/2609.04063">Spurious Advantage in GRPO identified</a>** -- guessing rewarded on bounded-answer tasks; SIGNBALANCE fix proposed</li>
+<li>**<a href="https://arxiv.org/abs/2609.00444">GAPO: Adaptive clipping for GRPO</a>** -- EMNLP 2026; plug-in modification adapting clipping to rollout advantage</li>
+<li>**<a href="https://arxiv.org/abs/2609.01274">RLVR gains = sampling efficiency, not new reasoning</a>** -- budgeted search perspective shows base model search approximates RL gains</li>
+<li>**<a href="https://github.com/huggingface/trl/pull/7020">TRL removes PPOTrainer</a>** -- official end of PPO era; GRPO/distillation now sole trainers</li>
+<li>**<a href="https://arxiv.org/abs/2609.02849">Nemotron-3 outscores humans at IOI 2026</a>** -- 535.4/600 vs 498.27 human best; SFT+RL post-training pipeline</li>
+<li>**<a href="https://arxiv.org/abs/2609.04094">DRACO: Dynamic rubric credit for GRPO</a>** -- 15.9-point gains on AppWorld via rubric-redistributed per-step advantages</li>
+<li>**<a href="https://arxiv.org/abs/2609.01354">Verifier audit reveals 41.3% inconsistency</a>** -- whitespace/punctuation cause 93% of false negatives in RLVR verifiers</li>
+<li>**<a href="https://arxiv.org/abs/2609.01422">Self-Routing post-training</a>** -- routes samples to GRPO, self-distillation, or regularization based on rollout behavior</li>
+<li>**<a href="https://arxiv.org/abs/2609.03324">DE-Venus: Data-efficient RLVR</a>** -- 63-75% convergence step reduction with 10% of labels</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="top-technical">🔬 Top Technical Developments</h2>
+<h3>1. Sequential Beats Joint: OPD-then-RLVR Pipeline</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>10/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>9/10</td></tr>
+<tr><td>Personal Relevance</td><td>10/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.04108">Sequential Beats Joint: On the Interplay between On-Policy Distillation and RLVR</a> -- Li, Chen, Yang, Nie, Zhao, Ye | **Reading time:** 12 min</p>
+<p>Demonstrates that applying <a href="https://arxiv.org/abs/2609.04108">OPD</a> followed by <a href="https://arxiv.org/abs/2609.04108">RLVR</a> sequentially outperforms joint optimization or either method alone. The key insight: "OPD expands the student's coverage of teacher-supported solutions and RL sharpens within that support, while jointly optimizing the two signals causes them to interfere." The OPD validation score serves as a reliable transition signal for when to switch to RL. OPD also provides superior initialization compared to SFT.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** This resolves a fundamental pipeline design question from WK35. OPD and RLVR are complements, not alternatives -- but only when sequenced correctly. This paper, combined with WK35's <a href="https://arxiv.org/abs/2608.25756">TailSFT</a>, establishes a three-stage pipeline: TailSFT -> OPD -> RLVR, where each stage expands the next stage's ceiling.</p>
+</div>
+<hr class="section-divider">
+<h3>2. Spurious Advantage Hidden in GRPO</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>9/10</td></tr>
+<tr><td>Personal Relevance</td><td>10/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.04063">Spurious Advantage Hidden in GRPO</a> -- Wang, Basu, Goswami, Yu, Tao | **Reading time:** 10 min</p>
+<p>Identifies a fundamental flaw in <a href="https://arxiv.org/abs/2609.04063">GRPO</a>: the advantage estimator assigns high scores to rollouts that arrive at correct answers through guessing rather than genuine reasoning. This "spurious advantage" manifests on bounded-answer tasks, open-ended tasks with bounded sub-problems, and search agents with large exploration budgets. The proposed <a href="https://arxiv.org/abs/2609.04063">SIGNBALANCE</a> fix keeps the verifier sign, uses a global scale, and restores zero-mean balance. Comparable to GRPO on open-ended math, improves on bounded-answer and search tasks.</p>
+<div class="callout callout-risk">
+<p>⚠️ **Risk:** This is the most precise characterization of a GRPO failure mode to date. Combined with WK35's <a href="https://arxiv.org/abs/2608.29188">RLVR narrowing</a> and <a href="https://arxiv.org/abs/2608.27351">ES coverage analysis</a>, the picture is clear: GRPO's advantage estimation is systematically biased on multiple axes. Teams using GRPO for multiple-choice, classification, or bounded-answer tasks should evaluate SIGNBALANCE immediately.</p>
+</div>
+<hr class="section-divider">
+<h3>3. GAPO: Group Adaptive Clipping Policy Optimization (EMNLP 2026)</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Personal Relevance</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🚀 Production-ready</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.00444">Group Adaptive Clipping Policy Optimization</a> -- Jia, Wang, Kasiviswanathan, Houthooft (EMNLP 2026) | **Reading time:** 10 min</p>
+<p>Fixed clipping boundaries in <a href="https://arxiv.org/abs/2609.00444">GRPO</a> treat difficult and easy problems identically, suppressing exploration on hard prompts. <a href="https://arxiv.org/abs/2609.00444">GAPO</a> adapts the clipping boundary to the rollout advantage, operating as a plug-in modification that preserves standard PPO/GSPO formulations. Consistent Pass@1 and Pass@K improvements across <a href="https://huggingface.co/Qwen">Qwen</a> and <a href="https://github.com/meta-llama/llama">Llama</a> models on math reasoning and coding tasks, particularly where base model performance is low.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** GAPO is the most practical GRPO improvement this week -- it's a plug-in that requires no architectural changes, just modifying the clipping threshold. Combined with WK35's <a href="https://arxiv.org/abs/2608.27982">DA3PO</a> (difficulty-aware advantages), these two drop-in modifications address different aspects of GRPO's difficulty blindness.</p>
+</div>
+<hr class="section-divider">
+<h3>4. RLVR Gains as Sampling Efficiency, Not New Reasoning</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Personal Relevance</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>Medium</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.01274">From Base Rollouts to RL Reasoning: A Budgeted Search Perspective</a> -- Sun, Wang, Yao, Cao | **Reading time:** 12 min</p>
+<p>Introduces a Unified Decoding Framework unifying decoding strategies within a shared budget space. The key finding: base model performance under structured search approximates RL model gains, suggesting RLVR improvements largely reflect "internalized search" -- sampling efficiency toward existing capabilities rather than fundamentally new reasoning. The Budgeted Operating-Point Transition Rule (BOPTR) scaling relationship predicts RL gains from base model search curves without requiring RL supervision.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** This is the most provocative RL finding this week. If confirmed, it suggests RLVR primarily teaches models to sample more efficiently from their existing capability space rather than creating new capabilities. Combined with WK35's <a href="https://arxiv.org/abs/2608.29188">RLVR narrowing</a> and WK34's <a href="https://arxiv.org/abs/2608.00220">support reshaping</a>, this strengthens the case for OPD (which transfers new capabilities from teachers) over RLVR (which may only optimize sampling from existing capabilities).</p>
+</div>
+<hr class="section-divider">
+<h3>5. DRACO: Dynamic Rubric Credit Assignment for Long-Horizon GRPO</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Personal Relevance</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.04094">DRACO: Fine-Grained Credit Assignment with Dynamic Rubrics for Long-Horizon Agent Training</a> -- Gandhi, Goyal, Kate, Rizk | **Reading time:** 10 min</p>
+<p>Generates rubrics dynamically during training to track evolving policy capabilities, redistributing trajectory-level judgments across individual steps via closed-form redistribution (no trained attribution module). Achieves **15.9-point gains** over baseline and 5.3-point improvement over ground-truth GRPO on <a href="https://github.com/stonybrooknlp/appworld">AppWorld</a>. Transfers to out-of-domain <a href="https://github.com/sierra-research/tau-bench">Tau-Bench</a> with 5.3-point gains without frontier judge access.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** DRACO advances the credit assignment theme (WK31's <a href="https://arxiv.org/abs/2607.25659">CoRT</a>, WK34's <a href="https://arxiv.org/abs/2608.16739">Le Critique</a>, WK35's <a href="https://arxiv.org/abs/2608.28128">VICT</a>) by making rubrics dynamic rather than fixed. The closed-form redistribution makes this practical -- no separate critic training, no extra rollouts. Most notably, it works on long-horizon agentic tasks where VICT's verifier-tracing approach may not apply.</p>
+</div>
+<hr class="section-divider">
+<h3>6. Gradient-Aligned Rewards: Dense Reasoning Supervision from Gradients</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>9/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Personal Relevance</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.03342">Gradients Know What Outcomes Don't: Unlocking RL for LLM Reasoning with Gradient-Aligned Rewards</a> -- Zheng, Su, Niu et al. | **Reading time:** 12 min</p>
+<p>Introduces Gradient-Aligned Reward (GAR), which operates in the policy's own gradient space rather than output space. Extracts gradient vectors via truncated backpropagation and measures cosine similarity to expert-anchor gradients, generating dense, reasoning-aware rewards with less than 9% wall-clock overhead. Theoretical decomposition into prediction-error and activation-pattern components. Consistent improvements on <a href="https://huggingface.co/Qwen">Qwen3</a> models across math and <a href="https://arxiv.org/abs/2311.12022">GPQA Diamond</a>/<a href="https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro">MMLU-Pro</a> benchmarks.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** GAR represents a fundamentally different approach to dense rewards -- using gradient space alignment rather than output comparison. This sidesteps the process reward model training bottleneck entirely. The 9% overhead makes it practical for production training runs.</p>
+</div>
+<hr class="section-divider">
+<h3>7. Where the Verifier Fails: RLVR Reward Signal Audit</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>6/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>9/10</td></tr>
+<tr><td>Personal Relevance</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🚀 Production-ready</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.01354">Where the Verifier Fails: A Category-Level Audit of Reward Signals in RLVR</a> -- Xin | **Reading time:** 10 min</p>
+<p>Metamorphic testing of four RLVR verification systems across 307,000+ verdicts reveals alarming inconsistency. Self-validation ranges from **53.8% to 95.2%** on identical inputs -- a 41.3-point spread. Whitespace and punctuation account for 93.0% of in-contract failures for default LaTeX configuration. Different verifiers fail for fundamentally different reasons despite similar aggregate error rates. Numeric verification exhibits step-function behavior where off-by-one errors are fully accepted above certain magnitudes.</p>
+<div class="callout callout-risk">
+<p>⚠️ **Risk:** This paper should alarm every team using RLVR. If your verifier has 41.3% inconsistency on identical inputs, your RL training signal is fundamentally noisy. The whitespace/punctuation finding (93% of false negatives) means most RLVR "wrong" verdicts are format errors, not reasoning errors. Combined with <a href="https://arxiv.org/abs/2609.04063">Spurious Advantage</a>, GRPO-based RLVR is training on doubly corrupted signals.</p>
+</div>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="lab-scorecards">🏢 Frontier Lab Scorecards</h2>
+<table>
+<thead><tr><th>Lab</th><th>Releases</th><th>Research</th><th>Strategic Direction</th></tr></thead><tbody>
+<tr><td>**OpenAI**</td><td><a href="https://arcprize.org/blog/astra">GPT-6 Astra</a> (Sept 3)</td><td>62.7% ARC-AGI-3 standard, 99.9% Provider Adapter</td><td>Landmark release; blog 403'd, no post-training details disclosed. Recurrent architecture generating <a href="https://www.lesswrong.com/posts/PLisnSFir8y5AHkmP/how-concerned-should-we-be-about-astra-s-recurrent">safety concern discussion</a></td></tr>
+<tr><td>**NVIDIA**</td><td>—</td><td><a href="https://arxiv.org/abs/2609.02849">Nemotron-3-Ultra-CC</a>: first AI to outscore human at IOI 2026 (535.4 vs 498.27)</td><td>SFT+RL pipeline for competitive programming; GenCorrect test-time strategy</td></tr>
+<tr><td>**HuggingFace**</td><td>—</td><td>37 TRL PRs merged (Aug 30--Sep 5)</td><td>PPOTrainer removed (<a href="https://github.com/huggingface/trl/pull/7020">#7020</a>); DPO/KTO Liger loss gaps fixed (<a href="https://github.com/huggingface/trl/pull/7062">#7062</a>); fused linear losses vendored (<a href="https://github.com/huggingface/trl/pull/7059">#7059</a>); vLLM 0.19 dropped (<a href="https://github.com/huggingface/trl/pull/7002">#7002</a>)</td></tr>
+<tr><td>**Anthropic**</td><td>—</td><td>No RL-specific publications</td><td>Quiet week after WK34's alignment triple</td></tr>
+<tr><td>**Google DeepMind**</td><td>—</td><td>No RL-specific publications</td><td>Quiet week</td></tr>
+<tr><td>**Meta**</td><td>—</td><td>No RL-specific publications</td><td>Quiet period continues</td></tr>
+<tr><td>**ByteDance/Volcengine**</td><td>—</td><td><a href="https://github.com/volcengine/verl">verl</a>: async activation offload, FSDP gradient sync, NPU test migration</td><td>Infrastructure diversification: AMD/NPU support expanding</td></tr>
+<tr><td>**Instella (AMD)**</td><td><a href="https://arxiv.org/abs/2609.00791">Instella-MoE</a> (Sept 1)</td><td>16B total / 2.8B active MoE; DPO + RL with Multi-Teacher OPD</td><td>Fully AMD-trained open-source MoE; first major model using OPD in production pipeline</td></tr>
+</tbody></table>
+<p>**Power Ranking Shift:** <a href="https://openai.com/">OpenAI</a> reclaims the frontier with <a href="https://arcprize.org/blog/astra">Astra</a>, though the opacity around post-training methods limits RL community insight. <a href="https://developer.nvidia.com/">NVIDIA</a> makes a bold statement with <a href="https://arxiv.org/abs/2609.02849">Nemotron-3</a> outscoring humans at IOI -- the strongest evidence yet that SFT+RL pipelines can achieve superhuman coding performance. <a href="https://github.com/huggingface/trl">TRL</a>'s removal of PPOTrainer is symbolic: PPO's era in LLM post-training is officially over. <a href="https://arxiv.org/abs/2609.00791">Instella-MoE</a> demonstrates OPD is reaching production pipelines.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="open-source">🌐 Open-Source Ecosystem Tracking</h2>
+<table>
+<thead><tr><th>Project</th><th>Activity</th><th>Trajectory</th></tr></thead><tbody>
+<tr><td>**<a href="https://github.com/huggingface/trl">TRL</a>**</td><td>37 PRs merged (Aug 30--Sep 5). PPOTrainer removed (<a href="https://github.com/huggingface/trl/pull/7020">#7020</a>). DPO/KTO Liger loss gaps fixed (<a href="https://github.com/huggingface/trl/pull/7062">#7062</a>). Fused linear losses vendored from Liger-Kernel (<a href="https://github.com/huggingface/trl/pull/7059">#7059</a>). vLLM 0.19 support dropped (<a href="https://github.com/huggingface/trl/pull/7002">#7002</a>). Chunked log probs hardened (<a href="https://github.com/huggingface/trl/pull/7065">#7065</a>). JSD dropped from DistillationTrainer (<a href="https://github.com/huggingface/trl/pull/7064">#7064</a>). ~19.3K stars</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://github.com/vllm-project/vllm">vLLM</a>**</td><td>No new release (v0.28.0 remains latest). Continued development post-WK35 release. ~91K stars</td><td>➡️ Stable</td></tr>
+<tr><td>**<a href="https://github.com/volcengine/verl">verl</a>**</td><td>6 PRs merged: async activation offloading (<a href="https://github.com/volcengine/verl/pull/7724">#7724</a>), FSDP gradient sync backport (<a href="https://github.com/volcengine/verl/pull/7719">#7719</a>), unit-temperature logits reuse (<a href="https://github.com/volcengine/verl/pull/7718">#7718</a>), fused output-head backend (<a href="https://github.com/volcengine/verl/pull/7703">#7703</a>), NPU e2e test migration (<a href="https://github.com/volcengine/verl/pull/7633">#7633</a>). ~23.4K stars</td><td>➡️ Stable</td></tr>
+<tr><td>**<a href="https://github.com/OpenRLHF/OpenRLHF">OpenRLHF</a>**</td><td>Quiet week. ~10K stars</td><td>➡️ Stable</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.00791">Instella-MoE</a>**</td><td>New -- 16B/2.8B MoE on AMD MI300X/MI325X; full pipeline open-sourced</td><td>📈 New entry</td></tr>
+</tbody></table>
+<p>**Notable:** <a href="https://github.com/huggingface/trl">TRL</a>'s removal of PPOTrainer and fused JSD from DistillationTrainer is aggressive API cleanup. The vendoring of Liger-Kernel's fused linear losses into `trl.losses` (<a href="https://github.com/huggingface/trl/pull/7059">#7059</a>) reduces external dependencies while keeping performance optimizations. <a href="https://github.com/volcengine/verl">verl</a>'s NPU test migration (<a href="https://github.com/volcengine/verl/pull/7633">#7633</a>) signals expanding hardware support beyond NVIDIA GPUs.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="business">💰 Business & Market Intelligence</h2>
+<ul>
+<li>**<a href="https://arcprize.org/blog/astra">GPT-6 Astra sets new frontier</a>:** OpenAI's release dominated discourse (2,192 HN points, 2,012 comments). ARC-AGI-3 scores of 62.7% standard / 99.9% Provider Adapter represent a significant jump. The cost of $26,098 for standard evaluation and $19,818 for Provider Adapter highlights the inference cost reality of frontier reasoning. No post-training methodology disclosed, limiting RL community analysis.</li>
+<li>**<a href="https://arxiv.org/abs/2609.02849">Nemotron-3 outscores humans at IOI 2026</a>:** NVIDIA's 550B model scored 535.4/600 vs human best of 498.27 -- the first AI to outscore the top human at an International Olympiad in Informatics. The SFT+RL pipeline with GenCorrect test-time strategy validates post-training RL for competitive programming.</li>
+<li>**<a href="https://github.com/huggingface/trl/pull/7020">TRL removes PPOTrainer</a>:** The symbolic end of PPO in <a href="https://huggingface.co/">HuggingFace</a>'s RL training stack. GRPO and distillation trainers are now the sole post-training methods. This reduces maintenance burden and signals where the industry has converged.</li>
+<li>**<a href="https://arxiv.org/abs/2609.00791">Instella-MoE: AMD enters RL training</a>:** Fully trained on AMD MI300X/MI325X GPUs with complete pipeline open-sourced including DPO and RL with Multi-Teacher OPD. Demonstrates viable non-NVIDIA RL training at scale.</li>
+<li>**<a href="https://arxiv.org/abs/2609.01572">Corporate GRPO experts merged via SLERP</a>:** Practical enterprise application training separate GRPO experts per objective axis (instruction following, function calling, task distribution) and merging via SLERP, surpassing a ~7x larger baseline while serving 116M monthly requests.</li>
+<li>**<a href="https://arxiv.org/abs/2609.03324">DE-Venus: 63-75% convergence reduction</a>:** Data-efficient RLVR reduces convergence steps by 63-75% with only 10% of labels, directly impacting training cost economics for teams with limited annotation budgets.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research">📄 Research Papers</h2>
+<h3>Tier 1 -- Must-Read</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.04108">Sequential Beats Joint: On the Interplay between OPD and RLVR</a>** -- Li, Chen, Yang, Nie, Zhao, Ye</li>
+</ol>
+<p>   OPD-then-RLVR outperforms joint optimization. OPD expands teacher-supported coverage, RL sharpens within it. OPD validation score signals when to transition. Superior to SFT initialization.</p>
+<p>   Strategic: 10 | Technical: 8 | Practical: 9 | Business: 9 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.04063">Spurious Advantage Hidden in GRPO</a>** -- Wang, Basu, Goswami, Yu, Tao</li>
+</ol>
+<p>   GRPO's advantage estimator rewards guessing on bounded-answer tasks. SIGNBALANCE fix: keep verifier sign, global scale, restore zero-mean balance. Improves bounded-answer and search agent tasks.</p>
+<p>   Strategic: 9 | Technical: 8 | Practical: 9 | Business: 9 | 🔬 Research-only</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.00444">GAPO: Group Adaptive Clipping Policy Optimization</a>** -- Jia, Wang, Kasiviswanathan, Houthooft (EMNLP 2026)</li>
+</ol>
+<p>   Adapts clipping boundary to rollout advantage. Plug-in modification; consistent improvements across Qwen/Llama on math and code, especially on hard prompts.</p>
+<p>   Strategic: 8 | Technical: 8 | Practical: 9 | Business: 8 | 🚀 Production-ready</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.01274">From Base Rollouts to RL Reasoning: A Budgeted Search Perspective</a>** -- Sun, Wang, Yao, Cao</li>
+</ol>
+<p>   RLVR gains largely reflect sampling efficiency toward existing capabilities, not new reasoning. BOPTR scaling rule predicts RL gains from base model search curves.</p>
+<p>   Strategic: 9 | Technical: 7 | Practical: 7 | Business: 8 | 🔬 Research-only</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.04094">DRACO: Dynamic Rubric Credit for Long-Horizon GRPO</a>** -- Gandhi, Goyal, Kate, Rizk</li>
+</ol>
+<p>   Dynamic rubrics + closed-form per-step redistribution. 15.9-point gains on AppWorld, transfers to Tau-Bench. No trained attribution module needed.</p>
+<p>   Strategic: 9 | Technical: 8 | Practical: 8 | Business: 8 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.03342">Gradients Know What Outcomes Don't: Gradient-Aligned Rewards</a>** -- Zheng, Su, Niu et al.</li>
+</ol>
+<p>   Dense reasoning rewards from gradient-space cosine similarity with expert anchors. <9% wall-clock overhead. Improvements on math, GPQA Diamond, MMLU-Pro.</p>
+<p>   Strategic: 8 | Technical: 9 | Practical: 7 | Business: 8 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.01354">Where the Verifier Fails: RLVR Reward Signal Audit</a>** -- Xin</li>
+</ol>
+<p>   307K+ verdicts across 4 verifier systems: 41.3% inconsistency spread. Whitespace/punctuation cause 93% of false negatives. Numeric verification has step-function failure modes.</p>
+<p>   Strategic: 9 | Technical: 6 | Practical: 9 | Business: 9 | 🚀 Production-ready</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.04172">Rethinking On-Policy Distillation II: One Training Example</a>** -- Fu, He, Zuo et al.</li>
+</ol>
+<p>   Single query achieves 71.5% state coverage within 100 steps. OPD is data-overfed but algorithm-starved. 16 diverse queries per domain match full-dataset performance.</p>
+<p>   Strategic: 8 | Technical: 8 | Practical: 8 | Business: 8 | 🔬 Research-only</p>
+<h3>Tier 2 -- Noteworthy</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.02998">Verify Before You Distill: Teacher-Gated OPD</a>** -- Zhang, Sun, Zhao et al.</li>
+</ol>
+<p>   TGOPD verifies teacher reliability per prompt, routes unreliable to GRPO. GPU utilization 9.8% -> 78.9%. Consistent improvements across 4B-35B models on math, code, instruction-following.</p>
+<p>   Strategic: 8 | Technical: 7 | Practical: 9 | Business: 8 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.03324">DE-Venus: Data-Efficient RLVR Framework</a>** -- Yang, Zhu, Tang et al.</li>
+</ol>
+<p>    Unified data-efficient RLVR treating supervision as dynamic information. 63-75% convergence reduction with 10% of labels or 13% of data.</p>
+<p>    Strategic: 8 | Technical: 7 | Practical: 9 | Business: 9 | 🚀 Production-ready</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.03941">Headroom-Drift Replay for GRPO</a>** -- Park, Chang</li>
+</ol>
+<p>    Replay selection using headroom (remaining learning capacity) and drift (policy compatibility). Matches or surpasses broader replay with reduced wall-clock time.</p>
+<p>    Strategic: 7 | Technical: 7 | Practical: 9 | Business: 8 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.01422">From Rollouts to Recipes: Self-Routing Post-Training</a>** -- Li, Zhang, Huang et al.</li>
+</ol>
+<p>    Self-Routing dynamically routes samples to GRPO, self-distillation, regularization, or skip based on rollout correctness and confidence. Reduces redundant updates. Improvements on Qwen3/Qwen3.5.</p>
+<p>    Strategic: 8 | Technical: 7 | Practical: 8 | Business: 8 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.01573">Scaling SFT-RL Annotation Budget Allocation</a>** -- Wang, Verma, Lin et al.</li>
+</ol>
+<p>    Near-optimal SFT-RL budget allocation region is wide (2-10% tolerance), widens with scale, and transfers from small proxy models to large targets. Eliminates expensive large-scale allocation experiments.</p>
+<p>    Strategic: 8 | Technical: 7 | Practical: 9 | Business: 9 | 🚀 Production-ready</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.00892">CARE: Contrastive Anchor-Based Rubric Evolution</a>** -- Li, Song, Ruinian et al.</li>
+</ol>
+<p>    Frontier-model anchors in rubric-based RL prevent reward hacking while maintaining discrimination in high-reward regions.</p>
+<p>    Strategic: 8 | Technical: 8 | Practical: 7 | Business: 7 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.02849">Nemotron-3: Gold-Medal Coding via SFT+RL</a>** -- Ficek, Narenthiran, Samadi, Majumdar, Ginsburg (NVIDIA)</li>
+</ol>
+<p>    SFT+RL on 22K curated problems. 30B Nano-CC: 468 (vs 438.3 gold). 550B Ultra-CC: 535.4/600 (vs 498.27 human best). GenCorrect iterative test-time strategy.</p>
+<p>    Strategic: 9 | Technical: 7 | Practical: 7 | Business: 9 | 🚀 Production-ready</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.00925">Context-Grounding Gains Mediated by Pre-existing Machinery</a>** -- Gupta, Gupta</li>
+</ol>
+<p>    GRPO shows minimal grounding improvement. DPO approaches ceiling but relies on causal attention heads already in the base model. Removing pre-existing grounding direction suppresses gains substantially.</p>
+<p>    Strategic: 8 | Technical: 7 | Practical: 7 | Business: 7 | 🔬 Research-only</p>
+<h3>Tier 3 -- Domain Applications and Extensions</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2608.30632">GMTS: Gradient Magnitude Token Selection for RLVR</a>** -- Lv, Zhang, Zhang</li>
+</ol>
+<p>    Top 20% tokens by gradient magnitude consistently outperform entropy-based selection across three domains. Leverages entropy-gradient connection for practical token selection.</p>
+<p>    Strategic: 7 | Technical: 7 | Practical: 8 | Business: 7 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.02817">Cliff: Learning Process Rewards from the First Mistake</a>** -- Han, Wang, Ramaneti et al.</li>
+</ol>
+<p>    Teacher identifies first mistake, decomposes rollouts into correct/incorrect segments. Fine-grained token-level supervision for reasoning.</p>
+<p>    Strategic: 7 | Technical: 7 | Practical: 7 | Business: 7 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.00213">AMRP: Adaptive Multi-Reward Projection</a>** -- Yuan, Fan, Zhao et al.</li>
+</ol>
+<p>    Dynamic aggregation weights based on shortfall, volatility, and progress. Prevents aggregation-induced hacking. Compatible with GRPO, GDPO, PPO.</p>
+<p>    Strategic: 8 | Technical: 7 | Practical: 8 | Business: 8 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.00791">Instella-MoE Technical Report</a>** -- Liu, Ranjan, Mishra et al.</li>
+</ol>
+<p>    16B total / 2.8B active MoE on AMD MI300X/MI325X. Full pipeline: pre-training, mid-training, SFT, DPO, RL with Multi-Teacher OPD. Fully open-sourced. 76.7 avg on pre-training benchmarks.</p>
+<p>    Strategic: 8 | Technical: 7 | Practical: 8 | Business: 8 | 🚀 Production-ready</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.01572">From Production Traffic to Post-Training</a>** -- Tsymboi, Stoianov, Latypov et al.</li>
+</ol>
+<p>    Separate GRPO experts per objective axis (instruction, function-calling, task distribution) merged via two-stage SLERP. Surpasses ~7x larger baseline, serves 116M requests/month.</p>
+<p>    Strategic: 7 | Technical: 6 | Practical: 9 | Business: 9 | 🚀 Production-ready</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2608.29856">GenRubric: Self-Evolving Query-Specific Rubrics</a>** -- Chen, Li, Ai et al.</li>
+</ol>
+<p>    Self-evolving rubric generation via RL without human annotations. Query-specific evaluation criteria.</p>
+<p>    Strategic: 7 | Technical: 7 | Practical: 7 | Business: 7 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2608.30559">SPHERE: GRPO for Music Upmixing</a>** -- Guo, Murdock, Parekh et al.</li>
+</ol>
+<p>    Rejection sampling SFT + GRPO with deterministic spatial rewards for audio. Demonstrates GRPO applicability beyond text/code.</p>
+<p>    Strategic: 6 | Technical: 7 | Practical: 6 | Business: 6 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2608.29999">TEMPO: GRPO for Audio-Language Models</a>** -- Kulkarni, Jayakumar, Ghosh et al.</li>
+</ol>
+<p>    GRPO with verifiable temporal rewards for unified audio timestamping. Another modality extension.</p>
+<p>    Strategic: 6 | Technical: 7 | Practical: 6 | Business: 6 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2608.29616">JPO: Juris Policy Optimization for Legal Reasoning</a>** -- Kang, Liu, Luo et al.</li>
+</ol>
+<p>    RL with composite rewards for criminal judgment prediction: legal prediction, reasoning structure, cross-step consistency.</p>
+<p>    Strategic: 6 | Technical: 6 | Practical: 7 | Business: 7 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.02273">CA-OPD: Confidence-Aware OPD for Visual Prediction</a>** -- Li, Mu, Wang et al.</li>
+</ol>
+<p>    Confidence-aware on-policy distillation with reliable rollout construction and adaptive token-level supervision for structured visual tasks.</p>
+<p>    Strategic: 7 | Technical: 7 | Practical: 7 | Business: 6 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.01947">OPD Meets Off-Policy GRPO: Compact Rerankers</a>** -- Prabhakar, Pan, Ankisettipalli</li>
+</ol>
+<p>    Off-policy teacher GRPO + on-policy student distillation for instruction-following reranker training. Bridges OPD and GRPO in a hybrid setup.</p>
+<p>    Strategic: 7 | Technical: 7 | Practical: 7 | Business: 7 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.02548">Learn from Whoever Is Right: Answer-Verified Multi-Teacher Distillation</a>** -- He, Li, Wu et al.</li>
+</ol>
+<p>    Multi-teacher distillation using answer verification for domain unification. Routes to whichever teacher produces correct answers.</p>
+<p>    Strategic: 7 | Technical: 6 | Practical: 8 | Business: 7 | 🧪 Early prototype</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research-blogs">🧬 Research Blogs</h2>
+<details><summary>Research Blogs</summary><div class="details-content"><ol>
+<li>**<a href="https://huggingface.co/blog/grpo-with-trl-ifstruct">HuggingFace: GRPO with TRL for Structured Outputs in 100 Steps</a>** -- Leonie Monigatti | Sep 3</li>
+</ol>
+<p>   Fine-tuned a 350M <a href="https://www.liquid.ai/">Liquid AI</a> model using <a href="https://github.com/huggingface/trl">GRPO</a> with <a href="https://github.com/huggingface/trl">TRL</a>: JSON compliance 18.0% to 31.9%, overall 22.6% to 29.7% on IFStruct benchmark. Only 100 steps, LoRA targeting ~6M parameters on free-tier GPU. Demonstrates GRPO is practical even for tiny models on constrained hardware. (Previously noted in WK35 as preview; now published.)</p>
+<p>   Strategic: 7 | Technical: 5 | Practical: 9 | 🚀 Production-ready</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2608.24949">Demystifying RL Post-Training</a>** -- Clay, Gollapudi, Harilal et al. | Aug 30 (continued circulation)</li>
+</ol>
+<p>   Pedagogical primer deconstructing RL post-training mechanics. Uses output-distribution entropy to examine base model priors, reward granularity, prompt diversity, and scale effects. Shows spurious reward impact depends on prompt distribution. Essential reading for teams new to RL post-training.</p>
+<p>   Strategic: 9 | Technical: 6 | Practical: 8 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.04108">Sequential Beats Joint: Pipeline Design for OPD+RLVR</a>** -- Li, Chen, Yang et al. | Sep 3</li>
+</ol>
+<p>   The practical case for two-stage OPD-then-RLVR. OPD validation score as transition signal. OPD provides better initialization than SFT for subsequent RL. Clear decision framework for production teams designing post-training pipelines.</p>
+<p>   Strategic: 10 | Technical: 8 | Practical: 9 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.04172">Rethinking OPD II: Data Efficiency in Distillation</a>** -- Fu, He, Zuo et al. | Sep 3</li>
+</ol>
+<p>   71.5% state coverage from a single training query. 16 diverse queries per domain match full-dataset performance. Reframes OPD efficiency: the bottleneck is algorithmic absorption speed, not data volume. Challenges conventional data scaling assumptions for distillation.</p>
+<p>   Strategic: 8 | Technical: 8 | Practical: 8 | 🔬 Research-only</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.04063">Spurious Advantage Hidden in GRPO</a>** -- Wang, Basu, Goswami et al. | Sep 3</li>
+</ol>
+<p>   Detailed exposition of how GRPO rewards guessing. Three failure scenarios: bounded answers, bounded sub-problems, search agents. SIGNBALANCE as a simple fix. Must-read for anyone using GRPO on tasks with finite answer spaces.</p>
+<p>   Strategic: 9 | Technical: 8 | Practical: 9 | 🔬 Research-only</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.01354">Where the Verifier Fails</a>** -- Xin | Sep 1</li>
+</ol>
+<p>   Audits 307K+ verifier verdicts to show RLVR reward signals are far noisier than assumed. 93% of false negatives from formatting, not reasoning. Different verifiers fail differently but at similar rates. The strongest evidence yet that RLVR needs verifier standardization.</p>
+<p>   Strategic: 9 | Technical: 6 | Practical: 9 | 🚀 Production-ready</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.01274">RLVR as Internalized Search</a>** -- Sun, Wang, Yao, Cao | Sep 1</li>
+</ol>
+<p>   BOPTR scaling rule shows base model search approximates RL gains. Challenges whether RLVR teaches new reasoning or just redirects sampling. The most philosophically challenging RL paper this week.</p>
+<p>   Strategic: 9 | Technical: 7 | Practical: 7 | 🔬 Research-only</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.04094">DRACO: Rubric-Based Credit for Agents</a>** -- Gandhi, Goyal, Kate, Rizk | Sep 3</li>
+</ol>
+<p>   Dynamic rubrics tracking evolving policy capabilities, redistributed as per-step advantages. No external attribution module. 15.9-point gains on AppWorld, cross-domain transfer to Tau-Bench. Practical guide for long-horizon agent credit assignment.</p>
+<p>   Strategic: 9 | Technical: 8 | Practical: 8 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.01573">Scaling SFT-RL Budget Allocation</a>** -- Wang, Verma, Lin et al. | Sep 1</li>
+</ol>
+<p>   Near-optimal allocation region between SFT and RL data transfers from small to large models. Wide tolerance (2-10%) means precise tuning is unnecessary. Use small proxy models to find the right split before scaling up. Practical cost optimization.</p>
+<p>   Strategic: 8 | Technical: 7 | Practical: 9 | 🚀 Production-ready</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.01422">Self-Routing: Per-Sample Training Strategy Selection</a>** -- Li, Zhang, Huang et al. | Sep 1</li>
+</ol>
+<p>    Dynamic routing of training samples to GRPO, self-distillation, regularization, or skip based on rollout behavior. Routing distributions evolve during training, reducing redundant updates. Practical framework for heterogeneous post-training.</p>
+<p>    Strategic: 8 | Technical: 7 | Practical: 8 | 🧪 Early prototype</p>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.02998">Verify Before You Distill: Teacher Reliability in OPD</a>** -- Zhang, Sun, Zhao et al. | Sep 2</li>
+</ol>
+<p>    Teacher-gated OPD estimating teacher reliability from verifier-scored probes. Unreliable prompts routed to GRPO. GPU utilization jumps from 9.8% to 78.9%. Addresses a blind spot in vanilla OPD.</p>
+<p>    Strategic: 8 | Technical: 7 | Practical: 9 | 🧪 Early prototype</p>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="blogs">🛠 ️ Engineering Blogs</h2>
+<table>
+<thead><tr><th>#</th><th>Post</th><th>Source</th><th>Signal</th><th>Key Insight</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://github.com/huggingface/trl/pull/7020">Remove PPOTrainer (#7020)</a></td><td>HuggingFace TRL</td><td>🚀</td><td>Official end of PPO in TRL; GRPO/distillation now sole trainers</td></tr>
+<tr><td>2</td><td><a href="https://github.com/huggingface/trl/pull/7062">Fix DPO and KTO Liger loss gaps (#7062)</a></td><td>HuggingFace TRL</td><td>🚀</td><td>Correctness fix for DPO/KTO with Liger-Kernel</td></tr>
+<tr><td>3</td><td><a href="https://github.com/huggingface/trl/pull/7059">Vendor fused linear losses from Liger-Kernel (#7059)</a></td><td>HuggingFace TRL</td><td>🚀</td><td>Optimized losses directly in TRL, reducing external deps</td></tr>
+<tr><td>4</td><td><a href="https://github.com/huggingface/trl/pull/7002">Drop vLLM 0.19.0 support (#7002)</a></td><td>HuggingFace TRL</td><td>🧪</td><td>Requires vLLM 0.20+; aggressive version policy</td></tr>
+<tr><td>5</td><td><a href="https://github.com/huggingface/trl/pull/7065">Harden chunked log probabilities (#7065)</a></td><td>HuggingFace TRL</td><td>🧪</td><td>Robustness improvement for probability calculations</td></tr>
+<tr><td>6</td><td><a href="https://github.com/huggingface/trl/pull/7064">Drop fused JSD from DistillationTrainer (#7064)</a></td><td>HuggingFace TRL</td><td>🧪</td><td>Simplification of distillation training path</td></tr>
+<tr><td>7</td><td><a href="https://github.com/huggingface/trl/pull/7003">Rewrite long context guide (#7003)</a></td><td>HuggingFace TRL</td><td>🧪</td><td>Better documentation for extended sequence training</td></tr>
+<tr><td>8</td><td><a href="https://github.com/huggingface/trl/pull/7067">Run vendored loss parity suites as slow tests (#7067)</a></td><td>HuggingFace TRL</td><td>🧪</td><td>Test infrastructure for vendored loss validation</td></tr>
+<tr><td>9</td><td><a href="https://github.com/volcengine/verl/pull/7724">verl: Async activation offloading (#7724)</a></td><td>verl</td><td>🧪</td><td>Memory optimization for RL training</td></tr>
+<tr><td>10</td><td><a href="https://github.com/volcengine/verl/pull/7719">verl: FSDP gradient sync backport (#7719)</a></td><td>verl</td><td>🧪</td><td>Backward compatibility for gradient synchronization</td></tr>
+<tr><td>11</td><td><a href="https://github.com/volcengine/verl/pull/7718">verl: Unit-temperature logits reuse backport (#7718)</a></td><td>verl</td><td>🧪</td><td>Optimization reuse for FSDP training</td></tr>
+<tr><td>12</td><td><a href="https://github.com/volcengine/verl/pull/7703">verl: Honor fused output-head backend (#7703)</a></td><td>verl</td><td>🧪</td><td>Correct backend selection for output heads</td></tr>
+<tr><td>13</td><td><a href="https://github.com/volcengine/verl/pull/7633">verl: Switch FSDP e2e tests GPU to NPU (#7633)</a></td><td>verl</td><td>🧪</td><td>Hardware diversification beyond NVIDIA</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="github">📦 GitHub Projects</h2>
+<details><summary>GitHub Projects</summary><div class="details-content"><table>
+<thead><tr><th>Project</th><th>Stars</th><th>This Week</th><th>Category</th></tr></thead><tbody>
+<tr><td>**<a href="https://github.com/huggingface/trl">huggingface/trl</a>**</td><td>~19.3K</td><td>37 PRs merged; PPOTrainer removed; Liger losses vendored</td><td>RL Training</td></tr>
+<tr><td>**<a href="https://github.com/vllm-project/vllm">vllm-project/vllm</a>**</td><td>~91K</td><td>No release; continued post-v0.28.0 development</td><td>RL Inference</td></tr>
+<tr><td>**<a href="https://github.com/volcengine/verl">volcengine/verl</a>**</td><td>~23.4K</td><td>6 PRs; async offload, NPU support</td><td>RL Training</td></tr>
+<tr><td>**<a href="https://github.com/OpenRLHF/OpenRLHF">OpenRLHF/OpenRLHF</a>**</td><td>~10K</td><td>Quiet week</td><td>RL Training</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.00791">Instella-MoE</a>**</td><td>New</td><td>16B/2.8B MoE; full pipeline on AMD; open-sourced</td><td>RL Training</td></tr>
+</tbody></table>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="media">🎙 ️ Videos & Podcasts</h2>
+<details><summary>️ Videos & Podcasts</summary><div class="details-content"><p>No significant RL-for-LLMs-focused podcast episodes or talks identified for August 30 -- September 5, 2026. <a href="https://arcprize.org/blog/astra">GPT-6 Astra</a>'s release dominated the broader AI podcast landscape (<a href="https://www.latent.space/">Latent Space</a>, <a href="https://wandb.ai/site/podcast">Gradient Dissent</a>), but dedicated RL post-training content was not featured. The <a href="https://arxiv.org/abs/2609.04063">spurious advantage in GRPO</a> finding and <a href="https://arxiv.org/abs/2609.01274">RLVR-as-internalized-search</a> are likely to generate long-form discussion in WK37.</p>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="community">💬 Community Insights</h2>
+<h3>GPT-6 Astra Reignites RL Post-Training Debate</h3>
+<p><a href="https://arcprize.org/blog/astra">GPT-6 Astra</a>'s release (2,192 HN points) generated intense speculation about its post-training methodology. A <a href="https://www.lesswrong.com/posts/PLisnSFir8y5AHkmP/how-concerned-should-we-be-about-astra-s-recurrent">LessWrong analysis</a> of its recurrent architecture raised safety concerns. The RL community noted Astra's ability to create custom tools and symbolic notation during ARC-AGI-3, behaviors consistent with RL-trained agentic reasoning. The $26K evaluation cost highlighted inference economics as a bottleneck.</p>
+<h3>RLVR Skepticism Reaches Critical Mass</h3>
+<p><a href="https://arxiv.org/abs/2609.01274">From Base Rollouts to RL Reasoning</a> (RLVR gains = sampling efficiency) combined with <a href="https://arxiv.org/abs/2609.01354">Where the Verifier Fails</a> (41.3% verifier inconsistency) and <a href="https://arxiv.org/abs/2609.04063">Spurious Advantage</a> (guessing rewarded in GRPO) created a wave of RLVR skepticism. Community discussion is coalescing around: "If RLVR doesn't create new reasoning, verifiers are inconsistent, and GRPO rewards guessing, what exactly is RLVR doing right?" The counterargument: RLVR still clearly improves greedy performance, even if the mechanism is efficiency rather than capability creation.</p>
+<h3>OPD Pipeline Design Becomes Practical</h3>
+<p><a href="https://arxiv.org/abs/2609.04108">Sequential Beats Joint</a> provided the decision framework the community needed: OPD first (expand coverage), then RLVR (sharpen within it). Combined with <a href="https://arxiv.org/abs/2609.02998">Verify Before You Distill</a> (route unreliable prompts to GRPO) and <a href="https://arxiv.org/abs/2609.01422">Self-Routing</a> (per-sample strategy selection), practitioners now have concrete pipeline recipes rather than abstract recommendations.</p>
+<h3>PPOTrainer Removal Generates Nostalgia</h3>
+<p><a href="https://github.com/huggingface/trl">TRL</a>'s removal of PPOTrainer (<a href="https://github.com/huggingface/trl/pull/7020">#7020</a>) generated nostalgic community discussion about the PPO era. The consensus: PPO served well from InstructGPT through early RLHF, but GRPO's critic-free design, combined with distillation trainers, has definitively superseded it for LLM post-training. Some practitioners noted they'll miss PPO's stability guarantees -- GRPO's newly documented failure modes (<a href="https://arxiv.org/abs/2609.04063">Spurious Advantage</a>, <a href="https://arxiv.org/abs/2608.29188">RLVR narrowing</a>) suggest PPO's critic may have provided implicit regularization that GRPO lacks.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="themes">📈 Emerging Themes</h2>
+<ol>
+<li>**RLVR's existential challenge: three simultaneous failure characterizations.** <a href="https://arxiv.org/abs/2609.04063">Spurious Advantage</a> (guessing rewarded), <a href="https://arxiv.org/abs/2609.01354">Where the Verifier Fails</a> (41.3% inconsistency), and <a href="https://arxiv.org/abs/2609.01274">RLVR-as-internalized-search</a> (no new reasoning) converge into the most serious questioning of RLVR's value since <a href="https://arxiv.org/abs/2501.12948">DeepSeek-R1</a> launched the paradigm. This doesn't mean RLVR is useless -- it clearly improves greedy accuracy -- but the mechanism and reliability are under unprecedented scrutiny.</li>
+</ol>
+<ol>
+<li>**OPD pipeline design matures from theory to recipes.** <a href="https://arxiv.org/abs/2609.04108">Sequential Beats Joint</a> (OPD-then-RLVR), <a href="https://arxiv.org/abs/2609.02998">Verify Before You Distill</a> (teacher gating), <a href="https://arxiv.org/abs/2609.01422">Self-Routing</a> (per-sample strategy), and <a href="https://arxiv.org/abs/2609.04172">Rethinking OPD II</a> (data efficiency) provide production-ready pipeline recipes. OPD graduated from Watch List to mainstream in WK35; now the recipe books are being written.</li>
+</ol>
+<ol>
+<li>**GRPO improvements proliferate.** <a href="https://arxiv.org/abs/2609.00444">GAPO</a> (adaptive clipping, EMNLP), <a href="https://arxiv.org/abs/2609.04063">SIGNBALANCE</a> (spurious advantage fix), <a href="https://arxiv.org/abs/2609.03941">Headroom-Drift Replay</a> (efficient replay), <a href="https://arxiv.org/abs/2608.30632">GMTS</a> (gradient-magnitude token selection), and WK35's <a href="https://arxiv.org/abs/2608.27982">DA3PO</a> form a growing toolkit of drop-in GRPO enhancements. The base algorithm's limitations are being addressed incrementally.</li>
+</ol>
+<ol>
+<li>**Credit assignment diversifies across signal types.** <a href="https://arxiv.org/abs/2609.04094">DRACO</a> (dynamic rubrics), <a href="https://arxiv.org/abs/2609.03342">GAR</a> (gradient-space rewards), <a href="https://arxiv.org/abs/2609.02817">Cliff</a> (first-mistake process rewards), <a href="https://arxiv.org/abs/2609.00213">AMRP</a> (adaptive multi-reward projection), and <a href="https://arxiv.org/abs/2609.00892">CARE</a> (contrastive anchors) advance credit from different directions. Combined with WK35's <a href="https://arxiv.org/abs/2608.28128">VICT</a> and <a href="https://arxiv.org/abs/2608.24350">FARCA</a>, credit assignment is the broadest active research front.</li>
+</ol>
+<ol>
+<li>**RL post-training enters non-text modalities.** <a href="https://arxiv.org/abs/2608.30559">SPHERE</a> (music upmixing via GRPO), <a href="https://arxiv.org/abs/2608.29999">TEMPO</a> (audio timestamping), <a href="https://arxiv.org/abs/2609.02273">CA-OPD</a> (structured visual prediction), and <a href="https://arxiv.org/abs/2609.00791">Instella-MoE</a> (multimodal MoE with OPD) demonstrate GRPO and OPD extending to audio, visual, and multimodal domains.</li>
+</ol>
+<ol>
+<li>**PPO's formal deprecation marks era transition.** <a href="https://github.com/huggingface/trl">TRL</a>'s removal of PPOTrainer (<a href="https://github.com/huggingface/trl/pull/7020">#7020</a>) makes explicit what was already implicit: GRPO + distillation is the production stack. PPO's critic provided stability but at high memory and compute cost; the field has decided the tradeoff isn't worth it.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="trends">📊 Trend Tracking Over Time</h2>
+<table>
+<thead><tr><th>Theme</th><th>First Noted</th><th>Consecutive Weeks</th><th>Momentum</th></tr></thead><tbody>
+<tr><td>GRPO as default LLM RL optimizer</td><td>WK30</td><td>7 (gap WK32-33)</td><td>➡️ Stable -- still dominant; PPO formally deprecated</td></tr>
+<tr><td>GRPO limitations being characterized</td><td>WK30</td><td>7</td><td>📈 Accelerating -- <a href="https://arxiv.org/abs/2609.04063">Spurious Advantage</a>, <a href="https://arxiv.org/abs/2609.00444">GAPO</a>, <a href="https://arxiv.org/abs/2609.04063">SIGNBALANCE</a></td></tr>
+<tr><td>Self-play for non-verifiable rewards</td><td>WK30</td><td>7</td><td>➡️ Stable -- no major new results this week</td></tr>
+<tr><td>Async RL infrastructure</td><td>WK30</td><td>7</td><td>➡️ Stable -- maintenance week post-WK35 consolidation</td></tr>
+<tr><td>Process vs. outcome rewards tension</td><td>WK30</td><td>7</td><td>📈 Accelerating -- <a href="https://arxiv.org/abs/2609.02817">Cliff</a>, <a href="https://arxiv.org/abs/2609.04094">DRACO</a>, <a href="https://arxiv.org/abs/2609.03342">GAR</a></td></tr>
+<tr><td>On-policy distillation as dominant paradigm</td><td>WK31</td><td>6</td><td>📈 Accelerating -- 6 more papers; <a href="https://arxiv.org/abs/2609.04108">Sequential > Joint</a>; pipeline recipes established</td></tr>
+<tr><td>Agentic RL as distinct subfield</td><td>WK31</td><td>6</td><td>➡️ Stable -- <a href="https://arxiv.org/abs/2609.04094">DRACO</a> on AppWorld, but no major new paradigm</td></tr>
+<tr><td>Token-level credit for GRPO</td><td>WK31</td><td>6</td><td>📈 Accelerating -- <a href="https://arxiv.org/abs/2609.04094">DRACO</a>, <a href="https://arxiv.org/abs/2609.03342">GAR</a>, <a href="https://arxiv.org/abs/2609.02817">Cliff</a>, <a href="https://arxiv.org/abs/2608.30632">GMTS</a></td></tr>
+<tr><td>Meta-learned reward shaping</td><td>WK31</td><td>6</td><td>❄️ Cooling -- no follow-up (4 weeks stale)</td></tr>
+<tr><td>Harness-native RL training</td><td>WK34</td><td>3</td><td>➡️ Stable -- no new papers but theme persists</td></tr>
+<tr><td>Multi-reward optimization</td><td>WK34</td><td>3</td><td>📈 Accelerating -- <a href="https://arxiv.org/abs/2609.00213">AMRP</a>, <a href="https://arxiv.org/abs/2609.00892">CARE</a></td></tr>
+<tr><td>RLVR trainability/diversity concerns</td><td>WK34</td><td>3</td><td>📈 Accelerating -- <a href="https://arxiv.org/abs/2609.01354">Verifier Fails</a>, <a href="https://arxiv.org/abs/2609.01274">Internalized Search</a> deepen critique</td></tr>
+<tr><td>Reward hacking as systemic risk</td><td>WK34</td><td>3</td><td>📈 Accelerating -- <a href="https://arxiv.org/abs/2609.00892">CARE</a> (contrastive anchors), <a href="https://arxiv.org/abs/2609.00213">AMRP</a></td></tr>
+<tr><td>OPD pipeline recipes</td><td>WK35 → WK36</td><td>2</td><td>📈 Accelerating -- <a href="https://arxiv.org/abs/2609.04108">Sequential > Joint</a>, <a href="https://arxiv.org/abs/2609.02998">TGOPD</a>, <a href="https://arxiv.org/abs/2609.01422">Self-Routing</a></td></tr>
+<tr><td>Stage-aware pipeline design</td><td>WK35</td><td>2</td><td>📈 Accelerating -- <a href="https://arxiv.org/abs/2609.04108">Sequential > Joint</a>, <a href="https://arxiv.org/abs/2609.01573">Budget Allocation</a></td></tr>
+<tr><td>ES vs GRPO with empirical comparison</td><td>WK35</td><td>2</td><td>➡️ Stable -- no follow-up this week</td></tr>
+<tr><td>Generative reward modeling</td><td>WK35</td><td>2</td><td>📈 Accelerating -- <a href="https://arxiv.org/abs/2608.29856">GenRubric</a>, <a href="https://arxiv.org/abs/2609.00892">CARE</a></td></tr>
+<tr><td>RLVR existential challenge</td><td>WK36</td><td>1</td><td>📈 New theme -- three simultaneous failure characterizations</td></tr>
+<tr><td>GRPO modality expansion</td><td>WK36</td><td>1</td><td>📈 New theme -- <a href="https://arxiv.org/abs/2608.30559">SPHERE</a>, <a href="https://arxiv.org/abs/2608.29999">TEMPO</a>, <a href="https://arxiv.org/abs/2609.02273">CA-OPD</a></td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-1">🏗 ️ Implications for LLM Builders</h2>
+<ol>
+<li>**Adopt OPD-then-RLVR sequencing per <a href="https://arxiv.org/abs/2609.04108">Sequential Beats Joint</a>.** If you're using both distillation and RL, run OPD first to expand coverage, then switch to RLVR when the OPD validation score plateaus. Joint optimization causes signal interference. Combined with <a href="https://arxiv.org/abs/2608.25756">TailSFT</a> from WK35, the optimal pipeline is now TailSFT -> OPD -> RLVR.</li>
+</ol>
+<ol>
+<li>**Audit your RLVR verifiers immediately.** <a href="https://arxiv.org/abs/2609.01354">Where the Verifier Fails</a> shows 41.3% inconsistency across verifier implementations. Whitespace/punctuation cause 93% of false negatives. Run the paper's audit methodology on your verifier stack before trusting RLVR training signals. Replace default LaTeX configurations where possible.</li>
+</ol>
+<ol>
+<li>**Implement <a href="https://arxiv.org/abs/2609.04063">SIGNBALANCE</a> for bounded-answer tasks.** If any of your GRPO tasks have finite answer spaces (multiple-choice, classification, bounded numerics), spurious advantage is actively corrupting your training. SIGNBALANCE is a simple fix: keep verifier sign, global scale, zero-mean balance.</li>
+</ol>
+<ol>
+<li>**Deploy <a href="https://arxiv.org/abs/2609.00444">GAPO</a> as a plug-in GRPO improvement.** Adaptive clipping adjusts to rollout difficulty, particularly helping on hard prompts where fixed clipping suppresses exploration. EMNLP 2026 acceptance validates the approach. Stack with WK35's <a href="https://arxiv.org/abs/2608.27982">DA3PO</a> for complementary improvements.</li>
+</ol>
+<ol>
+<li>**Use <a href="https://arxiv.org/abs/2609.01573">Scaling SFT-RL Budget Allocation</a> to right-size your data mix.** The near-optimal allocation region transfers from small proxy models. Run allocation experiments on small models first -- the 2-10% tolerance means precise tuning is unnecessary, saving significant compute.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-2">🔍 Implications for Post-Training Strategy</h2>
+<ol>
+<li>**The case for RLVR as primary post-training method is weakening.** <a href="https://arxiv.org/abs/2609.01274">Internalized search</a> (no new reasoning), <a href="https://arxiv.org/abs/2609.01354">verifier inconsistency</a> (noisy signals), <a href="https://arxiv.org/abs/2609.04063">spurious advantage</a> (rewards guessing), and WK35's <a href="https://arxiv.org/abs/2608.29188">RLVR narrowing</a> (67% coverage loss) collectively suggest RLVR is best used as a sharpening phase after OPD expands capabilities, not as a standalone training method.</li>
+</ol>
+<ol>
+<li>**OPD is extremely data-efficient.** <a href="https://arxiv.org/abs/2609.04172">Rethinking OPD II</a> shows 16 diverse queries per domain match full-dataset performance. Combined with <a href="https://arxiv.org/abs/2609.02998">Verify Before You Distill</a> (route unreliable prompts to GRPO) and <a href="https://arxiv.org/abs/2609.01422">Self-Routing</a> (per-sample strategy), OPD pipelines can be built with minimal data investment. The bottleneck is algorithmic absorption, not data volume.</li>
+</ol>
+<ol>
+<li>**Per-sample routing is the future of post-training.** <a href="https://arxiv.org/abs/2609.01422">Self-Routing</a> (routes to GRPO/distillation/regularization) and <a href="https://arxiv.org/abs/2609.02998">TGOPD</a> (routes to OPD/GRPO) demonstrate that no single training method is optimal for all samples. Build routing infrastructure now -- the evidence for per-sample strategy selection is strong.</li>
+</ol>
+<ol>
+<li>**GRPO expert merging is a viable enterprise strategy.** <a href="https://arxiv.org/abs/2609.01572">Production Traffic to Post-Training</a> trained separate GRPO experts per objective and merged via SLERP, surpassing a 7x larger baseline. This approach (train specialists, merge) may be more practical than multi-objective GRPO for enterprise teams with diverse requirements.</li>
+</ol>
+<ol>
+<li>**PPO is officially deprecated.** With <a href="https://github.com/huggingface/trl">TRL</a> removing PPOTrainer (<a href="https://github.com/huggingface/trl/pull/7020">#7020</a>), teams still using PPO should migrate to GRPO (for RL) or <a href="https://github.com/huggingface/trl/releases/tag/v1.11.0">AsyncDistillationTrainer</a> (for distillation). The ecosystem has converged.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="watchlist">👀 Watch List</h2>
+<div class="watch-list-box"><table>
+<thead><tr><th>Technology</th><th>First Noted</th><th>Status</th><th>This Week's Movement</th></tr></thead><tbody>
+<tr><td>GRPO impossibility tradeoff</td><td>WK30</td><td>🧪 Early adoption</td><td>📈 <a href="https://arxiv.org/abs/2609.04063">Spurious Advantage</a> + <a href="https://arxiv.org/abs/2609.04063">SIGNBALANCE</a> characterize and fix bounded-answer failure</td></tr>
+<tr><td>Self-play for open-ended RL</td><td>WK30</td><td>🧪 Early adoption</td><td>No new results this week</td></tr>
+<tr><td>Entropy-scaled trust regions (ESTR)</td><td>WK30</td><td>❌ Removed</td><td>No replication for 5 weeks; superseded by <a href="https://arxiv.org/abs/2609.00444">GAPO</a> adaptive clipping</td></tr>
+<tr><td>Dense reward collapse (dark room)</td><td>WK30</td><td>❄️ Cooling</td><td>No fix proposed (5 weeks stale)</td></tr>
+<tr><td>Adaptive rollout allocation (VIGOR)</td><td>WK30</td><td>❄️ Cooling</td><td>No replication (5 weeks stale); <a href="https://arxiv.org/abs/2609.03941">Headroom-Drift Replay</a> addresses similar problem differently</td></tr>
+<tr><td>GRPO on continuous control</td><td>WK30</td><td>❌ Removed</td><td>No progress for 5 weeks</td></tr>
+<tr><td>Token-level credit for GRPO</td><td>WK31</td><td>🧪 Early adoption</td><td>📈 <a href="https://arxiv.org/abs/2609.04094">DRACO</a>, <a href="https://arxiv.org/abs/2609.03342">GAR</a>, <a href="https://arxiv.org/abs/2609.02817">Cliff</a>, <a href="https://arxiv.org/abs/2608.30632">GMTS</a></td></tr>
+<tr><td>Meta-learned reward shaping</td><td>WK31</td><td>❄️ Cooling</td><td>No follow-up (4 weeks stale)</td></tr>
+<tr><td>NVIDIA RL framework (Molt)</td><td>WK31</td><td>❄️ Cooling</td><td><a href="https://github.com/NVIDIA/NeMo-Aligner">NeMo-Aligner</a> still stagnant; 18+ months without release</td></tr>
+<tr><td>Harness-native RL training</td><td>WK34</td><td>🧪 Early adoption</td><td>No new papers but pattern persists via <a href="https://arxiv.org/abs/2609.04094">DRACO</a></td></tr>
+<tr><td>RLVR support collapse</td><td>WK34</td><td>🧪 Early adoption</td><td>📈 <a href="https://arxiv.org/abs/2609.01274">Internalized search</a>, <a href="https://arxiv.org/abs/2609.01354">verifier audit</a> deepen concerns</td></tr>
+<tr><td>RL reward hacking generalization</td><td>WK34</td><td>🧪 Early adoption</td><td>📈 <a href="https://arxiv.org/abs/2609.00892">CARE</a>, <a href="https://arxiv.org/abs/2609.00213">AMRP</a> address from different angles</td></tr>
+<tr><td>Multi-reward saturation management</td><td>WK34</td><td>🧪 Early adoption</td><td>📈 <a href="https://arxiv.org/abs/2609.00213">AMRP</a> dynamic aggregation</td></tr>
+<tr><td>ES-GRPO hybrids</td><td>WK35</td><td>🧪 Early prototype</td><td>➡️ No follow-up this week</td></tr>
+<tr><td>Stage-aware pipeline design</td><td>WK35</td><td>🧪 Early adoption</td><td>📈 <a href="https://arxiv.org/abs/2609.04108">Sequential > Joint</a>, <a href="https://arxiv.org/abs/2609.01573">Budget Allocation</a> validate and extend</td></tr>
+<tr><td>Generative reward modeling</td><td>WK35</td><td>🧪 Early prototype</td><td>📈 <a href="https://arxiv.org/abs/2608.29856">GenRubric</a>, <a href="https://arxiv.org/abs/2609.00892">CARE</a></td></tr>
+<tr><td>RLVR verifier reliability</td><td>WK36</td><td>🔬 Research-only</td><td>New -- <a href="https://arxiv.org/abs/2609.01354">41.3% inconsistency</a> across implementations</td></tr>
+<tr><td>Per-sample training routing</td><td>WK36</td><td>🧪 Early prototype</td><td>New -- <a href="https://arxiv.org/abs/2609.01422">Self-Routing</a>, <a href="https://arxiv.org/abs/2609.02998">TGOPD</a></td></tr>
+<tr><td>Gradient-space rewards</td><td>WK36</td><td>🔬 Research-only</td><td>New -- <a href="https://arxiv.org/abs/2609.03342">GAR</a> gradient-aligned dense rewards</td></tr>
+<tr><td>GRPO expert merging</td><td>WK36</td><td>🚀 Production-ready</td><td>New -- <a href="https://arxiv.org/abs/2609.01572">SLERP merging</a> serving 116M requests/month</td></tr>
+</tbody></table>
+<p>**Removals:** Entropy-scaled trust regions (ESTR) and GRPO on continuous control removed after 5+ weeks without replication or follow-up. ESTR's core idea (adapting trust regions to entropy) is superseded by <a href="https://arxiv.org/abs/2609.00444">GAPO</a>'s more general adaptive clipping approach.</p>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="contrarian">🔮 Contrarian View</h2>
+<div class="contrarian"><h3>What the community may be overestimating</h3>
+<p>**RLVR's impending demise.** The convergence of <a href="https://arxiv.org/abs/2609.04063">spurious advantage</a>, <a href="https://arxiv.org/abs/2609.01354">verifier inconsistency</a>, and <a href="https://arxiv.org/abs/2609.01274">internalized-search findings</a> creates a narrative that RLVR is fundamentally broken. But this confuses characterization with invalidation. RLVR still demonstrably improves greedy accuracy across every model family tested. The internalized-search finding -- that RLVR primarily teaches efficient sampling -- is a mechanism description, not a criticism. Efficient sampling of existing capabilities is extremely valuable for production systems. The real conclusion isn't "abandon RLVR" but "use RLVR for what it's good at (sharpening) while using OPD for capability expansion."</p>
+<h3>What the community may be underestimating</h3>
+<p>**The implications of <a href="https://arxiv.org/abs/2609.04172">Rethinking OPD II</a>'s data efficiency finding.** If 16 queries per domain match full-dataset OPD performance, the bottleneck in post-training shifts entirely from data to compute and algorithmic design. This means: (1) data moats in post-training are illusory -- anyone with a good teacher model can distill effectively; (2) the competitive advantage shifts to pipeline orchestration (when to transition from OPD to RLVR, how to route samples, how to sequence stages); and (3) the teams that will win are those with the best pipeline automation, not the most training data. <a href="https://arxiv.org/abs/2609.01422">Self-Routing</a> and <a href="https://arxiv.org/abs/2609.02998">TGOPD</a> are early examples of this shift. The OPD data efficiency result deserves more strategic attention than it's receiving.</p>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="strategy">🧭 Strategic Analysis</h2>
+<p>**Short-term (0--6 months):**</p>
+<ul>
+<li>OPD-then-RLVR will become the standard two-stage pipeline per <a href="https://arxiv.org/abs/2609.04108">Sequential Beats Joint</a>. Expect <a href="https://github.com/huggingface/trl">TRL</a> to add transition logic between AsyncDistillationTrainer and GRPOTrainer.</li>
+<li>RLVR verifier standardization will become urgent. <a href="https://arxiv.org/abs/2609.01354">Where the Verifier Fails</a>'s 41.3% inconsistency finding will drive verifier benchmarking and comparison efforts.</li>
+<li><a href="https://arxiv.org/abs/2609.04063">SIGNBALANCE</a> and <a href="https://arxiv.org/abs/2609.00444">GAPO</a> will be integrated as default GRPO options in <a href="https://github.com/huggingface/trl">TRL</a> and <a href="https://github.com/volcengine/verl">verl</a>.</li>
+<li>PPO migration accelerates as <a href="https://github.com/huggingface/trl">TRL</a>'s removal forces holdout teams to switch.</li>
+</ul>
+<p>**Mid-term (6--18 months):**</p>
+<ul>
+<li>Per-sample routing (<a href="https://arxiv.org/abs/2609.01422">Self-Routing</a>, <a href="https://arxiv.org/abs/2609.02998">TGOPD</a>) will evolve into automated pipeline orchestrators that select training strategies at the sample, batch, and stage level.</li>
+<li>Gradient-space rewards (<a href="https://arxiv.org/abs/2609.03342">GAR</a>) will challenge the process reward model paradigm by providing dense supervision without separate reward model training.</li>
+<li>GRPO expert merging (<a href="https://arxiv.org/abs/2609.01572">SLERP</a>) will become a standard enterprise pattern for multi-objective post-training.</li>
+<li>AMD's entry via <a href="https://arxiv.org/abs/2609.00791">Instella-MoE</a> will expand non-NVIDIA RL training, driving hardware competition and potentially reducing training costs.</li>
+</ul>
+<p>**Long-term (2--5 years):**</p>
+<ul>
+<li>Post-training pipelines will be fully automated: ML systems jointly optimizing stage sequencing (SFT/OPD/RLVR), per-sample routing, and hyperparameters.</li>
+<li>The RLVR-as-internalized-search finding (<a href="https://arxiv.org/abs/2609.01274">Sun et al.</a>) may lead to training methods that directly optimize search efficiency rather than using RL as a proxy.</li>
+<li>Credit assignment will converge on gradient-space methods that operate in the model's own representation space rather than output space.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="relevance">🎯 Personalized Relevance</h2>
+<table>
+<thead><tr><th>Area</th><th>Score</th><th>This Week's Highlight</th></tr></thead><tbody>
+<tr><td>GRPO and preference optimization advances</td><td>10/10</td><td><a href="https://arxiv.org/abs/2609.04063">Spurious Advantage</a> + <a href="https://arxiv.org/abs/2609.04063">SIGNBALANCE</a>, <a href="https://arxiv.org/abs/2609.00444">GAPO</a> (EMNLP), <a href="https://arxiv.org/abs/2609.03941">Headroom-Drift Replay</a></td></tr>
+<tr><td>Reward modeling and verification</td><td>10/10</td><td><a href="https://arxiv.org/abs/2609.01354">Where the Verifier Fails</a> (41.3% inconsistency), <a href="https://arxiv.org/abs/2609.00892">CARE</a>, <a href="https://arxiv.org/abs/2609.00213">AMRP</a>, <a href="https://arxiv.org/abs/2608.29856">GenRubric</a></td></tr>
+<tr><td>Process reward models and verifiers</td><td>9/10</td><td><a href="https://arxiv.org/abs/2609.04094">DRACO</a> (dynamic rubrics), <a href="https://arxiv.org/abs/2609.03342">GAR</a> (gradient rewards), <a href="https://arxiv.org/abs/2609.02817">Cliff</a> (first mistake)</td></tr>
+<tr><td>RL for reasoning (math, code, planning)</td><td>9/10</td><td><a href="https://arxiv.org/abs/2609.02849">Nemotron-3 IOI gold</a>, <a href="https://arxiv.org/abs/2609.01274">RLVR as internalized search</a>, <a href="https://arxiv.org/abs/2609.03324">DE-Venus</a></td></tr>
+<tr><td>Training infrastructure and efficiency</td><td>9/10</td><td><a href="https://github.com/huggingface/trl/pull/7020">TRL PPOTrainer removal</a>, <a href="https://arxiv.org/abs/2609.00791">Instella-MoE AMD</a>, <a href="https://github.com/volcengine/verl/pull/7724">verl async offload</a></td></tr>
+<tr><td>On-policy distillation</td><td>10/10</td><td><a href="https://arxiv.org/abs/2609.04108">Sequential > Joint</a>, <a href="https://arxiv.org/abs/2609.04172">Rethinking OPD II</a>, <a href="https://arxiv.org/abs/2609.02998">TGOPD</a>, <a href="https://arxiv.org/abs/2609.02273">CA-OPD</a></td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="recommendations">✅ Recommendations</h2>
+<h3>For LLM training teams</h3>
+<ol>
+<li>**Implement <a href="https://arxiv.org/abs/2609.04108">OPD-then-RLVR sequencing</a>** -- run OPD first to expand coverage, transition to RLVR when OPD validation score plateaus. Do not jointly optimize the two signals.</li>
+<li>**Audit your RLVR verifiers** using <a href="https://arxiv.org/abs/2609.01354">Where the Verifier Fails</a> methodology. Fix whitespace/punctuation handling -- 93% of false negatives are formatting, not reasoning.</li>
+<li>**Deploy <a href="https://arxiv.org/abs/2609.04063">SIGNBALANCE</a>** on all bounded-answer GRPO tasks. Stack with <a href="https://arxiv.org/abs/2609.00444">GAPO</a> adaptive clipping for comprehensive improvement.</li>
+<li>**Migrate from PPOTrainer** if still using it -- <a href="https://github.com/huggingface/trl">TRL</a> has removed it (<a href="https://github.com/huggingface/trl/pull/7020">#7020</a>). Move to GRPOTrainer or AsyncDistillationTrainer.</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2609.04094">DRACO</a> for agentic RL** -- dynamic rubric credit assignment shows 15.9-point gains on <a href="https://github.com/stonybrooknlp/appworld">AppWorld</a> without frontier judge access.</li>
+</ol>
+<h3>For post-training strategists</h3>
+<ol>
+<li>**Use <a href="https://arxiv.org/abs/2609.01573">Scaling SFT-RL Budget Allocation</a>** to optimize data mix with small proxy models before scaling up.</li>
+<li>**Consider <a href="https://arxiv.org/abs/2609.01572">GRPO expert merging</a>** for multi-objective enterprise requirements -- train separate GRPO experts per axis, merge via SLERP.</li>
+<li>**Explore <a href="https://arxiv.org/abs/2609.01422">Self-Routing</a>** for heterogeneous training -- per-sample strategy selection reduces redundant updates and improves efficiency.</li>
+<li>**Read <a href="https://arxiv.org/abs/2609.01274">From Base Rollouts to RL Reasoning</a>** -- understanding RLVR's mechanism (sampling efficiency vs. new reasoning) informs how much to invest in RLVR vs. OPD.</li>
+<li>**Pilot <a href="https://arxiv.org/abs/2609.03324">DE-Venus</a>** for budget-constrained RLVR -- 63-75% convergence reduction with 10% labels directly cuts training costs.</li>
+</ol>
+<h3>For everyone</h3>
+<ol>
+<li>Read <a href="https://arxiv.org/abs/2609.04108">Sequential Beats Joint</a> -- the definitive OPD-RLVR pipeline design paper</li>
+<li>Read <a href="https://arxiv.org/abs/2609.01354">Where the Verifier Fails</a> -- RLVR verifier reliability is far worse than assumed</li>
+<li>Track the RLVR existential challenge -- three simultaneous failure characterizations may reshape post-training strategy</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="takeaways">🏆 Executive Takeaways</h2>
+<h3>Top 5 Technical Advances</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.04108">Sequential OPD-then-RLVR outperforms joint optimization</a>** -- two-stage pipeline design with OPD validation score as transition signal (12 min)</li>
+<li>**<a href="https://arxiv.org/abs/2609.04063">Spurious advantage identified in GRPO</a>** -- guessing rewarded on bounded-answer tasks; SIGNBALANCE fix proposed (10 min)</li>
+<li>**<a href="https://arxiv.org/abs/2609.01354">RLVR verifiers inconsistent by 41.3%</a>** -- whitespace/punctuation cause 93% of false negatives; reward signals are noisy (10 min)</li>
+<li>**<a href="https://arxiv.org/abs/2609.01274">RLVR gains = sampling efficiency, not new reasoning</a>** -- BOPTR scaling rule predicts RL gains from base model search (12 min)</li>
+<li>**<a href="https://arxiv.org/abs/2609.00444">GAPO: Adaptive clipping for GRPO</a>** -- EMNLP 2026; plug-in modification improving hard-prompt performance (10 min)</li>
+</ol>
+<h3>Top 5 Business Developments</h3>
+<ol>
+<li>**<a href="https://arcprize.org/blog/astra">GPT-6 Astra released</a>** -- 62.7% ARC-AGI-3, 99.9% Provider Adapter; no post-training details (5 min)</li>
+<li>**<a href="https://arxiv.org/abs/2609.02849">Nemotron-3 outscores humans at IOI 2026</a>** -- 535.4/600 vs 498.27 human best; SFT+RL pipeline (10 min)</li>
+<li>**<a href="https://github.com/huggingface/trl/pull/7020">TRL removes PPOTrainer</a>** -- formal end of PPO era in open-source RL training (2 min)</li>
+<li>**<a href="https://arxiv.org/abs/2609.00791">Instella-MoE: AMD enters RL training</a>** -- fully AMD-trained MoE with DPO + OPD; open-sourced (10 min)</li>
+<li>**<a href="https://arxiv.org/abs/2609.01572">GRPO expert merging serves 116M requests/month</a>** -- separate experts merged via SLERP beats 7x larger model (8 min)</li>
+</ol>
+<h3>Top 5 Must-Read Resources</h3>
+<ol>
+<li><a href="https://arxiv.org/abs/2609.04108">Sequential Beats Joint: OPD and RLVR Interplay</a> (12 min)</li>
+<li><a href="https://arxiv.org/abs/2609.04063">Spurious Advantage Hidden in GRPO</a> (10 min)</li>
+<li><a href="https://arxiv.org/abs/2609.01354">Where the Verifier Fails: RLVR Reward Signal Audit</a> (10 min)</li>
+<li><a href="https://arxiv.org/abs/2609.01274">From Base Rollouts to RL Reasoning</a> (12 min)</li>
+<li><a href="https://arxiv.org/abs/2609.00444">GAPO: Group Adaptive Clipping</a> (10 min)</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="next-week">📌 What Leaders Should Do Next Week</h2>
+<ol>
+<li>**Implement <a href="https://arxiv.org/abs/2609.04108">OPD-then-RLVR pipeline</a>** in a staging environment -- use OPD validation score as transition signal to RL</li>
+<li>**Run <a href="https://arxiv.org/abs/2609.01354">verifier audit</a>** on your RLVR verification stack using metamorphic testing; fix whitespace/punctuation handling</li>
+<li>**Deploy <a href="https://arxiv.org/abs/2609.04063">SIGNBALANCE</a>** on any GRPO tasks with bounded answer spaces -- eliminates spurious advantage from guessing</li>
+<li>**Complete PPO migration** if still running PPOTrainer -- <a href="https://github.com/huggingface/trl">TRL</a> has removed it; switch to GRPOTrainer or AsyncDistillationTrainer</li>
+<li>**Stack <a href="https://arxiv.org/abs/2609.00444">GAPO</a> + <a href="https://arxiv.org/abs/2608.27982">DA3PO</a>** on existing GRPO pipelines -- two complementary plug-in improvements (adaptive clipping + difficulty-aware advantages)</li>
+<li>**Test <a href="https://arxiv.org/abs/2609.03941">Headroom-Drift Replay</a>** if GRPO rollout generation is your training bottleneck -- reduces wall-clock time without quality loss</li>
+<li>**Read <a href="https://arxiv.org/abs/2609.01274">From Base Rollouts to RL Reasoning</a>** to understand RLVR's mechanism before committing additional RL compute</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2609.04094">DRACO</a> for agentic tasks** -- dynamic rubric credit shows 15.9-point gains on <a href="https://github.com/stonybrooknlp/appworld">AppWorld</a> without external critics</li>
+<li>**Update WK35 action items:** Verify <a href="https://github.com/huggingface/trl/releases/tag/v1.11.0">TRL v1.11.0</a> + <a href="https://github.com/vllm-project/vllm/releases/tag/v0.28.0">vLLM v0.28.0</a> upgrade complete; check <a href="https://arxiv.org/abs/2608.29188">RLVR diversity monitoring</a> metrics operational</li>
+</ol>
+<hr class="section-divider">
+<p>*Sources: 28+ arXiv papers, 37 TRL PRs, 6 verl PRs, ARC Prize Blog, LessWrong, Hacker News, HuggingFace Blog, Semantic Scholar*</p>
+<p>*Prior report: WK35 (August 23--29, 2026)*</p>
+<p>*Next report: WK37 (September 6--12, 2026)*</p>
+<hr class="section-divider">
+<div class="meta"><p>Generated by render_html.py from markdown source.</p></div>
+</main>
+</div>
+<script>window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+    const btn = document.getElementById('backToTop');
+    btn.classList.toggle('visible', winScroll > 400);
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));</script>
+</body>
+</html>

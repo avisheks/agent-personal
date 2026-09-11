@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI for TPM / PMs Weekly Briefing (Week 30)</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #7c3aed); z-index: 1000; transition: width 0.1s; }
+body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.7; color: #1a1a2e; background: #fafafa; padding: 2rem 1.5rem; margin: 0; }
+.layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 2rem; }
+.toc { position: sticky; top: 1rem; width: 220px; min-width: 220px; height: fit-content; max-height: calc(100vh - 2rem); overflow-y: auto; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; padding: 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; scrollbar-width: thin; }
+.toc h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.75rem; }
+.toc a { display: block; padding: 0.3rem 0.5rem; color: #475569; text-decoration: none; border-radius: 4px; margin-bottom: 2px; transition: all 0.2s; }
+.toc a:hover, .toc a.active { background: #eff6ff; color: #2563eb; }
+.main-content { flex: 1; max-width: 900px; min-width: 0; }
+h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; font-weight: 700; color: #0f0f23; margin-bottom: 0.25rem; letter-spacing: -0.5px; }
+.header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.subtitle { font-style: italic; color: #555; font-size: 0.95rem; }
+.reading-time { display: inline-block; background: #eff6ff; color: #2563eb; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 12px; }
+h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.4rem; font-weight: 600; color: #16213e; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e8e8f0; }
+h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 600; color: #1a1a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; font-weight: 600; color: #333; margin-top: 1rem; margin-bottom: 0.4rem; }
+p { margin-bottom: 1rem; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.baseline-note { background: #f0f4ff; border-left: 4px solid #2563eb; padding: 0.75rem 1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #1e40af; }
+.executive-briefing { background: #f8f9fc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+.executive-briefing p { margin-bottom: 0.75rem; }
+.executive-briefing strong { color: #0f0f23; }
+.hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2rem; }
+.hero-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem; text-align: center; transition: box-shadow 0.2s; }
+.hero-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.hero-card .hero-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+.hero-card .hero-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.9rem; color: #1a1a2e; margin-bottom: 0.4rem; }
+.hero-card .hero-link { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; }
+.callout { border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; }
+.callout-insight { background: #eff6ff; border-left: 4px solid #2563eb; }
+.callout-risk { background: #fef2f2; border-left: 4px solid #dc2626; }
+.callout-opportunity { background: #f0fdf4; border-left: 4px solid #16a34a; }
+.callout-number { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; text-align: center; margin: 1rem 0; }
+.callout-number .big-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2.2rem; font-weight: 700; color: #0f0f23; }
+.callout-number .number-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
+.key-numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.88rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+th { background: #f1f5f9; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; color: #334155; border-bottom: 2px solid #cbd5e1; }
+td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #eff6ff; }
+ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+.score-pill { display: inline-block; border-radius: 4px; padding: 0.2rem 0.5rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; font-weight: 600; margin-right: 0.4rem; margin-bottom: 0.25rem; }
+.score-high { background: #dcfce7; color: #166534; }
+.score-mid { background: #fef9c3; color: #854d0e; }
+.score-low { background: #fee2e2; color: #991b1b; }
+.dev-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+.dev-card h3 { margin-top: 0; color: #0f0f23; }
+.signal { display: inline-block; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; }
+.signal-research { background: #ede9fe; color: #6d28d9; }
+.signal-prototype { background: #fef3c7; color: #92400e; }
+.signal-production { background: #d1fae5; color: #065f46; }
+.section-divider { border: none; border-top: 1px solid #e8e8f0; margin: 2.5rem 0; }
+.action-list { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.action-list li { font-size: 0.95rem; }
+.contrarian { background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.watch-list-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+details { margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+details summary { padding: 0.75rem 1rem; background: #f8fafc; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; color: #334155; }
+details summary:hover { background: #f1f5f9; }
+details[open] summary { border-bottom: 1px solid #e2e8f0; }
+details .details-content { padding: 1rem; }
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: #2563eb; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(37,99,235,0.3); z-index: 999; }
+.back-to-top.visible { display: flex; }
+.meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
+@media (max-width: 768px) { .layout { flex-direction: column; } .toc { display: none; } .hero-grid { grid-template-columns: 1fr; } body { padding: 1rem; } h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } table { font-size: 0.8rem; } .key-numbers-grid { grid-template-columns: repeat(2, 1fr); } }</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+<div class="layout">
+<nav class="toc" id="toc">
+    <h4>Contents</h4>
+    <a href="#executive-briefing">📋 Executive Briefing</a>
+    <a href="#what-changed">⚡ What Changed</a>
+    <a href="#top-technical">🔬 Top Technical</a>
+    <a href="#lab-scorecards">🏢 Lab Scorecards</a>
+    <a href="#open-source">🌐 Open-Source</a>
+    <a href="#business">💰 Business & Market</a>
+    <a href="#research">📄 Research Papers</a>
+    <a href="#research-blogs">🧬 Research Blogs</a>
+    <a href="#blogs">🛠️ Engineering Blogs</a>
+    <a href="#github">📦 GitHub Projects</a>
+    <a href="#media">🎙️ Videos & Podcasts</a>
+    <a href="#community">💬 Community</a>
+    <a href="#themes">📈 Emerging Themes</a>
+    <a href="#trends">📊 Trend Tracking</a>
+    <a href="#implications-1">🏗️ Implications fo</a>
+    <a href="#implications-2">🔍 Implications fo</a>
+    <a href="#watchlist">👀 Watch List</a>
+    <a href="#contrarian">🔮 Contrarian View</a>
+    <a href="#strategy">🧭 Strategic Analysis</a>
+    <a href="#relevance">🎯 Personalized</a>
+    <a href="#recommendations">✅ Recommendations</a>
+    <a href="#takeaways">🏆 Takeaways</a>
+    <a href="#next-week">📌 Next Week</a>
+</nav>
+<main class="main-content">
+<h1>AI for TPM / PMs Weekly Briefing (Week 30)</h1>
+<div class="header-meta"><span class="subtitle">Week 30 | July 19–25, 2026</span><span class="reading-time">⏱️ 15 min read</span></div>
+<div class="baseline-note"><strong>First report &mdash; baseline established.</strong> All trend tracking, Watch List, and prediction scoring begin from this issue.</div>
+<h2 id="executive-briefing">📋 Executive Briefing</h2>
+<p>Three developments this week directly change how TPMs and PMs work:</p>
+<ol>
+<li>**<a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP went stateless</a>** — the largest protocol revision eliminates session-based connections, enabling enterprise-scale agent deployments on standard HTTP. Plan a 12-month migration.</li>
+</ol>
+<ol>
+<li>**<a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a> launched** with 1.5x task completion on Zapier AutomationBench and 17% improvement on enterprise content analysis. Multi-hour autonomous workflows are now economically viable ($5/$25 per M tokens).</li>
+</ol>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2607.25400">Natural language SOPs can now compile into enforceable agent workflows</a>** (COVENANT) — reducing workflow misalignment failures from 42.5% to 15.8%. Write your process docs; the AI follows them.</li>
+</ol>
+<p>**What to try this week:** Test Opus 5 on a recurring status report. Evaluate <a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">TAKC</a> for cross-document synthesis of project artifacts. Read the <a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS agent evaluation blueprint</a> — the Pass^k metric belongs in your deployment checklist.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="what-changed">⚡ What Changed Since Last Week</h2>
+<ul>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP 2026-07-28 spec</a>: stateless HTTP transport; header-based routing; 12-month deprecation window for old sessions</li>
+<li><a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a>: 1.5x automation benchmark; multi-hour agents with error recovery; mid-conversation tool changes</li>
+<li><a href="https://arxiv.org/abs/2607.25400">COVENANT</a>: compiles natural-language SOPs into executable workflow programs; 63% reduction in misalignment failures</li>
+<li><a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS Agent Evaluation Blueprint</a>: Pass^k metric; Motorway 12→2 incidents/month</li>
+<li><a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">TAKC</a>: task-aware knowledge compression (8x-64x) outpaces traditional RAG</li>
+<li><a href="https://github.com/block/buzz">Block/Buzz</a>: human-agent shared workspace on Nostr relay (15.5K stars in first week)</li>
+<li><a href="https://arxiv.org/abs/2607.25656">OrchBench</a>: evaluate multi-agent orchestration at 1.3% of full execution cost</li>
+<li><a href="https://www.anthropic.com/news/cognizant-anthropic">Cognizant-Anthropic</a>: 30K+ Claude-trained associates; 40% faster contract review; 8 hrs/week saved</li>
+<li><a href="https://arxiv.org/abs/2607.25398">HANDBOOK.md</a>: best AI agents pass only 36.2% of enterprise SOP compliance tests</li>
+<li><a href="https://github.com/alibaba/open-code-review">Alibaba Open Code Review</a>: battle-tested at tens of thousands of developers (15.7K stars)</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="top-technical">🔬 Top Technical Developments</h2>
+<h3>1. MCP Goes Stateless — Largest Protocol Revision</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Quality</td><td>9</td></tr>
+<tr><td>Novelty</td><td>8</td></tr>
+<tr><td>Practicality</td><td>8</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP Blog</a> + <a href="https://aws.amazon.com/blogs/machine-learning/how-agentcore-gateway-supports-the-mcp-2026-07-28-spec/">AWS AgentCore support</a> | **Reading time:** 35 min</p>
+<p>Eliminates session-based connections. Standard HTTP endpoints scale horizontally without sticky sessions. Header-based routing (`Mcp-Method`, `Mcp-Name`) enables standard observability tooling. 12-month deprecation window for old protocol.</p>
+<p>**Why this matters for TPMs:** Removes session-pinning infrastructure complexity. Enables phased rollouts via dual-version gateways. Standard HTTP means standard monitoring, standard load balancers, standard security tooling.</p>
+<hr class="section-divider">
+<h3>2. Claude Opus 5 — Reliable Multi-Hour Automation</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Quality</td><td>9</td></tr>
+<tr><td>Novelty</td><td>7</td></tr>
+<tr><td>Practicality</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://www.anthropic.com/news/claude-opus-5">Anthropic</a> | **Reading time:** 10 min</p>
+<p>1.5x task completion on Zapier AutomationBench. 17% improvement on enterprise content analysis. Reduced variance across multi-step workflows. Mid-conversation tool add/remove without cache invalidation. $5/$25 per M tokens (same as Opus 4.8).</p>
+<p>**Why this matters for PMs/TPMs:** Status reports, due diligence, vendor assessments, and multi-component project coordination can now run autonomously for hours with error recovery. The reduced variance means you can actually trust the output.</p>
+<hr class="section-divider">
+<h3>3. COVENANT — Compile SOPs into Enforceable Agent Workflows</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Quality</td><td>9</td></tr>
+<tr><td>Novelty</td><td>9</td></tr>
+<tr><td>Practicality</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2607.25400">arXiv:2607.25400</a> | **Reading time:** 20 min</p>
+<p>Converts natural language SOPs into executable programs (ASTs + control-flow graphs) that validate agent actions before execution. Reduces workflow misalignment from 42.5% to 15.8%.</p>
+<p>**Why this matters for TPMs:** Your existing process documentation becomes the enforcement layer. Write the SOP, compile it, and the AI agent must follow it — no improvisation.</p>
+<hr class="section-divider">
+<h3>4. AWS Agent Evaluation Blueprint — Pass^k Metric</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Quality</td><td>9</td></tr>
+<tr><td>Novelty</td><td>8</td></tr>
+<tr><td>Practicality</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS ML Blog</a> | **Reading time:** 25 min</p>
+<p>Three-layer framework: tool usage >95%, reasoning >85%, output quality >90%. Pass^k metric: 75% per-trial success = only 42% reliability across 3 runs. Motorway case study: 12→2 incidents/month.</p>
+<p>**Why this matters for TPMs:** Finally, a production-grade quality gate for agent deployments. Add Pass^k to your deployment checklists. The 75%→42% insight means single-pass demos vastly overstate production reliability.</p>
+<hr class="section-divider">
+<h3>5. TAKC — Task-Aware Knowledge Compression Outpaces RAG</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Quality</td><td>8</td></tr>
+<tr><td>Novelty</td><td>9</td></tr>
+<tr><td>Practicality</td><td>7</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">AWS ML Blog</a> | **Reading time:** 20 min</p>
+<p>Pre-compresses entire knowledge bases into task-specific summaries (8x-64x compression). Same document compressed for risk analysis preserves different signals than for compliance review.</p>
+<p>**Why this matters for TPMs:** Cross-document synthesis across hundreds of status reports, vendor assessments, and risk logs — simultaneously. The "task-aware" aspect means you get different summaries depending on whether you're doing risk review vs. compliance vs. executive briefing.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="lab-scorecards">🏢 Frontier Lab Scorecards</h2>
+<table>
+<thead><tr><th>Lab</th><th>TPM/PM-Relevant Releases</th><th>Strategic Direction</th></tr></thead><tbody>
+<tr><td>**<a href="https://www.anthropic.com/news">Anthropic</a>**</td><td><a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a> (1.5x automation); <a href="https://www.anthropic.com/news/anthropic-economic-index-connector">Economic Index Connector</a></td><td><a href="https://www.anthropic.com/news/cognizant-anthropic">Cognizant partnership</a> (30K associates); open-weights position</td></tr>
+<tr><td>**Amazon/AWS**</td><td><a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">Agent Eval Blueprint</a>; <a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">TAKC</a>; <a href="https://aws.amazon.com/blogs/machine-learning/how-agentcore-gateway-supports-the-mcp-2026-07-28-spec/">MCP 2026-07-28 support</a></td><td>$1B forward-deployed AI engineers</td></tr>
+<tr><td>**<a href="https://developer.nvidia.com/blog">NVIDIA</a>**</td><td><a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">Six Harness Capabilities</a> (82.2% SWE-bench)</td><td>Agents as diffable, code-reviewable software artifacts</td></tr>
+<tr><td>**OpenAI**</td><td><a href="https://aws.amazon.com/blogs/machine-learning/get-started-with-openai-gpt-5-6-sol-terra-and-luna-on-amazon-bedrock/">GPT-5.6 Sol/Terra/Luna</a> on Bedrock</td><td><a href="https://ads.openai.com/">Ads in ChatGPT</a></td></tr>
+<tr><td>**MCP Ecosystem**</td><td><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Stateless spec</a> (biggest revision); 89K stars; 10 SDKs</td><td>Google/Microsoft/JetBrains collaboration</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="open-source">🌐 Open-Source Ecosystem Tracking</h2>
+<table>
+<thead><tr><th>Project</th><th>Stars</th><th>This Week</th><th>TPM/PM Relevance</th></tr></thead><tbody>
+<tr><td>**<a href="https://github.com/n8n-io/n8n">n8n</a>**</td><td>198K</td><td>+1.3K; AI nodes maturing</td><td>Workflow automation; status aggregation; cross-tool sync</td></tr>
+<tr><td>**<a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a>**</td><td>33.8K</td><td>+10K; 290+ providers</td><td>Cost control across AI providers; vendor-agnostic</td></tr>
+<tr><td>**<a href="https://github.com/block/buzz">Block/Buzz</a>**</td><td>15.5K</td><td>NEW; human-agent shared rooms</td><td>Team collaboration with AI as equal participant</td></tr>
+<tr><td>**<a href="https://github.com/alibaba/open-code-review">Alibaba Open Code Review</a>**</td><td>15.7K</td><td>+4.7K; battle-tested at scale</td><td>Engineering velocity; review bottleneck reduction</td></tr>
+<tr><td>**<a href="https://github.com/koala73/worldmonitor">WorldMonitor</a>**</td><td>76.3K</td><td>+12.2K; 500+ news feeds</td><td>Geopolitical risk monitoring for global programs</td></tr>
+<tr><td>**<a href="https://github.com/mattpocock/skills">mattpocock/skills</a>**</td><td>192.5K</td><td>+12.7K; composable workflows</td><td>Reusable agent skills for PM/TPM tasks</td></tr>
+<tr><td>**<a href="https://github.com/earendil-works/pi">Pi</a>**</td><td>80.2K</td><td>+5.2K; multi-provider agent CLI</td><td>Standardized agent infrastructure across teams</td></tr>
+<tr><td>**<a href="https://github.com/modelcontextprotocol">MCP</a>**</td><td>89K</td><td>Stateless spec; 10 SDKs</td><td>Tool integration standard for all AI agents</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="business">💰 Business & Market Intelligence</h2>
+<h3>Enterprise AI Adoption</h3>
+<ul>
+<li>**<a href="https://www.anthropic.com/news/cognizant-anthropic">Cognizant + Anthropic</a>**: 30,000+ Claude-trained associates. Production results: 40% faster contract review (biopharma), 8 hrs/week saved (insurance underwriting), 6-month manufacturing portal delivery.</li>
+<li>**<a href="https://aws.amazon.com/blogs/machine-learning/ai-teammates-how-monday-com-runs-production-ai-agents-on-amazon-bedrock/">monday.com AI Teammates</a>**: enterprise production agents at scale on Bedrock.</li>
+<li>**AWS $1B in forward-deployed AI engineers** — embedding agent expertise directly with enterprise customers.</li>
+</ul>
+<h3>Cost Dynamics</h3>
+<ul>
+<li>**<a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a>** (+10K stars): 89% token compression across 290+ providers. Eliminates vendor lock-in.</li>
+<li>**<a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a>** at same $5/$25 pricing as Opus 4.8 but 1.5x capability — effectively 33% cost reduction per task.</li>
+<li>**Third-party API routers <a href="https://arxiv.org/abs/2607.23624">introduce security vulnerabilities</a>**: 0% defense success against injection attacks without additional safeguards. Cost savings ≠ free lunch.</li>
+</ul>
+<h3>Market Signals</h3>
+<ul>
+<li>**<a href="https://ads.openai.com/">OpenAI ads in ChatGPT</a>** — monetization of conversational AI; 1,094 pts backlash on HN.</li>
+<li>**<a href="https://www.anthropic.com/news/anthropic-economic-index-connector">Anthropic Economic Index Connector</a>** — query AI adoption data by occupation, region, task directly through Claude.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research">📄 Research Papers</h2>
+<p>**1. <a href="https://arxiv.org/abs/2607.25400">COVENANT: Natural-Language Workflow Compilation</a>**</p>
+<ul>
+<li>*TL;DR:* Converts SOPs into executable programs with pre-execution validation. Misalignment failures: 42.5% → 15.8%.</li>
+<li>*TPM/PM value:* Your process docs become enforceable agent code. Write the SOP → compile → agents follow it.</li>
+<li>🚀 Production-ready</li>
+</ul>
+<p>**2. <a href="https://arxiv.org/abs/2607.25656">OrchBench: Evaluating Multi-Agent Orchestration</a>**</p>
+<ul>
+<li>*TL;DR:* DAG-based simulation achieves 0.816 correlation with real executions at 1.3% token cost.</li>
+<li>*TPM/PM value:* Test multi-agent coordination cheaply before expensive full deployments.</li>
+<li>🧪 Prototype</li>
+</ul>
+<p>**3. <a href="https://arxiv.org/abs/2607.25398">HANDBOOK.md: Long-Context SOP Compliance</a>**</p>
+<ul>
+<li>*TL;DR:* Best agents pass only 36.2% of 20-124 page enterprise SOP tests. Agents prioritize in-context requests over standing policies.</li>
+<li>*TPM/PM value:* Quantifies the compliance gap. Don't deploy agents in regulated workflows without explicit policy enforcement.</li>
+<li>🧪 Prototype</li>
+</ul>
+<p>**4. <a href="https://arxiv.org/abs/2607.25446">Organizational Science of Multi-Agent Systems</a>**</p>
+<ul>
+<li>*TL;DR:* Applies org theory to AI agents. "Adaptive Org Routing" selects coordination strategies per task under quality-cost tradeoffs.</li>
+<li>*TPM/PM value:* Maps directly to how you structure cross-team collaboration. AI-augmented program management framework.</li>
+<li>🔬 Research</li>
+</ul>
+<p>**5. <a href="https://arxiv.org/abs/2607.25635">MCP Empirical Study: 1,723 Real-World Apps</a>**</p>
+<ul>
+<li>*TL;DR:* 85.2% use file-based config, 81.1% use official SDKs, but only 37.2% implement blocking approval before tool execution.</li>
+<li>*TPM/PM value:* Governance is lagging adoption. If you're deploying MCP tools (Jira/Confluence connectors), verify approval gates.</li>
+<li>🚀 Production-ready</li>
+</ul>
+<p>**6. <a href="https://arxiv.org/abs/2607.25130">Learning from 53.6K Developer Edits of AI Code</a>**</p>
+<ul>
+<li>*TL;DR:* 31% of accepted AI completions are removed within 15 minutes. Raw acceptance rates overstate actual value.</li>
+<li>*TPM/PM value:* Don't trust acceptance metrics for AI coding tool ROI. Measure retention, not acceptance.</li>
+<li>🔬 Research</li>
+</ul>
+<p>**7. <a href="https://arxiv.org/abs/2607.25891">Messier: Cross-Benchmark Agent Evaluation</a>**</p>
+<ul>
+<li>*TL;DR:* 957,253 records across 30 benchmarks. "Enterprise workflows" remain the hardest category for AI agents.</li>
+<li>*TPM/PM value:* Set realistic expectations. Function calling is saturating; complex enterprise workflows are still hard.</li>
+<li>🔬 Research</li>
+</ul>
+<p>**8. <a href="https://arxiv.org/abs/2607.23624">Third-Party API Router Security</a>**</p>
+<ul>
+<li>*TL;DR:* All 4 evaluated agents achieved 0% defense against injection via routing layers.</li>
+<li>*TPM/PM value:* Cost-saving routing layers introduce undetected security risks. Vet your AI architecture stack.</li>
+<li>🧪 Prototype</li>
+</ul>
+<p>**9. <a href="https://arxiv.org/abs/2607.25032">Authoring Agent Skills as Software Artifacts</a>**</p>
+<ul>
+<li>*TL;DR:* Agent skills need single responsibility, low coupling, efficient token usage. Evaluation-driven authoring.</li>
+<li>*TPM/PM value:* Framework for how teams should design, test, and maintain reusable agent skills.</li>
+<li>🚀 Production-ready</li>
+</ul>
+<p>**10. <a href="https://arxiv.org/abs/2607.24991">GUEST Framework for GenAI Evaluation</a>**</p>
+<ul>
+<li>*TL;DR:* Guidelines for using GenAI in systematic document analysis. Conclusion: requires human oversight, cannot perform unsupervised.</li>
+<li>*TPM/PM value:* Governance framework for AI-assisted report generation and document summarization.</li>
+<li>🚀 Production-ready</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research-blogs">🧬 Research Blogs</h2>
+<details><summary>Research Blogs</summary><div class="details-content"><p>**1. <a href="https://www.latent.space/p/aiewf26trends">5 Trends at AI Engineering World's Fair 2026</a>** — Latent Space</p>
+<ul>
+<li>"Complete agent autonomy is not desirable." Skills-based development replaces custom orchestration. Loop engineering > full autonomy.</li>
+</ul>
+<p>**2. <a href="https://www.latent.space/p/poolside">Inside the Model Factory — Poolside AI</a>** — Latent Space</p>
+<ul>
+<li>10K-20K experiments/month with <70 researchers. "MCP and traditional tool calls are stupid." Challenges conventional PM assumptions about tool integration.</li>
+</ul>
+<p>**3. <a href="https://ptrchm.com/posts/nothing-works-and-everyone-is-euphoric/">If Coding Has Been Solved, Why Does Software Keep Getting Worse?</a>** — ptrchm.com | 872 pts HN</p>
+<ul>
+<li>Coding agents boost individual output but degrade system quality. Critical reading for PMs measuring engineering productivity.</li>
+</ul>
+<p>**4. <a href="https://tobi.knaup.me/2026-07-25-open-weight-ai-is-having-its-kubernetes-moment/">Open-Weight AI Is Having Its Kubernetes Moment</a>** — tobi.knaup.me | 408 pts HN</p>
+<ul>
+<li>Open models as shared infrastructure. Implications for build-vs-buy decisions in AI product strategy.</li>
+</ul>
+<p>**5. <a href="https://siepr.stanford.edu/publications/policy-brief/what-really-happening-jobs-separating-ai-hype-reality">What Is Happening to Jobs? Separating AI Hype from Reality</a>** — Stanford SIEPR</p>
+<ul>
+<li>Agent productivity claims vs. observed outcomes. "Coding agents only started working really well in late November 2025."</li>
+</ul>
+<p>**6. <a href="https://dylancastillo.co/posts/pelicanmaxxing.html">Are AI Labs Pelicanmaxxing?</a>** — dylancastillo.co | 681 pts HN</p>
+<ul>
+<li>AI compute costs may be unsustainable. Budget implications for AI product roadmaps.</li>
+</ul>
+<p>**7. <a href="https://www.emergingtrajectories.com/lh/frontier-lab-economics/">Frontier Lab Economics</a>** — Emerging Trajectories | 371 pts HN</p>
+<ul>
+<li>Chinese open-weight models threaten proprietary business models. Informs PM model selection strategy.</li>
+</ul>
+<p>**8. <a href="https://www.latent.space/p/modal2026">Why AI Infrastructure Must Evolve for Agent Experience</a>** — Latent Space / Modal</p>
+<ul>
+<li>Agents need 100K sandboxes for RL. "Agent experience" > "developer experience." Infrastructure requirements for TPMs planning agent deployments.</li>
+</ul>
+<p>**9. <a href="https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/">China's Open-Weights Strategy Is Winning</a>** — werd.io | 1,241 pts HN</p>
+<ul>
+<li>Open-weight commoditization means build-vs-buy calculus is shifting faster than most PM roadmaps assume.</li>
+</ul>
+<p>**10. <a href="https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md">SlopCodeBench: Opus 5 Reality Check</a>** — HumanLayer</p>
+<ul>
+<li>Opus 5 at 24% strict pass on sequential coding. "Models can't be relied on lights-off without steering." Calibrates PM expectations.</li>
+</ul>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="blogs">🛠 ️ Engineering Blogs</h2>
+<table>
+<thead><tr><th>#</th><th>Post</th><th>Source</th><th>TPM/PM Insight</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">Agent Evaluation Blueprint</a></td><td>AWS</td><td>Pass^k metric; 3-layer quality gates; Motorway: 12→2 incidents</td></tr>
+<tr><td>2</td><td><a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">Beyond RAG: Task-Aware Knowledge Compression</a></td><td>AWS</td><td>8-64x compression; task-specific summaries of document sets</td></tr>
+<tr><td>3</td><td><a href="https://aws.amazon.com/blogs/machine-learning/how-agentcore-gateway-supports-the-mcp-2026-07-28-spec/">MCP 2026-07-28 Spec Support</a></td><td>AWS</td><td>Stateless migration guide; dual-version gateway pattern</td></tr>
+<tr><td>4</td><td><a href="https://aws.amazon.com/blogs/machine-learning/detecting-silent-agent-failures-with-amazon-bedrock-agentcore-optimization/">Detecting Silent Agent Failures</a></td><td>AWS</td><td>11 failure categories; backward-trace root cause analysis</td></tr>
+<tr><td>5</td><td><a href="https://aws.amazon.com/blogs/machine-learning/market-surveillance-agent-with-langgraph-and-strands-on-agentcore/">Market Surveillance: LangGraph + Strands</a></td><td>AWS</td><td>Multi-agent orchestration with checkpoints and audit trails</td></tr>
+<tr><td>6</td><td><a href="https://aws.amazon.com/blogs/machine-learning/introducing-claude-opus-5-on-aws-anthropics-most-capable-opus-model/">Claude Opus 5 on AWS</a></td><td>AWS</td><td>Multi-hour agents; zero data retention default</td></tr>
+<tr><td>7</td><td><a href="https://aws.amazon.com/blogs/machine-learning/best-practices-for-applying-amazon-bedrock-guardrails-to-code-generation-workflows/">Bedrock Guardrails for Code Gen</a></td><td>AWS</td><td>~1,500 eval reqs/sec for 15 users; 6 optimization patterns</td></tr>
+<tr><td>8</td><td><a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/">Six Agent Harness Capabilities</a></td><td>NVIDIA</td><td>Agents as diffable software; SQLite state persistence</td></tr>
+<tr><td>9</td><td><a href="https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models">Context Engineering for Claude 5</a></td><td>Anthropic</td><td>CLAUDE.md, auto-memory, system prompt patterns</td></tr>
+<tr><td>10</td><td><a href="https://aws.amazon.com/blogs/machine-learning/agentic-retrieval-for-amazon-bedrock-managed-knowledge-base/">Agentic Retrieval for Knowledge Bases</a></td><td>AWS</td><td>+37.3% recall on 4-hop queries; $4/1K agentic calls</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="github">📦 GitHub Projects</h2>
+<details><summary>GitHub Projects</summary><div class="details-content"><table>
+<thead><tr><th>Project</th><th>Stars</th><th>TPM/PM Use Case</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/n8n-io/n8n">n8n</a></td><td>198K</td><td>Self-hosted workflow automation; status aggregation; cross-tool sync</td></tr>
+<tr><td><a href="https://github.com/block/buzz">Block/Buzz</a></td><td>15.5K</td><td>Human-agent shared workspace; AI as team member with audit trail</td></tr>
+<tr><td><a href="https://github.com/alibaba/open-code-review">Alibaba Open Code Review</a></td><td>15.7K</td><td>Engineering review automation at scale; velocity metrics</td></tr>
+<tr><td><a href="https://github.com/koala73/worldmonitor">WorldMonitor</a></td><td>76.3K</td><td>Geopolitical risk monitoring for global programs; 500+ feeds</td></tr>
+<tr><td><a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a></td><td>33.8K</td><td>Multi-provider AI gateway; cost control; vendor flexibility</td></tr>
+<tr><td><a href="https://github.com/mattpocock/skills">mattpocock/skills</a></td><td>192.5K</td><td>Reusable agent workflows; /tdd, /grill-me patterns</td></tr>
+<tr><td><a href="https://www.hubble.md/">Hubble.md</a></td><td>—</td><td>Human-agent shared notetaking; Markdown-based</td></tr>
+</tbody></table>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="media">🎙 ️ Videos & Podcasts</h2>
+<details><summary>️ Videos & Podcasts</summary><div class="details-content"><p>**1. <a href="https://practicalai.show/365">Surviving the New Economics of a Post-Agentic World</a>** (Practical AI #365, Jul 23, 35 min)</p>
+<ul>
+<li>Companies deploying thousands of agents. Question shifts from "replace roles?" to "architect for post-agentic operations?"</li>
+<li>**Practicality: 8** | Directly relevant to TPMs planning org transformation.</li>
+</ul>
+<p>**2. <a href="https://www.latent.space/p/poolside">Inside the Model Factory — Poolside AI</a>** (Latent Space, Jul 23, ~1h54m)</p>
+<ul>
+<li>10K-20K experiments/month. Challenges assumptions about tool integration. "MCP and traditional tool calls are stupid."</li>
+<li>**Practicality: 7** | Contrarian perspective for PMs evaluating agent architectures.</li>
+</ul>
+<p>**3. <a href="https://www.latent.space/p/aiewf26trends">5 Trends at AI Engineering World's Fair</a>** (Latent Space, Jul 14, 15 min read)</p>
+<ul>
+<li>Systems over agents. Loop engineering. Skills-based development. "Complete autonomy is not desirable."</li>
+<li>**Practicality: 9** | The practitioner consensus on how to deploy agents responsibly.</li>
+</ul>
+<p>**4. <a href="https://www.latent.space/p/modal2026">Why AI Infrastructure Must Evolve</a>** (Latent Space / Modal, Jul 8, ~58 min)</p>
+<ul>
+<li>100K sandboxes for RL. Hard security guardrails. Infrastructure requirements for agent deployments.</li>
+<li>**Practicality: 7** | Background for TPMs planning agent infrastructure capacity.</li>
+</ul>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="community">💬 Community Insights</h2>
+<h3>Consensus</h3>
+<ul>
+<li><a href="https://github.com/modelcontextprotocol">MCP</a> is the integration standard — the <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">stateless spec</a> makes enterprise adoption easier</li>
+<li>Agent evaluation/observability is the bottleneck — <a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">Pass^k</a> and quality gates are table-stakes</li>
+<li><a href="https://www.latent.space/p/aiewf26trends">"Complete agent autonomy is not desirable"</a> — loop engineering and human oversight win</li>
+<li>Raw AI productivity metrics are misleading — <a href="https://arxiv.org/abs/2607.25130">31% of accepted code is removed in 15 min</a></li>
+</ul>
+<h3>Disagreements</h3>
+<ul>
+<li>Whether AI agents can run <a href="https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md">"lights-off"</a> (Opus 5 at 24% strict pass)</li>
+<li>Whether coding agents <a href="https://ptrchm.com/posts/nothing-works-and-everyone-is-euphoric/">improve or degrade</a> software quality (872 pts HN)</li>
+<li>Whether to <a href="https://arxiv.org/abs/2607.23624">trust API routing layers</a> for cost savings (0% defense against injection)</li>
+</ul>
+<h3>Emerging Viewpoints</h3>
+<ul>
+<li>Human-agent collaboration spaces (<a href="https://github.com/block/buzz">Buzz</a>, <a href="https://www.hubble.md/">Hubble</a>) as the future of team communication</li>
+<li><a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">Task-aware compression</a> > traditional RAG for enterprise document synthesis</li>
+<li><a href="https://arxiv.org/abs/2607.25635">Only 37% of MCP tools have approval gates</a> — governance lagging adoption</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="themes">📈 Emerging Themes</h2>
+<ol>
+<li>**SOP-as-code** — <a href="https://arxiv.org/abs/2607.25400">COVENANT</a> compiles process docs into enforceable workflows. Natural language governance becomes executable.</li>
+<li>**Pass^k as reliability metric** — <a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS blueprint</a> shows 75% per-trial ≠ 42% across 3 runs. Single demos overstate reliability.</li>
+<li>**Human-agent shared workspaces** — <a href="https://github.com/block/buzz">Block/Buzz</a>, <a href="https://www.hubble.md/">Hubble</a> treat AI as first-class team members with audit trails.</li>
+<li>**Task-aware knowledge compression** — <a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">TAKC</a> (8-64x compression) replaces fragment-retrieval RAG for document synthesis.</li>
+<li>**MCP going stateless** — <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Standard HTTP</a> removes session infrastructure complexity; enables phased enterprise rollouts.</li>
+<li>**Governance lagging adoption** — <a href="https://arxiv.org/abs/2607.25635">37% approval gates</a> + <a href="https://arxiv.org/abs/2607.25398">36% SOP compliance</a> = most deployments lack guardrails.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="trends">📊 Trend Tracking Over Time</h2>
+<p>*First report — baseline established.*</p>
+<table>
+<thead><tr><th>Theme</th><th>First Noted</th><th>Consecutive Weeks</th><th>Momentum</th></tr></thead><tbody>
+<tr><td>MCP as enterprise standard</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Agent evaluation maturity (Pass^k)</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>SOP-as-code / process enforcement</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Human-agent shared workspaces</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Task-aware compression > RAG</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>Governance lagging adoption</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+<tr><td>AI productivity metric skepticism</td><td>WK30</td><td>1</td><td>Baseline</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-1">🏗 ️ Implications for TPMs & Program Managers</h2>
+<ol>
+<li>**Add <a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">Pass^k</a> to your deployment checklists** — 75% per-trial success = only 42% reliability across 3 runs. Never approve an agent deployment based on a single demo.</li>
+</ol>
+<ol>
+<li>**Plan a <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP stateless migration</a>** — 12-month deprecation window. If you have session-based MCP tools deployed, start the transition planning now.</li>
+</ol>
+<ol>
+<li>**Compile your SOPs** — <a href="https://arxiv.org/abs/2607.25400">COVENANT</a> proves natural-language processes can become enforceable agent code. Start with your most critical workflow.</li>
+</ol>
+<ol>
+<li>**Budget for <a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">TAKC-style compression</a>** — cross-document synthesis across hundreds of status reports is now feasible at 8-64x compression.</li>
+</ol>
+<ol>
+<li>**Audit your MCP tool governance** — <a href="https://arxiv.org/abs/2607.25635">only 37% implement approval gates</a>. If agents can execute without human confirmation, you have a compliance gap.</li>
+</ol>
+<p>**Action items:**</p>
+<ul>
+<li>Evaluate <a href="https://arxiv.org/abs/2607.25656">OrchBench</a> for testing multi-agent orchestration at 1.3% cost</li>
+<li>Read the <a href="https://arxiv.org/abs/2607.25398">HANDBOOK.md findings</a> — agents fail 64% of SOP compliance tests</li>
+<li>Trial <a href="https://github.com/block/buzz">Block/Buzz</a> for a team pilot of human-agent shared communication</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-2">🔍 Implications for Product Managers</h2>
+<ol>
+<li>**<a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a> changes automation economics** — 1.5x task completion at same pricing. Re-evaluate which manual workflows now pass the automation ROI threshold.</li>
+</ol>
+<ol>
+<li>**Measure retention, not acceptance** — <a href="https://arxiv.org/abs/2607.25130">31% of accepted AI code is removed in 15 min</a>. Build dashboards that track edit-survival, not raw acceptance rates.</li>
+</ol>
+<ol>
+<li>**Enterprise workflows are still hard** — <a href="https://arxiv.org/abs/2607.25891">Messier</a> shows this category remains the most difficult for agents. Set customer expectations accordingly.</li>
+</ol>
+<ol>
+<li>**<a href="https://www.anthropic.com/news/anthropic-economic-index-connector">Anthropic Economic Index</a>** — query real AI adoption data by occupation and task directly through Claude. Use for market sizing and competitive intelligence.</li>
+</ol>
+<ol>
+<li>**Build-vs-buy is shifting** — <a href="https://tobi.knaup.me/2026-07-25-open-weight-ai-is-having-its-kubernetes-moment/">open-weight Kubernetes moment</a> + <a href="https://arxiv.org/abs/2607.22642">CRAFT</a> (9x token reduction via post-training) mean custom-model economics are improving fast.</li>
+</ol>
+<p>**Action items:**</p>
+<ul>
+<li>Test Opus 5 on your most time-consuming recurring report</li>
+<li>Query the <a href="https://www.anthropic.com/news/anthropic-economic-index-connector">Economic Index</a> for your product's target user base AI adoption</li>
+<li>Review <a href="https://www.anthropic.com/news/cognizant-anthropic">Cognizant case studies</a> for comparable enterprise deployment patterns</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="watchlist">👀 Watch List</h2>
+<div class="watch-list-box"><table>
+<thead><tr><th>Technology</th><th>Status</th><th>This Week's Evidence</th></tr></thead><tbody>
+<tr><td>SOP-as-code (<a href="https://arxiv.org/abs/2607.25400">COVENANT</a>)</td><td>🚀 Breakout</td><td>63% failure reduction; directly production-applicable</td></tr>
+<tr><td>Human-agent workspaces (<a href="https://github.com/block/buzz">Buzz</a>)</td><td>🧪 Early</td><td>15.5K stars in first week; Nostr-based audit trail</td></tr>
+<tr><td>Task-aware compression (<a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">TAKC</a>)</td><td>🧪 Early</td><td>8-64x compression; outperforms RAG on synthesis</td></tr>
+<tr><td>MCP stateless transport</td><td>🚀 Breakout</td><td>Spec published; AWS gateway support same day</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.25656">OrchBench</a> (cheap agent eval)</td><td>🧪 Early</td><td>0.816 correlation at 1.3% cost</td></tr>
+<tr><td>Agent skill hierarchies (<a href="https://arxiv.org/abs/2607.25853">HiSkill</a>)</td><td>🔬 Research</td><td>DAG-based skill composition for complex workflows</td></tr>
+<tr><td><a href="https://github.com/koala73/worldmonitor">WorldMonitor</a> for risk intel</td><td>🧪 Early</td><td>76K stars; 500+ feeds; Country Instability Index</td></tr>
+</tbody></table>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="contrarian">🔮 Contrarian View</h2>
+<div class="contrarian"><h3>What TPMs/PMs may be overestimating</h3>
+<ul>
+<li>**Agent autonomy readiness** — Best models pass only <a href="https://arxiv.org/abs/2607.25398">36.2% of SOP compliance tests</a>. <a href="https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md">24% strict pass</a> on sequential tasks. Don't deploy without human oversight loops.</li>
+<li>**AI productivity metrics** — <a href="https://arxiv.org/abs/2607.25130">31% code removal within 15 min</a>. <a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">75% trial pass = 42% production reliability</a>. Your dashboards are lying.</li>
+<li>**MCP tool security** — <a href="https://arxiv.org/abs/2607.25635">37% have approval gates</a>. <a href="https://arxiv.org/abs/2607.23624">0% defense via routers</a>. Governance is lagging badly.</li>
+</ul>
+<h3>What TPMs/PMs may be underestimating</h3>
+<ul>
+<li>**SOP-as-code velocity** — <a href="https://arxiv.org/abs/2607.25400">COVENANT</a> makes process docs executable TODAY. You don't need engineering to enforce workflows.</li>
+<li>**Task-aware compression** — <a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">TAKC</a> (8-64x) means synthesizing 100+ documents is now cheap. Cross-program risk analysis becomes trivial.</li>
+<li>**Human-agent workspace urgency** — <a href="https://github.com/block/buzz">Block/Buzz</a> (15.5K stars in week 1) signals that teams want AI as a coworker, not just a tool. Your communication architecture needs to accommodate this.</li>
+</ul>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="strategy">🧭 Strategic Analysis</h2>
+<h3>Short-term (0–6 months)</h3>
+<ul>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP stateless</a> becomes default; migrate existing session-based tools</li>
+<li><a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">Pass^k metrics</a> enter standard deployment checklists</li>
+<li><a href="https://www.anthropic.com/news/claude-opus-5">Opus 5</a> enables previously uneconomical automation (status reports, due diligence)</li>
+<li><a href="https://github.com/n8n-io/n8n">n8n</a> + MCP tools = self-hosted workflow automation backbone</li>
+</ul>
+<h3>Mid-term (6–18 months)</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/2607.25400">SOP-as-code</a> becomes standard for compliance-heavy environments</li>
+<li>Human-agent shared workspaces replace separate "AI tools" and "team tools"</li>
+<li><a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">Task-aware compression</a> replaces RAG for enterprise knowledge synthesis</li>
+<li>Agent governance frameworks become compliance requirements</li>
+</ul>
+<h3>Long-term (2–5 years)</h3>
+<ul>
+<li>AI agents as first-class team members with identity, permissions, and audit trails</li>
+<li>TPM role evolves to "program orchestrator" managing human + agent teams</li>
+<li>Automated risk prediction and dependency analysis become table-stakes</li>
+<li>Build-vs-buy shifts toward custom-trained domain agents for key workflows</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="relevance">🎯 Personalized Relevance</h2>
+<table>
+<thead><tr><th>Development</th><th>Relevance Areas</th><th>Score</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2607.25400">COVENANT</a> (SOP-as-code)</td><td>Cross-team coordination, Process enforcement</td><td>10</td></tr>
+<tr><td><a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS Pass^k metric</a></td><td>Evaluation frameworks, Deployment quality</td><td>10</td></tr>
+<tr><td><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP stateless spec</a></td><td>Agent orchestration, Infrastructure planning</td><td>9</td></tr>
+<tr><td><a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a> (automation)</td><td>Status automation, Executive communication</td><td>9</td></tr>
+<tr><td><a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">TAKC compression</a></td><td>Document synthesis, Risk analysis</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.25656">OrchBench</a> (cheap eval)</td><td>Agent orchestration, Cost management</td><td>8</td></tr>
+<tr><td><a href="https://github.com/block/buzz">Block/Buzz</a> (shared workspace)</td><td>Cross-team coordination</td><td>8</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.25398">HANDBOOK.md findings</a></td><td>Compliance, Risk management</td><td>8</td></tr>
+<tr><td><a href="https://github.com/n8n-io/n8n">n8n</a> (workflow automation)</td><td>Status aggregation, Cross-tool sync</td><td>8</td></tr>
+<tr><td><a href="https://www.anthropic.com/news/cognizant-anthropic">Cognizant case studies</a></td><td>Enterprise adoption patterns</td><td>7</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="recommendations">✅ Recommendations</h2>
+<h3>For TPMs</h3>
+<ol>
+<li>**Add <a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">Pass^k</a> to deployment checklists** — never approve agents based on single-pass demos</li>
+<li>**Start <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP stateless migration</a> planning** — 12-month deprecation window is ticking</li>
+<li>**Compile one critical SOP** using <a href="https://arxiv.org/abs/2607.25400">COVENANT</a> patterns — make process docs enforceable</li>
+<li>**Audit MCP tool approval gates** — <a href="https://arxiv.org/abs/2607.25635">37% compliance</a> means most tools lack governance</li>
+<li>**Pilot <a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">TAKC</a> for program reviews** — synthesize 100+ status docs simultaneously</li>
+</ol>
+<h3>For PMs</h3>
+<ol>
+<li>**Test <a href="https://www.anthropic.com/news/claude-opus-5">Opus 5</a> on your worst recurring report** — 1.5x automation at same pricing</li>
+<li>**Build retention dashboards** — <a href="https://arxiv.org/abs/2607.25130">31% removal rate</a> means acceptance ≠ value</li>
+<li>**Query <a href="https://www.anthropic.com/news/anthropic-economic-index-connector">Economic Index</a>** for your user base's AI adoption data</li>
+<li>**Set enterprise workflow expectations** — <a href="https://arxiv.org/abs/2607.25891">Messier</a> shows this is still hardest for agents</li>
+<li>**Evaluate <a href="https://github.com/n8n-io/n8n">n8n</a>** for self-hosted workflow automation connecting your tool stack</li>
+</ol>
+<h3>For Everyone</h3>
+<ol>
+<li>**Read the <a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS Agent Evaluation Blueprint</a>** — the Pass^k insight (75%→42%) is the most important number this week</li>
+<li>**Listen to <a href="https://practicalai.show/365">Practical AI #365</a>** — "surviving the post-agentic world" (35 min)</li>
+<li>**Explore <a href="https://github.com/block/buzz">Block/Buzz</a>** — the future of human-agent team communication</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="takeaways">🏆 Executive Takeaways</h2>
+<h3>Top 5 Technical Advances</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2607.25400">COVENANT</a>** — compile SOPs into enforceable agent code | 20 min</li>
+<li>**<a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP stateless spec</a>** — standard HTTP removes session complexity | 35 min</li>
+<li>**<a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a>** — 1.5x automation at same pricing | 10 min</li>
+<li>**<a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS Pass^k</a>** — 75% per-trial = 42% production reliability | 25 min</li>
+<li>**<a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">TAKC</a>** — 8-64x compression outpaces RAG | 20 min</li>
+</ol>
+<h3>Top 5 Business Developments</h3>
+<ol>
+<li>**<a href="https://www.anthropic.com/news/cognizant-anthropic">Cognizant + Anthropic</a>** — 30K trained associates; 40% faster contract review</li>
+<li>**<a href="https://github.com/block/buzz">Block/Buzz</a>** — 15.5K stars in week 1; human-agent workspace category emerges</li>
+<li>**<a href="https://github.com/modelcontextprotocol">MCP ecosystem</a>** — 89K stars; stateless spec; enterprise-ready</li>
+<li>**<a href="https://github.com/n8n-io/n8n">n8n</a>** (198K stars) — self-hosted workflow automation with AI nodes</li>
+<li>**<a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a>** (+10K stars) — multi-provider cost control; 89% compression</li>
+</ol>
+<h3>Top 5 Must-Read Resources</h3>
+<ol>
+<li>**<a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">AWS Agent Evaluation Blueprint</a>** — Pass^k metric | 25 min</li>
+<li>**<a href="https://arxiv.org/abs/2607.25400">COVENANT paper</a>** — SOP-as-code | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2607.25398">HANDBOOK.md</a>** — agents fail 64% of SOP tests | 25 min</li>
+<li>**<a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP spec blog</a>** — stateless migration | 15 min</li>
+<li>**<a href="https://practicalai.show/365">Practical AI #365</a>** — post-agentic economics | 35 min</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="next-week">📌 What Leaders Should Do Next Week</h2>
+<ol>
+<li>**Add <a href="https://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/">Pass^k</a> to your agent deployment checklist** — the 75%→42% gap is your #1 risk</li>
+<li>**Test <a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a>** on your most time-consuming recurring report or status update</li>
+<li>**Identify one SOP to compile** using <a href="https://arxiv.org/abs/2607.25400">COVENANT</a> patterns — start with a workflow that agents currently mishandle</li>
+<li>**Audit your MCP tools for approval gates** — <a href="https://arxiv.org/abs/2607.25635">37% compliance</a> is unacceptable in regulated environments</li>
+<li>**Evaluate <a href="https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/">TAKC</a>** for synthesizing your program's document corpus (status reports, risk logs, vendor assessments)</li>
+<li>**Plan <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP stateless migration</a>** — the 12-month clock started this week</li>
+<li>**Trial <a href="https://github.com/block/buzz">Block/Buzz</a>** with one team — test human-agent shared communication</li>
+<li>**Query the <a href="https://www.anthropic.com/news/anthropic-economic-index-connector">Anthropic Economic Index</a>** for your industry's actual AI adoption rates</li>
+</ol>
+<hr class="section-divider">
+<p>*Report generated: July 29, 2026 | Covering: July 19–25, 2026 (WK30)*</p>
+<p>*Topic: AI for TPM & Product Management | Sources: arXiv, AWS ML Blog, Anthropic, NVIDIA, GitHub Trending, Latent Space, Practical AI, Hacker News*</p>
+<hr class="section-divider">
+<div class="meta"><p>Generated by render_html.py from markdown source.</p></div>
+</main>
+</div>
+<script>window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+    const btn = document.getElementById('backToTop');
+    btn.classList.toggle('visible', winScroll > 400);
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));</script>
+</body>
+</html>

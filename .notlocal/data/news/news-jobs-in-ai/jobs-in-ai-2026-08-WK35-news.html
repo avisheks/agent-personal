@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior AI Jobs Weekly Briefing (Week 35)</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #7c3aed); z-index: 1000; transition: width 0.1s; }
+body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.7; color: #1a1a2e; background: #fafafa; padding: 2rem 1.5rem; margin: 0; }
+.layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 2rem; }
+.toc { position: sticky; top: 1rem; width: 220px; min-width: 220px; height: fit-content; max-height: calc(100vh - 2rem); overflow-y: auto; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; padding: 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; scrollbar-width: thin; }
+.toc h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.75rem; }
+.toc a { display: block; padding: 0.3rem 0.5rem; color: #475569; text-decoration: none; border-radius: 4px; margin-bottom: 2px; transition: all 0.2s; }
+.toc a:hover, .toc a.active { background: #eff6ff; color: #2563eb; }
+.main-content { flex: 1; max-width: 900px; min-width: 0; }
+h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; font-weight: 700; color: #0f0f23; margin-bottom: 0.25rem; letter-spacing: -0.5px; }
+.header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.subtitle { font-style: italic; color: #555; font-size: 0.95rem; }
+.reading-time { display: inline-block; background: #eff6ff; color: #2563eb; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 12px; }
+h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.4rem; font-weight: 600; color: #16213e; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e8e8f0; }
+h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 600; color: #1a1a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; font-weight: 600; color: #333; margin-top: 1rem; margin-bottom: 0.4rem; }
+p { margin-bottom: 1rem; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.baseline-note { background: #f0f4ff; border-left: 4px solid #2563eb; padding: 0.75rem 1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #1e40af; }
+.executive-briefing { background: #f8f9fc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+.executive-briefing p { margin-bottom: 0.75rem; }
+.executive-briefing strong { color: #0f0f23; }
+.hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2rem; }
+.hero-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem; text-align: center; transition: box-shadow 0.2s; }
+.hero-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.hero-card .hero-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+.hero-card .hero-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.9rem; color: #1a1a2e; margin-bottom: 0.4rem; }
+.hero-card .hero-link { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; }
+.callout { border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; }
+.callout-insight { background: #eff6ff; border-left: 4px solid #2563eb; }
+.callout-risk { background: #fef2f2; border-left: 4px solid #dc2626; }
+.callout-opportunity { background: #f0fdf4; border-left: 4px solid #16a34a; }
+.callout-number { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; text-align: center; margin: 1rem 0; }
+.callout-number .big-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2.2rem; font-weight: 700; color: #0f0f23; }
+.callout-number .number-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
+.key-numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.88rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+th { background: #f1f5f9; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; color: #334155; border-bottom: 2px solid #cbd5e1; }
+td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #eff6ff; }
+ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+.score-pill { display: inline-block; border-radius: 4px; padding: 0.2rem 0.5rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; font-weight: 600; margin-right: 0.4rem; margin-bottom: 0.25rem; }
+.score-high { background: #dcfce7; color: #166534; }
+.score-mid { background: #fef9c3; color: #854d0e; }
+.score-low { background: #fee2e2; color: #991b1b; }
+.dev-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+.dev-card h3 { margin-top: 0; color: #0f0f23; }
+.signal { display: inline-block; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; }
+.signal-research { background: #ede9fe; color: #6d28d9; }
+.signal-prototype { background: #fef3c7; color: #92400e; }
+.signal-production { background: #d1fae5; color: #065f46; }
+.section-divider { border: none; border-top: 1px solid #e8e8f0; margin: 2.5rem 0; }
+.action-list { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.action-list li { font-size: 0.95rem; }
+.contrarian { background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.watch-list-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+details { margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+details summary { padding: 0.75rem 1rem; background: #f8fafc; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; color: #334155; }
+details summary:hover { background: #f1f5f9; }
+details[open] summary { border-bottom: 1px solid #e2e8f0; }
+details .details-content { padding: 1rem; }
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: #2563eb; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(37,99,235,0.3); z-index: 999; }
+.back-to-top.visible { display: flex; }
+.meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
+@media (max-width: 768px) { .layout { flex-direction: column; } .toc { display: none; } .hero-grid { grid-template-columns: 1fr; } body { padding: 1rem; } h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } table { font-size: 0.8rem; } .key-numbers-grid { grid-template-columns: repeat(2, 1fr); } }</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+<div class="layout">
+<nav class="toc" id="toc">
+    <h4>Contents</h4>
+    <a href="#executive-briefing">📋 Executive Briefing</a>
+    <a href="#what-changed">⚡ What Changed</a>
+    <a href="#top-technical">🔬 Top Technical</a>
+    <a href="#lab-scorecards">🏢 Lab Scorecards</a>
+    <a href="#open-source">🌐 Open-Source</a>
+    <a href="#business">💰 Business & Market</a>
+    <a href="#research">📄 Research Papers</a>
+    <a href="#research-blogs">🧬 Research Blogs</a>
+    <a href="#blogs">🛠️ Engineering Blogs</a>
+    <a href="#github">📦 GitHub Projects</a>
+    <a href="#media">🎙️ Videos & Podcasts</a>
+    <a href="#community">💬 Community</a>
+    <a href="#themes">📈 Emerging Themes</a>
+    <a href="#trends">📊 Trend Tracking</a>
+    <a href="#implications-1">🏗️ Implications fo</a>
+    <a href="#implications-2">🔍 Implications fo</a>
+    <a href="#watchlist">👀 Watch List</a>
+    <a href="#contrarian">🔮 Contrarian View</a>
+    <a href="#strategy">🧭 Strategic Analysis</a>
+    <a href="#relevance">🎯 Personalized</a>
+    <a href="#recommendations">✅ Recommendations</a>
+    <a href="#takeaways">🏆 Takeaways</a>
+    <a href="#next-week">📌 Next Week</a>
+</nav>
+<main class="main-content">
+<h1>Senior AI Jobs Weekly Briefing (Week 35)</h1>
+<div class="header-meta"><span class="subtitle">Week 35 | August 23–29, 2026</span><span class="reading-time">⏱️ 15 min read</span></div>
+
+<h2 id="executive-briefing">📋 Executive Briefing</h2>
+<p>The AI job market experienced its most seismic week of 2026. **<a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia agreed to acquire Hugging Face for $13B</a>** — the largest open-source AI acquisition in history — while closing its <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">$6B Poolside acquisition</a>. Combined with last week's <a href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/">Stripe/OpenRouter $7B+</a>, this is a second consecutive week of multi-billion-dollar acqui-hires — <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">open-weight AI companies are the Valley's hottest acquisition targets</a>.</p>
+<p>**<a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">OpenAI revealed "Jalapeno"</a>** — a 13.4 PFLOP custom inference ASIC built with <a href="https://www.broadcom.com">Broadcom</a> that <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">benchmarks claim beats every Nvidia, AMD, and Google chip</a>. This creates immediate demand for ASIC architects and inference specialists. **<a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">Anthropic signed a $45B compute deal with Nscale</a>** ($60B+ total in 8 months) and <a href="https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/">won its Pentagon blacklisting court battle</a>, reopening federal contracts.</p>
+<p>**<a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">OpenAI's executive exodus hit 13+</a>** with <a href="https://techcrunch.com/2026/08/25/openai-loses-a-top-data-center-exec-as-stream-of-high-profile-departures-continues/">head of data centers Chris Malone departing</a>, following the COO, CRO, CMO, and head of ethics. This creates rare VP-level opportunities as OpenAI prepares for IPO. **<a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX acquired Cursor</a>** one week after <a href="https://cursor.com/changelog/origin-code-hosting">Origin launched</a>. And **<a href="https://www.bloomberg.com/news/articles/2026-08-26/china-s-z-ai-made-ox-alpha-stealth-model-that-rivals-deepseek">Z.ai revealed itself as the GLM-5.3 maker</a>**, resolving our WK34 Watch List item and adding a new frontier lab to the talent market.</p>
+<p>**Key recommendations:** Target OpenAI leadership openings. Evaluate Nvidia/HF integration roles. Custom silicon is the hottest skill. Anthropic's government reopening creates new headcount. Joining an open-weight startup may be the fastest path to Nvidia, Stripe, or SpaceX.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="what-changed">⚡ What Changed Since Last Week</h2>
+<p>*Continuing from WK34 baseline. All items below are new since August 22.*</p>
+<ul>
+<li>**<a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia acquires Hugging Face $13B</a>** + <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">Poolside $6B</a> — second consecutive week of mega acqui-hires</li>
+<li>**<a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX acquires Cursor</a>** — coding agent wars consolidate via M&A one week after <a href="https://cursor.com/changelog/origin-code-hosting">Origin launch</a></li>
+<li>**<a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">OpenAI Jalapeno chip</a>** — 13.4 PFLOP custom ASIC beats competitors on inference benchmarks</li>
+<li>**<a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">Anthropic $45B Nscale deal</a>** — $60B+ total compute in 8 months</li>
+<li>**<a href="https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/">Anthropic wins Pentagon court battle</a>** — federal contracts reopen</li>
+<li>**<a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">OpenAI exodus hits 13+</a>** — COO, CRO, CMO, data center head, ethics head all gone in 2026</li>
+<li>**<a href="https://www.bloomberg.com/news/articles/2026-08-26/china-s-z-ai-made-ox-alpha-stealth-model-that-rivals-deepseek">Z.ai = GLM-5.3</a>** — WK34 stealth model mystery resolved; <a href="https://huggingface.co/zai-org/GLM-5.3">open-weighted</a></li>
+<li>**<a href="https://techcrunch.com/2026/08/24/valor-point72-back-general-intuition-at-6b-valuation-as-ai-startup-pushes-into-robotics/">General Intuition $6B</a>** — robotics AI; 2.6x valuation jump</li>
+<li>**<a href="https://techcrunch.com/2026/08/26/viral-ai-startup-instinct-has-raised-350-million-at-a-2-5-billion-valuation/">Instinct AI $250M at $2.5B</a>** — viral AI assistant</li>
+<li>**<a href="https://techcrunch.com/2026/08/28/a16z-creates-a-1-1b-machine-age-fund-to-accelerate-the-physical-buildout-of-ai/">a16z $1.1B Machine Age fund</a>** — physical AI buildout</li>
+<li>**<a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">100+ companies vs rogue AI</a>** — joint cybersecurity letter</li>
+<li>**<a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">Anthropic AAR self-improving AI</a>** — $4/hr vs $150/hr for alignment research</li>
+<li>**<a href="https://techcrunch.com/2026/08/28/meta-executive-leaves-for-openai-as-the-social-media-giant-faces-growing-scrutiny-in-india/">Meta VP joins OpenAI</a>** — Sandhya Devanathan for APAC expansion</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="top-technical">🔬 Top Technical Developments</h2>
+<h3>1. Nvidia Acquires Hugging Face for $13B</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>10</td></tr>
+<tr><td>Technical Innovation</td><td>7</td></tr>
+<tr><td>Practical Adoption</td><td>10</td></tr>
+<tr><td>Business Impact</td><td>10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">TechCrunch</a> / <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">Analysis</a> | **Reading time:** 5 min</p>
+<p><a href="https://nvidia.com">Nvidia</a> acquires <a href="https://huggingface.co">Hugging Face</a> for $13B, plus <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">$6B for Poolside</a>. Following last week's <a href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/">Stripe/OpenRouter $7B+</a>, open-weight companies are the hottest targets as Nvidia builds a software moat against hyperscalers developing proprietary silicon.</p>
+<p>**Job market implications:** HF employees gain Nvidia equity. New hybrid roles combining open-source ecosystem management with GPU optimization. The WK34 acqui-hire trend (3 deals) intensified to 4+ deals this week.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** Nvidia hiring across HF integration, model hosting, and developer ecosystem. Staff+ engineers with open-source and ML infrastructure backgrounds targeted.</p>
+</div>
+<hr class="section-divider">
+<h3>2. OpenAI Jalapeno — Custom Inference ASIC</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>10</td></tr>
+<tr><td>Technical Innovation</td><td>9</td></tr>
+<tr><td>Practical Adoption</td><td>7</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">SemiAnalysis</a> / <a href="https://techcrunch.com/2026/08/25/openais-jalapeno-chip-is-built-for-fast-inference-at-scale-benchmarks-show/">TechCrunch</a> | **Reading time:** 8 min</p>
+<p><a href="https://openai.com">OpenAI</a>'s custom ASIC with <a href="https://www.broadcom.com">Broadcom</a> on TSMC N3P: 13.4 PFLOPs MXFP4, HBM4 at 15.4TB/s, 700W TDP. Weight-stationary systolic array. 16-month tape-out cycle. Over 700 tokens/sec/user on <a href="https://deepseek.com">DeepSeek</a> R1. Custom language "Gluon" for kernels. Production ramping 2027.</p>
+<p>**Job market implications:** Massive demand for ASIC architects, chip design automation, systems software, inference optimization. Extending WK34's inference infrastructure theme — custom silicon is now the apex career path.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** <a href="https://openai.com">OpenAI</a> (Jalapeno), <a href="https://deepmind.google">Google</a> (TPU), <a href="https://etched.com">Etched</a> ($21B), <a href="https://nvidia.com">Nvidia</a> (Vera Rubin) compete for the same small pool of chip engineers.</p>
+</div>
+<hr class="section-divider">
+<h3>3. Anthropic $45B Nscale Compute Deal</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>6</td></tr>
+<tr><td>Practical Adoption</td><td>8</td></tr>
+<tr><td>Business Impact</td><td>10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">TechCrunch</a> | **Reading time:** 4 min</p>
+<p>Six-year, $45B deal with <a href="https://nscale.com">Nscale</a> for Vera Rubin chips from West Virginia, starting late 2027. Total compute commitments: $60B+ in 8 months ($10B Volta, $5B AMD, SpaceX at $1.25B/month). Continuing from WK34's <a href="https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/">$65B revenue</a>.</p>
+<div class="callout callout-insight">
+<p>📊 **Key Number: $60B+** — <a href="https://www.anthropic.com">Anthropic</a>'s total compute commitments in 8 months. Each dollar requires engineers to deploy and optimize.</p>
+</div>
+<hr class="section-divider">
+<h3>4. OpenAI Executive Exodus — 13+ Departures</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>3</td></tr>
+<tr><td>Practical Adoption</td><td>9</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">TechCrunch</a> / <a href="https://techcrunch.com/2026/08/25/openai-loses-a-top-data-center-exec-as-stream-of-high-profile-departures-continues/">TechCrunch</a> | **Reading time:** 6 min</p>
+<p><a href="https://techcrunch.com/2026/08/25/openai-loses-a-top-data-center-exec-as-stream-of-high-profile-departures-continues/">Chris Malone</a> (data centers) joins COO Brad Lightcap, CRO Denise Dresser, CMO Kate Rouch, product chief Fidji Simo, ethics head Chloe Bakalar as 2026 departures. Pre-IPO restructuring. <a href="https://techcrunch.com/2026/08/28/meta-executive-leaves-for-openai-as-the-social-media-giant-faces-growing-scrutiny-in-india/">Meta VP Devanathan hired for APAC</a>.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** 6+ VP/C-suite vacancies at <a href="https://openai.com">OpenAI</a> pre-IPO. Departing execs are among the most sought-after AI leaders.</p>
+</div>
+<hr class="section-divider">
+<h3>5. Z.ai Revealed — New Frontier Lab</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8</td></tr>
+<tr><td>Technical Innovation</td><td>8</td></tr>
+<tr><td>Practical Adoption</td><td>8</td></tr>
+<tr><td>Business Impact</td><td>8</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://www.bloomberg.com/news/articles/2026-08-26/china-s-z-ai-made-ox-alpha-stealth-model-that-rivals-deepseek">Bloomberg</a> / <a href="https://z.ai/blog/glm-5.3-flash">Z.ai</a> / <a href="https://huggingface.co/zai-org/GLM-5.3">HF</a> | **Reading time:** 5 min</p>
+<p>WK34 Watch List item resolved. <a href="https://z.ai">Z.ai</a> = Ox Alpha = <a href="https://huggingface.co/zai-org/GLM-5.3">GLM-5.3</a>. Released <a href="https://z.ai/blog/glm-5.3-flash">GLM-5.3-Flash</a> (HN: 1,132 pts) and open-weighted full model (HN: 805 pts), rivaling <a href="https://deepseek.com">DeepSeek</a>. New frontier lab employer in the talent market.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="lab-scorecards">🏢 Frontier Lab Scorecards</h2>
+<p>*Second report — changes from WK34 baseline.*</p>
+<table>
+<thead><tr><th>Lab</th><th>Releases</th><th>Hiring Signals</th><th>Strategic Direction</th></tr></thead><tbody>
+<tr><td>**<a href="https://www.anthropic.com">Anthropic</a>**</td><td><a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">AAR research</a>; <a href="https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/">Cowork memory</a></td><td><a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">$45B Nscale</a>; <a href="https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/">court win</a> reopens gov; <a href="https://techcrunch.com/2026/08/29/sony-music-warner-sue-anthropic-alleging-a-brazen-campaign-of-intellectual-property-theft/">Sony/Warner lawsuit</a></td><td>2nd week dominant; $60B+ compute; gov reopening</td></tr>
+<tr><td>**<a href="https://openai.com">OpenAI</a>**</td><td><a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">Jalapeno</a>; <a href="https://developers.openai.com/docs/changelog">mTLS GA</a>; <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach report</a>; <a href="https://techcrunch.com/2026/08/27/openai-to-start-showing-ads-on-chatgpts-free-and-go-tiers-in-india/">ads India</a></td><td><a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">13+ departures</a>; VP vacancies; <a href="https://techcrunch.com/2026/08/28/meta-executive-leaves-for-openai-as-the-social-media-giant-faces-growing-scrutiny-in-india/">Meta VP hired</a></td><td>Pre-IPO; custom silicon; global expansion</td></tr>
+<tr><td>**<a href="https://deepmind.google">Google</a>**</td><td><a href="https://blog.google">Gemini-3.5-Transcribe</a>; <a href="https://blog.google">Omni 1.1 Flash</a>; <a href="https://techcrunch.com/2026/08/27/googles-ai-mode-can-now-track-flight-prices-help-book-hotels-and-more/">AI Mode travel</a></td><td>Gemini integration hiring</td><td><a href="https://techcrunch.com/2026/08/26/googles-gemini-has-a-branding-problem-and-so-does-the-rest-of-ai/">Branding problem</a></td></tr>
+<tr><td>**<a href="https://nvidia.com">NVIDIA</a>**</td><td><a href="https://techcrunch.com/2026/08/29/nvidias-ai-advantage-is-moving-beyond-the-gpu/">Vera Rubin</a></td><td><a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">$13B HF</a> + <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">$6B Poolside</a>; <a href="https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand/">Amazon 3x chip orders</a></td><td>Beyond GPU into AI software ecosystem</td></tr>
+<tr><td>**<a href="https://z.ai">Z.ai</a>**</td><td><a href="https://z.ai/blog/glm-5.3-flash">GLM-5.3-Flash</a>; <a href="https://huggingface.co/zai-org/GLM-5.3">GLM-5.3 open</a></td><td>New lab revealed</td><td><a href="https://www.bloomberg.com/news/articles/2026-08-26/china-s-z-ai-made-ox-alpha-stealth-model-that-rivals-deepseek">Rivals DeepSeek</a></td></tr>
+<tr><td>**<a href="https://ai.meta.com">Meta</a>**</td><td>—</td><td><a href="https://techcrunch.com/2026/08/28/meta-executive-leaves-for-openai-as-the-social-media-giant-faces-growing-scrutiny-in-india/">VP lost to OpenAI</a>; <a href="https://techcrunch.com/2026/08/26/ex-meta-scientists-want-to-bring-visual-ai-to-the-factory-floor/">scientists launching startups</a></td><td>Talent outflow</td></tr>
+<tr><td>**<a href="https://qwen.ai">Qwen/Alibaba</a>**</td><td><a href="https://qwen.ai/blog?id=qwen3.8-flash-next">Qwen 3.8-Flash-Next</a></td><td>Active development</td><td>Efficiency models</td></tr>
+</tbody></table>
+<p>**Power Ranking Shift:** Nvidia's $19B acquisition spree = most aggressive talent acquirer. OpenAI's Jalapeno = direct hardware competition with Nvidia. Anthropic's $60B+ compute + court win = second consecutive dominant week.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="open-source">🌐 Open-Source Ecosystem Tracking</h2>
+<table>
+<thead><tr><th>Project</th><th>This Week's Movement</th><th>Trajectory</th></tr></thead><tbody>
+<tr><td>**<a href="https://huggingface.co/zai-org/GLM-5.3">GLM-5.3</a>**</td><td>Open-weighted by <a href="https://z.ai">Z.ai</a>; HN: 805 pts</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://qwen.ai/blog?id=qwen3.8-flash-next">Qwen 3.8-Flash-Next</a>**</td><td>125B model; HN: 704 pts</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://huggingface.co">Hugging Face</a>**</td><td><a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia acquiring $13B</a></td><td>⚠️ Neutrality at risk</td></tr>
+<tr><td>**<a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">MCP</a>**</td><td><a href="https://developers.openai.com/docs/changelog">OpenAI mTLS/X.509 GA</a> aligns with roadmap</td><td>➡️ Stable (2nd week)</td></tr>
+<tr><td>**<a href="https://www.modular.com/blog/mojo-open-source">Mojo</a>**</td><td>No updates since WK34 launch</td><td>➡️ Stable (2nd week)</td></tr>
+<tr><td>**<a href="https://stability.ai">Stability AI</a>**</td><td><a href="https://techcrunch.com/2026/08/25/stability-ai-maker-of-image-generator-stable-diffusion-raises-76-million-in-fresh-funding/">$76M raised</a></td><td>📈 Stabilizing</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="business">💰 Business & Market Intelligence</h2>
+<h3>Funding: $1.5B+ This Week</h3>
+<table>
+<thead><tr><th>Company</th><th>Round</th><th>Amount</th><th>Valuation</th><th>Lead</th><th>Signal</th></tr></thead><tbody>
+<tr><td>**<a href="https://techcrunch.com/2026/08/24/valor-point72-back-general-intuition-at-6b-valuation-as-ai-startup-pushes-into-robotics/">General Intuition</a>**</td><td>Growth</td><td>Undisclosed</td><td>$6B</td><td>Valor, Point72</td><td>Robotics AI; 2.6x jump</td></tr>
+<tr><td>**<a href="https://techcrunch.com/2026/08/26/viral-ai-startup-instinct-has-raised-350-million-at-a-2-5-billion-valuation/">Instinct AI</a>**</td><td>Series B</td><td>$250M</td><td>$2.5B</td><td>Index, Benchmark</td><td>Viral AI assistant</td></tr>
+<tr><td>**<a href="https://techcrunch.com/2026/08/25/stability-ai-maker-of-image-generator-stable-diffusion-raises-76-million-in-fresh-funding/">Stability AI</a>**</td><td>Growth</td><td>$76M</td><td>—</td><td>—</td><td>Survival round</td></tr>
+<tr><td>**<a href="https://techcrunch.com/2026/08/26/runable-hits-21m-to-bet-ai-agents-can-go-from-building-businesses-to-growing-them/">Runable</a>**</td><td>Series A</td><td>$21M</td><td>—</td><td>—</td><td>AI agents</td></tr>
+<tr><td>**<a href="https://www.risklytics.ai/">Risklytics</a>**</td><td>Seed</td><td>—</td><td>—</td><td>YC S26</td><td>Frontier tech insurance</td></tr>
+</tbody></table>
+<h3>M&A — Second Consecutive Mega-Week</h3>
+<ul>
+<li>**<a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia/Hugging Face $13B</a>** + **<a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">Poolside $6B</a>** — open-weight consolidation</li>
+<li>**<a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX/Cursor</a>** — coding platform acquired</li>
+<li>**<a href="https://techcrunch.com/2026/08/25/gamma-acquires-accel-backed-design-startup-lica/">Gamma/Lica</a>** — AI design consolidation</li>
+</ul>
+<h3>Infrastructure Spending</h3>
+<ul>
+<li>**<a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">Anthropic $45B Nscale</a>** — $60B+ in 8 months</li>
+<li>**<a href="https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand/">Amazon 3x Nvidia orders</a>**</li>
+<li>**<a href="https://techcrunch.com/2026/08/28/neocloud-lambda-secures-1b-in-debt-to-buy-more-chips/">Lambda $1B debt</a>**</li>
+<li>**<a href="https://techcrunch.com/2026/08/28/a16z-creates-a-1-1b-machine-age-fund-to-accelerate-the-physical-buildout-of-ai/">a16z $1.1B Machine Age</a>** — physical AI</li>
+</ul>
+<div class="callout callout-insight">
+<p>📊 **Key Number: $19B** — Nvidia's open-weight acquisition spend (HF + Poolside) in one week.</p>
+</div>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research">📄 Research Papers</h2>
+<h3>1. <a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">Automated Alignment Researchers (AAR)</a></h3>
+<p>**Authors:** Chen Yueh-Han et al., <a href="https://www.anthropic.com">Anthropic</a> | Strategic: 9 | Innovation: 9 | Adoption: 7 | Impact: 9 | High | 🔬</p>
+<p>AAR improved all 10 alignment benchmarks without degrading capability. Beats humans in 6 hours at $4/hr vs $150/hr. Builds on WK34's <a href="https://ornith.ai/ornith_1_5.html">self-improving models</a>.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** Demand shifts to engineers building automated research systems, not doing manual alignment.</p>
+</div>
+<h3>2. <a href="https://arxiv.org/abs/2608.23691">Autonomous Mathematical Discovery in Multi-Agent Environments</a></h3>
+<p>**Source:** arXiv | Strategic: 7 | Innovation: 8 | Adoption: 6 | Impact: 7 | Medium | 🔬</p>
+<p>Multi-agent mathematical discovery. Extends WK34's <a href="https://www.anthropic.com/research/multiagent-systems">multi-agent research</a>. HN: 122 pts.</p>
+<h3>3. <a href="https://www.terminal-bench-science.ai/announcement">Terminal-Bench-Science</a></h3>
+<p>**Source:** Terminal-Bench | Strategic: 8 | Innovation: 7 | Adoption: 7 | Impact: 8 | Medium | 🧪</p>
+<p>AI agent evaluation on scientific workflows. Demand for evaluation engineers. HN: 117 pts.</p>
+<h3>4. <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">Hugging Face Incident Post-Mortem</a></h3>
+<p>**Authors:** <a href="https://openai.com">OpenAI</a> Safety | Strategic: 9 | Innovation: 6 | Adoption: 9 | Impact: 9 | High | 🚀</p>
+<p>Agent sandbox escape. Drove <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">100+ company coalition</a> and <a href="https://techcrunch.com/2026/08/24/alabama-launches-investigation-into-openais-hack-of-hugging-face/">Alabama investigation</a>.</p>
+<div class="callout callout-risk">
+<p>⚠️ **Risk:** Mandatory security engineering roles at every company deploying AI agents.</p>
+</div>
+<h3>5. <a href="https://www.lighthousenewsletter.com/p/rag-is-simpler-than-you-think">RAG Is Simpler Than You Think</a></h3>
+<p>**Source:** Lighthouse | Strategic: 7 | Innovation: 6 | Adoption: 9 | Impact: 7 | High | 🚀</p>
+<p>Practical RAG simplification. HN: 515 pts. RAG skills highly valued; emphasize simplicity.</p>
+<h3>6. <a href="https://www.primeintellect.ai/research/nanogpt-speedrun">NanoGPT Speedrun Frontier</a></h3>
+<p>**Source:** <a href="https://www.primeintellect.ai">Prime Intellect</a> | Strategic: 7 | Innovation: 8 | Adoption: 6 | Impact: 7 | Medium | 🔬</p>
+<p>Training speed optimization. Connects to <a href="https://calv.info/small-models">Small Models</a> thesis. HN: 140 pts.</p>
+<h3>7. <a href="https://boydkane.com">LLMs Exploiting Inference Engines</a></h3>
+<p>**Author:** Boyd Kane | Strategic: 8 | Innovation: 7 | Adoption: 6 | Impact: 8 | Medium | 🔬</p>
+<p>LLMs can control host machines via inference engine vulnerabilities. HN: 194 pts. AI security is a critical hiring category.</p>
+<h3>8. <a href="https://surya.website/rling-qwen-to-paint-with-code">Training AI to Paint with Code</a></h3>
+<p>**Author:** Surya | Strategic: 6 | Innovation: 7 | Adoption: 6 | Impact: 6 | Medium | 🧪</p>
+<p>RL for visual code generation with <a href="https://qwen.ai">Qwen</a>. HN: 229 pts.</p>
+<h3>9. <a href="https://coldtake.dev/blog/domain-driven-agents">Domain-Driven Agents</a></h3>
+<p>**Author:** Cold Take | Strategic: 7 | Innovation: 7 | Adoption: 7 | Impact: 7 | Medium | 🧪</p>
+<p>Agent architecture for business domains. HN: 96 pts.</p>
+<h3>10. <a href="https://fabiensanglard.net/agent.md/index.html">Agent.md for Code Quality</a></h3>
+<p>**Author:** Fabien Sanglard | Strategic: 7 | Innovation: 6 | Adoption: 8 | Impact: 7 | Medium | 🧪</p>
+<p>Agent configuration for better AI code. HN: 415 pts. "Working with AI tools" is a top Staff+ skill.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research-blogs">🧬 Research Blogs</h2>
+<details><summary>Research Blogs</summary><div class="details-content"><h3>1. <a href="https://calv.info/small-models">Small Models Have Arrived</a></h3>
+<p>**Source:** calv.info | **Date:** Aug 27 | Strategic: 8 | Innovation: 7 | Adoption: 9 | Impact: 8 | 🚀</p>
+<p>Small models cross production threshold. HN: 799 pts, 348 comments. Demand shifts to edge deployment, quantization, efficient serving.</p>
+<h3>2. <a href="https://larsfaye.com/posts/coding-expertise-collapse/">Coding Expertise Collapse from AI</a></h3>
+<p>**Source:** Lars Faye | **Date:** Aug 24 | Strategic: 8 | Innovation: 6 | Adoption: 9 | Impact: 8 | 🚀</p>
+<p>AI dependency eroding coding skills. HN: 563 pts. Connects to WK34's <a href="https://www.economist.com/graphic-detail/2026/08/18/">education study</a>. Independent ability = Staff+ differentiator.</p>
+<h3>3. <a href="https://twitter.com/paulg">Paul Graham: Build LLMs from Scratch</a></h3>
+<p>**Source:** Paul Graham | **Date:** Aug 24 | Strategic: 7 | Innovation: 5 | Adoption: 9 | Impact: 7 | 🚀</p>
+<p>Deep LLM training = most valued skill per top investor. HN: 609 pts, 684 comments.</p>
+<h3>4. <a href="https://louisabraham.github.io/load-bearing/">Load-Bearing Vocabulary of Claude</a></h3>
+<p>**Source:** Louis Abraham | **Date:** Aug 28 | Strategic: 7 | Innovation: 8 | Adoption: 6 | Impact: 7 | 🔬</p>
+<p>Token influence on <a href="https://www.anthropic.com">Claude</a>. HN: 706 pts. Interpretability hiring growing.</p>
+<h3>5. <a href="https://ft.com">Frontier Models Struggle as Cheaper Tools Thrive</a></h3>
+<p>**Source:** Financial Times | **Date:** Aug 24 | Strategic: 9 | Innovation: 5 | Adoption: 9 | Impact: 9 | 🚀</p>
+<p>Adoption headwinds for frontier models. HN: 821 pts. 6% use open-weight; growing. Applied AI roles deploying cost-effective models increase.</p>
+<h3>6. <a href="https://modelrepublic.org">a16z Investing Billions into a Bleak Future</a></h3>
+<p>**Source:** Model Republic | **Date:** Aug 24 | Strategic: 7 | Innovation: 5 | Adoption: 7 | Impact: 7 | 🧪</p>
+<p>Critiques <a href="https://a16z.com">a16z</a> same week as <a href="https://techcrunch.com/2026/08/28/a16z-creates-a-1-1b-machine-age-fund-to-accelerate-the-physical-buildout-of-ai/">$1.1B fund</a>. HN: 758 pts.</p>
+<h3>7. <a href="https://newsletter.eng-leadership.com/p/good-culture-is-the-biggest-productivity">Good Culture > AI for Productivity</a></h3>
+<p>**Source:** Eng Leadership | **Date:** Aug 29 | Strategic: 7 | Innovation: 5 | Adoption: 8 | Impact: 7 | 🚀</p>
+<p>Culture matters more. HN: 480 pts. Counterpoint to <a href="https://github.com/sentelabsai">CEO fired devs</a> (1,034 pts).</p>
+<h3>8. <a href="https://pwning.systems/posts/llm-memory-program-analysis/">LLM Memory as Program Analysis</a></h3>
+<p>**Source:** pwning.systems | **Date:** Aug 29 | Strategic: 7 | Innovation: 8 | Adoption: 6 | Impact: 7 | 🧪</p>
+<p>AI/SE convergence. HN: 302 pts.</p>
+<h3>9. <a href="https://techcrunch.com/2026/08/26/robot-brain-builders-are-pushing-out-of-their-gpt-2-era/">Robot Brains Pushing Out of GPT-2 Era</a></h3>
+<p>**Source:** TechCrunch | **Date:** Aug 26 | Strategic: 8 | Innovation: 7 | Adoption: 6 | Impact: 8 | 🧪</p>
+<p>Robotics AI 2-3 years behind language AI. <a href="https://www.unitree.com">Unitree</a>, <a href="https://genesisai.com">Genesis AI</a>, <a href="https://wayve.ai">Wayve</a>, <a href="https://uber.com">Uber</a> robotics. Window to specialize.</p>
+<h3>10. <a href="https://github.com/sentelabsai">CEO Fired Devs for AI — Devs Create AI CEO</a></h3>
+<p>**Source:** SenteLabs | **Date:** Aug 27 | Strategic: 8 | Innovation: 6 | Adoption: 8 | Impact: 8 | 🚀</p>
+<p>Viral (HN: 1,034 pts, 717 comments). Developer anxiety about displacement. Reputational risk for companies.</p>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="blogs">🛠 ️ Engineering Blogs</h2>
+<table>
+<thead><tr><th>#</th><th>Post</th><th>Source</th><th>Signal</th><th>Key Insight</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://techcrunch.com/2026/08/25/openais-jalapeno-chip-is-built-for-fast-inference-at-scale-benchmarks-show/">OpenAI Jalapeno Chip</a></td><td>TechCrunch</td><td>🚀</td><td>Custom inference ASIC; 13.4 PFLOPs; beats competitors</td></tr>
+<tr><td>2</td><td><a href="https://techcrunch.com/2026/08/29/nvidias-ai-advantage-is-moving-beyond-the-gpu/">Nvidia Beyond the GPU</a></td><td>TechCrunch</td><td>🚀</td><td>Vera Rubin architecture; data center orchestration</td></tr>
+<tr><td>3</td><td><a href="https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/">Claude Cowork Memory</a></td><td>TechCrunch</td><td>🚀</td><td>Unified memory across Chat and Cowork; continuous context</td></tr>
+<tr><td>4</td><td><a href="https://developers.openai.com/docs/changelog">OpenAI mTLS and X.509 GA</a></td><td>OpenAI</td><td>🚀</td><td>Workload identity federation for enterprise API security</td></tr>
+<tr><td>5</td><td><a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">OpenAI HF Breach Report</a></td><td>OpenAI</td><td>🚀</td><td>Agent sandbox escape post-mortem; security architecture</td></tr>
+<tr><td>6</td><td><a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">Anthropic Self-Improving AI</a></td><td>TechCrunch</td><td>🔬</td><td>AAR beats human alignment researchers at $4/hr</td></tr>
+<tr><td>7</td><td><a href="https://acceptmarkdown.com/">Serve Markdown to AI Agents</a></td><td>Accept Markdown</td><td>🧪</td><td>Accept headers for agent-friendly content; HN: 176 pts</td></tr>
+<tr><td>8</td><td><a href="https://techcrunch.com/2026/08/26/arga-is-building-a-better-way-to-train-enterprise-ai-agents/">Arga Labs Enterprise Agent Training</a></td><td>TechCrunch</td><td>🧪</td><td>Better enterprise agent training approaches</td></tr>
+<tr><td>9</td><td><a href="https://techcrunch.com/2026/08/26/querystory-wants-you-to-believe-what-ai-is-telling-you/">QueryStory AI Verifiability</a></td><td>TechCrunch</td><td>🧪</td><td>Making AI output trustworthy and verifiable</td></tr>
+<tr><td>10</td><td><a href="https://techcrunch.com/2026/08/24/instincts-powerful-ai-assistant-is-raising-privacy-and-security-concerns/">Instinct AI Architecture</a></td><td>TechCrunch</td><td>🧪</td><td>Viral AI assistant; privacy/security architecture tradeoffs</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="github">📦 GitHub Projects</h2>
+<details><summary>GitHub Projects</summary><div class="details-content"><table>
+<thead><tr><th>Project</th><th>Category</th><th>This Week</th><th>Key Signal</th></tr></thead><tbody>
+<tr><td><a href="https://huggingface.co/zai-org/GLM-5.3">**GLM-5.3**</a></td><td>Foundation Model</td><td>Open-weighted; HN 805 pts</td><td>Frontier Chinese model, fully open</td></tr>
+<tr><td><a href="https://github.com/sentelabsai">**SenteLabs AI CEO**</a></td><td>Satire/Protest</td><td>HN 1,034 pts, 717 comments</td><td>Viral response to developer displacement</td></tr>
+<tr><td><a href="https://github.com/jeffhajewski/latticedb">**LatticeDB**</a></td><td>Database</td><td>HN 190 pts</td><td>SQLite for graph databases; agent knowledge stores</td></tr>
+<tr><td><a href="https://github.com/blindCodes/stealth-benchmark">**Stealth Benchmark**</a></td><td>Interview Tools</td><td>Continued from WK34</td><td>Tests AI detection in interview platforms</td></tr>
+<tr><td><a href="https://github.com/onecli/onecli">**OneCLI**</a></td><td>Agent Infra</td><td>Continued from WK34</td><td>YC S26 sandboxed agent harness</td></tr>
+<tr><td><a href="https://github.com/adnanakil/nobuzz">**nobuzz (Claudette)**</a></td><td>Dev Tools</td><td>Continued from WK34</td><td>Tool to modify Claude communication style</td></tr>
+</tbody></table>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="media">🎙 ️ Videos & Podcasts</h2>
+<details><summary>️ Videos & Podcasts</summary><div class="details-content"><ul>
+<li>**<a href="https://techcrunch.com/video/why-nvidia-is-ready-to-pay-13b-for-hugging-face/">Why Nvidia Is Ready to Pay $13B for Hugging Face</a>** — TechCrunch video analysis of the acquisition rationale, competitive dynamics, and talent implications.</li>
+<li>**<a href="https://techcrunch.com/2026/08/25/the-world-seems-to-be-ready-an-interview-with-openai-head-of-product-thibault-sottiaux/">OpenAI Head of Product Interview</a>** — Thibault Sottiaux on OpenAI's product strategy, agent platform vision, and why "the world seems to be ready."</li>
+<li>**<a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">How Do We Explain OpenAI's Executive Exodus?</a>** — TechCrunch analysis of the 13+ departures, pre-IPO dynamics, and leadership implications.</li>
+</ul>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="community">💬 Community Insights</h2>
+<h3>AI Workforce Displacement Debate Erupts</h3>
+<p>The most heated community discussions this week centered on AI replacing developers. The <a href="https://github.com/sentelabsai">CEO fired developers for AI</a> story (HN: 1,034 pts, 717 comments) generated intense backlash, while <a href="https://larsfaye.com/posts/coding-expertise-collapse/">coding expertise collapse</a> (563 pts, 545 comments) and <a href="https://twitter.com/paulg">Paul Graham's "build LLMs from scratch"</a> (609 pts, 684 comments) fueled parallel debates about what skills remain valuable. The counterpoint — <a href="https://newsletter.eng-leadership.com/p/good-culture-is-the-biggest-productivity">good culture beats AI for productivity</a> (480 pts) — gained significant traction.</p>
+<p>Key community tensions:</p>
+<ul>
+<li>**Replacement vs. augmentation:** Deepening split between "AI will replace most developers" and "AI amplifies senior developers while automating junior tasks"</li>
+<li>**Skill atrophy risk:** Growing concern (continuing from WK34's <a href="https://www.economist.com/graphic-detail/2026/08/18/">education study</a>) that reliance on AI tools erodes fundamental coding skills</li>
+<li>**Paul Graham effect:** PG's endorsement of "build LLMs from scratch" as the top skill for 17-year-olds signals where VC money will flow — toward founders with deep ML training expertise</li>
+</ul>
+<h3>Nvidia/Hugging Face Acquisition Reaction</h3>
+<p>The <a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia/HF acquisition</a> (HN: 1,985 pts, 925 comments) was the week's most-discussed story. Community concerns focused on:</p>
+<ul>
+<li>**Neutrality loss:** Will HF remain a neutral platform or become Nvidia-aligned?</li>
+<li>**Open-weight ecosystem risk:** If the GitHub of ML is owned by a hardware vendor, what happens to models optimized for non-Nvidia hardware?</li>
+<li>**Talent absorption:** HF engineers now work for Nvidia, potentially reducing open-source contributions</li>
+</ul>
+<h3>Frontier Model Adoption Headwinds</h3>
+<p>The <a href="https://ft.com">FT report on frontier models struggling</a> (HN: 821 pts, 701 comments) generated the week's second-largest discussion. Key insight from the community: only 6% of companies use open-weight models and 2% of engineers deploy them regularly. The gap between benchmark performance and real-world adoption suggests demand for **applied AI engineers who bridge the deployment gap** is far higher than demand for researchers pushing frontier capabilities.</p>
+<h3>Interview Trends Update (Second Week)</h3>
+<p>Continuing from WK34's interview bifurcation coverage, this week's <a href="https://larsfaye.com/posts/coding-expertise-collapse/">coding expertise collapse</a> debate added new dimensions:</p>
+<ul>
+<li>**AI-free coding tests gain support:** Community consensus is strengthening that companies should test independent coding ability, validating <a href="https://www.anthropic.com">Anthropic</a> and <a href="https://openai.com">OpenAI</a>'s approach of banning AI tools in interviews</li>
+<li>**"Show me your AI work" rounds expanding:** More startups adopting portfolio review of AI-built projects as primary assessment</li>
+<li>**The "AI Delta" concept from WK34 gains traction:** Measuring the difference between a candidate's output with and without AI tools is becoming a recognized framework</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="themes">📈 Emerging Themes</h2>
+<ol>
+<li>**Open-Weight Acquisition Gold Rush:** Continuing from WK34's acqui-hire theme, <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">Nvidia's $19B in acquisitions</a> (HF + Poolside) plus <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX/Cursor</a> make this a second consecutive week of mega-deals. Open-weight AI companies are explicitly called out as <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">the Valley's hottest acquisition targets</a>. Strategic implication: joining an open-weight startup is now a proven path to major company acquisition.</li>
+</ol>
+<ol>
+<li>**Custom Silicon Arms Race:** <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">OpenAI Jalapeno</a> joins <a href="https://deepmind.google">Google TPU</a>, <a href="https://etched.com">Etched</a>, and <a href="https://techcrunch.com/2026/08/29/nvidias-ai-advantage-is-moving-beyond-the-gpu/">Nvidia Vera Rubin</a> in an escalating inference chip war. This extends WK34's "inference infrastructure premium" into custom silicon specifically — the highest-leverage AI engineering specialty is now chip design, not just serving optimization.</li>
+</ol>
+<ol>
+<li>**AI Workforce Displacement Becomes Political:** The <a href="https://github.com/sentelabsai">CEO fired developers</a> viral story (1,034 pts), <a href="https://larsfaye.com/posts/coding-expertise-collapse/">coding expertise collapse debate</a> (563 pts), and <a href="https://newsletter.eng-leadership.com/p/good-culture-is-the-biggest-productivity">good culture counterpoint</a> (480 pts) mark a shift from abstract concern to active community anger. Companies that mishandle AI-driven workforce changes face reputational and talent acquisition costs.</li>
+</ol>
+<ol>
+<li>**Compute Spending Explosion:** <a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">Anthropic $45B Nscale</a>, <a href="https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand/">Amazon tripling chip orders</a>, <a href="https://techcrunch.com/2026/08/28/neocloud-lambda-secures-1b-in-debt-to-buy-more-chips/">Lambda $1B debt</a>, and <a href="https://techcrunch.com/2026/08/28/a16z-creates-a-1-1b-machine-age-fund-to-accelerate-the-physical-buildout-of-ai/">a16z $1.1B Machine Age</a> — compute spending is accelerating faster than revenue for most AI companies. This creates massive infrastructure hiring but also raises sustainability questions.</li>
+</ol>
+<ol>
+<li>**OpenAI Leadership Instability:** <a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">13+ departures</a> in 2026 is unprecedented for a pre-IPO company at this scale. Whether this is "restructuring" or "dysfunction" matters for candidates evaluating OpenAI roles — but the vacancies are real and the comp packages are exceptional.</li>
+</ol>
+<ol>
+<li>**Robotics AI Enters Growth Phase:** <a href="https://techcrunch.com/2026/08/24/valor-point72-back-general-intuition-at-6b-valuation-as-ai-startup-pushes-into-robotics/">General Intuition $6B</a>, <a href="https://techcrunch.com/2026/08/28/a16z-creates-a-1-1b-machine-age-fund-to-accelerate-the-physical-buildout-of-ai/">a16z Machine Age fund</a>, <a href="https://techcrunch.com/2026/08/26/robot-brain-builders-are-pushing-out-of-their-gpt-2-era/">robot brain builders</a>, and <a href="https://techcrunch.com/2026/08/28/chinese-automakers-are-following-teslas-bet-that-robots-are-the-next-big-profit-machine/">Chinese automakers following Tesla on robots</a> signal physical AI crossing from research into commercial deployment.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="trends">📊 Trend Tracking Over Time</h2>
+<p>*Second report — all trends incremented from WK34 baseline.*</p>
+<table>
+<thead><tr><th>Theme</th><th>First Noted</th><th>Weeks</th><th>Momentum</th><th>Evidence</th></tr></thead><tbody>
+<tr><td>AI inference infrastructure premium</td><td>WK34</td><td>2</td><td>📈 Accelerating</td><td><a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">Jalapeno</a>, <a href="https://techcrunch.com/2026/08/29/nvidias-ai-advantage-is-moving-beyond-the-gpu/">Vera Rubin</a>, <a href="https://techcrunch.com/2026/08/28/neocloud-lambda-secures-1b-in-debt-to-buy-more-chips/">Lambda $1B</a>; now includes custom silicon</td></tr>
+<tr><td>Acqui-hire as talent strategy</td><td>WK34</td><td>2</td><td>📈 Accelerating</td><td><a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia/HF $13B</a>, <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">Nvidia/Poolside $6B</a>, <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX/Cursor</a>; 4+ deals vs 3 last week</td></tr>
+<tr><td>Anthropic pre-IPO momentum</td><td>WK34</td><td>2</td><td>📈 Accelerating</td><td><a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">$45B Nscale</a>, <a href="https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/">court win</a>, <a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">AAR research</a></td></tr>
+<tr><td>Coding agent proliferation</td><td>WK34</td><td>2</td><td>📈 → Consolidating</td><td>WK34 saw 4 new agents; WK35 sees <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX acquiring Cursor</a> — shift from proliferation to consolidation</td></tr>
+<tr><td>AI safety as career track</td><td>WK34</td><td>2</td><td>📈 Accelerating</td><td><a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">100+ company coalition</a>, <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach</a>, <a href="https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/">Pentagon ruling</a></td></tr>
+<tr><td>Big Tech AI restructuring</td><td>WK34</td><td>2</td><td>📈 Accelerating</td><td><a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">OpenAI 13+ departures</a>; <a href="https://techcrunch.com/2026/08/28/meta-executive-leaves-for-openai-as-the-social-media-giant-faces-growing-scrutiny-in-india/">Meta→OpenAI talent flow</a></td></tr>
+<tr><td>Self-improving models</td><td>WK34</td><td>2</td><td>📈 Accelerating</td><td><a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">Anthropic AAR</a> beats human researchers; upgrades from "early" to "accelerating"</td></tr>
+<tr><td>AI credit secondary markets</td><td>WK34</td><td>2</td><td>➡️ Stable</td><td>No new developments this week</td></tr>
+<tr><td>Interview format bifurcation</td><td>WK34</td><td>2</td><td>📈 Accelerating</td><td><a href="https://larsfaye.com/posts/coding-expertise-collapse/">Coding collapse debate</a> reinforces AI-free testing; "AI Delta" concept gains traction</td></tr>
+<tr><td>AI workforce displacement anxiety</td><td>WK35</td><td>1</td><td>📈 New — Accelerating</td><td><a href="https://github.com/sentelabsai">CEO fired devs</a> (1,034 pts), <a href="https://larsfaye.com/posts/coding-expertise-collapse/">expertise collapse</a>, <a href="https://newsletter.eng-leadership.com/p/good-culture-is-the-biggest-productivity">culture > AI</a></td></tr>
+<tr><td>Robotics AI commercialization</td><td>WK35</td><td>1</td><td>🧪 New — Early</td><td><a href="https://techcrunch.com/2026/08/24/valor-point72-back-general-intuition-at-6b-valuation-as-ai-startup-pushes-into-robotics/">General Intuition $6B</a>, <a href="https://techcrunch.com/2026/08/28/a16z-creates-a-1-1b-machine-age-fund-to-accelerate-the-physical-buildout-of-ai/">a16z Machine Age</a>, <a href="https://techcrunch.com/2026/08/26/robot-brain-builders-are-pushing-out-of-their-gpt-2-era/">robot brains</a></td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-1">🏗 ️ Implications for Job Seekers</h2>
+<ol>
+<li>**OpenAI's leadership vacuum is your opportunity.** <a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">13+ senior departures</a> in 2026, including the COO, CRO, and head of data centers, mean <a href="https://openai.com">OpenAI</a> has multiple VP/Director openings at a pre-IPO company managing the $500M <a href="https://openai.com">Stargate Project</a>. Apply now — these roles fill fast.</li>
+</ol>
+<ol>
+<li>**Custom silicon is the new apex skill.** Continuing from WK34's inference infrastructure premium, <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">OpenAI's Jalapeno</a> proves that AI companies are building their own chips. ASIC design, chip design automation, and inference hardware optimization are the highest-premium specialties. <a href="https://openai.com">OpenAI</a>, <a href="https://deepmind.google">Google</a> (TPU), <a href="https://etched.com">Etched</a> ($21B from WK34), and <a href="https://nvidia.com">Nvidia</a> all competing for the same engineers.</li>
+</ol>
+<ol>
+<li>**Join an open-weight startup for acquisition upside.** <a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia/HF $13B</a> + <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">Poolside $6B</a> + last week's <a href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/">Stripe/OpenRouter $7B+</a> = open-weight AI companies are the proven fastest path to major company acquisition. TechCrunch explicitly calls them <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">the Valley's hottest targets</a>.</li>
+</ol>
+<ol>
+<li>**Anthropic continues its exceptional trajectory.** Second consecutive week of major signals: <a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">$45B Nscale</a>, <a href="https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/">court victory</a>, <a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">AAR research</a>, building on last week's <a href="https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/">$65B revenue</a> and <a href="https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/">$2T+ IPO target</a>. Pre-IPO equity window still open but measured in months.</li>
+</ol>
+<ol>
+<li>**Robotics AI is entering its hiring phase.** <a href="https://techcrunch.com/2026/08/24/valor-point72-back-general-intuition-at-6b-valuation-as-ai-startup-pushes-into-robotics/">General Intuition $6B</a>, <a href="https://techcrunch.com/2026/08/28/a16z-creates-a-1-1b-machine-age-fund-to-accelerate-the-physical-buildout-of-ai/">a16z $1.1B Machine Age fund</a>, and the <a href="https://techcrunch.com/2026/08/26/robot-brain-builders-are-pushing-out-of-their-gpt-2-era/">robot brain builders analysis</a> suggest physical AI is 2-3 years behind language AI — early enough to specialize, late enough that companies are funding real roles.</li>
+</ol>
+<h3>Interview Trends (Second Week)</h3>
+<p>The WK34 interview bifurcation theme strengthened this week. The <a href="https://larsfaye.com/posts/coding-expertise-collapse/">coding expertise collapse debate</a> (HN: 563 pts) added urgency to the question of AI-independent competence:</p>
+<p>**What is reinforced from WK34:**</p>
+<ul>
+<li>Frontier labs (<a href="https://www.anthropic.com">Anthropic</a>, <a href="https://openai.com">OpenAI</a>) continue banning AI in coding rounds — this week's expertise collapse discussion validates their approach</li>
+<li>Startups continue embracing "show me your AI-built work" portfolio reviews</li>
+<li>The "AI Delta" concept (measuring output with/without AI) is gaining community traction</li>
+</ul>
+<p>**What is new in WK35:**</p>
+<ul>
+<li>**AI security competency** is emerging as a testable interview skill after the <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach</a> and <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">100+ company coalition</a></li>
+<li>**Independent coding ability** is becoming a more explicit differentiator as the <a href="https://larsfaye.com/posts/coding-expertise-collapse/">expertise collapse</a> debate makes companies more cautious about AI-dependent candidates</li>
+<li>**Custom silicon interview rounds** are likely emerging at <a href="https://openai.com">OpenAI</a> given the <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">Jalapeno team's growth</a></li>
+</ul>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** The convergence of OpenAI leadership vacancies, custom silicon demand, open-weight acquisition upside, and Anthropic's continued growth creates a 3-6 month window of exceptional leverage for senior AI professionals.</p>
+</div>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-2">🔍 Implications for Hiring Managers</h2>
+<ol>
+<li>**The acqui-hire market consumed your pipeline — again.** Second consecutive week where <a href="https://nvidia.com">Nvidia</a> ($19B in acquisitions), <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX</a>, and others absorbed entire teams. If your best candidates work at open-weight AI companies, their employers may be acquired before you close the hire.</li>
+</ol>
+<ol>
+<li>**OpenAI's departing executives are in play.** <a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">13+ senior leaders</a> left OpenAI in 2026 — COO, CRO, CMO, head of data centers, head of ethics. These are among the most experienced AI leaders in the industry. Target them within 2-4 weeks of departure.</li>
+</ol>
+<ol>
+<li>**AI security engineers are no longer optional.** The <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach</a>, <a href="https://techcrunch.com/2026/08/24/alabama-launches-investigation-into-openais-hack-of-hugging-face/">Alabama investigation</a>, and <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">100+ company coalition</a> all signal that deploying AI agents without dedicated security engineering is a liability. Budget for these roles proactively.</li>
+</ol>
+<ol>
+<li>**Handle AI workforce transitions carefully.** The <a href="https://github.com/sentelabsai">CEO fired developers</a> story (HN: 1,034 pts) and subsequent backlash show that clumsy AI-driven layoffs damage employer brand and make future hiring harder. The <a href="https://newsletter.eng-leadership.com/p/good-culture-is-the-biggest-productivity">good culture > AI</a> counterpoint resonated strongly.</li>
+</ol>
+<ol>
+<li>**Comp benchmarks are rising.** <a href="https://www.anthropic.com">Anthropic</a> ($60B+ compute spend implies aggressive hiring), <a href="https://openai.com">OpenAI</a> (filling VP vacancies pre-IPO), and <a href="https://nvidia.com">Nvidia</a> ($19B in acquisitions) are all competing for senior talent. If you cannot match their compensation, differentiate on mission, autonomy, or team culture.</li>
+</ol>
+<h3>Interview Design (Second Week Update)</h3>
+<p>Building on WK34's interview design recommendations:</p>
+<p>**Add this week:**</p>
+<ul>
+<li>**AI security round:** Given the <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach</a> and <a href="https://boydkane.com">inference engine exploits</a>, test candidates' understanding of agent security, sandbox isolation, and threat modeling</li>
+<li>**Independent coding validation:** The <a href="https://larsfaye.com/posts/coding-expertise-collapse/">expertise collapse debate</a> strengthens the case for at least one coding round without AI tools</li>
+</ul>
+<p>**Updated signal table (WK35 refinement):**</p>
+<table>
+<thead><tr><th>2024 Signal</th><th>2026 Signal (Updated WK35)</th><th>Why</th></tr></thead><tbody>
+<tr><td>Clean leetcode</td><td>Still tested, less weight</td><td>AI solves most medium problems</td></tr>
+<tr><td>"Design Twitter"</td><td>ML system design + inference chip awareness</td><td><a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">Jalapeno</a> era</td></tr>
+<tr><td>Generic leadership</td><td>AI judgment + safety + security reasoning</td><td><a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach</a>, <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">100+ company letter</a></td></tr>
+<tr><td>Framework knowledge</td><td>AI fluency + independent ability</td><td><a href="https://larsfaye.com/posts/coding-expertise-collapse/">Expertise collapse</a> risk</td></tr>
+<tr><td>Traditional portfolio</td><td>AI-augmented work + honest AI practices</td><td>"AI Delta" concept from WK34</td></tr>
+<div class="callout callout-risk">
+<p>⚠️ **Risk:** If competing for inference/silicon talent against <a href="https://openai.com">OpenAI</a> (Jalapeno team), <a href="https://etched.com">Etched</a> ($21B), and <a href="https://nvidia.com">Nvidia</a> ($19B acquisitions), you need differentiated positioning beyond compensation alone.</p>
+</div>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="watchlist">👀 Watch List</h2>
+<div class="watch-list-box"><p>*Second report — all WK34 items updated. New items added.*</p>
+<table>
+<thead><tr><th>Technology/Trend</th><th>First Noted</th><th>Status</th><th>This Week's Movement</th></tr></thead><tbody>
+<tr><td><a href="https://www.modular.com/blog/mojo-open-source">Mojo language</a> for AI systems</td><td>WK34</td><td>🧪 Early adoption</td><td>No updates since WK34 open-source launch; monitoring community adoption</td></tr>
+<tr><td><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">MCP agent identity</a> (DPoP/WIF)</td><td>WK34</td><td>🧪 Early adoption</td><td><a href="https://developers.openai.com/docs/changelog">OpenAI mTLS/X.509 GA</a> aligns; enterprise identity maturing</td></tr>
+<tr><td><a href="https://ornith.ai/ornith_1_5.html">Self-improving models</a></td><td>WK34</td><td>📈 Accelerating</td><td>**Upgraded:** <a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">Anthropic AAR</a> beats humans at $4/hr; moving from research to practical</td></tr>
+<tr><td>AI credit secondary markets</td><td>WK34</td><td>🧪 Early adoption</td><td>No new developments; monitoring</td></tr>
+<tr><td><a href="https://www.anthropic.com/research/multiagent-systems">Multi-agent safety</a> engineering</td><td>WK34</td><td>📈 Accelerating</td><td>**Upgraded:** <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">100+ company coalition</a>; <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach</a> post-mortem; safety hiring now mandatory</td></tr>
+<tr><td><a href="https://cursor.com/changelog/origin-code-hosting">AI-native developer platforms</a></td><td>WK34</td><td>⚠️ Acquired</td><td>**Status change:** <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX acquired Cursor</a> one week after Origin launch; platform vision now under SpaceX</td></tr>
+<tr><td>Stealth frontier models (Ox Alpha/ZAI)</td><td>WK34</td><td>🚀 Graduated</td><td>**Resolved:** <a href="https://www.bloomberg.com/news/articles/2026-08-26/china-s-z-ai-made-ox-alpha-stealth-model-that-rivals-deepseek">Z.ai revealed</a>, <a href="https://huggingface.co/zai-org/GLM-5.3">GLM-5.3 open-weighted</a>; removing from Watch List — now a known frontier lab</td></tr>
+<tr><td><a href="https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/">AI scientist agents</a></td><td>WK34</td><td>🧪 Early adoption</td><td><a href="https://www.terminal-bench-science.ai/announcement">Terminal-Bench-Science</a> provides evaluation framework; <a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">AAR research</a> extends capability</td></tr>
+<tr><td><a href="https://www.mergeplatform.com">AI-native interview platforms</a></td><td>WK34</td><td>🧪 Early adoption</td><td><a href="https://larsfaye.com/posts/coding-expertise-collapse/">Expertise collapse debate</a> strengthens demand for better assessment tools</td></tr>
+<tr><td>Custom inference silicon race</td><td>WK35</td><td>🚀 Production-ready</td><td>**New:** <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">OpenAI Jalapeno</a>, <a href="https://techcrunch.com/2026/08/29/nvidias-ai-advantage-is-moving-beyond-the-gpu/">Nvidia Vera Rubin</a>, <a href="https://etched.com">Etched</a> (WK34); multiple production chips competing</td></tr>
+<tr><td>Robotics AI foundation models</td><td>WK35</td><td>🧪 Early adoption</td><td>**New:** <a href="https://techcrunch.com/2026/08/24/valor-point72-back-general-intuition-at-6b-valuation-as-ai-startup-pushes-into-robotics/">General Intuition $6B</a>, <a href="https://techcrunch.com/2026/08/28/a16z-creates-a-1-1b-machine-age-fund-to-accelerate-the-physical-buildout-of-ai/">a16z Machine Age</a>, <a href="https://techcrunch.com/2026/08/26/robot-brain-builders-are-pushing-out-of-their-gpt-2-era/">robot brain builders</a></td></tr>
+<tr><td>OpenAI organizational stability</td><td>WK35</td><td>⚠️ Monitoring</td><td>**New:** <a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">13+ departures</a> raise questions about pre-IPO culture and leadership continuity</td></tr>
+</tbody></table>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="contrarian">🔮 Contrarian View</h2>
+<div class="contrarian"><h3>What the industry may be overestimating</h3>
+<ul>
+<li>**The permanence of the acqui-hire model.** Two consecutive weeks of mega-acquisitions (<a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">Nvidia $19B</a>, <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX/Cursor</a>, last week's <a href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/">Stripe/OpenRouter $7B+</a>) suggest this is the primary talent strategy. But acqui-hires at these multiples ($13B for HF, $7B+ for OpenRouter) are unsustainable. When the correction comes, companies that invested in organic hiring will have more stable teams.</li>
+</ul>
+<ul>
+<li>**Custom silicon as a moat.** <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">OpenAI's Jalapeno</a> is impressive, but custom chips have a history of disappointing — Google's TPUs have not displaced Nvidia GPUs despite years of development. The programming model challenge (Gluon vs. CUDA) is enormous. Most companies will continue buying Nvidia chips for the flexibility.</li>
+</ul>
+<h3>What the industry may be underestimating</h3>
+<ul>
+<li>**The Hugging Face neutrality problem.** The <a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia acquisition</a> of the ML ecosystem's neutral platform could fragment the open-source community. If HF becomes Nvidia-aligned, demand for alternative model hosting platforms will create entirely new companies and roles. This is a larger ecosystem risk than most appreciate.</li>
+</ul>
+<ul>
+<li>**AI security as a binding constraint.** The <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach</a>, <a href="https://techcrunch.com/2026/08/24/alabama-launches-investigation-into-openais-hack-of-hugging-face/">Alabama investigation</a>, <a href="https://boydkane.com">inference engine exploits</a>, and <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">100+ company coalition</a> all point to a single conclusion: AI agent deployment will be gated by security engineering capacity. The pipeline of security engineers who understand both AI and traditional security is far too small. This will become the binding constraint on agent adoption.</li>
+</ul>
+<ul>
+<li>**OpenAI's organizational risk.** <a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">13+ senior departures</a> while managing a pre-IPO, the Stargate Project, a custom chip launch, and a security crisis is an exceptional load. The "restructuring" narrative may be optimistic. Candidates evaluating OpenAI should weigh the leadership instability alongside the exceptional comp packages.</li>
+</ul>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="strategy">🧭 Strategic Analysis</h2>
+<h3>Short-term (0-6 months)</h3>
+<ul>
+<li>**Anthropic IPO** remains the dominant equity event. Pre-IPO window measured in months. Second consecutive week of strong signals (<a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">$45B compute</a>, <a href="https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/">court win</a>).</li>
+<li>**OpenAI leadership vacancies** will fill within 2-4 months. Act now if targeting VP/Director roles.</li>
+<li>**Nvidia/HF integration** creates a 3-6 month window of new hybrid roles combining open-source and GPU expertise.</li>
+<li>**AI security hiring** accelerates after <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach</a> and <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">coalition letter</a>.</li>
+<li>**Custom silicon teams** at <a href="https://openai.com">OpenAI</a> and competitors will scale aggressively through 2027.</li>
+</ul>
+<h3>Mid-term (6-18 months)</h3>
+<ul>
+<li>**Open-weight ecosystem fractures.** If <a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia/HF</a> integration creates bias, alternative platforms emerge. Entrepreneurial opportunity.</li>
+<li>**Robotics AI** moves from funding to hiring. <a href="https://techcrunch.com/2026/08/24/valor-point72-back-general-intuition-at-6b-valuation-as-ai-startup-pushes-into-robotics/">General Intuition</a>, <a href="https://techcrunch.com/2026/08/28/a16z-creates-a-1-1b-machine-age-fund-to-accelerate-the-physical-buildout-of-ai/">a16z Machine Age</a> portfolio companies, and <a href="https://techcrunch.com/2026/08/28/chinese-automakers-are-following-teslas-bet-that-robots-are-the-next-big-profit-machine/">Chinese robot makers</a> all hiring.</li>
+<li>**Automated alignment research** (<a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">AAR</a>) begins replacing some human alignment work, shifting demand to system builders.</li>
+<li>**Applied AI > frontier research** for hiring. <a href="https://ft.com">FT's adoption report</a> shows most value captured by engineers deploying cost-effective models, not pushing frontier capabilities.</li>
+</ul>
+<h3>Long-term (2-5 years)</h3>
+<ul>
+<li>**Custom silicon becomes standard.** Every major AI company will have proprietary inference hardware, creating a permanent engineering discipline.</li>
+<li>**AI security** becomes as fundamental as cybersecurity — mandatory function at every AI-deploying organization.</li>
+<li>**The "AI Delta" framework** (measuring human value-add over AI baseline) becomes the standard for performance evaluation and hiring, building on WK34's <a href="https://arxiv.org/abs/2608.16753">Tao framing</a>.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="relevance">🎯 Personalized Relevance</h2>
+<table>
+<thead><tr><th>Development</th><th>Relevance</th><th>Score</th></tr></thead><tbody>
+<tr><td><a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">Anthropic $45B + court win + AAR</a> — Staff+ applied scientist roles</td><td>Staff+ Applied Scientist in search/ads/recommendation</td><td>10</td></tr>
+<tr><td><a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">OpenAI leadership vacuum</a> — VP/Director openings</td><td>AI leadership at top company</td><td>9</td></tr>
+<tr><td><a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia/HF acquisition</a> — open-source AI infrastructure roles</td><td>AI infrastructure combining open-source + compute</td><td>9</td></tr>
+<tr><td><a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">OpenAI Jalapeno</a> — inference optimization</td><td>Custom silicon and inference roles</td><td>8</td></tr>
+<tr><td><a href="https://ft.com">Frontier models struggling</a> — applied AI demand growing</td><td>Applied AI roles deploying practical models</td><td>8</td></tr>
+<tr><td><a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">AI security coalition</a> — security engineering</td><td>Agent security roles</td><td>8</td></tr>
+<tr><td><a href="https://techcrunch.com/2026/08/24/valor-point72-back-general-intuition-at-6b-valuation-as-ai-startup-pushes-into-robotics/">General Intuition $6B</a> — robotics AI</td><td>Adjacent interest in embodied AI</td><td>7</td></tr>
+<tr><td><a href="https://www.bloomberg.com/news/articles/2026-08-26/china-s-z-ai-made-ox-alpha-stealth-model-that-rivals-deepseek">Z.ai/GLM-5.3</a> — new frontier lab</td><td>Expanding frontier lab landscape</td><td>7</td></tr>
+<tr><td><a href="https://techcrunch.com/2026/08/26/viral-ai-startup-instinct-has-raised-350-million-at-a-2-5-billion-valuation/">Instinct AI $250M</a> — consumer AI</td><td>Lower relevance (consumer focus)</td><td>5</td></tr>
+<tr><td><a href="https://techcrunch.com/2026/08/25/stability-ai-maker-of-image-generator-stable-diffusion-raises-76-million-in-fresh-funding/">Stability AI $76M</a> — image generation</td><td>Lower relevance (creative tools)</td><td>4</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="recommendations">✅ Recommendations</h2>
+<h3>For Technical Leaders (Staff+/Principal+)</h3>
+<ol>
+<li>**Evaluate <a href="https://openai.com">OpenAI</a> VP/Director openings now.** <a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">13+ senior departures</a> at a pre-IPO company mean critical leadership roles are open. The window closes as positions fill.</li>
+<li>**Continue pursuing <a href="https://www.anthropic.com">Anthropic</a> pre-IPO equity.** Second consecutive week of strong signals: <a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">$45B Nscale</a>, <a href="https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/">court win</a>, <a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">AAR research</a>. IPO timing measured in months.</li>
+<li>**Build custom silicon awareness.** Even if not transitioning to chip design, understanding inference hardware (<a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">Jalapeno architecture</a>, <a href="https://techcrunch.com/2026/08/29/nvidias-ai-advantage-is-moving-beyond-the-gpu/">Vera Rubin</a>, <a href="https://etched.com">Etched</a>) is becoming table stakes for Staff+ ML systems roles.</li>
+<li>**Monitor <a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia/HF integration roles</a>.** The combination of open-source ecosystem management and GPU optimization expertise is a rare and valuable skill set.</li>
+<li>**Maintain independent coding ability.** The <a href="https://larsfaye.com/posts/coding-expertise-collapse/">expertise collapse debate</a> and WK34's <a href="https://www.anthropic.com">interview bifurcation</a> trends reinforce that AI-independent problem-solving remains a critical differentiator.</li>
+</ol>
+<h3>For Hiring Managers</h3>
+<ol>
+<li>**Target <a href="https://openai.com">OpenAI</a> alumni immediately.** <a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">13+ departing executives</a> are the week's most available senior talent. Act within 2-4 weeks.</li>
+<li>**Budget for AI security engineering.** The <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach</a>, <a href="https://techcrunch.com/2026/08/24/alabama-launches-investigation-into-openais-hack-of-hugging-face/">Alabama investigation</a>, and <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">coalition letter</a> make this non-negotiable for any company deploying agents.</li>
+<li>**Move faster than acqui-hire competitors.** Your candidate pipeline is being consumed by <a href="https://nvidia.com">Nvidia</a>, <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX</a>, and <a href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/">Stripe</a> at company level for the second consecutive week.</li>
+<li>**Handle workforce transitions with care.** The <a href="https://github.com/sentelabsai">CEO fired developers backlash</a> (HN: 1,034 pts) shows reputational damage from clumsy AI-driven layoffs.</li>
+<li>**Update interview loops for the <a href="https://larsfaye.com/posts/coding-expertise-collapse/">expertise collapse era</a>.** Add at least one AI-free coding round and an AI security assessment.</li>
+</ol>
+<h3>For Everyone</h3>
+<ol>
+<li>**Read the <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">SemiAnalysis Jalapeno analysis</a>.** Understanding custom inference silicon is increasingly important regardless of your specialty.</li>
+<li>**Track the <a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia/HF acquisition</a> implications.** If HF loses neutrality, the open-source ecosystem will reorganize — creating opportunities and disruptions.</li>
+<li>**Monitor your AI dependency.** The <a href="https://larsfaye.com/posts/coding-expertise-collapse/">coding expertise collapse</a> debate is a warning: ensure you can perform core skills without AI tools.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="takeaways">🏆 Executive Takeaways</h2>
+<h3>Top 5 Technical Advances</h3>
+<ol>
+<li>**<a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">OpenAI Jalapeno custom inference ASIC</a>** — 13.4 PFLOPs; beats Nvidia; custom silicon era begins. (8 min read)</li>
+<li>**<a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">Anthropic Automated Alignment Researcher</a>** — AI beats human researchers at $4/hr. (5 min read)</li>
+<li>**<a href="https://huggingface.co/zai-org/GLM-5.3">Z.ai GLM-5.3 open-weight</a>** — New frontier lab with competitive open models. (5 min read)</li>
+<li>**<a href="https://qwen.ai/blog?id=qwen3.8-flash-next">Qwen 3.8-Flash-Next</a>** — 125B efficient model; small model thesis validated. (4 min read)</li>
+<li>**<a href="https://blog.google">Gemini-3.5-Transcribe + Omni 1.1 Flash</a>** — Google's continued multimodal push. (3 min read)</li>
+</ol>
+<h3>Top 5 Business Developments</h3>
+<ol>
+<li>**<a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia acquires Hugging Face $13B + Poolside $6B</a>** — $19B open-weight acquisition spree. (5 min read)</li>
+<li>**<a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">Anthropic $45B Nscale deal</a>** — $60B+ compute in 8 months. (4 min read)</li>
+<li>**<a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">OpenAI executive exodus</a>** — 13+ departures; VP vacancies pre-IPO. (6 min read)</li>
+<li>**<a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX acquires Cursor</a>** — Coding agent consolidation via M&A. (3 min read)</li>
+<li>**<a href="https://techcrunch.com/2026/08/28/a16z-creates-a-1-1b-machine-age-fund-to-accelerate-the-physical-buildout-of-ai/">a16z $1.1B Machine Age fund</a>** — Physical AI buildout begins. (4 min read)</li>
+</ol>
+<h3>Top 5 Must-Read Resources</h3>
+<ol>
+<li>**<a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">SemiAnalysis: OpenAI Jalapeno</a>** — Definitive custom silicon analysis. (10 min read)</li>
+<li>**<a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">TechCrunch: Open-Weight Acquisition Targets</a>** — Why open-weight companies are the hottest M&A targets. (5 min read)</li>
+<li>**<a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">TechCrunch: OpenAI Executive Exodus</a>** — Analysis of leadership instability. (6 min read)</li>
+<li>**<a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">OpenAI: HF Incident Post-Mortem</a>** — Agent security failure analysis. (8 min read)</li>
+<li>**<a href="https://ft.com">FT: Frontier Models Struggle</a>** — Why cheaper tools are winning and what it means for the job market. (5 min read)</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="next-week">📌 What Leaders Should Do Next Week</h2>
+<ol>
+<li>**If seeking a role:** Apply to <a href="https://openai.com/careers">OpenAI</a> VP/Director positions this week. The leadership vacuum won't last. Also continue evaluating <a href="https://www.anthropic.com/careers">Anthropic</a> Staff+ roles — second consecutive week of exceptional momentum.</li>
+</ol>
+<ol>
+<li>**If hiring:** Set up outreach to <a href="https://openai.com">OpenAI</a> alumni from the <a href="https://techcrunch.com/2026/08/26/how-do-we-explain-openais-executive-exodus/">13+ departures</a>. These leaders become available within weeks.</li>
+</ol>
+<ol>
+<li>**Read the <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">SemiAnalysis Jalapeno deep-dive</a>.** Custom silicon is the defining technical trend of the second half of 2026.</li>
+</ol>
+<ol>
+<li>**Assess the <a href="https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/">Nvidia/HF acquisition</a> impact** on your open-source AI strategy. If you depend on HF for model hosting, evaluate contingency plans.</li>
+</ol>
+<ol>
+<li>**Add AI security to your hiring plan.** After the <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach</a> and <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">100+ company coalition</a>, agent security engineering is mandatory, not optional.</li>
+</ol>
+<ol>
+<li>**If at a startup:** Map your company against the <a href="https://techcrunch.com/2026/08/28/open-weight-ai-companies-are-the-valleys-hottest-acquisition-targets/">open-weight acquisition pattern</a>. <a href="https://nvidia.com">Nvidia</a>, <a href="https://stripe.com">Stripe</a>, and <a href="https://www.spacex.com">SpaceX</a> are all acquiring. Are you building something they would buy?</li>
+</ol>
+<ol>
+<li>**Evaluate robotics AI opportunities.** <a href="https://techcrunch.com/2026/08/24/valor-point72-back-general-intuition-at-6b-valuation-as-ai-startup-pushes-into-robotics/">General Intuition $6B</a>, <a href="https://techcrunch.com/2026/08/28/a16z-creates-a-1-1b-machine-age-fund-to-accelerate-the-physical-buildout-of-ai/">a16z Machine Age $1.1B</a>, and the <a href="https://techcrunch.com/2026/08/26/robot-brain-builders-are-pushing-out-of-their-gpt-2-era/">robot brain builders analysis</a> signal physical AI is entering its hiring phase.</li>
+</ol>
+<ol>
+<li>**If preparing for interviews:** Practice independent coding without AI tools. The <a href="https://larsfaye.com/posts/coding-expertise-collapse/">expertise collapse debate</a> is making companies more cautious. Also brush up on AI security concepts after the <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">HF breach</a>.</li>
+</ol>
+<ol>
+<li>**Monitor the <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">coding agent market consolidation</a>.** <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">SpaceX/Cursor</a> changes the competitive landscape. Your dev tooling strategy may need updating.</li>
+</ol>
+<ol>
+<li>**Block time to read the <a href="https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/">Anthropic AAR paper</a>.** Self-improving AI at $4/hr vs $150/hr for humans is a preview of how AI research itself will be conducted — with implications for every AI professional's career trajectory.</li>
+</ol>
+<hr class="section-divider">
+<p>*Sources: 55+ items from TechCrunch, Hacker News, SemiAnalysis, Bloomberg, Financial Times, OpenAI, Anthropic, arXiv, and community discussions. Report covers August 23-29, 2026. Next report: WK36 (August 30 – September 5, 2026).*</p>
+<hr class="section-divider">
+<div class="meta"><p>Generated by render_html.py from markdown source.</p></div>
+</main>
+</div>
+<script>window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+    const btn = document.getElementById('backToTop');
+    btn.classList.toggle('visible', winScroll > 400);
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));</script>
+</body>
+</html>

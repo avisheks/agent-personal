@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AI Weekly Briefing (Week 35)</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #7c3aed); z-index: 1000; transition: width 0.1s; }
+body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.7; color: #1a1a2e; background: #fafafa; padding: 2rem 1.5rem; margin: 0; }
+.layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 2rem; }
+.toc { position: sticky; top: 1rem; width: 220px; min-width: 220px; height: fit-content; max-height: calc(100vh - 2rem); overflow-y: auto; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; padding: 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; scrollbar-width: thin; }
+.toc h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.75rem; }
+.toc a { display: block; padding: 0.3rem 0.5rem; color: #475569; text-decoration: none; border-radius: 4px; margin-bottom: 2px; transition: all 0.2s; }
+.toc a:hover, .toc a.active { background: #eff6ff; color: #2563eb; }
+.main-content { flex: 1; max-width: 900px; min-width: 0; }
+h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; font-weight: 700; color: #0f0f23; margin-bottom: 0.25rem; letter-spacing: -0.5px; }
+.header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.subtitle { font-style: italic; color: #555; font-size: 0.95rem; }
+.reading-time { display: inline-block; background: #eff6ff; color: #2563eb; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 12px; }
+h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.4rem; font-weight: 600; color: #16213e; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e8e8f0; }
+h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 600; color: #1a1a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; font-weight: 600; color: #333; margin-top: 1rem; margin-bottom: 0.4rem; }
+p { margin-bottom: 1rem; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.baseline-note { background: #f0f4ff; border-left: 4px solid #2563eb; padding: 0.75rem 1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #1e40af; }
+.executive-briefing { background: #f8f9fc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+.executive-briefing p { margin-bottom: 0.75rem; }
+.executive-briefing strong { color: #0f0f23; }
+.hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2rem; }
+.hero-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem; text-align: center; transition: box-shadow 0.2s; }
+.hero-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.hero-card .hero-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+.hero-card .hero-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.9rem; color: #1a1a2e; margin-bottom: 0.4rem; }
+.hero-card .hero-link { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; }
+.callout { border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; }
+.callout-insight { background: #eff6ff; border-left: 4px solid #2563eb; }
+.callout-risk { background: #fef2f2; border-left: 4px solid #dc2626; }
+.callout-opportunity { background: #f0fdf4; border-left: 4px solid #16a34a; }
+.callout-number { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; text-align: center; margin: 1rem 0; }
+.callout-number .big-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2.2rem; font-weight: 700; color: #0f0f23; }
+.callout-number .number-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
+.key-numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.88rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+th { background: #f1f5f9; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; color: #334155; border-bottom: 2px solid #cbd5e1; }
+td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #eff6ff; }
+ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+.score-pill { display: inline-block; border-radius: 4px; padding: 0.2rem 0.5rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; font-weight: 600; margin-right: 0.4rem; margin-bottom: 0.25rem; }
+.score-high { background: #dcfce7; color: #166534; }
+.score-mid { background: #fef9c3; color: #854d0e; }
+.score-low { background: #fee2e2; color: #991b1b; }
+.dev-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+.dev-card h3 { margin-top: 0; color: #0f0f23; }
+.signal { display: inline-block; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; }
+.signal-research { background: #ede9fe; color: #6d28d9; }
+.signal-prototype { background: #fef3c7; color: #92400e; }
+.signal-production { background: #d1fae5; color: #065f46; }
+.section-divider { border: none; border-top: 1px solid #e8e8f0; margin: 2.5rem 0; }
+.action-list { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.action-list li { font-size: 0.95rem; }
+.contrarian { background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.watch-list-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+details { margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+details summary { padding: 0.75rem 1rem; background: #f8fafc; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; color: #334155; }
+details summary:hover { background: #f1f5f9; }
+details[open] summary { border-bottom: 1px solid #e2e8f0; }
+details .details-content { padding: 1rem; }
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: #2563eb; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(37,99,235,0.3); z-index: 999; }
+.back-to-top.visible { display: flex; }
+.meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
+@media (max-width: 768px) { .layout { flex-direction: column; } .toc { display: none; } .hero-grid { grid-template-columns: 1fr; } body { padding: 1rem; } h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } table { font-size: 0.8rem; } .key-numbers-grid { grid-template-columns: repeat(2, 1fr); } }</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+<div class="layout">
+<nav class="toc" id="toc">
+    <h4>Contents</h4>
+    <a href="#executive-briefing">📋 Executive Briefing</a>
+    <a href="#what-changed">⚡ What Changed</a>
+    <a href="#top-technical">🔬 Top Technical</a>
+    <a href="#lab-scorecards">🏢 Lab Scorecards</a>
+    <a href="#open-source">🌐 Open-Source</a>
+    <a href="#business">💰 Business & Market</a>
+    <a href="#research">📄 Research Papers</a>
+    <a href="#research-blogs">🧬 Research Blogs</a>
+    <a href="#blogs">🛠️ Engineering Blogs</a>
+    <a href="#github">📦 GitHub Projects</a>
+    <a href="#media">🎙️ Videos & Podcasts</a>
+    <a href="#community">💬 Community</a>
+    <a href="#themes">📈 Emerging Themes</a>
+    <a href="#trends">📊 Trend Tracking</a>
+    <a href="#implications-1">🏗️ Implications fo</a>
+    <a href="#implications-2">🔍 Implications fo</a>
+    <a href="#watchlist">👀 Watch List</a>
+    <a href="#contrarian">🔮 Contrarian View</a>
+    <a href="#strategy">🧭 Strategic Analysis</a>
+    <a href="#relevance">🎯 Personalized</a>
+    <a href="#recommendations">✅ Recommendations</a>
+    <a href="#takeaways">🏆 Takeaways</a>
+    <a href="#next-week">📌 Next Week</a>
+</nav>
+<main class="main-content">
+<h1>Agentic AI Weekly Briefing (Week 35)</h1>
+<div class="header-meta"><span class="subtitle">Week 35 | August 23–29, 2026</span><span class="reading-time">⏱️ 18 min read</span></div>
+<div class="baseline-note"><strong>First report &mdash; baseline established.</strong> All trend tracking, Watch List, and prediction scoring begin from this issue.</div>
+<h2 id="executive-briefing">📋 Executive Briefing</h2>
+<p>The week's dominant signal is the emergence of **localized RL for agent decision points** — moving past trajectory-level rewards toward surgical optimization at the moments that matter. <a href="https://arxiv.org/abs/2608.23283">Apodex 1.1</a> introduced PIVOT-RL, which retrospectively identifies consequential decision points within long agent trajectories and constructs localized continuation tasks with directional guidance. Their 35B model reached frontier-competitive performance on professional work benchmarks (78.8 GDPVal, 54.3 FrontierFinance) by optimizing only at pivotal moments rather than across entire rollouts.</p>
+<p>Simultaneously, **agent self-improvement entered a new phase**. <a href="https://arxiv.org/abs/2608.24794">CAFE</a> (Tencent) demonstrated that search agents improve faster when their feedback mechanisms co-evolve with the agent policy — the critic learns alongside the actor, not from a frozen reference. <a href="https://arxiv.org/abs/2608.26530">PILOT in the Loop</a> showed live self-improvement during execution, achieving +14.6 points on GLM-5.1 while cutting output tokens by 42.9%. <a href="https://arxiv.org/abs/2608.27454">WikiSkill</a> (Google) introduced persistent knowledge accumulation where agents compile experience into reusable skills that transfer across model families.</p>
+<p>The **reward sparsity problem** for long-horizon agents received a principled solution from <a href="https://arxiv.org/abs/2608.23318">Agent-G2</a> (Zhejiang University), which models guidance depth as a Gaussian distribution estimated online from existing rollouts — no extra probe rollouts needed, achieving gains at under one-third the cost. Meanwhile, <a href="https://arxiv.org/abs/2608.27351">Understanding ES vs GRPO</a> provided the first rigorous analysis showing evolution strategies offer fundamentally broader reasoning coverage than GRPO, not merely a memory-efficient substitute.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="what-changed">⚡ What Changed Since Last Week</h2>
+<ul>
+<li>**<a href="https://arxiv.org/abs/2608.23283">PIVOT-RL: Localized RL at decision points</a>** — Apodex 1.1 optimizes only at consequential moments within long trajectories, reaching frontier with 35B parameters</li>
+<li>**<a href="https://arxiv.org/abs/2608.24794">CAFE: Co-evolving agent-critic feedback</a>** — Tencent's framework couples agent and critic improvement, outperforming static-reward RL across seven search benchmarks</li>
+<li>**<a href="https://arxiv.org/abs/2608.23318">Agent-G2: Gaussian-guided reward shaping</a>** — Online Gaussian estimation of guidance depth eliminates probe rollouts for hint-based agent RL</li>
+<li>**<a href="https://arxiv.org/abs/2608.26530">PILOT: Live self-improvement</a>** — Agents improve during execution, not just after — +14.6pt on Terminal-Bench 2.0 with 42.9% fewer tokens</li>
+<li>**<a href="https://arxiv.org/abs/2608.27454">WikiSkill: Persistent skill evolution</a>** — Google's framework compiles agent trajectories into transferable skills via wiki-based knowledge accumulation</li>
+<li>**<a href="https://arxiv.org/abs/2608.27351">ES vs GRPO: Paradigm clarification</a>** — Evolution strategies proven to offer broader reasoning coverage, not just cheaper compute</li>
+<li>**<a href="https://arxiv.org/abs/2608.23041">AutoSaddler: Harness optimization</a>** — Microsoft's offline learning approach to automatic harness refinement gains +9-10pt across three benchmarks</li>
+<li>**<a href="https://arxiv.org/abs/2608.27448">TTPO: Test-time policy optimization</a>** — Grouped RL at inference matches label-supervised training without ground-truth labels</li>
+<li>**<a href="https://arxiv.org/abs/2608.24479">WarpSAC: Scalable off-policy RL</a>** — Adaptive stabilization achieves 96.4% success on robotic tasks with 36.4% faster sim-to-real</li>
+<li>**<a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic Model Hardware Standard</a>** — Shared specification enabling AI agents to safely operate physical devices, now in research preview</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="top-technical">🔬 Top Technical Developments</h2>
+<h3>1. Apodex 1.1: PIVOT-RL for Localized Agent Optimization</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>9/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>9/10</td></tr>
+<tr><td>Personal Relevance</td><td>10/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2608.23283">Apodex 1.1</a> — Apodex Team | **Reading time:** 15 min</p>
+<p>PIVOT-RL retrospectively identifies consequential decision points within long agent trajectories and constructs localized continuation tasks with directional guidance. Rather than optimizing over terminal outcomes alone, the system performs targeted RL at pivotal moments — task decomposition, delegation, integration, and replanning. Combined with environment scaling (file, search, and code worlds) and agentic coordination training, Apodex 1.1's 35B model achieves 78.8 on GDPVal, 54.3 on FrontierFinance, and 63.3 on FrontierScience-Research.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** The trajectory-level reward problem has been solved not by better credit assignment across the full trajectory, but by identifying and optimizing only the decisions that matter. PIVOT-RL treats long-horizon agent training as a series of local optimization problems — a paradigm shift from global reward propagation.</p>
+</div>
+<hr class="section-divider">
+<h3>2. CAFE: Co-Evolving Feedback for Self-Improving Search Agents</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Personal Relevance</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2608.24794">CAFE</a> — Liu, Jin, Wang et al. (Tencent Hunyuan) | **Reading time:** 12 min</p>
+<p>A shared-parameter model alternates between agent and critic roles. The agent decides when to request feedback during search trajectories, while the critic learns to provide useful corrections from increasingly successful rollouts. Feedback-aware advantage shaping reweights token advantages before and after feedback insertion. Outperforms RL-based search agents across seven benchmarks and maintains gains across six out-of-domain benchmarks while reducing hallucinations.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** CAFE's co-evolving feedback architecture directly applies to any team building search or retrieval agents. The key insight — that the feedback mechanism must improve alongside the agent, not from a frozen reference — eliminates the common "stale critic" failure mode in agent RL.</p>
+</div>
+<hr class="section-divider">
+<h3>3. Agent-G2: Gaussian Guidance for Agentic RL</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>9/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Personal Relevance</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2608.23318">Agent-G2</a> — Wang, Miao, Lu et al. (Zhejiang University) | **Reading time:** 10 min</p>
+<p>Identifies that guidance depth in hint-based agent RL follows an approximately Gaussian informativeness profile. The framework draws depth per task from an online-estimated Gaussian distribution without additional probe rollouts. The center combines a global baseline with per-cluster difficulty estimates; the spread tracks within-cluster variance. Outperforms hint-based, hint-free, and auxiliary RL baselines on <a href="https://alfworld.github.io/">ALFWorld</a> and <a href="https://webshop-pnlp.github.io/">WebShop</a> at under one-third the rollout cost.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** Reward sparsity in long-horizon agent tasks is a depth-calibration problem, not merely a density problem. By modeling guidance depth as a distribution estimated from existing rollouts, Agent-G2 eliminates the expensive probe-rollout stage that made hint-based RL impractical.</p>
+</div>
+<hr class="section-divider">
+<h3>4. PILOT in the Loop: Live Self-Improvement for Long-Horizon Agents</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Personal Relevance</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2608.26530">PILOT in the Loop</a> — Xiao, Sun, Wu et al. (Hong Kong Polytechnic University) | **Reading time:** 12 min</p>
+<p>Introduces live steering (supervisor redirects or halts a worker agent mid-execution) and live self-evolution (runtime insights distilled into reusable skills and memory). Achieves +14.6 points on GLM-5.1 and +12.4 on Kimi-K2.6 on <a href="https://github.com/terminal-bench">Terminal-Bench 2.0</a>, with 42.9% and 47.4% output token reduction respectively. Successful evaluations per million tokens increased 110.3% and 134.0%.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** Live self-improvement during execution — not just post-trajectory — represents the next step beyond offline RL for agents. Teams deploying long-running agents should investigate supervisor-worker architectures that enable mid-execution correction and skill extraction.</p>
+</div>
+<hr class="section-divider">
+<h3>5. WikiSkill: Persistent Knowledge Accumulation for Skill Evolution</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Personal Relevance</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2608.27454">WikiSkill</a> — Tang, Rashtchian, Ferng et al. (Google) | **Reading time:** 10 min</p>
+<p>Separates raw execution experience, accumulated knowledge (persistent wiki), and executable skills. The wiki continuously consolidates experience, which subsequent skill updates build upon — creating compounding improvement cycles. Outperforms state-of-the-art skill-evolution baselines across diverse benchmarks. Critically, evolved skills transfer effectively across different models and families, suggesting the knowledge representation is model-agnostic.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** The three-way separation of experience, knowledge, and skills mirrors how human expertise accumulates. WikiSkill's persistent wiki acts as an explicit long-term memory that breaks the "amnesiac agent" pattern where each trajectory starts from scratch.</p>
+</div>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="lab-scorecards">🏢 Frontier Lab Scorecards</h2>
+<table>
+<thead><tr><th>Lab</th><th>Releases</th><th>Research Output</th><th>Strategic Direction</th></tr></thead><tbody>
+<tr><td>**Google**</td><td>—</td><td><a href="https://arxiv.org/abs/2608.27454">WikiSkill</a> for persistent agent skill evolution</td><td>Agent learning through structured knowledge accumulation</td></tr>
+<tr><td>**Microsoft**</td><td>—</td><td><a href="https://arxiv.org/abs/2608.23041">AutoSaddler</a> for automatic harness optimization (+9-10pt)</td><td>Offline learning for agent infrastructure improvement</td></tr>
+<tr><td>**Tencent**</td><td>—</td><td><a href="https://arxiv.org/abs/2608.24794">CAFE</a> co-evolving search agents</td><td>Self-improving agent-critic architectures for search</td></tr>
+<tr><td>**Anthropic**</td><td><a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Model Hardware Standard</a> research preview</td><td>MHS specification for agents operating physical devices</td><td>Expanding agent action space to physical hardware</td></tr>
+<tr><td>**NVIDIA**</td><td><a href="https://arxiv.org/abs/2608.18077">Hydra-0</a> action flow framework</td><td>90.4% lower robot-motion error, generalist world model</td><td>Unified world modeling across robot embodiments</td></tr>
+<tr><td>**Apodex**</td><td><a href="https://arxiv.org/abs/2608.23283">Apodex 1.1</a> (35B)</td><td>PIVOT-RL localized optimization, frontier-competitive results</td><td>Localized RL at decision points as primary training paradigm</td></tr>
+<tr><td>**Prime Intellect**</td><td><a href="https://arxiv.org/abs/2608.23552">Prime Agent</a> (open-source)</td><td>RLM harness: 30% → 95.5% on ARC-AGI-3; 85.5-hour autonomous runs</td><td>Test-time compute scaling via persistent state management</td></tr>
+<tr><td>**GigaAI**</td><td><a href="https://arxiv.org/abs/2608.15875">GigaBrain-0.7</a> (embodied FM)</td><td>Three-system architecture, 37K+ hours training data</td><td>Unified embodied foundation model across robot platforms</td></tr>
+</tbody></table>
+<p>**Power Ranking Shift:** Apodex's PIVOT-RL positions a 35B model at frontier levels on professional work, suggesting localized RL optimization may be more important than scale. Anthropic's MHS represents the first major lab providing a standardized spec for agents to control physical hardware — a significant expansion of the agent action space.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="open-source">🌐 Open-Source Ecosystem Tracking</h2>
+<table>
+<thead><tr><th>Project</th><th>Notable Activity</th><th>Trajectory</th></tr></thead><tbody>
+<tr><td>**<a href="https://arxiv.org/abs/2608.23552">Prime Agent</a>**</td><td>Open-source RLM harness, 95.5% ARC-AGI-3, multi-day autonomous runs</td><td>📈 New entry</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.27454">WikiSkill</a>**</td><td>Google's persistent skill evolution framework</td><td>📈 New entry</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.23318">Agent-G2</a>**</td><td>Code and project page released (ZJU-REAL/Agent-G2)</td><td>📈 New entry</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.23041">AutoSaddler</a>**</td><td>Automatic harness optimization from Microsoft</td><td>📈 New entry</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.24794">CAFE</a>**</td><td>Co-evolving search agent framework from Tencent</td><td>📈 New entry</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.24479">WarpSAC</a>**</td><td>Scalable off-policy RL with CPU and GPU variants</td><td>📈 New entry</td></tr>
+</tbody></table>
+<p>First report — tracking begins from this baseline.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="business">💰 Business & Market Intelligence</h2>
+<ul>
+<li>**<a href="https://arxiv.org/abs/2608.23283">Apodex 1.1</a> demonstrates that 35B models with localized RL can match frontier systems** on professional work, finance, and science benchmarks. This challenges the assumption that agent capability requires frontier-scale compute, potentially reducing the cost of building competitive enterprise agents.</li>
+<li>**<a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic's Model Hardware Standard</a>** opens a new deployment surface for AI agents — physical device control. Early partners (<a href="https://www.gene.com/">Genentech</a>, <a href="https://www.washington.edu/">University of Washington</a>, <a href="https://www.cmu.edu/">Carnegie Mellon</a>, <a href="https://www.quera.com/">QuEra Computing</a>) report 3x speedups in lab workflows and 99.3% success rates in quantum laser stabilization. This creates a new market for RL-trained agents that interact with physical systems.</li>
+<li>**<a href="https://arxiv.org/abs/2608.23552">Prime Agent</a> open-sources a complete RLM harness** achieving 95.5% on ARC-AGI-3 and sustaining 85.5-hour autonomous research runs. This lowers the barrier for teams building long-running autonomous agents and provides a reference implementation for persistent-state agent architectures.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research">📄 Research Papers</h2>
+<h3>1. <a href="https://arxiv.org/abs/2608.23318">Agent-G2: Gaussian Guidance for Agentic Reinforcement Learning</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>9/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Wang, Miao, Lu, Pan, Qiu, Li, Qiu, Zhang, Shen (Zhejiang University) | Aug 25, 2026</p>
+<p>**TL;DR:** Models guidance depth for hint-based agent RL as an online-estimated Gaussian distribution. Outperforms baselines on <a href="https://alfworld.github.io/">ALFWorld</a> and <a href="https://webshop-pnlp.github.io/">WebShop</a> at under one-third rollout cost. **Strengths:** No extra probe rollouts needed; principled depth calibration. **Limitations:** Tested on 1.5B and 7B models; scaling to larger models unclear. **Applications:** Long-horizon agent training with sparse rewards, tool-use optimization.</p>
+<hr class="section-divider">
+<h3>2. <a href="https://arxiv.org/abs/2608.24794">CAFE: Self-Improving Search Agents Need Co-Evolving Feedback</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Liu, Jin, Wang, Yin, Wang, Zhou et al. (Tencent Hunyuan) | Aug 26, 2026</p>
+<p>**TL;DR:** Shared-parameter agent-critic model with feedback-aware advantage shaping and comparative feedback estimation. Outperforms RL-based search agents on seven benchmarks with out-of-domain generalization. **Strengths:** Co-evolving feedback eliminates stale-critic failure mode. **Limitations:** Shared-parameter requirement may limit scale. **Applications:** Search agents, retrieval-augmented agents, any system requiring mid-trajectory correction.</p>
+<hr class="section-divider">
+<h3>3. <a href="https://arxiv.org/abs/2608.26530">PILOT in the Loop: Live Self-Improvement for Long-Horizon Agents</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Xiao, Sun, Wu, Hui, Da, Luo et al. (Hong Kong Polytechnic University) | Aug 28, 2026</p>
+<p>**TL;DR:** Live steering and live self-evolution enable improvement during active execution. +14.6pt on GLM-5.1, +12.4pt on Kimi-K2.6 on <a href="https://github.com/terminal-bench">Terminal-Bench 2.0</a> with 42-47% token reduction. **Strengths:** Online improvement without post-hoc training. **Limitations:** Requires supervisor model overhead. **Applications:** Long-running coding agents, research agents, autonomous workflows.</p>
+<hr class="section-divider">
+<h3>4. <a href="https://arxiv.org/abs/2608.27454">WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Tang, Rashtchian, Ferng, Tomkins, Juan, Vu (Google) | Aug 28, 2026</p>
+<p>**TL;DR:** Three-way separation of experience, knowledge (wiki), and skills enables compounding improvement. Skills transfer across model families. **Strengths:** Model-agnostic skill representation; persistent accumulation. **Limitations:** Wiki maintenance overhead unclear at scale. **Applications:** Enterprise agent skill libraries, cross-model knowledge transfer.</p>
+<hr class="section-divider">
+<h3>5. <a href="https://arxiv.org/abs/2608.27351">Understanding Evolution Strategies for LLM Reasoning: Broader Reasoning Coverage than GRPO</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Authors:** Ba, Zheng, Xie, Li, Tong, Zhong, Yuan, Lu, Wu, Wang | Aug 28, 2026</p>
+<p>**TL;DR:** Rigorous analysis proving ES offers fundamentally broader reasoning coverage than <a href="https://arxiv.org/abs/2402.03300">GRPO</a>. GRPO exhibits entropy collapse; ES does not. Sequential GRPO-ES training leverages both strengths. **Strengths:** First theoretical grounding of ES as a distinct paradigm. **Limitations:** Empirical validation on reasoning tasks; agent-specific validation needed. **Applications:** Agent policy optimization, particularly for diverse action spaces.</p>
+<hr class="section-divider">
+<h3>6. <a href="https://arxiv.org/abs/2608.27448">TTPO: Test-Time Policy Optimization</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Wang, Lu, Wang, Lv, Liu, Lu, Xiao, Zhuang, Yang, Chen, Shen | Aug 28, 2026</p>
+<p>**TL;DR:** Asymmetric dual-branch approach using majority-vote pseudo-labels. Distillation branch applies On-Policy Self-Distillation on agreeing rollouts; RL branch penalizes disagreeing rollouts via Grouped RL. Improves Qwen3-1.7B from 38.0% to 45.2% on competition-level benchmarks without labels. **Strengths:** Label-free test-time training. **Limitations:** Requires multiple rollouts at inference. **Applications:** Agent deployment optimization, adaptive inference.</p>
+<hr class="section-divider">
+<h3>7. <a href="https://arxiv.org/abs/2608.23041">AutoSaddler: Automatic Harness Optimization with Durable Updates from Agent Execution Traces</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🚀 Production-ready</p>
+<p>**Authors:** Park, Kim, Tan, Zhang, Han, Gao, Park, Yao, Fu, Nallipogu, Lin, Rajmohan, Zhang (Microsoft) | Aug 25, 2026</p>
+<p>**TL;DR:** Treats harness improvement as an offline learning challenge. Iteratively refines harnesses using failure-trace diagnosis, structured patch generation, and validation-based update selection. +9.0pt on GAIA2, +9.6pt on <a href="https://www.swebench.com/">SWE-Bench Pro</a>, +10.0pt on <a href="https://github.com/terminal-bench">Terminal-Bench 2.0</a>. **Strengths:** Generalizes beyond specific failures; deep debugging over shallow reflection. **Limitations:** Requires sufficient failure traces. **Applications:** Any team maintaining agent harnesses; drop-in improvement.</p>
+<hr class="section-divider">
+<h3>8. <a href="https://arxiv.org/abs/2608.24479">WarpSAC: Towards the Pinnacle of Scalable Off-policy RL</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Wu, Tang, Ma, Song, Li, Yuan, Ni, Liu, Wei, Wang, Zheng, Hao (Tianjin University) | Aug 27, 2026</p>
+<p>**TL;DR:** Reveals stabilization techniques in off-policy RL behave differently under limited vs. abundant data. WarpSAC-L (CPU) and WarpSAC-A (GPU-parallel) variants achieve +4.5% and +23.1% respectively. Robotic task success rate: 19.8% → 96.4%, with 36.4% faster sim-to-real deployment. **Strengths:** Adaptive stabilization across data regimes. **Limitations:** Focused on continuous control. **Applications:** Sim-to-real agent deployment, robotics RL.</p>
+<hr class="section-divider">
+<h3>9. <a href="https://arxiv.org/abs/2608.25927">Code World Model: Coding Agent as World Brain</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>6/10</td></tr>
+<tr><td>Business Impact</td><td>6/10</td></tr>
+<tr><td>Confidence</td><td>Medium</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Authors:** Chen, Lin, Zhang | Aug 27, 2026</p>
+<p>**TL;DR:** Inverts traditional world modeling — coding agents encode world rules as executable code for persistent state evolution, while video models handle visual rendering. Dual-component architecture separates logical state management from visual realization. **Strengths:** Clean separation of dynamics from rendering; verifiable state evolution. **Limitations:** Demonstrated in game environments only. **Applications:** World-model-guided agent planning, game AI, sim environments for agent training.</p>
+<hr class="section-divider">
+<h3>10. <a href="https://arxiv.org/abs/2608.20492">OraRL: Annotations as Rollouts for Efficient RL</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>6/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Li, Mu, Li, Qian, Zhang, Hou, Cheng | Aug 26, 2026</p>
+<p>**TL;DR:** Leverages annotations as oracle rollouts for GRPO training of video MLLMs. Decoupled advantage estimator prevents baseline distortion. Achieves 2.2x SFT step time (vs. 4.9x for GRPO with CoT) and 130ms inference (vs. 4,780ms). **Strengths:** Massive efficiency gain over standard GRPO. **Limitations:** Requires annotation quality. **Applications:** RL training efficiency for any agent with existing labeled data.</p>
+<hr class="section-divider">
+<h3>11. <a href="https://arxiv.org/abs/2608.21500">SecOPD: Mitigating Adaptive Prompt Injections by On-Policy Distillation</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🚀 Production-ready</p>
+<p>**Authors:** Peng, Lian, Wagner, Chen | Aug 25, 2026</p>
+<p>**TL;DR:** Token-level feedback for defensive fine-tuning against prompt injection. Scored by clean-input initialization model. Defended Qwen3.6-27B achieves 9.0% attack success rate against PISmith adaptive injections (vs. 94.0% for previous best). In agentic tool calling: 4.7% attack success rate. **Strengths:** Token-level granularity; generalizes to unseen domains. **Limitations:** Requires clean initialization model. **Applications:** Securing deployed agents against prompt injection.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research-blogs">🧬 Research Blogs</h2>
+<details><summary>Research Blogs</summary><div class="details-content"><h3>1. <a href="https://arxiv.org/abs/2608.23283">Apodex 1.1: Scaling Agentic Intelligence for Complex Work</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>9/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** Apodex Team | Aug 25, 2026</p>
+<p>Comprehensive technical report introducing PIVOT-RL for localized agent optimization, environment scaling across three executable world families, and the Agent Team coordination architecture. The key innovation is treating long-horizon agent training as a series of local optimization problems at consequential decision points. AgentOS maintains persistent workspace state with tiered compaction for context pressure management. The 35B model achieves frontier-competitive results across professional work (78.8 GDPVal), finance (54.3 FrontierFinance), and scientific research (63.3 FrontierScience-Research).</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** PIVOT-RL's localized optimization approach may resolve the fundamental scalability problem of trajectory-level RL for agents. Rather than propagating reward through potentially thousands of steps, optimize only at the ~5-10% of steps that determine trajectory outcomes.</p>
+</div>
+<hr class="section-divider">
+<h3>2. <a href="https://arxiv.org/abs/2608.23552">Prime Agent: A Self-Improving RLM Harness</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🚀 Production-ready</p>
+<p>**Source:** Karten, Zhang, Thomas et al. (Princeton, Prime Intellect, MIT) | Aug 25, 2026</p>
+<p>Open-source framework implementing the Recursive Language Model abstraction with a four-level information hierarchy (L0: weights, L1: context, L2: persistent REPL/subagents, L3: disk-backed history). The Continual Harness preserves state across trajectories, enabling 85.5-hour autonomous nanoGPT speedruns and seven-day Factorio runs. <a href="https://arcprize.org/">ARC-AGI-3</a> score improves from 30% to 95.5% through test-time compute scaling. While not RL per se, the persistent-state architecture provides the infrastructure on which RL training loops can be built.</p>
+<hr class="section-divider">
+<h3>3. <a href="https://arxiv.org/abs/2607.29468">SESA: Self-Evolving Search Agents that Pose, Solve, and Remember</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** Fu, Li, Ai, Wu, Wu, Zhao, Wang, He, Wang | Aug (adjacent week)</p>
+<p>Integrates procedural memory into tool-augmented search self-play. A challenger poses problems while a separately parameterized solver retrieves skills. Informative failures become reusable skills stored in memory, creating a bidirectional feedback loop. Improves accuracy over <a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/6ac12f42db406e6be14d669884e73212-Abstract-Conference.html">SSP</a> baseline by 1.2-3.2 points across seven QA benchmarks. Skills distilled from failures represent a practical form of negative-experience learning.</p>
+<hr class="section-divider">
+<h3>4. <a href="https://arxiv.org/abs/2608.19408">Beyond Imitation: Filtering On-Policy Distillation by Reasoning Progress</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>6/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** Yang, Wan, Xiong, Chen, Tsang | Aug 25, 2026</p>
+<p>R2-OPD constructs paired rankings of reasoning spans — one from teacher rewards, another from independently estimated progress metrics. When rankings diverge, conflicting distillation rewards are suppressed. Addresses the fundamental problem that teacher-derived rewards in on-policy distillation do not always correlate with genuine reasoning advancement.</p>
+<hr class="section-divider">
+<h3>5. <a href="https://arxiv.org/abs/2608.25518">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>5/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>Medium</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** Zhou, Wang, Zhang et al. (National University of Singapore) | Aug 27, 2026</p>
+<p>Introduces Reinforcement Learning with Human-Engine Verification (RLHEV), combining dense game-engine signals (collision detection, physics, navigability verification) with implicit human feedback from development workflows. Argues that spatial generation lacks the compiler-like verification that code agents enjoy — game engines can fill that role.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** The search for verifiable reward signals for agent training is expanding beyond code (compilers, tests) to game engines, lab instruments (see <a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic MHS</a>), and physical simulators. Each new verification source unlocks a new domain for RL-trained agents.</p>
+</div>
+<hr class="section-divider">
+<h3>6. <a href="https://arxiv.org/abs/2608.15875">GigaBrain-0.7: Scaling Embodied Foundation Models</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>5/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** GigaBrain Team (58+ co-authors) | Aug 26, 2026</p>
+<p>Three-system architecture unifying understanding, prediction, and action across diverse robot platforms. Trained on 37,000+ hours of heterogeneous embodied data with one-stage alignment. Demonstrates substantial improvements in zero-shot capabilities and language-conditioned instruction following over prior models including <a href="https://www.physicalintelligence.company/">pi-0.5</a>.</p>
+<hr class="section-divider">
+<h3>7. <a href="https://arxiv.org/abs/2608.18077">Hydra-0: Action Flow for Generalist World Modeling and Control</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>5/10</td></tr>
+<tr><td>Business Impact</td><td>6/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** Li, Wen, Zhu et al. (NVIDIA) | Aug 24, 2026</p>
+<p>Introduces "action flow" — representing robot movements as pixel motion — as a shared visual interface for generalist world modeling. Achieves 90.4% lower robot-motion error and 60.2% lower object-motion error versus action-conditioned baseline. Demonstrates zero-shot composition and inverse mode (predicting compatible robot motions from human demonstrations). Pearson r=0.96 correlation between replayed and reference success rates.</p>
+<hr class="section-divider">
+<h3>8. <a href="https://arxiv.org/abs/2608.21439">WorldMind: Decoupled Game World Model for State-Aware NPC Behavior</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>6/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>6/10</td></tr>
+<tr><td>Business Impact</td><td>5/10</td></tr>
+<tr><td>Confidence</td><td>Medium</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** Deng, Zhang, Chen, Jin | Aug 24, 2026</p>
+<p>Four-layer architecture separating understanding, decision, control, and generation for state-grounded NPC behavior. Introduces BOSS-140K dataset of gameplay videos paired with internal game states. Preferred in ~70% of pairwise comparisons for tactical appropriateness over baselines.</p>
+<hr class="section-divider">
+<h3>9. <a href="https://arxiv.org/abs/2608.15242">LongRCA Bench: Diagnosing Root Causes in Long-Horizon Agent Failures</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>6/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>📄 Benchmark</p>
+<p>**Source:** Zhang, Feng, Pei et al. | Aug 25, 2026</p>
+<p>1,140 real failure trajectories with human-labeled root causes (median 145 steps). Root-Cause Trajectory Attribution (RCTA) achieves 51.1% role accuracy and 24.1% exact root-step accuracy, far above the 13.2% baseline. Provides the infrastructure needed for reward attribution in agent RL — knowing exactly where trajectories fail enables targeted reward shaping.</p>
+<hr class="section-divider">
+<h3>10. <a href="https://surya.website/rling-qwen-to-paint-with-code">RL-ing Qwen to Paint with Code</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>6/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>5/10</td></tr>
+<tr><td>Confidence</td><td>Medium</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** Surya Narreddi and Cameron Franz | Aug 2026</p>
+<p>Practitioner report on using <a href="https://arxiv.org/abs/2402.03300">GRPO</a> with <a href="https://github.com/huggingface/trl">TRL</a> to train Qwen models to generate p5.brush JavaScript art. Key finding: pairwise judgment beats absolute scoring — initial nine-signal rubric with 0.85-0.95 correlated judges was replaced by four-component reward (compilation, length, HPSv3, pairwise comparison). Refined rubric reached previous plateau 3x faster and reduced output from 13,500 to under 2,000 tokens.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** Practical lesson for agent reward design — correlated reward signals waste RL compute. Identifying and removing redundant reward components can dramatically accelerate training.</p>
+</div>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="blogs">🛠 ️ Engineering Blogs</h2>
+<table>
+<thead><tr><th>#</th><th>Post</th><th>Source</th><th>Signal</th><th>Key Insight</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Model Hardware Standard Research Preview</a></td><td>Anthropic</td><td>🚀</td><td>Standardized spec for AI agents to safely operate physical devices; Genentech, CMU, QuEra early partners</td></tr>
+<tr><td>2</td><td><a href="https://developer.nvidia.com/blog/how-to-train-a-cross-embodiment-robot-navigation-policy-with-ai-agents/">How to Train a Cross-Embodiment Robot Navigation Policy with AI Agents</a></td><td>NVIDIA</td><td>🧪</td><td>Cross-embodiment training methods for robot navigation agents</td></tr>
+<tr><td>3</td><td><a href="https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/">Build with Gemini Omni 1.1 Flash</a></td><td>Google</td><td>🚀</td><td>New multimodal model with scene extension and keyframe control for video agent workflows</td></tr>
+<tr><td>4</td><td><a href="https://huggingface.co/blog/grpo-with-trl-ifstruct">Fine-tuning a 350M Model for Structured Outputs in 100 GRPO Steps</a></td><td>HuggingFace</td><td>🧪</td><td>GRPO with TRL achieves +7.1pt structured output compliance; practical small-model RL recipe</td></tr>
+<tr><td>5</td><td><a href="https://aws.amazon.com/blogs/machine-learning/">Designing Memory Lifecycle Policies for AgentCore</a></td><td>AWS</td><td>🧪</td><td>Memory management patterns for long-running agent deployments</td></tr>
+<tr><td>6</td><td><a href="https://aws.amazon.com/blogs/machine-learning/">Run Agent-Driven Amazon SageMaker HyperPod Operations</a></td><td>AWS</td><td>🧪</td><td>Agent-driven infrastructure management for ML training clusters</td></tr>
+<tr><td>7</td><td><a href="https://calv.info/small-models-have-arrived">Small Models Have Arrived</a></td><td>calv.info</td><td>🚀</td><td>$0.10 agent task execution cost with Luna vs $1.00 with frontier; 100 tok/s throughput enables consumer agent apps</td></tr>
+<tr><td>8</td><td><a href="https://arxiv.org/abs/2608.19741">Thinkingbox: Agents in Stateful Business Workflows</a></td><td>Microsoft</td><td>🧪</td><td>Claude Opus 5 scores 66.5% pass@1 but only 47.5% pass^20 on 507 policy-conditioned workflows — reliability gap</td></tr>
+<tr><td>9</td><td><a href="https://arxiv.org/abs/2608.23564">SWE Refactor Bench: Long-Horizon Stack Migration</a></td><td>Independent</td><td>🔬</td><td>Only 5.4% of coding agent runs (28/520) passed all evaluation stages; migration "blindness" identified</td></tr>
+<tr><td>10</td><td><a href="https://arxiv.org/abs/2608.22510">ClawProBench: Trace-Aware Agent Evaluation</a></td><td>Independent</td><td>🔬</td><td>Safety-gated evaluation reveals weak correlation (Spearman 0.13) between full-profile and holdout rankings</td></tr>
+<tr><td>11</td><td><a href="https://arxiv.org/abs/2608.23035">MobilePA-Bench: Mobile Planner Agents</a></td><td>Tongyi-MAI</td><td>🔬</td><td>212-tool benchmark revealing agent brittleness under tool ordering and permission constraints</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="github">📦 GitHub Projects</h2>
+<details><summary>GitHub Projects</summary><div class="details-content"><table>
+<thead><tr><th>Project</th><th>Stars</th><th>This Week</th><th>Category</th></tr></thead><tbody>
+<tr><td>**<a href="https://github.com/PrimeIntellect-ai/prime-agent">Prime Agent</a>**</td><td>New</td><td>Open-source RLM harness, 95.5% ARC-AGI-3</td><td>Agent Harness</td></tr>
+<tr><td>**<a href="https://github.com/ZJU-REAL/Agent-G2">ZJU-REAL/Agent-G2</a>**</td><td>New</td><td>Gaussian guidance for agentic RL, code released</td><td>Agent RL Training</td></tr>
+<tr><td>**<a href="https://github.com/huggingface/trl">huggingface/trl</a>**</td><td>~18K</td><td>GRPO structured output recipes; continued v1.11.x updates</td><td>RL Training Framework</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.23041">AutoSaddler</a>**</td><td>New</td><td>Microsoft harness optimization framework</td><td>Agent Infrastructure</td></tr>
+<tr><td>**<a href="https://github.com/SenteLabsAI/OpenExecutive">OpenExecutive</a>**</td><td>Trending</td><td>Open-source AI CEO agent (HN: 1,034 points)</td><td>Autonomous Agent</td></tr>
+</tbody></table>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="media">🎙 ️ Videos & Podcasts</h2>
+<details><summary>️ Videos & Podcasts</summary><div class="details-content"><p>No significant RL-for-agentic-AI-specific video or podcast content was identified during the Aug 23-29 window. The <a href="https://www.latent.space/">Latent Space</a> podcast and <a href="https://wandb.ai/fully-connected/podcast">Gradient Dissent</a> did not release episodes specifically covering this week's agentic RL developments. Monitor for upcoming coverage of PIVOT-RL, CAFE, and the Anthropic Model Hardware Standard. The <a href="https://news.ycombinator.com/">HN discussion on Small Models</a> (799 points, 348 comments) included extended debate on the economics of agent deployment, which is worth following.</p>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="community">💬 Community Insights</h2>
+<h3>Hacker News</h3>
+<ul>
+<li>**<a href="https://calv.info/small-models-have-arrived">Small Models Have Arrived</a>** (799 points, 348 comments, Aug 27): Strong debate on whether smaller, cheaper models unlock consumer agent applications. Key point relevant to agentic RL: at $0.10/task, RL-trained small agents become economically viable for mass deployment. Several commenters noted that prompt injection safety remains the primary blocker — aligns with <a href="https://arxiv.org/abs/2608.21500">SecOPD</a>'s 9.0% attack success rate defense.</li>
+</ul>
+<ul>
+<li>**<a href="https://github.com/SenteLabsAI/OpenExecutive">OpenExecutive: Open Source AI CEO</a>** (1,034 points, 717 comments, Aug 27): Community reacted to the concept of autonomous agent systems managing entire workflows. Discussion revealed both enthusiasm and concern about agent reliability — directly relevant to <a href="https://arxiv.org/abs/2608.19741">Thinkingbox</a>'s finding that agents achieve only 47.5% pass^20 reliability in stateful workflows.</li>
+</ul>
+<h3>Emerging Consensus</h3>
+<ul>
+<li>**Localized RL beats trajectory-level RL for long-horizon agents.** <a href="https://arxiv.org/abs/2608.23283">Apodex 1.1</a>'s PIVOT-RL and <a href="https://arxiv.org/abs/2608.23318">Agent-G2</a>'s Gaussian guidance both address the same core problem: optimizing only where it matters.</li>
+<li>**Self-improvement during execution, not just after.** <a href="https://arxiv.org/abs/2608.26530">PILOT</a> and <a href="https://arxiv.org/abs/2608.27454">WikiSkill</a> both demonstrate agents that improve in real-time, not just in offline training loops.</li>
+</ul>
+<h3>Active Disagreements</h3>
+<ul>
+<li>**ES vs. GRPO as default agent optimizer:** <a href="https://arxiv.org/abs/2608.27351">Understanding ES vs GRPO</a> claims ES offers broader reasoning coverage, while GRPO practitioners argue entropy collapse is manageable with proper regularization.</li>
+<li>**Shared-parameter vs. separate agent-critic architectures:** <a href="https://arxiv.org/abs/2608.24794">CAFE</a> uses shared parameters while most prior work keeps agent and critic separate.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="themes">📈 Emerging Themes</h2>
+<ol>
+<li>**Localized RL for Agents** — Optimizing at consequential decision points rather than across full trajectories. <a href="https://arxiv.org/abs/2608.23283">Apodex 1.1</a> (PIVOT-RL) and <a href="https://arxiv.org/abs/2608.23318">Agent-G2</a> (Gaussian guidance) both identify that only a fraction of agent steps determine outcomes.</li>
+</ol>
+<ol>
+<li>**Co-Evolving Agent-Critic Architectures** — Feedback mechanisms that improve alongside the agent policy. <a href="https://arxiv.org/abs/2608.24794">CAFE</a> (shared parameters), <a href="https://arxiv.org/abs/2608.26530">PILOT</a> (supervisor-worker), and <a href="https://arxiv.org/abs/2608.27454">WikiSkill</a> (persistent knowledge) all implement forms of coupled improvement.</li>
+</ol>
+<ol>
+<li>**Verifiable Reward Sources Expansion** — The search for environments that provide automatic verification is broadening from code (compilers/tests) to game engines (<a href="https://arxiv.org/abs/2608.25518">RLHEV</a>), physical hardware (<a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic MHS</a>), and video (<a href="https://arxiv.org/abs/2608.20492">OraRL</a>).</li>
+</ol>
+<ol>
+<li>**Agent Security via RL** — <a href="https://arxiv.org/abs/2608.21500">SecOPD</a>'s on-policy distillation reduces prompt injection attack success to 4.7-9.0%, demonstrating that RL-based defenses can be effective for deployed agents.</li>
+</ol>
+<ol>
+<li>**Harness Optimization as Learning Problem** — <a href="https://arxiv.org/abs/2608.23041">AutoSaddler</a> and <a href="https://arxiv.org/abs/2608.23552">Prime Agent</a> treat agent infrastructure improvement as a learning problem, not just engineering.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="trends">📊 Trend Tracking Over Time</h2>
+<p>First report — baseline established. Trends begin tracking from WK35.</p>
+<table>
+<thead><tr><th>Theme</th><th>First Noted</th><th>Weeks</th><th>Momentum</th></tr></thead><tbody>
+<tr><td>Localized RL for Agents</td><td>WK35</td><td>1</td><td>📈 Strong initial signal (PIVOT-RL + Agent-G2)</td></tr>
+<tr><td>Co-Evolving Agent-Critic</td><td>WK35</td><td>1</td><td>📈 Strong (3 frameworks: CAFE, PILOT, WikiSkill)</td></tr>
+<tr><td>Verifiable Reward Expansion</td><td>WK35</td><td>1</td><td>📈 Emerging (code → games → hardware → video)</td></tr>
+<tr><td>Agent Security via RL</td><td>WK35</td><td>1</td><td>📈 Emerging (SecOPD)</td></tr>
+<tr><td>Harness-as-Learning-Problem</td><td>WK35</td><td>1</td><td>📈 Emerging (AutoSaddler, Prime Agent)</td></tr>
+<tr><td>ES vs GRPO Debate</td><td>WK35</td><td>1</td><td>➡️ Active disagreement</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-1">🏗 ️ Implications for Agent Training</h2>
+<ol>
+<li>**Adopt localized RL at decision points over trajectory-level optimization.** <a href="https://arxiv.org/abs/2608.23283">Apodex 1.1</a>'s PIVOT-RL demonstrates that identifying and optimizing consequential decision points produces frontier-competitive agents at 35B parameters. This is more compute-efficient than propagating rewards through entire long-horizon trajectories.</li>
+</ol>
+<ol>
+<li>**Co-evolve your critic with your agent.** <a href="https://arxiv.org/abs/2608.24794">CAFE</a> shows that alternating agent-critic updates outperform training either component alone. If your search or retrieval agent uses RL, the feedback/reward mechanism must improve alongside the policy — static critics become stale.</li>
+</ol>
+<ol>
+<li>**Model guidance depth as a distribution.** <a href="https://arxiv.org/abs/2608.23318">Agent-G2</a>'s Gaussian guidance eliminates expensive probe rollouts for hint-based RL. For teams using hint-based training, adopt the online depth estimation approach — one-third the rollout cost for comparable gains.</li>
+</ol>
+<ol>
+<li>**Invest in harness optimization as a learning problem.** <a href="https://arxiv.org/abs/2608.23041">AutoSaddler</a> achieves +9-10pt gains on three benchmarks by treating harness refinement as offline learning. If your agent harness is hand-tuned, automated optimization from failure traces may yield immediate improvements.</li>
+</ol>
+<ol>
+<li>**Expand your verifiable reward sources.** The reward verification landscape is broadening from code compilation/tests to game engines (<a href="https://arxiv.org/abs/2608.25518">RLHEV</a>), lab instruments (<a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic MHS</a>), and annotation-derived oracles (<a href="https://arxiv.org/abs/2608.20492">OraRL</a>). Map your agent's domain to available verification sources.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-2">🔍 Implications for Agent Deployment</h2>
+<ol>
+<li>**Small-model RL agents are now economically viable.** At $0.10/task (<a href="https://calv.info/small-models-have-arrived">Small Models analysis</a>) and 100 tok/s throughput, RL-trained agents on small models can be deployed for consumer-scale applications. The cost barrier that blocked mass agent deployment has dropped by 10x.</li>
+</ol>
+<ol>
+<li>**Deploy live self-improvement alongside agents.** <a href="https://arxiv.org/abs/2608.26530">PILOT</a> achieves 42-47% token reduction with 110-134% efficiency gains through runtime self-improvement. For long-running agents, supervisor-worker architectures that correct and learn mid-execution reduce cost and improve reliability simultaneously.</li>
+</ol>
+<ol>
+<li>**Agent security requires RL-based defenses.** <a href="https://arxiv.org/abs/2608.21500">SecOPD</a> reduces prompt injection attack success from 94% to 9% using token-level on-policy distillation. Traditional defenses fail against adaptive attacks — deployed agents need RL-hardened security.</li>
+</ol>
+<ol>
+<li>**Reliability remains the deployment bottleneck.** <a href="https://arxiv.org/abs/2608.19741">Thinkingbox</a> shows Claude Opus 5 achieves 66.5% pass@1 but only 47.5% pass^20 on business workflows. <a href="https://arxiv.org/abs/2608.23564">SWE Refactor Bench</a> finds only 5.4% of coding agent runs pass all evaluation stages. RL training should target consistency, not just peak performance.</li>
+</ol>
+<ol>
+<li>**Physical device control is now a deployment surface.** <a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic's MHS</a> enables agents to operate lab instruments, robotic arms, and manufacturing equipment through standardized protocols. Early results: 3x lab workflow speedup (CMU), 99.3% quantum laser stabilization (QuEra). RL-trained agents for physical tasks have a new deployment pathway.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="watchlist">👀 Watch List</h2>
+<div class="watch-list-box"><table>
+<thead><tr><th>Technology</th><th>First Noted</th><th>Status</th><th>This Week's Movement</th></tr></thead><tbody>
+<tr><td>PIVOT-RL (Localized Agent Optimization)</td><td>WK35</td><td>🧪 Early adoption</td><td><a href="https://arxiv.org/abs/2608.23283">Apodex 1.1</a> achieves frontier results with 35B model</td></tr>
+<tr><td>Co-Evolving Agent-Critic</td><td>WK35</td><td>🧪 Early adoption</td><td><a href="https://arxiv.org/abs/2608.24794">CAFE</a> demonstrates on seven benchmarks with OOD generalization</td></tr>
+<tr><td>Gaussian Guidance for Agent RL</td><td>WK35</td><td>🔬 Research-only</td><td><a href="https://arxiv.org/abs/2608.23318">Agent-G2</a> validated on ALFWorld/WebShop at 1/3 cost</td></tr>
+<tr><td>Live Agent Self-Improvement</td><td>WK35</td><td>🧪 Early adoption</td><td><a href="https://arxiv.org/abs/2608.26530">PILOT</a> achieves +14.6pt with runtime skill extraction</td></tr>
+<tr><td>Persistent Agent Knowledge Accumulation</td><td>WK35</td><td>🔬 Research-only</td><td><a href="https://arxiv.org/abs/2608.27454">WikiSkill</a> (Google) shows cross-model skill transfer</td></tr>
+<tr><td>ES as Distinct Agent Training Paradigm</td><td>WK35</td><td>🔬 Research-only</td><td><a href="https://arxiv.org/abs/2608.27351">ES vs GRPO analysis</a> proves broader coverage; needs agent validation</td></tr>
+<tr><td>Model Hardware Standard</td><td>WK35</td><td>🧪 Early adoption</td><td><a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic MHS</a> in research preview with 5 partners</td></tr>
+<tr><td>Automated Harness Optimization</td><td>WK35</td><td>🧪 Early adoption</td><td><a href="https://arxiv.org/abs/2608.23041">AutoSaddler</a> (Microsoft) achieves +9-10pt from failure traces</td></tr>
+</tbody></table>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="contrarian">🔮 Contrarian View</h2>
+<div class="contrarian"><h3>What the industry may be overestimating</h3>
+<p>**The speed of agent reliability improvement.** Despite impressive gains on individual benchmarks — <a href="https://arxiv.org/abs/2608.23283">Apodex 1.1</a> at 78.8 GDPVal, <a href="https://arxiv.org/abs/2608.26530">PILOT</a> at +14.6pt — the reliability gap exposed by <a href="https://arxiv.org/abs/2608.19741">Thinkingbox</a> (47.5% pass^20) and <a href="https://arxiv.org/abs/2608.23564">SWE Refactor Bench</a> (5.4% full-pass rate) suggests that RL training optimizes for peak performance, not consistency. Current agent RL techniques improve best-case behavior faster than worst-case behavior. Teams deploying RL-trained agents should budget for the reliability tail, not the benchmark headline.</p>
+<h3>What the industry may be underestimating</h3>
+<p>**The compounding effect of persistent knowledge accumulation.** <a href="https://arxiv.org/abs/2608.27454">WikiSkill</a> and <a href="https://arxiv.org/abs/2608.23552">Prime Agent</a> both demonstrate that agents with persistent memory and skill libraries compound improvements across trajectories. Unlike trajectory-level RL where each episode starts fresh, agents with persistent knowledge enjoy logarithmic improvement curves where early investment in skill libraries pays increasing dividends. Teams that build persistent-knowledge infrastructure now will have agents that are qualitatively harder to replicate than those trained solely with episodic RL.</p>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="strategy">🧭 Strategic Analysis</h2>
+<h3>Short-term (0-6 months)</h3>
+<ul>
+<li>**Localized RL becomes the practical approach for long-horizon agent training.** <a href="https://arxiv.org/abs/2608.23283">PIVOT-RL</a> and <a href="https://arxiv.org/abs/2608.23318">Agent-G2</a> provide immediate alternatives to trajectory-level optimization. Teams currently blocked by sparse rewards in long-horizon settings should adopt these techniques.</li>
+<li>**Automated harness optimization enters standard practice.** <a href="https://arxiv.org/abs/2608.23041">AutoSaddler</a>'s +9-10pt gains from failure traces represent low-hanging fruit for any team maintaining agent harnesses. Expect integration into major agent frameworks within 3 months.</li>
+</ul>
+<h3>Mid-term (6-18 months)</h3>
+<ul>
+<li>**Co-evolving agent-critic architectures replace static reward models.** The insight from <a href="https://arxiv.org/abs/2608.24794">CAFE</a> — that critics must improve alongside agents — will propagate across agent training pipelines. Static reward models will be recognized as a bottleneck.</li>
+<li>**Physical device control becomes a standard agent deployment surface.** <a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic MHS</a> will catalyze an ecosystem of hardware-integrated agents. RL training in simulated physical environments will become a priority for teams building lab, manufacturing, and robotics agents.</li>
+</ul>
+<h3>Long-term (2-5 years)</h3>
+<ul>
+<li>**Persistent-knowledge agents with self-improving training loops.** The convergence of <a href="https://arxiv.org/abs/2608.27454">WikiSkill</a>'s knowledge accumulation, <a href="https://arxiv.org/abs/2608.26530">PILOT</a>'s live self-improvement, and <a href="https://arxiv.org/abs/2608.23283">PIVOT-RL</a>'s localized optimization points toward agents that continuously improve their own training processes — self-improving at the meta-level, not just task level.</li>
+<li>**Agent training shifts from episodic to continuous.** The current train-then-deploy paradigm will give way to always-learning agents that update policies from production interactions, gated by safety constraints.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="relevance">🎯 Personalized Relevance</h2>
+<table>
+<thead><tr><th>Development</th><th>Relevance Area</th><th>Personal Score</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2608.23283">Apodex 1.1 PIVOT-RL</a></td><td>Orchestrator/planner optimization</td><td>10/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.24794">CAFE co-evolving feedback</a></td><td>Agent self-improvement loops</td><td>9/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.23318">Agent-G2 Gaussian guidance</a></td><td>Reward design for agentic tasks</td><td>9/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.26530">PILOT live self-improvement</a></td><td>Session-level and multi-turn RL</td><td>9/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.27454">WikiSkill persistent knowledge</a></td><td>Agent self-improvement loops</td><td>8/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.23041">AutoSaddler harness optimization</a></td><td>Sim-to-real for agent deployment</td><td>8/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.21500">SecOPD agent security</a></td><td>RL environments and benchmarks</td><td>7/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.27351">ES vs GRPO analysis</a></td><td>Reward design for agentic tasks</td><td>7/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.24479">WarpSAC sim-to-real</a></td><td>Sim-to-real for agent deployment</td><td>6/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.18077">Hydra-0 world model</a></td><td>World models for planning (lower weight)</td><td>5/10</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="recommendations">✅ Recommendations</h2>
+<h3>For Technical Leaders</h3>
+<ol>
+<li>**Prototype PIVOT-RL-style localized optimization** for your agent training pipeline. Start by identifying the top 5-10% of decision points in your agent's trajectories that determine outcomes, and apply RL only at those steps. <a href="https://arxiv.org/abs/2608.23283">Apodex 1.1</a> provides the reference architecture.</li>
+<li>**Implement co-evolving feedback** if you use RL for search or retrieval agents. <a href="https://arxiv.org/abs/2608.24794">CAFE</a>'s alternating agent-critic updates are a straightforward modification to existing training loops.</li>
+<li>**Run <a href="https://arxiv.org/abs/2608.23041">AutoSaddler</a> on your agent harness failure traces.** The +9-10pt gains require only existing failure data — no new infrastructure needed.</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2608.21500">SecOPD</a> for agent security.** Token-level defensive fine-tuning reduces prompt injection success to 4.7% in agentic tool calling — significantly better than prior defenses.</li>
+</ol>
+<h3>For Business Leaders</h3>
+<ol>
+<li>**Reassess agent compute budgets.** <a href="https://arxiv.org/abs/2608.23283">Apodex 1.1</a> demonstrates frontier-competitive agents at 35B parameters. The cost of building competitive agents may be lower than assumed.</li>
+<li>**Budget for agent reliability testing.** <a href="https://arxiv.org/abs/2608.19741">Thinkingbox</a> (47.5% pass^20) and <a href="https://arxiv.org/abs/2608.23564">SWE Refactor Bench</a> (5.4%) reveal that benchmark performance overstates real-world reliability. Invest in multi-trial evaluation.</li>
+<li>**Monitor <a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic MHS</a>** for hardware-integrated agent opportunities. Early partners report 3x lab speedups — if your operations involve physical instruments, evaluate MHS compatibility.</li>
+</ol>
+<h3>For Everyone</h3>
+<ol>
+<li>**Read the <a href="https://arxiv.org/abs/2608.27351">ES vs GRPO analysis</a>** — the finding that evolution strategies offer fundamentally different coverage than GRPO changes how we think about agent optimization choices.</li>
+<li>**Track the persistent-knowledge trend** — <a href="https://arxiv.org/abs/2608.27454">WikiSkill</a> and <a href="https://arxiv.org/abs/2608.23552">Prime Agent</a> represent a shift from amnesiac to accumulating agents that compound improvements.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="takeaways">🏆 Executive Takeaways</h2>
+<h3>Top 5 Technical Advances</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2608.23283">Apodex 1.1 PIVOT-RL</a>: Localized RL at decision points** — 35B model achieves frontier-competitive results by optimizing only consequential steps. | 15 min read</li>
+<li>**<a href="https://arxiv.org/abs/2608.24794">CAFE</a>: Co-evolving agent-critic feedback** — Shared-parameter model improves alongside agent policy; outperforms on 7 benchmarks with OOD generalization. | 12 min read</li>
+<li>**<a href="https://arxiv.org/abs/2608.23318">Agent-G2</a>: Gaussian-guided agentic RL** — Online depth estimation solves reward sparsity at 1/3 rollout cost. | 10 min read</li>
+<li>**<a href="https://arxiv.org/abs/2608.26530">PILOT in the Loop</a>: Live agent self-improvement** — +14.6pt and 42.9% token reduction through runtime skill extraction. | 12 min read</li>
+<li>**<a href="https://arxiv.org/abs/2608.27454">WikiSkill</a>: Persistent skill evolution** — Google's framework for cross-model skill transfer via wiki-based knowledge accumulation. | 10 min read</li>
+</ol>
+<h3>Top 5 Business Developments</h3>
+<ol>
+<li>**<a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic Model Hardware Standard</a> opens physical device control for agents** — Research preview with Genentech, CMU, QuEra; 3x lab speedups, 99.3% quantum laser success.</li>
+<li>**<a href="https://calv.info/small-models-have-arrived">Small models</a> make agent deployment economically viable at $0.10/task** — 10x cost reduction enables consumer agent applications.</li>
+<li>**<a href="https://arxiv.org/abs/2608.23552">Prime Agent</a> open-sources a full RLM harness** — 95.5% ARC-AGI-3, 85.5-hour autonomous runs; lowers barrier for long-running agents.</li>
+<li>**Agent reliability gap quantified** — <a href="https://arxiv.org/abs/2608.19741">Thinkingbox</a> (47.5% pass^20) and <a href="https://arxiv.org/abs/2608.23564">SWE Refactor</a> (5.4%) reveal production readiness challenges.</li>
+<li>**<a href="https://arxiv.org/abs/2608.23041">AutoSaddler</a> automates harness improvement** — Microsoft's offline learning approach yields +9-10pt gains from existing failure traces.</li>
+</ol>
+<h3>Top 5 Must-Read Resources</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2608.23283">Apodex 1.1 technical report</a>** — PIVOT-RL and environment scaling | 15 min</li>
+<li>**<a href="https://arxiv.org/abs/2608.24794">CAFE paper</a>** — Co-evolving feedback for search agents | 12 min</li>
+<li>**<a href="https://arxiv.org/abs/2608.23552">Prime Agent paper</a>** — Open-source RLM harness reference | 12 min</li>
+<li>**<a href="https://arxiv.org/abs/2608.27351">ES vs GRPO analysis</a>** — Evolution strategies as distinct paradigm | 10 min</li>
+<li>**<a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic MHS announcement</a>** — Agent hardware control specification | 8 min</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="next-week">📌 What Leaders Should Do Next Week</h2>
+<ol>
+<li>**Identify consequential decision points in your agent trajectories.** Map the top 5-10% of steps where outcomes are determined, as preparation for <a href="https://arxiv.org/abs/2608.23283">PIVOT-RL</a>-style localized optimization.</li>
+<li>**Audit your reward/critic update frequency.** If your critic is trained less frequently than your agent policy, <a href="https://arxiv.org/abs/2608.24794">CAFE</a>'s co-evolution results suggest you're leaving performance on the table.</li>
+<li>**Run <a href="https://arxiv.org/abs/2608.23041">AutoSaddler</a> on your agent's existing failure traces.** +9-10pt gains require no new infrastructure — just accumulated failure data and a structured patch pipeline.</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2608.21500">SecOPD</a> for agent security.** If your agents process external input (search results, user uploads, tool outputs), token-level defensive training should be on your roadmap.</li>
+<li>**Prototype persistent skill storage** following <a href="https://arxiv.org/abs/2608.27454">WikiSkill</a>'s three-way separation (experience/knowledge/skills). Start with a simple key-value store for agent-discovered procedures.</li>
+<li>**Read the <a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic MHS spec</a>** if your domain involves physical devices or lab instruments. Evaluate whether MHS integration could accelerate your hardware-in-the-loop agent workflows.</li>
+<li>**Schedule a team discussion on agent reliability metrics.** <a href="https://arxiv.org/abs/2608.19741">Thinkingbox</a>'s pass^20 metric and <a href="https://arxiv.org/abs/2608.23564">SWE Refactor Bench</a>'s three-stage evaluation provide better reliability signals than pass@1.</li>
+</ol>
+<hr class="section-divider">
+<div class="meta"><p>Generated by render_html.py from markdown source.</p></div>
+</main>
+</div>
+<script>window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+    const btn = document.getElementById('backToTop');
+    btn.classList.toggle('visible', winScroll > 400);
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));</script>
+</body>
+</html>

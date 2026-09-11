@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Models Weekly Briefing (Week 35)</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #7c3aed); z-index: 1000; transition: width 0.1s; }
+body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.7; color: #1a1a2e; background: #fafafa; padding: 2rem 1.5rem; margin: 0; }
+.layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 2rem; }
+.toc { position: sticky; top: 1rem; width: 220px; min-width: 220px; height: fit-content; max-height: calc(100vh - 2rem); overflow-y: auto; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; padding: 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; scrollbar-width: thin; }
+.toc h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.75rem; }
+.toc a { display: block; padding: 0.3rem 0.5rem; color: #475569; text-decoration: none; border-radius: 4px; margin-bottom: 2px; transition: all 0.2s; }
+.toc a:hover, .toc a.active { background: #eff6ff; color: #2563eb; }
+.main-content { flex: 1; max-width: 900px; min-width: 0; }
+h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; font-weight: 700; color: #0f0f23; margin-bottom: 0.25rem; letter-spacing: -0.5px; }
+.header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.subtitle { font-style: italic; color: #555; font-size: 0.95rem; }
+.reading-time { display: inline-block; background: #eff6ff; color: #2563eb; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 12px; }
+h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.4rem; font-weight: 600; color: #16213e; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e8e8f0; }
+h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 600; color: #1a1a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; font-weight: 600; color: #333; margin-top: 1rem; margin-bottom: 0.4rem; }
+p { margin-bottom: 1rem; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.baseline-note { background: #f0f4ff; border-left: 4px solid #2563eb; padding: 0.75rem 1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #1e40af; }
+.executive-briefing { background: #f8f9fc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+.executive-briefing p { margin-bottom: 0.75rem; }
+.executive-briefing strong { color: #0f0f23; }
+.hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2rem; }
+.hero-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem; text-align: center; transition: box-shadow 0.2s; }
+.hero-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.hero-card .hero-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+.hero-card .hero-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.9rem; color: #1a1a2e; margin-bottom: 0.4rem; }
+.hero-card .hero-link { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; }
+.callout { border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; }
+.callout-insight { background: #eff6ff; border-left: 4px solid #2563eb; }
+.callout-risk { background: #fef2f2; border-left: 4px solid #dc2626; }
+.callout-opportunity { background: #f0fdf4; border-left: 4px solid #16a34a; }
+.callout-number { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; text-align: center; margin: 1rem 0; }
+.callout-number .big-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2.2rem; font-weight: 700; color: #0f0f23; }
+.callout-number .number-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
+.key-numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.88rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+th { background: #f1f5f9; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; color: #334155; border-bottom: 2px solid #cbd5e1; }
+td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #eff6ff; }
+ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+.score-pill { display: inline-block; border-radius: 4px; padding: 0.2rem 0.5rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; font-weight: 600; margin-right: 0.4rem; margin-bottom: 0.25rem; }
+.score-high { background: #dcfce7; color: #166534; }
+.score-mid { background: #fef9c3; color: #854d0e; }
+.score-low { background: #fee2e2; color: #991b1b; }
+.dev-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+.dev-card h3 { margin-top: 0; color: #0f0f23; }
+.signal { display: inline-block; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; }
+.signal-research { background: #ede9fe; color: #6d28d9; }
+.signal-prototype { background: #fef3c7; color: #92400e; }
+.signal-production { background: #d1fae5; color: #065f46; }
+.section-divider { border: none; border-top: 1px solid #e8e8f0; margin: 2.5rem 0; }
+.action-list { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.action-list li { font-size: 0.95rem; }
+.contrarian { background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.watch-list-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+details { margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+details summary { padding: 0.75rem 1rem; background: #f8fafc; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; color: #334155; }
+details summary:hover { background: #f1f5f9; }
+details[open] summary { border-bottom: 1px solid #e2e8f0; }
+details .details-content { padding: 1rem; }
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: #2563eb; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(37,99,235,0.3); z-index: 999; }
+.back-to-top.visible { display: flex; }
+.meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
+@media (max-width: 768px) { .layout { flex-direction: column; } .toc { display: none; } .hero-grid { grid-template-columns: 1fr; } body { padding: 1rem; } h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } table { font-size: 0.8rem; } .key-numbers-grid { grid-template-columns: repeat(2, 1fr); } }</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+<div class="layout">
+<nav class="toc" id="toc">
+    <h4>Contents</h4>
+    <a href="#executive-briefing">📋 Executive Briefing</a>
+    <a href="#what-changed">⚡ What Changed</a>
+    <a href="#top-technical">🔬 Top Technical</a>
+    <a href="#lab-scorecards">🏢 Lab Scorecards</a>
+    <a href="#open-source">🌐 Open-Source</a>
+    <a href="#business">💰 Business & Market</a>
+    <a href="#research">📄 Research Papers</a>
+    <a href="#research-blogs">🧬 Research Blogs</a>
+    <a href="#blogs">🛠️ Engineering Blogs</a>
+    <a href="#github">📦 GitHub Projects</a>
+    <a href="#media">🎙️ Videos & Podcasts</a>
+    <a href="#community">💬 Community</a>
+    <a href="#themes">📈 Emerging Themes</a>
+    <a href="#trends">📊 Trend Tracking</a>
+    <a href="#implications-1">🏗️ Implications fo</a>
+    <a href="#implications-2">🔍 Implications fo</a>
+    <a href="#watchlist">👀 Watch List</a>
+    <a href="#contrarian">🔮 Contrarian View</a>
+    <a href="#strategy">🧭 Strategic Analysis</a>
+    <a href="#relevance">🎯 Personalized</a>
+    <a href="#recommendations">✅ Recommendations</a>
+    <a href="#takeaways">🏆 Takeaways</a>
+    <a href="#next-week">📌 Next Week</a>
+</nav>
+<main class="main-content">
+<h1>World Models Weekly Briefing (Week 35)</h1>
+<div class="header-meta"><span class="subtitle">Week 35 | August 23–29, 2026</span><span class="reading-time">⏱️ 18 min read</span></div>
+
+<h2 id="executive-briefing">📋 Executive Briefing</h2>
+<p>The World Action Model (WAM) paradigm reached industrial scale this week. **<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a> achieved 99.0% on LIBERO and 94.3% on RoboTwin2.0** — the first unified causal autoregressive model functioning simultaneously as an executable robot policy and a multi-embodiment visual simulator, trained on 200,000+ hours of cross-embodiment data. This is not incremental progress; it is the first near-ceiling WAM result across multiple major benchmarks.</p>
+<p>**<a href="https://www.businessinsider.com/nvidia-hugging-face-acquisition-13-billion-2026">NVIDIA agreed to acquire Hugging Face for $13B</a>**, the largest AI infrastructure acquisition of 2026. For world models, this consolidates the GPU compute provider with the dominant open-source model hub — expect tighter <a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">Cosmos</a> + HuggingFace integration for world model training and deployment.</p>
+<p>**Meta FAIR / Yann LeCun published <a href="https://arxiv.org/abs/2608.22764">LpWM</a>**, proving theoretically that sparse representations outperform dense ones for JEPA world models — up to 57% planning improvement. This is the strongest signal yet that the JEPA representation design space is far from exhausted.</p>
+<p>**The "generation vs. simulation" gap was quantified for the first time** — a <a href="https://arxiv.org/abs/2608.23070">200-paper survey</a> found only 6 of 163 implementation papers provide runtime state query interfaces. World models can interact but cannot yet reliably report what is happening inside them.</p>
+<p>**Action adherence emerged as the alignment problem of embodied AI** — <a href="https://arxiv.org/abs/2608.24885">WorldSync</a> diagnosed that existing world models ignore non-expert commands, and proposed fixes analogous to RLHF for language models.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="what-changed">⚡ What Changed Since Last Week</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>: unified WAM; 99% LIBERO, 94.3% RoboTwin2.0; 200K+ hours cross-embodiment data; simultaneous policy + simulator</li>
+<li><a href="https://arxiv.org/abs/2608.22764">LpWM</a> (Meta FAIR/LeCun): sparse representations for JEPA world models; 57% planning improvement; theoretical foundations</li>
+<li><a href="https://arxiv.org/abs/2608.24101">TrAct</a> (Stanford, Li Fei-Fei): visual tracks as embodiment-agnostic bridge; 49% to 76% real-world success</li>
+<li><a href="https://arxiv.org/abs/2608.23070">From Generation to Simulation</a>: 200-paper survey; only 6/163 papers provide state feedback interfaces</li>
+<li><a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a>: in-context world-action modeling from human videos; +29.5pp over baselines; 74.2K human-robot pairs</li>
+<li><a href="https://www.businessinsider.com/nvidia-hugging-face-acquisition-13-billion-2026">NVIDIA acquires Hugging Face for $13B</a>: largest AI infrastructure deal of 2026</li>
+<li><a href="https://arxiv.org/abs/2608.29029">Flow-JEPA</a>: flow matching replaces deterministic JEPA predictor; 67% to 86% under noise</li>
+<li><a href="https://arxiv.org/abs/2608.24044">JEPA-x</a>: cross-predictive physics grounding; rollout drift 0.361 to 0.104</li>
+<li><a href="https://arxiv.org/abs/2608.24885">WorldSync</a>: action adherence diagnosis + alignment fix for robotic world models</li>
+<li><a href="https://arxiv.org/abs/2608.27345">PAWBench</a>: benchmark for probabilistic alignment; no model captures full behavior distributions</li>
+<li><a href="https://arxiv.org/abs/2608.23189">EchoWM</a>: omnimodal world model; 720p video + sound + music + speech with 6-DoF navigation</li>
+<li><a href="https://arxiv.org/abs/2608.23565">ReWorld</a> (Alibaba): interactive world model with long-horizon memory; minute-long trajectories</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="top-technical">🔬 Top Technical Developments</h2>
+<h3>1. Riemann-1.0 — Unified World Action Model at Industrial Scale</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>10</td></tr>
+<tr><td>Technical Innovation</td><td>8</td></tr>
+<tr><td>Practical Adoption</td><td>9</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2608.27033">arXiv:2608.27033</a> | **Confidence:** High | **Reading time:** 25 min | 🚀 Production-ready</p>
+<p>Fully causal autoregressive model unifying multi-view visual observations, robot states, and embodiment-specific actions. Simultaneously functions as an executable policy and a multi-embodiment visual simulator. Trained on 200,000+ hours of egocentric human video, gripper demonstrations, and heterogeneous robot trajectories. Achieves 94.3% on <a href="https://arxiv.org/abs/2608.27033">RoboTwin2.0</a>, 99.0% on <a href="https://arxiv.org/abs/2608.27033">LIBERO</a>, 62.6% on long-horizon <a href="https://arxiv.org/abs/2608.27033">RoboCasa-365</a>, and 85.0% success on real-world tasks.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** Riemann-1.0 is the first WAM to achieve near-ceiling scores on multiple benchmarks simultaneously while also functioning as a generative world simulator. The unified causal architecture — policy and simulator in one model — eliminates the traditional separation between "world model for planning" and "policy for execution."</p>
+</div>
+<hr class="section-divider">
+<h3>2. TrAct — Visual Tracks as Universal Action-Visual Bridge</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>8</td></tr>
+<tr><td>Practical Adoption</td><td>8</td></tr>
+<tr><td>Business Impact</td><td>8</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2608.24101">arXiv:2608.24101</a> | **Confidence:** High | **Reading time:** 20 min | 🧪 Early prototype</p>
+<p>From <a href="https://arxiv.org/abs/2608.24101">Li Fei-Fei</a> and <a href="https://arxiv.org/abs/2608.24101">Jiajun Wu</a> at Stanford. Proposes visual tracks (trajectories of task-relevant scene points) as an embodiment-agnostic intermediate representation. Three-component pipeline: action-to-track predictor, track-conditioned world model, vision-language reward model. Improves success from 27% to 55% in simulation and 49% to 76% on real-world Franka tasks.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** Visual tracks solve the fundamental mismatch between low-level robot actions and high-level visual changes. This intermediate representation is geometrically interpretable and embodiment-agnostic — applicable to any robot form factor.</p>
+</div>
+<hr class="section-divider">
+<h3>3. LpWM — Meta FAIR Proves Sparse Representations Superior for World Models</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>8</td></tr>
+<tr><td>Practical Adoption</td><td>6</td></tr>
+<tr><td>Business Impact</td><td>7</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2608.22764">arXiv:2608.22764</a> | **Confidence:** High | **Reading time:** 20 min | 🔬 Research-only</p>
+<p><a href="https://arxiv.org/abs/2608.22764">Yann LeCun</a> and Meta FAIR prove theoretically that nonlinear Lipschitz dynamics can be approximated by action-conditioned linear dynamics in high-dimensional sparse (one-hot-like) spaces. Introduces Rectified Distribution Matching Regularization producing structured sparse codes. On PushT, sparse LpWM outperforms dense LeWM by up to 57%. Learned sparse representations exhibit mode-factorization: discrete support encodes dynamical regimes, magnitudes encode continuous state.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** Dense is not optimal for world model latent spaces. Sparse representations reduce predictor complexity for control while providing interpretable factorized structure. This challenges the default architectural assumption across the entire JEPA ecosystem.</p>
+</div>
+<hr class="section-divider">
+<h3>4. Zero-WAM — In-Context World-Action Modeling from Human Videos</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>8</td></tr>
+<tr><td>Practical Adoption</td><td>8</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2608.26103">arXiv:2608.26103</a> | **Confidence:** High | **Reading time:** 20 min | 🧪 Early prototype</p>
+<p>Extends in-context learning from language models to embodied robot control via human video context. Introduces <a href="https://arxiv.org/abs/2608.26103">HumanGen</a> dataset: 74,200 matched human-robot video pairs across 8,600 tasks. Achieves 47.0% average success on seven unseen tasks (+29.5pp over baselines). Validated on multi-object, long-horizon, and precision assembly in the real world.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** Just as LLMs generalize to new tasks via in-context text examples, Zero-WAM generalizes to new manipulation tasks via in-context video demonstrations — no fine-tuning needed. The human-robot video bridge makes any human demonstration a potential robot task specification.</p>
+</div>
+<hr class="section-divider">
+<h3>5. From Generation to Simulation — The Definitive Gap Analysis</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>6</td></tr>
+<tr><td>Practical Adoption</td><td>8</td></tr>
+<tr><td>Business Impact</td><td>8</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2608.23070">arXiv:2608.23070</a> | **Confidence:** High | **Reading time:** 30 min | 🔬 Research-only</p>
+<p>Systematic evaluation of 200 world-model papers (2018-June 2026) against eight core simulator capabilities. Finds world models have achieved functional substitution in interaction and controllability for specific scenarios, but remain short in formal physics guarantees, structured state feedback, and reproducible long-horizon evolution. Only 6 of 163 implementation papers provide runtime interfaces for querying entity states.</p>
+<div class="callout callout-risk">
+<p>⚠️ **Risk:** The 6/163 state feedback finding is a critical design signal. Teams replacing physics simulators with learned world models must build explicit state query interfaces or accept a fundamental capability gap.</p>
+</div>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="lab-scorecards">🏢 Frontier Lab Scorecards</h2>
+<table>
+<thead><tr><th>Lab</th><th>World Model Activity</th><th>Research</th><th>Strategic Direction</th></tr></thead><tbody>
+<tr><td>**<a href="https://developer.nvidia.com/blog/">NVIDIA</a>**</td><td><a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">Cosmos 3 Edge</a> (4B WAM on Jetson Thor); <a href="https://arxiv.org/abs/2608.18077">Hydra-0</a> (action flow generalist WM); **<a href="https://www.businessinsider.com/nvidia-hugging-face-acquisition-13-billion-2026">$13B Hugging Face acquisition</a>**</td><td>On-device world models; action flow as universal control interface</td><td>Vertical integration: GPU + model hub + world model stack</td></tr>
+<tr><td>**<a href="https://ai.meta.com/blog/">Meta FAIR</a>**</td><td><a href="https://arxiv.org/abs/2608.22764">LpWM</a> (LeCun; sparse JEPA representations; 57% planning improvement)</td><td>Fundamental representation theory for world models</td><td>Advancing JEPA theoretical foundations</td></tr>
+<tr><td>**<a href="https://deepmind.google/blog/">Google DeepMind</a>**</td><td>No new world model-specific releases this week</td><td>—</td><td>Sustaining Gemini Robotics ER 2 ecosystem</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.23565">Alibaba</a>**</td><td><a href="https://arxiv.org/abs/2608.23565">ReWorld</a> (interactive WM with long-horizon memory; 12-chunk cache for minute-long trajectories)</td><td>Efficient memory architecture for persistent world models</td><td>Continued WM investment post-DreamX-Phi (WK34)</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.26200">Tencent</a>**</td><td><a href="https://arxiv.org/abs/2608.26200">GameWAM</a> (first WAM for native closed-loop gameplay and GUI control)</td><td>Block-cycle planning for long-horizon game interaction</td><td>Gaming-native world action models</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2608.24101">Stanford (Fei-Fei/Wu)</a>**</td><td><a href="https://arxiv.org/abs/2608.24101">TrAct</a> (visual tracks; 49% to 76% real-world success)</td><td>Embodiment-agnostic intermediate representations</td><td>Bridging human demonstrations to robot control</td></tr>
+<tr><td>**Anthropic**</td><td>No new world model releases this week</td><td>—</td><td>Sustaining multiagent research from WK34</td></tr>
+<tr><td>**OpenAI**</td><td>No accessible updates this week</td><td>—</td><td>Unknown</td></tr>
+</tbody></table>
+<p>**Power Ranking Shift:** NVIDIA makes the week's most consequential strategic move with the $13B Hugging Face acquisition, consolidating GPU hardware + open-source model distribution + world model training (Cosmos). Meta FAIR contributes fundamental theory via LpWM. Alibaba and Tencent both ship world model research, confirming sustained Chinese lab investment in the WAM paradigm.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="open-source">🌐 Open-Source Ecosystem Tracking</h2>
+<table>
+<thead><tr><th>Project</th><th>Category</th><th>This Week</th><th>Trajectory</th></tr></thead><tbody>
+<tr><td>**<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>**</td><td>World Action Model</td><td>NEW: 99% LIBERO, 94.3% RoboTwin2.0; 200K+ hours training data</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://github.com/pollen-robotics/microduck_rl">pollen-robotics/microduck_rl</a>**</td><td>Sim2Real robotics</td><td>783 HN points; continued community interest from WK34</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://huggingface.co/">HuggingFace</a>**</td><td>Model hub / Infrastructure</td><td>NVIDIA $13B acquisition announced; ecosystem implications pending</td><td>📈 Accelerating</td></tr>
+<tr><td>**JEPA implementations**</td><td>Representation learning</td><td>5 new variants (LpWM, Flow-JEPA, JEPA-x, Point Cloud JEPA, Lagrangian M-JEPA)</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://github.com/danijar/dreamerv3">DreamerV3</a>**</td><td>Model-based RL</td><td>Referenced as baseline; LeFlow and Flow-JEPA extend planning paradigm</td><td>➡️ Stable (baseline)</td></tr>
+<tr><td>**<a href="https://github.com/sgl-project/sglang/releases">SGLang</a>**</td><td>Inference (WM serving)</td><td>Continued high usage</td><td>➡️ Stable</td></tr>
+<tr><td>**<a href="https://github.com/modelcontextprotocol">MCP</a>**</td><td>Agent tool orchestration</td><td>Continued growth</td><td>➡️ Stable</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="business">💰 Business & Market Intelligence</h2>
+<h3>NVIDIA Acquires Hugging Face for $13B</h3>
+<ul>
+<li>**<a href="https://www.businessinsider.com/nvidia-hugging-face-acquisition-13-billion-2026">NVIDIA agreed to acquire Hugging Face for $13B</a>** — the largest AI infrastructure acquisition of 2026. This consolidates GPU compute (NVIDIA) with the dominant open-source model hub (Hugging Face). For world models specifically: expect tighter <a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">Cosmos</a> integration with HuggingFace model hosting, training pipelines, and community distribution. The deal generated 1,985 points and 925 comments on <a href="https://news.ycombinator.com/">Hacker News</a>, making it the most-discussed AI story of the week.</li>
+</ul>
+<h3>NVIDIA Cosmos 3 Edge Ships On-Device World Models</h3>
+<ul>
+<li>**<a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">Cosmos 3 Edge</a>**: 4B-parameter omni-model running natively on Jetson Thor for real-time robot manipulation. Generates action chunks in ~1.53s. Trained on 76K successful trajectories (~350 hours). This is the first production-grade on-device world model deployment, eliminating cloud dependency for robot control.</li>
+</ul>
+<h3>GLM-5.3 and Qwen 3.8 Flash Next Releases</h3>
+<ul>
+<li>**<a href="https://z.ai/blog/glm-5.3-flash">GLM-5.3-Flash</a>** (1,132 HN points) and **<a href="https://qwen.ai/blog?id=qwen3.8-flash-next">Qwen 3.8-Flash-Next</a>** (704 HN points) released during the week. While not world-model-specific, these frontier language models serve as backbones for LLM-as-world-model approaches (<a href="https://arxiv.org/abs/2608.25927">Code World Model</a>) and agentic planning systems. <a href="https://huggingface.co/zai-org/GLM-5.3">GLM-5.3 went open-weight</a> (805 HN points on Aug 28).</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research">📄 Research Papers</h2>
+<p>**1. <a href="https://arxiv.org/abs/2608.27033">Riemann-1.0: An Embodied World Action Model for Physical AI</a>**</p>
+<ul>
+<li>*Authors:* Haofeng Sun, Jiangbo Pei, Fei Kang et al. (16 authors)</li>
+<li>*TL;DR:* Unified causal autoregressive WAM trained on 200K+ hours; 99% LIBERO, 94.3% RoboTwin2.0, 85% real-world success. Simultaneously policy and simulator.</li>
+<li>*Why it matters:* First near-ceiling WAM across multiple benchmarks. The unified policy+simulator architecture eliminates traditional planning/execution separation.</li>
+<li>*Strengths:* Massive multi-embodiment training data; near-ceiling benchmarks. *Limitations:* Compute requirements for 200K+ hour training.</li>
+<li>Strategic: 10 | Innovation: 8 | Adoption: 9 | Business: 9 | 🚀 Production-ready</li>
+</ul>
+<p>**2. <a href="https://arxiv.org/abs/2608.24101">TrAct: Bridging Robot Control and Visual Prediction with Visual Tracks</a>**</p>
+<ul>
+<li>*Authors:* Zhi Cao, Howard Ji, Kevin Zhang, Kuangzhi Ge, Li Fei-Fei, Jiajun Wu, Huang Huang</li>
+<li>*TL;DR:* Visual tracks as embodiment-agnostic intermediate representation. Three-component pipeline improves real-world success from 49% to 76%.</li>
+<li>*Why it matters:* Solves the fundamental action-visual mismatch. Visual tracks are geometrically interpretable and transferable across robot types.</li>
+<li>*Strengths:* Large real-world improvement; Stanford pedigree. *Limitations:* Requires point tracking quality.</li>
+<li>Strategic: 9 | Innovation: 8 | Adoption: 8 | Business: 8 | 🧪 Early prototype</li>
+</ul>
+<p>**3. <a href="https://arxiv.org/abs/2608.22764">LpWM: A Case for Sparse Representations in World Models</a>**</p>
+<ul>
+<li>*Authors:* Yilun Kuang, Yash Dagade, Quentin Le Lidec, Lucas Maes, Randall Balestriero, Yann LeCun (Meta FAIR)</li>
+<li>*TL;DR:* Proves theoretically that sparse latent spaces outperform dense for dynamics modeling. 57% planning improvement on PushT. Mode-factorized codes.</li>
+<li>*Why it matters:* Challenges the dense representation default across the JEPA ecosystem. Theoretical foundations + practical recipe for sparse world models.</li>
+<li>*Strengths:* Theoretical grounding; LeCun/FAIR authority. *Limitations:* Tested on simple control; scaling unclear.</li>
+<li>Strategic: 9 | Innovation: 8 | Adoption: 6 | Business: 7 | 🔬 Research-only</li>
+</ul>
+<p>**4. <a href="https://arxiv.org/abs/2608.26103">Zero-WAM: In-Context World-Action Modeling from Human Videos</a>**</p>
+<ul>
+<li>*Authors:* Jiaming Zhou, Qihang Zhang, Gangwei Xu et al. (12 authors)</li>
+<li>*TL;DR:* Zero-shot robot task generalization via human video in-context learning. HumanGen dataset: 74.2K pairs, 8.6K tasks. +29.5pp over baselines on unseen tasks.</li>
+<li>*Why it matters:* Extends in-context learning from LLMs to embodied control. Any human demonstration becomes a robot task specification.</li>
+<li>*Strengths:* Novel dataset; strong generalization. *Limitations:* 47% absolute success still leaves room for improvement.</li>
+<li>Strategic: 9 | Innovation: 8 | Adoption: 8 | Business: 9 | 🧪 Early prototype</li>
+</ul>
+<p>**5. <a href="https://arxiv.org/abs/2608.23070">From Generation to Simulation: How Far Are World Models from Being True Simulators?</a>**</p>
+<ul>
+<li>*Authors:* Tong Wang, Huan Deng, Mucheng Yang, Yang He, Xiaohui Kuang, Gang Zhao</li>
+<li>*TL;DR:* 200-paper meta-analysis against 8 simulator capabilities. Only 6/163 papers provide state feedback. World models lag on physics guarantees and reproducibility.</li>
+<li>*Why it matters:* Definitive capability gap analysis. Required reading before replacing physics simulators with learned models.</li>
+<li>*Strengths:* Comprehensive scope; actionable research priorities. *Limitations:* Survey, not new architecture.</li>
+<li>Strategic: 9 | Innovation: 6 | Adoption: 8 | Business: 8 | 🔬 Research-only</li>
+</ul>
+<p>**6. <a href="https://arxiv.org/abs/2608.24044">JEPA-x: Cross-Predictive Physics Grounding for Forecastable Latent Dynamics</a>**</p>
+<ul>
+<li>*Authors:* Kehan Wen, Ziming Li, Siyuan Luo, Fan Shi</li>
+<li>*TL;DR:* Grounds JEPA latent dynamics in privileged physical trajectories during training. Rollout drift 0.361 to 0.104; control success 53.6% to 78.2%.</li>
+<li>*Why it matters:* Addresses co-adaptation failure where encoder+predictor collapse to trivially predictable but physically unconstrained representations.</li>
+<li>*Strengths:* Large improvements; elegant cross-modal design. *Limitations:* Requires physics data during training (not deployment).</li>
+<li>Strategic: 8 | Innovation: 8 | Adoption: 7 | Business: 7 | 🔬 Research-only</li>
+</ul>
+<p>**7. <a href="https://arxiv.org/abs/2608.24885">WorldSync: Diagnosing and Aligning Action-Conditioned Generation</a>**</p>
+<ul>
+<li>*Authors:* Sixiang Chen, Jiaming Liu, Jixian Wu et al. (10 authors)</li>
+<li>*TL;DR:* Diagnoses that existing world models ignore non-expert actions. Introduces WorldEcho (diagnostic) and WorldSync (alignment fix via data expansion + action forcing + effect synchronization).</li>
+<li>*Why it matters:* Action adherence for world models is analogous to instruction-following alignment for LLMs. First systematic diagnosis + fix.</li>
+<li>*Strengths:* Practical alignment recipe; real robot validation. *Limitations:* Focused on manipulation benchmarks.</li>
+<li>Strategic: 8 | Innovation: 7 | Adoption: 8 | Business: 7 | 🧪 Early prototype</li>
+</ul>
+<p>**8. <a href="https://arxiv.org/abs/2608.29029">Flow-JEPA: Flow Matching for Robust Latent Dynamics</a>**</p>
+<ul>
+<li>*Authors:* Yanchen Huo, Ziying Song, Yadan Luo</li>
+<li>*TL;DR:* Conditional flow matching replaces deterministic JEPA predictor. Success 86% to 92% (clean), 67% to 86% (noisy). Trajectory-level generation.</li>
+<li>*Why it matters:* Flow matching provides stochastic robustness that deterministic autoregression cannot. Drop-in improvement for JEPA world models.</li>
+<li>*Strengths:* Large noise robustness gains; simple drop-in. *Limitations:* Tested on standard benchmarks only.</li>
+<li>Strategic: 7 | Innovation: 8 | Adoption: 6 | Business: 6 | 🔬 Research-only</li>
+</ul>
+<p>**9. <a href="https://arxiv.org/abs/2608.24855">LeFlow: Generative Latent Flow Planning for World Models</a>**</p>
+<ul>
+<li>*Authors:* Hsiang-Wei Huang, Jianxu Shangguan, Junbin Lu, Jenq-Neng Hwang</li>
+<li>*TL;DR:* Amortized latent trajectory planning via rectified flow. Generates entire paths conditioned on state and goal. Order-of-magnitude planning time reduction.</li>
+<li>*Why it matters:* Separates planning prior (learned once) from dynamics model (validates candidates), yielding both accuracy and speed.</li>
+<li>*Strengths:* Dramatic speed improvement; consistent gains. *Limitations:* Goal-conditioned setting only.</li>
+<li>Strategic: 8 | Innovation: 8 | Adoption: 7 | Business: 7 | 🧪 Early prototype</li>
+</ul>
+<p>**10. <a href="https://arxiv.org/abs/2608.23189">EchoWM: Open and Enterable Omnimodal World Models</a>**</p>
+<ul>
+<li>*Authors:* Songchun Zhang, Yaowei Li et al. (22 authors)</li>
+<li>*TL;DR:* Generates 720p video, environmental sound, music, and speech simultaneously while responding to 6-DoF navigation. First/third person perspectives learned from data.</li>
+<li>*Why it matters:* First truly omnimodal world model — visual + auditory + interactive. Extends world models beyond vision-only into full sensory simulation.</li>
+<li>*Strengths:* Multi-modal richness; interactive control. *Limitations:* Evaluation metrics for omnimodal quality are nascent.</li>
+<li>Strategic: 8 | Innovation: 8 | Adoption: 6 | Business: 7 | 🧪 Early prototype</li>
+</ul>
+<h3>Noteworthy</h3>
+<table>
+<thead><tr><th>Paper</th><th>Key Contribution</th><th>Signal</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2608.23565">ReWorld</a> (Alibaba)</td><td>Interactive WM with pose-indexed landmark bank; minute-long memory with 12-chunk cache</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.26239">WALL-SS</a></td><td>Next-scale autoregression for long-horizon WMs; streaming minute-length rollouts</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.24882">LAWA</a></td><td>Latent action as intention; 42.9% inference latency reduction; 80.8% RoboCasa success</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.27345">PAWBench</a></td><td>Probabilistic alignment benchmark; no model captures full behavior distributions</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.26200">GameWAM</a> (Tencent)</td><td>First WAM for native closed-loop gameplay and GUI control</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.25927">Code World Model</a></td><td>Coding agent as world brain; code maintains persistent state for video conditioning</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.22278">DreamMimic</a></td><td>World-model-mediated privileged-to-visual distillation for humanoid loco-manipulation</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.22403">LD4WAM</a></td><td>Motion-aligned latent dynamics from 5K+ hours human+robot video; cross-embodiment</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.22591">WorldToken</a></td><td>Time-first sequence modeling; 59.45% RoboCasa success from 2,900 demos per task</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.25518">Agentic Game Development</a> (NUS)</td><td>Game engines as verification for world model training via RLHEV</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.24680">Game2World Engine</a></td><td>UI removal from gameplay video; +6.83% VideoReward for world model training</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.29434">Point Cloud JEPA</a></td><td>JEPA latent planning validated on 3D point cloud observations</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.22358">Lagrangian M-JEPA</a></td><td>JEPA for atmospheric prediction; 36% lower error than direct training</td><td>🔬</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research-blogs">🧬 Research Blogs</h2>
+<details><summary>Research Blogs</summary><div class="details-content"><p>**1. <a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">NVIDIA: Post-Train Cosmos 3 Edge for On-Device Robot Control</a>**</p>
+<ul>
+<li>NVIDIA ships a 4B-parameter world model running natively on Jetson Thor. Trained on Cosmos3-DROID dataset (76K trajectories, ~350 hours). Generates action chunks in ~1.53s on-device. First production deployment of an on-device world model for autonomous robot manipulation.</li>
+<li>Strategic: 9 | Innovation: 7 | 🚀 Production-ready</li>
+</ul>
+<p>**2. <a href="https://arxiv.org/abs/2608.23070">From Generation to Simulation — The 200-Paper World Model Survey</a>**</p>
+<ul>
+<li>Comprehensive meta-analysis positioning generative world models against traditional simulators across 8 capability dimensions. The 6/163 state feedback finding reframes the entire field's priorities. Identifies six research directions to bridge the generation-simulation gap.</li>
+<li>Strategic: 9 | Innovation: 6 | 🔬 Research-only</li>
+</ul>
+<p>**3. <a href="https://www.reactor.inc/blog/open-dreamer">Reactor: Open Dreamer — World Model Construction Guide (continued)</a>**</p>
+<ul>
+<li>Practitioner walkthrough of building world models continues to circulate in world-model-adjacent communities. The guide's emphasis on latent simulation architecture aligns with this week's explosion of WAM papers.</li>
+<li>Strategic: 5 | Innovation: 5 | 🧪 Early prototype</li>
+</ul>
+<p>**4. <a href="https://arxiv.org/abs/2608.27345">PAWBench: Probabilistic Alignment for Video World Models</a>**</p>
+<ul>
+<li>New benchmark exposing that video generation models produce plausible individual videos but fail to capture the distribution of possible behaviors. Tests 50 scenarios across 11 systems. No model consistently matches reference probabilities — a fundamental evaluation gap.</li>
+<li>Strategic: 8 | Innovation: 7 | 🔬 Research-only</li>
+</ul>
+<p>**5. <a href="https://arxiv.org/abs/2608.24885">WorldSync: Action Adherence as Embodied AI Alignment</a>**</p>
+<ul>
+<li>Research-driven analysis revealing that existing robotic world models handle expert trajectories but fail on diverse off-expert commands. Proposes alignment fix analogous to RLHF. Conceptual framework shift: action adherence = instruction following.</li>
+<li>Strategic: 8 | Innovation: 7 | 🧪 Early prototype</li>
+</ul>
+<p>**6. <a href="https://arxiv.org/abs/2608.22764">LeCun/Meta FAIR: The Case for Sparse World Model Representations</a>**</p>
+<ul>
+<li>Theoretical contribution proving sparse latent spaces are superior to dense for dynamics modeling. Mode-factorization in learned codes: support encodes regimes, magnitudes encode continuous state. Implications for the entire JEPA architecture family.</li>
+<li>Strategic: 9 | Innovation: 8 | 🔬 Research-only</li>
+</ul>
+<p>**7. <a href="https://arxiv.org/abs/2608.25927">Code World Model: Bridging Code and Video for Open-Ended Simulation</a>**</p>
+<ul>
+<li>Novel paradigm treating coding agents as world state managers that condition video models for visual rendering. Executable code maintains persistent state, ensuring rule-consistent evolution. Tested on game worlds and real footage.</li>
+<li>Strategic: 7 | Innovation: 7 | 🧪 Early prototype</li>
+</ul>
+<p>**8. <a href="https://arxiv.org/abs/2608.25518">Agentic Game Development as Verifiable Trajectory Engine</a>**</p>
+<ul>
+<li>NUS researchers propose using game engines as verification systems for world model training. Introduces RLHEV (RL with Human-Engine Verification) merging dense engine signals with human acceptance feedback. A new paradigm for grounded world model post-training.</li>
+<li>Strategic: 7 | Innovation: 7 | 🧪 Early prototype</li>
+</ul>
+<p>**9. <a href="https://z.ai/blog/glm-5.3-flash">Z.AI: GLM-5.3 and Ox Alpha Stealth Model</a>**</p>
+<ul>
+<li>New frontier LLM release with <a href="https://huggingface.co/zai-org/GLM-5.3">open weights</a>. <a href="https://www.bloomberg.com/news/articles/2026-08-26/china-s-z-ai-made-ox-alpha-stealth-model-that-rivals-deepseek">Bloomberg reports</a> Z.AI's Ox Alpha rivals DeepSeek. Relevant as LLM backbone for world model reasoning and planning.</li>
+<li>Strategic: 7 | Innovation: 6 | 🚀 Production-ready</li>
+</ul>
+<p>**10. <a href="https://arxiv.org/abs/2608.23691">Autonomous Mathematical Discovery in Multi-Agent Environments</a>**</p>
+<ul>
+<li>AI agents from different model families collaborate autonomously in "the Station" for shared mathematical research. Achieved novel results including new Kakeya sets and kissing configurations. Demonstrates multi-agent world-model-like reasoning in abstract mathematical spaces.</li>
+<li>Strategic: 6 | Innovation: 7 | 🔬 Research-only</li>
+</ul>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="blogs">🛠 ️ Engineering Blogs</h2>
+<table>
+<thead><tr><th>#</th><th>Post</th><th>Source</th><th>Signal</th><th>Key Insight</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">Post-Train Cosmos 3 Edge for On-Device Robot Control</a></td><td>NVIDIA</td><td>🚀</td><td>4B world model on Jetson Thor; ~1.53s action chunks; no cloud needed</td></tr>
+<tr><td>2</td><td><a href="https://arxiv.org/abs/2608.27033">Riemann-1.0 Technical Report</a></td><td>Riemann Team</td><td>🚀</td><td>200K+ hours training; unified policy + simulator; 99% LIBERO</td></tr>
+<tr><td>3</td><td><a href="https://arxiv.org/abs/2608.24101">TrAct: Visual Tracks Pipeline</a></td><td>Stanford</td><td>🧪</td><td>Three-component world model pipeline; 76% real-world success</td></tr>
+<tr><td>4</td><td><a href="https://arxiv.org/abs/2608.23189">EchoWM: Omnimodal World Model</a></td><td>JD.com</td><td>🧪</td><td>720p video + audio + 6-DoF navigation; omnimodal generation</td></tr>
+<tr><td>5</td><td><a href="https://arxiv.org/abs/2608.23565">ReWorld: Long-Horizon Memory Architecture</a></td><td>Alibaba TongyiLab</td><td>🧪</td><td>Pose-indexed landmark bank; minute-long trajectories; 12-chunk cache</td></tr>
+<tr><td>6</td><td><a href="https://arxiv.org/abs/2608.26200">GameWAM: Native Game Control</a></td><td>Tencent</td><td>🧪</td><td>First WAM for closed-loop gameplay; block-cycle planning</td></tr>
+<tr><td>7</td><td><a href="https://arxiv.org/abs/2608.26239">WALL-SS: Streaming Long-Horizon Simulation</a></td><td>WALL Team</td><td>🧪</td><td>Next-scale autoregression; bounded memory for minute-long rollouts</td></tr>
+<tr><td>8</td><td><a href="https://arxiv.org/abs/2608.18484">SparsePR: Training-Free Sparse Attention</a></td><td>Texas A&M</td><td>🧪</td><td>1.48-2.61x speedup for video generation and world models; 22-26% pair density</td></tr>
+<tr><td>9</td><td><a href="https://arxiv.org/abs/2608.27168">Magpie: Real-Time World Renderer</a></td><td>Magpie Team</td><td>🧪</td><td>Decoupled game engine + generative rendering; reduced asset dependency</td></tr>
+<tr><td>10</td><td><a href="https://arxiv.org/abs/2608.24680">Game2World Engine: Cleaning Gameplay Video</a></td><td>Game2World Team</td><td>🧪</td><td>UI removal pipeline; 95.36 AAR; +6.83% VideoReward for WM training</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="github">📦 GitHub Projects</h2>
+<details><summary>GitHub Projects</summary><div class="details-content"><table>
+<thead><tr><th>Project</th><th>Stars</th><th>This Week</th><th>Category</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a></td><td>NEW</td><td>Paper + code release</td><td>World Action Model; 99% LIBERO</td></tr>
+<tr><td><a href="https://github.com/pollen-robotics/microduck_rl">pollen-robotics/microduck_rl</a></td><td>2,500+</td><td>+783 HN points; sustained interest</td><td>Sim2Real bipedal robotics</td></tr>
+<tr><td><a href="https://huggingface.co/">HuggingFace</a></td><td>—</td><td>NVIDIA $13B acquisition</td><td>Model hub / ecosystem</td></tr>
+<tr><td><a href="https://huggingface.co/zai-org/GLM-5.3">zai-org/GLM-5.3</a></td><td>NEW</td><td>Open-weight release; 805 HN points</td><td>Frontier LLM (WM backbone)</td></tr>
+<tr><td><a href="https://github.com/google-research/timesfm">google-research/timesfm</a></td><td>33,800+</td><td>Continued growth post-v3.0</td><td>Temporal dynamics forecasting</td></tr>
+<tr><td><a href="https://github.com/danijar/dreamerv3">DreamerV3</a></td><td>—</td><td>Cited as baseline by LeFlow, Flow-JEPA</td><td>Model-based RL reference</td></tr>
+</tbody></table>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="media">🎙 ️ Videos & Podcasts</h2>
+<details><summary>️ Videos & Podcasts</summary><div class="details-content"><p>**1. <a href="https://arxiv.org/abs/2608.23691">Autonomous Mathematical Discovery in Multi-Agent Environments</a>** (HN discussion, Aug 28, 122 points)</p>
+<ul>
+<li>Multi-agent AI systems collaborating in open-world mathematical research. Novel results in Kakeya sets and kissing configurations. Demonstrates agent coordination for abstract reasoning — a world-model-adjacent capability.</li>
+<li>**Relevance: 7**</li>
+</ul>
+<p>**2. <a href="https://www.terminal-bench-science.ai/announcement">Terminal-Bench-Science: Evaluating AI Agents on Scientific Workflows</a>** (HN discussion, Aug 28, 117 points)</p>
+<ul>
+<li>New benchmark for AI agents on scientific research workflows. Relevant to world model evaluation — agents that can simulate and reason about scientific experiments.</li>
+<li>**Relevance: 6**</li>
+</ul>
+<p>**3. <a href="https://coldtake.dev/blog/domain-driven-agents">Domain-Driven Agents</a>** (HN discussion, Aug 29, 96 points)</p>
+<ul>
+<li>Architectural patterns for domain-specific agent systems. Discusses state management and planning — core world model concerns applied to software agents.</li>
+<li>**Relevance: 6**</li>
+</ul>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="community">💬 Community Insights</h2>
+<h3>Consensus</h3>
+<ul>
+<li>**World Action Models (WAMs) are the dominant paradigm** — <a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>, <a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a>, <a href="https://arxiv.org/abs/2608.24882">LAWA</a>, <a href="https://arxiv.org/abs/2608.26200">GameWAM</a>, <a href="https://arxiv.org/abs/2608.22403">LD4WAM</a>, and <a href="https://arxiv.org/abs/2608.26239">WALL-SS</a> all unify prediction and action in a single model. The term "WAM" appears in 6+ papers this week, displacing "world model" alone.</li>
+<li>**In-context learning extends to embodied AI** — <a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a>'s human video in-context learning and <a href="https://arxiv.org/abs/2608.26200">GameWAM</a>'s block-cycle replanning both show world models adopting LLM-style generalization patterns.</li>
+<li>**Gaming is the world model training ground** — <a href="https://arxiv.org/abs/2608.26200">GameWAM</a>, <a href="https://arxiv.org/abs/2608.25518">Agentic Game Development</a>, <a href="https://arxiv.org/abs/2608.24680">Game2World Engine</a>, <a href="https://arxiv.org/abs/2608.25927">Code World Model</a>, <a href="https://arxiv.org/abs/2608.27168">Magpie</a>, and <a href="https://arxiv.org/abs/2608.21439">WorldMind</a> all use game environments. Games provide controlled, verifiable dynamics — the ideal substrate for world model research.</li>
+</ul>
+<h3>Disagreements</h3>
+<ul>
+<li>**Dense vs. sparse representations** — <a href="https://arxiv.org/abs/2608.22764">LpWM</a> (LeCun/FAIR) argues sparse is fundamentally better; the majority of WAM papers this week still use dense representations. Is sparsity the next paradigm or a niche finding?</li>
+<li>**State feedback necessity** — <a href="https://arxiv.org/abs/2608.23070">From Generation to Simulation</a> argues 6/163 papers having state feedback is a critical gap. Counter-argument: <a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a> achieves 99% LIBERO without explicit state feedback interfaces. Does end-to-end scale make structured state unnecessary?</li>
+<li>**Human video as training data** — <a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a> and <a href="https://arxiv.org/abs/2608.22403">LD4WAM</a> leverage human videos for robot training. Skeptics note the embodiment gap remains large — 47% absolute success suggests the bridge is incomplete.</li>
+</ul>
+<h3>Emerging Viewpoints</h3>
+<ul>
+<li>**Action adherence as alignment** — <a href="https://arxiv.org/abs/2608.24885">WorldSync</a>'s framing of action-following failures as analogous to LLM instruction-following failures is gaining traction. Expect "world model alignment" to become a subfield.</li>
+<li>**NVIDIA vertical integration** — The <a href="https://www.businessinsider.com/nvidia-hugging-face-acquisition-13-billion-2026">Hugging Face acquisition</a> signals NVIDIA wants to own the full stack from silicon to model distribution. Community debate on <a href="https://news.ycombinator.com/">HN</a> centered on open-source implications.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="themes">📈 Emerging Themes</h2>
+<ol>
+<li>**World Action Model (WAM) paradigm dominance** — 6+ papers this week use "WAM" framing (<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>, <a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a>, <a href="https://arxiv.org/abs/2608.24882">LAWA</a>, <a href="https://arxiv.org/abs/2608.26200">GameWAM</a>, <a href="https://arxiv.org/abs/2608.22403">LD4WAM</a>, <a href="https://arxiv.org/abs/2608.26239">WALL-SS</a>), unifying prediction and policy execution in a single model</li>
+<li>**Sparse vs. dense representation debate** — <a href="https://arxiv.org/abs/2608.22764">LpWM</a> from Meta FAIR/LeCun provides theoretical + empirical evidence that sparse latent spaces outperform dense for JEPA dynamics modeling (57% improvement)</li>
+<li>**Action adherence as embodied alignment** — <a href="https://arxiv.org/abs/2608.24885">WorldSync</a> frames action-following failures as analogous to LLM instruction-following alignment, with a similar fix (data expansion + forcing + synchronization)</li>
+<li>**Gaming as world model substrate (week 2)** — 6 papers use game environments for world model training/evaluation (<a href="https://arxiv.org/abs/2608.26200">GameWAM</a>, <a href="https://arxiv.org/abs/2608.25518">Agentic Game Dev</a>, <a href="https://arxiv.org/abs/2608.24680">Game2World</a>, <a href="https://arxiv.org/abs/2608.25927">Code World Model</a>, <a href="https://arxiv.org/abs/2608.27168">Magpie</a>, <a href="https://arxiv.org/abs/2608.21439">WorldMind</a>)</li>
+<li>**Long-horizon memory architectures** — <a href="https://arxiv.org/abs/2608.23565">ReWorld</a> (12-chunk landmark bank), <a href="https://arxiv.org/abs/2608.26239">WALL-SS</a> (next-scale autoregression), and <a href="https://arxiv.org/abs/2608.23189">EchoWM</a> (6-DoF navigation) all tackle minute-plus coherent generation</li>
+<li>**In-context learning for embodied AI** — <a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a> extends LLM-style in-context learning to robot manipulation via human video demonstrations</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="trends">📊 Trend Tracking Over Time</h2>
+<table>
+<thead><tr><th>Theme</th><th>First Noted</th><th>Consecutive Weeks</th><th>Momentum</th></tr></thead><tbody>
+<tr><td>JEPA paradigm dominance</td><td>WK30</td><td>6 (WK30–WK35)</td><td>📈 Accelerating — 5 new variants (LpWM, Flow-JEPA, JEPA-x, Point Cloud JEPA, M-JEPA)</td></tr>
+<tr><td>Search-free world model deployment</td><td>WK30</td><td>6</td><td>➡️ Stable — no new papers but pattern referenced</td></tr>
+<tr><td>Dynamics-centric supervision</td><td>WK30</td><td>6</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2608.24044">JEPA-x</a> cross-predictive physics grounding</td></tr>
+<tr><td>World model security</td><td>WK30</td><td>6</td><td>➡️ Stable — no new papers this week</td></tr>
+<tr><td>Code as world model</td><td>WK30</td><td>6</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2608.25927">Code World Model</a> explicitly bridges code + video</td></tr>
+<tr><td>Hybrid classical + generative</td><td>WK30</td><td>6</td><td>➡️ Stable</td></tr>
+<tr><td>Multi-modal world models</td><td>WK30</td><td>6</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2608.23189">EchoWM</a> omnimodal (video+audio+speech+6DoF)</td></tr>
+<tr><td>LLMs as implicit world models</td><td>WK30</td><td>6</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2608.25927">Code World Model</a> uses LM as world state manager</td></tr>
+<tr><td>Continuous-time world models</td><td>WK31</td><td>5</td><td>➡️ Stable — <a href="https://arxiv.org/abs/2608.29029">Flow-JEPA</a> uses flow matching but discrete time</td></tr>
+<tr><td>Context Collapse in WMs</td><td>WK31</td><td>5</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2608.22764">LpWM</a> sparse representations prevent collapse</td></tr>
+<tr><td>Mental world modeling</td><td>WK31</td><td>5</td><td>➡️ Stable — no new papers</td></tr>
+<tr><td>Environment co-evolution</td><td>WK31</td><td>5</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2608.25518">Agentic Game Dev</a> game engines as verification</td></tr>
+<tr><td>Action-conditioned video WMs</td><td>WK34</td><td>2</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2608.24885">WorldSync</a> diagnoses action adherence failures</td></tr>
+<tr><td>WM-guided test-time compute</td><td>WK34</td><td>2</td><td>➡️ Stable — no new papers; pattern referenced</td></tr>
+<tr><td>World model benchmarking</td><td>WK34</td><td>2</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2608.27345">PAWBench</a> adds probabilistic alignment; <a href="https://arxiv.org/abs/2608.23070">survey</a> adds 8 capability dimensions</td></tr>
+<tr><td>Physical AI funding surge</td><td>WK34</td><td>2</td><td>📈 Accelerating — NVIDIA $13B HuggingFace acquisition adds to <a href="https://news.crunchbase.com/venture/physical-ai-funding-startups-robotics-aerospace-h1-2026/">$47.4B H1 wave</a></td></tr>
+<tr><td>**WAM paradigm (unified policy+simulator)**</td><td>**WK35**</td><td>**1**</td><td>**📈 NEW — <a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a> 99% LIBERO; 6+ WAM papers**</td></tr>
+<tr><td>**Sparse world model representations**</td><td>**WK35**</td><td>**1**</td><td>**📈 NEW — <a href="https://arxiv.org/abs/2608.22764">LpWM</a> (LeCun/FAIR) proves sparse > dense**</td></tr>
+<tr><td>**Action adherence alignment**</td><td>**WK35**</td><td>**1**</td><td>**📈 NEW — <a href="https://arxiv.org/abs/2608.24885">WorldSync</a> frames as embodied RLHF**</td></tr>
+<tr><td>**In-context embodied learning**</td><td>**WK35**</td><td>**1**</td><td>**📈 NEW — <a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a> extends ICL to robot control**</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-1">🏗 ️ Implications for Search, Recommendation & Ads</h2>
+<ol>
+<li>**In-context task generalization for recommendation** — <a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a>'s in-context learning from human demonstrations maps directly to recommendation: use historical user session "demonstrations" as in-context examples to predict behavior in new contexts without retraining.</li>
+</ol>
+<ol>
+<li>**Sparse user state representations** — <a href="https://arxiv.org/abs/2608.22764">LpWM</a>'s proof that sparse latent spaces outperform dense for dynamics modeling has direct implications for user modeling. Sparse user embeddings where support encodes behavioral modes and magnitudes encode engagement intensity could improve sequential recommendation.</li>
+</ol>
+<ol>
+<li>**Action adherence for counterfactual evaluation** — <a href="https://arxiv.org/abs/2608.24885">WorldSync</a>'s diagnosis that world models ignore non-expert commands mirrors a core problem in offline evaluation: recommendation models trained on logged policies fail to predict outcomes for novel ranking strategies. The WorldSync alignment recipe (data expansion + forcing + synchronization) maps to improved off-policy evaluation.</li>
+</ol>
+<ol>
+<li>**Long-horizon user session modeling** — <a href="https://arxiv.org/abs/2608.23565">ReWorld</a>'s pose-indexed landmark bank and <a href="https://arxiv.org/abs/2608.26239">WALL-SS</a>'s next-scale autoregression both solve coherent long-sequence generation with bounded memory. Apply to long user sessions: retrieve relevant historical interaction "landmarks" for personalization without storing full histories.</li>
+</ol>
+<ol>
+<li>**Probabilistic alignment for A/B testing** — <a href="https://arxiv.org/abs/2608.27345">PAWBench</a> shows no video model captures the full distribution of possible behaviors. Similarly, recommendation A/B tests must capture distributional effects, not just mean outcomes. PAWBench's evaluation protocol could inspire better offline recommendation evaluation.</li>
+</ol>
+<p>**Action items:**</p>
+<ul>
+<li>Prototype <a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a> in-context patterns for session-based recommendation</li>
+<li>Evaluate <a href="https://arxiv.org/abs/2608.22764">LpWM</a> sparse embeddings for user state modeling</li>
+<li>Apply <a href="https://arxiv.org/abs/2608.24885">WorldSync</a> alignment recipe to off-policy recommendation evaluation</li>
+<li>Adopt <a href="https://arxiv.org/abs/2608.27345">PAWBench</a> distributional evaluation for recommendation counterfactuals</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-2">🔍 Implications for Agentic AI & Planning</h2>
+<ol>
+<li>**Unified policy + simulator collapses the planning stack** — <a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a> demonstrates that a single WAM can serve as both the policy (what to do) and the simulator (what happens if). For agent architectures, this eliminates the traditional separation between "world model for lookahead" and "policy for execution" — a single model does both.</li>
+</ol>
+<ol>
+<li>**Amortized planning via flow matching** — <a href="https://arxiv.org/abs/2608.24855">LeFlow</a> shows that planning costs can be amortized by learning a reusable trajectory prior. Instead of optimizing from scratch at each decision point, agents can generate candidate plans in one shot. Order-of-magnitude speedup enables real-time agent planning.</li>
+</ol>
+<ol>
+<li>**Visual tracks as universal agent observations** — <a href="https://arxiv.org/abs/2608.24101">TrAct</a>'s visual tracks provide an embodiment-agnostic intermediate representation. For web/GUI agents, this principle translates to tracking visual elements across interface states — a "visual track" of buttons, text fields, and UI components as the agent navigates.</li>
+</ol>
+<ol>
+<li>**Action adherence as agent reliability** — <a href="https://arxiv.org/abs/2608.24885">WorldSync</a>'s finding that world models ignore non-standard actions directly affects agent planning: if the world model used for lookahead doesn't faithfully simulate novel action sequences, the agent's plans will be systematically optimistic. Aligning world model action adherence is prerequisite for reliable agent planning.</li>
+</ol>
+<ol>
+<li>**Physics grounding prevents planning hallucination** — <a href="https://arxiv.org/abs/2608.24044">JEPA-x</a> grounds latent dynamics in physical trajectories, reducing rollout drift from 0.361 to 0.104. For agents planning in physical environments, ungrounded world models hallucinate feasible-looking but physically impossible plans. Cross-predictive grounding is a fix.</li>
+</ol>
+<p>**Action items:**</p>
+<ul>
+<li>Evaluate <a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a> unified WAM architecture for agent planning systems</li>
+<li>Adopt <a href="https://arxiv.org/abs/2608.24855">LeFlow</a> amortized planning for real-time agent decision-making</li>
+<li>Apply <a href="https://arxiv.org/abs/2608.24885">WorldSync</a> action adherence testing to agent world models before deployment</li>
+<li>Implement <a href="https://arxiv.org/abs/2608.24044">JEPA-x</a> physics grounding for physical agent planning</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="watchlist">👀 Watch List</h2>
+<div class="watch-list-box"><table>
+<thead><tr><th>Technology</th><th>First Noted</th><th>Status</th><th>This Week's Movement</th></tr></thead><tbody>
+<tr><td>Search-free world models (<a href="https://arxiv.org/abs/2607.26056">INTACT</a>)</td><td>WK30</td><td>🚀 Breakout</td><td>Stable; pattern established</td></tr>
+<tr><td>JEPA for planning (<a href="https://arxiv.org/abs/2607.25337">TD-JEPA</a>)</td><td>WK30</td><td>🚀 Breakout</td><td>5 new JEPA variants; <a href="https://arxiv.org/abs/2608.22764">LpWM</a> proves sparse > dense</td></tr>
+<tr><td>Code as world model (<a href="https://arxiv.org/abs/2607.25236">VisualPatchWorld</a>)</td><td>WK30</td><td>🧪 Early → 📈 Growing</td><td><a href="https://arxiv.org/abs/2608.25927">Code World Model</a> explicitly uses code as world state</td></tr>
+<tr><td>World model security (<a href="https://arxiv.org/abs/2607.23147">False Prophets</a>)</td><td>WK30</td><td>🚀 Breakout</td><td>Stable</td></tr>
+<tr><td>Hybrid physics + generative (<a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">NVIDIA Cosmos</a>)</td><td>WK30</td><td>🚀 Breakout</td><td><a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">Cosmos 3 Edge</a> ships on-device; $13B HF acquisition</td></tr>
+<tr><td>Visuo-tactile world models (<a href="https://arxiv.org/abs/2607.24267">FeelWorld</a>)</td><td>WK30</td><td>🧪 Early</td><td>No new evidence</td></tr>
+<tr><td>Video world models at interactive speed</td><td>WK30</td><td>🧪 Early → 📈 Growing</td><td><a href="https://arxiv.org/abs/2608.27168">Magpie</a> real-time game rendering; <a href="https://arxiv.org/abs/2608.23189">EchoWM</a> omnimodal</td></tr>
+<tr><td>World model serving (<a href="https://arxiv.org/abs/2607.21686">PCS</a>)</td><td>WK30</td><td>🚀 Breakout</td><td>Stable</td></tr>
+<tr><td>Continuous-time world models (<a href="https://arxiv.org/abs/2607.27924">ODEWorld</a>)</td><td>WK31</td><td>🔬 Research → 🧪 Early</td><td><a href="https://arxiv.org/abs/2608.29029">Flow-JEPA</a> uses flow matching for trajectory-level generation</td></tr>
+<tr><td>Context Collapse diagnosis (<a href="https://arxiv.org/abs/2607.26712">ActSWM</a>)</td><td>WK31</td><td>🧪 Early → 📈 Growing</td><td><a href="https://arxiv.org/abs/2608.22764">LpWM</a> sparse representations prevent collapse; <a href="https://arxiv.org/abs/2608.24044">JEPA-x</a> physics grounding prevents co-adaptation</td></tr>
+<tr><td>Mental world modeling (<a href="https://arxiv.org/abs/2607.27201">MENTIS</a>)</td><td>WK31</td><td>🔬 Research</td><td>No new papers</td></tr>
+<tr><td>Environment co-evolution (<a href="https://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/">Echoverse</a>)</td><td>WK31</td><td>🧪 Early → 📈 Growing</td><td><a href="https://arxiv.org/abs/2608.25518">Agentic Game Dev</a> game engines as verification</td></tr>
+<tr><td>Action-conditioned video WMs (<a href="https://arxiv.org/abs/2608.13489">DreamX-Phi</a>)</td><td>WK34</td><td>🧪 Early → 📈 Growing</td><td><a href="https://arxiv.org/abs/2608.24885">WorldSync</a> diagnoses action adherence failures; 6+ WAM papers</td></tr>
+<tr><td>WM-guided test-time compute (<a href="https://arxiv.org/abs/2608.16885">tau-zero-VLA</a>)</td><td>WK34</td><td>🧪 Early</td><td>Stable; pattern referenced but no new work</td></tr>
+<tr><td>World model benchmarking (<a href="https://arxiv.org/abs/2608.13552">PlayWorld</a>)</td><td>WK34</td><td>🧪 Early → 📈 Growing</td><td><a href="https://arxiv.org/abs/2608.27345">PAWBench</a> adds probabilistic alignment; <a href="https://arxiv.org/abs/2608.23070">survey</a> adds 8 capabilities</td></tr>
+<tr><td>**WAM paradigm (<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>)**</td><td>**WK35**</td><td>**🧪 Early**</td><td>**NEW: 99% LIBERO; unified policy + simulator; 6+ papers**</td></tr>
+<tr><td>**Sparse world model representations (<a href="https://arxiv.org/abs/2608.22764">LpWM</a>)**</td><td>**WK35**</td><td>**🔬 Research**</td><td>**NEW: LeCun/FAIR; theoretical proof + 57% improvement**</td></tr>
+<tr><td>**Action adherence alignment (<a href="https://arxiv.org/abs/2608.24885">WorldSync</a>)**</td><td>**WK35**</td><td>**🧪 Early**</td><td>**NEW: Embodied RLHF analog; diagnostic + fix**</td></tr>
+</tbody></table>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="contrarian">🔮 Contrarian View</h2>
+<div class="contrarian"><h3>What the field may be overestimating</h3>
+<ul>
+<li>**WAM scale as sufficient** — <a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>'s 99% LIBERO is impressive but 62.6% on long-horizon <a href="https://arxiv.org/abs/2608.27033">RoboCasa-365</a> reveals that scale alone does not solve compositionality. The field may be over-indexing on benchmark ceilings while under-investing in robust long-horizon reasoning. 200K+ hours of training data is not available to most teams.</li>
+<li>**Gaming as generalizable training substrate** — Six papers this week use game environments (<a href="https://arxiv.org/abs/2608.26200">GameWAM</a>, <a href="https://arxiv.org/abs/2608.25518">Agentic Game Dev</a>, <a href="https://arxiv.org/abs/2608.24680">Game2World</a>, <a href="https://arxiv.org/abs/2608.25927">Code World Model</a>, <a href="https://arxiv.org/abs/2608.27168">Magpie</a>, <a href="https://arxiv.org/abs/2608.21439">WorldMind</a>). Game physics are simplified and deterministic — world models trained primarily on games may develop systematic biases when transferred to real-world physical dynamics.</li>
+<li>**Omnimodal completeness** — <a href="https://arxiv.org/abs/2608.23189">EchoWM</a> generates video + sound + music + speech. But evaluation metrics for cross-modal coherence are essentially nonexistent. The field may be adding modalities faster than it can evaluate whether they are coherent.</li>
+</ul>
+<h3>What the field may be underestimating</h3>
+<ul>
+<li>**Sparse representations** — <a href="https://arxiv.org/abs/2608.22764">LpWM</a> (LeCun/FAIR) demonstrates 57% improvement with theoretical backing. Yet no other WK35 paper adopts sparse latent spaces. The dense representation default may be costing the field substantial planning performance across all world model architectures.</li>
+<li>**Action adherence as a systemic failure** — <a href="https://arxiv.org/abs/2608.24885">WorldSync</a> shows world models trained on expert data systematically ignore non-standard commands. This means every world model used for planning or counterfactual evaluation may be producing systematically optimistic predictions when evaluating novel strategies.</li>
+<li>**State feedback gap** — <a href="https://arxiv.org/abs/2608.23070">From Generation to Simulation</a>'s finding that only 6/163 papers provide runtime state interfaces suggests most world models are opaque black boxes. Without structured state feedback, debugging, safety verification, and compositional reasoning remain impossible — yet this capability is rarely discussed.</li>
+<li>**Probabilistic alignment** — <a href="https://arxiv.org/abs/2608.27345">PAWBench</a> reveals no model captures the full distribution of possible outcomes. For safety-critical applications (autonomous driving, medical), mode collapse in world model predictions could mask dangerous edge cases.</li>
+</ul>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="strategy">🧭 Strategic Analysis</h2>
+<h3>Short-term (0-6 months)</h3>
+<ul>
+<li>WAM architecture (<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a> pattern) becomes default for new robotic world model projects, displacing separate world model + policy pipelines</li>
+<li><a href="https://arxiv.org/abs/2608.24885">WorldSync</a> action adherence testing adopted as standard evaluation for robotic world models before deployment</li>
+<li><a href="https://arxiv.org/abs/2608.24101">TrAct</a> visual tracks adopted as intermediate representation for embodiment-agnostic world models</li>
+<li><a href="https://arxiv.org/abs/2608.24855">LeFlow</a> amortized planning replaces iterative optimization in latency-sensitive applications</li>
+<li>NVIDIA <a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">Cosmos</a> + <a href="https://huggingface.co/">Hugging Face</a> integration accelerates world model distribution</li>
+</ul>
+<h3>Mid-term (6-18 months)</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/2608.22764">LpWM</a> sparse representations adopted broadly, shifting JEPA ecosystem from dense to sparse latent spaces</li>
+<li>State feedback interfaces become standard following <a href="https://arxiv.org/abs/2608.23070">survey</a> recommendations; world models gain runtime query APIs</li>
+<li><a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a> in-context learning pattern enables non-expert robot task specification from human demonstrations at scale</li>
+<li><a href="https://arxiv.org/abs/2608.27345">PAWBench</a> probabilistic alignment becomes mandatory evaluation for safety-critical world models</li>
+</ul>
+<h3>Long-term (2-5 years)</h3>
+<ul>
+<li>WAMs (<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a> lineage) become the default physical AI architecture — policy, simulator, and planner unified in one model</li>
+<li>Sparse, factorized world model representations (<a href="https://arxiv.org/abs/2608.22764">LpWM</a> + <a href="https://arxiv.org/abs/2608.20065">Orthogonal JEPA</a> from WK34) enable compositional reasoning about dynamics</li>
+<li>World model alignment (<a href="https://arxiv.org/abs/2608.24885">WorldSync</a> lineage) matures into a safety discipline parallel to LLM alignment</li>
+<li>NVIDIA vertical integration (silicon + Cosmos + HuggingFace) creates a dominant world model training-to-deployment platform</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="relevance">🎯 Personalized Relevance</h2>
+<table>
+<thead><tr><th>Development</th><th>Relevance Areas</th><th>Score</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a> (unified WAM)</td><td>World Models, Agentic AI, Planning</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a> (in-context embodied)</td><td>Agentic AI, World Models, Training methodology</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.22764">LpWM</a> (sparse representations)</td><td>World Models, Architecture design, JEPA</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.24101">TrAct</a> (visual tracks)</td><td>World Models, Agent observation, Robotics</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.24885">WorldSync</a> (action alignment)</td><td>Evaluation frameworks, World Models, Safety</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.23070">From Generation to Simulation</a> (survey)</td><td>Evaluation frameworks, Architecture decisions</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.24044">JEPA-x</a> (physics grounding)</td><td>World Models, JEPA, Planning quality</td><td>8</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.24855">LeFlow</a> (amortized planning)</td><td>Planning, Agent architecture, Speed</td><td>8</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2608.27345">PAWBench</a> (probabilistic benchmark)</td><td>Evaluation frameworks, World Models</td><td>8</td></tr>
+<tr><td><a href="https://www.businessinsider.com/nvidia-hugging-face-acquisition-13-billion-2026">NVIDIA-HuggingFace $13B</a></td><td>Business strategy, Infrastructure</td><td>8</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="recommendations">✅ Recommendations</h2>
+<h3>For Research Scientists</h3>
+<ol>
+<li>**Read <a href="https://arxiv.org/abs/2608.22764">LpWM</a> carefully** — LeCun/FAIR's proof that sparse representations outperform dense is the most important theoretical contribution this week. Evaluate switching your JEPA world models from dense to sparse latent spaces.</li>
+<li>**Adopt <a href="https://arxiv.org/abs/2608.24044">JEPA-x</a> cross-predictive grounding** if you have access to privileged physics data during training. Rollout drift reduction from 0.361 to 0.104 is substantial.</li>
+<li>**Benchmark with <a href="https://arxiv.org/abs/2608.27345">PAWBench</a>** — test whether your world model captures the full distribution of possible outcomes, not just the most likely one.</li>
+<li>**Read <a href="https://arxiv.org/abs/2608.23070">From Generation to Simulation</a>** before making any decision to replace a physics simulator with a learned world model. The 6/163 state feedback finding should inform your architecture.</li>
+<li>**Investigate <a href="https://arxiv.org/abs/2608.24855">LeFlow</a> amortized planning** as an alternative to iterative optimization in world model planning loops.</li>
+</ol>
+<h3>For Applied Scientists & Engineers</h3>
+<ol>
+<li>**Follow the <a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a> pattern** for new WAM projects — unified policy + simulator trained on cross-embodiment data is the new baseline.</li>
+<li>**Adopt <a href="https://arxiv.org/abs/2608.24101">TrAct</a> visual tracks** as an intermediate representation — the 49% to 76% real-world improvement comes from solving the action-visual alignment problem.</li>
+<li>**Run <a href="https://arxiv.org/abs/2608.24885">WorldSync</a> diagnostics** on your existing world models — they may be ignoring non-standard actions and producing optimistic simulations.</li>
+<li>**Deploy <a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">Cosmos 3 Edge</a>** for on-device robot control — the Jetson Thor deployment pattern eliminates cloud dependency.</li>
+<li>**Use <a href="https://arxiv.org/abs/2608.24680">Game2World Engine</a>** to clean gameplay training data — +6.83% VideoReward from UI removal alone.</li>
+</ol>
+<h3>For Search & Ads Teams</h3>
+<ol>
+<li>**Prototype <a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a> in-context patterns** for session-based recommendation — use historical sessions as "demonstrations" for new user prediction.</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2608.22764">LpWM</a> sparse embeddings** for user state modeling — sparse representations may improve sequential recommendation dynamics.</li>
+<li>**Apply <a href="https://arxiv.org/abs/2608.24885">WorldSync</a> alignment testing** to offline evaluation models — ensure counterfactual simulations faithfully follow the evaluated policy.</li>
+<li>**Read <a href="https://arxiv.org/abs/2608.27345">PAWBench</a>** — distributional evaluation applies directly to recommendation A/B test design.</li>
+<li>**Track NVIDIA-HuggingFace implications** — tighter Cosmos + HF integration may affect world model deployment options for search/ads inference.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="takeaways">🏆 Executive Takeaways</h2>
+<h3>Top 5 Technical Advances</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>** — Unified WAM: 99% LIBERO, 94.3% RoboTwin2.0; policy + simulator in one model | 25 min</li>
+<li>**<a href="https://arxiv.org/abs/2608.22764">LpWM</a>** — Meta FAIR/LeCun: sparse > dense for world models; 57% planning improvement; theoretical proof | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2608.24101">TrAct</a>** — Visual tracks: embodiment-agnostic bridge; 49% to 76% real-world robot success | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a>** — In-context embodied learning from human video; +29.5pp generalization | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2608.23070">From Generation to Simulation</a>** — 200-paper survey: only 6/163 papers have state feedback; 6 research priorities | 30 min</li>
+</ol>
+<h3>Top 5 Business Developments</h3>
+<ol>
+<li>**<a href="https://www.businessinsider.com/nvidia-hugging-face-acquisition-13-billion-2026">NVIDIA acquires Hugging Face for $13B</a>** — Largest AI infrastructure deal of 2026; vertical integration for world model stack</li>
+<li>**<a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">Cosmos 3 Edge ships on-device</a>** — First production on-device world model; 4B params on Jetson Thor</li>
+<li>**<a href="https://huggingface.co/zai-org/GLM-5.3">GLM-5.3 open-weight release</a>** — Z.AI competes with DeepSeek; frontier LLM ecosystem expands</li>
+<li>**<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a> benchmark results** — 99% LIBERO validates WAM as production architecture</li>
+<li>**<a href="https://news.crunchbase.com/venture/physical-ai-funding-startups-robotics-aerospace-h1-2026/">Continued physical AI momentum</a>** — $47.4B H1 2026 + NVIDIA acquisition signals sustained investment</li>
+</ol>
+<h3>Top 5 Must-Read Resources</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>** — Unified world action model at scale | 25 min</li>
+<li>**<a href="https://arxiv.org/abs/2608.22764">LpWM</a>** — Sparse representations for JEPA world models | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2608.23070">From Generation to Simulation</a>** — Definitive WM capability gap analysis | 30 min</li>
+<li>**<a href="https://arxiv.org/abs/2608.24101">TrAct</a>** — Visual tracks for embodiment-agnostic planning | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2608.24885">WorldSync</a>** — Action adherence as embodied alignment | 20 min</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="next-week">📌 What Leaders Should Do Next Week</h2>
+<ol>
+<li>**Read <a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>** — the unified WAM architecture (policy + simulator) is the new standard for physical AI projects</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2608.22764">LpWM</a> sparse representations** for your JEPA world models — 57% planning improvement with theoretical backing from LeCun/FAIR</li>
+<li>**Run <a href="https://arxiv.org/abs/2608.24885">WorldSync</a> diagnostics** on existing world models — action adherence failures may be silently producing optimistic simulations</li>
+<li>**Read <a href="https://arxiv.org/abs/2608.23070">From Generation to Simulation</a>** before any simulator replacement decision — the 6/163 state feedback finding is a critical design constraint</li>
+<li>**Prototype <a href="https://arxiv.org/abs/2608.24101">TrAct</a> visual tracks** as intermediate representations for your world model pipelines — embodiment-agnostic, geometrically interpretable</li>
+<li>**Assess NVIDIA-HuggingFace implications** — the $13B acquisition consolidates the world model infrastructure stack; evaluate vendor dependency</li>
+<li>**Test <a href="https://arxiv.org/abs/2608.27345">PAWBench</a> probabilistic evaluation** on your world models — distributional accuracy matters for safety-critical applications</li>
+<li>**Explore <a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a> in-context learning** for reducing task-specific retraining — human video demonstrations as robot task specifications</li>
+</ol>
+<hr class="section-divider">
+<p>*Report generated: September 5, 2026 | Covering: August 23-29, 2026 (WK35)*</p>
+<p>*Topic: World Models | Sources: arXiv cs.LG/cs.AI/cs.RO, NVIDIA Developer, HuggingFace Papers, Hacker News, Google Scholar*</p>
+<p>*Prior reports: <a href="world-models-2026-07-WK30-news.md">WK30</a>, <a href="world-models-2026-08-WK31-news.md">WK31</a>, <a href="world-models-2026-08-WK34-news.md">WK34</a> | Next report: WK36*</p>
+<hr class="section-divider">
+<div class="meta"><p>Generated by render_html.py from markdown source.</p></div>
+</main>
+</div>
+<script>window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+    const btn = document.getElementById('backToTop');
+    btn.classList.toggle('visible', winScroll > 400);
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));</script>
+</body>
+</html>
