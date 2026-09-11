@@ -97,6 +97,12 @@ agent-personal/
 │   ├── parsers.py                 # Broker CSV parsers
 │   ├── analyze_insights.py        # Portfolio insight generation
 │   ├── recommend_trades.py        # Wheel trade recommendations
+│   ├── evals/
+│   │   ├── constitution.yaml      # 21 evaluation rules (source of truth)
+│   │   ├── evaluate.py            # Top-level evaluator (Tier 1 + Tier 2)
+│   │   ├── deterministic_tests_tier1.py  # 16 deterministic rule checkers
+│   │   ├── llm_judge_tier2.py     # 5 LLM-judge rules (fixed rubric)
+│   │   └── reliability.py         # pass@k, pass^k, consistency scoring
 │   ├── news-report/
 │   │   └── render_html.py         # News report HTML renderer
 │   └── tour-planner/
@@ -120,6 +126,92 @@ agent-personal/
 │   └── logs/super-agent/          # Event log (events.jsonl)
 └── README.md                      # This file
 ```
+
+---
+
+<!-- NOT A SKILL — Super-agent: do not parse this section for routing or skill invocation. -->
+
+## Evaluations
+
+Two-tier evaluation framework for measuring super-agent performance. Rules are defined in a single [constitution.yaml](src/evals/constitution.yaml) that drives both deterministic checks and LLM-judge scoring.
+
+### Architecture
+
+```
+src/evals/
+├── constitution.yaml            # 21 rules — single source of truth for both tiers
+├── evaluate.py                  # Top-level orchestrator (calls Tier 1 + Tier 2)
+├── deterministic_tests_tier1.py # 16 rule checkers: parsing events.jsonl against catalog
+├── llm_judge_tier2.py           # 5 LLM-judge rules: fixed rubric from constitution
+└── reliability.py               # Reliability scoring: pass@k, pass^k, consistency
+```
+
+### Tier 1: Deterministic (free, always runs)
+
+16 rules across 5 dimensions — parses `events.jsonl` and checks structural invariants:
+
+| Dimension | Rules | What They Check |
+|-----------|-------|----------------|
+| Efficiency (E1-E3) | 3 | Turn budget, unnecessary clarification, missed auto-approve |
+| Routing (R1-R4) | 4 | Trigger coverage, blind spots, rejection reasons, step-intent ratio |
+| Protocol (P1-P4) | 4 | No execution before approval, no unapproved skills, escalation protocol, session bookends |
+| Prerequisite (Q1-Q2) | 2 | Config checks for config-requiring skills, unknown prereqs flagged |
+| Completeness (C1-C3) | 3 | All steps executed, no silent failures, session end has stats |
+
+### Tier 2: LLM-Judge (on-demand, fixed rubric)
+
+5 rules covering subjective quality — rubric is deterministically constructed from `constitution.yaml` so the same version always produces the same prompt:
+
+| Rule | What It Assesses |
+|------|-----------------|
+| R5 | Semantic routing correctness (beyond trigger matching) |
+| D1 | Command appropriateness (best command vs. acceptable command) |
+| D2 | Dependency ordering in multi-step plans |
+| D3 | Plan presentation clarity and completeness |
+| D4 | Error recovery quality |
+| D5 | Escalation decision quality |
+
+### Reliability Scoring
+
+Fires the same trace N times (5-10) through Tier 2 to measure LLM scoring variance:
+
+| Metric | What It Measures |
+|--------|-----------------|
+| **pass@k** | P(at least 1 of k trials passes) — can this rule pass at all? |
+| **pass^k** | P(all k trials pass) — does this rule reliably pass? |
+| **consistency** | Fraction of trials with the dominant verdict |
+| **verdict_entropy** | Shannon entropy over verdict distribution (0 = perfectly stable) |
+
+Rules with consistency < 0.8 or entropy > 0.8 are flagged as unreliable — candidates for rubric tightening in `constitution.yaml`.
+
+### Usage
+
+```bash
+# Tier 1 only (fast, no LLM cost):
+python3 src/evals/evaluate.py --session 2026-09-11
+
+# Tier 1 + Tier 2:
+python3 src/evals/evaluate.py --session 2026-09-11 --tier2
+
+# All sessions, Tier 1 only:
+python3 src/evals/evaluate.py --all-sessions
+
+# Dry-run Tier 2 (print LLM prompt without calling):
+python3 src/evals/evaluate.py --session 2026-09-11 --tier2 --dry-run
+
+# Reliability (5 trials):
+python3 src/evals/reliability.py --session 2026-09-11
+
+# Reliability (10 trials, saved):
+python3 src/evals/reliability.py --session 2026-09-11 --trials 10 \
+    --output .local/logs/super-agent/evals/2026-09-11-reliability.json
+```
+
+### Output
+
+Evaluations are persisted to `.local/logs/super-agent/evals/{session}-eval.json` with the constitution version and hash for reproducibility. Reliability reports are saved only when `--output` is specified.
+
+<!-- END non-skill section -->
 
 ---
 
