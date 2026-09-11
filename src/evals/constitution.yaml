@@ -1,0 +1,308 @@
+# Super-Agent Constitution — Evaluation Rules
+# Single source of truth for both deterministic (Tier 1) and LLM-judge (Tier 2) evaluation.
+# Both src/evals/evaluate.py and src/evals/llm_judge.py read this file.
+#
+# Rule schema:
+#   id:            Unique rule code ({dimension-letter}{number})
+#   principle:     The behavioral rule stated as a "should" or "must"
+#   tier:          "deterministic" | "llm_judge" | "both"
+#   dimension:     efficiency | routing | protocol | prerequisite | completeness | quality
+#   check:         (Tier 1) Programmatic condition — fields reference events.jsonl schema
+#   rubric:        (Tier 2) LLM evaluation prompt — what to assess and how to score
+#   fail_maps_to:  Gap taxonomy code (G1-G8) or null if protocol violation
+#   severity:      critical | high | medium | low
+
+version: "1.0"
+
+principles:
+
+  # ── Efficiency (E) ──────────────────────────────────────────────
+
+  - id: E1
+    principle: "The agent should reach first execution within a turn budget proportional to complexity"
+    tier: deterministic
+    dimension: efficiency
+    check:
+      metric: turns_to_first_execution
+      description: "Count turns from session_start to first step_execution"
+      thresholds:
+        simple: 2
+        medium: 3
+        complex: 4
+    fail_maps_to: G6
+    severity: medium
+
+  - id: E2
+    principle: "The agent should not ask for clarification when the query is unambiguous"
+    tier: deterministic
+    dimension: efficiency
+    check:
+      metric: unnecessary_clarification
+      description: "interpretation.clarification_needed == true AND interpretation.ambiguous == false"
+      condition: "clarification_needed and not ambiguous"
+    fail_maps_to: G6
+    severity: medium
+
+  - id: E3
+    principle: "The agent should auto-approve single-step unambiguous plans with explicit skill names"
+    tier: deterministic
+    dimension: efficiency
+    check:
+      metric: missed_auto_approve
+      description: "plan has 1 step + unambiguous + explicit skill name, but action != auto_approved"
+      condition: "single_step and not ambiguous and explicit_skill and action != auto_approved"
+    fail_maps_to: G6
+    severity: low
+
+  # ── Routing (R) ─────────────────────────────────────────────────
+
+  - id: R1
+    principle: "Every selected skill should have at least one trigger match in the query"
+    tier: deterministic
+    dimension: routing
+    check:
+      metric: trigger_coverage
+      description: "For each skill in skill_selection.selected, check catalog triggers against query text"
+      condition: "any selected skill has zero trigger matches"
+    fail_maps_to: G1
+    severity: high
+
+  - id: R2
+    principle: "The agent must consider every skill with strong trigger signal in the query"
+    tier: deterministic
+    dimension: routing
+    check:
+      metric: uncovered_trigger_matches
+      description: "Any catalog skill with >=2 trigger matches not in selected or considered"
+      condition: "catalog skill has >=2 trigger hits but not in selected or considered"
+      min_trigger_hits: 2
+    fail_maps_to: G1
+    severity: high
+
+  - id: R3
+    principle: "Every rejected skill must have an explicit rejection reason"
+    tier: deterministic
+    dimension: routing
+    check:
+      metric: empty_rejection_reason
+      description: "Every entry in skill_selection.considered has a non-empty rejected_reason"
+      condition: "any considered entry has empty or missing rejected_reason"
+    fail_maps_to: G1
+    severity: low
+
+  - id: R4
+    principle: "Plan step count should be proportional to intent count"
+    tier: deterministic
+    dimension: routing
+    check:
+      metric: step_intent_ratio
+      description: "plan_steps count vs query.intent_count"
+      over_decompose_threshold: 1.5
+      under_decompose_threshold: 1.0
+      condition: "steps > intents * 1.5 (over) or steps < intents (under)"
+    fail_maps_to: G2  # or G3 for under
+    severity: medium
+
+  - id: R5
+    principle: "The agent should select the semantically correct skill, not just the trigger-matched one"
+    tier: llm_judge
+    dimension: routing
+    rubric: |
+      Given the user's query and the skills selected by the agent, assess whether
+      the routing is semantically correct. A trigger match alone is insufficient —
+      the skill must be the right one for the user's actual intent.
+
+      Score:
+        PASS  — Correct skill(s) for the intent
+        MINOR — Acceptable but a better skill existed
+        FAIL  — Wrong skill; user's intent maps to a different skill
+    fail_maps_to: G1
+    severity: high
+
+  # ── Protocol (P) ────────────────────────────────────────────────
+
+  - id: P1
+    principle: "The agent must never execute a skill before receiving approval"
+    tier: deterministic
+    dimension: protocol
+    check:
+      metric: execution_before_approval
+      description: "No step_execution event before a plan_response with action in [approved, auto_approved]"
+      condition: "any step_execution.ts < plan_response.ts"
+    fail_maps_to: null
+    severity: critical
+
+  - id: P2
+    principle: "Every executed skill must be in the approved set"
+    tier: deterministic
+    dimension: protocol
+    check:
+      metric: unapproved_skill_execution
+      description: "Every step_execution.skill appears in approved plan or approved escalation"
+      condition: "step_execution.skill not in approved_skills"
+    fail_maps_to: null
+    severity: critical
+
+  - id: P3
+    principle: "New skills used in follow-ups must go through escalation"
+    tier: deterministic
+    dimension: protocol
+    check:
+      metric: followup_without_escalation
+      description: "Any followup with type=new_skill must be preceded by an approved escalation for that skill"
+      condition: "followup.type == new_skill and no prior approved escalation for followup.skill_used"
+    fail_maps_to: G7
+    severity: high
+
+  - id: P4
+    principle: "Every session must have both session_start and session_end events"
+    tier: deterministic
+    dimension: protocol
+    check:
+      metric: missing_bookends
+      description: "Session has both session_start and session_end events"
+      condition: "missing session_start or session_end"
+    fail_maps_to: null
+    severity: high
+
+  # ── Prerequisite (Q) ────────────────────────────────────────────
+
+  - id: Q1
+    principle: "Skills requiring config must have their config checked before execution"
+    tier: deterministic
+    dimension: prerequisite
+    check:
+      metric: missing_config_check
+      description: "For each selected skill with requires_config=true in catalog, prerequisite_check includes a config entry"
+      condition: "config-requiring skill has no config check entry"
+    fail_maps_to: G5
+    severity: high
+
+  - id: Q2
+    principle: "Unknown prerequisites should be flagged in the plan"
+    tier: deterministic
+    dimension: prerequisite
+    check:
+      metric: unknown_prereq_not_flagged
+      description: "Any prerequisite_check.status == unknown should appear as a prerequisite note in plan_presented"
+      condition: "unknown prereq exists but plan has no prerequisite note for it"
+    fail_maps_to: G5
+    severity: medium
+
+  # ── Completeness (C) ────────────────────────────────────────────
+
+  - id: C1
+    principle: "Every planned step must be executed"
+    tier: deterministic
+    dimension: completeness
+    check:
+      metric: unexecuted_steps
+      description: "Every step in plan_presented.plan_steps has a matching step_execution"
+      condition: "planned step has no corresponding step_execution"
+    fail_maps_to: null
+    severity: high
+
+  - id: C2
+    principle: "Every failed step must have a corresponding error event"
+    tier: deterministic
+    dimension: completeness
+    check:
+      metric: silent_failure
+      description: "Every step_execution with status=failed has a corresponding error event"
+      condition: "failed step with no error event"
+    fail_maps_to: null
+    severity: medium
+
+  - id: C3
+    principle: "Session end must include summary statistics"
+    tier: deterministic
+    dimension: completeness
+    check:
+      metric: incomplete_session_end
+      description: "session_end has total_turns, steps_completed, steps_failed fields"
+      condition: "missing any of total_turns, steps_completed, steps_failed"
+    fail_maps_to: null
+    severity: low
+
+  # ── Quality (D — subjective, Tier 2 only) ───────────────────────
+
+  - id: D1
+    principle: "The agent should select the most appropriate command for each skill"
+    tier: llm_judge
+    dimension: quality
+    rubric: |
+      Given the user's query and the command selected for each skill, assess whether
+      the command is the best available option from the skill's command list.
+
+      Score:
+        PASS  — Best or only applicable command
+        MINOR — Acceptable but a more specific command existed
+        FAIL  — Wrong command; a different command clearly fits better
+    fail_maps_to: G4
+    severity: medium
+
+  - id: D2
+    principle: "Multi-step plans should have correct dependency ordering"
+    tier: llm_judge
+    dimension: quality
+    rubric: |
+      Given the plan steps, assess whether the ordering respects logical dependencies.
+      Step B should come after Step A if B depends on A's output.
+
+      Score:
+        PASS  — Correct ordering, dependencies respected
+        MINOR — Order works but a better sequence exists
+        FAIL  — Dependency violated; a step runs before its prerequisite
+    fail_maps_to: G2
+    severity: medium
+
+  - id: D3
+    principle: "The plan presentation should be clear and complete"
+    tier: llm_judge
+    dimension: quality
+    rubric: |
+      Given the plan as presented to the user, assess clarity and completeness.
+      A good plan: names skills clearly, states what each step does, lists prerequisites,
+      and uses the compact format for single-step plans.
+
+      Score:
+        PASS  — Clear, complete, appropriate format
+        MINOR — Understandable but missing a detail (e.g., no prerequisite note)
+        FAIL  — Confusing, incomplete, or wrong format
+    fail_maps_to: null
+    severity: low
+
+  - id: D4
+    principle: "Error recovery should be graceful and informative"
+    tier: llm_judge
+    dimension: quality
+    rubric: |
+      When an error occurred during execution, assess how the agent handled it.
+      Good recovery: explains what went wrong, offers alternatives, asks whether
+      to continue. Bad recovery: silently skips, gives vague error, or stops without options.
+
+      Score:
+        PASS  — Clear explanation + recovery options offered
+        MINOR — Recovered but explanation was vague
+        FAIL  — Silent skip, no explanation, or abrupt stop
+      SKIP  — No errors occurred in this session
+    fail_maps_to: null
+    severity: medium
+
+  - id: D5
+    principle: "Escalation decisions should be warranted and well-explained"
+    tier: llm_judge
+    dimension: quality
+    rubric: |
+      For each escalation event, assess:
+      1. Was the new skill genuinely needed? (false escalation = FAIL)
+      2. Was the reason clearly stated to the user?
+      3. Should the skill have been in the original plan? (missed in decomposition)
+
+      Score:
+        PASS  — Escalation warranted, well-explained
+        MINOR — Warranted but could have been anticipated in original plan
+        FAIL  — Not warranted (false escalation) or poorly explained
+      SKIP  — No escalations occurred
+    fail_maps_to: G7  # or G8 for false escalation
+    severity: medium
