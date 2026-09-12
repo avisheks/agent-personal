@@ -131,6 +131,10 @@ Your architecture should cover: Goal → planning → retrieval → tools → ex
 
 Multi-modal is not a nice-to-have — it's the next default. When explaining the agent taxonomy, include modality as a dimension: text-only agents → multi-modal agents → embodied agents.
 
+#### KB Resources
+📖 [Agentic Systems](../personal-researcher/reports/v2/notes/agentic-systems.md) · [Auto-Agent Frameworks](../personal-researcher/reports/v2/notes/auto-agents-frameworks.md) · [Claude Code](../personal-researcher/reports/v2/notes/claude-code.md)
+🃏 [agents/](../personal-researcher/reports/v2/notes/anki/agents/) · [models/](../personal-researcher/reports/v2/notes/anki/models/)
+
 #### Milestone Gate
 
 - [ ] Can draw the agent taxonomy on a whiteboard and explain when to use each level
@@ -184,6 +188,10 @@ Multi-modal is not a nice-to-have — it's the next default. When explaining the
 | **Compound AI systems / DSPy paradigm** — agents as optimizable module pipelines, not monolithic prompts. Automated prompt optimization, MIPRO. | 🧪 Early adoption | Khattab et al. — "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines" (ICLR 2024); Matei Zaharia — "The Shift from Models to Compound AI Systems" (Berkeley AI blog, 2024) | "Your agent has 5 LLM calls in its pipeline. How would you optimize the full pipeline end-to-end rather than tuning each prompt individually?" |
 | **Constrained decoding / structured output** — guaranteed schema compliance for tool calling (Outlines, SGLang constrained generation, Instructor) | 🚀 Breakout | Willard & Louf — "Efficient Guided Generation for Large Language Models" (Outlines, 2023); SGLang constrained generation docs | "Your agent's tool calls fail 15% of the time due to malformed JSON. How do you guarantee valid output without retry loops?" |
 | **Agent-to-Agent protocols (A2A)** — standardized inter-agent communication, discovery, and delegation beyond MCP | 🧪 Early adoption | Google — A2A protocol specification (2025); compare with MCP (tool-level) vs. A2A (agent-level) | "You have a research agent and a coding agent. How do they discover each other's capabilities and delegate work? Compare MCP and A2A." |
+
+#### KB Resources
+📖 [Orchestration Evolution](../personal-researcher/reports/v2/notes/orc-evolution--notes.md) · [Harness Engineering](../personal-researcher/reports/v2/notes/harness-engineering--notes.md) · [Claude Code](../personal-researcher/reports/v2/notes/claude-code.md)
+🃏 [agents/](../personal-researcher/reports/v2/notes/anki/agents/) · [systems/](../personal-researcher/reports/v2/notes/anki/systems/)
 
 #### Milestone Gate
 
@@ -244,6 +252,10 @@ Reasoning                          Planning
 | **Reflection & self-critique as first-class patterns** — Reflexion, self-debugging, introspective verification loops. Not just "CoT" but agents that evaluate and revise their own reasoning. | 🚀 Breakout | Shinn et al. — "Reflexion: Language Agents with Verbal Reinforcement Learning" (NeurIPS 2023); Madaan et al. — "Self-Refine: Iterative Refinement with Self-Feedback" (NeurIPS 2023) | "Your agent produces a plan, executes it, and fails. Design a reflection loop: what does the agent observe about its failure, how does it update its approach, and how do you prevent infinite reflection cycles?" |
 
 Test-time compute and reflection are deeply connected — both are about the agent spending more inference budget to improve output quality. The key interview insight: knowing *when* to reflect vs. *when* to just act is the design decision. Over-reflection is as costly as under-reflection.
+
+#### KB Resources
+📖 [AI Planning & Orchestration](../personal-researcher/reports/v2/notes/ai-planning-orchestration.md) · [Reasoning LLMs](../personal-researcher/reports/v2/notes/reasoning-llms.md) · [Orchestration Physical Systems](../personal-researcher/reports/v2/notes/orc-physical-systems--notes.md)
+🃏 [systems/](../personal-researcher/reports/v2/notes/anki/systems/) · [models/](../personal-researcher/reports/v2/notes/anki/models/)
 
 #### Milestone Gate
 
@@ -316,6 +328,10 @@ Your answer should cover: learning behavior from outcome signals, exploration be
 | **Reward modeling for multi-step agents** — the specific challenge of reward signals for tool-using, multi-step agents: process rewards for trajectories, verifiable rewards via code execution, compositional reward functions | 🧪 Early adoption | Lightman et al. — "Let's Verify Step by Step" (2023); Uesato et al. — process vs. outcome rewards; Wang et al. — "Math-Shepherd: Verify and Reinforce LLMs Step-by-step" (2024) | "You're training a research agent that searches, reads papers, and writes a summary. Design the reward function — what do you reward at each step vs. at the trajectory level? How do you handle credit assignment when step 3 was great but step 7 ruined the output?" |
 | **Sim-to-real transfer** — training agents in simulated environments and transferring to production: simulator design, domain randomization, reality gap mitigation | 🧪 Early adoption | Zhai et al. — "Fine-Tuning Large Vision-Language Models as Decision-Making Agents via Reinforcement Learning" (2024); AgentSims; sandbox-based agent training | "You want to train a customer support agent but can't use real customer data for RL. Design a simulation environment: what do you simulate, how do you ensure the sim→real gap doesn't invalidate your training, and how do you detect when the agent is exploiting simulator artifacts?" |
 
+#### KB Resources
+📖 [SFT](../personal-researcher/reports/v2/notes/sft.md) · [SFT vs DPO](../personal-researcher/reports/v2/notes/sft-vs-dpo.md) · [SFT vs RL](../personal-researcher/reports/v2/notes/sft-vs-rl.md) · [RL](../personal-researcher/reports/v2/notes/rl.md) · [RL for LLMs](../personal-researcher/reports/v2/notes/rl-for-llms--notes.md) · [Policy Distillation](../personal-researcher/reports/v2/notes/policy-dist--notes.md) · [Self-Improving Agents](../personal-researcher/reports/v2/notes/self-improving-agents--notes.md) · [Constitutional AI](../personal-researcher/reports/v2/notes/constitutional-ai--notes.md)
+🃏 [rl/](../personal-researcher/reports/v2/notes/anki/rl/) · [training/](../personal-researcher/reports/v2/notes/anki/training/) · [foundations/](../personal-researcher/reports/v2/notes/anki/foundations/)
+
 #### Milestone Gate
 
 - [ ] Can articulate the SFT → DPO → PPO → GRPO decision tree with tradeoffs at each branch
@@ -381,6 +397,10 @@ unit tests → deterministic evals → benchmarks → trajectory evaluation → 
 
 Agent safety is the evaluation dimension most likely to be probed at frontier labs (Anthropic, OpenAI, Google DeepMind). If you can design an adversarial eval for prompt injection in multi-step agents, you're immediately differentiated.
 
+#### KB Resources
+📖 [Evaluation & Safety](../personal-researcher/reports/v2/notes/evaluation-safety.md)
+🃏 [foundations/](../personal-researcher/reports/v2/notes/anki/foundations/)
+
 #### Milestone Gate
 
 - [ ] Can articulate the 8-dimension evaluation framework from memory and give examples for each
@@ -430,6 +450,10 @@ A strong answer covers: context rot, attention dilution, accumulated errors, sta
 | **Agent personalization** — adapting agent behavior to individual users over time: preference learning, behavioral adaptation, personalized tool selection, user modeling | 🧪 Early adoption | Salemi et al. — "LaMP: When Large Language Models Meet Personalization" (2023); Zhang et al. — "Personalized LLM Agents" (2024); user preference learning literature | "Your agent serves 100K users with different work styles. Some prefer brief answers, others want detail. Some use Slack, others email. How do you personalize agent behavior — per-user prompt tuning, retrieval from user history, or learned user embeddings? What's the cold-start strategy?" |
 
 The long-context vs. RAG question is a trap — "just use long context" or "always use RAG" are both wrong. The Principal answer navigates the tradeoff space: accuracy (RAG wins for needle-in-haystack), cost (long context is expensive for repeated queries), latency (long context is slow for first-token), freshness (RAG can update without re-ingestion), and multi-source reasoning (long context wins when you need cross-document synthesis).
+
+#### KB Resources
+📖 [Enterprise RAG](../personal-researcher/reports/v2/notes/enterprise-rag.md) · [Memory in Agentic Systems](../personal-researcher/reports/v2/notes/memory-agentic-systems.md) · [Search & Retrieval](../personal-researcher/reports/v2/notes/search-retrieval.md) · [Semantic Graph](../personal-researcher/reports/v2/notes/semantic-graph.md)
+🃏 [search-ads/](../personal-researcher/reports/v2/notes/anki/search-ads/) · [agents/](../personal-researcher/reports/v2/notes/anki/agents/)
 
 #### Milestone Gate
 
@@ -495,6 +519,10 @@ For each: reason across model + algorithm + system + product layers.
 | **Sandboxing & isolation patterns** — formal approaches to containing agent actions: capability-based security, reversible actions, approval gates, blast radius limiting, least-privilege execution | 🚀 Breakout | Anthropic — agent sandboxing guidelines; Docker/Firecracker for agent isolation; capability-based security models; reversible action design patterns | "Your agent can execute code, send emails, and modify databases. Design an isolation architecture: what actions are auto-approved, what requires human approval, how do you make actions reversible, and how do you limit blast radius when the agent makes a mistake?" |
 | **Agent platforms & managed agents** — the platform layer: OpenAI Assistants, Anthropic Managed Agents, Amazon Bedrock Agents, Azure AI Agent Service. The buy-vs-build decision. | 🚀 Breakout | OpenAI Assistants API docs; Anthropic Managed Agents docs; Amazon Bedrock Agents; Azure AI Agent Service | "Your company wants to build 10 different agents for internal workflows. Do you build a platform or use a managed service? What's your evaluation criteria, and what are the lock-in and customization tradeoffs?" |
 
+#### KB Resources
+📖 [System Design](../personal-researcher/reports/v2/notes/system-design.md) · [Recursive Self-Improvement](../personal-researcher/reports/v2/notes/recursive-self-improvement.md) · [AI Enterprise Applications](../personal-researcher/reports/v2/notes/ai-enterprise-applications.md)
+🃏 [systems/](../personal-researcher/reports/v2/notes/anki/systems/) · [applications/](../personal-researcher/reports/v2/notes/anki/applications/)
+
 #### Milestone Gate
 
 - [ ] Can design a production agent serving architecture with cost, latency, and reliability constraints
@@ -554,6 +582,10 @@ For each case, set a timer:
 
 Use Case 4 (Thu) as the vehicle for this topic. When designing the coding agent, explicitly reference how SWE-Agent uses a custom agent-computer interface (ACI), how Devin uses a full VM sandbox, and how Claude Code uses a constrained tool set. This shows you know the production landscape, not just the theory.
 
+#### KB Resources
+📖 [GenAI Search & Ads](../personal-researcher/reports/v2/notes/genai-search-ads.md) · [AI Applied Search Ranking](../personal-researcher/reports/v2/notes/ai-applied-search-ranking--notes.md) · [AI Applied Enterprise Work](../personal-researcher/reports/v2/notes/ai-applied-enterprise-work--notes.md) · [Claude Code](../personal-researcher/reports/v2/notes/claude-code.md) · [Content Generation](../personal-researcher/reports/v2/notes/content-generation.md)
+🃏 [search-ads/](../personal-researcher/reports/v2/notes/anki/search-ads/) · [applications/](../personal-researcher/reports/v2/notes/anki/applications/) · [models/](../personal-researcher/reports/v2/notes/anki/models/)
+
 #### Milestone Gate
 
 - [ ] Can complete 6 system design cases using the 10-step template
@@ -603,6 +635,10 @@ Business problem → Ambiguity → Technical insight → Alternatives considered
 > "Tell me about a time you changed the technical direction of a project."
 
 This is the single most revealing Principal-level behavioral question. Your answer must show: (1) you recognized the current direction was wrong, (2) you had a defensible alternative, (3) you convinced others through evidence not authority, (4) the outcome validated the decision.
+
+#### KB Resources
+📖 [CTO to IC](../personal-researcher/reports/v2/notes/cto-to-ic.md) · [Investing](../personal-researcher/reports/v2/notes/investing.md)
+🃏 [career/](../personal-researcher/reports/v2/notes/anki/career/)
 
 #### Milestone Gate
 
