@@ -132,8 +132,11 @@ Your architecture should cover: Goal → planning → retrieval → tools → ex
 Multi-modal is not a nice-to-have — it's the next default. When explaining the agent taxonomy, include modality as a dimension: text-only agents → multi-modal agents → embodied agents.
 
 #### KB Resources
-📖 [Agentic Systems](../personal-researcher/reports/v2/notes/agentic-systems.md) · [Auto-Agent Frameworks](../personal-researcher/reports/v2/notes/auto-agents-frameworks.md) · [Claude Code](../personal-researcher/reports/v2/notes/claude-code.md)
-🃏 [agents/](../personal-researcher/reports/v2/notes/anki/agents/) · [models/](../personal-researcher/reports/v2/notes/anki/models/)
+📖 [Agentic Systems](../personal-researcher/reports/v2/notes/agentic-systems.md)
+📖 [Auto-Agent Frameworks](../personal-researcher/reports/v2/notes/auto-agents-frameworks.md)
+📖 [Claude Code](../personal-researcher/reports/v2/notes/claude-code.md)
+🃏 [agents/](../personal-researcher/reports/v2/notes/anki/agents/)
+🃏 [models/](../personal-researcher/reports/v2/notes/anki/models/)
 
 #### Milestone Gate
 
@@ -190,8 +193,11 @@ Multi-modal is not a nice-to-have — it's the next default. When explaining the
 | **Agent-to-Agent protocols (A2A)** — standardized inter-agent communication, discovery, and delegation beyond MCP | 🧪 Early adoption | Google — A2A protocol specification (2025); compare with MCP (tool-level) vs. A2A (agent-level) | "You have a research agent and a coding agent. How do they discover each other's capabilities and delegate work? Compare MCP and A2A." |
 
 #### KB Resources
-📖 [Orchestration Evolution](../personal-researcher/reports/v2/notes/orc-evolution--notes.md) · [Harness Engineering](../personal-researcher/reports/v2/notes/harness-engineering--notes.md) · [Claude Code](../personal-researcher/reports/v2/notes/claude-code.md)
-🃏 [agents/](../personal-researcher/reports/v2/notes/anki/agents/) · [systems/](../personal-researcher/reports/v2/notes/anki/systems/)
+📖 [Orchestration Evolution](../personal-researcher/reports/v2/notes/orc-evolution--notes.md)
+📖 [Harness Engineering](../personal-researcher/reports/v2/notes/harness-engineering--notes.md)
+📖 [Claude Code](../personal-researcher/reports/v2/notes/claude-code.md)
+🃏 [agents/](../personal-researcher/reports/v2/notes/anki/agents/)
+🃏 [systems/](../personal-researcher/reports/v2/notes/anki/systems/)
 
 #### Milestone Gate
 
@@ -254,8 +260,11 @@ Reasoning                          Planning
 Test-time compute and reflection are deeply connected — both are about the agent spending more inference budget to improve output quality. The key interview insight: knowing *when* to reflect vs. *when* to just act is the design decision. Over-reflection is as costly as under-reflection.
 
 #### KB Resources
-📖 [AI Planning & Orchestration](../personal-researcher/reports/v2/notes/ai-planning-orchestration.md) · [Reasoning LLMs](../personal-researcher/reports/v2/notes/reasoning-llms.md) · [Orchestration Physical Systems](../personal-researcher/reports/v2/notes/orc-physical-systems--notes.md)
-🃏 [systems/](../personal-researcher/reports/v2/notes/anki/systems/) · [models/](../personal-researcher/reports/v2/notes/anki/models/)
+📖 [AI Planning & Orchestration](../personal-researcher/reports/v2/notes/ai-planning-orchestration.md)
+📖 [Reasoning LLMs](../personal-researcher/reports/v2/notes/reasoning-llms.md)
+📖 [Orchestration Physical Systems](../personal-researcher/reports/v2/notes/orc-physical-systems--notes.md)
+🃏 [systems/](../personal-researcher/reports/v2/notes/anki/systems/)
+🃏 [models/](../personal-researcher/reports/v2/notes/anki/models/)
 
 #### Milestone Gate
 
@@ -329,8 +338,17 @@ Your answer should cover: learning behavior from outcome signals, exploration be
 | **Sim-to-real transfer** — training agents in simulated environments and transferring to production: simulator design, domain randomization, reality gap mitigation | 🧪 Early adoption | Zhai et al. — "Fine-Tuning Large Vision-Language Models as Decision-Making Agents via Reinforcement Learning" (2024); AgentSims; sandbox-based agent training | "You want to train a customer support agent but can't use real customer data for RL. Design a simulation environment: what do you simulate, how do you ensure the sim→real gap doesn't invalidate your training, and how do you detect when the agent is exploiting simulator artifacts?" |
 
 #### KB Resources
-📖 [SFT](../personal-researcher/reports/v2/notes/sft.md) · [SFT vs DPO](../personal-researcher/reports/v2/notes/sft-vs-dpo.md) · [SFT vs RL](../personal-researcher/reports/v2/notes/sft-vs-rl.md) · [RL](../personal-researcher/reports/v2/notes/rl.md) · [RL for LLMs](../personal-researcher/reports/v2/notes/rl-for-llms--notes.md) · [Policy Distillation](../personal-researcher/reports/v2/notes/policy-dist--notes.md) · [Self-Improving Agents](../personal-researcher/reports/v2/notes/self-improving-agents--notes.md) · [Constitutional AI](../personal-researcher/reports/v2/notes/constitutional-ai--notes.md)
-🃏 [rl/](../personal-researcher/reports/v2/notes/anki/rl/) · [training/](../personal-researcher/reports/v2/notes/anki/training/) · [foundations/](../personal-researcher/reports/v2/notes/anki/foundations/)
+📖 [SFT](../personal-researcher/reports/v2/notes/sft.md)
+📖 [SFT vs DPO](../personal-researcher/reports/v2/notes/sft-vs-dpo.md)
+📖 [SFT vs RL](../personal-researcher/reports/v2/notes/sft-vs-rl.md)
+📖 [RL](../personal-researcher/reports/v2/notes/rl.md)
+📖 [RL for LLMs](../personal-researcher/reports/v2/notes/rl-for-llms--notes.md)
+📖 [Policy Distillation](../personal-researcher/reports/v2/notes/policy-dist--notes.md)
+📖 [Self-Improving Agents](../personal-researcher/reports/v2/notes/self-improving-agents--notes.md)
+📖 [Constitutional AI](../personal-researcher/reports/v2/notes/constitutional-ai--notes.md)
+🃏 [rl/](../personal-researcher/reports/v2/notes/anki/rl/)
+🃏 [training/](../personal-researcher/reports/v2/notes/anki/training/)
+🃏 [foundations/](../personal-researcher/reports/v2/notes/anki/foundations/)
 
 #### Milestone Gate
 
@@ -452,8 +470,12 @@ A strong answer covers: context rot, attention dilution, accumulated errors, sta
 The long-context vs. RAG question is a trap — "just use long context" or "always use RAG" are both wrong. The Principal answer navigates the tradeoff space: accuracy (RAG wins for needle-in-haystack), cost (long context is expensive for repeated queries), latency (long context is slow for first-token), freshness (RAG can update without re-ingestion), and multi-source reasoning (long context wins when you need cross-document synthesis).
 
 #### KB Resources
-📖 [Enterprise RAG](../personal-researcher/reports/v2/notes/enterprise-rag.md) · [Memory in Agentic Systems](../personal-researcher/reports/v2/notes/memory-agentic-systems.md) · [Search & Retrieval](../personal-researcher/reports/v2/notes/search-retrieval.md) · [Semantic Graph](../personal-researcher/reports/v2/notes/semantic-graph.md)
-🃏 [search-ads/](../personal-researcher/reports/v2/notes/anki/search-ads/) · [agents/](../personal-researcher/reports/v2/notes/anki/agents/)
+📖 [Enterprise RAG](../personal-researcher/reports/v2/notes/enterprise-rag.md)
+📖 [Memory in Agentic Systems](../personal-researcher/reports/v2/notes/memory-agentic-systems.md)
+📖 [Search & Retrieval](../personal-researcher/reports/v2/notes/search-retrieval.md)
+📖 [Semantic Graph](../personal-researcher/reports/v2/notes/semantic-graph.md)
+🃏 [search-ads/](../personal-researcher/reports/v2/notes/anki/search-ads/)
+🃏 [agents/](../personal-researcher/reports/v2/notes/anki/agents/)
 
 #### Milestone Gate
 
@@ -520,8 +542,11 @@ For each: reason across model + algorithm + system + product layers.
 | **Agent platforms & managed agents** — the platform layer: OpenAI Assistants, Anthropic Managed Agents, Amazon Bedrock Agents, Azure AI Agent Service. The buy-vs-build decision. | 🚀 Breakout | OpenAI Assistants API docs; Anthropic Managed Agents docs; Amazon Bedrock Agents; Azure AI Agent Service | "Your company wants to build 10 different agents for internal workflows. Do you build a platform or use a managed service? What's your evaluation criteria, and what are the lock-in and customization tradeoffs?" |
 
 #### KB Resources
-📖 [System Design](../personal-researcher/reports/v2/notes/system-design.md) · [Recursive Self-Improvement](../personal-researcher/reports/v2/notes/recursive-self-improvement.md) · [AI Enterprise Applications](../personal-researcher/reports/v2/notes/ai-enterprise-applications.md)
-🃏 [systems/](../personal-researcher/reports/v2/notes/anki/systems/) · [applications/](../personal-researcher/reports/v2/notes/anki/applications/)
+📖 [System Design](../personal-researcher/reports/v2/notes/system-design.md)
+📖 [Recursive Self-Improvement](../personal-researcher/reports/v2/notes/recursive-self-improvement.md)
+📖 [AI Enterprise Applications](../personal-researcher/reports/v2/notes/ai-enterprise-applications.md)
+🃏 [systems/](../personal-researcher/reports/v2/notes/anki/systems/)
+🃏 [applications/](../personal-researcher/reports/v2/notes/anki/applications/)
 
 #### Milestone Gate
 
@@ -583,8 +608,14 @@ For each case, set a timer:
 Use Case 4 (Thu) as the vehicle for this topic. When designing the coding agent, explicitly reference how SWE-Agent uses a custom agent-computer interface (ACI), how Devin uses a full VM sandbox, and how Claude Code uses a constrained tool set. This shows you know the production landscape, not just the theory.
 
 #### KB Resources
-📖 [GenAI Search & Ads](../personal-researcher/reports/v2/notes/genai-search-ads.md) · [AI Applied Search Ranking](../personal-researcher/reports/v2/notes/ai-applied-search-ranking--notes.md) · [AI Applied Enterprise Work](../personal-researcher/reports/v2/notes/ai-applied-enterprise-work--notes.md) · [Claude Code](../personal-researcher/reports/v2/notes/claude-code.md) · [Content Generation](../personal-researcher/reports/v2/notes/content-generation.md)
-🃏 [search-ads/](../personal-researcher/reports/v2/notes/anki/search-ads/) · [applications/](../personal-researcher/reports/v2/notes/anki/applications/) · [models/](../personal-researcher/reports/v2/notes/anki/models/)
+📖 [GenAI Search & Ads](../personal-researcher/reports/v2/notes/genai-search-ads.md)
+📖 [AI Applied Search Ranking](../personal-researcher/reports/v2/notes/ai-applied-search-ranking--notes.md)
+📖 [AI Applied Enterprise Work](../personal-researcher/reports/v2/notes/ai-applied-enterprise-work--notes.md)
+📖 [Claude Code](../personal-researcher/reports/v2/notes/claude-code.md)
+📖 [Content Generation](../personal-researcher/reports/v2/notes/content-generation.md)
+🃏 [search-ads/](../personal-researcher/reports/v2/notes/anki/search-ads/)
+🃏 [applications/](../personal-researcher/reports/v2/notes/anki/applications/)
+🃏 [models/](../personal-researcher/reports/v2/notes/anki/models/)
 
 #### Milestone Gate
 
@@ -637,7 +668,8 @@ Business problem → Ambiguity → Technical insight → Alternatives considered
 This is the single most revealing Principal-level behavioral question. Your answer must show: (1) you recognized the current direction was wrong, (2) you had a defensible alternative, (3) you convinced others through evidence not authority, (4) the outcome validated the decision.
 
 #### KB Resources
-📖 [CTO to IC](../personal-researcher/reports/v2/notes/cto-to-ic.md) · [Investing](../personal-researcher/reports/v2/notes/investing.md)
+📖 [CTO to IC](../personal-researcher/reports/v2/notes/cto-to-ic.md)
+📖 [Investing](../personal-researcher/reports/v2/notes/investing.md)
 🃏 [career/](../personal-researcher/reports/v2/notes/anki/career/)
 
 #### Milestone Gate
