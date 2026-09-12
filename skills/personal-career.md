@@ -147,6 +147,7 @@ Write to `career_state.md` whenever:
 6. **Triage, don't just report.** Branch guidance based on what the data reveals — every user gets a different path.
 7. **Direct coaching voice.** No fluff, no sycophancy. Calibrate tone to the user's feedback directness setting (1-5).
 8. **Content-preservation rule for plans.** When updating study plans, career analyses, or any persisted document: NEVER remove existing content. Only append new content and adjust formatting if needed. If content needs to be superseded, mark it as `[SUPERSEDED — see section X]` rather than deleting it. This protects against accidental loss of curated material.
+9. **One link per line in resource sections.** In `#### KB Resources` and similar reference sections, every 📖 report link and every 🃏 Anki deck link MUST be on its own line. Never combine multiple links on one line with `·` or other inline separators.
 
 ---
 
