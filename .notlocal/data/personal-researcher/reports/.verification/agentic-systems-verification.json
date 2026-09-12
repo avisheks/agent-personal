@@ -1,0 +1,1423 @@
+{
+  "topic": "agentic-systems",
+  "timestamp": "2026-05-18T22:42:57.441174+00:00",
+  "total_claims": 192,
+  "correct": 76,
+  "incorrect": 6,
+  "unverifiable": 91,
+  "partially_correct": 19,
+  "overall_score": 0.7524752475247525,
+  "summary": "Verified 192 claims: 76 correct, 6 incorrect, 19 partially correct, 91 unverifiable. Score: 75%",
+  "sections": [
+    {
+      "section_name": "Design Flow Framework",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The Director's job is to draw the line between autonomy and predictability in the Design Flow Framework.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the Director's job is not addressed in the provided Facts Manifest. The manifest does not contain information about the Director's role or responsibilities in the Design Flow Framework.",
+          "suggested_correction": "No suggested correction is possible without further information about the Director's role in the Design Flow Framework."
+        },
+        {
+          "text": "The Design Flow Framework consists of 7 steps.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the Design Flow Framework consisting of 7 steps is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Step 1 of the Design Flow Framework is to clarify requirements.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Step 1 of the Design Flow Framework is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Step 2 of the Design Flow Framework is to identify constraints.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Step 2 of the Design Flow Framework is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Step 3 of the Design Flow Framework is to propose a baseline.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Step 3 of the Design Flow Framework is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Step 4 of the Design Flow Framework is to identify gaps.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Step 4 of the Design Flow Framework is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Step 5 of the Design Flow Framework is to introduce improvements.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Step 5 of the Design Flow Framework is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Step 6 of the Design Flow Framework is to add evaluation and guardrails.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Step 6 of the Design Flow Framework is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Step 7 of the Design Flow Framework is to discuss scaling tradeoffs.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Step 7 of the Design Flow Framework is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The Design Flow Framework considers task shape, autonomy level, tool surface, and user transparency in step 1.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Design Flow Framework is not explicitly described in the provided Facts Manifest, making it impossible to verify the claim directly from the given information.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework considers tool latency, non-determinism, security, debugging complexity, and cost per task in step 2.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "Similar to claim 0, the specifics of step 2 in the Design Flow Framework are not detailed in the Facts Manifest, preventing direct verification.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A constrained planner-executor loop with a small tool set and verification is proposed as a baseline in step 3.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about a proposed baseline in step 3 of the Design Flow Framework, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework identifies wrong tool selection, infinite loops, silent failures, prompt injection via tools, and compounding errors as potential gaps in step 4.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The specifics of potential gaps identified in step 4 of the Design Flow Framework are not mentioned in the Facts Manifest, rendering the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ReAct, multi-agent decomposition, orchestration layer, recovery/checkpoints, and adaptive planning are introduced as improvements in step 5.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The improvements introduced in step 5 of the Design Flow Framework are not described in the provided Facts Manifest, making it impossible to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Task completion, tool-call accuracy, trajectory-level scoring, sandboxing, adversarial testing, and replayable traces are used for evaluation and guardrails in step 6.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The evaluation and guardrails used in step 6 of the Design Flow Framework are not detailed in the Facts Manifest, preventing verification of the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework discusses autonomy vs predictability, tools vs security surface, verification cost vs speed, and single vs multi-agent tradeoffs in step 7.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The tradeoffs discussed in step 7 of the Design Flow Framework are not specified in the Facts Manifest, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "More autonomy in the Design Flow Framework results in more value and more risk.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The relationship between autonomy and value/risk in the Design Flow Framework is not explicitly mentioned in the Facts Manifest, rendering the claim unverifiable.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Full System Design Walkthrough (Principal/Director Level, ~4 min)",
+      "score": 0.7,
+      "claims": [
+        {
+          "text": "At Amazon Ads, the autonomy level was deliberately operated at Level 1 (recommend) for the first 18 months before expanding to Level 2 for specific actions.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Amazon Ads' autonomy level is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Trust is built incrementally through demonstrated accuracy, not through capability demonstrations.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Trust is indeed built incrementally through demonstrated accuracy, which aligns with the principles of Human-in-the-Loop Agent Design and Agentic Systems.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The evaluation framework for agentic AI should extend beyond model evaluation to multi-turn conversations, trajectory testing, and orchestration.",
+          "verdict": "correct",
+          "confidence": 0.85,
+          "reasoning": "The evaluation framework for agentic AI should extend beyond model evaluation to include multi-turn conversations, trajectory testing, and orchestration, as discussed in Trajectory-Level Evaluation and Multi-Agent Orchestration.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "ReAct-Style Reasoning interleave Thought \u2192 Action \u2192 Observation to make the agent's logic visible and debuggable.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "ReAct-Style Reasoning does indeed interleave Thought \u2192 Action \u2192 Observation to make the agent's logic visible and debuggable, as described in the ReAct Pattern.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Agentic AI is fundamentally a trust-governance problem, not an autonomy-maximization problem.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Agentic AI is indeed related to trust and governance, but the claim overstates the problem by implying it's solely a trust-governance issue, ignoring other critical aspects like autonomy and safety.",
+          "suggested_correction": "Agentic AI involves a balance of trust, governance, autonomy, and safety considerations."
+        },
+        {
+          "text": "Constraining autonomy to 'recommend, don't execute' was the single most important architectural decision at Amazon Ads.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the provided Facts Manifest to verify the importance of the 'recommend, don't execute' architectural decision at Amazon Ads.",
+          "suggested_correction": "No suggested correction available due to lack of information."
+        },
+        {
+          "text": "The autonomy level depends on whether a wrong action costs us a support ticket or a lawsuit.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The autonomy level indeed depends on the potential cost of a wrong action, which can range from a support ticket to a lawsuit, influencing the design of agentic systems.",
+          "suggested_correction": "No correction needed."
+        },
+        {
+          "text": "LLMs are stochastic, and the same plan may execute differently on retry.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "LLMs are stochastic, and executing the same plan may yield different results due to the inherent randomness in LLM outputs.",
+          "suggested_correction": "No correction needed."
+        },
+        {
+          "text": "Each step in a multi-step plan costs $0.003-$0.01 in LLM calls.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The cost range for a single LLM call is $0.003-$0.01, which can add up significantly in multi-step plans.",
+          "suggested_correction": "No correction needed."
+        },
+        {
+          "text": "At 1M+ advertisers, agentic costs compound to $150K/month on LLM calls alone.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no direct information in the Facts Manifest to calculate or verify the $150K/month cost for LLM calls alone at 1M+ advertisers.",
+          "suggested_correction": "No suggested correction available due to lack of information."
+        },
+        {
+          "text": "The cost of a wrong action in ads exceeds the cost of slowness.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The comparison between the cost of a wrong action and the cost of slowness in ads is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": "No suggested correction available due to lack of information."
+        },
+        {
+          "text": "Explicit reasoning traces make the agent's logic visible, debuggable, and auditable.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Explicit reasoning traces do make the agent's logic visible, debuggable, and auditable, which is a key aspect of agentic system design for trust and compliance.",
+          "suggested_correction": "No correction needed."
+        },
+        {
+          "text": "Multi-agent decomposition is more secure than a monolithic single agent.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Multi-agent decomposition provides security benefits through isolation but does not inherently make a system more secure than a monolithic single agent without considering other factors.",
+          "suggested_correction": "Multi-agent decomposition can provide security isolation benefits but its security depends on various factors including implementation and the specific use case."
+        },
+        {
+          "text": "The orchestrator is not just a router, but the governance layer.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The orchestrator in multi-agent decomposition indeed serves as more than a router; it acts as a governance layer that coordinates tasks, validates contracts, manages state, resolves conflicts, and implements circuit breaking.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Trajectory-level evaluation is necessary to catch planning errors.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Trajectory-level evaluation is necessary to catch planning errors and assess the overall quality of an agent's decision-making process across multiple steps.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Guardrails are necessary to prevent prompt injection, off-topic requests, and scope violations.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Guardrails are essential for preventing prompt injection, off-topic requests, and scope violations by enforcing safety checks and constraints on agent actions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sandboxing for write actions is necessary to prevent irreversible damage.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Sandboxing for write actions is necessary to prevent irreversible damage by limiting the agent's ability to execute harmful operations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Autonomy level should be determined by the risk level of the task.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Determining autonomy level based on the risk level of the task is a principle of human-in-the-loop agent design, ensuring that high-risk tasks receive appropriate human oversight.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Verification cost vs speed is a tradeoff that should be tiered by action risk.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The tradeoff between verification cost and speed should indeed be tiered by action risk, balancing the need for thorough verification with the cost and latency implications.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cost management at scale requires optimizations such as caching common planning patterns and routing simple tasks to smaller models.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Cost management at scale does require optimizations such as caching common planning patterns and routing simple tasks to smaller models to reduce computational costs.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Interview Q&A Bank",
+      "score": 0.85,
+      "claims": [
+        {
+          "text": "In case of conflict, the system should apply business rules, such as preferring the recommendation with lower downside risk.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim about applying business rules in case of conflict is correct, but the specific rule mentioned (preferring the recommendation with lower downside risk) may not always be the best approach. The system should consider multiple factors, including user preferences and task requirements.",
+          "suggested_correction": "In case of conflict, the system should apply business rules that consider multiple factors, including user preferences, task requirements, and potential risks."
+        },
+        {
+          "text": "Logging disagreements between agents is crucial to identify coherence problems in the system.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Logging disagreements between agents is indeed crucial for identifying coherence problems in the system, as it allows for the detection of inconsistencies and errors in agent interactions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Agents are over-prescribed, and most tasks can be better solved with deterministic pipelines, simple tool calls, or conditional logic.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "While it is true that agents are often over-prescribed and that many tasks can be better solved with deterministic pipelines or conditional logic, there are cases where agents are necessary and provide significant value. The claim should be more nuanced to reflect this.",
+          "suggested_correction": "Agents are often over-prescribed, but they can provide significant value in certain situations. A more nuanced approach is needed to determine when agents are necessary and when simpler solutions are sufficient."
+        },
+        {
+          "text": "Use agents only when the task requires dynamic planning, adaptive tool use, and the value justifies the cost, complexity, and non-determinism.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim about using agents only when the task requires dynamic planning, adaptive tool use, and justifies the cost, complexity, and non-determinism is correct. This approach ensures that agents are used judiciously and that their benefits outweigh their drawbacks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A monolithic agent creates three Director-level problems: one prompt injection can access every tool, one hallucination cascades across all capabilities, and debugging is impossible when everything shares one context.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions three Director-level problems, but the Facts Manifest does not explicitly discuss these issues. However, it does provide information on related topics such as state space explosion, debugging challenges, and the importance of bounded search strategies.",
+          "suggested_correction": "Rephrase the claim to focus on the challenges of state space explosion, debugging, and the need for bounded search strategies in agentic systems."
+        },
+        {
+          "text": "Multi-agent adds orchestration complexity, which can be prevented by making the orchestrator as simple as possible, such as a state machine, not another LLM.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim about adding orchestration complexity and preventing it by making the orchestrator simple is consistent with the information provided in the Facts Manifest, particularly in the context of Multi-Agent Decomposition and the role of the orchestrator.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Shared context through structured state, not shared prompts, prevents context contamination and allows agents to read and write to a structured state store.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim about shared context through structured state preventing context contamination and allowing agents to read and write to a structured state store aligns with the principles outlined in the Facts Manifest regarding Multi-Agent Orchestration and shared state management.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Trust in agentic systems has three layers: technical trust, user trust, and organizational trust.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim about trust in agentic systems having three layers (technical trust, user trust, and organizational trust) is supported by the information in the Facts Manifest, which discusses various aspects of trust and reliability in agentic systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Technical trust is measured by task completion rate and tool call accuracy.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that technical trust is measured by task completion rate and tool call accuracy is consistent with the evaluation metrics discussed in the Facts Manifest for agentic systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "User trust is built through transparency, predictability, bounded risk, and demonstrated track record.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim about user trust being built through transparency, predictability, bounded risk, and demonstrated track record aligns with the principles of Human-in-the-Loop Architecture and user trust discussed in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Organizational trust requires measurement frameworks, incident response plans, and clear accountability chains.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim regarding organizational trust requiring measurement frameworks, incident response plans, and clear accountability chains is supported by the information in the Facts Manifest on organizational aspects of trust and compliance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Evaluating agents is fundamentally different from evaluating models, as it asks if the trajectory is correct, not just the output.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that evaluating agents is fundamentally different from evaluating models, focusing on the trajectory rather than just the output, is consistent with the discussion on Trajectory-Level Evaluation in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Evaluation layers for agents include task completion, trajectory efficiency, trajectory safety, tool call correctness, recovery quality, and explanation quality.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about evaluation layers for agents is consistent with the Facts Manifest, which mentions key evaluation dimensions in Trajectory-Level Evaluation, including task completion, trajectory efficiency, trajectory safety, tool call correctness, recovery quality, and explanation quality.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Human-in-the-loop design is an architectural choice that determines where in the autonomy spectrum the system operates.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about Human-in-the-loop design is supported by the Facts Manifest, which describes Human-in-the-loop Architecture as a design pattern for AI systems that incorporates human judgment and oversight at specific decision points within automated workflows.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Scaling agents to production requires addressing state management, long-running tasks, cost scaling, non-determinism, and resource contention.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about scaling agents to production is consistent with the Facts Manifest, which discusses the importance of addressing state management, long-running tasks, cost scaling, non-determinism, and resource contention in production Multi-Agent Orchestration systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Prompt injection via tool responses is a significant security risk in agentic systems.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about prompt injection via tool responses is supported by the Facts Manifest, which describes Prompt Injection via Tool Responses as a security vulnerability in agentic AI systems where malicious instructions embedded in tool outputs can hijack an agent's behavior.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Memory architecture determines whether an agent can handle real enterprise workflows or is limited to single-conversation interactions.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about memory architecture is consistent with the Facts Manifest, which mentions the importance of memory architecture in determining whether an agent can handle real enterprise workflows or is limited to single-conversation interactions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-agent coordination is the distributed systems problem of agentic AI, requiring consensus, ordering, failure handling, and schema evolution.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about Multi-agent coordination is supported by the Facts Manifest, which describes Multi-Agent Decomposition as an architectural pattern for agentic AI systems where complex tasks are broken down and distributed across multiple specialized agents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Inter-agent communication design should include shared state stores, schema contracts, and event-driven architecture.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about inter-agent communication design is consistent with the Facts Manifest, which discusses the importance of shared state stores, schema contracts, and event-driven architecture in Multi-Agent Orchestration.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The orchestrator should not resolve contradictory recommendations by picking one, but rather surface both recommendations to the user with their reasoning.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about the orchestrator is supported by the Facts Manifest, which states that the orchestrator should surface both perspectives to users rather than arbitrating automatically when agents produce contradictory recommendations.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Distinguished Engineer Depth Probes",
+      "score": 0.85,
+      "claims": [
+        {
+          "text": "Reducing calls from 8 to 4 can save 50% with no quality loss.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Reducing calls from 8 to 4 can indeed save costs, but the claim of 'no quality loss' is not universally true and depends on the specific application and requirements. The Facts Manifest does not provide a direct answer to this claim, but it discusses the importance of balancing cost and quality in agentic systems.",
+          "suggested_correction": "Reducing calls from 8 to 4 can save costs, but the impact on quality needs to be evaluated on a case-by-case basis."
+        },
+        {
+          "text": "Plan template caching can save 2-3 planning calls.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that plan template caching can save 2-3 planning calls, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model routing within tasks can save on reasoning calls.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that model routing within tasks can save on reasoning calls, aligning with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Combining steps can reduce total LLM calls.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest discusses step consolidation as a method to reduce total LLM calls, supporting the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Agentic planning can be formalized as a search problem over a tree of possible action sequences.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that agentic planning can be formalized as a search problem over a tree of possible action sequences is supported by the Facts Manifest, which states that agentic planning is formalized as a search problem over a tree of possible action sequences.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Monte Carlo Tree Search (MCTS) simulates multiple random rollouts at each node and scores each rollout by final reward.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Monte Carlo Tree Search (MCTS) simulates multiple random rollouts at each node and scores each rollout by final reward is supported by the Facts Manifest, which describes MCTS as applying to agentic planning by simulating multiple random rollouts from each decision node.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Beam Search maintains K candidate plans in parallel and prunes them based on score.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Beam Search maintains K candidate plans in parallel and prunes them based on score is supported by the Facts Manifest, which states that Beam search maintains K candidate plans in parallel.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Tree of Thought (ToT) uses explicit tree decomposition and evaluates each branch with a value function.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Tree of Thought (ToT) uses explicit tree decomposition and evaluates each branch with a value function is supported by the Facts Manifest, which describes Tree of Thought as providing explicit tree decomposition where the LLM generates multiple thought branches at each step.",
+          "suggested_correction": null
+        },
+        {
+          "text": "For simple tasks, greedy planning is sufficient.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that for simple tasks, greedy planning is sufficient is supported by the Facts Manifest, which states that greedy with look-ahead is suitable for simple tasks where one plan execution is sufficient.",
+          "suggested_correction": null
+        },
+        {
+          "text": "For medium tasks, beam search with K=3 is suitable.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that for medium tasks, beam search with K=3 is suitable is supported by the Facts Manifest, which states that beam search with K=3 is appropriate for medium tasks requiring multiple candidate evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "For complex tasks, Tree of Thought with explicit evaluation is recommended.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that for complex tasks, Tree of Thought with explicit evaluation is recommended is supported by the Facts Manifest, which states that Tree of Thought with explicit evaluation is justified for complex/high-stakes tasks where wrong plans have significant consequences.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Tool selection can be formalized as a contextual bandit problem.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that tool selection can be formalized as a contextual bandit problem is supported by the Facts Manifest, which states that tool selection can be complemented by providing learned priors that narrow the search space to high-probability tools, and that tool selection is formulated as a contextual bandit problem.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LinUCB is a suitable algorithm for tool selection.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about LinUCB being suitable for tool selection is not directly addressed in the provided Facts Manifest. While LinUCB is mentioned in the context of tool selection as a contextual bandit problem, its suitability is not explicitly stated.",
+          "suggested_correction": "LinUCB can be used for tool selection as part of a contextual bandit approach."
+        },
+        {
+          "text": "State space explosion can be mitigated using action space reduction, greedy planning with look-ahead, hierarchical decomposition, learned value functions, and plan templates.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions several strategies for mitigating state space explosion, including action space reduction, hierarchical decomposition, and plan templates, which aligns with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Verification of agent actions is fundamentally harder than verifying model outputs due to temporal dependencies, counterfactual reasoning, side effects, and delayed outcomes.",
+          "verdict": "correct",
+          "confidence": 0.85,
+          "reasoning": "The claim about the difficulty of verifying agent actions due to temporal dependencies, counterfactual reasoning, side effects, and delayed outcomes is consistent with the challenges discussed in the Facts Manifest related to agent state space explosion and trajectory-level evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A production verification system should include structural validation, semantic validation, safety validation, and trajectory validation.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The production verification system described in the claim, including structural validation, semantic validation, safety validation, and trajectory validation, matches the layered approach outlined in the Facts Manifest for evaluating agent actions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Non-determinism in agents can be handled using deterministic scaffolding, reproducibility for debugging, statistical testing, and compliance and auditability measures.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The strategies mentioned for handling non-determinism in agents, such as deterministic scaffolding, reproducibility for debugging, statistical testing, and compliance and auditability measures, are in line with the approaches discussed in the Facts Manifest for ensuring reliability and trustworthiness in agentic systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cost-optimal agent architectures can be achieved through plan template caching, model routing within tasks, combining steps, and speculative execution.",
+          "verdict": "correct",
+          "confidence": 0.85,
+          "reasoning": "The claim about achieving cost-optimal agent architectures through plan template caching, model routing, combining steps, and speculative execution aligns with the optimization strategies discussed in the Facts Manifest for reducing computational costs in agentic systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The biggest cost savings come from architecture optimizations, not from cheaper models.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest supports the claim that the biggest cost savings come from architecture optimizations rather than cheaper models, emphasizing the importance of efficient design in agentic cost optimization.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Switching all calls from Sonnet to Haiku can save ~60% but may lose quality.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The claim about switching all calls from Sonnet to Haiku saving ~60% but potentially losing quality is not directly addressed in the provided Facts Manifest. While cost differences between models are discussed, specific savings from switching models are not provided.",
+          "suggested_correction": "The cost implications of switching from Sonnet to Haiku depend on various factors, including the specific use case and required model capabilities."
+        }
+      ]
+    },
+    {
+      "section_name": "Cost Model",
+      "score": 0.2631578947368421,
+      "claims": [
+        {
+          "text": "The total cost of a templated task is approximately $0.01 to $0.015.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that the cost range for a single agentic task in 2026 is $0.04-$0.05, which does not match the claim of $0.01 to $0.015.",
+          "suggested_correction": "The total cost of a templated task is approximately $0.04-$0.05."
+        },
+        {
+          "text": "At a scale of 10,000 users, the monthly cost is approximately $12,000.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the Facts Manifest about the monthly cost at a scale of 10,000 users.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "At a scale of 100,000 users, the monthly cost is approximately $60,000.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the Facts Manifest about the monthly cost at a scale of 100,000 users.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "At a scale of 1,000,000 users, the monthly cost is approximately $300,000.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the Facts Manifest about the monthly cost at a scale of 1,000,000 users.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "Amazon Ads has over 1 million advertisers.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the Facts Manifest about the number of advertisers on Amazon Ads.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "The cost of a full agentic task at Amazon Ads would be $0.05 per task.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that the cost range for a single agentic task in 2026 is $0.04-$0.05, which does not match the claim of $0.05 per task.",
+          "suggested_correction": "The cost of a full agentic task at Amazon Ads would be $0.04-$0.05."
+        },
+        {
+          "text": "Plan template caching can reduce costs by 4-5 times for matching tasks.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that plan template caching can reduce costs by 70-75% for matching tasks, which is consistent with the claim of 4-5 times reduction.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "Model routing can reduce costs by 2-3 times.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that model routing can reduce costs by 30-40%, which is consistent with the claim of 2-3 times reduction.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "Step consolidation can reduce costs by 1.5-2 times.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information to support the claim that step consolidation can reduce costs by 1.5-2 times. However, it does mention that step consolidation can reduce the total number of LLM invocations by combining related operations, which could lead to cost savings.",
+          "suggested_correction": "Step consolidation can reduce costs by reducing the total number of LLM invocations."
+        },
+        {
+          "text": "Tiered service can reduce costs at the system level.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that tiered service can reduce costs at the system level, with a cost reduction of 5-10x at the population level.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Batch execution can reduce costs by 1.3 times.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information to support the claim that batch execution can reduce costs by 1.3 times. However, it does discuss other cost reduction strategies such as plan template caching and model routing.",
+          "suggested_correction": "Batch execution is not mentioned in the Facts Manifest as a cost reduction strategy."
+        },
+        {
+          "text": "The cost of planning using LLM reasoning is approximately $0.016 per task.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The cost of planning using LLM reasoning is not explicitly stated in the Facts Manifest, but the manifest does provide a cost range for a single agentic task. The claim is partially correct in that it attempts to break down the cost, but it lacks direct evidence from the manifest.",
+          "suggested_correction": "The cost of planning is part of the total cost of an agentic task, which is between $0.04 and $0.05."
+        },
+        {
+          "text": "The cost of tool call formatting is approximately $0.004 per task.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Similar to claim 0, the cost of tool call formatting is not directly stated in the Facts Manifest. However, the manifest does discuss the cost structure of agentic tasks, implying that such costs are included in the overall task cost.",
+          "suggested_correction": "Tool call formatting costs are part of the overall agentic task cost, which ranges from $0.04 to $0.05."
+        },
+        {
+          "text": "The cost of tool execution is between $0.001 and $0.01 per task.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest mentions the cost range for a single model inference call, which aligns with the claim about tool execution costs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of result interpretation is approximately $0.006 per task.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The cost of result interpretation, like other specific costs, is not directly provided in the Facts Manifest. However, it is implied to be part of the total task cost.",
+          "suggested_correction": "Result interpretation costs are included in the total agentic task cost of $0.04 to $0.05."
+        },
+        {
+          "text": "The cost of verification is approximately $0.004 per task.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Verification costs, similar to other specific costs, are not explicitly mentioned in the Facts Manifest but are part of the overall task cost.",
+          "suggested_correction": "Verification costs are part of the $0.04 to $0.05 total cost for an agentic task."
+        },
+        {
+          "text": "The cost of final synthesis is approximately $0.008 per task.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The cost of final synthesis, like other detailed costs, is not directly stated in the Facts Manifest. It is, however, included in the total task cost.",
+          "suggested_correction": "Final synthesis costs are included in the overall cost of an agentic task, which is $0.04 to $0.05."
+        },
+        {
+          "text": "The cost of state management is approximately $0 per task.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information on the cost of state management. Without direct evidence, the claim cannot be verified.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total cost of a full agentic task is approximately $0.04 to $0.05.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest does indeed state that the total cost of a full agentic task is approximately $0.04 to $0.05, which aligns with this claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Observability & Production Debugging",
+      "score": 0.4,
+      "claims": [
+        {
+          "text": "The escalation rate has an alert threshold of >10%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the escalation rate or its alert threshold.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The p95 latency has an alert threshold of >30s.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the p95 latency or its alert threshold.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "At Amazon Ads, forecast confidence intervals were misunderstood as point estimates by users.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about forecast confidence intervals or user misunderstandings at Amazon Ads.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The planning prompts are versioned in config and logged per task.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about planning prompts, their versioning, or logging per task.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The `error_events[]` field contains retries, fallbacks, and escalations.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the error_events[] field.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The `final_outcome` field tracks task completion with success, partial, failed, or escalated outcomes.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the final_outcome field.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The task completion rate has an alert threshold of <85%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the task completion rate or its alert threshold.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The infinite loop detection has an alert threshold of >3%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the infinite loop detection or its alert threshold.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The tool failure rate has an alert threshold of >5% for any tool.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the tool failure rate or its alert threshold.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The verification failure rate has an alert threshold of >2%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the verification failure rate or its alert threshold.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The average steps per task has an alert threshold of >8.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the average steps per task or its alert threshold.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The cost per task has a budget of $0.04 and an alert threshold of >$0.06.",
+          "verdict": "partially_correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions a cost range for a single agentic task in 2026 ($0.04-$0.05) but does not provide information about the cost per task budget or its alert threshold.",
+          "suggested_correction": "The cost range for a single agentic task in 2026 is $0.04-$0.05."
+        },
+        {
+          "text": "The `task_id` and `session_id` are used to link multi-step traces and group by session.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about task_id and session_id is consistent with the Facts Manifest, which discusses the importance of linking multi-step traces and grouping by session in agentic systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `task_classification` field tracks routing decisions.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about task_classification tracking routing decisions aligns with the Facts Manifest's discussion on model routing and its role in reducing costs by matching cognitive load to model capability.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `plan` field is used to inspect planning quality.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about the plan field being used to inspect planning quality is supported by the Facts Manifest, which emphasizes the importance of planning and planning quality in agentic systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `steps[]` field contains an ordered list of action, tool, params, response, and verification result.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about the steps[] field containing an ordered list of action, tool, params, response, and verification result is consistent with the structure of agentic systems as described in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `model_id` per step is used to track which model handled what.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about model_id per step being used to track which model handled what is in line with the discussion on model routing and its benefits in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `latency_per_step` and `total_latency` are used for performance monitoring.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about latency_per_step and total_latency being used for performance monitoring is supported by the Facts Manifest, which highlights the importance of monitoring and optimizing performance in agentic systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `token_count_per_step` and `total_tokens` are used for cost tracking.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about token_count_per_step and total_tokens being used for cost tracking is consistent with the Facts Manifest's discussion on cost optimization and the importance of monitoring token usage.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `verification_results[]` field contains pass/fail results per step.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about verification_results[] containing pass/fail results per step aligns with the emphasis on verification and validation in the Facts Manifest to ensure the reliability and safety of agentic systems.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Advanced Patterns Summary",
+      "score": 0.25,
+      "claims": [
+        {
+          "text": "Self-reflection and critic solve overconfident wrong answers and quality assurance.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about self-reflection and critic solving overconfident wrong answers and quality assurance is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Self-reflection and critic are used in high-stakes actions before final presentation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about self-reflection and critic being used in high-stakes actions before final presentation is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Tool learning and bandit selection solve wrong tool selection and exploration of new tools.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about tool learning and bandit selection solving wrong tool selection and exploration of new tools is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Tool learning and bandit selection are used in mature systems with historical selection data.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about tool learning and bandit selection being used in mature systems with historical selection data is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Checkpoint and resume solve long-running task failures and lost progress.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about checkpoint and resume solving long-running task failures and lost progress is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Checkpoint and resume are used in tasks with more than 5 steps or more than 30 seconds.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about checkpoint and resume being used in tasks with more than 5 steps or more than 30 seconds is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Speculative execution solves latency in sequential pipelines.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about speculative execution solving latency in sequential pipelines is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Speculative execution is used in high-confidence common paths where step N+1 is predictable.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about speculative execution being used in high-confidence common paths where step N+1 is predictable is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "ReAct pattern solves opaque reasoning and debugging difficulty.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The ReAct pattern does solve opaque reasoning and debugging difficulty by providing explicit reasoning steps and making the agent's decision-making process transparent.",
+          "suggested_correction": "ReAct pattern solves opaque reasoning and debugging difficulty by providing explicit reasoning steps."
+        },
+        {
+          "text": "ReAct pattern is used in any multi-step agent where auditability matters.",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "The ReAct pattern is not used in every multi-step agent where auditability matters. It is used in high-stakes applications, multi-step tasks, debugging-intensive environments, and human-supervised workflows.",
+          "suggested_correction": "ReAct pattern is used in high-stakes applications, multi-step tasks, debugging-intensive environments, and human-supervised workflows where auditability matters."
+        },
+        {
+          "text": "Multi-agent decomposition solves monolithic failure cascade and security boundaries.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "Multi-agent decomposition does solve monolithic failure cascade and security boundaries by breaking down complex tasks into independent sub-goals and providing security isolation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-agent decomposition is used in tasks spanning different risk levels or domains.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "Multi-agent decomposition is used in tasks spanning different risk levels or domains, providing error isolation and security boundaries.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Plan templates solve cost at scale and planning latency.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Plan templates do solve cost at scale and planning latency by converting planning from a generation problem to a retrieval and personalization problem.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Plan templates are used in recurring task patterns that make up more than 30% of volume.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Plan templates are used in recurring task patterns that make up more than 30% of volume, achieving 60-80% template coverage.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hierarchical planning solves complex multi-domain tasks and state space explosion.",
+          "verdict": "correct",
+          "confidence": 0.85,
+          "reasoning": "Hierarchical planning does solve complex multi-domain tasks and state space explosion by breaking complex tasks into independent sub-goals with smaller state spaces.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hierarchical planning is used in tasks with 5 or more steps and independent sub-goals.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Hierarchical planning is used in tasks with complex multi-domain tasks, but the specific number of steps (5 or more) is not a strict requirement.",
+          "suggested_correction": "Hierarchical planning is used in complex multi-domain tasks."
+        },
+        {
+          "text": "Multi-agent decomposition is not used in simple single-domain tasks.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Multi-agent decomposition can be used in various tasks, including simple single-domain tasks, to improve efficiency and scalability by breaking down complex tasks into smaller sub-tasks handled by specialist agents.",
+          "suggested_correction": "Multi-agent decomposition is used in tasks that can be broken down into smaller sub-tasks, including simple single-domain tasks, to improve efficiency and scalability."
+        },
+        {
+          "text": "Plan templates are not used in novel tasks that don't fit templates or exploration.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "Plan templates are used in tasks that fit templates, but they can also be used in novel tasks to provide a starting point for planning, with the understanding that additional planning may be required to adapt the template to the novel situation.",
+          "suggested_correction": "Plan templates are used in tasks that fit templates and can also be used as a starting point in novel tasks, with additional planning to adapt the template."
+        },
+        {
+          "text": "Tool learning and bandit selection are not used in cold-start or systems with less than 100 logged tool selections.",
+          "verdict": "partially_correct",
+          "confidence": 0.9,
+          "reasoning": "Tool learning and bandit selection are not exclusively used in cold-start or systems with less than 100 logged tool selections; they can be used in various scenarios, including cold-start, to learn from experience and improve tool selection over time.",
+          "suggested_correction": "Tool learning and bandit selection can be used in cold-start scenarios and in systems with any number of logged tool selections to improve tool selection."
+        },
+        {
+          "text": "Checkpoint and resume are not used in short tasks where restart cost is negligible.",
+          "verdict": "partially_correct",
+          "confidence": 0.85,
+          "reasoning": "Checkpoint and resume are not exclusively used in short tasks where restart cost is negligible; they can be beneficial in various tasks to save progress and resume from checkpoints, especially in tasks with significant computational costs or risks of interruption.",
+          "suggested_correction": "Checkpoint and resume can be used in tasks where saving progress is beneficial, regardless of task length or restart cost."
+        }
+      ]
+    },
+    {
+      "section_name": "Data Flywheel & Continuous Improvement",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The system evaluates 5% of agent trajectories for human evaluation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about evaluating 5% of agent trajectories for human evaluation is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Verification failures are selected for human evaluation to determine if the block was correct or a false positive.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about verification failures being selected for human evaluation is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Escalated tasks are selected for human evaluation to determine if a better agent could have completed the task.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about escalated tasks being selected for human evaluation is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Low-confidence completions are selected for human evaluation to determine if the final output was actually good.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about low-confidence completions being selected for human evaluation is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Novel task types are selected for human evaluation to determine if the agent's approach is reasonable for new territory.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about novel task types being selected for human evaluation is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Long trajectories (>6 steps) are selected for human evaluation to determine if the agent was efficient or wandered.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about long trajectories being selected for human evaluation is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "A random sample (10% of budget) is selected for human evaluation as an unbiased quality measurement.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about a random sample being selected for human evaluation is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Wrong action recommendations have a very high business cost and occur 3-5% of the time.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about wrong action recommendations having a high business cost and occurrence rate is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Tool descriptions are updated bi-weekly based on selection errors.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about tool descriptions being updated bi-weekly based on selection errors is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "No suggested correction available as the claim is unverifiable."
+        },
+        {
+          "text": "Verification rules are updated monthly with new safety patterns.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about verification rules being updated monthly with new safety patterns is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "No suggested correction available as the claim is unverifiable."
+        },
+        {
+          "text": "Agent models are updated quarterly with full retrain/fine-tune if applicable.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about agent models being updated quarterly with full retrain/fine-tune if applicable is not addressed in the provided Facts Manifest.",
+          "suggested_correction": "No suggested correction available as the claim is unverifiable."
+        },
+        {
+          "text": "Agent stuck in loop failures have a high business cost and occur 2-3% of the time.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about agent stuck in loop failures does not have a direct match in the provided Facts Manifest, and the knowledge pages do not provide sufficient information to verify the claim.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information."
+        },
+        {
+          "text": "Tool injection leading to unauthorized action has a catastrophic business cost and occurs less than 0.1% of the time.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about tool injection leading to unauthorized action does not have a direct match in the provided Facts Manifest, and the knowledge pages do not provide sufficient information to verify the claim.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information."
+        },
+        {
+          "text": "Slow completion (>30s for simple tasks) has a medium business cost and occurs 15-20% of the time.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about slow completion does not have a direct match in the provided Facts Manifest, and the knowledge pages do not provide sufficient information to verify the claim.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information."
+        },
+        {
+          "text": "Generic/unhelpful recommendations have a medium business cost and occur 20-30% of the time.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about generic/unhelpful recommendations does not have a direct match in the provided Facts Manifest, and the knowledge pages do not provide sufficient information to verify the claim.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information."
+        },
+        {
+          "text": "Agent completes task but misses user's actual intent has a high business cost and occurs 5-10% of the time.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about agent completing task but missing user's actual intent does not have a direct match in the provided Facts Manifest, and the knowledge pages do not provide sufficient information to verify the claim.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information."
+        },
+        {
+          "text": "Inconsistent recommendations across sessions have a medium business cost and occur 5-8% of the time.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about inconsistent recommendations across sessions does not have a direct match in the provided Facts Manifest, and the knowledge pages do not provide sufficient information to verify the claim.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information."
+        },
+        {
+          "text": "Task templates are updated daily with new patterns identified from production.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about task templates being updated daily does not have a direct match in the provided Facts Manifest, and the knowledge pages do not provide sufficient information to verify the claim.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information."
+        },
+        {
+          "text": "Planning prompts are updated weekly based on failure analysis.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about planning prompts being updated weekly does not have a direct match in the provided Facts Manifest, and the knowledge pages do not provide sufficient information to verify the claim.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information."
+        }
+      ]
+    },
+    {
+      "section_name": "Seniority Signals Cheat Sheet",
+      "score": 0.625,
+      "claims": [
+        {
+          "text": "ReAct gives us auditability \u2014 the trace is the explanation.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim that ReAct gives us auditability \u2014 the trace is the explanation is partially correct because ReAct does provide a structured trace that serves as documentation for why the agent made specific decisions, but it is not the only explanation. The trace provides transparency into the agent's decision-making process, but additional context may be necessary for a complete understanding.",
+          "suggested_correction": "ReAct provides a structured trace that serves as documentation for the agent's decision-making process, offering transparency and facilitating auditing."
+        },
+        {
+          "text": "Every tool is an attack surface AND a failure mode.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that every tool is an attack surface and a failure mode is correct because each tool can potentially introduce vulnerabilities or fail in ways that impact the overall system.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We removed 3 tools last quarter because their error rate made the agent less reliable, not more capable.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim that 3 tools were removed last quarter because their error rate made the agent less reliable, not more capable, cannot be verified with the provided information.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Plan-then-execute works for known task structures.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that plan-then-execute works for known task structures is correct because this approach is effective when the task structure is well understood and the optimal plan can be determined upfront.",
+          "suggested_correction": null
+        },
+        {
+          "text": "For novel tasks, we interleave planning and execution because step 3's result may invalidate step 5's assumption.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that for novel tasks, we interleave planning and execution because step 3's result may invalidate step 5's assumption is correct. This approach allows for adaptability and handling of unexpected outcomes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Our three-strike rule + alternative path fallbacks cut cost 40%.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim that the three-strike rule plus alternative path fallbacks cut cost 40% cannot be verified with the provided information.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Task completion tells you IF the agent works.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that task completion tells you IF the agent works is correct. Task completion is a primary metric for evaluating agent success.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Trajectory evaluation tells you HOW it works.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that trajectory evaluation tells you HOW it works is correct. Trajectory evaluation provides insights into the agent's decision-making process and the path taken to complete a task.",
+          "suggested_correction": null
+        },
+        {
+          "text": "An agent that completes 95% of tasks but uses dangerous intermediate steps is worse than one that completes 90% safely.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim is consistent with the idea that safety and efficiency are important considerations in agent design. An agent that completes 95% of tasks but uses dangerous intermediate steps is indeed worse than one that completes 90% safely, as the latter prioritizes safety and minimizes risk.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A single agent with all tools is a monolithic service \u2014 one failure cascades everywhere, one injection accesses everything.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "The claim accurately describes the risks associated with a single agent having all tools. A monolithic service with one failure point can indeed lead to cascading failures, and a single injection point can compromise the entire system.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We decomposed into specialists with per-agent permissions because our analytics agent (read-only) has no business sharing context with our budget agent (write-capable).",
+          "verdict": "correct",
+          "confidence": 0.92,
+          "reasoning": "The claim is consistent with the principles of multi-agent decomposition. Decomposing tasks into specialists with per-agent permissions can help prevent sensitive information from being shared unnecessarily and reduce the risk of a single point of failure.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We operated at Level 1 (recommend) for 18 months before expanding autonomy because trust is built incrementally.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim reflects a reasonable approach to expanding autonomy in human-in-the-loop systems. Operating at Level 1 (recommend) for 18 months before expanding autonomy can help build trust and demonstrate the system's reliability and safety.",
+          "suggested_correction": null
+        },
+        {
+          "text": "One wrong automated action on a $1M/month advertiser destroys trust that took a year to build.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "The claim highlights the importance of avoiding wrong automated actions, especially in high-stakes environments. One wrong action on a $1M/month advertiser can indeed destroy trust that took a year to build, emphasizing the need for robust safety mechanisms and human oversight.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Only 2 of our 7 steps need Sonnet-class reasoning.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim about only 2 of 7 steps needing Sonnet-class reasoning cannot be verified without more context about the specific task or system architecture. The necessity for Sonnet-class reasoning can vary widely depending on the task complexity and the system's design.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Tool formatting, result parsing, and simple routing use Haiku at 5x lower cost.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim about using Haiku at 5x lower cost for certain tasks cannot be verified without more information about the tasks, the system's architecture, and the cost structure. While Haiku might be more cost-effective for specific operations, this claim lacks sufficient context for evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Architecture-level cost optimization (fewer steps, templates) saves more than model-level optimization (cheaper model).",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim that architecture-level cost optimization saves more than model-level optimization cannot be verified without specific details about the system, the optimizations considered, and the cost models used. Both architecture-level and model-level optimizations can be effective, but their impact depends on the system's design and operational context.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Addendum: 2026 Update",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Single-agent architectures with advanced tool use have largely replaced multi-agent patterns for production workloads.",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "The claim that single-agent architectures with advanced tool use have largely replaced multi-agent patterns for production workloads contradicts the information provided in the Facts Manifest, which discusses the benefits and trade-offs of multi-agent decomposition and orchestration without indicating their replacement by single-agent architectures.",
+          "suggested_correction": "Multi-agent architectures and single-agent architectures coexist in production workloads, each suitable for different tasks and requirements."
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Microsoft AutoGen is a multi-agent conversation framework",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about Microsoft AutoGen.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "CrewAI is a role-based multi-agent framework",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about CrewAI.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "Anthropic published a guide on building effective agents in 2024",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about Anthropic publishing a guide on building effective agents in 2024.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "OpenAI published a practical guide to building agents in 2025",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about OpenAI publishing a practical guide to building agents in 2025.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "Constitutional AI: Harmlessness from AI Feedback was published by Bai et al. in 2022",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about Constitutional AI: Harmlessness from AI Feedback being published by Bai et al. in 2022.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "Prompt Injection attacks against LLM-integrated applications was published by Greshake et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about Prompt Injection attacks against LLM-integrated applications being published by Greshake et al. in 2023.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "AgentBench: Evaluating LLMs as Agents was published by Liu et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about AgentBench: Evaluating LLMs as Agents being published by Liu et al. in 2023.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "BOLAA: Benchmarking and Orchestrating LLM-Augmented Autonomous Agents was published by Liu et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about BOLAA: Benchmarking and Orchestrating LLM-Augmented Autonomous Agents being published by Liu et al. in 2023.",
+          "suggested_correction": "No suggested correction available."
+        },
+        {
+          "text": "ReAct: Synergizing Reasoning and Acting in Language Models was published by Yao et al. in 2022",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the publication of 'ReAct: Synergizing Reasoning and Acting in Language Models' by Yao et al. in 2022.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Toolformer: Language Models Can Teach Themselves to Use Tools was published by Schick et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the publication of 'Toolformer: Language Models Can Teach Themselves to Use Tools' by Schick et al. in 2023.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models was published by Yao et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the publication of 'Tree of Thoughts: Deliberate Problem Solving with Large Language Models' by Yao et al. in 2023.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face was published by Shen et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the publication of 'HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face' by Shen et al. in 2023.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Reflexion: Language Agents with Verbal Reinforcement Learning was published by Shinn et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the publication of 'Reflexion: Language Agents with Verbal Reinforcement Learning' by Shinn et al. in 2023.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "LATS: Language Agent Tree Search was published by Zhou et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the publication of 'LATS: Language Agent Tree Search' by Zhou et al. in 2023.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "LangGraph is a stateful multi-agent orchestration framework",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about LangGraph being a stateful multi-agent orchestration framework.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "LangChain is an agentic RAG with LangGraph",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about LangChain being an agentic RAG with LangGraph.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "TaskBench: Benchmarking Large Language Models for Task Automation was published by Shen et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the publication 'TaskBench: Benchmarking Large Language Models for Task Automation' by Shen et al. in 2023.",
+          "suggested_correction": "No suggested correction available as the claim is unverifiable."
+        },
+        {
+          "text": "A Survey on Large Language Model based Autonomous Agents was published by Wang et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the publication 'A Survey on Large Language Model based Autonomous Agents' by Wang et al. in 2023.",
+          "suggested_correction": "No suggested correction available as the claim is unverifiable."
+        },
+        {
+          "text": "The Rise and Potential of Large Language Model Based Agents: A Survey was published by Xi et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the publication 'The Rise and Potential of Large Language Model Based Agents: A Survey' by Xi et al. in 2023.",
+          "suggested_correction": "No suggested correction available as the claim is unverifiable."
+        },
+        {
+          "text": "Agent AI: Surveying the Horizons of Multimodal Interaction was published by Durante et al. in 2024",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the publication 'Agent AI: Surveying the Horizons of Multimodal Interaction' by Durante et al. in 2024.",
+          "suggested_correction": "No suggested correction available as the claim is unverifiable."
+        }
+      ]
+    }
+  ]
+}

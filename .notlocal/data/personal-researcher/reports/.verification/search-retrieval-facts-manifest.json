@@ -1,0 +1,1009 @@
+{
+  "topic": "search-retrieval",
+  "timestamp": "2026-05-18T22:37:54.118217+00:00",
+  "total_facts": 100,
+  "contradictions_found": 0,
+  "contradictions_resolved": 0,
+  "facts": [
+    {
+      "question": "What type of architecture does cross-encoder reranking use?",
+      "answer": "Transformer-based model",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do cross-encoders process query-document pairs?",
+      "answer": "By concatenating them into a single input sequence",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the key architectural difference between cross-encoders and bi-encoders?",
+      "answer": "Cross-encoders cannot pre-compute document representations",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many documents are typically reranked by cross-encoder reranking in production systems?",
+      "answer": "50-200 documents",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the latency added by cross-encoders in production systems?",
+      "answer": "50-200ms per query",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of learning objective is used to train cross-encoders?",
+      "answer": "Contrastive learning objectives",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of position bias correction in cross-encoder training?",
+      "answer": "To ensure the model learns true relevance rather than position preferences",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical improvement in NDCG achieved by cross-encoder reranking over bi-encoder approaches?",
+      "answer": "20-30%",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does cross-encoder reranking operate in enterprise RAG systems?",
+      "answer": "As a critical component for improving answer quality after initial retrieval",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of models are used for cross-encoder reranking in enterprise RAG systems?",
+      "answer": "Models like bge-reranker-large or Cohere Rerank",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of ranking function is BM25?",
+      "answer": "Probabilistic ranking function",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What family of ranking functions does BM25 belong to?",
+      "answer": "TF-IDF ranking functions",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the IDF component in BM25?",
+      "answer": "To give higher weight to rare terms that are more discriminative",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of the k\u2081 parameter in BM25?",
+      "answer": "Controls the saturation speed of term frequency",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of document length normalization in BM25?",
+      "answer": "To address the bias toward longer documents",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the value of the b parameter for moderate length correction?",
+      "answer": "0.75",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical query latency of BM25 using inverted index lookup?",
+      "answer": "Under 10ms",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of retrieval does BM25 excel in?",
+      "answer": "Exact match handling",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the percentage of queries that BM25 can handle acceptably in most domains?",
+      "answer": "60-70%",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the limitation of BM25 in terms of query term independence?",
+      "answer": "Treats query terms independently, scoring them separately and summing the results",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of BM25 in modern search systems?",
+      "answer": "Typically serves as one component of a Hybrid Retrieval system",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between BM25 and Dense Vector Retrieval methods?",
+      "answer": "Complementary failure modes, with BM25 excelling in exact matches and Dense Vector Retrieval methods capturing semantic similarity",
+      "confidence": 0.9,
+      "sources": [
+        "bm25-scoring-algorithm.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture does dense vector retrieval typically use?",
+      "answer": "Bi-encoder (two-tower) architectures",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary technique used for training dense retrieval models?",
+      "answer": "Contrastive learning objectives, most commonly InfoNCE loss",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of hard negative mining in dense retrieval training?",
+      "answer": "To select challenging negatives that are semantically similar to the query but not relevant",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of indexing structure is commonly used for efficient similarity search in dense retrieval systems?",
+      "answer": "HNSW (Hierarchical Navigable Small World) graphs and Inverted File (IVF) indexes with product quantization",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical dimensionality of embeddings used in dense retrieval?",
+      "answer": "768-dimensional, but 384-dimensional models can provide 95% of the quality at half the memory and computational cost",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do production systems typically combine dense retrieval with other methods?",
+      "answer": "By combining dense retrieval with lexical methods like BM25 Scoring Algorithm",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary metric used to measure dense retrieval quality?",
+      "answer": "Recall@K metrics on labeled query-document pairs",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Cross-Encoder Reranking in dense retrieval pipelines?",
+      "answer": "To capture fine-grained query-document interactions that bi-encoders miss, typically improving relevance by 20-30% over dense retrieval alone",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between dense vector retrieval and Hybrid Retrieval?",
+      "answer": "Hybrid Retrieval combines dense and sparse retrieval methods",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of using HNSW indexing in dense retrieval systems?",
+      "answer": "High recall, but requires all vectors in memory",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the trade-off of using IVF-PQ indexing in dense retrieval systems?",
+      "answer": "Massive compression at the cost of some recall loss",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of temperature parameters in the InfoNCE loss function?",
+      "answer": "Controls the learning dynamics, with lower temperatures focusing the model on distinguishing between hard negatives and higher temperatures encouraging learning coarse-grained distinctions",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical range of temperature values used in the InfoNCE loss function for retrieval applications?",
+      "answer": "0.05 to 0.1",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of domain fine-tuning in dense retrieval models?",
+      "answer": "To improve performance on domain-specific queries with specialized vocabulary, abbreviations, and mixed-language patterns",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the potential risk of domain fine-tuning in dense retrieval models?",
+      "answer": "Catastrophic forgetting of general capabilities",
+      "confidence": 0.9,
+      "sources": [
+        "dense-vector-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the architecture type of HNSW?",
+      "answer": "Hierarchical Navigable Small World",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the search complexity of HNSW?",
+      "answer": "O(log N \u00d7 ef_search \u00d7 M)",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the memory requirement per vector for HNSW?",
+      "answer": "approximately (d\u00d74 + M\u00d72\u00d74\u00d7layers) bytes",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the query latency of HNSW for large-scale retrieval applications?",
+      "answer": "typically 1-5ms",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recall@10 of HNSW on datasets with 100 million vectors?",
+      "answer": "95-98%",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the memory requirement for 100 million 768-dimensional vectors in HNSW?",
+      "answer": "approximately 320GB",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique provides 4x compression with less than 1% recall loss in HNSW?",
+      "answer": "Scalar quantization (INT8)",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the time complexity of building an HNSW index?",
+      "answer": "O(N \u00d7 log N \u00d7 ef_construction)",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost per insertion for online updates in HNSW?",
+      "answer": "O(log N)",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does HNSW handle semantic similarity matching in hybrid retrieval systems?",
+      "answer": "as the dense retrieval component",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of HNSW over IVF methods?",
+      "answer": "higher recall and faster query times",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended update strategy for HNSW in production systems?",
+      "answer": "incremental insertion with periodic full rebuilds",
+      "confidence": 0.9,
+      "sources": [
+        "hnsw-hierarchical-navigable-small-world.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of retrieval approach does Hybrid Retrieval combine?",
+      "answer": "Sparse (lexical) and dense (semantic) retrieval systems",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary function of the Query Processing component in Hybrid Retrieval?",
+      "answer": "Preprocessing including tokenization, spell correction, entity detection, and intent classification",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What algorithm is used for fusion in Hybrid Retrieval?",
+      "answer": "Reciprocal Rank Fusion (RRF)",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Reranking step in Hybrid Retrieval?",
+      "answer": "To capture fine-grained relevance signals using a Cross-Encoder Reranking model",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the advantages of using BM25 Retrieval in Hybrid Retrieval?",
+      "answer": "Fast retrieval, perfect handling of exact matches, no training required, and highly interpretable results",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary benefit of using Dense Retrieval in Hybrid Retrieval?",
+      "answer": "Handles paraphrases and conceptual queries effectively, supports cross-lingual retrieval, and captures query intent beyond literal word matching",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the main challenge of implementing Hybrid Retrieval?",
+      "answer": "Increased operational overhead due to maintaining multiple retrieval systems",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Hybrid Retrieval improve coverage and relevance?",
+      "answer": "By combining lexical and semantic retrieval, achieving higher recall rates and maintaining performance across diverse query types",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of Fusion Strategies in Hybrid Retrieval?",
+      "answer": "To combine results from different retrieval methods, including learned fusion, score interpolation, and cascade systems",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Cross-Encoder Reranking model in Hybrid Retrieval?",
+      "answer": "To process query-document pairs jointly and understand token-level interactions",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the applications of Hybrid Retrieval?",
+      "answer": "E-commerce search, enterprise search, and advertising systems",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using SPLADE in Hybrid Retrieval?",
+      "answer": "Combines the efficiency of inverted indexes with semantic expansion capabilities",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Hybrid Retrieval optimize latency?",
+      "answer": "Through parallel execution, selective reranking, caching strategies, and tiered serving architectures",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Hybrid Retrieval and Contextual Chunking?",
+      "answer": "Contextual Chunking enhances the effectiveness of Hybrid Retrieval",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary function of the Query Understanding Pipeline?",
+      "answer": "To transform raw user search queries into structured, disambiguated representations",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What stage of the pipeline corrects typographical errors and normalizes text?",
+      "answer": "The first stage of the Query Understanding Pipeline",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Entity Detection in the pipeline?",
+      "answer": "To identify and preserve important structured elements within queries",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many primary categories are there for Intent Classification?",
+      "answer": "Three: Navigational, Transactional, and Informational",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to expand queries with synonyms, related terms, or generated paraphrases?",
+      "answer": "Rule-based synonym dictionaries, trained sequence-to-sequence models, or large language model calls",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of HyDE (Hypothetical Document Embeddings)?",
+      "answer": "To generate a hypothetical ideal answer using a language model for retrieval",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of Session-Aware Processing?",
+      "answer": "To incorporate previous queries in the session for improved interpretation",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical latency budget for spell correction and entity detection?",
+      "answer": "Less than 5ms",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How is pipeline effectiveness measured?",
+      "answer": "Through downstream retrieval quality metrics, including zero-result rates, query refinement rates, and user engagement signals",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of retrieval systems can the pipeline feed processed queries to?",
+      "answer": "Both lexical retrieval systems and semantic retrieval systems",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Query Decomposition technique?",
+      "answer": "To break complex queries into constituent parts for separate processing",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using a large language model for query rewriting?",
+      "answer": "To provide the highest quality rewriting, but requires careful latency management",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Quality Safeguards in the pipeline?",
+      "answer": "To prevent query rewriting from inadvertently changing user intent",
+      "confidence": 0.9,
+      "sources": [
+        "query-understanding-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of fusion technique is Reciprocal Rank Fusion (RRF)?",
+      "answer": "A method for combining results from multiple retrieval systems",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the formula for calculating the RRF score for a document?",
+      "answer": "\u03a3_r 1 / (k + rank_r(d))",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical value of the constant k in the RRF formula?",
+      "answer": "60",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the constant k in the RRF formula?",
+      "answer": "To control the influence of high-ranking items",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of decay does the 1/(k + rank) function create?",
+      "answer": "Hyperbolic decay",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does RRF operate on retrieval systems?",
+      "answer": "On rank positions rather than raw scores",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of a large k value in the RRF formula?",
+      "answer": "Gives more equal weight to items across different rank positions",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of a small k value in the RRF formula?",
+      "answer": "Emphasizes top-ranked items more heavily",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of using RRF in hybrid retrieval systems?",
+      "answer": "Combines sparse retrieval with dense retrieval to achieve higher recall and precision",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between BM25 and Dense Vector Retrieval in hybrid retrieval systems?",
+      "answer": "Complementary approaches that address each other's failure modes",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the weighted RRF approach?",
+      "answer": "To apply different weights to different retrieval systems based on their relative quality",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical implementation step for RRF in production search systems?",
+      "answer": "Collecting the top-K results from each retrieval system, computing the RRF score, and sorting by the combined RRF scores",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the computational complexity of the RRF implementation?",
+      "answer": "Computationally lightweight, requiring only simple arithmetic operations",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical latency added by the RRF fusion step in production search systems?",
+      "answer": "Less than 1ms",
+      "confidence": 0.9,
+      "sources": [
+        "reciprocal-rank-fusion-rrf.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of representations does SPLADE generate?",
+      "answer": "Sparse vectors",
+      "confidence": 0.9,
+      "sources": [
+        "splade-sparse-lexical-and-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary advantage of SPLADE over dense embedding models?",
+      "answer": "Infrastructure compatibility with standard inverted indexes",
+      "confidence": 0.9,
+      "sources": [
+        "splade-sparse-lexical-and-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does SPLADE address the trade-off between lexical precision and semantic understanding?",
+      "answer": "By learning to expand documents and queries with semantically related terms while maintaining sparse representations",
+      "confidence": 0.9,
+      "sources": [
+        "splade-sparse-lexical-and-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique does SPLADE use to transform embeddings into vocabulary-sized sparse vectors?",
+      "answer": "Contextualized encoder (typically BERT) and learned weights and activation functions",
+      "confidence": 0.9,
+      "sources": [
+        "splade-sparse-lexical-and-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of the L1 regularization term in SPLADE's training objective?",
+      "answer": "Controls sparsity, with higher values producing sparser representations",
+      "confidence": 0.9,
+      "sources": [
+        "splade-sparse-lexical-and-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many terms are typically activated per document in SPLADE representations?",
+      "answer": "100-300 terms out of a 30,000-term vocabulary",
+      "confidence": 0.9,
+      "sources": [
+        "splade-sparse-lexical-and-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is a limitation of SPLADE in terms of cross-lingual retrieval?",
+      "answer": "Challenging, as it typically works within a single language",
+      "confidence": 0.9,
+      "sources": [
+        "splade-sparse-lexical-and-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does SPLADE compare to traditional BM25 Scoring Algorithm in terms of exact matching?",
+      "answer": "Similar behavior, with original document terms receiving high weights",
+      "confidence": 0.9,
+      "sources": [
+        "splade-sparse-lexical-and-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is a potential issue with very short queries in SPLADE?",
+      "answer": "Over-expansion, where the model activates too many related terms and reduces precision",
+      "confidence": 0.9,
+      "sources": [
+        "splade-sparse-lexical-and-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does SPLADE's storage requirement compare to traditional sparse and dense methods?",
+      "answer": "Falls between traditional sparse and dense methods, with increased index size due to expanded vocabulary terms",
+      "confidence": 0.9,
+      "sources": [
+        "splade-sparse-lexical-and-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

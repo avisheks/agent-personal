@@ -1,0 +1,52 @@
+/* Line numbers in reading view (Reading Mode) */
+.markdown-preview-view pre {
+  padding-left: 3.5em;
+  position: relative;
+}
+
+.markdown-preview-view pre code {
+  counter-reset: line;
+  display: block;
+}
+
+.markdown-preview-view pre code::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3em;
+  border-right: 1px solid var(--background-modifier-border);
+}
+
+/* Each newline-separated line gets a number via CSS line-height trick */
+.markdown-reading-view pre > code {
+  counter-reset: codelineno;
+  padding-left: 0;
+}
+
+.markdown-reading-view code[class*="language-"],
+.markdown-reading-view pre > code {
+  display: block;
+  white-space: pre;
+}
+
+/* Reading view: use list-style on the rendered <pre> */
+.markdown-reading-view pre {
+  padding: 0;
+  overflow-x: auto;
+}
+
+.markdown-reading-view pre > code {
+  display: block;
+  padding: 0.5em 0.5em 0.5em 3.5em;
+  counter-reset: line-number;
+  background-image:
+    linear-gradient(
+      var(--background-secondary) 50%,
+      transparent 50%
+    );
+  background-size: 3em calc(var(--line-height-normal) * 1em * 2);
+  background-position: left top;
+  background-repeat: repeat-y;
+}

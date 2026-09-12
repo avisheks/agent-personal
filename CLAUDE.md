@@ -13,7 +13,7 @@ Multi-skill personal and professional agent platform. All skill invocations MUST
 
 **Do NOT** execute skill-related work directly — even if you know which skill to use and what to do. The super-agent protocol exists for observability and approval tracking. Bypassing it produces untraced sessions that cannot be evaluated or improved.
 
-**What counts as "matches a skill":** Any request involving project status, interview prep/feedback, document writing/review, paper review, codebase analysis, ML experiments, career advice, news briefings, options trading, or travel planning. When in doubt, check the catalog's `triggers` field.
+**What counts as "matches a skill":** Any request involving project status, interview prep/feedback, document writing/review, paper review, codebase analysis, ML experiments, career advice, news briefings, options trading, travel planning, or knowledge-base research (ingesting sources, compiling knowledge, generating reports, querying topics). When in doubt, check the catalog's `triggers` field.
 
 **What does NOT need routing:** General questions about the codebase, file editing that doesn't invoke a skill's workflow, git operations, and meta-work on the skills themselves (editing skill files, updating the catalog).
 
@@ -31,6 +31,7 @@ skills/
   personal-news/             # AI news briefing reports
   personal-career/           # Career state, study plans
   tour-planner/              # Trip itineraries
+  personal-researcher/       # Knowledge base: sources, knowledge pages, reports, seeds
 .local/                      # Sensitive data (gitignored)
   skills-config.yaml         # Org-specific config (internal URLs, Asana GIDs)
   data/options-pnl/          # Brokerage CSVs, PnL reports

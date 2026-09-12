@@ -1,0 +1,1923 @@
+{
+  "topic": "auto-agents",
+  "timestamp": "2026-06-09T12:02:50.246505+00:00",
+  "total_claims": 260,
+  "correct": 99,
+  "incorrect": 5,
+  "unverifiable": 134,
+  "partially_correct": 22,
+  "overall_score": 0.7857142857142857,
+  "summary": "Verified 260 claims: 99 correct, 5 incorrect, 22 partially correct, 134 unverifiable. Score: 79%",
+  "sections": [
+    {
+      "section_name": "Quick Catchup",
+      "score": 0.6363636363636364,
+      "claims": [
+        {
+          "text": "AgentSkills.io is an open standard for enabling skill sharing across frameworks",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that AgentSkills is an open standard for portable AI agent skills, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AgentSkills.io was introduced in 2026",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about when AgentSkills.io was introduced.",
+          "suggested_correction": null
+        },
+        {
+          "text": "There is a trend towards local-first deployment with cloud-optional scaling",
+          "verdict": "partially_correct",
+          "confidence": 0.5,
+          "reasoning": "While the Facts Manifest does not explicitly mention a trend towards local-first deployment with cloud-optional scaling, OpenClaw is described as a local-first personal AI assistant platform, which suggests some support for this claim.",
+          "suggested_correction": "OpenClaw is an example of a local-first personal AI assistant platform, but the trend towards local-first deployment with cloud-optional scaling is not explicitly stated in the Facts Manifest."
+        },
+        {
+          "text": "Personal AI agent frameworks have evolved from simple chatbot wrappers to autonomous, self-improving systems with persistent memory and multi-platform messaging gateways",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is consistent with the general trend of personal AI agent frameworks evolving from simple chatbot wrappers to more complex systems with persistent memory and multi-platform messaging gateways, as seen in the development of Hermes Agent and OpenClaw.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw has 377k stars",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide the exact number of stars for OpenClaw, but the knowledge page 'openclaw.md' confirms that OpenClaw has 377k GitHub stars.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw supports 30+ platforms",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "According to the Facts Manifest, OpenClaw supports 30+ messaging integrations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw has a workflow engine",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that OpenClaw has a programmable workflow engine.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent has 184k stars",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about the number of stars for Hermes Agent.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent has a self-improving learning loop",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page 'hermes-agent.md' describes Hermes Agent as having a self-improving learning loop through autonomous skill evolution.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent is backed by NousResearch",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest confirms that Hermes Agent is backed by NousResearch.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The main open problem in personal AI agent frameworks is skill portability and cross-framework interoperability",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "While the Facts Manifest does not explicitly state that skill portability and cross-framework interoperability are the main open problems, the AgentSkills Standard is mentioned as enabling skill creation, sharing, and installation across compatible agent frameworks, implying that these issues are being addressed.",
+          "suggested_correction": "The main open problem in personal AI agent frameworks is being addressed through standards like AgentSkills, which enables skill portability and cross-framework interoperability."
+        }
+      ]
+    },
+    {
+      "section_name": "Executive Summary",
+      "score": 0.7142857142857143,
+      "claims": [
+        {
+          "text": "OpenClaw has manual install for skill maintenance.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that skills can be installed in OpenClaw via 'openclaw install [skill-name]' or pasted into config, which implies a manual install process for skill maintenance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent has decreasing long-term overhead.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page for Hermes Agent mentions that the agent's maintenance burden decreases over time as it becomes more capable, which implies decreasing long-term overhead.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw has constant long-term overhead.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page for OpenClaw does not mention constant long-term overhead, and the page for Hermes Agent implies that OpenClaw has a higher maintenance burden due to its config-driven approach.",
+          "suggested_correction": "OpenClaw has increasing or variable long-term overhead due to its config-driven approach."
+        },
+        {
+          "text": "OpenClaw has 500+ contributors.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that OpenClaw has 500+ contributors.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent is maintained by the NousResearch team.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Hermes Agent is developed by NousResearch.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The core trade-off is between self-improvement (Hermes) and operational maturity (OpenClaw).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages for Hermes Agent and OpenClaw imply a trade-off between self-improvement (Hermes) and operational maturity (OpenClaw).",
+          "suggested_correction": null
+        },
+        {
+          "text": "Autonomous personal AI agent frameworks provide always-on, messaging-first AI assistants that run on user infrastructure with full data sovereignty.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is consistent with the general concept of autonomous personal AI agent frameworks like Hermes Agent and OpenClaw, which provide always-on, messaging-first AI assistants that can run on user infrastructure with full data sovereignty.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent uses Python 3.11 and Node.js.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Hermes Agent uses Python, but the claim about Node.js is not fully supported by the Facts Manifest. According to hermes-agent.md, Hermes Agent uses Python and has a dependency on Node.js, but it's not a primary programming language for the agent itself.",
+          "suggested_correction": "Hermes Agent primarily uses Python 3.11."
+        },
+        {
+          "text": "OpenClaw uses Node.js 24.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that OpenClaw requires Node.js 24, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent has 2 config files (SOUL.md + API key).",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "The provided information does not specify the exact number of config files for Hermes Agent. According to hermes-agent.md, configuration involves an API key and a setup wizard, but it does not explicitly mention the number of config files.",
+          "suggested_correction": "Hermes Agent's configuration involves an API key and setup wizard, but the exact number of config files is not specified in the provided information."
+        },
+        {
+          "text": "OpenClaw has 4 config files (JSON+MD files).",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "OpenClaw's configuration files are mentioned in openclaw.md as ~/.openclaw/openclaw.json + workspace files (AGENTS.md, SOUL.md, TOOLS.md), which does not match the claim of having 4 config files (JSON+MD files).",
+          "suggested_correction": "OpenClaw uses ~/.openclaw/openclaw.json and workspace files like AGENTS.md, SOUL.md, and TOOLS.md for configuration."
+        },
+        {
+          "text": "Hermes Agent uses Modal/Daytona for enterprise deployment.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and hermes-agent.md mention that Hermes Agent uses Modal/Daytona for enterprise deployment, which aligns with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw uses K8s/Helm/Terraform for enterprise deployment.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "OpenClaw uses K8s/Helm/Terraform for enterprise deployment, as stated in openclaw.md, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent has auto-generated skill maintenance.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Hermes Agent has auto-generated skill maintenance, as mentioned in the Facts Manifest and hermes-agent.md, supporting the claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "State of the Art",
+      "score": 0.6,
+      "claims": [
+        {
+          "text": "OpenClaw is a local-first gateway with multi-agent routing, TypeScript/YAML workflow engine, 30+ messaging platforms, enterprise deployment (K8s/Helm/Terraform)",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "OpenClaw is a local-first gateway with multi-agent routing and supports 30+ messaging platforms, but the claim about the workflow engine being TypeScript/YAML is correct, however, the Facts Manifest does not mention 'enterprise deployment (K8s/Helm/Terraform)' as part of the definition.",
+          "suggested_correction": "OpenClaw is a local-first gateway with multi-agent routing, TypeScript/YAML workflow engine, and 30+ messaging platforms."
+        },
+        {
+          "text": "OpenClaw has 500+ contributors",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that OpenClaw has 500+ contributors.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent is a self-improving framework with autonomous skill creation, Honcho-based user modeling, serverless hibernation (Modal/Daytona)",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "Hermes Agent is a self-improving framework with autonomous skill creation and Honcho-based user modeling, but the claim about 'serverless hibernation (Modal/Daytona)' is not fully supported by the Facts Manifest.",
+          "suggested_correction": "Hermes Agent is a self-improving framework with autonomous skill creation and Honcho-based user modeling."
+        },
+        {
+          "text": "Hermes Agent is NousResearch-backed",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that Hermes Agent is NousResearch-backed.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AgentSkills.io Standard is an open format for portable skills shared between Hermes and OpenClaw",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that AgentSkills.io Standard is an open format for portable skills shared between Hermes and OpenClaw.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AgentSkills.io Standard enables marketplace-based skill discovery",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that the AgentSkills standard enables a marketplace/hub model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Both OpenClaw and Hermes Agent treat messaging channels as the primary interface, not web UIs",
+          "verdict": "unverifiable",
+          "confidence": 0,
+          "reasoning": "The Facts Manifest does not provide information about whether OpenClaw and Hermes Agent treat messaging channels as the primary interface.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw rebranded from 'Clawdbot' to a 377k-star ecosystem with companion apps on all platforms",
+          "verdict": "partially_correct",
+          "confidence": 0.6,
+          "reasoning": "OpenClaw rebranded from 'Clawdbot', but the claim about being a '377k-star ecosystem' is not fully supported by the Facts Manifest.",
+          "suggested_correction": "OpenClaw rebranded from 'Clawdbot'."
+        },
+        {
+          "text": "Hermes Agent v0.16 introduced batch trajectory generation for training tool-calling models from agent traces",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention Hermes Agent v0.16 or batch trajectory generation for training tool-calling models from agent traces.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AgentSkills.io is the first cross-framework skill standard adopted by both major platforms",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that AgentSkills is an open standard for portable AI agent skills, and it is hosted at agentskills.io, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A migration tool 'hermes claw migrate' establishes Hermes as next-gen alternative to OpenClaw",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that Hermes Agent is a competing framework with a migration path from OpenClaw, and the hermes-agent.md page mentions the 'hermes claw migrate' command for migration.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Auto-generated skills may encode errors that compound over time",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The self-evolving-agents.md page mentions that auto-generated skills may encode errors that compound over time, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "TypeScript/YAML workflows don't transfer between platforms despite shared skill format",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest states that AgentSkills is an open standard for portable AI agent skills, which implies that skills can be shared between platforms, but it does not explicitly state that TypeScript/YAML workflows do or do not transfer between platforms.",
+          "suggested_correction": "TypeScript/YAML workflows may have limitations when transferring between platforms, despite the shared skill format."
+        },
+        {
+          "text": "FTS5/SQLite approaches hit limits at tens of thousands of interactions",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The hermes-agent.md page mentions that Hermes Agent uses FTS5 full-text search for memory storage, and the self-evolving-agents.md page mentions that FTS5/SQLite approaches can hit limits at tens of thousands of interactions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Agent access to multiple channels creates lateral movement risks",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The self-evolving-agents.md page mentions that agent access to multiple channels can create lateral movement risks, which is consistent with the claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Design Flow Framework",
+      "score": 0.5,
+      "claims": [
+        {
+          "text": "OpenClaw is suitable for teams and enterprise use cases.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "OpenClaw is described as having enterprise deployment options, which suggests it is suitable for teams and enterprise use cases.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes is suitable for personal and research use cases.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Hermes Agent is described as a personal AI assistant framework, which suggests it is suitable for personal and research use cases.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Node.js and Python can be used for infrastructure.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Node.js is used by OpenClaw, and Python is used by Hermes Agent, which suggests they can be used for infrastructure.",
+          "suggested_correction": null
+        },
+        {
+          "text": "K8s can be used for deployment.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "OpenClaw has enterprise deployment options, including Kubernetes (K8s), which suggests K8s can be used for deployment.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLM API calls have a budget constraint.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages about LLM API calls having a budget constraint.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Auto-skill-gen may not cover all use cases.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Auto-skill-gen in Hermes Agent may not cover all use cases, as it is based on the agent's experience and may not generalize to all possible tasks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw uses TypeScript for workflow authoring.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "OpenClaw's workflow engine supports TypeScript (or YAML) for workflow authoring.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes uses natural language for workflow authoring.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "Hermes Agent uses Python, not natural language, for its core functionality, although it may use natural language for user interactions.",
+          "suggested_correction": "Hermes Agent uses Python for its core functionality."
+        },
+        {
+          "text": "PostgreSQL and Redis can be used as storage backends.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest lists PostgreSQL and Redis as supported backend storage options for OpenClaw.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FTS5 and SQLite can be used as storage backends.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest lists SQLite as a supported backend storage option for OpenClaw, and FTS5 is used for memory storage in Hermes Agent.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Manual curation is suitable for quality-critical deployments.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about manual curation being suitable for quality-critical deployments.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Autonomous generation is suitable for exploratory or personal use.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about autonomous generation being suitable for exploratory or personal use.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Kubernetes and Helm can be used for deployment.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions that OpenClaw has enterprise deployment options including Kubernetes and Helm.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Modal and Daytona serverless can be used for deployment.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions that Hermes Agent can be deployed on Modal and Daytona serverless.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Redis can be used for session state at 10x scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about Redis being used for session state at 10x scale.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-agent routing with isolated workspaces can be used at 100x scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about multi-agent routing with isolated workspaces being used at 100x scale.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Distributed gateway with regional instances can be used at 1000x scale.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The claim about distributed gateway with regional instances being used at 1000x scale is not addressed in the provided Facts Manifest or knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Skill quality monitoring is necessary to prevent quality drift.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The claim about skill quality monitoring being necessary to prevent quality drift is not directly addressed in the provided Facts Manifest or knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Token budgets should be set to track LLM API usage.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The claim about token budgets being set to track LLM API usage is not addressed in the provided Facts Manifest or knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Non-primary sessions should be sandboxed for security.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim about non-primary sessions being sandboxed for security is partially supported by OpenClaw's use of sandboxing (Docker/SSH/OpenShell) for security, but the specific context of 'non-primary sessions' is not clearly defined in the provided references.",
+          "suggested_correction": "OpenClaw uses sandboxing for security, which may include non-primary sessions, but the specifics depend on the implementation details not fully provided in the references."
+        }
+      ]
+    },
+    {
+      "section_name": "System Design Walkthrough (Summary)",
+      "score": 0.4117647058823529,
+      "claims": [
+        {
+          "text": "At 1000x (100K daily interactions), geo-distributed gateways are required",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the required infrastructure for 100K daily interactions, and the knowledge pages do not provide a clear answer to this specific claim.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information in the provided references."
+        },
+        {
+          "text": "Skill quality scoring + periodic review can mitigate errors in auto-generated skills",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is consistent with the concept of self-evolving agents, where skill refinement and periodic review can mitigate errors in auto-generated skills.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SQLite limits at high interaction volume",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "SQLite is known to have limitations at high interaction volumes, which can be a bottleneck for applications with high traffic or large datasets.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Migrating to PostgreSQL/Redis can mitigate SQLite limits",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Migrating to more robust databases like PostgreSQL or Redis can help mitigate the limitations of SQLite, especially in high-traffic or high-data-volume scenarios.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A single-gateway SPOF can be mitigated with a multi-region gateway with state sync",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "Implementing a multi-region gateway with state sync can help mitigate single-point-of-failure (SPOF) issues, ensuring higher availability and redundancy.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AgentSkills.io standard adoption can mitigate skill lock-in to one framework",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The adoption of the AgentSkills.io standard can facilitate the sharing and reuse of skills across different frameworks, reducing lock-in to a specific framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Memory grows unbounded and can be mitigated with summarization + archival tiers",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "Memory can grow unbounded if not managed properly, and techniques like summarization and archival tiers can help mitigate this issue by reducing the amount of stored data.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 10x (1K daily interactions), a single instance is sufficient",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no specific information in the provided references to verify the claim about the sufficiency of a single instance at 10x (1K daily interactions) interaction volume.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 100x (10K daily interactions), multi-agent routing with workspace isolation is required",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "Similar to claim 6, there is no specific information to verify the claim about the requirement for multi-agent routing with workspace isolation at 100x (10K daily interactions) interaction volume.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Messaging Gateway normalizes 20-30+ channel protocols into a unified message format",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions the Messaging Gateway normalizing 20-30+ channel protocols, but the Facts Manifest only mentions that OpenClaw supports 30+ messaging integrations and Hermes Agent supports 20+ messaging platforms. There is no direct information about the Messaging Gateway.",
+          "suggested_correction": "The Messaging Gateway may normalize multiple channel protocols, but the exact number is not specified in the provided reference material."
+        },
+        {
+          "text": "The Session Manager + Router routes messages to isolated agent contexts",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the Facts Manifest about the Session Manager + Router or its functionality.",
+          "suggested_correction": "No suggested correction can be provided due to lack of information."
+        },
+        {
+          "text": "OpenClaw uses multi-agent routing",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest mentions that OpenClaw uses multi-agent routing.",
+          "suggested_correction": ""
+        },
+        {
+          "text": "Hermes uses subagent spawning",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the Facts Manifest about Hermes using subagent spawning.",
+          "suggested_correction": "No suggested correction can be provided due to lack of information."
+        },
+        {
+          "text": "Memory + Skills provides persistent knowledge + reusable capabilities",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the Facts Manifest about Memory + Skills providing persistent knowledge + reusable capabilities.",
+          "suggested_correction": "No suggested correction can be provided due to lack of information."
+        },
+        {
+          "text": "The Terminal Backend is a sandboxed execution environment decoupled from the host",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the Facts Manifest about the Terminal Backend being a sandboxed execution environment decoupled from the host.",
+          "suggested_correction": "No suggested correction can be provided due to lack of information."
+        },
+        {
+          "text": "The LLM Provider supports multi-provider support with fallback routing",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the Facts Manifest about the LLM Provider supporting multi-provider support with fallback routing.",
+          "suggested_correction": "No suggested correction can be provided due to lack of information."
+        },
+        {
+          "text": "Auto-generated skills may encode errors",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions that Hermes Agent auto-generates skills during use, which may lead to errors. However, it does not explicitly state that auto-generated skills may encode errors.",
+          "suggested_correction": "Auto-generated skills in Hermes Agent may potentially contain errors, but this is not explicitly stated in the provided reference material."
+        }
+      ]
+    },
+    {
+      "section_name": "Interview Q&A Bank",
+      "score": 0.6842105263157895,
+      "claims": [
+        {
+          "text": "Autonomous agent frameworks add persistent memory, tool use, skill accumulation, and cross-session learning.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Autonomous agent frameworks like Hermes and OpenClaw do add features such as persistent memory, tool use, skill accumulation, and cross-session learning as per the Facts Manifest and knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Autonomous frameworks like Hermes and OpenClaw maintain state across sessions via memory systems.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Both Hermes and OpenClaw maintain state across sessions, with Hermes using FTS5 full-text search for memory storage and OpenClaw using pluggable backends like SQLite, PostgreSQL, or Redis.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The AgentSkills standard enables cross-framework portability by defining a common skill schema.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The AgentSkills standard does enable cross-framework portability by defining a common skill schema, allowing skills to be shared between Hermes and OpenClaw.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The AgentSkills.io standard specifies a manifest, execution contract, and configuration schema for skills.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The AgentSkills.io standard specifies a manifest and enables skill creation, sharing, and installation, but the details about execution contract and configuration schema are not fully verified in the provided Facts Manifest.",
+          "suggested_correction": "The AgentSkills standard enables a marketplace/hub model for skill sharing and installation across compatible frameworks like Hermes and OpenClaw."
+        },
+        {
+          "text": "Hermes auto-generates skills from interaction traces, while OpenClaw expects manual authoring.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Hermes auto-generates skills from interaction traces, while OpenClaw expects skills to be installed manually via 'openclaw install [skill-name]' or pasted into config.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-improving systems like Hermes reduce maintenance but risk quality drift.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Self-improving systems like Hermes do reduce maintenance over time but also risk quality drift due to autonomous evolution.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Manual curation in OpenClaw ensures quality but requires ongoing human effort.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Manual curation in OpenClaw does ensure quality but requires ongoing human effort for skill installation and configuration.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw's architecture uses a gateway to receive messages from 30+ platforms and route them to isolated agent instances.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "OpenClaw's architecture does use a gateway to receive messages from over 30 platforms and route them to isolated agent instances.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A meta-framework could emerge to orchestrate both Hermes and OpenClaw agents, delegating tasks based on framework strengths.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about a meta-framework that could emerge to orchestrate both Hermes and OpenClaw agents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Evaluating framework performance requires measuring task completion rate, time-to-resolution, token cost, and user satisfaction scores.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest does not provide information about the metrics required to evaluate framework performance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A hybrid deployment can route personal queries to Hermes and team queries to OpenClaw, with shared memory via AgentSkills.io.",
+          "verdict": "partially_correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that both Hermes and OpenClaw conform to the AgentSkills standard, which enables skill sharing across frameworks, but it does not provide information about a hybrid deployment that routes personal queries to Hermes and team queries to OpenClaw.",
+          "suggested_correction": "A hybrid deployment can be conceptualized where personal queries are handled by Hermes and team queries by OpenClaw, with skills shared via the AgentSkills standard, but this specific deployment strategy is not mentioned in the Facts Manifest."
+        },
+        {
+          "text": "Each agent instance in OpenClaw has its own workspace, session state, and skill set.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that OpenClaw has a programmable workflow engine and supports multi-agent routing, which implies each agent instance has its own workspace, session state, and skill set.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent's dialectic user modeling via Honcho builds a progressive profile of each user through thesis-antithesis-synthesis.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest and knowledge pages indicate Hermes Agent uses Honcho for user modeling, and the hermes-agent.md page describes it as dialectic user modeling, which can be interpreted as building a progressive profile through thesis-antithesis-synthesis.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Honcho tracks contradictions in user preferences and models them as context-dependent.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The hermes-agent.md page mentions Honcho is used for user modeling in Hermes Agent, and it can be inferred that tracking contradictions in user preferences and modeling them as context-dependent is part of dialectic user modeling.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Messaging-first agents face security risks like prompt injection, lateral movement, and credential exposure.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The self-evolving-agents.md page discusses safety concerns in self-evolving agents, including risks like prompt injection, lateral movement, and credential exposure, which are relevant to messaging-first agents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw mitigates security risks with sandboxing, DM pairing-mode verification, and a gateway exposure runbook.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The openclaw.md page lists security features of OpenClaw, including sandboxing, DM pairing-mode verification, and a gateway exposure runbook, which mitigate security risks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Serverless hibernation saves cost for bursty personal agents, while always-on deployment is better for team agents with constant traffic.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest and knowledge pages do not provide information about the cost savings of serverless hibernation for bursty personal agents or the suitability of always-on deployment for team agents with constant traffic.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The break-even point between serverless and always-on deployment is around 50-100 interactions per day.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest and knowledge pages do not mention a specific break-even point between serverless and always-on deployment in terms of interactions per day.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The AgentSkills.io standard suggests convergence toward a shared skill layer with differentiated runtime philosophies.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The agentskills-standard.md page describes the AgentSkills standard as an open standard for portable AI agent skills, enabling convergence toward a shared skill layer with differentiated runtime philosophies.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Distinguished Engineer Depth Probes",
+      "score": 0.25,
+      "claims": [
+        {
+          "text": "Hermes uses FTS5 (SQLite full-text search) with LLM summarization",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Hermes Agent uses FTS5 full-text search with LLM summarization for memory storage.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw supports pluggable backends (SQLite, PostgreSQL, Redis)",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that OpenClaw supports pluggable backends including SQLite, PostgreSQL, and Redis.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FTS5 queries take <5ms at 100K memories",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the performance of FTS5 queries.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Vector search at 100K takes ~20ms with HNSW index",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the performance of vector search with HNSW index.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The LLM reranker dominates at ~200ms",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the performance of the LLM reranker.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes's self-improvement loop converts interaction traces into reusable skills",
+          "verdict": "partially_correct",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest states that Hermes Agent has an autonomous skill evolution mechanism, but it does not explicitly mention a self-improvement loop that converts interaction traces into reusable skills.",
+          "suggested_correction": "Hermes Agent has an autonomous skill evolution mechanism where skills are auto-generated during use and published to the hub."
+        },
+        {
+          "text": "Pattern detection uses frequency analysis",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about pattern detection using frequency analysis.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Validation gate checks for success_rate >= 0.8 AND no_side_effects == True",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about a validation gate that checks for success rate and no side effects.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Refinement loop tracks per-skill success rate over rolling 30-day window",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention refinement loop or per-skill success rate tracking.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Both frameworks must normalize 20-30+ messaging protocols into a unified internal format",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Both OpenClaw and Hermes Agent support multiple messaging platforms, but the exact number of protocols and the process of normalization are not specified in the Facts Manifest.",
+          "suggested_correction": "Both frameworks support multiple messaging platforms, with OpenClaw supporting 30+ and Hermes Agent supporting 20+."
+        },
+        {
+          "text": "Gateway normalization must complete in <50ms to avoid perceptible lag",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention gateway normalization or perceptible lag.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw uses explicit TypeScript/YAML workflow definitions",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that OpenClaw's workflow engine supports TypeScript or YAML.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes relies on emergent behavior from skill accumulation",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Hermes Agent relies on autonomous skill evolution.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Always-on agents process messages 24/7, maintain context across sessions, and invoke tools autonomously",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention always-on agents or their capabilities.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Daily cost for a personal agent is calculated as (messages \u00d7 avg_tokens_per_message \u00d7 $/token) + ...",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention daily cost calculation for personal agents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context compression provides 40% savings",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention context compression or savings.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model routing provides 30% savings",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about model routing or its potential savings.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Messaging-first agents have a unique threat model with every connected channel as an attack surface",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Messaging-first agents like OpenClaw and Hermes Agent have unique threat models, with each connected channel potentially being an attack surface.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Defense layers include channel isolation, DM pairing verification, tool permission tiers, sandboxing, and audit trail",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "While OpenClaw does mention security features like DM pairing-mode and sandboxing, the exact list of defense layers including channel isolation, tool permission tiers, and audit trail is not fully detailed in the provided Facts Manifest.",
+          "suggested_correction": "Defense layers in OpenClaw include DM pairing verification, sandboxing, and potentially other security features, but the full list is not specified in the Facts Manifest."
+        },
+        {
+          "text": "Prompt injection defense includes input sanitization, privilege check, and output validation",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide detailed information about prompt injection defense mechanisms such as input sanitization, privilege check, and output validation.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Cost Model",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The unit cost of LLM inference (Sonnet) is $3/$15 per 1M in/out tokens.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the unit cost of LLM inference (Sonnet).",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-task usage of LLM inference (Sonnet) is ~2K in + 500 out tokens.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the per-task usage of LLM inference (Sonnet).",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of LLM inference (Sonnet) per task is $0.014.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the cost of LLM inference (Sonnet) per task.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The unit cost of memory recall is $3/1M tokens.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the unit cost of memory recall.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-task usage of memory recall is ~500 tokens.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the per-task usage of memory recall.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of memory recall per task is $0.002.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the cost of memory recall per task.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The unit cost of tool execution is $3/1M tokens.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the unit cost of tool execution.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-task usage of tool execution is ~1K tokens overhead.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the per-task usage of tool execution.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The estimated savings from model routing (Haiku for simple, Sonnet for complex) is 30-40%.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about estimated savings from model routing.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The estimated savings from context compression (summarize old messages) is 20-30%.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about estimated savings from context compression.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The estimated savings from skill caching (deterministic outputs) is 10-15%.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about estimated savings from skill caching.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The estimated savings from batch processing (aggregate non-urgent) is 5-10%.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about estimated savings from batch processing.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of tool execution per task is $0.003.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the cost of tool execution per task.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The unit cost of skill refinement (Hermes) is $3/1M tokens.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the unit cost of skill refinement (Hermes).",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-task usage of skill refinement (Hermes) is ~3K tokens (amortized).",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the per-task usage of skill refinement (Hermes).",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of skill refinement (Hermes) per task is $0.001.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the cost of skill refinement (Hermes) per task.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total per-task cost is ~$0.02.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the total per-task cost.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The monthly cost of LLM for 1 user (100 msg/day) is $27.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the monthly cost of LLM for 1 user (100 msg/day).",
+          "suggested_correction": null
+        },
+        {
+          "text": "The monthly cost of infrastructure (OpenClaw K8s) for 1 user (100 msg/day) is $5 (VPS).",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the monthly cost of infrastructure (OpenClaw K8s) for 1 user (100 msg/day).",
+          "suggested_correction": null
+        },
+        {
+          "text": "The monthly cost of infrastructure (Hermes Modal) for 1 user (100 msg/day) is $3 (serverless).",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the monthly cost of infrastructure (Hermes Modal) for 1 user (100 msg/day).",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Observability & Production Debugging",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The system takes daily snapshots of the memory state.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention daily snapshots of the memory state.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system restores the memory state from a snapshot when necessary.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention restoring the memory state from a snapshot.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system versions the configuration using Git.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention versioning the configuration using Git.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system reverts to a previous commit when the configuration needs to be rolled back.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention reverting to a previous commit when the configuration needs to be rolled back.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The skill success rate alert threshold is set to <80% over 1 hour.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the skill success rate alert threshold.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The response latency P95 alert threshold is set to >10s.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the response latency P95 alert threshold.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The memory recall relevance alert threshold is set to <0.6 average score.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the memory recall relevance alert threshold.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The token spend daily alert threshold is set to >2x baseline.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the token spend daily alert threshold.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The gateway heartbeat alert threshold is set to missing 2+ checks.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the gateway heartbeat alert threshold, but OpenClaw has a heartbeat system.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The channel auth failure alert threshold is set to any occurrence.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the channel auth failure alert threshold.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system checks memory recall when the agent gives irrelevant responses and finds low relevance scores.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the system checking memory recall when the agent gives irrelevant responses.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system re-indexes memory and checks for corruption when memory recall relevance scores are low.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the system re-indexing memory and checking for corruption when memory recall relevance scores are low.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system checks skill invocation when the agent gives irrelevant responses and the memory recall relevance scores are not low.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not address the system's behavior when the agent gives irrelevant responses and the memory recall relevance scores are not low.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system reviews skill triggers and adjusts matching when the wrong skill is selected.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the system reviewing skill triggers and adjusting matching when the wrong skill is selected.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system checks the context window when the agent gives irrelevant responses and the memory recall relevance scores are not low and the skill invocation is correct.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not discuss the system checking the context window when the agent gives irrelevant responses and the memory recall relevance scores are not low and the skill invocation is correct.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system adjusts summarization and increases the context window when the context is truncated.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not address the system adjusting summarization and increasing the context window when the context is truncated.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system checks LLM quality when the agent gives irrelevant responses and the memory recall relevance scores are not low and the skill invocation is correct and the context window is not truncated.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the system checking LLM quality when the agent gives irrelevant responses and the memory recall relevance scores are not low and the skill invocation is correct and the context window is not truncated.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system compares LLM quality with baseline prompts and fails over to a backup provider when the model is degraded.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not discuss the system comparing LLM quality with baseline prompts and failing over to a backup provider when the model is degraded.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system versions skills and keeps the last 3 versions.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not address the system versioning skills and keeping the last 3 versions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system reverts to a previous version of a skill when the success rate drops.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the system reverting to a previous version of a skill when the success rate drops.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Advanced Patterns Summary",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Gateway federation is used for global user base across time zones.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about gateway federation or its usage for a global user base across time zones.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gateway federation is not used for single-region personal deployment.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about gateway federation or its usage for single-region personal deployment.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Skill hibernation (Modal/Daytona) solves the cost of idle agents.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention 'Skill hibernation (Modal/Daytona)' or its relation to the cost of idle agents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Skill hibernation (Modal/Daytona) is used for personal agents with <50 interactions/day.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the usage of 'Skill hibernation (Modal/Daytona)' for personal agents with <50 interactions/day.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Skill hibernation (Modal/Daytona) is not used for team agents with latency SLAs.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the usage of 'Skill hibernation (Modal/Daytona)' for team agents with latency SLAs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-agent routing solves cross-contamination between channels.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not discuss 'Multi-agent routing' or its relation to solving cross-contamination between channels.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-agent routing is used for multi-user/multi-channel deployments.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages mention that OpenClaw has 'multi-agent routing' for isolated agent sessions, but the Facts Manifest does not explicitly state its usage for 'multi-user/multi-channel deployments'.",
+          "suggested_correction": "Multi-agent routing is used for isolated agent sessions in OpenClaw."
+        },
+        {
+          "text": "Multi-agent routing is not used for single-user personal assistant.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the usage of 'Multi-agent routing' for single-user personal assistants.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dialectic user modeling (Honcho) solves contradictory preference handling.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions 'Honcho' as used for user modeling in Hermes Agent, but does not discuss its relation to solving contradictory preference handling.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dialectic user modeling (Honcho) is used for users with context-dependent preferences.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the usage of 'Dialectic user modeling (Honcho)' for users with context-dependent preferences.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dialectic user modeling (Honcho) is not used when simple preference storage suffices.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about when dialectic user modeling (Honcho) is used.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Workflow-to-skill promotion combines explicit + emergent automation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about workflow-to-skill promotion or its components.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Workflow-to-skill promotion is used for hybrid deployments wanting auditability.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about workflow-to-skill promotion or its use in hybrid deployments.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Workflow-to-skill promotion is not used for pure-play single-framework setups.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about workflow-to-skill promotion or its use in pure-play single-framework setups.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Canary skill testing detects skill degradation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about canary skill testing or its purpose.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Canary skill testing is used for auto-generated skill systems (Hermes).",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about canary skill testing or its use in auto-generated skill systems (Hermes).",
+          "suggested_correction": null
+        },
+        {
+          "text": "Canary skill testing is not used for manually-curated skill libraries.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about canary skill testing or its use in manually-curated skill libraries.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gateway federation enables multi-region, low-latency messaging.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about gateway federation or its capabilities.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Data Flywheel & Continuous Improvement",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The system uses a baseline to measure cost drift.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the system using a baseline to measure cost drift.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system reviews the changelog before updating the framework version.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the system reviewing the changelog before updating the framework version.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system performs a staging test pass before updating the framework version.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the system performing a staging test pass before updating the framework version.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system compares the agent's response to the user's revision to measure response edit distance.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention response edit distance or its measurement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system tracks the messages-to-resolution ratio to measure session length vs outcome.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention messages-to-resolution ratio or session length vs outcome.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Skill refinement is updated in real-time when the success rate delta is greater than 5%.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention skill refinement updates or success rate delta thresholds.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Memory compaction and stale skill pruning are updated daily when the memory size exceeds a threshold or a skill is unused for 30+ days.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention memory compaction, stale skill pruning, or their update schedules.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model routing thresholds and cost optimization are updated weekly when the cost drift exceeds 20% from the baseline.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention model routing thresholds, cost optimization, or their update schedules.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Framework version updates and security patches are updated monthly after a changelog review and staging test pass.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention framework version updates, security patches, or their update schedules.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system uses a threshold to determine when to compact memory.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention memory compaction thresholds.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system considers a skill stale if it is unused for 30+ days.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention stale skill criteria or their timeframes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Explicit user correction is considered the highest value feedback signal, indicating direct intent.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the value of different types of feedback signals, including explicit user correction.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Task completion rate is a high-value feedback signal, measured as a binary success or fail.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about task completion rate as a feedback signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Skill reuse frequency is a medium-value feedback signal, validating skill utility.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about skill reuse frequency as a feedback signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Response edit distance is a medium-value feedback signal, measuring how close the agent's response is to the user's revision.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about response edit distance as a feedback signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Session length vs outcome is a low-value feedback signal, as it may indicate correlation rather than causation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about session length vs outcome as a feedback signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system tracks 'no, I meant...' patterns to collect explicit user correction feedback.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about tracking 'no, I meant...' patterns for explicit user correction feedback.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Task boundaries are detected to measure task completion rate.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about detecting task boundaries to measure task completion rate.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Skill invocations are counted over time to measure skill reuse frequency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about counting skill invocations over time to measure skill reuse frequency.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Seniority Signals Cheat Sheet",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Success-rate monitoring + periodic canary tests + human review for Tier-2+ permissions reduce maintenance risk",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about success-rate monitoring, periodic canary tests, and human review for Tier-2+ permissions reducing maintenance risk is not directly addressed in the provided Facts Manifest. While the manifest discusses various aspects of AI agents, self-evolving agents, and their maintenance, it does not specifically mention the combination of these practices as a method for reducing maintenance risk.",
+          "suggested_correction": "None, as the claim is not directly verifiable with the provided information."
+        },
+        {
+          "text": "Stars measure popularity, not production-readiness",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the purpose of stars or their relation to popularity and production-readiness.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Evaluate release process maturity, breaking change frequency, and whether the contributor base is diversified or bus-factor-1",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest does not provide information about evaluating release process maturity, breaking change frequency, or contributor base diversity.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Each connected channel is an attack surface",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The Facts Manifest does not provide information about connected channels being an attack surface.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model routing based on task complexity saves 30-40% vs uniform cheap model while maintaining quality ceiling",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about model routing based on task complexity or its potential cost savings.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The routing classifier itself costs <1% of total spend",
+          "verdict": "unverifiable",
+          "confidence": 0.4,
+          "reasoning": "The Facts Manifest does not provide information about the cost of the routing classifier.",
+          "suggested_correction": null
+        },
+        {
+          "text": "K8s is justified at 10+ agents with independent scaling needs",
+          "verdict": "unverifiable",
+          "confidence": 0.3,
+          "reasoning": "The Facts Manifest does not provide information about the justification of using K8s based on the number of agents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A $5 VPS or serverless hibernation gives better ROI with 1% of the ops burden for a personal agent",
+          "verdict": "partially_correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that Hermes Agent can be deployed on a $5 VPS, but it does not provide information about the ROI or ops burden comparison.",
+          "suggested_correction": "Hermes Agent can be deployed on a $5 VPS, but the ROI and ops burden comparison are not specified in the Facts Manifest."
+        },
+        {
+          "text": "Auto-generated skills are dangerous without validation gates",
+          "verdict": "unverifiable",
+          "confidence": 0.2,
+          "reasoning": "The Facts Manifest does not provide information about the dangers of auto-generated skills without validation gates.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.65,
+      "claims": [
+        {
+          "text": "OpenClaw uses TypeScript/YAML workflows",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that OpenClaw's workflow engine supports TypeScript or YAML.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw supports enterprise deployment",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest mentions that OpenClaw has enterprise deployment options.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent is deployed on Modal Serverless Platform for cost-efficient deployment",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that Hermes Agent has deployment options including serverless, but it does not specify Modal Serverless Platform exclusively.",
+          "suggested_correction": "Hermes Agent has serverless deployment options."
+        },
+        {
+          "text": "AgentSkills.io standard is used by Hermes and OpenClaw",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that both Hermes and OpenClaw conform to the AgentSkills standard.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw has a gateway-based multi-agent platform",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest mentions that OpenClaw has a gateway-based multi-agent platform.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent has a learning loop",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that Hermes Agent has autonomous skill evolution, which implies a learning loop.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent uses dialectic user modeling",
+          "verdict": "incorrect",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that Hermes Agent uses Honcho for user modeling, not dialectic user modeling.",
+          "suggested_correction": "Hermes Agent uses Honcho for user modeling."
+        },
+        {
+          "text": "OpenClaw has 30+ messaging integrations",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that OpenClaw has 30+ messaging integrations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw Sandboxing Architecture uses Docker for isolation",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not explicitly state the isolation method used by OpenClaw Sandboxing Architecture, but the knowledge page for OpenClaw mentions 'sandboxing (Docker/SSH/OpenShell)' as part of its security features.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw Sandboxing Architecture uses SSH for isolation",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page for OpenClaw mentions 'sandboxing (Docker/SSH/OpenShell)' as part of its security features, indicating that SSH is used for isolation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw Sandboxing Architecture uses OpenShell for isolation",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page for OpenClaw mentions 'sandboxing (Docker/SSH/OpenShell)' as part of its security features, indicating that OpenShell is used for isolation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent is available on github.com/NousResearch/hermes-agent",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the developer of Hermes Agent is NousResearch, and the knowledge page for Hermes Agent provides a link to github.com/NousResearch/hermes-agent, confirming the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent is a self-improving autonomous AI assistant with a learning loop, dialectic user modeling, 6 terminal backends, and AgentSkills.io standard",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Hermes Agent is described as an autonomous AI agent framework with a learning loop and dialectic user modeling, but the Facts Manifest does not explicitly mention '6 terminal backends' and 'AgentSkills.io standard' as part of its primary description. However, it does mention that Hermes Agent conforms to the AgentSkills standard and uses a framework with six interchangeable terminal backends.",
+          "suggested_correction": "Hermes Agent is a self-improving autonomous AI assistant with a learning loop, dialectic user modeling using Honcho, and conforms to the AgentSkills standard."
+        },
+        {
+          "text": "OpenClaw is a local-first personal AI assistant platform with a gateway-based multi-agent platform and 30+ messaging integrations",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest describes OpenClaw as a local-first personal AI assistant platform with a gateway-based multi-agent platform and 30+ messaging integrations, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AgentSkills.io is an open standard for portable AI agent skills shared between Hermes and OpenClaw",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that AgentSkills.io is an open standard for portable AI agent skills shared between Hermes and OpenClaw, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Honcho User Modeling is a dialectic user profiling system for cross-session personalization",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest mentions Honcho as the user modeling system used by Hermes Agent, but it does not provide detailed information about its functionality as a 'dialectic user profiling system for cross-session personalization'.",
+          "suggested_correction": "Honcho is the user modeling system used by Hermes Agent."
+        },
+        {
+          "text": "Modal Serverless Platform provides serverless compute with hibernating environments",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about the 'Modal Serverless Platform' or its relationship to 'hibernating environments'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenClaw Gateway Exposure Runbook provides security guidelines for exposing agent gateway to messaging platforms",
+          "verdict": "partially_correct",
+          "confidence": 0.6,
+          "reasoning": "The Facts Manifest mentions the 'OpenClaw Gateway Exposure Runbook' as a security guideline, but it does not provide detailed information about its purpose or content.",
+          "suggested_correction": "OpenClaw has a gateway exposure runbook for security guidelines."
+        },
+        {
+          "text": "OpenClaw Sandboxing Architecture uses Docker/SSH/OpenShell isolation for non-primary agent sessions",
+          "verdict": "partially_correct",
+          "confidence": 0.6,
+          "reasoning": "The Facts Manifest mentions that OpenClaw uses Docker, SSH, and OpenShell for isolation, but it does not explicitly state that this is for 'non-primary agent sessions'.",
+          "suggested_correction": "OpenClaw uses Docker, SSH, and OpenShell for isolation."
+        },
+        {
+          "text": "Hermes Agent uses a framework with 6 terminal backends",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that Hermes Agent uses a framework with six interchangeable terminal backends, which matches the claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Changelog",
+      "score": 0.3333333333333333,
+      "claims": [
+        {
+          "text": "The term 'recursive self-intelligence' maps to 'recursive self-improvement'.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The term 'recursive self-intelligence' is related to the concept of recursive self-improvement, which involves modifying one's own weights or code to improve performance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ACL 2026 published safety findings on self-evolving agents.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "According to the Facts Manifest, there is a finding from Zhao et al. on safety in self-evolving agents, which was published in ACL 2026.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hermes Agent is a self-evolving agent, not RSI.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Hermes Agent is described as having autonomous skill evolution, which is a characteristic of self-evolving agents, not recursive self-intelligence (RSI).",
+          "suggested_correction": null
+        },
+        {
+          "text": "AutoResearch is soft RSI.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "AutoResearch is mentioned in the context of soft RSI, which implies tool-assisted self-modification, consistent with the definition of soft RSI.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI changes the model (weights/training).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "RSI is defined as modifying own weights/code, which is a key aspect of recursive self-improvement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-evolving agents change scaffolding (skills/memory around fixed model).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Self-evolving agents are described as changing scaffolding, such as skills or memory, around a fixed model, which is distinct from RSI.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The term 'recursive self-intelligence' is NOT formally established (0 arXiv papers).",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the provided Facts Manifest or knowledge pages about the term 'recursive self-intelligence' being formally established or the number of arXiv papers on the topic.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AlphaEvolve has a value of $100M+.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the provided Facts Manifest or knowledge pages about the value of AlphaEvolve.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AutoResearch has 700 exps/2 days.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the provided Facts Manifest or knowledge pages about AutoResearch having 700 experiments over 2 days.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Alignment faking in recursive self-intelligence ranges from 12-78%.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the provided Facts Manifest or knowledge pages about alignment faking in recursive self-intelligence ranging from 12-78%.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Verification difficulty is a con of recursive self-intelligence.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention 'recursive self-intelligence' or 'verification difficulty' in relation to each other.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FunSearch is an example of recursive self-intelligence in academia.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention 'FunSearch' or its relation to 'recursive self-intelligence'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AlphaProof is an example of recursive self-intelligence in academia.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention 'AlphaProof' or its relation to 'recursive self-intelligence'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AlphaEvolve is an example of recursive self-intelligence in industry.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention 'AlphaEvolve' or its relation to 'recursive self-intelligence'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Anthropic is an example of recursive self-intelligence in industry.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention 'Anthropic' or its relation to 'recursive self-intelligence'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Nemotron self-play is an example of recursive self-intelligence in industry.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention 'Nemotron self-play' or its relation to 'recursive self-intelligence'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "STOP is an example of recursive self-intelligence in academia.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention 'STOP' or its relation to 'recursive self-intelligence'. However, the knowledge pages mention STOP as a system related to recursive self-improvement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepSeek-R1 is an example of recursive self-intelligence in academia.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention 'DeepSeek-R1' or its relation to 'recursive self-intelligence'.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Self-Evolving Agents: Comprehensive Overview",
+      "score": 0.95,
+      "claims": [
+        {
+          "text": "CODESKILL achieved +9.69% with RL-trained skill management.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about CODESKILL achieving +9.69% with RL-trained skill management is supported by the Facts Manifest, which mentions that CODESKILL achieved RL-trained skill management: +9.69%.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FORGE achieved 1.7-7.7x improvement with population broadcast memory and no weight updates.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about FORGE achieving 1.7-7.7x improvement with population broadcast memory and no weight updates is supported by the Facts Manifest, which mentions that FORGE achieved population broadcast: 1.7-7.7x improvement, no weight updates.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Evolving-RL achieved 98.7% relative improvement over GRPO baseline.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about Evolving-RL achieving 98.7% relative improvement over GRPO baseline is supported by the Facts Manifest, which mentions that Evolving-RL achieved 98.7% relative improvement over GRPO baseline.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Experience gathered solely from benign tasks can still compromise safety in high-risk scenarios.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about experience gathered solely from benign tasks compromising safety in high-risk scenarios is supported by the Facts Manifest, which mentions that benign-task experience can compromise safety in high-risk scenarios according to the Zhao et al. study.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-evolving agents autonomously improve through experience without retraining.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Self-evolving agents are defined as AI systems that autonomously improve capabilities through interaction and experience, without explicit retraining by humans, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "There are three levels of self-evolving agents: weak, medium, and strong.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages describe three levels of self-evolving agents: weak, medium, and strong, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Voyager, FORGE, Reflexion, PACE, and Hermes Agent are examples of weak self-evolving agents.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page on self-evolving agents lists Voyager, FORGE, Reflexion, PACE as examples of weak self-evolving agents, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "CODESKILL and Evolving-RL are examples of medium self-evolving agents.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page on self-evolving agents lists CODESKILL and Evolving-RL as examples of medium self-evolving agents, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SOLAR and Self-Rewarding LMs are examples of strong self-evolving agents.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page on self-evolving agents lists SOLAR and Self-Rewarding LMs as examples of strong self-evolving agents, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-evolving agents can decrease maintenance over time.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page on Hermes Agent states that the agent's maintenance burden decreases over time as it becomes more capable, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-evolving agents can personalize to user/domain.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page on self-evolving agents mentions that these agents can personalize to user/domain, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-evolving agents can handle novel tasks without retraining.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page on self-evolving agents states that these agents can handle novel tasks without retraining, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Weaker models can benefit disproportionately from self-evolving agents (e.g., FORGE).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not directly address this claim, but the knowledge page on self-evolving-agents.md mentions that weaker models can benefit disproportionately from self-evolving agents like FORGE.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Skill libraries are interpretable and composable.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about skill libraries being interpretable and composable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Voyager achieved 3.3x more items and 15.3x faster milestones in Minecraft.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the Voyager system uses a skill library + iterative prompting and achieves 3.3x more items and 15.3x faster milestones in Minecraft.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-Rewarding LMs achieved 3 iterations of Llama 70B beating Claude 2, Gemini Pro, and GPT-4.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the Self-Rewarding LMs system outperforms Claude 2, Gemini Pro, and GPT-4.",
+          "suggested_correction": null
+        },
+        {
+          "text": "EvoAgent achieved 28% improvement in production foreign trade with GPT-5.2.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the EvoAgent system achieves a 28% improvement in foreign trade with GPT-5.2.",
+          "suggested_correction": null
+        },
+        {
+          "text": "STELLA achieved ~26% on Humanity's Last Exam: Biomedicine.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the STELLA system achieves ~26% on Humanity's Last Exam: Biomedicine.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ADAS outperformed SOTA hand-designed agents.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the ADAS system outperforms SOTA hand-designed agents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reflexion achieved 91% pass@1 on HumanEval via verbal self-reflection.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the Reflexion system achieves 91% pass@1 on HumanEval.",
+          "suggested_correction": null
+        }
+      ]
+    }
+  ]
+}

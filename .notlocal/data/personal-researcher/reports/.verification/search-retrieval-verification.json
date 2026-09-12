@@ -1,0 +1,1410 @@
+{
+  "topic": "search-retrieval",
+  "timestamp": "2026-05-18T22:41:35.553742+00:00",
+  "total_claims": 191,
+  "correct": 95,
+  "incorrect": 3,
+  "unverifiable": 83,
+  "partially_correct": 10,
+  "overall_score": 0.8796296296296297,
+  "summary": "Verified 191 claims: 95 correct, 3 incorrect, 10 partially correct, 83 unverifiable. Score: 88%",
+  "sections": [
+    {
+      "section_name": "Design Flow Framework",
+      "score": 0.8,
+      "claims": [
+        {
+          "text": "Human review is necessary for edge cases",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about human review being necessary for edge cases is not addressed in the provided Facts Manifest and cannot be verified through knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Slice analysis is necessary for evaluation",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about slice analysis being necessary for evaluation is not addressed in the provided Facts Manifest and cannot be verified through knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The architecture must serve 300M+ MAU at <100ms",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the architecture serving 300M+ MAU at <100ms is not addressed in the provided Facts Manifest and cannot be verified through knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hybrid retrieval adds complexity",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that Hybrid Retrieval combines sparse and dense retrieval methods, which can add complexity to the system.",
+          "suggested_correction": null
+        },
+        {
+          "text": "BM25 is a strong baseline for retrieval tasks",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "BM25 is indeed considered a strong baseline for retrieval tasks due to its ability to handle exact matches and its efficiency in retrieval.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Lexical retrieval fails on paraphrases",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Lexical retrieval methods like BM25 can fail on paraphrases because they rely on exact term matching and do not capture semantic similarity.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dense retrieval fails on exact entities",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "Dense retrieval methods are not inherently limited by their inability to handle exact entities; rather, they can struggle with exact matches due to their focus on semantic similarity.",
+          "suggested_correction": "Dense retrieval can struggle with exact matches, not exact entities."
+        },
+        {
+          "text": "Query ambiguity can lead to retrieval failures",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Query ambiguity can indeed lead to retrieval failures as the system may not accurately understand the user's intent, leading to irrelevant results.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Lost intent in short queries can lead to retrieval failures",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Lost intent in short queries can lead to retrieval failures because short queries often lack context, making it difficult for the system to accurately determine the user's information need.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hybrid sparse+dense retrieval can improve retrieval performance",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Hybrid sparse+dense retrieval can improve retrieval performance by combining the strengths of both approaches: the exact matching capability of sparse methods and the semantic understanding of dense methods.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Query rewriting and expansion can improve retrieval performance",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Query rewriting and expansion can improve retrieval performance by enhancing the query to better match the language used in relevant documents, thereby improving recall.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Metadata filters can improve retrieval performance",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "Metadata filters can improve retrieval performance by allowing the system to narrow down results based on specific attributes, thus increasing precision by reducing irrelevant matches.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Entity preservation can improve retrieval performance",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Entity preservation can indeed improve retrieval performance by ensuring that important entities within queries are accurately matched in documents, thus enhancing the precision of search results.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cross-encoder reranking can improve retrieval performance",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "Cross-encoder reranking is a technique known to improve retrieval performance. It works by jointly encoding query-document pairs to capture fine-grained relevance signals that might be missed by bi-encoder models, thus improving the ranking quality of search results.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Learned representations can improve retrieval performance",
+          "verdict": "correct",
+          "confidence": 0.92,
+          "reasoning": "Learned representations, such as those from dense vector retrieval models, can significantly improve retrieval performance. These models learn to represent queries and documents as vectors in a high-dimensional space, allowing for semantic matching that goes beyond exact term matching.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Recall is a necessary offline metric for evaluation",
+          "verdict": "correct",
+          "confidence": 0.88,
+          "reasoning": "Recall is indeed a necessary offline metric for evaluation in information retrieval. It measures the proportion of relevant documents that are retrieved, providing insight into the completeness of the search results.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MRR is a necessary offline metric for evaluation",
+          "verdict": "correct",
+          "confidence": 0.85,
+          "reasoning": "MRR (Mean Reciprocal Rank) is a metric used to evaluate the ranking quality of search results. It measures the average reciprocal rank of the first relevant document for each query, making it a useful metric for assessing how well a system can retrieve relevant documents near the top of the result list.",
+          "suggested_correction": null
+        },
+        {
+          "text": "NDCG is a necessary offline metric for evaluation",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "NDCG (Normalized Discounted Cumulative Gain) is another crucial metric for evaluating retrieval systems. It measures the ranking quality by comparing the gain (relevance) of the retrieved documents with the ideal ranking, providing a comprehensive view of both precision and recall.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Zero-result rate is a necessary offline metric for evaluation",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "Zero-result rate is an important metric, especially in production systems, as it indicates the percentage of queries for which no relevant results are returned. Minimizing this rate is crucial for user satisfaction and system effectiveness.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Click-based relevance is an authoritative online metric",
+          "verdict": "correct",
+          "confidence": 0.85,
+          "reasoning": "Click-based relevance is considered an authoritative online metric because it reflects user behavior and preferences directly. Clicks can indicate relevance, as users are more likely to click on results they find useful or relevant to their query.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Full System Design Walkthrough (Principal/Director Level, ~4 min)",
+      "score": 0.8,
+      "claims": [
+        {
+          "text": "BM25 is a term-frequency-based scoring algorithm with document length normalization.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "BM25 is indeed a term-frequency-based scoring algorithm with document length normalization, as described in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The BM25 scoring formula is BM25(q, d) = \u03a3_{t \u2208 q} IDF(t) \u00d7 (tf(t,d) \u00d7 (k\u2081+1)) / (tf(t,d) + k\u2081 \u00d7 (1 - b + b \u00d7 |d|/avgdl)).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The provided BM25 scoring formula matches the description in the Facts Manifest, confirming its correctness.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The standard tuning parameters for BM25 are k\u2081 \u2248 1.2 and b \u2248 0.75.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The standard tuning parameters for BM25, k\u2081 \u2248 1.2 and b \u2248 0.75, are correctly stated and align with the information in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reciprocal Rank Fusion (RRF) is a fusion strategy that combines the scores of multiple retrieval systems.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Reciprocal Rank Fusion (RRF) is accurately described as a fusion strategy for combining scores from multiple retrieval systems, as per the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The RRF score formula is RRF_score(d) = \u03a3_r 1 / (k + rank_r(d)).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The RRF score formula provided matches the formula given in the Facts Manifest, confirming its accuracy.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SPLADE is a method for learning sparse representations of documents that can be used for efficient retrieval.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "SPLADE is correctly identified as a method for learning sparse representations of documents for efficient retrieval, aligning with the description in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multilingual embedding models like mE5 and multilingual-e5-large can be used for zero-shot cross-lingual retrieval.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Multilingual embedding models like mE5 and multilingual-e5-large can indeed be used for zero-shot cross-lingual retrieval, as stated in the claim and supported by the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The evaluation metrics for retrieval include Recall@K, MRR, NDCG@K, zero-result rate, and click-through rate.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The listed evaluation metrics for retrieval, including Recall@K, MRR, NDCG@K, zero-result rate, and click-through rate, are all relevant and correctly identified as per the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The primary metric for navigational queries is MRR, while for transactional queries it is NDCG@10, and for informational queries it is Recall@20.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The primary metric for navigational queries is not specified as MRR in the provided Facts Manifest. The manifest does mention various metrics such as NDCG@10 and Recall@20 but does not explicitly state their association with specific query types like navigational, transactional, or informational queries.",
+          "suggested_correction": "The primary metrics for different query types are not explicitly defined in the provided Facts Manifest, so it's unclear what the correct metrics are for navigational, transactional, and informational queries."
+        },
+        {
+          "text": "Guardrails for retrieval include zero-result fallback, relevance floor, diversity enforcement, and freshness signals.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest mentions techniques like zero-result fallback and relevance floor but does not explicitly list 'guardrails for retrieval' as including zero-result fallback, relevance floor, diversity enforcement, and freshness signals. While some of these concepts are discussed, they are not framed as 'guardrails' in the provided text.",
+          "suggested_correction": "The Facts Manifest discusses various techniques for improving retrieval quality, including handling zero results and relevance, but does not explicitly categorize them as 'guardrails for retrieval'."
+        },
+        {
+          "text": "Hybrid retrieval using both BM25 and dense retrieval can provide better quality than using either alone, but at the cost of increased complexity and latency.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest supports the idea that hybrid retrieval using both BM25 and dense retrieval can provide better quality than using either alone, acknowledging the complementary failure modes of these methods.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The choice of embedding model dimensionality (e.g., 384-dim or 768-dim) depends on the specific use case and the trade-off between quality and memory usage.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The choice of embedding model dimensionality indeed depends on the specific use case and the trade-off between quality and memory usage, as discussed in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Domain fine-tuning of embedding models on query-document pairs from the specific domain can improve recall by 5-15%.",
+          "verdict": "partially_correct",
+          "confidence": 0.6,
+          "reasoning": "The Facts Manifest mentions domain fine-tuning can improve performance but does not specify the exact recall improvement range of 5-15%. It does discuss the importance of fine-tuning for domain-specific queries.",
+          "suggested_correction": "Domain fine-tuning of embedding models can improve recall, but the exact improvement percentage is not specified in the provided Facts Manifest."
+        },
+        {
+          "text": "The latency of cross-encoder reranking depends on the number of candidates and the size of the cross-encoder model.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The latency of cross-encoder reranking does depend on the number of candidates and the size of the cross-encoder model, as these factors influence the computational cost of the reranking process.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Incremental updates to the index can be used to balance freshness and operational simplicity.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "Incremental updates to the index can indeed be used to balance freshness and operational simplicity, as discussed in the context of HNSW indexing in the Facts Manifest.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Interview Q&A Bank",
+      "score": 0.7,
+      "claims": [
+        {
+          "text": "At Amazon Ads, hybrid retrieval was the foundation of our targeting expansion system, expanding coverage by +2200 bps.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Amazon Ads' targeting expansion system is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Bi-encoder (two-tower) encodes query and document independently, allowing for pre-computed item embeddings and fast ANN retrieval, but lacks fine-grained token alignment.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The description of bi-encoder (two-tower) architecture and its characteristics matches the information in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cross-encoder encodes [query; SEP; document] jointly, capturing token-level alignment, but requires a forward pass per (query, document) pair and can't pre-compute or use ANN.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The description of cross-encoder architecture and its characteristics matches the information in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At Amazon Ads, moving from two-tower to cross-attention scoring on the reduced candidate set achieved +900 bps relevance improvement.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the relevance improvement achieved by moving from two-tower to cross-attention scoring is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Production architecture typically uses bi-encoder for recall and cross-encoder for precision, with each model doing what it's best at.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The description of production architecture using bi-encoder for recall and cross-encoder for precision matches the information in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ColBERT computes per-token embeddings for both query and document independently, then scores via MaxSim, capturing token-level alignment while allowing pre-computing document token embeddings.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The description of ColBERT's functionality and characteristics matches the information in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ColBERT is chosen when latency budget is tight, token-level quality is needed, and storage is cheap.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The description of when ColBERT is chosen matches the information in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Query understanding is the most underinvested component of search systems, often yielding larger improvements than improving retrieval itself.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about query understanding being the most underinvested component of search systems is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hybrid retrieval exists because neither sparse nor dense retrieval is sufficient alone, and the failure modes are complementary.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that hybrid retrieval exists because neither sparse nor dense retrieval is sufficient alone, and the failure modes are complementary, is supported by the Facts Manifest. It explains that BM25 excels at exact matches but fails on paraphrases and semantic similarity, while dense retrieval handles semantic matching but struggles with exact terms and rare codes. Hybrid retrieval combines these approaches to address their complementary failure modes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sparse (BM25) excels at exact matches (product codes, names, IDs), high-frequency terms with strong IDF signal, interpretability (you can see which terms matched and why).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that sparse (BM25) excels at exact matches, high-frequency terms with strong IDF signal, interpretability, and other aspects is consistent with the Facts Manifest. BM25 is described as a probabilistic ranking function that belongs to the TF-IDF family, with strengths in exact match handling, speed, no training required, and high interpretability.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dense (embedding ANN) excels at semantic matching (paraphrases, related concepts), cross-lingual similarity, understanding query INTENT beyond literal words.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that dense (embedding ANN) excels at semantic matching, cross-lingual similarity, understanding query intent beyond literal words, and other aspects is supported by the Facts Manifest. Dense vector retrieval is described as capturing semantic meaning and handling paraphrases, conceptual queries, and cross-lingual retrieval effectively.",
+          "suggested_correction": null
+        },
+        {
+          "text": "When BM25 fails (vocabulary mismatch), dense succeeds. When dense fails (exact terms, rare codes), BM25 succeeds.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that when BM25 fails (vocabulary mismatch), dense succeeds, and when dense fails (exact terms, rare codes), BM25 succeeds, is consistent with the Facts Manifest. This complementary nature of BM25 and dense retrieval is a key reason for using hybrid retrieval approaches.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Combining BM25 and dense retrieval covers both failure modes.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that combining BM25 and dense retrieval covers both failure modes is supported by the Facts Manifest. Hybrid retrieval systems combine the strengths of both approaches to achieve better coverage and relevance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RRF (Reciprocal Rank Fusion) is a standard choice for fusion methods, with the formula score(d) = 1/(k + rank_BM25(d)) + 1/(k + rank_dense(d)).",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim that RRF (Reciprocal Rank Fusion) is a standard choice for fusion methods with a specific formula is partially correct. While RRF is indeed a standard fusion method, the provided formula score(d) = 1/(k + rank_BM25(d)) + 1/(k + rank_dense(d)) is a simplified representation. The actual formula involves summing over all retrieval systems, not just BM25 and dense retrieval.",
+          "suggested_correction": "The correct formula for RRF involves summing the reciprocal of the rank positions across all retrieval systems, not just BM25 and dense retrieval: RRF_score(d) = \u03a3_r 1 / (k + rank_r(d))."
+        },
+        {
+          "text": "Learned fusion trains a lightweight model to predict relevance from (BM25_score, dense_score, other features), requiring labeled data and training.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that learned fusion trains a lightweight model to predict relevance from (BM25_score, dense_score, other features), requiring labeled data and training, is consistent with the Facts Manifest. Learned fusion approaches are mentioned as alternatives to RRF, requiring training data to predict relevance from multiple retrieval scores and query features.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Score interpolation is another fusion method, with the formula score = \u03b1 \u00d7 BM25_norm(d) + (1-\u03b1) \u00d7 dense_norm(d), requiring normalizing scores to the same scale.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that score interpolation is another fusion method, with the formula score = \u03b1 \u00d7 BM25_norm(d) + (1-\u03b1) \u00d7 dense_norm(d), requiring normalizing scores to the same scale, is supported by the Facts Manifest. Score interpolation is mentioned as a method for combining scores from different systems, though it requires careful normalization and weighting.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The query understanding pipeline consists of spell correction, entity detection, intent classification, rewriting/expansion, and retrieval.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The query understanding pipeline indeed involves several stages including spell correction, entity detection, and intent classification. However, the claim does not fully capture the complexity and variability of pipeline architectures across different systems and applications.",
+          "suggested_correction": "The query understanding pipeline consists of multiple stages including spell correction, entity detection, intent classification, and may involve additional steps such as query rewriting or expansion, depending on the specific application and system requirements."
+        },
+        {
+          "text": "At Amazon Ads, entity detection was critical, preserving entity integrity through the entire pipeline and saving the company from embarrassing failures.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information provided in the Facts Manifest about the specific role or impact of entity detection at Amazon Ads, making it impossible to verify the claim.",
+          "suggested_correction": "No suggested correction can be provided due to lack of information."
+        },
+        {
+          "text": "Domain-specific vocabulary is the Achilles' heel of generic embedding models, making BM25 essential in production search.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest indicates that BM25 is particularly useful for handling domain-specific vocabulary and exact matches, which aligns with the claim that domain-specific vocabulary is a challenge for generic embedding models and BM25 is essential in production search for such cases.",
+          "suggested_correction": "No correction needed."
+        },
+        {
+          "text": "BM25 handles domain-specific vocabulary, such as codes, IDs, acronyms, jargon, and compound terms, natively.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest supports the claim by stating that BM25 handles domain-specific vocabulary, including codes, IDs, acronyms, jargon, and compound terms, natively.",
+          "suggested_correction": "No correction needed."
+        }
+      ]
+    },
+    {
+      "section_name": "Distinguished Engineer Depth Probes",
+      "score": 0.95,
+      "claims": [
+        {
+          "text": "BM25 is derived from the probabilistic relevance framework (Robertson-Sparck Jones)",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "BM25 is indeed derived from the probabilistic relevance framework developed by Robertson and Sparck Jones, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The BM25 scoring formula is \u03a3_{t \u2208 q} IDF(t) \u00d7 (tf(t,d) \u00d7 (k\u2081 + 1)) / (tf(t,d) + k\u2081 \u00d7 (1 - b + b \u00d7 |d|/avgdl))",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The provided BM25 scoring formula matches the description in the Facts Manifest, indicating it is correct.",
+          "suggested_correction": null
+        },
+        {
+          "text": "IDF(t) = log((N - df(t) + 0.5) / (df(t) + 0.5))",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The IDF(t) formula provided matches the definition given in the Facts Manifest, confirming its correctness.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SPLADE (Sparse Lexical and Expansion) learns to expand each document with semantically related terms before indexing",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "SPLADE is described in the Facts Manifest as learning to expand each document with semantically related terms before indexing, which aligns with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HNSW (Hierarchical Navigable Small World) is a data structure for approximate nearest neighbor search",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "HNSW is identified in the Facts Manifest as a data structure for approximate nearest neighbor search, supporting the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "IVF (Inverted File Index) is a data structure for approximate nearest neighbor search",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "IVF (Inverted File Index) is mentioned in the Facts Manifest as a data structure for approximate nearest neighbor search, confirming the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The InfoNCE loss is -log(exp(sim(q, d+) / \u03c4) / (exp(sim(q, d+) / \u03c4) + \u03a3_{d- \u2208 D_neg} exp(sim(q, d-) / \u03c4)))",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The InfoNCE loss formula provided matches the description in the Facts Manifest, indicating it is correct.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RRF (Reciprocal Rank Fusion) is a method for combining the results of multiple retrieval systems",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "RRF (Reciprocal Rank Fusion) is described in the Facts Manifest as a method for combining the results of multiple retrieval systems, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The SPLADE mechanism produces a sparse representation over the full vocabulary for each document and query",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Facts Manifest, which states that SPLADE generates sparse representations over the full vocabulary for each document and query.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The SPLADE output can be controlled with L1 regularization",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Facts Manifest, which states that the L1 regularization term in SPLADE's training objective controls sparsity.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The effective dimensionality of an embedding matrix can be calculated as the ratio of the sum of singular values to the max singular value",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about calculating the effective dimensionality of an embedding matrix.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Alignment, uniformity, and effective dimensionality can be used to evaluate whether embeddings have collapsed or are well-distributed",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Facts Manifest, which states that alignment, uniformity, and effective dimensionality can be used to evaluate whether embeddings have collapsed or are well-distributed.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The RRF formula is \u03a3_r 1 / (k + rank_r(d))",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The RRF formula is correctly stated as \u03a3_r 1 / (k + rank_r(d)) in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implicit user feedback (clicks, dwell time, purchases) can be used to improve retrieval",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Implicit user feedback can indeed be used to improve retrieval, as supported by the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Position bias is a pitfall when using implicit user feedback to improve retrieval",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Position bias is a known pitfall when using implicit user feedback, acknowledged in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Popularity bias is a pitfall when using implicit user feedback to improve retrieval",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Popularity bias is another pitfall associated with implicit user feedback, as mentioned in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Feedback delay is a pitfall when using implicit user feedback to improve retrieval",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Feedback delay is recognized as a challenge when utilizing implicit user feedback, according to the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Confounding is a pitfall when using implicit user feedback to improve retrieval",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Confounding is identified as a pitfall in the context of implicit user feedback, supported by the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Catalog coverage over time and novelty rate can be used to monitor for filter bubbles",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Catalog coverage over time and novelty rate can be used to monitor for filter bubbles, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Diversity constraints can be used to enforce minimum thresholds for catalog coverage and novelty rate",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Diversity constraints can indeed be used to enforce minimum thresholds for catalog coverage and novelty rate, according to the Facts Manifest.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Cost Model",
+      "score": 0.05,
+      "claims": [
+        {
+          "text": "The total cost of hybrid retrieval with reranker is approximately $0.001 per query.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of hybrid retrieval with reranker.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total cost of hybrid retrieval with reranker and LLM expansion is approximately $0.004 per query.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of hybrid retrieval with reranker and LLM expansion.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 50M queries per day, the monthly cost of BM25 only is approximately $15K.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of BM25 only at 50M queries per day.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 50M queries per day, the monthly cost of BM25 with dense retrieval is approximately $30K.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of BM25 with dense retrieval at 50M queries per day.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 50M queries per day, the monthly cost of BM25 with dense retrieval and cross-encoder reranker is approximately $80K.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of BM25 with dense retrieval and cross-encoder reranker at 50M queries per day.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 5M queries per day, the monthly cost of BM25 with dense retrieval, cross-encoder reranker, and selective LLM expansion is approximately $95K.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of BM25 with dense retrieval, cross-encoder reranker, and selective LLM expansion at 5M queries per day.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Tiered index can save 3-5x memory.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that tiered index can save 3-5x memory.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Selective reranking can reduce reranker cost by 2x.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost reduction of selective reranking.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of query processing is approximately $0 per query.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of query processing.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of BM25 retrieval is $0.00001 per query.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of BM25 retrieval.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of dense ANN retrieval is $0.00005 per query.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of dense ANN retrieval.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of RRF fusion is approximately $0 per query.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of RRF fusion.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of cross-encoder reranking is $0.001 per query.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of cross-encoder reranking.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of LLM query expansion is $0.003 per query.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of LLM query expansion.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total cost of BM25 only is approximately $0.00001 per query.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the total cost of BM25 only.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total cost of hybrid retrieval without reranker is approximately $0.00006 per query.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the total cost of hybrid retrieval without reranker.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Query result caching can increase performance by 1.3-1.5x.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about query result caching performance improvements.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model distillation can reduce reranker cost by 2x.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not discuss model distillation or its impact on reranker cost.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Elastic Cloud costs $2K+/mo for managed inverted index.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide pricing information for Elastic Cloud or managed inverted index services.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-hosted Elasticsearch costs $500/mo compute for inverted index.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not discuss the costs associated with self-hosted Elasticsearch for inverted index computation.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Observability & Production Debugging",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The `raw_query` and `processed_query` fields are used to track query processing changes.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the fields 'raw_query' and 'processed_query'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `spell_corrections` field is used to measure spell correction accuracy.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the field 'spell_corrections'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `entity_detections` field is used to evaluate entity recognition quality.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the field 'entity_detections'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `intent_classification` field is used to determine routing correctness.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the field 'intent_classification'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `bm25_results` field is used to analyze per-system recall.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the field 'bm25_results'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `dense_results` field is used to analyze per-system recall.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the field 'dense_results'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `fused_results` field is used to compare fused vs individual systems.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the field 'fused_results'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `reranker_results` field is used to measure reranker value-add.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the field 'reranker_results'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The reranker NDCG lift alert threshold is set to 5%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the reranker NDCG lift alert threshold.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The query latency p99 alert threshold is set to 100ms.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the query latency p99 alert threshold.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The embedding index freshness target is set to less than 1 hour.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the embedding index freshness target.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The abbreviation 'ANC' is an out-of-vocabulary term for the embedding model.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the abbreviation 'ANC' being an out-of-vocabulary term for the embedding model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `final_results` field is used as ground truth for online metrics.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not address the use of the `final_results` field as ground truth for online metrics.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `user_action` field is used to collect user feedback.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention the `user_action` field or its purpose in collecting user feedback.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `latency_breakdown` field is used to identify performance bottlenecks.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not discuss the `latency_breakdown` field or its role in identifying performance bottlenecks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The zero-result rate alert threshold is set to 3%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information on the zero-result rate alert threshold.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The search abandonment rate alert threshold is set to 25%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention the search abandonment rate alert threshold.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The BM25-only recall@10 alert threshold is set to 75%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not discuss the BM25-only recall@10 alert threshold.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The dense recall@10 alert threshold is set to 80%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information on the dense recall@10 alert threshold.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The hybrid lift over best-single alert threshold is set to 3%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention the hybrid lift over best-single alert threshold.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Data Flywheel & Continuous Improvement",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Cross-encoder reranker retrain is updated monthly.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the update frequency of cross-encoder reranker retrain.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Embedding model replacement is updated quarterly.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the update frequency of embedding model replacement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Purchase from search signal is weighted 5-10x vs clicks.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the weighting of purchase from search signal vs clicks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Long-dwell clicks are weighted higher in training.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the weighting of long-dwell clicks in training.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Semantic mismatch failure mode has high business cost and 10-15% frequency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the frequency or business cost of semantic mismatch failure mode.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Slow queries failure mode has medium business cost and 5% frequency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the frequency or business cost of slow queries failure mode.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Irrelevant results ranked high failure mode has medium business cost and 5-10% frequency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the frequency or business cost of irrelevant results ranked high failure mode.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Stale results failure mode has medium business cost and 2-5% frequency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the frequency or business cost of stale results failure mode.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Synonym dictionary is updated in real-time.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the update frequency of the synonym dictionary.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Query processing rules are updated daily.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the update frequency of query processing rules.",
+          "suggested_correction": null
+        },
+        {
+          "text": "BM25 index rebuild is updated weekly.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the update frequency of BM25 index rebuild.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Embedding fine-tuning is updated bi-weekly.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the update frequency of embedding fine-tuning.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Click on result signal has high volume and immediate latency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the latency or volume of a click on result signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Zero-result query signal has medium volume and immediate latency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the volume or latency of a zero-result query signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Query refinement signal has medium volume and immediate latency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the volume or latency of a query refinement signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Purchase from search signal has lower volume and hours-days latency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the volume or latency of a purchase from search signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dwell time signal has high volume and immediate latency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the volume or latency of a dwell time signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Query-to-entity mapping corrections signal has low volume and days latency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the volume or latency of a query-to-entity mapping corrections signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Zero results on valid query failure mode has very high business cost and 1-3% frequency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the business cost or frequency of a zero results on valid query failure mode.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Exact-match query fails failure mode has very high business cost and 1-2% frequency.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the business cost or frequency of an exact-match query fails failure mode.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Seniority Signals Cheat Sheet",
+      "score": 0.25,
+      "claims": [
+        {
+          "text": "At Amazon Ads, pure vector search misses exact terms \u2014 ASINs, product codes, domain acronyms.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that pure vector search misses exact terms like ASINs, product codes, and domain acronyms is consistent with the limitations of dense vector retrieval methods described in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "BM25 catches what embeddings miss; embeddings catch what BM25 misses.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The statement that BM25 catches what embeddings miss and embeddings catch what BM25 misses aligns with the complementary failure modes of BM25 and dense vector retrieval methods outlined in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The #1 MTEB model was #4 on our domain because production queries have typos, abbreviations, and mixed-language patterns.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the #1 MTEB model's performance on the domain or the impact of production queries with typos, abbreviations, and mixed-language patterns.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Domain fine-tuning on real query-item pairs closed a 12% recall gap.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about domain fine-tuning on real query-item pairs or the recall gap it addresses.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cross-attention reranking gave us +900 bps relevance improvement because it captures token-level intent alignment that dot-product similarity misses.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about cross-attention reranking or its impact on relevance improvement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "BM25 handles 60% of head queries well.",
+          "verdict": "partially_correct",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest states that BM25 handles 60-70% of queries acceptably in most domains, which is close to but not exactly the 60% mentioned in the claim.",
+          "suggested_correction": "BM25 handles 60-70% of queries acceptably in most domains."
+        },
+        {
+          "text": "Dense retrieval added for semantic queries after we had an evaluation foundation to measure improvement.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not discuss the addition of dense retrieval for semantic queries or the evaluation foundation for measuring improvement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "8% offline recall improvement translated to zero online impact because the improvement was on long-tail queries representing 5% of production volume.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the offline recall improvement or its translation to online impact, especially regarding the impact on long-tail queries.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Translated queries preserve English search patterns.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not address the preservation of English search patterns in translated queries, and this information cannot be inferred from the provided knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Regenerating queries from product attributes in the target language captures how local users actually search.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not discuss how local users search or the effectiveness of regenerating queries from product attributes in capturing actual search behavior.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Zero-shot transfer plus regenerating queries reduced time-to-market by 75% across 19+ locales.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information in the Facts Manifest about the impact of zero-shot transfer and query regeneration on time-to-market across different locales.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Full HNSW at hundreds of millions of items was memory-prohibitive.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that HNSW at hundreds of millions of items can be memory-prohibitive, which aligns with the claim about the memory requirements of HNSW.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The tiered approach of HNSW for the hot tier and IVF-PQ for the long tail gave 95%+ effective recall at 1/10th the memory cost.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest discusses the tiered approach of using HNSW for the hot tier and IVF-PQ for the long tail, achieving high recall at reduced memory cost, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The clean labeled set for regression testing has high annotator agreement (\u03ba=0.85).",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the clean labeled set for regression testing or annotator agreement (\u03ba value).",
+          "suggested_correction": null
+        },
+        {
+          "text": "The production query sample is noisier but predicts online metric movements much better.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no discussion in the Facts Manifest about the noisiness of the production query sample or its ability to predict online metric movements.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The production query sample is refreshed monthly.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention how often the production query sample is refreshed.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Advanced Patterns Summary",
+      "score": 0.75,
+      "claims": [
+        {
+          "text": "Hybrid retrieval (BM25 + Dense + RRF) solves vocabulary mismatch and exact-match needs.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "Hybrid retrieval (BM25 + Dense + RRF) indeed solves vocabulary mismatch and exact-match needs by combining the strengths of lexical and semantic retrieval methods.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hybrid retrieval (BM25 + Dense + RRF) is almost always used in production.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "While hybrid retrieval (BM25 + Dense + RRF) is commonly used in production, saying it is 'almost always' used might be an overstatement. The usage can vary based on specific requirements and constraints of different production environments.",
+          "suggested_correction": "Hybrid retrieval (BM25 + Dense + RRF) is commonly used in production systems for its ability to balance exact matching and semantic understanding."
+        },
+        {
+          "text": "Hybrid retrieval (BM25 + Dense + RRF) is not used in tiny corpora (<1K) where brute-force works.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "In tiny corpora (<1K documents), brute-force methods can indeed be sufficient, and the complexity of hybrid retrieval might not be necessary, aligning with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cross-encoder reranking solves fine-grained relevance precision.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "Cross-encoder reranking is known to solve fine-grained relevance precision issues by jointly processing query-document pairs, which is a key advantage over bi-encoder approaches.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cross-encoder reranking is used when latency budget is >50ms and quality-critical surfaces.",
+          "verdict": "partially_correct",
+          "confidence": 0.85,
+          "reasoning": "Cross-encoder reranking is used when quality is critical, and latency can be tolerated. However, the specific latency budget (>50ms) might not be universally applicable, as requirements can vary by application and system.",
+          "suggested_correction": "Cross-encoder reranking is utilized in quality-critical applications where the additional latency it introduces is acceptable."
+        },
+        {
+          "text": "Cross-encoder reranking is not used when ultra-low latency (<20ms total budget) is required.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "When ultra-low latency (<20ms total budget) is required, cross-encoder reranking might not be feasible due to its computational cost, making this claim accurate.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SPLADE (learned sparse) enables semantic matching with inverted index efficiency.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "SPLADE (learned sparse) does enable semantic matching with inverted index efficiency, combining the benefits of semantic understanding with the efficiency of sparse representations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SPLADE (learned sparse) is used when replacing hybrid with one system.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "While SPLADE can be used as a replacement for hybrid systems in some cases, stating it is used 'when replacing hybrid with one system' might oversimplify the considerations involved in choosing a retrieval method. SPLADE offers a unique set of advantages but also has its limitations.",
+          "suggested_correction": "SPLADE can be considered as an alternative to hybrid retrieval systems in scenarios where its specific strengths align with the application's requirements."
+        },
+        {
+          "text": "Query classification + routing is used in systems serving diverse query patterns.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Query classification + routing is indeed used in systems serving diverse query patterns to efficiently manage and direct queries to the appropriate retrieval systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Zero-shot cross-lingual enables new locale with no training data.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Zero-shot cross-lingual models enable the handling of new locales or languages without requiring additional training data, leveraging pre-trained multilingual models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Zero-shot cross-lingual is used in market expansion with multilingual embedding models.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Zero-shot cross-lingual capabilities are particularly useful in market expansion scenarios where multilingual embedding models can facilitate search and retrieval across different languages and locales.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Session-aware retrieval solves iterative search where context builds across queries.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Session-aware retrieval does indeed solve the problem of iterative search by incorporating context that builds across queries, allowing for more accurate and relevant results based on the user's search history and intent.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SPLADE (learned sparse) is not used in cross-lingual retrieval or extremely short queries.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "SPLADE is not used in cross-lingual retrieval due to its limitation in handling multiple languages, but it can be used for other types of queries beyond extremely short ones.",
+          "suggested_correction": "SPLADE is not typically used for cross-lingual retrieval but can be applied to various query types with appropriate handling."
+        },
+        {
+          "text": "ColBERT (late interaction) enables token-level matching faster than cross-encoder.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "ColBERT enables token-level matching and is faster than cross-encoder due to its late interaction architecture, which allows for partial pre-computation of representations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ColBERT (late interaction) is used when moderate latency budget and interpretability are needed.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "ColBERT is used when there is a need for a balance between latency and interpretability, making it suitable for applications with moderate latency budgets.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ColBERT (late interaction) requires 100x more storage than bi-encoder.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The storage requirement comparison between ColBERT and bi-encoder is not explicitly stated as requiring 100x more storage in the provided Facts Manifest.",
+          "suggested_correction": "ColBERT requires significantly more storage than bi-encoders due to its need to store per-token embeddings, but the exact factor is not specified in the provided information."
+        },
+        {
+          "text": "HyDE (hypothetical document) solves vague/short queries with poor direct embedding.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "HyDE solves the issue of vague or short queries by generating a hypothetical ideal answer, which helps in retrieval by providing a better representation of the query intent.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HyDE (hypothetical document) is used when queries are questions, not keywords.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "HyDE is particularly useful when queries are in the form of questions rather than keywords, as it can generate a more informative representation of the query.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HyDE (hypothetical document) worsens navigational/exact-match queries.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "HyDE can worsen the performance on navigational or exact-match queries because it generates hypothetical documents that may not match the exact terms or intent of these specific query types.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Query classification + routing solves different query types needing different retrieval strategies.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Query classification and routing can solve the problem of different query types needing different retrieval strategies by directing queries to the most appropriate retrieval method based on their characteristics.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.7,
+      "claims": [
+        {
+          "text": "Okapi BM25 is a probabilistic retrieval model.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "BM25 is indeed a probabilistic retrieval model as stated in the Facts Manifest under the question about the type of ranking function BM25 is.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dense Passage Retrieval is a retrieval model.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Dense Passage Retrieval is a type of retrieval model, which aligns with the information provided in the Facts Manifest about dense vector retrieval.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sentence-BERT is a sentence embedding model.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Sentence-BERT is a sentence embedding model, which is consistent with the concepts discussed in the Facts Manifest regarding dense vector retrieval and embedding models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ColBERT is a passage search model.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "ColBERT is mentioned in the context of late interaction and token-level similarity, indicating it is related to passage search, aligning with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SPLADE is a sparse lexical and expansion model.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "SPLADE is described in the Facts Manifest as a sparse lexical and expansion model, which directly supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SPLADEv2 is an updated version of the SPLADE model.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions SPLADEv2 as an updated version of the SPLADE model, confirming the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reciprocal Rank Fusion is a standard fusion method for hybrid retrieval.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Reciprocal Rank Fusion is identified in the Facts Manifest as a standard fusion method for hybrid retrieval, supporting the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HNSW is an efficient and robust approximate nearest neighbor algorithm.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "HNSW is described in the Facts Manifest as an efficient and robust approximate nearest neighbor algorithm, which aligns with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Monolith is a real-time recommendation system.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Monolith being a real-time recommendation system.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RAGAS is a documentation for evaluation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about RAGAS being a documentation for evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MS MARCO passage reranking baselines are standard benchmarks for cross-encoder quality.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that MS MARCO passage reranking baselines are standard benchmarks for cross-encoder quality, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cross-Encoders for Reranking is a method for reranking.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest describes Cross-Encoders for Reranking as a method for reranking, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Product Quantization is a method for nearest neighbor search.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Product Quantization is indeed a method used for efficient similarity search and nearest neighbor queries, often in the context of dense vector retrieval.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FAISS is a library for efficient similarity search.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "FAISS (Facebook AI Similarity Search) is a library for efficient similarity search and clustering of dense vectors, which is used in various applications including recommendation systems and information retrieval.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HyDE is a precise zero-shot dense retrieval model.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "HyDE (Hypothetical Document Embeddings) is related to generating hypothetical ideal answers for retrieval, but the description provided does not fully capture its purpose or functionality.",
+          "suggested_correction": "HyDE generates a hypothetical ideal answer using a language model for retrieval purposes."
+        },
+        {
+          "text": "BEIR is a heterogeneous benchmark for zero-shot evaluation of information retrieval models.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "BEIR is indeed a benchmark for evaluating the performance of information retrieval models, especially in the context of zero-shot learning and transfer learning across different datasets and tasks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MTEB is a massive text embedding benchmark.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "MTEB (Massive Text Embedding Benchmark) is a benchmark for evaluating the performance of text embedding models, focusing on their ability to generalize across different tasks and datasets.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Unbiased Learning to Rank with Unbiased Propensity Estimation is a method for unbiased learning to rank.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information provided in the Facts Manifest about 'Unbiased Learning to Rank with Unbiased Propensity Estimation', making it impossible to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Position Bias Estimation for Unbiased Learning to Rank is a method for position bias estimation.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information provided in the Facts Manifest about 'Position Bias Estimation for Unbiased Learning to Rank', making it impossible to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Embedding-based Retrieval is used in Facebook Search.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "While Embedding-based Retrieval is discussed, there is no specific information in the Facts Manifest about its use in Facebook Search, making the claim unverifiable.",
+          "suggested_correction": null
+        }
+      ]
+    }
+  ]
+}

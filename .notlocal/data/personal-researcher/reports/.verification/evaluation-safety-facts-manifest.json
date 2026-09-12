@@ -1,0 +1,1039 @@
+{
+  "topic": "evaluation-safety",
+  "timestamp": "2026-05-18T22:37:54.144259+00:00",
+  "total_facts": 103,
+  "contradictions_found": 0,
+  "contradictions_resolved": 0,
+  "facts": [
+    {
+      "question": "What is the primary function of the Five-Layer Evaluation Stack?",
+      "answer": "To catch different classes of failures at increasing levels of semantic depth and cost",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Layer 1 in the Five-Layer Evaluation Stack?",
+      "answer": "To execute automated checks including format validation, regex-based safety filters, length limits, and schema compliance",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How long does Layer 1: Deterministic Tests take to execute?",
+      "answer": "Under one second",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Layer 3: LLM-as-Judge?",
+      "answer": "To evaluate outputs against structured rubrics across multiple dimensions using calibrated language models",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to mitigate self-preference bias in Layer 3: LLM-as-Judge?",
+      "answer": "Cross-family judging",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the LLM-as-Judge calibration protocol?",
+      "answer": "To measure agreement between human expert judgments and LLM judge scores using Cohen's kappa coefficient",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the threshold for LLM-as-Judge recalibration or replacement?",
+      "answer": "A Cohen's kappa coefficient below 0.7",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Segment-Aware Thresholds?",
+      "answer": "To prevent critical failures in specific user segments or use cases by requiring that no critical segment regresses",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the estimated annual cost of a full implementation of the evaluation system?",
+      "answer": "$20-30K",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the estimated cost savings per prevented safety incident?",
+      "answer": "$50-200K",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Meta-Evaluation?",
+      "answer": "To assess the evaluation system itself to prevent silent degradation",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Adversarial Red-Teaming?",
+      "answer": "To identify blind spots in the evaluation framework",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost range for automated evaluation only (Layers 1-3)?",
+      "answer": "$6-16",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost range for full evaluation including user acceptance testing (all five layers)?",
+      "answer": "$1000-2500",
+      "confidence": 0.9,
+      "sources": [
+        "evaluation-as-release-gate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of security evaluation methodology is Adversarial Red-Teaming?",
+      "answer": "A systematic security evaluation methodology",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary goal of Adversarial Red-Teaming in AI contexts?",
+      "answer": "To identify vulnerabilities in AI systems by simulating attacks from malicious actors",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What types of attacks does Adversarial Red-Teaming involve?",
+      "answer": "Direct Attacks, Indirect Attacks, and Domain-Specific Vulnerabilities",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Category Enumeration in Adversarial Red-Teaming?",
+      "answer": "To identify all relevant attack categories for the specific AI system",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many known-pattern attacks are required for comprehensive red-teaming?",
+      "answer": "20 known-pattern attacks from public datasets",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What metric measures the percentage of attacks that successfully bypass defenses?",
+      "answer": "The percentage of attacks that successfully bypass defenses",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the target threshold for Attack Success Rate (ASR) for critical safety categories?",
+      "answer": "Less than 1%",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Why is continuous testing required in Adversarial Red-Teaming?",
+      "answer": "Because new attack vectors emerge from security research, AI systems evolve, and adversarial techniques become more sophisticated over time",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of production monitoring in Adversarial Red-Teaming?",
+      "answer": "To detect anomalous patterns potentially indicating adversarial attacks in real-world usage",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended approach to defense in Adversarial Red-Teaming?",
+      "answer": "Implementing multiple layers of protection",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Why is external validation important in Adversarial Red-Teaming?",
+      "answer": "To provide fresh perspectives and identify previously unknown vulnerabilities",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of rapid response in Adversarial Red-Teaming?",
+      "answer": "To minimize exposure windows when new attack vectors are discovered",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What types of AI systems require Adversarial Red-Teaming?",
+      "answer": "Customer-facing AI systems, AI agents with access to tools or external systems, content generation systems, and enterprise AI applications handling sensitive data",
+      "confidence": 0.9,
+      "sources": [
+        "adversarial-red-teaming.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the latency of Layer 1 in the Five-Layer Evaluation Stack?",
+      "answer": "<1 second",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost of Layer 2 in the Five-Layer Evaluation Stack?",
+      "answer": "~$0",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the pass rate of Layer 3 in the Five-Layer Evaluation Stack?",
+      "answer": "Mean score above threshold per dimension",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of evaluation does Layer 4 in the Five-Layer Evaluation Stack involve?",
+      "answer": "Human subject matter expert review",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Layer 5 in the Five-Layer Evaluation Stack?",
+      "answer": "Runs the model in shadow mode on production traffic",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the Five-Layer Evaluation Stack address known biases in LLM-based evaluation?",
+      "answer": "Through systematic calibration protocols, including cross-family judging and position randomization",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the fundamental rule of the Five-Layer Evaluation Stack regarding critical segments?",
+      "answer": "A model cannot pass evaluation if any critical segment regresses",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the latency of Layer 3 in the Five-Layer Evaluation Stack?",
+      "answer": "Minutes",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost of Layer 4 in the Five-Layer Evaluation Stack?",
+      "answer": "$$$",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of evaluation does the Five-Layer Evaluation Stack use for agentic systems?",
+      "answer": "Trajectory-level evaluation",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the Five-Layer Evaluation Stack treat safety evaluation?",
+      "answer": "As a hard constraint rather than a dimension to trade off",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of meta-evaluation in the Five-Layer Evaluation Stack?",
+      "answer": "To systematically evaluate the evaluation system itself",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the Five-Layer Evaluation Stack match evaluation rigor to release risk?",
+      "answer": "Through guidance for different release types, such as hotfixes and new capability launches",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost optimization strategy for LLM-judge model routing in the Five-Layer Evaluation Stack?",
+      "answer": "Using less expensive models for binary safety checks",
+      "confidence": 0.9,
+      "sources": [
+        "five-layer-evaluation-stack.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of hallucinations does the Hallucination Detection Pipeline address?",
+      "answer": "Intrinsic, Extrinsic, Semantic, Entity, Temporal, and Numerical hallucinations",
+      "confidence": 0.9,
+      "sources": [
+        "hallucination-detection-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to detect Intrinsic Hallucinations?",
+      "answer": "Natural Language Inference (NLI) models",
+      "confidence": 0.9,
+      "sources": [
+        "hallucination-detection-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Claim Extraction in the Hallucination Detection Pipeline?",
+      "answer": "To decompose model outputs into atomic claims for granular verification",
+      "confidence": 0.9,
+      "sources": [
+        "hallucination-detection-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What metric measures the percentage of atomic facts in model output that are supported by source material?",
+      "answer": "The percentage of atomic facts in model output that are supported by source material",
+      "confidence": 0.9,
+      "sources": [
+        "hallucination-detection-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical target Hallucination Rate for enterprise systems?",
+      "answer": "Below 5%",
+      "confidence": 0.9,
+      "sources": [
+        "hallucination-detection-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of NLI models provide the highest accuracy for release evaluation?",
+      "answer": "Cross-encoder NLI models like DeBERTa-v3-large-mnli",
+      "confidence": 0.9,
+      "sources": [
+        "hallucination-detection-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Groundedness metric?",
+      "answer": "To calculate the fraction of answer sentences that are traceable to retrieved context",
+      "confidence": 0.9,
+      "sources": [
+        "hallucination-detection-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the minimum Cohen's \u03ba agreement score considered acceptable for production use?",
+      "answer": "0.75",
+      "confidence": 0.9,
+      "sources": [
+        "hallucination-detection-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is a potential failure mode of the Hallucination Detection Pipeline?",
+      "answer": "When NLI models incorrectly classify valid paraphrases as unsupported",
+      "confidence": 0.9,
+      "sources": [
+        "hallucination-detection-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Incident Response in production hallucinations?",
+      "answer": "To immediately block similar input patterns, analyze detection gaps, and improve processes to prevent similar failures",
+      "confidence": 0.9,
+      "sources": [
+        "hallucination-detection-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture does LLM-as-Judge with Calibration use?",
+      "answer": "Layered Evaluation Integration",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the calibration component in LLM-as-Judge?",
+      "answer": "To address systematic biases inherent in LLM judges",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many examples are required for binary judgments in the calibration set?",
+      "answer": "200+ examples",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What measure is used to correct for chance agreement between the LLM judge and human experts?",
+      "answer": "\u03ba = (P_observed - P_chance) / (1 - P_chance)",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the target threshold for \u03ba to be considered acceptable for evaluation gating?",
+      "answer": "\u03ba > 0.75",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How often should the calibration set be re-run to detect drift?",
+      "answer": "Monthly",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to handle arbitrary non-linear bias patterns in scoring calibration?",
+      "answer": "Isotonic Regression",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary limitation of LLM judges?",
+      "answer": "Cannot evaluate truly novel situations outside their training distribution",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How often should rubric reviews be performed to maintain reliability?",
+      "answer": "Quarterly",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is required for domain-specific calibration sets and rubrics?",
+      "answer": "Typically required",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of meta-evaluation in LLM-as-Judge?",
+      "answer": "To systematically test the evaluation system itself",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended approach for selecting a judge model?",
+      "answer": "The judge model should be from a different model family than the system being evaluated",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the dimensions of quality that effective LLM-as-Judge implementations decompose into?",
+      "answer": "Accuracy, Safety, Usefulness, Policy Compliance",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of using a different model family for the judge model?",
+      "answer": "To avoid self-preference bias",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the name of the evaluation methodology that uses one large language model to assess the quality of outputs from another LLM?",
+      "answer": "LLM-as-Judge with Calibration",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-with-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary focus of meta-evaluation?",
+      "answer": "The systematic evaluation of evaluation systems themselves",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What does meta-evaluation examine in evaluation methods?",
+      "answer": "Whether the evaluation methods are measuring what they claim to measure",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used to measure agreement between automated judges and human experts?",
+      "answer": "Cohen's \u03ba (kappa)",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical threshold for Cohen's \u03ba (kappa) in production systems?",
+      "answer": "0.75",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of evaluation-production correlation analysis?",
+      "answer": "To validate that evaluation metrics predict real-world performance",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is tracked in coverage analysis?",
+      "answer": "The percentage of production failure modes represented in the evaluation suite",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is involved in adversarial testing of evaluation systems?",
+      "answer": "Deliberately testing the evaluation system with known failure cases",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is required for calibration protocols to achieve statistical stability?",
+      "answer": "200+ items for binary judgments and 400+ for multi-point scales",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the goal of meta-evaluation in AI development and deployment?",
+      "answer": "To ensure evaluation systems remain reliable, relevant, and trusted",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How often should key metrics be tracked in meta-evaluation?",
+      "answer": "Monthly",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used to handle missing data and different scale types in multi-rater scenarios?",
+      "answer": "A more general measure than Cohen's \u03ba (kappa)",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between meta-evaluation and the Five-Layer Evaluation Stack?",
+      "answer": "Meta-evaluation works in conjunction with the Five-Layer Evaluation Stack",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the challenge faced by meta-evaluation in terms of infinite regress?",
+      "answer": "The need to evaluate the meta-evaluation system itself",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How is the recursive evaluation problem addressed in practice?",
+      "answer": "By using simpler, more transparent methods for meta-evaluation",
+      "confidence": 0.9,
+      "sources": [
+        "meta-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the core principle of Segment-Aware Evaluation?",
+      "answer": "A model cannot pass evaluation if any critical segment regresses, even if the aggregate performance improves",
+      "confidence": 0.9,
+      "sources": [
+        "segment-aware-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What dimensions are required for Segment-Aware Evaluation?",
+      "answer": "Content type, Risk level, Locale and language, User segments, Query complexity",
+      "confidence": 0.9,
+      "sources": [
+        "segment-aware-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Segment-Specific Thresholds in Segment-Aware Evaluation?",
+      "answer": "To establish different acceptance criteria based on the importance and risk profile of each segment",
+      "confidence": 0.9,
+      "sources": [
+        "segment-aware-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are evaluation datasets constructed in Segment-Aware Evaluation?",
+      "answer": "Using stratified sampling to ensure adequate representation of all identified segments",
+      "confidence": 0.9,
+      "sources": [
+        "segment-aware-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Segment-Aware Evaluation and Five-Layer Evaluation Stack?",
+      "answer": "Segment-Aware Evaluation is most effective when integrated with Five-Layer Evaluation Stack approaches",
+      "confidence": 0.9,
+      "sources": [
+        "segment-aware-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of Segment-Aware Evaluation in Risk Management?",
+      "answer": "To ensure that model improvements don't inadvertently harm high-value or vulnerable user populations",
+      "confidence": 0.9,
+      "sources": [
+        "segment-aware-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the challenge of implementing Segment-Aware Evaluation?",
+      "answer": "Requires sufficient data for each segment to enable statistically meaningful measurements",
+      "confidence": 0.9,
+      "sources": [
+        "segment-aware-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Segment-Aware Evaluation help with Fairness and Equity?",
+      "answer": "By explicitly measuring performance across demographic and usage segments to identify and prevent algorithmic bias",
+      "confidence": 0.9,
+      "sources": [
+        "segment-aware-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Continuous Monitoring in Segment-Aware Evaluation?",
+      "answer": "To extend evaluation beyond release gates to include ongoing production monitoring",
+      "confidence": 0.9,
+      "sources": [
+        "segment-aware-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How can organizations optimize Segment-Aware Evaluation costs?",
+      "answer": "By using risk-based prioritization, shared infrastructure, and incremental evaluation",
+      "confidence": 0.9,
+      "sources": [
+        "segment-aware-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of evaluation methodology is Trajectory Evaluation?",
+      "answer": "Specialized evaluation methodology for assessing multi-step AI systems",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What does Trajectory Evaluation examine?",
+      "answer": "The path taken to reach a conclusion, including intermediate steps, decision-making processes, and the overall coherence of the multi-turn interaction",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary focus of Trajectory Evaluation?",
+      "answer": "Evaluating the entire sequence of actions or responses rather than just the final output",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of systems does Trajectory Evaluation address?",
+      "answer": "Multi-step AI systems, particularly Agentic Systems and conversational AI",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the core components of Trajectory Evaluation?",
+      "answer": "Trajectory Decomposition and Scoring Dimensions",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the scoring dimensions of Trajectory Evaluation?",
+      "answer": "Goal Achievement, Path Efficiency, Tool Correctness, Safety Compliance, Recovery Quality, and Explainability",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are trajectory scores typically computed?",
+      "answer": "Using multiplicative aggregation",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Automated Evaluation in Trajectory Evaluation?",
+      "answer": "To score each step on the defined dimensions using LLM-as-Judge Quality Scoring systems",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of Human Expert Review in Trajectory Evaluation?",
+      "answer": "To score complete trajectories using structured rubrics that define optimal behavior for each dimension",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the challenge of Non-Deterministic Behavior in Trajectory Evaluation?",
+      "answer": "Producing different trajectories for identical inputs, requiring statistical testing approaches",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the importance of Evaluation Set Construction in Trajectory Evaluation?",
+      "answer": "Capturing the full range of multi-step scenarios the system may encounter",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Trajectory Evaluation and Five-Layer Evaluation Stack architectures?",
+      "answer": "Trajectory Evaluation operates as part of a layered evaluation stack, providing specialized component for multi-step systems",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Trajectory Evaluation and Safety Evaluation approaches?",
+      "answer": "Trajectory Evaluation complements traditional Safety Evaluation approaches by ensuring safety compliance throughout the entire interaction sequence",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

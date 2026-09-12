@@ -1,0 +1,981 @@
+{
+  "topic": "transformers",
+  "timestamp": "2026-06-16T15:27:03.212578+00:00",
+  "total_facts": 97,
+  "contradictions_found": 1,
+  "contradictions_resolved": 1,
+  "facts": [
+    {
+      "question": "What type of masking does transformer training use?",
+      "answer": "Causal Masking",
+      "confidence": 0.9,
+      "sources": [
+        "causal-masking-in-transformer-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of causal masking in transformer training?",
+      "answer": "To prevent the model from seeing future tokens during training",
+      "confidence": 0.9,
+      "sources": [
+        "causal-masking-in-transformer-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How is causal masking implemented in transformer training?",
+      "answer": "By setting future attention scores to negative infinity",
+      "confidence": 0.9,
+      "sources": [
+        "causal-masking-in-transformer-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of causal masking on attention scores?",
+      "answer": "Future attention scores become zero probability after softmax normalization",
+      "confidence": 0.9,
+      "sources": [
+        "causal-masking-in-transformer-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Is causal masking necessary during inference?",
+      "answer": "No",
+      "confidence": 0.9,
+      "sources": [
+        "causal-masking-in-transformer-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of language model training does causal masking enable?",
+      "answer": "Autoregressive language model training",
+      "confidence": 0.9,
+      "sources": [
+        "causal-masking-in-transformer-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does causal masking affect parallel training in transformers?",
+      "answer": "It enables parallel training while maintaining the sequential prediction property",
+      "confidence": 0.9,
+      "sources": [
+        "causal-masking-in-transformer-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the computational overhead of causal masking?",
+      "answer": "Minimal",
+      "confidence": 0.9,
+      "sources": [
+        "causal-masking-in-transformer-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does causal masking impact the scaling of attention with sequence length?",
+      "answer": "It does not change the fundamental O(n\u00b2) memory and compute scaling",
+      "confidence": 0.9,
+      "sources": [
+        "causal-masking-in-transformer-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of optimizations are compatible with causal masking?",
+      "answer": "Modern optimizations like Flash Attention",
+      "confidence": 0.9,
+      "sources": [
+        "causal-masking-in-transformer-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of memory does Flash Attention use for computing attention in chunks?",
+      "answer": "SRAM",
+      "confidence": 0.9,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How much faster is SRAM compared to main GPU memory?",
+      "answer": "10\u00d7 faster",
+      "confidence": 0.9,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the capacity of SRAM?",
+      "answer": "about 20MB",
+      "confidence": 0.9,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the speedup achieved by Flash Attention over standard attention implementations?",
+      "answer": "2-4\u00d7",
+      "confidence": 0.9,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary bottleneck in standard transformer-architecture implementations?",
+      "answer": "Memory access patterns",
+      "confidence": 1.0,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": "[web-confirmed]"
+    },
+    {
+      "question": "How does Flash Attention compute attention?",
+      "answer": "In chunks that fit entirely in SRAM",
+      "confidence": 0.9,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Flash Attention and long-context-scaling?",
+      "answer": "Essential for making long-context-scaling viable",
+      "confidence": 0.9,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the memory requirement for an attention matrix of 1K tokens?",
+      "answer": "2MB",
+      "confidence": 0.9,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the memory requirement for an attention matrix of 128K tokens?",
+      "answer": "32GB",
+      "confidence": 0.9,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique does Flash Attention use to reduce memory usage during the backward pass?",
+      "answer": "Recomputing certain values",
+      "confidence": 0.9,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architectures can Flash Attention work in conjunction with?",
+      "answer": "Mixture-of-Experts (MoE) architectures",
+      "confidence": 1.0,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": "[web-confirmed]"
+    },
+    {
+      "question": "What is the primary benefit of using Flash Attention in vllm-inference-engine implementations?",
+      "answer": "Enables efficient serving of long-context requests",
+      "confidence": 0.9,
+      "sources": [
+        "flash-attention.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of parallelism does 3D Parallelism combine?",
+      "answer": "Tensor Parallel, Pipeline Parallel, and Data Parallel",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary issue addressed by 3D Parallelism in large language model training?",
+      "answer": "Memory constraints",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How much memory is required to train a 70B parameter model?",
+      "answer": "Approximately 140GB",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md",
+        "https://mljourney.com/how-much-vram-do-you-really-need-for-llms-7b-70b-explained/",
+        "https://grokipedia.com/page/70B_parameter_model_memory_requirements"
+      ],
+      "conflict_detected": true,
+      "resolution": "Web search contradicted knowledge page. Web answer: Approximately 140GB"
+    },
+    {
+      "question": "What is the memory capacity of the largest available GPUs?",
+      "answer": "141GB",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What does Data Parallel training involve?",
+      "answer": "Replicating the complete model on each GPU and processing different training samples",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Tensor Parallel split individual weight matrices?",
+      "answer": "Across multiple GPUs",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the main drawback of Pipeline Parallel?",
+      "answer": "Pipeline bubbles where GPUs wait for data to arrive from previous stages",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical configuration for a 650B parameter model across 512 GPUs in 3D Parallelism?",
+      "answer": "TP=8, PP=8, and DP=8",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How much memory is required per GPU in the typical 3D Parallelism configuration for a 650B parameter model?",
+      "answer": "Approximately 51GB",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What frameworks provide 3D Parallelism capabilities?",
+      "answer": "Megatron-LM, DeepSpeed, Megatron-DeepSpeed, and FSDP",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between memory usage and communication overhead in 3D Parallelism?",
+      "answer": "A trade-off, where reducing per-GPU memory requirements increases inter-GPU communication",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the number of GPUs affect system reliability in 3D Parallelism?",
+      "answer": "As the number of GPUs increases, system reliability becomes a critical concern",
+      "confidence": 0.9,
+      "sources": [
+        "3d-parallelism.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique does Supervised Fine-Tuning (SFT) use to control which tokens the model learns to predict during training?",
+      "answer": "Loss masking",
+      "confidence": 0.9,
+      "sources": [
+        "loss-masking-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of loss masking in SFT?",
+      "answer": "To ensure the model only learns to generate assistant responses, not user messages",
+      "confidence": 0.9,
+      "sources": [
+        "loss-masking-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does loss masking work in SFT?",
+      "answer": "By creating a boolean mask that corresponds to each token in the training sequence",
+      "confidence": 0.9,
+      "sources": [
+        "loss-masking-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What determines whether the cross-entropy loss is computed for a token position in SFT?",
+      "answer": "The boolean mask",
+      "confidence": 0.9,
+      "sources": [
+        "loss-masking-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of optimizer is used in SFT with loss masking?",
+      "answer": "AdamW",
+      "confidence": 0.9,
+      "sources": [
+        "loss-masking-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Is the model architecture changed when using loss masking in SFT?",
+      "answer": "No",
+      "confidence": 0.9,
+      "sources": [
+        "loss-masking-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does loss masking affect memory requirements in SFT?",
+      "answer": "Memory requirements remain identical to pre-training",
+      "confidence": 0.9,
+      "sources": [
+        "loss-masking-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between loss masking and Direct Preference Optimization (DPO)?",
+      "answer": "They are distinct techniques",
+      "confidence": 0.9,
+      "sources": [
+        "loss-masking-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of training does SFT with loss masking use?",
+      "answer": "Mixed precision training with gradient accumulation",
+      "confidence": 0.9,
+      "sources": [
+        "loss-masking-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of loss masking on the model's ability to understand dialogue structure?",
+      "answer": "It enables the model to understand dialogue structure and appropriate response generation",
+      "confidence": 0.9,
+      "sources": [
+        "loss-masking-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of optimization technique is KV Caching?",
+      "answer": "Memory optimization technique",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary purpose of KV Caching in transformer-based language models?",
+      "answer": "To avoid redundant computation during text generation",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What matrices are cached in KV Caching?",
+      "answer": "Key (K) and Value (V) matrices",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does KV Caching reduce computational overhead?",
+      "answer": "From quadratic to linear complexity",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the memory cost per token across all layers for a 32-layer model?",
+      "answer": "524KB per token",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique provides up to 8\u00d7 memory reduction in KV caching?",
+      "answer": "Multiple attention heads share K,V matrices",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the context length limitation for a 67GB KV cache?",
+      "answer": "128K context",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of KV caching on model performance when compression techniques are applied?",
+      "answer": "Can impact model performance if compression is aggressive",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of precision can be used for quantization in KV caching?",
+      "answer": "INT8 or INT4 precision",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between KV caching and long-context-scaling applications?",
+      "answer": "Particularly important for long-context-scaling applications where memory efficiency becomes critical",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What inference frameworks implement KV caching?",
+      "answer": "vLLM Inference Engine",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the memory reduction achieved by quantization in KV caching?",
+      "answer": "2-4\u00d7 memory reduction",
+      "confidence": 0.9,
+      "sources": [
+        "kv-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of model is the reference model in DPO?",
+      "answer": "A frozen copy of the Supervised Fine-Tuning (SFT) checkpoint",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary function of the reference model in DPO?",
+      "answer": "To prevent model collapse by serving as a baseline for preference learning",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the reference model prevent model collapse?",
+      "answer": "By serving as a comparison baseline in the DPO loss function",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between the reference model and the training model in DPO?",
+      "answer": "The reference model's parameters remain fixed, while the training model's weights are updated",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of using a reference model on memory requirements?",
+      "answer": "It doubles the memory footprint for model weights during training",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the beta parameter in DPO?",
+      "answer": "To control the trade-off between preference learning strength and adherence to the reference model",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the reference model approach in DPO differ from Reinforcement Learning from Human Feedback (RLHF)?",
+      "answer": "The reference model approach eliminates the need for explicit reward model training",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the assumption made by the reference model approach?",
+      "answer": "That the SFT checkpoint represents reasonable baseline behavior",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the potential limitation of the reference model approach?",
+      "answer": "It may anchor problems from the SFT model into the preference-optimized model",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of optimization scenarios may the reference model approach be insufficient for?",
+      "answer": "Complex multi-objective optimization scenarios",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the size of the memory footprint for a 32B parameter model using a reference model?",
+      "answer": "448GB plus activations",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of the reference model in the DPO loss function?",
+      "answer": "It computes log probability ratios between the current model and the reference model",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of a small beta value in DPO?",
+      "answer": "It keeps the model very close to the SFT baseline",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of a large beta value in DPO?",
+      "answer": "It allows stronger preference learning but risks degrading response quality",
+      "confidence": 0.9,
+      "sources": [
+        "reference-model-in-dpo.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture does ZeRO maintain?",
+      "answer": "Data parallelism",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary bottleneck for distributed training in large language models?",
+      "answer": "Optimizer state memory usage",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How much memory does the optimizer state consume compared to model weights?",
+      "answer": "4\u00d7 more memory",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Stage 1 in ZeRO?",
+      "answer": "Optimizer state partitioning",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How much memory reduction is achieved through Stage 1 of ZeRO?",
+      "answer": "8\u00d7 reduction",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used in Stage 2 of ZeRO?",
+      "answer": "Reduce-scatter",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How much memory reduction is achieved through Stage 2 of ZeRO?",
+      "answer": "8\u00d7 reduction",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Stage 3 in ZeRO?",
+      "answer": "Parameter partitioning",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does ZeRO differ from mixture-of-experts (MoE) architectures?",
+      "answer": "Maintains data parallelism computational pattern",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What framework implements ZeRO?",
+      "answer": "Microsoft's DeepSpeed framework",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the trade-off of using ZeRO?",
+      "answer": "Increases communication overhead",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using ZeRO?",
+      "answer": "Dramatically reduces memory usage",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of models can ZeRO enable training for?",
+      "answer": "Large-scale transformer-architecture models",
+      "confidence": 0.9,
+      "sources": [
+        "zero-zero-redundancy-optimizer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What precision format does Mixed Precision Training use for master weights?",
+      "answer": "FP32",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary advantage of using BF16 over FP16 in mixed precision training?",
+      "answer": "Better stability due to the same exponent range as FP32",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to handle gradient underflow and activation overflow in FP16 mixed precision training?",
+      "answer": "Loss scaling",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the default training precision for major models including Meta Llama and Google Gemini?",
+      "answer": "BF16",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the memory reduction achieved by using FP8 training compared to BF16?",
+      "answer": "2\u00d7 lower memory usage",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to reduce bias accumulation in FP8, FP4, and MXFP4 training?",
+      "answer": "Stochastic rounding",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended precision strategy for pretraining small models (<7B)?",
+      "answer": "BF16",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended precision strategy for fine-tuning using Parameter-Efficient Fine-Tuning (PEFT)?",
+      "answer": "BF16",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the precision format used for activations in a standard BF16 mixed precision training setup?",
+      "answer": "BF16",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the precision format used for optimizer states in a standard BF16 mixed precision training setup?",
+      "answer": "FP32",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the industry trend in mixed precision training?",
+      "answer": "The clear industry progression follows the path FP32\u2192BF16\u2192FP8\u2192FP4, but the future likely involves heterogeneous precision",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary benefit of using Adaptive Precision Training?",
+      "answer": "Different tensors use different formats based on their sensitivity",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended practice for keeping optimizer states in mixed precision training?",
+      "answer": "Keep optimizer states in FP32",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended practice for monitoring outliers in mixed precision training?",
+      "answer": "Monitor outliers which can destroy low-precision stability through clipping, scaling, and normalization",
+      "confidence": 0.9,
+      "sources": [
+        "mixed-precision-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "topic": "system-design",
+  "timestamp": "2026-06-09T12:00:14.275409+00:00",
+  "total_facts": 12,
+  "contradictions_found": 0,
+  "contradictions_resolved": 0,
+  "facts": [
+    {
+      "question": "What is the estimated GPU hours for fine-tuning a 7-8B model using Full SFT?",
+      "answer": "12-24 GPU hours",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the memory requirement for a 32B model using LoRA (16-bit)?",
+      "answer": "64 GB",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How much faster is the H100 compared to the A100?",
+      "answer": "1.7-2.5x faster",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the estimated cost for fine-tuning a 13-14B model using QLoRA 4-bit?",
+      "answer": "$3-12",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of doubling the model parameters on the training time?",
+      "answer": "2x time",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the memory requirement for a 405B model using QLoRA (4-bit)?",
+      "answer": "250 GB",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How much faster is LoRA compared to Full SFT?",
+      "answer": "2-4x faster",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the estimated GPU hours for fine-tuning a 70-72B model using Full SFT?",
+      "answer": "320-640 GPU hours",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of doubling the dataset on the training time?",
+      "answer": "2x time",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the pricing per 1M training tokens for a model with 16B or less using LoRA on Together AI?",
+      "answer": "$0.48",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the estimated wall clock time for fine-tuning a 7-8B model using QLoRA 4-bit on 1x 4090?",
+      "answer": "2-6 hours",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the memory requirement for a 7-8B model using Full SFT (BF16)?",
+      "answer": "60 GB",
+      "confidence": 0.9,
+      "sources": [
+        "gpu-hours-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

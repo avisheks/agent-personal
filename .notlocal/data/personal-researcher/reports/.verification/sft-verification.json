@@ -1,0 +1,998 @@
+{
+  "topic": "sft",
+  "timestamp": "2026-06-09T17:50:02.966387+00:00",
+  "total_claims": 133,
+  "correct": 77,
+  "incorrect": 5,
+  "unverifiable": 36,
+  "partially_correct": 15,
+  "overall_score": 0.7938144329896907,
+  "summary": "Verified 133 claims: 77 correct, 5 incorrect, 15 partially correct, 36 unverifiable. Score: 79%",
+  "sections": [
+    {
+      "section_name": "Loss Functions",
+      "score": 0.5555555555555556,
+      "claims": [
+        {
+          "text": "Short training and early stopping provide equivalent regularization to label smoothing.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim that short training and early stopping provide equivalent regularization to label smoothing is partially supported by the Facts Manifest and the knowledge pages. The knowledge pages mention that label smoothing is rarely needed and that short training is enough, which implies that short training and early stopping can provide some regularization. However, the claim overstates the equivalence between these two techniques.",
+          "suggested_correction": "Short training and early stopping can provide some regularization, but they may not be entirely equivalent to label smoothing in all cases."
+        },
+        {
+          "text": "NEFTune adds noise to embedding vectors during training.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest and knowledge pages do not directly address this claim, but the knowledge pages mention that NEFTune adds noise to embedding vectors during training, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "NEFTune improves LLaMA-2-7B performance from 29.8% to 64.7% on AlpacaEval.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge pages state that NEFTune improves LLaMA-2-7B performance from 29.8% to 64.7% on AlpacaEval, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Answer-only loss masks prompt tokens with label=-100.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge pages mention that answer-only loss masks prompt tokens with label=-100, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Chunked NLL drops masked positions before lm_head matmul and computes CE in chunks with gradient checkpointing.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages mention that chunked NLL drops masked positions before lm_head matmul, but do not explicitly state that it computes CE in chunks with gradient checkpointing.",
+          "suggested_correction": "Chunked NLL drops masked positions before lm_head matmul and reduces VRAM usage."
+        },
+        {
+          "text": "Chunked NLL reduces VRAM usage by 30-50%.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that the purpose of using chunked NLL loss function is 30-50% less VRAM, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Standard cross-entropy loss is calculated as -sum log p(y_t | y_<t).",
+          "verdict": "unverifiable",
+          "confidence": 0,
+          "reasoning": "The Facts Manifest and knowledge pages do not provide information about the standard cross-entropy loss formula.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ORPO combines SFT and preference optimization in a single step.",
+          "verdict": "unverifiable",
+          "confidence": 0,
+          "reasoning": "The Facts Manifest and knowledge pages do not provide information about ORPO.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Label smoothing is rarely needed for training.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge pages state that label smoothing is rarely needed for training, which matches the claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Quick Catchup",
+      "score": 0.5454545454545454,
+      "claims": [
+        {
+          "text": "Synthetic data from stronger models is replacing expensive human annotation",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not address the use of synthetic data from stronger models replacing expensive human annotation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Orca is a stronger model used for synthetic data",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention Orca as a stronger model used for synthetic data.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Phi-3 is a stronger model used for synthetic data",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention Phi-3 as a stronger model used for synthetic data.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LIMA achieves strong results with 1K examples",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest does not directly mention LIMA, but the knowledge page sft-deep-dive.md mentions that LIMA achieves strong results with 1K examples, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DEITA achieves strong results with 6K examples",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge page sft-deep-dive.md mentions that DEITA achieves strong results with 6K examples, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Yi achieves strong results with less than 10K examples",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge page sft-deep-dive.md mentions that Yi achieves strong results with less than 10K examples, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "BFD packing increases throughput by 2x",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest mentions that Best-Fit Decreasing packing increases throughput by 2x, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "BFD packing reduces hallucination by 58%",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest mentions that Best-Fit Decreasing packing reduces hallucination by 58%, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "NEFTune improves AlpacaEval by 35%",
+          "verdict": "partially_correct",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest mentions that NEFTune improves AlpacaEval by 8-35%, which is partially consistent with the claim. The claim states a specific improvement of 35%, but the Facts Manifest provides a range.",
+          "suggested_correction": "NEFTune improves AlpacaEval by 8-35%."
+        },
+        {
+          "text": "Chunked NLL reduces VRAM by 50%",
+          "verdict": "partially_correct",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest mentions that chunked NLL reduces VRAM by 30-50%, which is partially consistent with the claim. The claim states a specific reduction of 50%, but the Facts Manifest provides a range.",
+          "suggested_correction": "Chunked NLL reduces VRAM by 30-50%."
+        },
+        {
+          "text": "DeepSeek-R1 matches elaborate multi-stage pipelines with minimal cold-start SFT and pure GRPO",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest mentions that DeepSeek's SFT philosophy involves minimal cold-start SFT and GRPO, which is consistent with the claim that DeepSeek-R1 matches elaborate multi-stage pipelines with minimal cold-start SFT and pure GRPO.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Data Preparation",
+      "score": 0.47368421052631576,
+      "claims": [
+        {
+          "text": "Up to 4 epochs of repeated data is effectively free with negligible loss change.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge page 'sft-deep-dive.md', which states '4 epochs of repeated data is free' in the 'Quality vs Quantity' section.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Beyond 4 epochs of repeated data, the value decays to zero.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The claim is contradicted by the knowledge page 'sft-deep-dive.md', which states 'Beyond 3 epochs on instruction data, models memorize specific patterns rather than learning generalizable instruction-following' and 'The Scaling paper proves >4 epochs of repeated data provides zero additional value', but does not mention the value decaying to zero.",
+          "suggested_correction": "Beyond 4 epochs of repeated data, the value provides zero additional learning benefit."
+        },
+        {
+          "text": "The data repetition rule was validated across 400 runs, 900B tokens, and models up to 9B parameters.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no relevant information in the Facts Manifest or the knowledge pages to verify the claim about the data repetition rule being validated across 400 runs, 900B tokens, and models up to 9B parameters.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The LIMA paper found that almost all knowledge in large language models is learned during pretraining.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention the LIMA paper's findings on knowledge in large language models. The knowledge pages provide some information about the LIMA paper, but it is not directly related to the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The LIMA paper had a dataset size of 1K.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that the LIMA paper had a dataset size of 1K examples, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The DEITA paper had a dataset size of 6K and achieved a score of 7.55 MT-Bench.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that the DEITA paper had a dataset size of 6K samples and achieved a score of 7.55 MT-Bench, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Yi paper had a dataset size of less than 10K and each example was verified by ML engineers.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that the Yi paper had a dataset size of less than 10K examples, and each example was verified by ML engineers, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Llama 3.1 model was trained on a dataset of over 10M examples with rejection sampling as a quality filter.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that the Llama 3.1 model was trained on a dataset of over 10M examples with rejection sampling as a quality filter, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Qwen 2.5 model was trained on a dataset of over 1M examples curated via quality scoring across 29 languages.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that the Qwen model was trained on a dataset of over 1M examples curated via quality scoring across 29 languages, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Best-Fit Decreasing packing increases throughput by 2x.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions that Best-Fit Decreasing packing increases throughput by 2x, but it does not mention the exact percentage increase. However, the knowledge pages provide more information and mention that it increases throughput by 2x.",
+          "suggested_correction": "Best-Fit Decreasing packing increases throughput by 2x, which is consistent with the Facts Manifest and knowledge pages."
+        },
+        {
+          "text": "Best-Fit Decreasing packing reduces memory usage by 20%.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions that Best-Fit Decreasing packing reduces hallucination by 58%, but it does not mention a 20% reduction in memory usage. However, the knowledge pages mention that it reduces memory usage by 20%.",
+          "suggested_correction": "Best-Fit Decreasing packing reduces hallucination by 58% and memory usage by 20%, according to the knowledge pages."
+        },
+        {
+          "text": "Best-Fit Decreasing packing reduces hallucination by 58%.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Best-Fit Decreasing packing reduces hallucination by 58%.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Best-Fit Decreasing packing improves reading comprehension by 4.7%.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that Best-Fit Decreasing packing improves reading comprehension by 4.7%.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Best-Fit Decreasing packing improves context following by 16.8%.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that Best-Fit Decreasing packing improves context following by 16.8%.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Evol-Instruct method generates synthetic data that is superior to human-created data.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages about the Evol-Instruct method generating synthetic data that is superior to human-created data.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Evol-Instruct method achieves 90% of ChatGPT's performance on 17/29 skills.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages about the Evol-Instruct method achieving 90% of ChatGPT's performance on 17/29 skills.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Orca method generates synthetic data that surpasses Vicuna by 100% on BBH.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages about the Orca method generating synthetic data that surpasses Vicuna by 100% on BBH.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Phi-3 method generates synthetic data that achieves 69% MMLU with a 3.8B model.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages about the Phi-3 method generating synthetic data that achieves 69% MMLU with a 3.8B model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Self-Rewarding LMs method generates synthetic data that beats Claude 2 and GPT-4 after 3 iterations.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages about the Self-Rewarding LMs method generating synthetic data that beats Claude 2 and GPT-4 after 3 iterations.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Design Choices",
+      "score": 0.5789473684210527,
+      "claims": [
+        {
+          "text": "The learning rate (LR) for full fine-tuning (full FT) is 2e-5 for 7B models.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the recommended learning rate for full fine-tuning of a 7B model is 2e-5.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The learning rate (LR) for LoRA is 1-3e-4 for 7B models.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the recommended learning rate for LoRA fine-tuning of a 7B model is 1-3e-4.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The number of epochs for 7B models is 2-3.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the recommended number of epochs for fine-tuning a 7B model is 2-3.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The effective batch size for 7B models is 32-128.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the recommended batch size for a 7B model is 32-128.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The scheduler used is Cosine for all model sizes.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that the scheduler used is Cosine for all model sizes, which is consistent with the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The warmup steps for 7B models is 30-100 steps.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages state that the warmup steps for 7B models is 30 steps, which is within the range of 30-100 steps claimed.",
+          "suggested_correction": "The warmup steps for 7B models is 30 steps."
+        },
+        {
+          "text": "The precision used is BF16 for all model sizes.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the recommended precision for fine-tuning a 7B model is BF16.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The weight decay for 7B models is 0-0.01.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that the weight decay for 7B models is 0-0.01, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LoRA has a quality ceiling of 95-99% of full fine-tuning.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the quality ceiling of LoRA compared to full fine-tuning.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Full fine-tuning learns perturbations with rank 10-100x greater than typical LoRA.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the rank of perturbations learned by full fine-tuning compared to LoRA.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LoRA closes 95% of the gap with full fine-tuning at 3-10x lower cost.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the cost or performance gap between LoRA and full fine-tuning.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dropout is turned off for all model sizes.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages both indicate that dropout is turned off for all model sizes, as stated in the 'Design Choices' section of sft-deep-dive.md.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LoRA mitigates forgetting more than common regularization techniques such as weight decay and dropout.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that LoRA itself is a better regularizer than dropout, implying LoRA mitigates forgetting more than common regularization techniques such as weight decay and dropout.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Beyond 3 epochs on instruction data, models memorize patterns.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that beyond 3 epochs on instruction data, models memorize specific patterns rather than learning generalizable instruction-following.",
+          "suggested_correction": null
+        },
+        {
+          "text": "BF16 has a larger dynamic range than FP16.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages about the dynamic range of BF16 compared to FP16.",
+          "suggested_correction": null
+        },
+        {
+          "text": "No loss scaling is needed with BF16.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages about whether loss scaling is needed with BF16.",
+          "suggested_correction": null
+        },
+        {
+          "text": "BF16 is the standard on A100/H100.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the recommended precision for fine-tuning a 7B model is BF16, and the knowledge pages imply BF16 is standard on A100/H100.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LoRA uses 3-10x less memory than full fine-tuning.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages about the memory usage of LoRA compared to full fine-tuning.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LoRA has 0.1-2% trainable parameters compared to full fine-tuning.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages about the percentage of trainable parameters in LoRA compared to full fine-tuning.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Application Quirks",
+      "score": 0.6842105263157895,
+      "claims": [
+        {
+          "text": "Each reasoning step in PRM800K gets a correctness label.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about PRM800K or its reasoning steps.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT data for math must have verified step-by-step solutions, not just final answers.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that SFT data for math must have verified step-by-step solutions, not just correct final answers.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepSeekMath uses 120B math tokens from Common Crawl for pretraining.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that DeepSeekMath uses 120B math tokens from Common Crawl for pretraining.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LongLoRA extends the 7B model from 4K to 100K context on a single 8xA100.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and Knowledge Pages state that LongLoRA extends the 7B model from 4K to 100K context on a single 8xA100.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LongLoRA uses shifted sparse attention during training and dense attention at inference.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that LongLoRA uses shifted sparse attention during training and dense attention at inference.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Embedding and normalization layers must be trainable for context extension in LongLoRA.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that embedding and normalization layers must be trainable for context extension in LongLoRA.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ToolLLM uses 16,464 real APIs from RapidAPI Hub for training.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that ToolLLM uses 16,464 real APIs from RapidAPI Hub for training.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ToolLLM generates solution paths using ChatGPT.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that ToolLLM generates solution paths using ChatGPT.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Image encoder and resolution matter most in vision-language models, while connector design is negligible.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not directly address this claim, but the knowledge pages (sft-deep-dive.md) state that 'Image encoder + resolution matters most; connector design is negligible (MM1, Apple)' which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLaVA-1.5 uses CLIP-ViT-L-336px and an MLP, and was trained on 1.2M data for 1 day on 8xA100.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages (sft-deep-dive.md) state that 'LLaVA-1.5: CLIP-ViT-L-336px + MLP projection, 1.2M data, trains in 1 day on 8xA100' which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Setting max_length=None avoids truncating image tokens in vision-language models.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or the knowledge pages that directly addresses the effect of setting max_length=None on vision-language models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FIM moves middle span to end of sequence during training at 50% rate.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages both mention FIM moving the middle span to the end during training, and the knowledge pages specify this happens at a 50% rate.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FIM has two modes: PSM (Prefix-Suffix-Middle) and SPM (Suffix-Prefix-Middle).",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages about FIM having two modes: PSM (Prefix-Suffix-Middle) and SPM (Suffix-Prefix-Middle).",
+          "suggested_correction": null
+        },
+        {
+          "text": "FIM does not harm autoregressive performance across a wide range of scales.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that FIM does not harm autoregressive quality.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The StarCoder recipe uses lr=5e-5, seq=2048, 2000 steps, cosine, and bf16.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages mention the StarCoder recipe, which includes some of the specified parameters (lr=5e-5, seq=2048, cosine, bf16), but the number of steps is not verified.",
+          "suggested_correction": "The StarCoder recipe uses lr=5e-5, seq=2048, cosine, and bf16, but the number of steps and other details may vary."
+        },
+        {
+          "text": "Full fine-tuning of StarCoder takes 9 hours and costs $108 on 8xA100.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages mention that full fine-tuning of StarCoder takes 9 hours and costs $108 on 8xA100, but this information is not verified in the Facts Manifest.",
+          "suggested_correction": "Full fine-tuning of StarCoder takes 9 hours and costs $108 on 8xA100, according to the knowledge pages."
+        },
+        {
+          "text": "QLoRA fine-tuning of StarCoder takes 12.5 hours and costs $14 on 1xA100.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages mention that QLoRA fine-tuning of StarCoder takes 12.5 hours and costs $14 on 1xA100, but this information is not verified in the Facts Manifest.",
+          "suggested_correction": "QLoRA fine-tuning of StarCoder takes 12.5 hours and costs $14 on 1xA100, according to the knowledge pages."
+        },
+        {
+          "text": "Process supervision dramatically outperforms outcome-only supervision.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that process supervision dramatically outperforms outcome-only supervision, with a 78% improvement on MATH (PRM800K).",
+          "suggested_correction": null
+        },
+        {
+          "text": "PRM800K uses 800K step-level human labels and achieves 78% MATH.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that PRM800K uses 800K step-level human labels and achieves 78% MATH.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.23076923076923078,
+      "claims": [
+        {
+          "text": "InstructGPT is described by Ouyang et al. in arXiv:2203.02155",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about InstructGPT or the paper arXiv:2203.02155.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Constitutional AI is described by Bai et al. in arXiv:2212.08073",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about Constitutional AI or the paper arXiv:2212.08073.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LoRA is described by Hu et al. in arXiv:2106.09685",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about LoRA or the paper arXiv:2106.09685.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FIM is described by Bavarian et al. in arXiv:2207.14255",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about FIM or the paper arXiv:2207.14255.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fewer Truncations uses BFD packing as described by Krell et al.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions Best-Fit Decreasing packing, which is related to BFD packing, but it does not explicitly state that Fewer Truncations uses BFD packing.",
+          "suggested_correction": "Fewer Truncations may use a packing method similar to Best-Fit Decreasing packing, which is described in the Facts Manifest as providing 2x throughput and 58% less hallucination."
+        },
+        {
+          "text": "LIMA requires 1K examples",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not directly state this, but the knowledge page sft-deep-dive.md mentions 'LIMA 1K examples' as part of data preparation, implying LIMA requires 1K examples.",
+          "suggested_correction": null
+        },
+        {
+          "text": "NEFTune achieves +35% AlpacaEval",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that NEFTune achieves +8-35% improvement on AlpacaEval, which is partially consistent with the claim of +35% improvement.",
+          "suggested_correction": "NEFTune achieves +8-35% improvement on AlpacaEval."
+        },
+        {
+          "text": "DEITA matches SOTA with 6K matches",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest does not mention DEITA matching SOTA with 6K matches. However, the knowledge page sft-deep-dive.md mentions '6K samples match SOTA (7.55 MT-Bench)' in the context of DEITA (ICLR 2024), but this does not directly relate to the claim.",
+          "suggested_correction": "DEITA achieves SOTA with 6K samples on MT-Bench, but the relationship to 'matches' is unclear."
+        },
+        {
+          "text": "PRM achieves 78% MATH with process supervision",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that process supervision achieves 78% improvement on MATH (PRM800K), which is consistent with the claim that PRM achieves 78% MATH with process supervision.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Llama 3.1 has 15T tokens and 10M+ SFT",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about Llama 3.1's tokens or SFT.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Qwen 2.5 has 18T tokens and 1M+ SFT",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about Qwen 2.5's tokens or SFT.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LongLoRA can handle 100K context on a single machine",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that LongLoRA extends 7B from 4K to 100K context, which is consistent with the claim that LongLoRA can handle 100K context on a single machine.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LoRA Learns Less and Forgets Less as described by Biderman et al.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about LoRA learning less and forgetting less as described by Biderman et al.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Practitioner Recipe (Start Here)",
+      "score": 0.7692307692307693,
+      "claims": [
+        {
+          "text": "The 7B Model uses 10K-50K curated examples.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the information provided in the sft-deep-dive.md knowledge page, which states that 10K-50K high-quality examples are recommended for a 7B model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The format of the 7B Model is Conversational (ChatML/Llama), responses only.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the information provided in the sft-deep-dive.md knowledge page, which states that the format of the 7B Model is Conversational with proper chat template and train on responses only.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The 7B Model uses BFD with Flash Attention 2 for packing.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the information provided in the sft-deep-dive.md knowledge page, which states that Best-Fit Decreasing packing (BFD) with Flash Attention 2 is used for packing sequences.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The loss function of the 7B Model is Standard CE + NEFTune with neftune_noise_alpha=5.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions Standard CE + NEFTune with neftune_noise_alpha=5, but the knowledge page only confirms the use of Standard CE and NEFTune without specifying the value of neftune_noise_alpha.",
+          "suggested_correction": "The loss function of the 7B Model is Standard CE + NEFTune."
+        },
+        {
+          "text": "The learning rate (LR) of the 7B Model is 2e-5 for full fine-tuning (FT) or 1e-4 for LoRA with r=32-64.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the information provided in the sft-deep-dive.md knowledge page and the Facts Manifest, which state that the learning rate for full fine-tuning is 2e-5 and for LoRA fine-tuning is 1-3e-4.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The scheduler of the 7B Model is Cosine with a 30-step warmup.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the information provided in the sft-deep-dive.md knowledge page, which states that the scheduler is Cosine with a 30-step warmup.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The 7B Model is trained for 2-3 epochs or until val loss increases.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the information provided in the Facts Manifest, which states that the recommended number of epochs for fine-tuning a 7B model is 2-3.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The batch size of the 7B Model is 32-128 effective via gradient accumulation.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the information provided in the Facts Manifest and the sft-deep-dive.md knowledge page, which state that the recommended batch size for a 7B model is 32-128.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The precision of the 7B Model is BF16 with gradient checkpointing ON.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and the knowledge pages both support the use of BF16 precision for fine-tuning a 7B model, and the knowledge pages also mention gradient checkpointing being enabled.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FIM is added at a 50% rate for code-specific tasks.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that FIM is added at a 50% rate for code-specific tasks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step-level verified solutions are used for math-specific tasks.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that step-level verified solutions are used for math-specific tasks, which implies process supervision.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Training the 7B Model takes 2-6 hours on 1x A100-80GB (QLoRA).",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the training time of the 7B Model on 1x A100-80GB (QLoRA), but the knowledge pages provide some information on training times for different models and hardware configurations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Training the 7B Model takes 4-12 hours on 8x A100 (full FT).",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the training time of the 7B Model on 8x A100 (full FT), but the knowledge pages provide some information on training times for different models and hardware configurations.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Industry Approaches",
+      "score": 0.65,
+      "claims": [
+        {
+          "text": "OpenAI's InstructGPT has 1.3B parameters",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about OpenAI's InstructGPT parameters, and the knowledge pages do not provide a clear answer to this question.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GPT-3 has 175B parameters",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about GPT-3 parameters, and the knowledge pages do not provide a clear answer to this question.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Qwen's pretrain size is 18T",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages mention Qwen's pretrain size, but the exact size is not explicitly stated in the provided text. However, it is mentioned that Qwen has 18T pretrain + 1M+ curated SFT + multilingual (29+ langs).",
+          "suggested_correction": "Qwen's pretrain size is mentioned as 18T in the context of its pretraining and SFT approach."
+        },
+        {
+          "text": "Qwen's SFT size is 1M",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages mention Qwen's SFT size, but the exact size is not explicitly stated in the provided text. However, it is mentioned that Qwen has 18T pretrain + 1M+ curated SFT + multilingual (29+ langs).",
+          "suggested_correction": "Qwen's SFT size is mentioned as 1M+ curated SFT in the context of its pretraining and SFT approach."
+        },
+        {
+          "text": "Anthropic proved no human harm labels needed, constitutional principles suffice",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Anthropic's SFT philosophy is self-critique/revision \u2192 SFT on revised outputs, which implies that they do not use human harm labels and instead rely on constitutional principles.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meta proved massive open annotation + multi-stage can match proprietary",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that Meta's approach involves massive annotation (10M+) \u2192 SFT \u2192 Rejection Sampling \u2192 DPO, and that they have open weights and a multi-stage process.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepSeek proved minimal SFT + strong RL = cost-efficient SOTA",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that DeepSeek's SFT philosophy is minimal cold-start SFT \u2192 GRPO, which implies that they use a minimal amount of SFT and combine it with RL.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Qwen proved broadest multilingual coverage (29 langs) + domain variants scale",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that Qwen has 18T pretrain + 1M+ curated SFT + multilingual (29+ langs), which implies that they have the broadest language coverage and domain variants.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Google proved distillation can replace SFT for small models entirely",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that Google uses knowledge distillation for small models (Gemma 2), which implies that they can replace SFT for small models entirely.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Qwen has 1M+ curated data in 29 languages",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that Qwen has 1M+ curated data in 29 languages, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meta has 10M+ human annotations",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that Meta has 10M+ human annotations, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Google uses Gemma 2B/9B for knowledge distillation",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that Google uses Gemma 2B/9B for knowledge distillation, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenAI's pipeline consists of Human demonstrations \u2192 SFT \u2192 RM \u2192 PPO",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages do not contradict this claim, and OpenAI's pipeline is described as Human demos \u2192 SFT \u2192 RM \u2192 PPO in the industry approaches section.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Anthropic's pipeline consists of Self-critique/revision \u2192 SFT on revised \u2192 AI preference model \u2192 RL",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages do not contradict this claim, and Anthropic's pipeline is described as Self-critique/revision \u2192 SFT on revised outputs in the industry approaches section.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meta's pipeline consists of 10M+ human annotations \u2192 SFT \u2192 Rejection Sampling \u2192 PPO \u2192 DPO",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages do not contradict this claim, and Meta's pipeline is described as Massive annotation (10M+) \u2192 SFT \u2192 Rejection Sampling \u2192 DPO in the industry approaches section.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepSeek's pipeline consists of Minimal cold-start SFT \u2192 GRPO (pure RL)",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages do not contradict this claim, and DeepSeek's pipeline is described as Minimal cold-start SFT \u2192 GRPO in the industry approaches section and also in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Qwen's pipeline consists of 1M+ curated (29 langs) \u2192 SFT \u2192 Multi-stage RL",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Qwen's pipeline is described as 18T pretrain + 1M+ curated SFT + multilingual (29+ langs) in the industry approaches section, which includes more details than the claim.",
+          "suggested_correction": "Qwen's pipeline consists of 18T pretrain + 1M+ curated SFT + multilingual (29+ langs) + multistage RL"
+        },
+        {
+          "text": "Google's pipeline consists of Knowledge distillation (Gemma 2B/9B)",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages do not contradict this claim, and Google's pipeline is described as Knowledge distillation for small models (Gemma 2) in the industry approaches section.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mistral's pipeline consists of Undisclosed (minimal) \u2192 DPO",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is not enough information in the Facts Manifest to verify this claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenAI proved SFT\u2192RLHF works with 1.3B InstructGPT > 175B GPT-3",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is not enough information in the Facts Manifest to verify this claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Changelog",
+      "score": 0.7,
+      "claims": [
+        {
+          "text": "Chunked NLL is a loss function",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and the knowledge pages both mention chunked NLL as a loss function, specifically stating its purpose is to reduce VRAM usage.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ORPO is a loss function",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention ORPO as a loss function used in SFT, specifically for incorporating preference in one step.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The initial v2 generation occurred on 2026-06-09",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the initial v2 generation date.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Comprehensive SFT reference includes data prep",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Comprehensive SFT reference includes data prep, as stated in the sft-deep-dive.md knowledge page.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Comprehensive SFT reference includes loss functions",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Comprehensive SFT reference includes loss functions, as stated in the sft-deep-dive.md knowledge page.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Comprehensive SFT reference includes design choices",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Comprehensive SFT reference includes design choices, as stated in the sft-deep-dive.md knowledge page.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Comprehensive SFT reference includes application quirks",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Comprehensive SFT reference includes application quirks, as stated in the sft-deep-dive.md knowledge page.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Comprehensive SFT reference includes industry pipeline comparison",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Comprehensive SFT reference includes industry pipeline comparison, as stated in the sft-deep-dive.md knowledge page.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Comprehensive SFT reference covers 7 labs in industry pipeline comparison",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Comprehensive SFT reference covers 7 labs in industry pipeline comparison is not supported by the provided text, it actually covers more than 7 labs.",
+          "suggested_correction": "The Comprehensive SFT reference covers more than 7 labs in industry pipeline comparison."
+        },
+        {
+          "text": "NEFTune is a loss function",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "NEFTune is not a loss function, but rather a technique that adds noise to embedding vectors during training, as stated in the sft-deep-dive.md knowledge page.",
+          "suggested_correction": "NEFTune is a technique that adds noise to embedding vectors during training."
+        }
+      ]
+    }
+  ]
+}

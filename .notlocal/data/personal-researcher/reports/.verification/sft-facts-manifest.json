@@ -1,0 +1,149 @@
+{
+  "topic": "sft",
+  "timestamp": "2026-06-09T17:48:12.983216+00:00",
+  "total_facts": 14,
+  "contradictions_found": 0,
+  "contradictions_resolved": 0,
+  "facts": [
+    {
+      "question": "What is the recommended learning rate for full fine-tuning of a 7B model?",
+      "answer": "2e-5",
+      "confidence": 1.0,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": "[web-confirmed]"
+    },
+    {
+      "question": "What is the effect of using NEFTune on AlpacaEval?",
+      "answer": "+8-35% improvement",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended batch size for a 7B model?",
+      "answer": "32-128",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of using Best-Fit Decreasing packing?",
+      "answer": "2x throughput, 58% less hallucination",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended number of epochs for fine-tuning a 7B model?",
+      "answer": "2-3",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of using process supervision on math reasoning?",
+      "answer": "78% improvement on MATH (PRM800K)",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the context extension capability of LongLoRA?",
+      "answer": "extends 7B from 4K to 100K context",
+      "confidence": 1.0,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": "[web-confirmed]"
+    },
+    {
+      "question": "What is the unique approach of DeepSeek's SFT philosophy?",
+      "answer": "Minimal cold-start SFT \u2192 GRPO",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended precision for fine-tuning a 7B model?",
+      "answer": "BF16",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of using FIM in code generation?",
+      "answer": "moves middle span to end during training, does not harm autoregressive quality",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the unique approach of Anthropic's SFT philosophy?",
+      "answer": "Self-critique/revision \u2192 SFT on revised outputs",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of using LongLoRA on context extension?",
+      "answer": "extends context from 4K to 100K",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended learning rate for LoRA fine-tuning of a 7B model?",
+      "answer": "1-3e-4",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of using chunked NLL loss function?",
+      "answer": "30-50% less VRAM",
+      "confidence": 0.9,
+      "sources": [
+        "sft-deep-dive.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

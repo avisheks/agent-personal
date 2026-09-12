@@ -1,0 +1,1424 @@
+{
+  "topic": "evaluation-safety",
+  "timestamp": "2026-05-18T22:41:46.967740+00:00",
+  "total_claims": 193,
+  "correct": 95,
+  "incorrect": 11,
+  "unverifiable": 80,
+  "partially_correct": 7,
+  "overall_score": 0.8407079646017699,
+  "summary": "Verified 193 claims: 95 correct, 11 incorrect, 7 partially correct, 80 unverifiable. Score: 84%",
+  "sections": [
+    {
+      "section_name": "Design Flow Framework",
+      "score": 0.4444444444444444,
+      "claims": [
+        {
+          "text": "The baseline in the Design Flow Framework is established using public benchmarks and manual SME review.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the baseline in the Design Flow Framework is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework includes a layered evaluation stack.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Design Flow Framework includes a layered evaluation stack, as described in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework includes LLM-as-judge with calibration.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Design Flow Framework includes LLM-as-judge with calibration, as mentioned in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework includes rubric design.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Design Flow Framework includes rubric design, as indicated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework includes segment-aware thresholds.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Design Flow Framework includes segment-aware thresholds, as described in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework includes trajectory decomposition.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Design Flow Framework includes trajectory decomposition, as mentioned in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meta-evaluation in the Design Flow Framework includes evaluating the evaluator itself.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Meta-evaluation in the Design Flow Framework includes evaluating the evaluator itself, as described in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meta-evaluation in the Design Flow Framework includes drift detection.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Meta-evaluation in the Design Flow Framework includes drift detection, as indicated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meta-evaluation in the Design Flow Framework includes inter-judge agreement.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention inter-judge agreement as part of meta-evaluation in the Design Flow Framework. However, it does discuss the importance of calibration and agreement between automated judges and human experts in various contexts, such as LLM-as-Judge with Calibration.",
+          "suggested_correction": "Meta-evaluation in the Design Flow Framework includes calibration and agreement measurement between automated judges and human experts, but it does not explicitly mention inter-judge agreement."
+        },
+        {
+          "text": "Meta-evaluation in the Design Flow Framework includes adversarial testing of the eval system.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions adversarial testing of the evaluation system as part of meta-evaluation, which aligns with the concept of testing the evaluation system itself with known failure cases.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework consists of 7 steps.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 1 of the Design Flow Framework is to clarify requirements.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 2 of the Design Flow Framework is to identify constraints.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 3 of the Design Flow Framework is to propose a baseline using public benchmarks and manual SME review.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 4 of the Design Flow Framework is to identify gaps in the baseline.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 5 of the Design Flow Framework is to introduce improvements to the evaluation process.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 6 of the Design Flow Framework is to add evaluation of the evaluator itself.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 7 of the Design Flow Framework is to discuss scaling tradeoffs.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Full System Design Walkthrough (Principal/Director Level, ~4 min)",
+      "score": 0.7058823529411765,
+      "claims": [
+        {
+          "text": "Amazon Ads discovered that noisy agent traces delayed root-cause analysis and that the evaluation system had a blind spot for long-horizon strategy tasks.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Amazon Ads discovering noisy agent traces and evaluation system blind spots is not addressed in the provided Facts Manifest. Therefore, it cannot be verified against the manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Continuous evaluation includes continuous monitoring, canary evaluation, user-signal integration, and eval set expansion.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is consistent with the Facts Manifest, which describes the components of continuous evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meta-evaluation framework tracks judge calibration, eval-production correlation, adversarial testing, eval set coverage, and inter-rater reliability.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the description of the meta-evaluation framework in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Evaluation rigor should be matched to release risk, with hotfixes requiring only Layer 1 evaluation and new capability launches requiring full evaluation.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Facts Manifest, which discusses matching evaluation rigor to release risk.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Human-in-the-loop balance typically involves 80% automated evaluation and 20% human evaluation for critical slices.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The claim about human-in-the-loop balance is not addressed in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of evaluation should be weighed against the cost of a bad release, with evaluation costs ranging from $0 to $5000.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the estimated annual cost of a full implementation of the evaluation system is $20-30K, not $0 to $5000.",
+          "suggested_correction": "The estimated annual cost of a full implementation of the evaluation system is $20-30K."
+        },
+        {
+          "text": "Evaluation is a platform capability, not research overhead, and should be invested in accordingly.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is consistent with the Facts Manifest, which positions evaluation as a platform capability.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Amazon Ads used a five-layer evaluation stack, including deterministic tests, automated benchmarks, LLM-as-judge, SME review, and UAT.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about Amazon Ads using a five-layer evaluation stack is supported by the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Amazon Ads found that public benchmarks were necessary but not sufficient for evaluation, as they optimize for the wrong objective.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is consistent with the Facts Manifest, which discusses the limitations of public benchmarks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Evaluation quality depends on DECOMPOSITION, not single metrics.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that evaluation quality depends on decomposition, not single metrics, is supported by the Facts Manifest, which emphasizes the importance of decomposing quality into specific dimensions for effective evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Public benchmarks (MMLU, HumanEval, HELM) measure generic capabilities.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Public benchmarks like MMLU, HumanEval, and HELM do measure generic capabilities, but the Facts Manifest also notes that these benchmarks do not capture domain-specific behavior, which is critical for many applications.",
+          "suggested_correction": "Public benchmarks measure generic capabilities but do not capture domain-specific behavior."
+        },
+        {
+          "text": "The five-layer evaluation stack catches different classes of failure, with increasing semantic depth and cost.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Five-Layer Evaluation Stack is designed to catch different classes of failures at increasing levels of semantic depth and cost, as described in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLM-judge catches nuanced quality issues, but inherits biases and can drift silently.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "LLM-judge does catch nuanced quality issues but also inherits biases and can drift silently, as noted in the Facts Manifest, highlighting the need for calibration and monitoring.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Calibration protocol for LLM-judge includes cross-family judging, position randomization, and calibration set with human expert scores.",
+          "verdict": "partially_correct",
+          "confidence": 0.9,
+          "reasoning": "The calibration protocol for LLM-judge includes cross-family judging and position randomization, but the Facts Manifest also mentions the use of a calibration set with human expert scores and tracking of Cohen's kappa coefficient for measuring agreement.",
+          "suggested_correction": "The calibration protocol for LLM-judge includes cross-family judging, position randomization, and a calibration set with human expert scores."
+        },
+        {
+          "text": "Rubric design principles include decomposing quality into dimensions, anchoring with examples, and binary scoring for safety.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Rubric design principles do include decomposing quality into dimensions, anchoring with examples, and binary scoring for safety, as outlined in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Segment-aware evaluation requires mandatory slicing dimensions, such as content type, risk level, locale, and user segment.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Segment-aware evaluation does require mandatory slicing dimensions such as content type, risk level, locale, and user segment, to prevent critical failures in specific user segments or use cases.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Trajectory evaluation for agents scores multi-step trajectories, including per-step scoring and counterfactual assessment.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Trajectory evaluation for agents does score multi-step trajectories, including per-step scoring and counterfactual assessment, to evaluate the entire sequence of actions or responses.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Interview Q&A Bank",
+      "score": 1.0,
+      "claims": [
+        {
+          "text": "LLM evaluation lacks ground truth labels, fixed output space, and IID assumptions.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about LLM evaluation lacking ground truth labels, fixed output space, and IID assumptions is consistent with the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A single metric is not sufficient for LLM evaluation.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that a single metric is not sufficient for LLM evaluation is supported by the Facts Manifest, which emphasizes the need for multi-dimensional evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Decomposed evaluation, multi-method evaluation, and continuous evaluation are necessary for LLMs.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about decomposed evaluation, multi-method evaluation, and continuous evaluation being necessary for LLMs is consistent with the principles outlined in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Critical failure rate is a key metric for customer-facing systems.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that critical failure rate is a key metric for customer-facing systems is supported by the Facts Manifest, which highlights the importance of safety and reliability in such systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The five-layer approach to building a layered evaluation stack includes deterministic tests, domain-specific benchmarks, LLM-as-judge, human expert review, and shadow/UAT.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about the five-layer approach to building a layered evaluation stack, including deterministic tests, domain-specific benchmarks, LLM-as-judge, human expert review, and shadow/UAT, is consistent with the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLM judges have systematic biases that need to be mitigated.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that LLM judges have systematic biases that need to be mitigated is supported by the Facts Manifest, which discusses the importance of addressing biases in LLM-based evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Position bias, self-preference, verbosity bias, sycophancy, anchoring, and shortcut bias are known biases in LLM judges.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about known biases in LLM judges, including position bias, self-preference, verbosity bias, sycophancy, anchoring, and shortcut bias, is consistent with the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Calibration protocol for LLM judges includes building a calibration set, measuring Cohen's \u03ba, and adjusting the rubric or judge prompt.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about the calibration protocol for LLM judges, including building a calibration set, measuring Cohen's \u03ba, and adjusting the rubric or judge prompt, is supported by the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Intrinsic, extrinsic, semantic, entity, temporal, and numerical hallucination are types of hallucination.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Facts Manifest, which lists the types of hallucination, including intrinsic, extrinsic, semantic, entity, temporal, and numerical hallucination.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Evaluation metrics should predict business outcomes.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest implies that evaluation metrics should predict business outcomes through various references to the importance of evaluation in ensuring model quality and safety.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The connection framework between evaluation metrics, product metrics, and business metrics is crucial.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The connection framework between evaluation metrics, product metrics, and business metrics is emphasized in the Facts Manifest as crucial for model evaluation and release decisions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Safety evaluation is fundamentally different from quality evaluation.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest treats safety evaluation as fundamentally different from quality evaluation, emphasizing safety as a hard constraint rather than a dimension to trade off.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Agent evaluation requires scoring the trajectory, not just the final output.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest supports the claim that agent evaluation requires scoring the trajectory, not just the final output, as seen in the Trajectory Evaluation section.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The trajectory evaluation framework includes goal achievement, path efficiency, tool correctness, safety compliance, recovery quality, and explainability.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest lists the dimensions of the trajectory evaluation framework, which include goal achievement, path efficiency, tool correctness, safety compliance, recovery quality, and explainability.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SME disagreement is a signal about the domain, not a bug in the evaluation.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that SME disagreement is a signal about the domain, not a bug in the evaluation, implying that it is a natural and expected aspect of the evaluation process.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Rubric ambiguity, policy ambiguity, and expertise difference are possible causes of SME disagreement.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions rubric ambiguity, policy ambiguity, and expertise difference as possible causes of SME disagreement, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The decision to trust automated metrics or human judgment depends on the evaluation dimension.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest discusses the decision to trust automated metrics or human judgment depending on the evaluation dimension, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Automated metrics are suitable for binary safety checks, format compliance, factual grounding, regression detection, and high-volume screening.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest lists automated metrics as suitable for binary safety checks, format compliance, factual grounding, regression detection, and high-volume screening, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Human judgment is required for novel failure modes, nuance/context sensitivity, strategic quality, rubric development, and safety edge cases.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that human judgment is required for novel failure modes, nuance/context sensitivity, strategic quality, rubric development, and safety edge cases, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hallucination evaluation requires decomposing 'hallucination' into specific, measurable failure types.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions that hallucination evaluation requires decomposing 'hallucination' into specific, measurable failure types, which is consistent with the claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Cost Model",
+      "score": 0.4,
+      "claims": [
+        {
+          "text": "The cost of Layer 1: Deterministic tests is approximately $0.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The cost of Layer 1: Deterministic tests is indeed approximately $0, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of Layer 2: Domain benchmarks is approximately $0.50.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The cost of Layer 2: Domain benchmarks is stated as ~$0 in the Facts Manifest, not approximately $0.50.",
+          "suggested_correction": "The cost of Layer 2: Domain benchmarks is approximately $0."
+        },
+        {
+          "text": "The cost of Layer 3: LLM-as-judge is approximately $5-15.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The cost of Layer 3: LLM-as-judge is indeed approximately $5-15, but the exact cost range is not specified in the provided Facts Manifest. However, based on the information given, the claim is consistent with the manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of Layer 4: Human SME review is approximately $200-500.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The cost of Layer 4: Human SME review is indeed approximately $200-500, but the exact cost is represented as $$$ in the Facts Manifest, indicating a high cost without specifying the exact range.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of Layer 5: Shadow/UAT is approximately $500-2000.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The cost of Layer 5: Shadow/UAT is indeed approximately $500-2000, but the exact cost range in the Facts Manifest is not explicitly stated for this layer. However, the claim about the full evaluation cost including user acceptance testing (all five layers) being $1000-2500 is consistent with the manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total cost of Layers 1-3 is approximately $6-16.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The total cost of Layers 1-3 is indeed approximately $6-16, as stated in the Facts Manifest under the question about the cost range for automated evaluation only.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total cost of Layers 1-4 is approximately $200-500.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The total cost of Layers 1-4 is not explicitly stated in the Facts Manifest, but based on the provided information, the cost of Layer 4 (Human SME review) alone is $$$, suggesting that the total cost for Layers 1-4 would exceed $200-500.",
+          "suggested_correction": "The claim about the total cost of Layers 1-4 is not directly supported by the Facts Manifest and may require additional information for accurate calculation."
+        },
+        {
+          "text": "The total cost of Layers 1-5 is approximately $1000-2500.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The total cost of Layers 1-5 is indeed approximately $1000-2500, as stated in the Facts Manifest under the question about the cost range for full evaluation including user acceptance testing.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Using Haiku for binary safety checks can reduce LLM-judge model routing costs by 3-5x.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about using Haiku for binary safety checks reducing LLM-judge model routing costs by 3-5x is not addressed in the provided Facts Manifest and cannot be verified through secondary references.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Stratified human review can reduce human review costs by 2-3x.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about stratified human review reducing human review costs by 2-3x is not directly supported by information in the Facts Manifest, and secondary references do not provide a clear answer to this specific claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Incremental evaluation can reduce overall evaluation costs by 2x.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about incremental evaluation reducing overall evaluation costs by 2x is not explicitly mentioned in the Facts Manifest, and secondary references do not offer sufficient information to confirm this claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Eval set caching can reduce evaluation costs by 1.5x.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim regarding eval set caching reducing evaluation costs by 1.5x is not found in the Facts Manifest, and secondary references do not provide a direct answer to verify this specific assertion.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The monthly evaluation cost for weekly minor releases is approximately $60.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the monthly evaluation cost for weekly minor releases is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The monthly evaluation cost for monthly model updates is approximately $500.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the monthly evaluation cost for monthly model updates is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The monthly evaluation cost for quarterly new capabilities is approximately $2500.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the monthly evaluation cost for quarterly new capabilities is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The monthly evaluation cost for continuous monitoring is approximately $300.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the monthly evaluation cost for continuous monitoring is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total annual evaluation investment is approximately $20-30K.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The estimated annual cost of a full implementation of the evaluation system is indeed $20-30K, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At Amazon Ads, the evaluation investment was approximately $25K/month across all teams.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the evaluation investment at Amazon Ads is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Each production safety incident is estimated to cost $50-200K in incident response and brand damage.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The estimated cost savings per prevented safety incident is indeed $50-200K, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Each rollback is estimated to cost 1-2 weeks of engineering time.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the cost of each rollback is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Distinguished Engineer Depth Probes",
+      "score": 0.75,
+      "claims": [
+        {
+          "text": "The False Positive Rate (FPR) metric measures the proportion of benign inputs incorrectly blocked.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The False Positive Rate (FPR) metric indeed measures the proportion of benign inputs incorrectly blocked, which aligns with the definition of FPR in evaluation contexts.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The target FPR should be less than 0.5% to avoid blocking legitimate users.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The target FPR should be as low as possible, but the specific threshold of less than 0.5% is not universally applicable and may vary depending on the context and requirements of the system being evaluated.",
+          "suggested_correction": "The target FPR should be as low as possible to minimize false positives while considering the specific requirements and constraints of the system."
+        },
+        {
+          "text": "Red-teaming should involve a combination of automated sweeps, iterative hardening, and external red-teaming.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Red-teaming should indeed involve a combination of automated sweeps, iterative hardening, and external red-teaming to comprehensively identify vulnerabilities and improve system resilience.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Bug bounty programs and external red-teaming can help identify unknown attack vectors.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Bug bounty programs and external red-teaming are recognized methods for identifying unknown attack vectors and improving system security, aligning with best practices in adversarial testing and evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cohen's \u03ba corrects for chance agreement in inter-rater reliability calculations.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Cohen's \u03ba corrects for chance agreement in inter-rater reliability calculations, which is a statistical measure used to assess the agreement between two or more raters.",
+          "suggested_correction": null
+        },
+        {
+          "text": "\u03ba < 0.20 indicates poor agreement, while \u03ba > 0.80 indicates substantial agreement.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim that \u03ba < 0.20 indicates poor agreement and \u03ba > 0.80 indicates substantial agreement is partially correct. However, the Facts Manifest states that a Cohen's \u03ba agreement score below 0.7 indicates the need for LLM-as-Judge recalibration or replacement, suggesting a different threshold for substantial agreement.",
+          "suggested_correction": "\u03ba < 0.20 indicates poor agreement, while \u03ba > 0.75 indicates substantial agreement."
+        },
+        {
+          "text": "Krippendorff's \u03b1 generalizes Cohen's \u03ba to multi-rater scenarios and handles missing data.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about Krippendorff's \u03b1 or its relationship to Cohen's \u03ba and multi-rater scenarios.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A minimum of 200 items is required for \u03ba to be statistically stable for binary judgments.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that 200+ examples are required for binary judgments in the calibration set, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "NLI models classify the relationship between a premise and hypothesis as entailment, contradiction, or neutral.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "NLI models classify the relationship between a premise and hypothesis as entailment, contradiction, or neutral, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FActScore measures the proportion of supported claims in a model's output.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about FActScore or its definition.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeBERTa-v3-large-mnli is a suitable NLI model for evaluating LLM outputs.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Cross-encoder NLI models like DeBERTa-v3-large-mnli provide the highest accuracy for release evaluation, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Isotonic regression is a suitable method for correcting systematic bias in LLM judge scores.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Isotonic Regression is used to handle arbitrary non-linear bias patterns in scoring calibration, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Recalibration should be performed after any judge model update, monthly, or after any rubric change.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions recalibration after judge model updates, monthly, or after rubric changes, which aligns with the need for regular calibration and updates in evaluation systems. However, the claim does not fully capture the nuances of when recalibration should be performed, such as after changes in data distributions or when new attack vectors are discovered.",
+          "suggested_correction": "Recalibration should be performed after any significant change that could affect the evaluation system's performance or reliability, including but not limited to judge model updates, changes in data distributions, discovery of new attack vectors, or updates to rubrics."
+        },
+        {
+          "text": "Evaluation sets should be designed using stratified sampling, equivalence partitioning, and coverage metrics.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim about designing evaluation sets using stratified sampling, equivalence partitioning, and coverage metrics is consistent with best practices in software testing and evaluation. Stratified sampling ensures that the evaluation set is representative of different subgroups or segments, equivalence partitioning helps in reducing the number of test cases while maintaining coverage, and coverage metrics are crucial for ensuring that the evaluation set adequately covers the system's functionality and potential failure modes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Trajectory scoring involves evaluating an agent's actions and observations over multiple steps.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Trajectory scoring indeed involves evaluating an agent's actions and observations over multiple steps, which is essential for assessing the performance and safety of multi-step AI systems. This approach considers not just the final outcome but the entire sequence of actions and decisions made by the agent.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Safety is a hard constraint in trajectory scoring, not a dimension to trade off.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Safety is treated as a hard constraint in trajectory scoring, meaning that any violation of safety protocols or policies results in a failure, regardless of the system's performance on other dimensions. This reflects the critical importance of safety in the development and deployment of AI systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Adversarial robustness evaluation involves systematic red-teaming using a taxonomy-driven approach.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Adversarial robustness evaluation does involve systematic red-teaming using a taxonomy-driven approach. This method includes identifying potential attack categories, generating test cases for each category, and evaluating the system's ability to withstand these attacks. It's a comprehensive way to assess and improve the system's defenses against adversarial manipulations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Attack Success Rate (ASR) metric measures the proportion of successful attacks.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Attack Success Rate (ASR) metric indeed measures the proportion of successful attacks out of the total number of attacks attempted. It's a key metric for evaluating the effectiveness of a system's defenses and identifying areas for improvement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Defense in depth and production monitoring for anomalies are essential for handling unknown attack vectors.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Defense in depth and production monitoring for anomalies are essential strategies for handling unknown attack vectors. Defense in depth involves implementing multiple layers of defense to protect against various types of attacks, while production monitoring helps in detecting and responding to potential security incidents in real-time.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The target ASR for critical categories should be less than 1%.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The target ASR for critical categories should indeed be less than 1%, indicating a very high standard for security and robustness. This threshold reflects the importance of ensuring that critical systems are highly resistant to attacks and can maintain their integrity and functionality even under adversarial conditions.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Observability & Production Debugging",
+      "score": 0.45,
+      "claims": [
+        {
+          "text": "The `model_version` and `eval_suite_version` fields are used to track which model was evaluated with which suite.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is consistent with the Facts Manifest, which mentions the use of model_version and eval_suite_version fields for tracking purposes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `per_layer_results` field is used to identify which layer caught which issues.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The per_layer_results field is indeed used to identify which layer caught which issues, as described in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `per_item_scores` field is used for fine-grained failure analysis.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The per_item_scores field is used for fine-grained failure analysis, which aligns with the information provided in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `judge_model_version` and `judge_prompt_version` fields are used to track judge configuration.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The judge_model_version and judge_prompt_version fields are used to track judge configuration, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `human_annotator_ids` and `agreement_scores` fields are used to track inter-rater reliability.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The human_annotator_ids and agreement_scores fields are used to track inter-rater reliability, which is consistent with the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `calibration_\u03ba` field is used to track the current agreement with the gold set.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The calibration_\u03ba field is used to track the current agreement with the gold set, as mentioned in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `eval_duration` and `cost_breakdown` fields are used for performance and cost tracking.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The eval_duration and cost_breakdown fields are used for performance and cost tracking, which aligns with the information provided in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The `override_decisions` field is used to track when and why gates were bypassed.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The override_decisions field is used to track when and why gates were bypassed, as described in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Judge calibration \u03ba panel has an alert threshold of <0.70.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the threshold for LLM-as-Judge recalibration or replacement is a Cohen's kappa coefficient below 0.7, not an alert threshold of <0.70 for the Judge calibration \u03ba panel.",
+          "suggested_correction": "The Judge calibration \u03ba panel has a threshold of <0.7 for recalibration or replacement."
+        },
+        {
+          "text": "The Eval-production correlation panel has an alert threshold of r < 0.5.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the Eval-production correlation panel having an alert threshold of r < 0.5.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Post-release incident rate panel has an alert threshold of >2%.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the Post-release incident rate panel having an alert threshold of >2%.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Override rate panel has an alert threshold of >10%.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the Override rate panel having an alert threshold of >10%.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Eval suite coverage panel has an alert threshold of <80%.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the Eval suite coverage panel having an alert threshold of <80%.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Mean time to evaluate panel has an alert threshold of >48h for standard releases.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the Mean time to evaluate panel having an alert threshold of >48h for standard releases.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Adversarial ASR panel has an alert threshold of >1% on any critical category.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the target threshold for Attack Success Rate (ASR) for critical safety categories is less than 1%, which aligns with the claim about the Adversarial ASR panel.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At Amazon Ads, evaluation dimensions must be validated against user behavior.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about evaluation dimensions being validated against user behavior at Amazon Ads.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The eval suite is Git-versioned and tagged per release.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not address the versioning of the eval suite directly, and knowledge pages do not provide sufficient information to verify this claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The rubric is versioned in config and linked to annotator training.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest does not explicitly mention the versioning of the rubric in config or its linkage to annotator training, making it impossible to verify this claim directly from the provided references.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The judge model is versioned by model ID and prompt version logged per run.",
+          "verdict": "unverifiable",
+          "confidence": 0.9,
+          "reasoning": "There is no direct information in the Facts Manifest about the versioning of the judge model by model ID and prompt version logged per run, which makes this claim unverifiable based on the given references.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The thresholds are config-versioned and change requires justification.",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The Facts Manifest does not provide explicit details on how thresholds are versioned or the process for changing them, including the requirement for justification, making this claim unverifiable.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Data Flywheel & Continuous Improvement",
+      "score": 0.1,
+      "claims": [
+        {
+          "text": "Eval set coverage analysis occurs monthly.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the frequency of eval set coverage analysis.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Rubric review occurs quarterly.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that rubric reviews should be performed quarterly to maintain reliability.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Adversarial suite expansion occurs quarterly.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the frequency of adversarial suite expansion.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Full eval system audit occurs bi-annually.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the frequency of full eval system audits.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Post-release production incident signals are rare but critical.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about post-release production incident signals is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Eval-production correlation drop signals occur monthly.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about eval-production correlation drop signals is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Judge calibration \u03ba decline signals occur monthly.",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that judge calibration \u03ba decline signals should be detected monthly, but it does not imply that they occur monthly.",
+          "suggested_correction": "Judge calibration \u03ba decline signals should be detected monthly."
+        },
+        {
+          "text": "Gate override decisions provide immediate feedback.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about gate override decisions is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Human annotator disagreement patterns provide immediate feedback.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about human annotator disagreement patterns is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "New failure modes in production not in the eval suite occur sporadically.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about new failure modes in production is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The budget for adding new test cases is 50 per month.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the budget for adding new test cases is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Production failures are the highest priority for eval set expansion.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about production failures is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Judge disagreements with humans reveal judge blind spots.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about judge disagreements with humans revealing judge blind spots is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Annotator disagreements reveal rubric ambiguity.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about annotator disagreements revealing rubric ambiguity is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Distribution shift detection is measured by embedding distance to the nearest eval set member.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about distribution shift detection being measured by embedding distance to the nearest eval set member is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Eval passes model that causes production safety incident have catastrophic impact.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about eval passes model that causes production safety incident having catastrophic impact is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Eval blocks model that would have been fine have high impact and occur in 5-10% of releases.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about eval blocks model that would have been fine having high impact and occurring in 5-10% of releases is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Judge drift undetected for more than 1 month occurs quarterly.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about judge drift undetected for more than 1 month occurring quarterly is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Eval suite updates occur per incident.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about eval suite updates occurring per incident is not directly addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Judge calibration re-run occurs monthly.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim about judge calibration re-run occurring monthly is supported by the Facts Manifest, which mentions that the calibration set should be re-run monthly to detect drift.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Seniority Signals Cheat Sheet",
+      "score": 0.2222222222222222,
+      "claims": [
+        {
+          "text": "Public benchmarks tell us if the model learned general knowledge.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about public benchmarks is not addressed in the Facts Manifest, and it requires specific knowledge about the model's performance that is not provided.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Generic benchmarks missed 30% of our production failures.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The claim about generic benchmarks missing production failures is not directly addressed in the Facts Manifest, and without more context, it's difficult to verify.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We built 500+ domain-specific test cases.",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The claim about building domain-specific test cases is not explicitly mentioned in the Facts Manifest, making it hard to confirm.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-preference bias inflated scores by 0.5 points until we switched to cross-family.",
+          "verdict": "partially_correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions using cross-family judging to mitigate self-preference bias, which aligns with the claim about switching to cross-family judging. However, it does not specify the exact score inflation or the context of the switch.",
+          "suggested_correction": "The model uses cross-family judging to mitigate self-preference bias."
+        },
+        {
+          "text": "We track Cohen's \u03ba and alert if it drops below 0.75.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that the threshold for LLM-as-Judge recalibration or replacement is a Cohen's kappa coefficient below 0.7, not 0.75.",
+          "suggested_correction": "The model tracks Cohen's \u03ba and alerts if it drops below 0.7."
+        },
+        {
+          "text": "Our model improved 5% on accuracy but regressed 8% on actionability for power users.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim about the model's improvement in accuracy and regression in actionability for power users is not addressed in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Power users drive 60% of revenue.",
+          "verdict": "unverifiable",
+          "confidence": 0.4,
+          "reasoning": "The claim about power users driving revenue is not mentioned in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We systematically red-team across 9 attack categories with 50+ adversarial cases per category.",
+          "verdict": "unverifiable",
+          "confidence": 0.3,
+          "reasoning": "The claim about systematic red-teaming across attack categories with adversarial cases is not directly addressed in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We use LLM-as-judge for 80% of volume and route the 20% that's high-risk, ambiguous, or novel to human experts.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about using LLM-as-judge for 80% of volume and routing 20% to human experts is not addressed in the provided Facts Manifest. Therefore, it cannot be verified against the manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Every human decision feeds back into the LLM judge \u2014 the automated percentage grows over time.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that every human decision feeds back into the LLM judge and the automated percentage grows over time is consistent with the principles of continuous improvement and calibration discussed in the Facts Manifest, particularly in the context of LLM-as-Judge with Calibration and Meta-Evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We achieved zero bypass rate.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The claim about achieving zero bypass rate is not addressed in the provided Facts Manifest and cannot be verified through knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We red-team our evaluation itself \u2014 injecting known-bad outputs to verify the eval catches them.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions Adversarial Red-Teaming as a technique used to identify vulnerabilities in AI systems, which aligns with the claim of red-teaming the evaluation itself.",
+          "suggested_correction": null
+        },
+        {
+          "text": "For agents, we evaluate the TRAJECTORY \u2014 the path, not just the destination.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest discusses Trajectory Evaluation for assessing multi-step AI systems, focusing on the path rather than just the destination, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We score tool selection, parameter quality, interpretation correctness, and necessity per step.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about scoring tool selection, parameter quality, interpretation correctness, and necessity per step is consistent with the principles of Trajectory Evaluation outlined in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Safety patches take 15 minutes (Layer 1 only).",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide specific information about the time it takes for safety patches, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Prompt changes take 2 hours (Layers 1-3).",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The claim about prompt changes taking 2 hours is not addressed in the provided Facts Manifest and cannot be verified through knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model updates take 2 days (Layers 1-4).",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the time required for model updates, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "New capabilities take 2 weeks (full stack + UAT).",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The claim about new capabilities taking 2 weeks is not supported by information in the Facts Manifest and cannot be verified through knowledge pages.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Advanced Patterns Summary",
+      "score": 0.85,
+      "claims": [
+        {
+          "text": "Continuous monitoring should be used in any production system.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Continuous monitoring is essential for detecting and addressing potential issues in production systems, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Continuous monitoring should not be used in pre-release evaluation only.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest implies that continuous monitoring should not be limited to pre-release evaluation, supporting the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Adversarial red-teaming solves unknown safety vulnerabilities.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Adversarial red-teaming can identify unknown safety vulnerabilities, but it is not a guarantee, as stated in the Facts Manifest. The claim overstates its effectiveness.",
+          "suggested_correction": "Adversarial red-teaming can help identify potential safety vulnerabilities, but it is one part of a comprehensive evaluation strategy."
+        },
+        {
+          "text": "Adversarial red-teaming should be used before any customer-facing launch.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest supports the use of adversarial red-teaming before customer-facing launches, particularly for critical systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Layered evaluation (5-layer stack) solves single-metric blindness.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Five-Layer Evaluation Stack is designed to address the limitations of single-metric evaluation approaches by providing a comprehensive framework for assessing AI systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Layered evaluation (5-layer stack) should be used in any production LLM/agent system.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Five-Layer Evaluation Stack is a recommended approach for evaluating production LLM/agent systems due to its ability to catch different classes of failures at increasing levels of semantic depth and cost.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Layered evaluation (5-layer stack) should not be used in prototypes.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The claim that the Five-Layer Evaluation Stack should not be used in prototypes is incorrect. The stack can be adapted for use in prototypes to ensure early detection of potential issues.",
+          "suggested_correction": "The Five-Layer Evaluation Stack can be used in prototypes to identify and address potential issues early on."
+        },
+        {
+          "text": "LLM-as-judge with calibration solves human review not scaling.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "LLM-as-judge with calibration can help address the issue of human review not scaling by providing a scalable and consistent evaluation method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLM-as-judge with calibration should be used in volume evaluation (>100 outputs per eval).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "LLM-as-judge with calibration is suitable for volume evaluation (>100 outputs per eval) due to its ability to process large volumes of outputs efficiently.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLM-as-judge with calibration should not be used in safety-critical decisions.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "LLM-as-judge with calibration should not be used in safety-critical decisions without additional safeguards, as it may not catch all potential safety issues.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cross-family judging solves self-preference bias in LLM judges.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Cross-family judging can help mitigate self-preference bias in LLM judges by using a different model family for evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cross-family judging should be used when using LLM-as-judge.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Cross-family judging is a recommended approach when using LLM-as-judge to ensure unbiased evaluation results.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cross-family judging should not be used if only one model family is available.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Cross-family judging is recommended to avoid self-preference bias, but the claim does not specify that it should not be used if only one model family is available due to other reasons such as cost or availability.",
+          "suggested_correction": "Cross-family judging should be used if possible to mitigate self-preference bias, but if only one model family is available, other methods to mitigate bias should be considered."
+        },
+        {
+          "text": "Trajectory evaluation solves agent path quality (not just output).",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Trajectory evaluation does indeed solve agent path quality issues by examining the entire sequence of actions or responses, not just the final output.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Trajectory evaluation should be used in any multi-step agent system.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Trajectory evaluation is specifically designed for multi-step agent systems, making it a crucial component of their evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Trajectory evaluation should not be used in single-turn model evaluation.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Trajectory evaluation focuses on the path taken by an agent, which is less relevant in single-turn model evaluation where the focus is on the output itself.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Segment-aware thresholds solve aggregate metrics hiding per-segment regressions.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Segment-aware thresholds are designed to prevent aggregate metrics from hiding per-segment regressions, ensuring that critical segments do not degrade even if overall performance improves.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Segment-aware thresholds should be used in systems serving diverse user populations.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Segment-aware thresholds are particularly useful in systems serving diverse user populations to ensure equitable performance across all segments.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Segment-aware thresholds should not be used in homogeneous use cases with one user type.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "In homogeneous use cases with a single user type, the need for segment-aware thresholds may be reduced since there's less variability in user needs or risk profiles.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Continuous monitoring solves post-release drift and novel failures.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Continuous monitoring is indeed crucial for detecting post-release drift and novel failures that may not have been anticipated during the development phase.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Krippendorff's Alpha is a standard reference for multi-rater agreement described in the paper by Hayes and Krippendorff in 2007",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention Krippendorff's Alpha as a standard reference for multi-rater agreement described in the paper by Hayes and Krippendorff in 2007. Instead, it mentions Cohen's kappa coefficient.",
+          "suggested_correction": "Cohen's kappa coefficient is used to measure agreement between human expert judgments and LLM judge scores."
+        },
+        {
+          "text": "Arize AI is an ML observability platform",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about Arize AI being an ML observability platform.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LangSmith is an LLM application monitoring platform",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about LangSmith being an LLM application monitoring platform.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Weights & Biases is an experiment tracking platform",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about Weights & Biases being an experiment tracking platform.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The HELM framework is described in the paper Holistic Evaluation of Language Models by Liang et al. in 2022",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the HELM framework or the paper 'Holistic Evaluation of Language Models' by Liang et al. in 2022.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RAGAS is an automated evaluation of retrieval augmented generation described in the paper by Es et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about RAGAS or the paper by Es et al. in 2023.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FActScore is a fine-grained atomic evaluation of factual precision described in the paper by Min et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about FActScore or the paper by Min et al. in 2023.",
+          "suggested_correction": null
+        },
+        {
+          "text": "G-Eval is an NLG evaluation using GPT-4 with better human alignment described in the paper by Liu et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about G-Eval or the paper by Liu et al. in 2023.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Constitutional AI is a concept of harmlessness from AI feedback described in the paper by Bai et al. in 2022",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Constitutional AI or the paper by Bai et al. in 2022.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Red Teaming Language Models with Language Models is a paper by Perez et al. in 2022",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the paper 'Red Teaming Language Models with Language Models' by Perez et al. in 2022.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OWASP Top 10 for LLM Applications is a list of security risks for large language models",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the OWASP Top 10 for LLM Applications.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Garak is an LLM vulnerability scanner available on GitHub",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Garak, an LLM vulnerability scanner available on GitHub.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AgentBench is a framework for evaluating LLMs as agents described in the paper by Liu et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about AgentBench or its description in a paper by Liu et al. in 2023.",
+          "suggested_correction": null
+        },
+        {
+          "text": "TaskBench is a benchmark for large language models for task automation described in the paper by Shen et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about TaskBench or its description in a paper by Shen et al. in 2023.",
+          "suggested_correction": null
+        },
+        {
+          "text": "BOLAA is a benchmark for LLM-augmented autonomous agents described in the paper by Liu et al. in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about BOLAA or its description in a paper by Liu et al. in 2023.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenAI Evals Guide is a guide for evaluating large language models",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about the OpenAI Evals Guide.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepEval is an open-source LLM evaluation framework available on GitHub",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about DeepEval or its availability on GitHub.",
+          "suggested_correction": null
+        },
+        {
+          "text": "lm-evaluation-harness is an LLM evaluation framework by EleutherAI available on GitHub",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about lm-evaluation-harness or its development by EleutherAI.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Anthropic provides an evaluations guide for large language models",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Anthropic's evaluations guide for large language models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cohen's Kappa is a measure of inter-rater reliability described in the paper by McHugh in 2012",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "Cohen's Kappa is indeed a measure of inter-rater reliability, but it was not described in a paper by McHugh in 2012 according to the provided Facts Manifest.",
+          "suggested_correction": "Cohen's Kappa is a measure of inter-rater reliability."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1653 @@
+{
+  "topic": "claude code config by Andrej Karpathy",
+  "timestamp": "2026-05-25T22:47:13.740163+00:00",
+  "total_claims": 224,
+  "correct": 93,
+  "incorrect": 3,
+  "unverifiable": 115,
+  "partially_correct": 13,
+  "overall_score": 0.8532110091743119,
+  "summary": "Verified 224 claims: 93 correct, 3 incorrect, 13 partially correct, 115 unverifiable. Score: 85%",
+  "sections": [
+    {
+      "section_name": "Distinguished Engineer Depth Probes",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Implementing hierarchical attention with different scales can maintain both local and global attention patterns for code generation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about implementing hierarchical attention with different scales for code generation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The verification complexity of ensuring consistency in multi-agent code generation grows exponentially with agent count, O(2^n) in the worst case.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about the verification complexity of ensuring consistency in multi-agent code generation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Naive approaches to multi-agent code generation, such as lock-based coordination, sequential verification, and optimistic concurrency, fail at scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about naive approaches to multi-agent code generation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hierarchical consistency using spectral clustering on dependency graphs can reduce verification complexity to O(n log n).",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about hierarchical consistency using spectral clustering on dependency graphs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At Meta's code generation infrastructure, dependency-aware partitioning with buffer zones reduced conflicts to 3% while maintaining 6x speedup.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about Meta's code generation infrastructure or the effects of dependency-aware partitioning with buffer zones.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Semantic anchoring through shared context vectors can prevent semantic drift in collaborative AI coding workflows.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about semantic anchoring through shared context vectors in collaborative AI coding workflows.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hierarchical context propagation and cross-agent validation protocols can maintain semantic consistency across multiple language models.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about hierarchical context propagation and cross-agent validation protocols for maintaining semantic consistency.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Drift detection via embedding divergence and consensus mechanisms can ensure consistency across agents.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about drift detection via embedding divergence and consensus mechanisms.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The attention collapse phenomenon stems from the softmax normalization in multi-head attention.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided reference material does not discuss the attention collapse phenomenon or its relationship to softmax normalization in multi-head attention.",
+          "suggested_correction": null
+        },
+        {
+          "text": "As context length increases, the attention entropy H = -\u03a3 A_ij log A_ij decreases due to several mathematical factors.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The reference material does not provide information about the relationship between context length and attention entropy.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Softmax Sharpening causes attention to concentrate on fewer tokens, with effective attention span following O(\u221an log n).",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no discussion of Softmax Sharpening or its effects on attention span in the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Positional Encoding Interference introduces frequency-dependent phase shifts that create destructive interference at long distances.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The reference material does not mention Positional Encoding Interference or its potential effects on long-distance interactions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gradient Flow Degradation decreases the attention gradient magnitude as 1/n\u00b2 for distant tokens, creating an effective attention horizon.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "Gradient Flow Degradation and its relationship to attention gradient magnitude are not discussed in the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "In code generation, attention collapse appears as loss of early context, inconsistent variable naming, and failure to maintain architectural patterns.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The reference material does not provide information about the manifestations of attention collapse in code generation tasks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Linear attention variants trade global connectivity for O(n) scaling, but lose the ability to perform non-local reasoning essential for code understanding.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The trade-offs between linear attention variants and traditional attention mechanisms are not discussed in the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At Meta's CodeGen team, Claude's code quality dropped 40% when context exceeded 32K tokens due to systematic forgetting of early architectural decisions.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no mention of Meta's CodeGen team or the performance of Claude's code quality in relation to context length in the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At Meta's AI Infrastructure team, semantic anchoring reduced inconsistency by 73% in collaborative AI coding workflows.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about Meta's AI Infrastructure team or the impact of semantic anchoring on collaborative AI coding workflows.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Parallel LLM code generation fails due to architectural entropy maximization across independent agents.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not discuss parallel LLM code generation or architectural entropy maximization across independent agents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Architectural constitution using shared context vectors and constraint propagation can solve architectural drift in parallel LLM code generation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about architectural constitution using shared context vectors and constraint propagation, or its effectiveness in solving architectural drift in parallel LLM code generation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At Netflix, creating a service template constitution reduced integration bugs by 70% in parallel service generation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not mention Netflix or the creation of a service template constitution, nor do they discuss the impact on integration bugs in parallel service generation.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Appendix: Full System Design Walkthrough",
+      "score": 0.65,
+      "claims": [
+        {
+          "text": "AI agents are brilliant junior developers who need guardrails, not micromanagement.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim that AI agents are brilliant junior developers who need guardrails, not micromanagement, is partially correct in the context of AI-assisted coding. However, it simplifies the complexities of managing AI agents in software development.",
+          "suggested_correction": "AI agents can be viewed as brilliant junior developers that require clear objectives, defined boundaries, and rigorous testing to produce high-quality code, but this perspective is an oversimplification of the challenges in AI-assisted development."
+        },
+        {
+          "text": "The system must channel their capabilities while preventing the 'confident junior dev' failure modes that plague production AI deployments.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The system must indeed channel the capabilities of AI agents while preventing failure modes such as overconfidence and incorrect assumptions, which is a key challenge in AI-assisted coding.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The core insight is that AI agents excel at iterative problem-solving toward clear success criteria but fail catastrophically when given vague directives or unlimited autonomy.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The core insight about AI agents excelling at iterative problem-solving toward clear success criteria but failing catastrophically with vague directives is accurate and reflects the importance of well-defined objectives in AI-assisted coding.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The architecture must encode expert judgment into persistent constraints that prevent failure modes while preserving the agent's core strength: iterative problem-solving toward verifiable goals.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Encoding expert judgment into persistent constraints is crucial for preventing failure modes and preserving the agent's core strength in iterative problem-solving, which aligns with the concept of using CLAUDE.md files for AI configuration.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The most critical architectural decisions stem from understanding what happens when the agent gets it wrong.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Understanding what happens when the agent gets it wrong is indeed critical for making the most important architectural decisions in AI-assisted development, as it informs the design of feedback loops and error correction mechanisms.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The autonomy spectrum is not binary\u2014it's a spectrum from 'suggest keywords' to 'pause underperforming campaigns' to 'create new ad groups.'",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The autonomy spectrum is not binary but rather a spectrum, which is correctly acknowledged in the context of AI-assisted coding where tasks can range from simple suggestions to complex decision-making.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of AI over-engineering, wrong assumptions, and orthogonal code changes in a production codebase far exceeds the cost of slower iteration.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The cost of AI over-engineering, wrong assumptions, and orthogonal code changes can indeed far exceed the cost of slower iteration, highlighting the importance of careful planning and constraint design in AI-assisted development.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A single 'drive-by refactoring' incident can create hours of debugging work.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "A single 'drive-by refactoring' incident can indeed create hours of debugging work, underscoring the need for surgical changes and minimal modifications in AI-assisted coding to prevent unnecessary complexity and errors.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The baseline architecture should optimize for the cost of being wrong, not the cost of being slow.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about optimizing for the cost of being wrong versus the cost of being slow is not directly supported or contradicted by the provided reference material. It appears to be a general principle or guideline rather than a specific fact that can be verified against the given knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "In production systems, a single bad AI decision can cost more than a thousand slow good ones.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim that a single bad AI decision can cost more than a thousand slow good ones is not directly supported or contradicted by the provided reference material. This statement seems to be a general assertion or anecdotal evidence rather than a fact that can be verified against the given knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The hardest failures to debug are the ones where the agent did exactly what you asked, just not what you meant.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that the hardest failures to debug are the ones where the agent did exactly what you asked, just not what you meant, aligns with the challenges discussed in the knowledge pages regarding AI coding assistants making wrong assumptions and the importance of clear instructions and verification.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Production AI systems fail most often on the boundaries between human intent and machine interpretation.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that production AI systems fail most often on the boundaries between human intent and machine interpretation is supported by the discussions in the knowledge pages about the challenges of aligning AI behavior with human expectations and the need for clear guidelines and feedback mechanisms.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The hardest constraint isn't technical \u2014 it's trust.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The claim that the hardest constraint isn't technical \u2014 it's trust, while insightful, is not directly supported or contradicted by the specific details in the provided reference material. Trust is a critical factor in AI adoption, but the knowledge pages focus more on technical aspects and best practices for AI-assisted coding.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Advertisers will forgive a slow agent or even a wrong recommendation.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The claim that advertisers will forgive a slow agent or even a wrong recommendation is not directly addressed in the provided reference material. This statement appears to relate to the tolerance of stakeholders for AI system performance, which is not a topic explicitly covered in the given knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "They won't forgive an agent that makes changes they can't understand or didn't approve.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that they won't forgive an agent that makes changes they can't understand or didn't approve is supported by the emphasis in the knowledge pages on the importance of transparency, explainability, and control in AI-assisted development, particularly in ensuring that changes made by AI agents are understandable and approved by human developers.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Design for transparency first, optimization second.",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The claim that one should design for transparency first, optimization second, while a reasonable guideline, is not directly supported or contradicted by the specific information in the provided reference material. The knowledge pages discuss the importance of transparency and optimization in AI-assisted coding but do not explicitly prioritize one over the other in all cases.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The sophistication of your requirements clarification directly correlates with system reliability in production.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim is supported by the knowledge pages, which discuss the importance of clear requirements clarification in ensuring system reliability.",
+          "suggested_correction": null
+        },
+        {
+          "text": "'Can the agent send emails?' is a junior question.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is partially supported by the knowledge pages, which mention that 'Can the agent send emails?' could be considered a junior question due to its simplicity. However, the context in which this question is asked can affect its perceived complexity.",
+          "suggested_correction": "The question 'Can the agent send emails?' can be considered junior in certain contexts due to its simplicity, but its complexity can vary based on the specific requirements and constraints of the project."
+        },
+        {
+          "text": "'Under what conditions can the agent send which types of emails to which stakeholders with what approval workflows and rollback mechanisms?' is the senior framing that prevents 3 AM incident calls.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "The claim is supported by the knowledge pages, which emphasize the importance of detailed, senior-level questions like 'Under what conditions can the agent send which types of emails to which stakeholders with what approval workflows and rollback mechanisms?' in preventing 3 AM incident calls.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Evaluation isn't just about catching bad code\u2014it's about catching bad assumptions before they become bad code.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim is supported by the knowledge pages, which discuss the role of evaluation in catching not just bad code but also bad assumptions before they become bad code.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Executive Summary",
+      "score": 0.5,
+      "claims": [
+        {
+          "text": "Teams report transitioning from 80% manual coding to 80% agent-orchestrated development, representing a 4x productivity multiplier when properly constrained.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions transitioning from 80% manual coding to 80% agent-orchestrated development, which is supported by the knowledge pages. However, the claim also mentions a 4x productivity multiplier, which is not explicitly mentioned in the provided reference material.",
+          "suggested_correction": "Teams report transitioning from 80% manual coding to 80% agent-orchestrated development."
+        },
+        {
+          "text": "LLMs are exceptionally good at looping until they meet specific goals.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages state that LLMs are exceptionally good at looping until they meet specific goals, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Ad-hoc prompting is suitable for simple tasks like typo fixes or obvious one-liners.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that ad-hoc prompting is suitable for simple tasks like typo fixes or obvious one-liners, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Structured configuration files are suitable for non-trivial, multi-file projects.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages state that structured configuration files are suitable for non-trivial, multi-file projects, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The overhead of behavioral constraints exceeds the risk for simple tasks like typo fixes or obvious one-liners.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not mention that the overhead of behavioral constraints exceeds the risk for simple tasks like typo fixes or obvious one-liners.",
+          "suggested_correction": "The overhead of behavioral constraints does not necessarily exceed the risk for simple tasks like typo fixes or obvious one-liners."
+        },
+        {
+          "text": "Silent wrong assumptions compound quickly into costly debugging sessions in non-trivial, multi-file projects.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that silent wrong assumptions can compound quickly into costly debugging sessions in non-trivial, multi-file projects, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Configuration files provide consistent behavior and persistent context.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages state that configuration files provide consistent behavior and persistent context, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Ad-hoc prompting results in inconsistent results and repeated instructions.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that ad-hoc prompting can result in inconsistent results and repeated instructions, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The plugin system provides cross-project consistency and marketplace sharing.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The plugin system does provide cross-project consistency and marketplace sharing as described in the claude-code-plugin-system.md knowledge page.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The plugin system has a platform dependency and learning curve.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The plugin system has a platform dependency and learning curve as mentioned in the claude-code-plugin-system.md knowledge page.",
+          "suggested_correction": null
+        },
+        {
+          "text": "CLAUDE.md config has setup overhead and context window usage.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "CLAUDE.md config does have setup overhead, but the knowledge pages do not explicitly mention 'context window usage' as a characteristic.",
+          "suggested_correction": "CLAUDE.md config has setup overhead but its primary function is to provide persistent behavioral guidelines for AI coding assistants."
+        },
+        {
+          "text": "Success metrics for configuration files include fewer unnecessary diffs and simple solutions on first attempt.",
+          "verdict": "partially_correct",
+          "confidence": 0.6,
+          "reasoning": "Success metrics for configuration files include fewer unnecessary diffs, but the provided list mixes elements from different knowledge pages without fully aligning with any single page's description of success metrics.",
+          "suggested_correction": "Success metrics for configuration files, as described in various knowledge pages, focus on reducing unnecessary changes and improving code quality, but the exact metrics can vary."
+        },
+        {
+          "text": "Success metrics for configuration files include questions before implementation and clean PRs without drive-by refactoring.",
+          "verdict": "incorrect",
+          "confidence": 0.4,
+          "reasoning": "The provided claim about success metrics does not accurately reflect the information found in the knowledge pages, which discuss various aspects of AI-assisted coding but do not support this specific combination of metrics.",
+          "suggested_correction": "Refer to specific knowledge pages like agentic-engineering.md or ai-configuration-files-for-code-optimization.md for accurate success metrics related to configuration files."
+        },
+        {
+          "text": "The configuration decision tree recommends ad-hoc prompting for simple tasks and structured config for complex tasks.",
+          "verdict": "unverifiable",
+          "confidence": 0.2,
+          "reasoning": "The knowledge pages do not provide a clear decision tree for configuration that matches the described recommendations for simple tasks, complex tasks, or the use of CLAUDE.md and plugins.",
+          "suggested_correction": "Consult specific guidelines or decision trees provided in relevant knowledge pages for configuring AI coding assistants."
+        },
+        {
+          "text": "The configuration decision tree recommends CLAUDE.md + 4 principles for new projects and plugin installation for existing projects.",
+          "verdict": "unverifiable",
+          "confidence": 0.1,
+          "reasoning": "The provided claim does not align with any specific information found in the knowledge pages regarding a configuration decision tree for new projects or plugin installation for existing projects.",
+          "suggested_correction": "Refer to the claude-code-plugin-system.md or claude-md-configuration-file.md for guidance on configuring AI coding assistants for projects."
+        },
+        {
+          "text": "The configuration decision tree recommends marketplace plugin for team-wide existing projects and local .claude/ config for individual existing projects.",
+          "verdict": "unverifiable",
+          "confidence": 0.1,
+          "reasoning": "The knowledge pages do not explicitly support the claim about the configuration decision tree recommending a marketplace plugin for team-wide existing projects and local .claude/ config for individual existing projects.",
+          "suggested_correction": "Consult relevant knowledge pages for accurate information on configuring AI coding assistants for team-wide or individual projects."
+        }
+      ]
+    },
+    {
+      "section_name": "System Design Walkthrough (Summary)",
+      "score": 0.42105263157894735,
+      "claims": [
+        {
+          "text": "Amazon Ads was scaled to 300M+ MAU with distributed teams",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about Amazon Ads being scaled to 300M+ MAU with distributed teams.",
+          "suggested_correction": null
+        },
+        {
+          "text": "CLAUDE.md is a distributed systems contract that enforces behavioral consistency across thousands of AI-human interactions",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "CLAUDE.md is indeed a distributed systems contract that enforces behavioral consistency across thousands of AI-human interactions, as described in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The AI Code Governance Layer consists of Global Config, Project Config, and Local Overrides",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The AI Code Governance Layer does consist of Global Config, Project Config, and Local Overrides, as outlined in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Global Config is stored in ~/.claude/CLAUDE.md",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Global Config is stored in ~/.claude/CLAUDE.md, which is specified in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Project Config is stored in ./CLAUDE.md and is version-controlled",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Project Config is stored in ./CLAUDE.md and is version-controlled, as described in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Local Overrides are stored in ./CLAUDE.local.md and are gitignored",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Local Overrides are stored in ./CLAUDE.local.md and are gitignored, which is consistent with the information provided in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has a Behavioral Enforcement component with principles such as Think Before Coding, Simplicity First, and Surgical Changes",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The system does have a Behavioral Enforcement component with principles such as Think Before Coding, Simplicity First, and Surgical Changes, as outlined in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Goal-Driven Execution component uses success criteria and verification loops",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Goal-Driven Execution component does use success criteria and verification loops, which is described in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Configuration drift becomes critical at 10x scale (1K developers)",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided reference material does not contain information about configuration drift or its relationship to the scale of development teams.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Cross-team consistency requires federated governance at 100x scale (10K developers)",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided reference material does not discuss cross-team consistency, federated governance, or their connection to the scale of development teams.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Behavioral evolution at scale requires ML-driven behavioral optimization at 1000x scale (100K developers)",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The reference material does not mention behavioral evolution at scale, ML-driven behavioral optimization, or their relationship to the size of development teams.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The Quality Feedback Loop tracks metrics such as Diff cleanliness, assumption questions, and rewrite rate",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about the Quality Feedback Loop or its metrics.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system uses a hierarchical configuration approach with global defaults and local overrides",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The system uses a hierarchical configuration approach with global defaults and local overrides, as described in the agentic-engineering.md page.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system integrates with version control to enable collaborative improvement and rollback capabilities",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The provided knowledge pages do not contain information about the system integrating with version control.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A multi-agent orchestration layer can be used to achieve cross-agent consistency",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The provided knowledge pages do not contain information about a multi-agent orchestration layer.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dynamic behavioral adaptation can be based on code complexity metrics",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The provided knowledge pages do not contain information about dynamic behavioral adaptation based on code complexity metrics.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Project-specific behavioral profiles can be integrated with tech stack",
+          "verdict": "unverifiable",
+          "confidence": 0.4,
+          "reasoning": "The provided knowledge pages do not contain information about project-specific behavioral profiles being integrated with tech stack.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Automated behavioral compliance scoring can be used with drift detection",
+          "verdict": "unverifiable",
+          "confidence": 0.3,
+          "reasoning": "The provided knowledge pages do not contain information about automated behavioral compliance scoring or drift detection.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A plugin marketplace can be used to manage versioned behavioral profiles",
+          "verdict": "unverifiable",
+          "confidence": 0.2,
+          "reasoning": "The provided knowledge pages do not contain information about a plugin marketplace for managing versioned behavioral profiles.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Design Flow Framework",
+      "score": 0.42105263157894735,
+      "claims": [
+        {
+          "text": "The Design Flow Framework consists of 7 steps.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Design Flow Framework is not explicitly described in the provided knowledge pages, making it impossible to confirm the number of steps it consists of.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 1 of the Design Flow Framework is to clarify requirements and define success criteria and behavioral constraints for AI agents.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Step 1 of the Design Flow Framework indeed involves clarifying requirements and defining success criteria and behavioral constraints for AI agents, as described in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 2 of the Design Flow Framework is to identify technical limitations of LLMs and organizational adoption barriers.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages confirm that Step 2 of the Design Flow Framework is about identifying technical limitations of LLMs and organizational adoption barriers.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The baseline proposal in the Design Flow Framework includes four core principles: Think, Simplicity, Surgical, Goal-driven.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The baseline proposal in the Design Flow Framework includes the four core principles of Think, Simplicity, Surgical, and Goal-driven, as outlined in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework includes a decision to choose between project-specific CLAUDE.md and global plugin installation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about a decision to choose between project-specific CLAUDE.md and global plugin installation within the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework involves identifying gaps where the baseline fails, including complex multi-agent workflows and domain-specific pitfalls.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Design Flow Framework does involve identifying gaps where the baseline fails, including complex multi-agent workflows and domain-specific pitfalls, as discussed in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework proposes introducing improvements such as hierarchical CLAUDE.md structure and behavioral profiles.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages describe how the Design Flow Framework proposes introducing improvements such as hierarchical CLAUDE.md structure and behavioral profiles.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework includes adding evaluation and guardrails, such as success metrics and quality indicators for AI-generated code.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Design Flow Framework includes adding evaluation and guardrails, such as success metrics and quality indicators for AI-generated code, as mentioned in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Decision Matrix in the Design Flow Framework includes options for installation methods, including Claude Code Plugin and Per-Project CLAUDE.md.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Decision Matrix in the Design Flow Framework is not explicitly mentioned in the provided reference material, making it impossible to confirm the claim about options for installation methods.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Decision Matrix in the Design Flow Framework includes options for behavioral scope, including Four Core Principles Only and Extended Expert Guidelines.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided reference material does not mention the Decision Matrix in the Design Flow Framework including options for behavioral scope, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Decision Matrix in the Design Flow Framework includes options for change philosophy, including Surgical Changes Only and Comprehensive Refactoring.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information in the provided reference material about the Decision Matrix in the Design Flow Framework including options for change philosophy, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Decision Matrix in the Design Flow Framework includes options for success criteria, including Goal-Driven Execution and Imperative Instructions.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The reference material does not discuss the Decision Matrix in the Design Flow Framework including options for success criteria, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Decision Matrix in the Design Flow Framework includes options for adoption strategy, including Individual Developer and Team-Wide Implementation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided material does not mention the Decision Matrix in the Design Flow Framework including options for adoption strategy, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework considers the trade-off between caution and speed in the adoption of AI agents.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The reference material does not explicitly discuss the Design Flow Framework considering the trade-off between caution and speed in AI agent adoption, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework considers the trade-off between plugin marketplace and custom configurations.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information in the provided material about the Design Flow Framework considering the trade-off between plugin marketplace and custom configurations, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework considers the trade-off between individual and team adoption patterns.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The reference material does not mention the Design Flow Framework considering the trade-off between individual and team adoption patterns, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework includes the concept of verification loops versus imperative instructions.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Design Flow Framework does include concepts related to verification and imperative instructions, but the claim lacks specificity and clarity on how these concepts are integrated into the framework.",
+          "suggested_correction": "The Design Flow Framework incorporates verification loops and imperative instructions as part of its approach to software development, focusing on iterative improvement toward specific objectives."
+        },
+        {
+          "text": "The Design Flow Framework includes the concept of assumption validation gaps and over-engineering detection.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Design Flow Framework indeed includes the concept of assumption validation gaps and over-engineering detection, which are crucial for ensuring the reliability and efficiency of AI-assisted coding workflows.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Design Flow Framework includes the concept of project memory cards and version-controlled instructions.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Design Flow Framework does include the concept of project memory cards and version-controlled instructions, which are essential for maintaining consistency and traceability in AI-assisted development projects.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Interview Q&A Bank",
+      "score": 0.7894736842105263,
+      "claims": [
+        {
+          "text": "Karpathy's approach transforms AI coding from imperative instructions to goal-driven execution with persistent behavioral constraints.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Karpathy's approach does transform AI coding from imperative instructions to goal-driven execution, but the claim about 'persistent behavioral constraints' is not fully supported by the provided reference material.",
+          "suggested_correction": "Karpathy's approach transforms AI coding from imperative instructions to goal-driven execution."
+        },
+        {
+          "text": "The CLAUDE.md approach represents a fundamental shift from ad-hoc 'vibe coding' to systematic 'agentic engineering'.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The CLAUDE.md approach indeed represents a fundamental shift from ad-hoc 'vibe coding' to systematic 'agentic engineering'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLMs are exceptionally good at looping until they meet specific goals.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "LLMs are indeed exceptionally good at looping until they meet specific goals, which is a key insight behind the goal-driven execution principle.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The four principles of the Karpathy guidelines are Think Before Coding, Simplicity First, Surgical Changes, and Goal-Driven Execution.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The four principles of the Karpathy guidelines are indeed Think Before Coding, Simplicity First, Surgical Changes, and Goal-Driven Execution.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Think Before Coding addresses the most dangerous failure mode where LLMs make wrong assumptions and proceed silently.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Think Before Coding does address the most dangerous failure mode where LLMs make wrong assumptions and proceed silently.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Simplicity First combats the over-engineering tendency where LLMs create bloated abstractions and implement 1000-line solutions when 100 would suffice.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Simplicity First does combat the over-engineering tendency where LLMs create bloated abstractions and implement 1000-line solutions when 100 would suffice.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Surgical Changes prevents orthogonal modifications by establishing strict boundaries.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Surgical Changes does prevent orthogonal modifications by establishing strict boundaries.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Goal-Driven Execution leverages LLMs' strength at iterative improvement by providing success criteria rather than step-by-step instructions.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Goal-Driven Execution does leverage LLMs' strength at iterative improvement by providing success criteria rather than step-by-step instructions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The core insight\u2014that AI agents need explicit behavioral constraints rather than implicit expectations\u2014will likely remain valid even as capabilities advance.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "The claim that AI agents need explicit behavioral constraints rather than implicit expectations is supported by the knowledge pages, which emphasize the importance of clear objectives, defined boundaries, and rigorous testing protocols in AI-assisted development.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The CLAUDE.md approach deliberately biases toward caution over speed for non-trivial work.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "The CLAUDE.md approach is designed to deliberately bias toward caution over speed for non-trivial work, as stated in the knowledge pages. This approach is intended to prevent costly mistakes and ensure that AI-generated code is reliable and maintainable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The approach transforms the development process from instruction-following to objective-achieving.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "The approach transforms the development process from instruction-following to objective-achieving, as described in the knowledge pages. This transformation is achieved through the use of goal-driven execution, where AI agents are provided with success criteria and allowed to loop until those criteria are met.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Scaling CLAUDE.md across a large organization requires a structured hierarchy that balances consistency with team autonomy.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim is supported by the knowledge pages, which discuss the importance of a structured hierarchy in scaling CLAUDE.md across a large organization.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The CLAUDE.md approach provides persistent behavioral constraints without model modification.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is supported by the knowledge pages, which mention the use of CLAUDE.md files to provide persistent behavioral constraints without model modification.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fine-tuning modifies the model weights to embed desired behaviors, but this approach has significant drawbacks.",
+          "verdict": "correct",
+          "confidence": 0.7,
+          "reasoning": "The claim is supported by the knowledge pages, which discuss the limitations of fine-tuning and the benefits of using CLAUDE.md files for behavioral constraints.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The 'confident junior developer' characterization of AI agents influences system design decisions in production environments.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim is supported by the knowledge pages, which describe the 'confident junior developer' characterization of AI agents and its influence on system design decisions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Production AI systems require the same thoughtful supervision architecture we use for junior developers.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is supported by the knowledge pages, which emphasize the importance of thoughtful supervision architecture for production AI systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Automated validation of AI-generated code requires a multi-layered validation system combining static analysis, semantic analysis, and behavioral pattern detection.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim is not directly supported or contradicted by the knowledge pages, which do not provide detailed information on automated validation of AI-generated code.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Karpathy approach can be implemented in a microservices architecture with multiple teams and varying technology stacks through federated configuration.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim is not directly supported or contradicted by the knowledge pages, which do not provide detailed information on the implementation of the Karpathy approach in a microservices architecture.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Guideline evolution requires systematic failure mode detection, community-driven guideline refinement, and adaptive frameworks.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim is not directly supported or contradicted by the knowledge pages, which do not provide detailed information on guideline evolution or the specific processes involved.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Cost Model",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Debugging Cycles (Prevented) save $200/hour loaded.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about the cost savings of Debugging Cycles (Prevented).",
+          "suggested_correction": null
+        },
+        {
+          "text": "Net Cost Per Task can be -$50 to -$25.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about the Net Cost Per Task.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At enterprise scale (1M+ developers), proper configuration can reduce debugging overhead by 40-60%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about the reduction in debugging overhead at enterprise scale.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Behavioral Guidelines Implementation can provide 60-80% ROI.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about the ROI of Behavioral Guidelines Implementation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Template Library Development can provide 40-60% ROI.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about the ROI of Template Library Development.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Automated Quality Gates can provide 30-50% ROI.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about the ROI of Automated Quality Gates.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context Optimization can provide 20-40% ROI.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about the ROI of Context Optimization.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-Agent Orchestration can provide 15-30% ROI.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about the ROI of Multi-Agent Orchestration.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Proper configuration can reduce debugging overhead by 40-60%, translating to $2-5M annual savings per 1000 developers.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about reducing debugging overhead by 40-60% and translating to $2-5M annual savings per 1000 developers is not supported by the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Cost Model for Claude Code configuration systems encompasses the economic framework for implementing, scaling, and maintaining AI-assisted development workflows.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the Cost Model for Claude Code configuration systems is not supported by the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Choose configuration-driven approaches for teams with >5 developers or codebases >50K LOC where consistency matters.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about choosing configuration-driven approaches for teams with >5 developers or codebases >50K LOC is not supported by the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLM Tokens (Input) cost $0.003/1K tokens.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about LLM Tokens (Input) costing $0.003/1K tokens is not supported by the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLM Tokens (Output) cost $0.015/1K tokens.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about LLM Tokens (Output) costing $0.015/1K tokens is not supported by the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Configuration Storage costs $0.023/GB/month.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Configuration Storage costing $0.023/GB/month is not supported by the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Version Control Overhead costs $5/user/month.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Version Control Overhead costing $5/user/month is not supported by the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Human Review Time costs $150/hour loaded.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Human Review Time costing $150/hour loaded is not supported by the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Custom LLM Fine-tuning can cost $500K+ (20+ eng-months).",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about the cost of Custom LLM Fine-tuning.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information."
+        },
+        {
+          "text": "Quality Scoring Pipeline can cost $150K (6 eng-months).",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about the cost of Quality Scoring Pipeline.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information."
+        },
+        {
+          "text": "Multi-Agent Orchestration can cost $1M+ (40+ eng-months).",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about the cost of Multi-Agent Orchestration.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information."
+        }
+      ]
+    },
+    {
+      "section_name": "Observability & Production Debugging",
+      "score": 0.5789473684210527,
+      "claims": [
+        {
+          "text": "Comprehensive AI agent tracing can cost $50K-200K/month at 300M+ MAU scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided reference material does not contain information about the cost of comprehensive AI agent tracing at 300M+ MAU scale.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Comprehensive AI agent tracing can prevent $2M+ incidents from undetected agent failures.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided reference material does not contain information about the potential incidents that comprehensive AI agent tracing can prevent.",
+          "suggested_correction": null
+        },
+        {
+          "text": "73% of AI agent failures could be traced back to ambiguous requirements interpretation at Amazon Ads.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided reference material does not contain information about the percentage of AI agent failures that could be traced back to ambiguous requirements interpretation at Amazon Ads.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Adding structured assumption logging reduced debugging time from hours to minutes and caught 89% of potential issues before code review at Amazon Ads.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided reference material does not contain information about the impact of adding structured assumption logging on debugging time and potential issues caught before code review at Amazon Ads.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Silent Assumption Rate is a critical metric that indicates when AI agents stop explicitly stating their assumptions.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided reference material does not contain information about the Silent Assumption Rate or its relation to AI agents stopping explicitly stating their assumptions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AI agent systems require versioning multiple interdependent components that can change independently.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The provided reference material implies that AI agent systems require versioning multiple interdependent components that can change independently, as seen in the discussion of CLAUDE.md files and behavioral guidelines.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Rolling back AI agent configurations requires coordination across multiple systems.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The provided reference material suggests that rolling back AI agent configurations requires coordination across multiple systems, as implied by the need for version control and consistent behavioral guidelines.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The most sophisticated teams version their AI agent configurations with the same rigor as production database schemas.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The provided reference material indicates that sophisticated teams version their AI agent configurations with the same rigor as production database schemas, as seen in the discussion of CLAUDE.md files and expert-driven guidelines.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Environment-aware trace routing can help adjust logging detail and retention based on the deployment environment.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Environment-aware trace routing can indeed help adjust logging detail and retention based on the deployment environment, which is a common practice in software development and operations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Consistent trace formats across environments can enable cross-environment correlation when issues manifest differently in each environment.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "Consistent trace formats across environments can enable cross-environment correlation when issues manifest differently in each environment, which is crucial for effective debugging and troubleshooting.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Trace data federation can help debugging workflows pull relevant information from multiple environments.",
+          "verdict": "correct",
+          "confidence": 0.92,
+          "reasoning": "Trace data federation can help debugging workflows pull relevant information from multiple environments, which is essential for identifying and resolving complex issues that span across different systems and environments.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context window limitations are one of the biggest challenges in AI agent debugging.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about context window limitations being one of the biggest challenges in AI agent debugging is not directly supported or contradicted by the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implementing hierarchical context management with critical information prioritization can help with context window limitations.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Implementing hierarchical context management with critical information prioritization can indeed help with context window limitations, as it allows for more efficient use of the context window and reduces the likelihood of important information being missed.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Using sampling strategies for detailed traces can help balance observability needs with performance and cost constraints.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Using sampling strategies for detailed traces can help balance observability needs with performance and cost constraints, as it allows for the collection of detailed data while minimizing the impact on system performance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Asynchronous logging can help avoid blocking agent responses and reduce observability overhead.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Asynchronous logging can help avoid blocking agent responses and reduce observability overhead, as it allows for the logging of data without interrupting the normal operation of the system.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Tiered logging strategies can help capture comprehensive data while reducing storage costs.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Tiered logging strategies can help capture comprehensive data while reducing storage costs, as they allow for the collection of data at different levels of detail and prioritize the storage of the most important data.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implementing user-specific behavioral profiling can help identify interaction patterns and improve agent behavior.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about implementing user-specific behavioral profiling to identify interaction patterns and improve agent behavior is not directly supported or contradicted by the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Personalized configuration management through CLAUDE.local.md files can help individual developers override global behavioral guidelines.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Personalized configuration management through CLAUDE.local.md files can help individual developers override global behavioral guidelines, as it allows for the customization of agent behavior to meet the specific needs of each developer.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A/B testing frameworks can help isolate whether issues are caused by user behavior patterns or agent configuration problems.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about A/B testing frameworks helping to isolate whether issues are caused by user behavior patterns or agent configuration problems is not directly supported or contradicted by the provided reference material.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Data Flywheel & Continuous Improvement",
+      "score": 0.35,
+      "claims": [
+        {
+          "text": "A 1% improvement in code acceptance rate translates to $50M+ annual productivity gains at 300M+ MAU scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about a 1% improvement in code acceptance rate translating to $50M+ annual productivity gains at 300M+ MAU scale is not supported by the provided reference material and seems to be a hypothetical or unsubstantiated statement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Code Acceptance Rate is a high-value feedback signal with direct productivity metric.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Code Acceptance Rate is indeed considered a high-value feedback signal with direct productivity metric, as it reflects the efficiency and effectiveness of the development process.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Human Edit Distance is a high-value feedback signal and quality indicator.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Human Edit Distance is recognized as a high-value feedback signal and quality indicator, providing insights into the differences between expected and actual code outputs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Compilation Success is a medium-value feedback signal and basic correctness metric.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Compilation Success is acknowledged as a medium-value feedback signal and basic correctness metric, indicating whether the code can be successfully compiled.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Test Coverage Impact is a high-value feedback signal and reliability measure.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Test Coverage Impact is considered a high-value feedback signal and reliability measure, as it assesses the extent to which code changes affect the overall test coverage.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Security Vulnerability Introduction is a critical feedback signal and risk mitigation metric.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Security Vulnerability Introduction is indeed viewed as a critical feedback signal and risk mitigation metric, highlighting potential security risks introduced by code changes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Performance Regression is a medium-value feedback signal and runtime quality metric.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Performance Regression is recognized as a medium-value feedback signal and runtime quality metric, indicating potential performance issues caused by code changes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Developer Satisfaction is a high-value feedback signal and adoption driver.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Developer Satisfaction is considered a high-value feedback signal and adoption driver, reflecting the ease of use, usability, and overall satisfaction of developers with the development tools and processes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context Window Utilization is a medium-value feedback signal and efficiency metric.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about 'Context Window Utilization' being a medium-value feedback signal and efficiency metric.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-turn Conversation Quality is a high-value feedback signal and complex task success metric.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about 'Multi-turn Conversation Quality' being a high-value feedback signal and complex task success metric.",
+          "suggested_correction": null
+        },
+        {
+          "text": "API Hallucination Rate is a critical feedback signal and correctness fundamental metric.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about 'API Hallucination Rate' being a critical feedback signal and correctness fundamental metric.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Focusing human review on the 5% of code generations with highest uncertainty scores yielded 10x better model improvements than random sampling at Amazon Ads.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about focusing human review on the 5% of code generations with highest uncertainty scores yielding 10x better model improvements than random sampling at Amazon Ads.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Real-time feedback collection captures developer interactions, code acceptance rates, and edit patterns with <10ms overhead.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about real-time feedback collection capturing developer interactions, code acceptance rates, and edit patterns with <10ms overhead.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Signal processing pipeline processes 50M+ daily events to extract improvement signals using distributed stream processing.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about a signal processing pipeline processing 50M+ daily events to extract improvement signals using distributed stream processing.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Active learning orchestration identifies high-value examples for human review using uncertainty sampling and diversity metrics.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about active learning orchestration identifying high-value examples for human review using uncertainty sampling and diversity metrics.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model update pipeline supports multiple update cadences from real-time prompt optimization to quarterly model retraining.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about a model update pipeline supporting multiple update cadences from real-time prompt optimization to quarterly model retraining.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system scales to 300M+ MAU through horizontal partitioning of feedback processing, cached model inference, and tiered storage for different signal types.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the system scaling to 300M+ MAU through horizontal partitioning of feedback processing, cached model inference, and tiered storage for different signal types cannot be verified with the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Real-time model serving is solved via model distillation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about real-time model serving being solved via model distillation cannot be verified with the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Human annotation throughput is solved via active learning prioritization.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about human annotation throughput being solved via active learning prioritization cannot be verified with the provided reference material.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Improvement prioritization framework balances three competing objectives: immediate developer productivity, long-term model quality, and system reliability.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about the improvement prioritization framework balancing three competing objectives cannot be verified with the provided reference material.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Seniority Signals Cheat Sheet",
+      "score": 0.35714285714285715,
+      "claims": [
+        {
+          "text": "Treating AI agents as production systems requiring the same operational rigor as distributed infrastructure \u2014 with behavioral SLAs, measurable quality metrics, and systematic failure mode mitigation rather than ad-hoc prompt engineering",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Treating AI agents as production systems is a valid approach, but the provided claim lacks specificity regarding operational rigor, behavioral SLAs, measurable quality metrics, and systematic failure mode mitigation.",
+          "suggested_correction": "Define specific operational rigor, behavioral SLAs, quality metrics, and failure mode mitigation strategies for AI agents."
+        },
+        {
+          "text": "The technical debt from AI over-engineering patterns is $2M/year",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information provided in the knowledge pages to support or refute the claim about the technical debt from AI over-engineering patterns being $2M/year.",
+          "suggested_correction": "Provide evidence or context to support the claim about technical debt from AI over-engineering patterns."
+        },
+        {
+          "text": "The company maintains 300M+ MAU reliability standards",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The knowledge pages do not mention the company maintaining 300M+ MAU reliability standards.",
+          "suggested_correction": "Provide context or evidence to support the claim about the company's MAU reliability standards."
+        },
+        {
+          "text": "Assumption-based rework is reduced by 60% while maintaining deployment velocity",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the knowledge pages to support or refute the claim about assumption-based rework being reduced by 60% while maintaining deployment velocity.",
+          "suggested_correction": "Provide evidence or context to support the claim about reduction in assumption-based rework."
+        },
+        {
+          "text": "MTTR is improved by 40% on complex features",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The knowledge pages do not mention MTTR improvement by 40% on complex features.",
+          "suggested_correction": "Provide context or evidence to support the claim about MTTR improvement on complex features."
+        },
+        {
+          "text": "The company has 50+ microservices",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information provided in the knowledge pages to support or refute the claim about the company having 50+ microservices.",
+          "suggested_correction": "Provide evidence or context to support the claim about the number of microservices."
+        },
+        {
+          "text": "We're implementing behavioral profiles as version-controlled assets to systematically address the $2M/year technical debt from AI over-engineering patterns, with measurable KPIs on diff cleanliness and rework cycles",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions specific financial figures and technical debt without providing concrete evidence or references to support these assertions.",
+          "suggested_correction": "Provide specific data or references to support the claim about the $2M/year technical debt and the implementation of behavioral profiles."
+        },
+        {
+          "text": "We've identified the 'confident junior dev' syndrome as a core bottleneck shifting from implementation speed to architecture evaluation \u2014 our mitigation framework targets the 4 failure modes with surgical precision to maintain 300M+ MAU reliability standards",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The claim touches on the 'confident junior dev' syndrome but lacks specific details on how the mitigation framework addresses the four failure modes and maintains reliability standards.",
+          "suggested_correction": "Elaborate on the mitigation framework's specifics, such as how it targets the failure modes and ensures 300M+ MAU reliability standards."
+        },
+        {
+          "text": "LLMs excel at iterative optimization toward verifiable success criteria \u2014 we're transforming imperative workflows into declarative verification loops, reducing assumption-based rework by 60% while maintaining deployment velocity",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim aligns with the concept of transforming imperative workflows into declarative verification loops, which is a recognized approach in AI-assisted development for improving code quality and reducing rework.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Surgical changes principle enforces blast radius containment \u2014 every modified line traces to business requirements, preventing orthogonal edits that compound technical risk in our distributed systems architecture",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim accurately describes the principle of surgical changes, which is about making targeted modifications to code without introducing unnecessary complexity or altering unrelated parts of the codebase.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Explicit assumption validation creates a forcing function for requirement clarity \u2014 we surface ambiguity upfront rather than debugging wrong implementations downstream, improving our MTTR by 40% on complex features",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim correctly identifies the importance of explicit assumption validation in preventing downstream debugging issues and improving the mean time to recover (MTTR) from errors.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "We enforce minimum viable complexity as a risk management strategy \u2014 speculative abstractions create maintenance burden that doesn't scale with team growth, so we bias toward 50-line solutions over 200-line 'flexible' architectures",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim aligns with the principle of enforcing minimum viable complexity as a risk management strategy, recognizing that speculative abstractions can create maintenance burdens.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Behavioral constraints shift quality gates left in our SDLC \u2014 instead of catching over-engineering in PR review, we prevent it at generation time, reducing review cycles and accelerating feature delivery while maintaining production stability",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim accurately describes how behavioral constraints can shift quality gates left in the SDLC, preventing over-engineering and accelerating feature delivery while maintaining production stability.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "We're treating AI behavioral profiles as infrastructure \u2014 centralized distribution through plugin marketplaces creates consistency across 50+ microservices while allowing project-specific customization for domain constraints",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions treating AI behavioral profiles as infrastructure and distributing them through plugin marketplaces without providing specific evidence or context to support this assertion.",
+          "suggested_correction": "Provide more context or evidence about the distribution and management of AI behavioral profiles as infrastructure."
+        }
+      ]
+    },
+    {
+      "section_name": "Advanced Patterns Summary",
+      "score": 0.21052631578947367,
+      "claims": [
+        {
+          "text": "At Amazon Ads, we implemented a hierarchical CLAUDE.md system across 47 microservices serving 300M+ MAU.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about implementing a hierarchical CLAUDE.md system across 47 microservices serving 300M+ MAU is not supported by the provided reference material and cannot be confirmed or denied based on the available knowledge.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The inheritance pattern reduced configuration drift by 73% and cut onboarding time for new AI-assisted developers from 2 weeks to 3 days.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about reducing configuration drift by 73% and cutting onboarding time for new AI-assisted developers from 2 weeks to 3 days is not supported by the provided reference material and cannot be confirmed or denied based on the available knowledge.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The most sophisticated teams treat AI configuration as infrastructure code \u2014 versioned, tested, and deployed with the same rigor as production systems.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that the most sophisticated teams treat AI configuration as infrastructure code \u2014 versioned, tested, and deployed with the same rigor as production systems is supported by the provided reference material, which emphasizes the importance of version-controlled AI instructions and expert-driven guidelines.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implement the Simplicity-First Principle with explicit complexity gates and senior engineer validation tests to prevent AI agents from over-engineering solutions.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about implementing the Simplicity-First Principle with explicit complexity gates and senior engineer validation tests is not directly supported by the provided reference material, although it discusses the importance of simplicity and avoiding over-engineering in AI-assisted coding.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Goal-driven execution reduces rework by 60% on multi-file tasks because it forces assumption validation upfront.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about goal-driven execution reducing rework by 60% on multi-file tasks is not supported by the provided reference material and cannot be confirmed or denied based on the available knowledge.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Surgical changes reduced code review time by 45% and cut bug introduction from AI-assisted changes by 67%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about surgical changes reducing code review time by 45% and cutting bug introduction from AI-assisted changes by 67% is not supported by the provided reference material and cannot be confirmed or denied based on the available knowledge.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Behavioral profiles reduced code review cycle time by 40% by eliminating common categories of feedback.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about behavioral profiles reducing code review cycle time by 40% is not supported by the provided reference material and cannot be confirmed or denied based on the available knowledge.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Security-aware AI configuration reduced security review cycle time by 35% while maintaining zero security incidents from AI-generated code.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about security-aware AI configuration reducing security review cycle time by 35% while maintaining zero security incidents from AI-generated code is not supported by the provided reference material and cannot be confirmed or denied based on the available knowledge.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Basic behavioral profiles provide 20-30% productivity gains through reduced rework.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about the productivity gains from basic behavioral profiles.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Goal-driven execution adds another 15-25% productivity gain through better task completion rates.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about the productivity gain from goal-driven execution.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-agent orchestration enables handling of complex tasks that would be impractical with single-agent approaches.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that multi-agent orchestration enables handling of complex tasks that would be impractical with single-agent approaches.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context-aware risk adjustment allows AI agents to operate at appropriate speeds for different scenarios, optimizing development velocity by 40%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about context-aware risk adjustment or its impact on development velocity.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Enterprise rollout of AI configuration took 18 months across 200+ developers with 85% adoption rate and measurable productivity improvements.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about the rollout of AI configuration or its adoption rate and productivity improvements.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AI configuration requires the same engineering rigor as production systems because it directly impacts code quality and developer productivity.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that AI configuration requires the same engineering rigor as production systems because it directly impacts code quality and developer productivity.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Automated validation and clear inheritance chains prevent configuration drift in AI configuration files.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about automated validation or clear inheritance chains preventing configuration drift.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Graduated autonomy with verification loops is used to balance AI agent autonomy with human oversight in production environments.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about graduated autonomy with verification loops in production environments.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Behavioral profiles complement traditional software engineering practices like code review and testing by preventing issues before they reach code review.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Behavioral profiles can complement traditional software engineering practices, but the claim does not fully capture the nuances of how they interact with code review and testing.",
+          "suggested_correction": "Behavioral profiles can enhance traditional software engineering practices like code review and testing by providing additional context and guidelines for AI-assisted development."
+        },
+        {
+          "text": "Establishing clear precedence hierarchies in configuration inheritance and using context-specific overrides prevents conflicting requirements between different stakeholders.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Establishing clear precedence hierarchies and using context-specific overrides can indeed prevent conflicting requirements between stakeholders.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Tracking metrics such as diff focus ratio, intervention rate, rework frequency, and code review cycle time measures the effectiveness of AI coding configuration.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim about tracking specific metrics to measure the effectiveness of AI coding configuration is too vague and lacks concrete evidence or context to be verified.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.7,
+      "claims": [
+        {
+          "text": "Karpathy documented systematic failure modes in AI-assisted programming, including wrong assumptions, overcomplication, and orthogonal code changes in large language model outputs.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Karpathy did document systematic failure modes in AI-assisted programming, but the claim lacks specificity about the modes mentioned.",
+          "suggested_correction": "Karpathy documented failure modes including wrong assumptions, overcomplication, and orthogonal code changes, but the claim should specify these modes explicitly."
+        },
+        {
+          "text": "Chang systematized Karpathy's observations into four actionable principles for AI coding agents: Think Before Coding, Simplicity First, Surgical Changes, and Goal-Driven Execution.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Chang did systematize Karpathy's observations into actionable principles for AI coding agents, including Think Before Coding, Simplicity First, Surgical Changes, and Goal-Driven Execution.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Claude Code Plugin System can be installed via the marketplace using the command /plugin marketplace add forrestchang/andrej-karpathy-skills.",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "The command to install the Claude Code Plugin System via the marketplace is accurate as per the provided knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The CLAUDE.md Configuration Framework uses a hierarchical structure with root, local, global, and subdirectory configurations.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The CLAUDE.md Configuration Framework does use a hierarchical structure with root, local, global, and subdirectory configurations as described.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Goal-Driven Execution SDK supports task transformation patterns from imperative to declarative success criteria.",
+          "verdict": "correct",
+          "confidence": 0.85,
+          "reasoning": "The Goal-Driven Execution SDK does support task transformation patterns from imperative to declarative success criteria, aligning with the goal-driven execution principle.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The AI Code Assumption Validation Best Practices include explicit assumption statement protocols before implementation.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The AI Code Assumption Validation Best Practices include protocols for explicit assumption statements before implementation, which is a key aspect of addressing wrong assumptions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Surgical Code Changes Guidelines recommend minimal modification boundaries and orthogonal edit prevention strategies.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Surgical Code Changes Guidelines do recommend minimal modification boundaries and strategies to prevent orthogonal edits, aligning with the principle of making surgical changes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Expert-in-the-Loop System Design integrates domain expertise into AI operational parameters.",
+          "verdict": "correct",
+          "confidence": 0.85,
+          "reasoning": "The Expert-in-the-Loop System Design does integrate domain expertise into AI operational parameters, reflecting the concept of expert-in-the-loop systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The LLM Coding Quality Metrics include diff cleanliness, assumption validation, simplicity assessment, and surgical precision.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The LLM Coding Quality Metrics include diff cleanliness and simplicity assessment, but the claim also mentions assumption validation and surgical precision, which are related to the Think Before Coding and Surgical Changes principles, respectively.",
+          "suggested_correction": "The LLM Coding Quality Metrics include diff cleanliness, simplicity assessment, and other related principles such as assumption validation and surgical precision."
+        },
+        {
+          "text": "The Agentic Engineering Success Indicators include code review efficiency, reduced rewrite frequency, and improved first-attempt code quality.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Agentic Engineering Success Indicators do include code review efficiency, reduced rewrite frequency, and improved first-attempt code quality, as these are key benefits of using agentic engineering principles in AI-assisted development.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The AI-Assisted Development Evolution survey analyzed the transition from manual coding to agent-orchestrated development.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information provided about the AI-Assisted Development Evolution survey, so it's impossible to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Behavioral Profiles for AI Assistants survey evaluated the effectiveness of version-controlled vs. session-based AI guidance.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information provided about the Behavioral Profiles for AI Assistants survey, so it's impossible to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Karpathy documented the transition from 80% manual coding to 80% agent-driven development.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Andrej Karpathy did document his transition from 80% manual coding to 80% agent-driven development, highlighting the significant shift in his workflow.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The CLAUDE.md Configuration Framework reads project-level instruction files at session start.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The CLAUDE.md Configuration Framework does read project-level instruction files at session start to establish behavioral guidelines for AI coding assistants.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Goal-Driven Execution SDK supports multi-step planning with verification loops.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Goal-Driven Execution SDK does support multi-step planning with verification loops, enabling AI agents to iterate toward specific objectives.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The AI Code Assumption Validation Best Practices include multiple interpretation presentation when ambiguity exists.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The AI Code Assumption Validation Best Practices do include presenting multiple interpretations when ambiguity exists, as this is a key aspect of preventing wrong assumptions in AI-generated code.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Surgical Code Changes Guidelines recommend style consistency maintenance protocols.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Surgical Code Changes Guidelines do recommend style consistency maintenance protocols, but the claim lacks specificity about what these protocols entail or how they are implemented.",
+          "suggested_correction": "The Surgical Code Changes Guidelines recommend maintaining existing code style and avoiding unnecessary modifications to unrelated code sections."
+        },
+        {
+          "text": "The Expert-in-the-Loop System Design includes pitfall mitigation frameworks for professional software development.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Expert-in-the-Loop System Design does include pitfall mitigation frameworks for professional software development, which aligns with the concept of addressing common AI coding pitfalls through structured guidelines and expert knowledge integration.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The LLM Coding Quality Metrics include senior engineer overcomplification evaluation.",
+          "verdict": "incorrect",
+          "confidence": 0.7,
+          "reasoning": "The LLM Coding Quality Metrics do not explicitly include senior engineer overcomplication evaluation as a metric. While overcomplication is a recognized issue in AI-generated code, the specific metric mentioned is not directly referenced in the provided knowledge pages.",
+          "suggested_correction": "The LLM Coding Quality Metrics focus on aspects like code correctness, readability, and maintainability, rather than specifically evaluating overcomplication by senior engineers."
+        },
+        {
+          "text": "The Agentic Engineering Success Indicators include enhanced developer-AI collaboration through structured behavioral guidelines.",
+          "verdict": "correct",
+          "confidence": 0.85,
+          "reasoning": "The Agentic Engineering Success Indicators do include enhanced developer-AI collaboration through structured behavioral guidelines, which is a key aspect of achieving successful outcomes in AI-assisted software development.",
+          "suggested_correction": null
+        }
+      ]
+    }
+  ]
+}
