@@ -268,18 +268,35 @@ Follow this exact structure (derived from the seed prompt):
 
 ## Glossary Appendix (mandatory — every report)
 
-Every report MUST end with a glossary appendix containing definitions and worked examples for every financial term used in the report. The glossary is stored as a reference file at `config/glossary.md` and is appended verbatim to every report.
+Every report MUST end with a glossary appendix. The glossary is hardcoded as a reference file at:
+
+```
+config/glossary.md
+```
+
+It is **appended verbatim** — never regenerated, rewritten, summarized, or modified per-ticker. The glossary content is identical across ALL reports regardless of ticker.
+
+**Structure:** The glossary contains 34 terms organized into 7 numbered categories with a Term Index table at the top:
+1. Valuation Metrics (10 terms)
+2. Profitability Metrics (5 terms)
+3. Cash Flow Metrics (4 terms)
+4. Growth Metrics (4 terms)
+5. Risk Metrics (5 terms)
+6. Valuation Models (5 terms)
+7. Dashboard Scoring (1 scale)
+
+Each term has a plain-language definition and a worked example using "Acme Corp" reference numbers.
 
 **Workflow:**
 1. After writing all report sections (1–15), read `config/glossary.md`
-2. Append its contents as the final section of the report (section 16)
-3. In HTML reports, render the glossary with the same table/heading styles as the rest of the report, inside a `<details>` collapsible section (open by default)
-4. Add a TOC entry: `[Glossary](#glossary)`
-5. Add a nav bar link in the HTML
+2. Append its FULL contents as section 16, wrapped in `<a id="glossary"></a>` anchor
+3. Do NOT modify, filter, or rewrite any content — copy the file verbatim
+4. Add a TOC entry: `[Appendix: Glossary](#glossary)`
+5. In HTML: render inside `<details open>`, add nav bar link "Glossary"
 
-**The glossary file is the single source of truth.** Do not rewrite, summarize, or omit any definitions — append the file contents verbatim. If a term used in the report body is not in the glossary file, flag it for addition to `config/glossary.md` in the comments column of the event log.
+**Verification (mandatory):** After appending, the glossary section of every report must produce the same MD5 hash. If two reports for different tickers have different glossary content, one of them was modified instead of appended verbatim — fix it.
 
-**Why a reference file rather than inline:** The glossary is intentionally repetitive across reports. Storing it in one file ensures consistency and makes updates propagate to all future reports without editing prior content.
+**Adding new terms:** If a term used in the report body is not in the glossary, do NOT add it inline to the report. Instead: (1) add it to `config/glossary.md` in the correct category, (2) log it in the event log as `glossary_term_added`, (3) all future reports will pick it up automatically.
 
 ## Appendix: What Changed (mandatory for repeat reports)
 
