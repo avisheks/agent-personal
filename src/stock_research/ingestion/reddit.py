@@ -1,10 +1,15 @@
-"""Reddit sentiment ingestion via Google search scraping.
+"""Reddit sentiment ingestion via multi-engine search fallback.
 
-Scrapes Google for Reddit posts mentioning a ticker across key investing
-subreddits, then applies keyword-based sentiment classification.
+Searches for Reddit posts mentioning a ticker across key investing
+subreddits using a three-engine fallback strategy:
+  1. DuckDuckGo HTML (primary — less aggressive rate limiting)
+  2. Reddit JSON API (direct — most reliable, occasional 429s)
+  3. Google search (last resort — frequently CAPTCHAd)
 
-Uses httpx (async) with retry and 2-second delay between Google requests
-to avoid rate limiting.
+Then applies keyword-based sentiment classification.
+
+Uses httpx (async) with retry and delays between requests to avoid
+rate limiting.
 
 Usage:
     python -m stock_research.ingestion.reddit AAPL
@@ -13,6 +18,7 @@ Usage:
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 import re
 import sys
@@ -27,7 +33,7 @@ _GENERAL_SUBREDDITS = ["wallstreetbets", "stocks", "investing", "StockMarket", "
 _MAX_RESULTS_PER_SUBREDDIT = 5
 
 # Common patterns for ticker-dedicated subreddits.
-# Checked via Google search; only subreddits that return results are used.
+# Checked via search; only subreddits that return results are used.
 _DEDICATED_SUB_PATTERNS = [
     "{ticker}",            # r/CRWV, r/NVDA
     "{ticker}_Stock",      # r/CRWV_Stock
@@ -38,11 +44,18 @@ _DEDICATED_SUB_PATTERNS = [
 _REQUEST_TIMEOUT = 15
 _RETRY_ATTEMPTS = 3
 _RETRY_BACKOFF_BASE = 2.0  # exponential: 2, 4, 8 seconds
-_GOOGLE_DELAY = 2.0  # seconds between Google requests
+_SEARCH_DELAY = 2.0  # seconds between search requests
 
 _USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+)
+
+# Reddit JSON API needs a descriptive but non-bot User-Agent
+_REDDIT_USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 "
+    "StockResearchApp/1.0"
 )
 
 _POSITIVE_KEYWORDS = [
@@ -58,6 +71,11 @@ _NEGATIVE_KEYWORDS = [
     "warning", "concern", "risk", "avoid", "miss",
     "downgrade", "downside", "decline", "red",
 ]
+
+# Engine names for logging
+_ENGINE_DDG = "duckduckgo"
+_ENGINE_REDDIT = "reddit_api"
+_ENGINE_GOOGLE = "google"
 
 
 def fetch_reddit_posts(
@@ -84,7 +102,7 @@ def discover_dedicated_subreddits(ticker: str) -> list[str]:
     """Generate candidate dedicated subreddit names for a ticker.
 
     Returns candidate names like ['CRWV', 'CRWV_Stock', 'CRWVstock', ...].
-    Actual existence is verified during search (Google returns 0 results
+    Actual existence is verified during search (search engines return 0 results
     for non-existent subreddits).
     """
     candidates = []
@@ -135,7 +153,7 @@ async def _fetch_all(
     ) as client:
         for i, subreddit in enumerate(subreddits):
             if i > 0:
-                await asyncio.sleep(_GOOGLE_DELAY)
+                await asyncio.sleep(_SEARCH_DELAY)
             try:
                 sub_posts = await _search_subreddit(client, ticker, subreddit, days)
                 if sub_posts:
@@ -159,41 +177,257 @@ async def _search_subreddit(
     subreddit: str,
     days: int,
 ) -> list[dict]:
+    """Search a subreddit for ticker mentions using multi-engine fallback.
+
+    Tries engines in order: DuckDuckGo -> Reddit JSON API -> Google.
+    Returns results from the first engine that produces non-empty results.
+    """
+    engines = [
+        (_ENGINE_DDG, _search_subreddit_ddg),
+        (_ENGINE_REDDIT, _search_subreddit_reddit_api),
+        (_ENGINE_GOOGLE, _search_subreddit_google),
+    ]
+
+    last_exc: Optional[Exception] = None
+    for engine_name, engine_func in engines:
+        try:
+            results = await engine_func(client, ticker, subreddit, days)
+            if results:
+                logger.info(
+                    "  r/%s: engine=%s returned %d results",
+                    subreddit, engine_name, len(results),
+                )
+                return results
+            else:
+                logger.debug(
+                    "  r/%s: engine=%s returned 0 results, trying next",
+                    subreddit, engine_name,
+                )
+        except Exception as exc:
+            logger.debug(
+                "  r/%s: engine=%s failed: %s, trying next",
+                subreddit, engine_name, exc,
+            )
+            last_exc = exc
+
+    # All engines returned empty or failed
+    if last_exc:
+        logger.debug(
+            "  r/%s: all engines exhausted (last error: %s)",
+            subreddit, last_exc,
+        )
+    return []
+
+
+# ---------------------------------------------------------------------------
+# Engine 1: DuckDuckGo HTML search
+# ---------------------------------------------------------------------------
+
+async def _search_subreddit_ddg(
+    client,  # httpx.AsyncClient
+    ticker: str,
+    subreddit: str,
+    days: int,
+) -> list[dict]:
+    """Search DuckDuckGo HTML for ``site:reddit.com/r/{sub} {ticker}``.
+
+    DuckDuckGo HTML is less aggressive about rate limiting than Google.
+    No date filtering is available in DDG HTML mode.
+    """
+    query = f"site:reddit.com/r/{subreddit} {ticker}"
+    search_url = f"https://html.duckduckgo.com/html/?q={quote_plus(query)}"
+
+    resp = await _get_with_retry(client, search_url)
+    return _parse_ddg_results(resp.text, ticker, subreddit)
+
+
+def _parse_ddg_results(html: str, ticker: str, subreddit: str) -> list[dict]:
+    """Parse DuckDuckGo HTML search results into sentiment observation dicts."""
+    try:
+        from bs4 import BeautifulSoup  # noqa: F811
+    except ImportError:
+        raise ImportError(
+            "beautifulsoup4 is required for Reddit ingestion. "
+            "Install it with: pip install beautifulsoup4"
+        )
+
+    soup = BeautifulSoup(html, "html.parser")
+    posts: list[dict] = []
+    now_iso = datetime.now(tz=timezone.utc).isoformat()
+
+    # DuckDuckGo HTML results use class="result" containers
+    results = soup.select("div.result, div.results_links")[:_MAX_RESULTS_PER_SUBREDDIT]
+
+    for result in results:
+        try:
+            # Title link
+            link_elem = result.select_one("a.result__a")
+            if not link_elem:
+                continue
+            url = link_elem.get("href", "")
+            if "reddit.com" not in url:
+                continue
+            title = link_elem.get_text(strip=True)
+
+            # Snippet
+            snippet_elem = result.select_one("a.result__snippet")
+            if not snippet_elem:
+                # Fallback: try the snippet class without the <a> tag
+                snippet_elem = result.select_one(".result__snippet")
+            snippet = snippet_elem.get_text(strip=True) if snippet_elem else ""
+
+            direction, strength = _classify_sentiment(title, snippet)
+
+            posts.append({
+                "ticker": ticker,
+                "source": "reddit",
+                "platform": "reddit",
+                "subreddit": subreddit,
+                "title": title,
+                "snippet": snippet[:500],
+                "url": url,
+                "sentiment_direction": direction,
+                "sentiment_strength": strength,
+                "observed_at": now_iso,
+                "source_type": "social_media",
+                "updated_at": now_iso,
+            })
+        except Exception as parse_err:
+            logger.debug("Failed to parse DDG result: %s", parse_err)
+            continue
+
+    return posts
+
+
+# ---------------------------------------------------------------------------
+# Engine 2: Reddit JSON API (direct)
+# ---------------------------------------------------------------------------
+
+async def _search_subreddit_reddit_api(
+    client,  # httpx.AsyncClient
+    ticker: str,
+    subreddit: str,
+    days: int,
+) -> list[dict]:
+    """Search Reddit's JSON API directly for ticker mentions.
+
+    URL: /r/{subreddit}/search.json?q={ticker}&sort=new&t=month&limit=10
+    Most reliable source but Reddit occasionally rate-limits with 429.
+    """
+    # Map days to Reddit time filter parameter
+    if days <= 1:
+        time_filter = "day"
+    elif days <= 7:
+        time_filter = "week"
+    elif days <= 30:
+        time_filter = "month"
+    elif days <= 365:
+        time_filter = "year"
+    else:
+        time_filter = "all"
+
+    search_url = (
+        f"https://www.reddit.com/r/{subreddit}/search.json"
+        f"?q={quote_plus(ticker)}&sort=new&t={time_filter}&limit=10"
+        f"&restrict_sr=on"
+    )
+
+    # Use Reddit-specific User-Agent
+    resp = await _get_with_retry(
+        client, search_url,
+        extra_headers={"User-Agent": _REDDIT_USER_AGENT},
+    )
+
+    return _parse_reddit_json(resp.text, ticker, subreddit)
+
+
+def _parse_reddit_json(raw_json: str, ticker: str, subreddit: str) -> list[dict]:
+    """Parse Reddit JSON API response into sentiment observation dicts."""
+    try:
+        data = json.loads(raw_json)
+    except (json.JSONDecodeError, ValueError) as exc:
+        logger.debug("Failed to parse Reddit JSON: %s", exc)
+        return []
+
+    posts: list[dict] = []
+    now_iso = datetime.now(tz=timezone.utc).isoformat()
+
+    children = data.get("data", {}).get("children", [])
+
+    for child in children[:_MAX_RESULTS_PER_SUBREDDIT]:
+        try:
+            post_data = child.get("data", {})
+            title = post_data.get("title", "")
+            selftext = post_data.get("selftext", "")
+            permalink = post_data.get("permalink", "")
+            score = post_data.get("score", 0)
+            num_comments = post_data.get("num_comments", 0)
+            created_utc = post_data.get("created_utc", 0)
+
+            url = f"https://www.reddit.com{permalink}" if permalink else ""
+
+            # Use selftext as snippet (truncated)
+            snippet = selftext[:500] if selftext else ""
+
+            direction, strength = _classify_sentiment(title, snippet)
+
+            # Build the post created timestamp
+            if created_utc:
+                post_time = datetime.fromtimestamp(
+                    created_utc, tz=timezone.utc
+                ).isoformat()
+            else:
+                post_time = now_iso
+
+            posts.append({
+                "ticker": ticker,
+                "source": "reddit",
+                "platform": "reddit",
+                "subreddit": post_data.get("subreddit", subreddit),
+                "title": title,
+                "snippet": snippet,
+                "url": url,
+                "sentiment_direction": direction,
+                "sentiment_strength": strength,
+                "observed_at": post_time,
+                "source_type": "social_media",
+                "updated_at": now_iso,
+                "score": score,
+                "num_comments": num_comments,
+            })
+        except Exception as parse_err:
+            logger.debug("Failed to parse Reddit API result: %s", parse_err)
+            continue
+
+    return posts
+
+
+# ---------------------------------------------------------------------------
+# Engine 3: Google search (last resort)
+# ---------------------------------------------------------------------------
+
+async def _search_subreddit_google(
+    client,  # httpx.AsyncClient
+    ticker: str,
+    subreddit: str,
+    days: int,
+) -> list[dict]:
     """Scrape Google for ``site:reddit.com/r/{sub} {ticker}`` and parse results.
 
+    Last resort engine — Google frequently CAPTCHAs automated requests.
     Retries up to 3 times with exponential backoff on transient failures.
     """
     query = f"site:reddit.com/r/{subreddit} {ticker}"
     search_url = f"https://www.google.com/search?q={quote_plus(query)}&num=10&tbs=qdr:m"
 
     # tbs=qdr:m limits results to last month. For custom days:
-    if days <= 7:
-        search_url = f"https://www.google.com/search?q={quote_plus(query)}&num=10&tbs=qdr:w"
-    elif days <= 1:
+    if days <= 1:
         search_url = f"https://www.google.com/search?q={quote_plus(query)}&num=10&tbs=qdr:d"
+    elif days <= 7:
+        search_url = f"https://www.google.com/search?q={quote_plus(query)}&num=10&tbs=qdr:w"
 
     resp = await _get_with_retry(client, search_url)
     return _parse_google_results(resp.text, ticker, subreddit)
-
-
-async def _get_with_retry(client, url: str, attempts: int = _RETRY_ATTEMPTS):
-    """HTTP GET with exponential backoff retry."""
-    last_exc: Optional[Exception] = None
-    for attempt in range(attempts):
-        try:
-            resp = await client.get(url)
-            resp.raise_for_status()
-            return resp
-        except Exception as exc:
-            last_exc = exc
-            if attempt < attempts - 1:
-                delay = _RETRY_BACKOFF_BASE ** (attempt + 1)
-                logger.debug(
-                    "Retry %d/%d for %s after %.1fs: %s",
-                    attempt + 1, attempts, url, delay, exc,
-                )
-                await asyncio.sleep(delay)
-    raise RuntimeError(f"All {attempts} attempts failed for {url}: {last_exc}")
 
 
 def _parse_google_results(html: str, ticker: str, subreddit: str) -> list[dict]:
@@ -246,6 +480,45 @@ def _parse_google_results(html: str, ticker: str, subreddit: str) -> list[dict]:
             continue
 
     return posts
+
+
+# ---------------------------------------------------------------------------
+# Shared helpers
+# ---------------------------------------------------------------------------
+
+async def _get_with_retry(
+    client,
+    url: str,
+    attempts: int = _RETRY_ATTEMPTS,
+    extra_headers: dict | None = None,
+):
+    """HTTP GET with exponential backoff retry.
+
+    Args:
+        client: httpx.AsyncClient instance.
+        url: URL to fetch.
+        attempts: Number of retry attempts.
+        extra_headers: Additional headers to merge for this request only.
+    """
+    last_exc: Optional[Exception] = None
+    for attempt in range(attempts):
+        try:
+            kwargs: dict = {}
+            if extra_headers:
+                kwargs["headers"] = extra_headers
+            resp = await client.get(url, **kwargs)
+            resp.raise_for_status()
+            return resp
+        except Exception as exc:
+            last_exc = exc
+            if attempt < attempts - 1:
+                delay = _RETRY_BACKOFF_BASE ** (attempt + 1)
+                logger.debug(
+                    "Retry %d/%d for %s after %.1fs: %s",
+                    attempt + 1, attempts, url, delay, exc,
+                )
+                await asyncio.sleep(delay)
+    raise RuntimeError(f"All {attempts} attempts failed for {url}: {last_exc}")
 
 
 def _classify_sentiment(title: str, snippet: str) -> tuple[str, float]:

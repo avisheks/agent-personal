@@ -92,6 +92,8 @@ For each data source, query `research.duckdb` for `last_updated`:
 | Reddit sentiment | >3 days | `python src/stock_research/ingestion/reddit.py TICKER` |
 
 **Reddit subreddit discovery:** The Reddit ingestion automatically searches both general subreddits (wallstreetbets, stocks, investing, StockMarket, options) AND ticker-dedicated subreddits discovered via pattern matching (r/TICKER, r/TICKER_Stock, r/TICKERstock, r/TICKERDiscussion, r/TICKER_investors). Additional subreddits from `tickers.yaml` are also searched. Non-existent subreddits return 0 results and are silently skipped.
+
+**Reddit multi-engine fallback:** Reddit ingestion uses a multi-engine fallback: DuckDuckGo (primary, less rate-limited) -> Reddit JSON API (direct, most reliable but occasionally 429s) -> Google (last resort, frequently CAPTCHAd). The engine that succeeds is logged per subreddit.
 | Earnings (FMP) | >90 days | `python src/stock_research/ingestion/earnings.py TICKER` |
 
 If `--refresh` flag is set, refresh all sources regardless of staleness.

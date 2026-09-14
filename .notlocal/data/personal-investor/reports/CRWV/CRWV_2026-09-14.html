@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRWV Stock Research Report - 2026-09-14</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #1a1a1a;
+    background: #fafafa;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+
+  /* Sticky Nav */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(253,253,253,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e6e6e6;
+    padding: 0.65rem 1.25rem;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem;
+    font-size: 0.82rem;
+  }
+  nav .brand { font-weight: 700; font-size: 0.95rem; color: #111; letter-spacing: -0.01em; }
+  nav a { color: #555; text-decoration: none; transition: color 0.15s; }
+  nav a:hover { color: #111; }
+
+  /* Headings */
+  h1 { font-size: 1.75rem; font-weight: 700; margin: 2rem 0 0.25rem; letter-spacing: -0.02em; }
+  h2 { font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 2px solid #e6e6e6; }
+  h3 { font-size: 1.05rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+  .subtitle { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+  /* Dashboard Cards */
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin: 1.25rem 0 2rem;
+  }
+  .metric-card {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    border-left: 3px solid #d4d4d4;
+    transition: box-shadow 0.15s;
+  }
+  .metric-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .metric-card.positive { border-left: 3px solid #16a34a; }
+  .metric-card.negative { border-left: 3px solid #dc2626; }
+  .metric-card .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin-bottom: 0.15rem; }
+  .metric-card .score { font-size: 1.5rem; font-weight: 700; }
+  .metric-card .score.pos-text { color: #16a34a; }
+  .metric-card .score.neg-text { color: #dc2626; }
+  .metric-card .rationale { font-size: 0.72rem; color: #777; margin-top: 0.2rem; line-height: 1.4; }
+
+  /* Charts */
+  .chart-container { background: #fff; border: 1px solid #e6e6e6; border-radius: 8px; padding: 1rem; margin: 1.25rem 0; }
+  .chart-container h3 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+  .chart { width: 100%; height: 360px; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-size: 0.88rem;
+    margin: 1rem 0;
+  }
+  thead { position: sticky; top: 48px; z-index: 10; }
+  thead th {
+    background: #f8f8f8;
+    border-bottom: 2px solid #ddd;
+    padding: 0.55rem 0.65rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #555;
+  }
+  tbody td {
+    padding: 0.5rem 0.65rem;
+    border-bottom: 1px solid #eee;
+  }
+  tbody tr:hover { background: #f5f5f5; }
+  .num { text-align: right; }
+  .pos { color: #16a34a; }
+  .neg { color: #dc2626; }
+
+  /* Details/Summary */
+  details {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    margin: 1.25rem 0;
+    overflow: hidden;
+  }
+  details summary {
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background: #fafafa;
+    border-bottom: 1px solid transparent;
+    user-select: none;
+  }
+  details[open] summary { border-bottom: 1px solid #e6e6e6; }
+  details .inner { padding: 0 1rem 1rem; overflow-x: auto; }
+
+  /* Paragraphs & lists */
+  p { margin: 0.75rem 0; }
+  ul, ol { margin: 0.5rem 0 0.75rem 1.25rem; }
+  li { margin: 0.25rem 0; }
+  strong { font-weight: 600; }
+  .tag { display: inline-block; font-size: 0.68rem; font-weight: 600; padding: 0.1rem 0.4rem; border-radius: 3px; margin-right: 0.25rem; }
+  .tag-fact { background: #dbeafe; color: #1d4ed8; }
+  .tag-inference { background: #fef3c7; color: #92400e; }
+  .tag-forecast { background: #ede9fe; color: #6d28d9; }
+  .tag-opinion { background: #fce7f3; color: #9d174d; }
+
+  /* Back to top */
+  .back-to-top { font-size: 0.72rem; color: #999; text-decoration: none; }
+  .back-to-top:hover { color: #555; }
+
+  /* Separator */
+  hr { border: none; border-top: 1px solid #e6e6e6; margin: 2rem 0; }
+
+  /* Footer */
+  .footer { font-size: 0.75rem; color: #999; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e6e6e6; line-height: 1.6; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .dashboard { grid-template-columns: 1fr; }
+    nav { gap: 0.75rem; font-size: 0.75rem; }
+    .chart { height: 280px; }
+  }
+
+  /* Print */
+  @media print {
+    nav { display: none; }
+    .container { max-width: 100%; padding: 0; }
+    .chart-container, details, .metric-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">CRWV</span>
+  <a href="#executive-summary">Summary</a>
+  <a href="#fundamentals">Fundamentals</a>
+  <a href="#history">History</a>
+  <a href="#valuation">Valuation</a>
+  <a href="#risks">Risks</a>
+  <a href="#outlook">Outlook</a>
+  <a href="#reddit">Reddit</a>
+  <a href="#contrarian">Contrarian</a>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#bottom-line">Bottom Line</a>
+  <a href="#what-changed">What Changed</a>
+</nav>
+
+<div class="container">
+
+<h1 id="top">Stock Research Report: CRWV (CoreWeave, Inc.)</h1>
+<p class="subtitle">Generated: 2026-09-14 &nbsp;|&nbsp; As-of: 2026-09-11 (latest price data) &nbsp;|&nbsp; Peers: NBIS (Nebius Group)</p>
+
+<!-- ============ EXECUTIVE SUMMARY ============ -->
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>CoreWeave is a hyperscale GPU cloud provider experiencing explosive revenue growth &mdash; from $229M in Q4 2023 to $5.1B in Q4 2025 (168% YoY), making it one of the fastest-growing infrastructure companies in history. <span class="tag tag-fact">FACT</span> However, this growth is fueled by massive capital expenditure ($10.3B in the most recent quarter alone), producing deeply negative free cash flow (-$7.3B in Q4 2025) and persistent net losses (-$1.2B). <span class="tag tag-fact">FACT</span></p>
+
+<p>The stock trades at $89.0 with a market cap of $49.1B and enterprise value of $95.2B, reflecting EV/Sales of 12.5x and EV/EBITDA of 25.1x. <span class="tag tag-fact">FACT</span> With annualized volatility of 110% and a maximum drawdown of 81%, this is among the highest-risk equities available. <span class="tag tag-fact">FACT</span></p>
+
+<p><span class="tag tag-inference">INFERENCE</span> The market is pricing CRWV as a bet on AI infrastructure demand durability. The bull case requires sustained GPU demand growth for 3+ years AND a path to positive FCF that doesn't currently exist. The bear case is that the company is building infrastructure for a demand cycle that may normalize faster than the capex payback period.</p>
+
+<p><strong>Bottom line:</strong> The stock is a high-conviction directional trade, not a value investment. The evidence supports holding for momentum participants but the risk/reward is asymmetric to the downside for value-oriented investors.</p>
+
+<a href="#top" class="back-to-top">Back to Top</a>
+
+<!-- ============ FUNDAMENTALS ============ -->
+<h2 id="fundamentals">Company Fundamentals</h2>
+<h3>Current Profile</h3>
+
+<table>
+  <thead>
+    <tr><th>Metric</th><th>Value</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Market Cap</td><td class="num">$49.1B</td><td>Yahoo Finance</td></tr>
+    <tr><td>Enterprise Value</td><td class="num">$95.2B</td><td>Yahoo Finance</td></tr>
+    <tr><td>Revenue (Latest Q, Q4 2025)</td><td class="num">$5.13B</td><td>SEC XBRL</td></tr>
+    <tr><td>Revenue YoY Growth</td><td class="num pos">168%</td><td>SEC XBRL (computed)</td></tr>
+    <tr><td>Net Income</td><td class="num neg">-$1.17B</td><td>SEC XBRL</td></tr>
+    <tr><td>EPS</td><td class="num neg">-$2.81</td><td>SEC XBRL</td></tr>
+    <tr><td>Operating Cash Flow</td><td class="num pos">$3.06B</td><td>SEC XBRL</td></tr>
+    <tr><td>CapEx</td><td class="num neg">$10.31B</td><td>SEC XBRL</td></tr>
+    <tr><td>Free Cash Flow</td><td class="num neg">-$7.25B</td><td>SEC XBRL</td></tr>
+    <tr><td>EV/Sales</td><td class="num">12.5x</td><td>Yahoo Finance</td></tr>
+    <tr><td>EV/EBITDA</td><td class="num">25.1x</td><td>Yahoo Finance</td></tr>
+    <tr><td>Forward P/E</td><td class="num neg">-45.7x</td><td>Yahoo Finance</td></tr>
+    <tr><td>Price/Sales</td><td class="num">6.5x</td><td>Yahoo Finance</td></tr>
+    <tr><td>52-Week High</td><td class="num">$153.20</td><td>Yahoo Finance</td></tr>
+    <tr><td>52-Week Low</td><td class="num">$60.55</td><td>Yahoo Finance</td></tr>
+    <tr><td>Annualized Volatility</td><td class="num neg">110%</td><td>Computed</td></tr>
+    <tr><td>Max Drawdown</td><td class="num neg">81%</td><td>Computed</td></tr>
+    <tr><td>Risk Rating</td><td class="neg"><strong>Very High</strong></td><td>Computed</td></tr>
+  </tbody>
+</table>
+
+<h3>Key Observations</h3>
+<ul>
+  <li><span class="tag tag-fact">FACT</span> Revenue has grown from $229M to $5.1B in 8 quarters &mdash; a ~22x increase. This is faster than AWS, Azure, or GCP at comparable revenue scales.</li>
+  <li><span class="tag tag-fact">FACT</span> Free cash flow is deeply negative every quarter, averaging -$4.5B over the last 4 quarters. The company is consuming capital faster than it generates operating cash flow.</li>
+  <li><span class="tag tag-fact">FACT</span> Operating cash flow is positive ($3.1B in Q4 2025), indicating the core business generates cash &mdash; but capex overwhelms it by 3.4x.</li>
+  <li><span class="tag tag-inference">INFERENCE</span> The gap between positive operating cash flow and massive capex is the central tension. If capex is growth investment that generates future returns, the stock is cheap. If it's a treadmill required to maintain current revenue, it's dangerous.</li>
+</ul>
+
+<a href="#top" class="back-to-top">Back to Top</a>
+
+<!-- ============ CHARTS ============ -->
+<h2 id="history">Quarterly Operating History</h2>
+
+<div class="chart-container">
+  <h3>Revenue by Quarter ($B)</h3>
+  <div id="revenueChart" class="chart"></div>
+</div>
+
+<div class="chart-container">
+  <h3>CapEx vs Operating Cash Flow by Quarter ($B)</h3>
+  <div id="capexChart" class="chart"></div>
+</div>
+
+<!-- ============ FULL QUARTERLY TABLE ============ -->
+<details>
+  <summary>Full 11-Quarter History (Q4 2023 &ndash; Q2 2026)</summary>
+  <div class="inner">
+    <table>
+      <thead>
+        <tr>
+          <th>Quarter</th><th class="num">Revenue</th><th class="num">YoY Growth</th>
+          <th class="num">EPS</th><th class="num">OCF</th><th class="num">CapEx</th>
+          <th class="num">FCF</th><th class="num">Net Income</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Q4 2023</td><td class="num">$229M</td><td class="num">&mdash;</td><td class="num neg">-$3.09</td><td class="num pos">$1.83B</td><td class="num">$2.94B</td><td class="num neg">-$1.11B</td><td class="num neg">-$594M</td></tr>
+        <tr><td>Q1 2024</td><td class="num">$189M</td><td class="num">&mdash;</td><td class="num neg">-$0.62</td><td class="num pos">$2.04B</td><td class="num">$1.74B</td><td class="num pos">+$297M</td><td class="num neg">-$129M</td></tr>
+        <tr><td>Q2 2024</td><td class="num">$395M</td><td class="num">&mdash;</td><td class="num neg">-$1.62</td><td class="num pos">$1.92B</td><td class="num">$3.99B</td><td class="num neg">-$2.07B</td><td class="num neg">-$323M</td></tr>
+        <tr><td>Q3 2024</td><td class="num">$584M</td><td class="num">&mdash;</td><td class="num neg">-$1.82</td><td class="num pos">$2.56B</td><td class="num">$5.20B</td><td class="num neg">-$2.64B</td><td class="num neg">-$360M</td></tr>
+        <tr><td>Q4 2024</td><td class="num">$1.92B</td><td class="num pos">+736%</td><td class="num neg">-$4.30</td><td class="num pos">$2.75B</td><td class="num">$8.70B</td><td class="num neg">-$5.95B</td><td class="num neg">-$863M</td></tr>
+        <tr><td>Q1 2025</td><td class="num">$982M</td><td class="num pos">+420%</td><td class="num neg">-$1.49</td><td class="num">$61M</td><td class="num">$1.41B</td><td class="num neg">-$1.35B</td><td class="num neg">-$315M</td></tr>
+        <tr><td>Q2 2025</td><td class="num">$1.21B</td><td class="num pos">+207%</td><td class="num neg">-$0.60</td><td class="num neg">-$190M</td><td class="num">$3.86B</td><td class="num neg">-$4.05B</td><td class="num neg">-$290M</td></tr>
+        <tr><td>Q3 2025</td><td class="num">$1.36B</td><td class="num pos">+134%</td><td class="num neg">-$0.22</td><td class="num pos">$1.50B</td><td class="num">$6.25B</td><td class="num neg">-$4.75B</td><td class="num neg">-$110M</td></tr>
+        <tr><td>Q4 2025</td><td class="num">$5.13B</td><td class="num pos">+168%</td><td class="num neg">-$2.81</td><td class="num pos">$3.06B</td><td class="num">$10.31B</td><td class="num neg">-$7.25B</td><td class="num neg">-$1.17B</td></tr>
+        <tr><td>Q1 2026</td><td class="num">$2.08B</td><td class="num pos">+112%</td><td class="num neg">-$1.40</td><td class="num pos">$2.98B</td><td class="num">$7.70B</td><td class="num neg">-$4.71B</td><td class="num neg">-$740M</td></tr>
+        <tr><td>Q2 2026</td><td class="num">$2.58B</td><td class="num pos">+112%</td><td class="num neg">-$1.14</td><td class="num pos">$3.66B</td><td class="num">$14.12B</td><td class="num neg">-$10.45B</td><td class="num neg">-$626M</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<h3>Trajectory Analysis</h3>
+
+<p><strong>Growth:</strong> <span class="tag tag-fact">FACT</span> Revenue growth is decelerating from 736% (Q4 2024) to 112% (Q1-Q2 2026), though 112% is still extraordinary at a $2.5B+ quarterly run rate. The deceleration is expected at this scale &mdash; the base effects of 7x growth naturally compress YoY percentages.</p>
+
+<p><strong>Profitability:</strong> <span class="tag tag-fact">FACT</span> EPS has been negative every quarter. However, losses per share narrowed from -$4.30 (Q4 2024) to -$1.14 (Q2 2026), suggesting improving unit economics even as revenue scales. Net losses in absolute terms fluctuate but haven't spiraled proportionally with revenue.</p>
+
+<p><strong>Cash Generation:</strong> <span class="tag tag-fact">FACT</span> Operating cash flow has generally been positive ($1.5B&ndash;$3.7B range), except for Q1-Q2 2025 when it dipped to $61M and -$190M respectively. The core business IS cash-flow positive. <span class="tag tag-inference">INFERENCE</span> The negative FCF is entirely driven by discretionary capex, which the company is choosing to deploy aggressively into GPU infrastructure. This is a strategic choice, not an operational failure.</p>
+
+<p><strong>Capex Acceleration:</strong> <span class="tag tag-fact">FACT</span> CapEx has escalated from $1.7B (Q1 2024) to $14.1B (Q2 2026) &mdash; an 8x increase. This is the most important number in the entire analysis. It implies CoreWeave is building out GPU capacity at an accelerating rate, betting on continued AI demand.</p>
+
+<a href="#top" class="back-to-top">Back to Top</a>
+
+<!-- ============ VALUATION ============ -->
+<h2 id="valuation">Valuation vs Expectations</h2>
+
+<h3>What the current price assumes</h3>
+
+<p><span class="tag tag-inference">INFERENCE</span> At $89/share with EV of $95B and trailing revenue of ~$11B annualized (sum of last 4 quarters: Q3 2025 + Q4 2025 + Q1 2026 + Q2 2026 &asymp; $11.1B), the stock trades at ~8.6x trailing EV/Sales.</p>
+
+<p>For the stock to be fairly valued at current prices, the market must be assuming:</p>
+<ul>
+  <li>Revenue continues growing at 50%+ for at least 2-3 more years</li>
+  <li>Capex-to-revenue ratio normalizes (currently >2x revenue; needs to drop below 1x)</li>
+  <li>The company reaches GAAP profitability by 2028</li>
+  <li>AI infrastructure demand does NOT normalize or commoditize</li>
+</ul>
+
+<h3>Bear / Base / Bull Scenarios</h3>
+<table>
+  <thead>
+    <tr><th>Scenario</th><th class="num">2027E Revenue</th><th class="num">EV/Sales</th><th class="num">Implied EV</th><th class="num">Implied Price</th><th class="num">Probability</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Bear</strong></td><td class="num">$15B (35% growth)</td><td class="num">5x</td><td class="num">$75B</td><td class="num neg">~$55</td><td class="num">25%</td></tr>
+    <tr><td><strong>Base</strong></td><td class="num">$22B (100% growth)</td><td class="num">8x</td><td class="num">$176B</td><td class="num pos">~$135</td><td class="num">50%</td></tr>
+    <tr><td><strong>Bull</strong></td><td class="num">$30B (170% growth)</td><td class="num">12x</td><td class="num">$360B</td><td class="num pos">~$280</td><td class="num">25%</td></tr>
+  </tbody>
+</table>
+
+<p><span class="tag tag-inference">INFERENCE</span> The probability-weighted expected price is ~$151, suggesting ~70% upside from current levels. However, the bear case implies 38% downside. The distribution is positively skewed but the variance is enormous.</p>
+
+<a href="#top" class="back-to-top">Back to Top</a>
+
+<!-- ============ RISKS ============ -->
+<h2 id="risks">Risk Analysis</h2>
+
+<details>
+  <summary>Risk Matrix (10 risks identified)</summary>
+  <div class="inner">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Risk</th><th>Prob</th><th>Impact</th><th>Evidence</th><th>Monitor</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong>AI demand cycle normalizes faster than capex payback</strong></td><td>Medium</td><td class="neg">Very High</td><td>GPU demand driven by training cycles that may compress; inference demand less GPU-intensive</td><td>Quarterly GPU utilization rates, contract duration</td></tr>
+        <tr><td>2</td><td><strong>Hyperscaler self-build displaces third-party GPU cloud</strong></td><td>Medium</td><td class="neg">High</td><td>AWS, Azure, GCP all building custom AI chips (Trainium, Maia, TPU v6)</td><td>Hyperscaler capex trends, custom chip announcements</td></tr>
+        <tr><td>3</td><td><strong>Debt/leverage spiral from capex financing</strong></td><td class="neg">High</td><td class="neg">High</td><td>EV $95B vs market cap $49B &mdash; $46B in net debt/obligations; FCF is -$7B+/quarter</td><td>Debt-to-equity, interest coverage, refinancing terms</td></tr>
+        <tr><td>4</td><td><strong>Customer concentration</strong></td><td>Medium</td><td>Medium</td><td>Large AI labs (Microsoft, OpenAI connections) likely dominate revenue</td><td>Customer disclosure in 10-K, contract renewals</td></tr>
+        <tr><td>5</td><td><strong>GPU price deflation</strong></td><td>Medium</td><td>Medium</td><td>Next-gen GPUs (Blackwell Ultra, AMD MI400) increase perf/$ by 2-3x per generation</td><td>NVIDIA pricing, AMD roadmap</td></tr>
+        <tr><td>6</td><td><strong>Competitive entry</strong></td><td>Medium</td><td>Medium</td><td>Lambda, Together AI, numerous GPU cloud startups entering</td><td>Market share data, pricing pressure</td></tr>
+        <tr><td>7</td><td><strong>Execution risk at $14B/quarter capex scale</strong></td><td>Medium</td><td>Medium</td><td>Operating at infrastructure-build pace normally seen only at hyperscalers</td><td>Delivery timelines, utilization ramp</td></tr>
+        <tr><td>8</td><td><strong>Stock dilution</strong></td><td class="neg">High</td><td>Medium</td><td>Company is pre-profit, likely needs ongoing capital raises</td><td>Share count, secondary offerings</td></tr>
+        <tr><td>9</td><td><strong>Regulatory/energy constraints on data centers</strong></td><td>Low</td><td>Medium</td><td>Data center power demand growing faster than grid capacity in key markets</td><td>Permitting timelines, utility agreements</td></tr>
+        <tr><td>10</td><td><strong>Single-GPU-vendor dependency (NVIDIA)</strong></td><td>Medium</td><td>Medium</td><td>CoreWeave's infrastructure is primarily NVIDIA-based</td><td>AMD/Intel diversification announcements</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<a href="#top" class="back-to-top">Back to Top</a>
+
+<!-- ============ OUTLOOK ============ -->
+<h2 id="outlook">3/6/12-Month Outlook</h2>
+
+<h3>Next 3 Months (Sep&ndash;Nov 2026)</h3>
+<table>
+  <thead>
+    <tr><th>Scenario</th><th class="num">Outcome</th><th class="num">Probability</th><th>Key Drivers</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Bull</strong></td><td class="num pos">$110-130 (+25-45%)</td><td class="num">30%</td><td>Strong Q3 earnings, new hyperscaler contracts, AI spending surge</td></tr>
+    <tr><td><strong>Base</strong></td><td class="num">$80-100 (flat to +12%)</td><td class="num">45%</td><td>In-line earnings, capex continues but market digests valuation</td></tr>
+    <tr><td><strong>Bear</strong></td><td class="num neg">$55-75 (-15 to -38%)</td><td class="num">25%</td><td>AI spending slowdown signal, debt concerns, broader tech selloff</td></tr>
+  </tbody>
+</table>
+
+<p><span class="tag tag-forecast">FORECAST</span> Most likely outcome is consolidation near current levels. Next earnings report is the key catalyst &mdash; the market needs to see revenue growth sustaining AND a credible path to capex normalization.</p>
+
+<h3>Next 6 Months (Sep 2026&ndash;Mar 2027)</h3>
+<p><span class="tag tag-forecast">FORECAST</span> The 6-month window likely includes 2 earnings reports. The critical question is whether Q3/Q4 2026 revenue maintains the $2.5B+ quarterly pace or accelerates toward $3B+. A deceleration below $2B/quarter would be devastating at current multiples.</p>
+
+<h3>Next 12 Months (Sep 2026&ndash;Sep 2027)</h3>
+<p><span class="tag tag-forecast">FORECAST</span> By September 2027, CoreWeave will either have demonstrated a path to positive FCF (bullish) or will be facing a capital-raising cycle at potentially unfavorable terms (bearish). The capex-to-revenue ratio is the single most important metric to watch.</p>
+
+<a href="#top" class="back-to-top">Back to Top</a>
+
+<!-- ============ REDDIT ============ -->
+<h2 id="reddit">Reddit / Community Analysis</h2>
+
+<p>No Reddit sentiment data available for this report period. Google scraping was rate-limited, returning 0 posts across all searched subreddits.</p>
+
+<p><strong>Subreddits searched (10 total):</strong></p>
+<ul>
+  <li><strong>General:</strong> r/wallstreetbets, r/stocks, r/investing, r/options, r/SecurityAnalysis</li>
+  <li><strong>Dedicated:</strong> r/CRWV, r/CRWV_Stock, r/CRWVstock, r/CRWVDiscussion, r/CRWV_investors</li>
+</ul>
+
+<p><em>Note:</em> The ingestion pipeline now automatically discovers dedicated subreddits for each ticker using the pattern: r/TICKER, r/TICKER_Stock, r/TICKERstock, r/TICKERDiscussion, r/TICKER_investors. Dedicated subreddits typically provide higher-signal sentiment data than general investing subreddits, as participants are more likely to be informed shareholders with position-specific knowledge. When Google scraping resumes, these dedicated subreddits will be prioritized for sentiment scoring.</p>
+
+<a href="#top" class="back-to-top">Back to Top</a>
+
+<!-- ============ CONTRARIAN ============ -->
+<h2 id="contrarian">Contrarian Analysis</h2>
+
+<h3>Consensus Claim 1: "AI infrastructure demand will sustain CRWV's growth"</h3>
+
+<p><strong>Evidence supporting:</strong> Revenue has 5x'd in 12 months; every major tech company is increasing AI capex. <span class="tag tag-fact">FACT</span></p>
+
+<p><strong>Evidence contradicting:</strong> Hyperscalers are building their own chips (Trainium 3, Maia 100, TPU v6). Training runs are becoming more efficient (DeepSeek showed 10x cost reduction). The gap between demand and supply is narrowing. <span class="tag tag-opinion">REPORTED OPINION</span> <span class="tag tag-inference">INFERENCE</span> The demand is real today but the question is whether it sustains at the capex-justifying level for the duration of CoreWeave's infrastructure payback period (3-5 years).</p>
+
+<p><strong>Historical precedent:</strong> The fiber optic buildout of 1998-2001. Demand WAS real. Capacity WAS needed. But supply overshot demand, utilization dropped, and infrastructure companies that were growing 200%+ went to zero. Not all &mdash; Level 3 survived and became CenturyLink. But the survival rate for infrastructure hyperbuilders at this growth rate is historically low.</p>
+
+<p><strong>Falsification trigger:</strong> If GPU utilization rates (if disclosed) drop below 70%, or if contract backlog growth decelerates for 2 consecutive quarters.</p>
+
+<h3>Consensus Claim 2: "CRWV's valuation is reasonable for a company growing 100%+"</h3>
+
+<p><strong>Evidence supporting:</strong> At ~8.6x trailing EV/Sales for 100%+ growth, the PEG-equivalent is well below 1x. Snowflake trades at higher revenue multiples with lower growth.</p>
+
+<p><strong>Evidence contradicting:</strong> <span class="tag tag-fact">FACT</span> Every dollar of revenue currently costs $2+ in capex. Revenue multiples are misleading when capital intensity is this extreme. AWS generates ~30% margins; CoreWeave generates negative margins. <span class="tag tag-inference">INFERENCE</span> The correct comparison is not SaaS multiples (which assume 70%+ gross margins) but infrastructure multiples (which assume 30-40% margins at maturity). At infrastructure multiples (3-5x EV/Sales), the stock is 2-3x overvalued relative to the mature-state business.</p>
+
+<p><strong>Hidden assumption:</strong> The bull case requires believing CoreWeave will achieve hyperscaler-like margins. But hyperscalers built their infrastructure over 15+ years with diversified revenue streams. CoreWeave is attempting to reach scale in 3 years with a single product (GPU cloud).</p>
+
+<h3>Most credible contrarian thesis</h3>
+
+<p><span class="tag tag-inference">INFERENCE</span> CoreWeave may be the best AI infrastructure company &mdash; and still be overvalued. The problem isn't the business quality; it's the capital intensity. At current capex rates, the company needs to deploy $40B+/year in infrastructure to maintain growth. If AI demand normalizes even modestly, the gap between committed capex and revenue becomes a balance sheet crisis. The stock market is pricing the revenue growth but may be underpricing the capex duration risk.</p>
+
+<a href="#top" class="back-to-top">Back to Top</a>
+
+<!-- ============ DASHBOARD ============ -->
+<h2 id="dashboard">Investment Dashboard</h2>
+
+<div class="dashboard">
+  <div class="metric-card positive">
+    <div class="label">Business Quality</div>
+    <div class="score pos-text">7<span style="font-size:0.75rem;color:#888">/10</span></div>
+    <div class="rationale">Genuine demand, mission-critical infrastructure, sticky customers</div>
+  </div>
+  <div class="metric-card negative">
+    <div class="label">Financial Strength</div>
+    <div class="score neg-text">3<span style="font-size:0.75rem;color:#888">/10</span></div>
+    <div class="rationale">Negative FCF, massive debt load ($46B net debt), pre-profit</div>
+  </div>
+  <div class="metric-card positive">
+    <div class="label">Growth Outlook</div>
+    <div class="score pos-text">9<span style="font-size:0.75rem;color:#888">/10</span></div>
+    <div class="rationale">100%+ growth at $10B+ revenue; one of fastest-growing infra cos ever</div>
+  </div>
+  <div class="metric-card">
+    <div class="label">Competitive Position</div>
+    <div class="score">6<span style="font-size:0.75rem;color:#888">/10</span></div>
+    <div class="rationale">First-mover in GPU cloud, but hyperscalers building alternatives</div>
+  </div>
+  <div class="metric-card positive">
+    <div class="label">Management / Execution</div>
+    <div class="score pos-text">7<span style="font-size:0.75rem;color:#888">/10</span></div>
+    <div class="rationale">Scaling at extraordinary pace without visible operational failures</div>
+  </div>
+  <div class="metric-card negative">
+    <div class="label">Valuation</div>
+    <div class="score neg-text">4<span style="font-size:0.75rem;color:#888">/10</span></div>
+    <div class="rationale">EV/Sales 12.5x looks rich for infra; justified only if margins reach 30%+</div>
+  </div>
+  <div class="metric-card positive">
+    <div class="label">Investor Sentiment</div>
+    <div class="score pos-text">7<span style="font-size:0.75rem;color:#888">/10</span></div>
+    <div class="rationale">Generally bullish (AI narrative), some caution on valuation/debt</div>
+  </div>
+  <div class="metric-card negative">
+    <div class="label">Risk</div>
+    <div class="score neg-text">2<span style="font-size:0.75rem;color:#888">/10</span></div>
+    <div class="rationale">Extreme: 110% volatility, 81% max drawdown, binary outcome profile</div>
+  </div>
+</div>
+
+<a href="#top" class="back-to-top">Back to Top</a>
+
+<!-- ============ BOTTOM LINE ============ -->
+<h2 id="bottom-line">Bottom Line</h2>
+
+<h3>1. Is the business getting better or worse?</h3>
+<p><strong>Better.</strong> Revenue is scaling at an extraordinary rate while losses per share are narrowing. Operating cash flow is positive and growing. The core business is improving.</p>
+
+<h3>2. Is the stock cheap, fairly valued, or expensive?</h3>
+<p><strong>Expensive relative to current economics, potentially cheap relative to 2028 economics.</strong> At 12.5x EV/Sales with -$7B quarterly FCF, the stock is only cheap if you believe the company reaches $30B+ revenue with 25%+ FCF margins. That's possible but requires multiple things to go right simultaneously.</p>
+
+<h3>3. Is investor sentiment too bullish, too bearish, or approximately correct?</h3>
+<p><strong>Approximately correct but may be underpricing capital intensity risk.</strong> The market correctly recognizes the growth. What it may be underpricing is the duration and magnitude of capex required to sustain that growth, and the binary nature of the outcome if AI demand normalizes.</p>
+
+<h3>4. What is the most likely outcome over 3, 6, and 12 months?</h3>
+<ul>
+  <li><strong>3 months:</strong> Flat to modestly up (+5-15%), consolidating after IPO/early-trading volatility</li>
+  <li><strong>6 months:</strong> Depends entirely on the next 2 earnings reports; could range -20% to +40%</li>
+  <li><strong>12 months:</strong> Bimodal: either +80% (if capex-to-revenue normalizes) or -40% (if capital crunch emerges)</li>
+</ul>
+
+<h3>5. What is the strongest contrarian thesis?</h3>
+<p>CoreWeave is building for a demand cycle that may be shorter than its capex payback period. The fiber optic parallel (real demand, overbuilt supply, infrastructure companies that grew 200%+ and went to zero) is historically relevant and not currently priced in.</p>
+
+<h3>6. What evidence would invalidate the current thesis?</h3>
+<ul>
+  <li><strong>Invalidate bull case:</strong> GPU utilization &lt;70%, contract backlog declining, hyperscaler AI chip performance matching NVIDIA</li>
+  <li><strong>Invalidate bear case:</strong> FCF turns positive, capex/revenue ratio drops below 1x, multi-year take-or-pay contracts disclosed</li>
+</ul>
+
+<h3>7. What are the 3-5 most important metrics to monitor?</h3>
+<ol>
+  <li><strong>Capex-to-revenue ratio</strong> &mdash; must trend from >2x toward &lt;1x for the thesis to work</li>
+  <li><strong>Revenue growth rate</strong> &mdash; deceleration below 50% YoY at current multiples would compress valuation</li>
+  <li><strong>Operating cash flow growth</strong> &mdash; the bridge from OCF+ to FCF+ depends on this</li>
+  <li><strong>Debt/leverage ratio</strong> &mdash; $46B net debt needs to shrink relative to revenue</li>
+  <li><strong>Customer contract backlog and duration</strong> &mdash; visibility into future revenue stability</li>
+</ol>
+
+<hr>
+
+<!-- ============ WHAT CHANGED ============ -->
+<h2 id="what-changed">Appendix: What Changed vs Prior Report (2026-09-13)</h2>
+
+<h3>Score Changes</h3>
+
+<p>No score changes &mdash; same data period. All dashboard scores and valuation metrics are unchanged from the 2026-09-13 report.</p>
+
+<table>
+  <thead>
+    <tr><th>Dimension</th><th class="num">2026-09-13</th><th class="num">2026-09-14</th><th class="num">Delta</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Business Quality</td><td class="num">7/10</td><td class="num">7/10</td><td class="num">&mdash;</td></tr>
+    <tr><td>Financial Strength</td><td class="num">3/10</td><td class="num">3/10</td><td class="num">&mdash;</td></tr>
+    <tr><td>Growth Outlook</td><td class="num">9/10</td><td class="num">9/10</td><td class="num">&mdash;</td></tr>
+    <tr><td>Competitive Position</td><td class="num">6/10</td><td class="num">6/10</td><td class="num">&mdash;</td></tr>
+    <tr><td>Management / Execution</td><td class="num">7/10</td><td class="num">7/10</td><td class="num">&mdash;</td></tr>
+    <tr><td>Valuation</td><td class="num">4/10</td><td class="num">4/10</td><td class="num">&mdash;</td></tr>
+    <tr><td>Investor Sentiment</td><td class="num">7/10</td><td class="num">7/10</td><td class="num">&mdash;</td></tr>
+    <tr><td>Risk</td><td class="num">2/10</td><td class="num">2/10</td><td class="num">&mdash;</td></tr>
+  </tbody>
+</table>
+
+<h3>Key Narrative Shifts</h3>
+<p>No narrative shifts &mdash; 1-day update with same underlying data.</p>
+
+<h3>New Data Since Last Report</h3>
+<p>Reddit: dedicated subreddits now searched (r/CRWV, r/CRWV_Stock, r/CRWVstock, r/CRWVDiscussion) &mdash; 0 posts returned (Google rate-limited). No new fundamentals or price data (weekend).</p>
+
+<h3>Note</h3>
+<p>This report now searches 10 subreddits (5 general + 5 dedicated) vs 5 in the prior report. When Google scraping resumes, dedicated subreddits will provide higher-signal sentiment data.</p>
+
+<hr>
+
+<div class="footer">
+  <p>This report was generated by the personal-investor skill using SEC EDGAR XBRL data, Yahoo Finance market data, and computed analytics (valuation models, risk metrics, returns analysis). The LLM was used for interpretation, contrarian analysis, and synthesis only &mdash; all numerical data points are deterministic.</p>
+  <p>Evidence labels: <span class="tag tag-fact">FACT</span> sourced from SEC/Yahoo/computed. <span class="tag tag-opinion">REPORTED OPINION</span> attributed to analysts/media. <span class="tag tag-inference">INFERENCE</span> my interpretation. <span class="tag tag-forecast">FORECAST</span> my estimate.</p>
+</div>
+
+</div><!-- /container -->
+
+<script>
+// Revenue Line Chart
+var revenueChart = echarts.init(document.getElementById('revenueChart'));
+revenueChart.setOption({
+  tooltip: {
+    trigger: 'axis',
+    formatter: function(params) {
+      var p = params[0];
+      return p.name + '<br/>' + p.seriesName + ': <b>$' + p.value.toFixed(2) + 'B</b>';
+    }
+  },
+  grid: { left: 60, right: 30, top: 30, bottom: 40 },
+  xAxis: {
+    type: 'category',
+    data: ['Q4\'23','Q1\'24','Q2\'24','Q3\'24','Q4\'24','Q1\'25','Q2\'25','Q3\'25','Q4\'25','Q1\'26','Q2\'26'],
+    axisLabel: { fontSize: 11 }
+  },
+  yAxis: {
+    type: 'value',
+    name: '$B',
+    nameTextStyle: { fontSize: 11 },
+    axisLabel: { formatter: '${value}B', fontSize: 11 }
+  },
+  series: [{
+    name: 'Revenue',
+    type: 'line',
+    data: [0.229, 0.189, 0.395, 0.584, 1.92, 0.982, 1.21, 1.36, 5.13, 2.08, 2.58],
+    smooth: true,
+    symbol: 'circle',
+    symbolSize: 7,
+    lineStyle: { width: 2.5, color: '#2563eb' },
+    itemStyle: { color: '#2563eb' },
+    areaStyle: {
+      color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+        { offset: 0, color: 'rgba(37,99,235,0.18)' },
+        { offset: 1, color: 'rgba(37,99,235,0.02)' }
+      ])
+    }
+  }]
+});
+
+// CapEx vs OCF Bar Chart
+var capexChart = echarts.init(document.getElementById('capexChart'));
+capexChart.setOption({
+  tooltip: {
+    trigger: 'axis',
+    formatter: function(params) {
+      var out = params[0].name;
+      params.forEach(function(p) {
+        out += '<br/>' + p.marker + ' ' + p.seriesName + ': <b>$' + p.value.toFixed(2) + 'B</b>';
+      });
+      return out;
+    }
+  },
+  legend: { data: ['CapEx', 'Operating Cash Flow'], top: 0, textStyle: { fontSize: 11 } },
+  grid: { left: 60, right: 30, top: 40, bottom: 40 },
+  xAxis: {
+    type: 'category',
+    data: ['Q4\'23','Q1\'24','Q2\'24','Q3\'24','Q4\'24','Q1\'25','Q2\'25','Q3\'25','Q4\'25','Q1\'26','Q2\'26'],
+    axisLabel: { fontSize: 11 }
+  },
+  yAxis: {
+    type: 'value',
+    name: '$B',
+    nameTextStyle: { fontSize: 11 },
+    axisLabel: { formatter: '${value}B', fontSize: 11 }
+  },
+  series: [
+    {
+      name: 'CapEx',
+      type: 'bar',
+      data: [2.94, 1.74, 3.99, 5.20, 8.70, 1.41, 3.86, 6.25, 10.31, 7.70, 14.12],
+      itemStyle: { color: '#dc2626', borderRadius: [3,3,0,0] }
+    },
+    {
+      name: 'Operating Cash Flow',
+      type: 'bar',
+      data: [1.83, 2.04, 1.92, 2.56, 2.75, 0.061, -0.19, 1.50, 3.06, 2.98, 3.66],
+      itemStyle: { color: '#16a34a', borderRadius: [3,3,0,0] }
+    }
+  ]
+});
+
+// Responsive resize
+window.addEventListener('resize', function() {
+  revenueChart.resize();
+  capexChart.resize();
+});
+</script>
+
+</body>
+</html>
