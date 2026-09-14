@@ -23,8 +23,18 @@ from urllib.parse import quote_plus
 
 logger = logging.getLogger(__name__)
 
-_SUBREDDITS = ["wallstreetbets", "stocks", "investing", "StockMarket", "options"]
+_GENERAL_SUBREDDITS = ["wallstreetbets", "stocks", "investing", "StockMarket", "options"]
 _MAX_RESULTS_PER_SUBREDDIT = 5
+
+# Common patterns for ticker-dedicated subreddits.
+# Checked via Google search; only subreddits that return results are used.
+_DEDICATED_SUB_PATTERNS = [
+    "{ticker}",            # r/CRWV, r/NVDA
+    "{ticker}_Stock",      # r/CRWV_Stock
+    "{ticker}stock",       # r/CRWVstock, r/VRTstock
+    "{ticker}Discussion",  # r/CRWVDiscussion
+    "{ticker}_investors",  # r/TSLA_investors
+]
 _REQUEST_TIMEOUT = 15
 _RETRY_ATTEMPTS = 3
 _RETRY_BACKOFF_BASE = 2.0  # exponential: 2, 4, 8 seconds
@@ -50,21 +60,43 @@ _NEGATIVE_KEYWORDS = [
 ]
 
 
-def fetch_reddit_posts(ticker: str, days: int = 30) -> list[dict]:
+def fetch_reddit_posts(
+    ticker: str,
+    days: int = 30,
+    extra_subreddits: list[str] | None = None,
+) -> list[dict]:
     """Fetch Reddit posts mentioning *ticker* from the last *days* days.
 
-    Returns a list of dicts matching the ``sentiment_observations`` DuckDB schema:
-    ticker, source, platform, subreddit, title, snippet, url, sentiment_direction,
-    sentiment_strength, observed_at, source_type, updated_at.
+    Searches both general investing subreddits AND ticker-dedicated subreddits
+    (e.g., r/CRWV, r/CRWV_Stock, r/CRWVstock for CRWV).
 
-    This is the synchronous entry point; it runs the async internals
-    via asyncio.run().
+    Args:
+        ticker: Stock ticker symbol.
+        days: Lookback window in days.
+        extra_subreddits: Additional subreddits from tickers.yaml config.
+
+    Returns a list of dicts matching the ``sentiment_observations`` DuckDB schema.
     """
-    return asyncio.run(_fetch_all(ticker.upper(), days))
+    return asyncio.run(_fetch_all(ticker.upper(), days, extra_subreddits or []))
 
 
-async def _fetch_all(ticker: str, days: int) -> list[dict]:
-    """Async coordinator: search each subreddit sequentially with delays."""
+def discover_dedicated_subreddits(ticker: str) -> list[str]:
+    """Generate candidate dedicated subreddit names for a ticker.
+
+    Returns candidate names like ['CRWV', 'CRWV_Stock', 'CRWVstock', ...].
+    Actual existence is verified during search (Google returns 0 results
+    for non-existent subreddits).
+    """
+    candidates = []
+    for pattern in _DEDICATED_SUB_PATTERNS:
+        candidates.append(pattern.format(ticker=ticker.upper()))
+    return candidates
+
+
+async def _fetch_all(
+    ticker: str, days: int, extra_subreddits: list[str]
+) -> list[dict]:
+    """Async coordinator: search general + dedicated + extra subreddits."""
     try:
         import httpx  # noqa: F811
     except ImportError:
@@ -72,6 +104,26 @@ async def _fetch_all(ticker: str, days: int) -> list[dict]:
             "httpx is required for Reddit ingestion. "
             "Install it with: pip install httpx"
         )
+
+    # Build the full subreddit list: general + dedicated + config extras
+    dedicated = discover_dedicated_subreddits(ticker)
+    all_subs = list(_GENERAL_SUBREDDITS) + dedicated
+    if extra_subreddits:
+        all_subs.extend(extra_subreddits)
+    # Deduplicate while preserving order
+    seen: set[str] = set()
+    subreddits: list[str] = []
+    for s in all_subs:
+        key = s.lower()
+        if key not in seen:
+            seen.add(key)
+            subreddits.append(s)
+
+    logger.info(
+        "Searching %d subreddits for %s: %s",
+        len(subreddits), ticker,
+        ", ".join(f"r/{s}" for s in subreddits),
+    )
 
     posts: list[dict] = []
     errors: list[str] = []
@@ -81,12 +133,15 @@ async def _fetch_all(ticker: str, days: int) -> list[dict]:
         headers={"User-Agent": _USER_AGENT},
         follow_redirects=True,
     ) as client:
-        for i, subreddit in enumerate(_SUBREDDITS):
+        for i, subreddit in enumerate(subreddits):
             if i > 0:
-                # 2-second delay between Google requests to avoid rate limiting
                 await asyncio.sleep(_GOOGLE_DELAY)
             try:
                 sub_posts = await _search_subreddit(client, ticker, subreddit, days)
+                if sub_posts:
+                    logger.info(
+                        "  r/%s: %d posts found", subreddit, len(sub_posts)
+                    )
                 posts.extend(sub_posts)
             except Exception as exc:
                 logger.warning("Failed to search r/%s for %s: %s", subreddit, ticker, exc)

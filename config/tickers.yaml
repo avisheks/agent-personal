@@ -12,6 +12,18 @@
 # Each ticker lists economically comparable peers (not just same-industry).
 
 tickers:
+  CRWV:
+    name: "CoreWeave Inc."
+    sector: AI-INFRA
+    peers: [NVDA, SMCI, VRT, IREN]
+    subreddits: [CRWV, CRWV_Stock, CRWVstock, CRWVDiscussion]
+
+  VRT:
+    name: "Vertiv Holdings Co"
+    sector: DATACENTER-INFRA
+    peers: [ETN, CARR, PWR, VRT]
+    subreddits: [VRTstock]
+
   NVDA:
     name: "NVIDIA Corporation"
     sector: CHIPS
@@ -21,7 +33,7 @@ tickers:
       - INTC   # Intel — CPU/GPU competitor, contrasting trajectory
       - QCOM   # Qualcomm — AI edge compute, different end-market mix
       - TSM    # TSMC — foundry partner, upstream supply chain
-    subreddits: [wallstreetbets, stocks, investing, nvidia]
+    subreddits: [nvidia, NVDA_Stock]
 
   AAPL:
     name: "Apple Inc."
@@ -30,49 +42,49 @@ tickers:
       - MSFT   # Enterprise + consumer platform, similar scale
       - GOOGL  # Advertising + devices + cloud, similar ecosystem breadth
       - AMZN   # Devices + services, different margin structure
-    subreddits: [wallstreetbets, stocks, investing, apple]
+    subreddits: [apple, AAPL]
 
   MSFT:
     name: "Microsoft Corporation"
     sector: MAG7
     peers: [AAPL, GOOGL, AMZN, META]
-    subreddits: [wallstreetbets, stocks, investing]
+    subreddits: [microsoft, MSFT]
 
   GOOGL:
     name: "Alphabet Inc."
     sector: MAG7
     peers: [META, MSFT, AMZN, AAPL]
-    subreddits: [wallstreetbets, stocks, investing]
+    subreddits: [google, GOOG]
 
   META:
     name: "Meta Platforms"
     sector: MAG7
     peers: [GOOGL, SNAP, PINS, TTD]
-    subreddits: [wallstreetbets, stocks, investing]
+    subreddits: [META_Stock]
 
   TSLA:
     name: "Tesla Inc."
     sector: MAG7
     peers: [NIO, RIVN, F, GM, LCID]
-    subreddits: [wallstreetbets, stocks, investing, teslainvestorsclub]
+    subreddits: [teslainvestorsclub, TSLALounge, RealTesla]
 
   AMD:
     name: "Advanced Micro Devices"
     sector: CHIPS
     peers: [NVDA, INTC, QCOM, AVGO, ARM]
-    subreddits: [wallstreetbets, stocks, investing, AMD_Stock]
+    subreddits: [AMD_Stock, AMD_Technology]
 
   PLTR:
     name: "Palantir Technologies"
     sector: TECH-SAAS
     peers: [SNOW, DDOG, CRM, NOW]
-    subreddits: [wallstreetbets, stocks, investing, PLTR]
+    subreddits: [PLTR, PLTRstock]
 
   SMCI:
     name: "Super Micro Computer"
     sector: CHIPS
     peers: [DELL, HPE, NVDA, AMD]
-    subreddits: [wallstreetbets, stocks, investing]
+    subreddits: [SMCI]
 
 # Add more per-ticker configs as needed. Format:
 # TICKER:

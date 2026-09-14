@@ -90,6 +90,8 @@ For each data source, query `research.duckdb` for `last_updated`:
 | Prices (Yahoo) | >1 trading day | `python src/stock_research/ingestion/market_data.py TICKER` |
 | Fundamentals (SEC XBRL) | >30 days | `python src/stock_research/ingestion/sec.py TICKER` |
 | Reddit sentiment | >3 days | `python src/stock_research/ingestion/reddit.py TICKER` |
+
+**Reddit subreddit discovery:** The Reddit ingestion automatically searches both general subreddits (wallstreetbets, stocks, investing, StockMarket, options) AND ticker-dedicated subreddits discovered via pattern matching (r/TICKER, r/TICKER_Stock, r/TICKERstock, r/TICKERDiscussion, r/TICKER_investors). Additional subreddits from `tickers.yaml` are also searched. Non-existent subreddits return 0 results and are silently skipped.
 | Earnings (FMP) | >90 days | `python src/stock_research/ingestion/earnings.py TICKER` |
 
 If `--refresh` flag is set, refresh all sources regardless of staleness.
@@ -234,6 +236,96 @@ Follow this exact structure (derived from the seed prompt):
 12. **Risk Analysis** — top 10 risks ranked by probability × impact
 13. **Catalysts** — 0-3m / 3-6m / 6-12m with timing and confirmation/invalidation signals
 14. **Investment Dashboard** — scores (1-10) for business quality, financial strength, growth, competitive position, management, valuation, sentiment, risk + bottom line
+15. **Appendix: What Changed** — mandatory if a prior report exists; diff vs previous report
+
+## Appendix: What Changed (mandatory for repeat reports)
+
+When generating a report for a ticker that already has a prior report in `.notlocal/data/personal-investor/reports/TICKER/`, add an appendix section:
+
+```markdown
+## Appendix: What Changed vs Prior Report (YYYY-MM-DD)
+
+### Score Changes
+| Dimension | Previous | Current | Delta | Why |
+|-----------|----------|---------|-------|-----|
+| Valuation | 5/10 | 4/10 | -1 | P/E expanded from 45x to 58x |
+| Growth | 7/10 | 8/10 | +1 | Q4 2025 EPS $3.41 exceeded expectations |
+
+### Key Narrative Shifts
+- **Previous:** "Growth story just beginning — early data center cycle"
+- **Current:** "Growth proven but pricing in perfection — Cisco analogy emerging"
+
+### New Data Since Last Report
+- 2 new quarters of fundamentals (Q1-Q2 2026)
+- 180 new daily price records
+- N new Reddit posts from dedicated subreddits
+
+### Thesis Changes
+| Thesis element | Previous | Current | Changed? |
+|----------------|----------|---------|----------|
+| Bull case core | AI capex accelerating | AI capex sustained but priced in | ⚠️ Weakened |
+| Bear case core | Unproven at scale | Great business, dangerous price | ↗ Strengthened |
+| Falsification triggers | EPS < $5 TTM | EPS deceleration, multiple compression | Updated |
+```
+
+To generate the diff: read the prior `.json` research packet and compare dashboard scores, key metrics, and thesis elements. Highlight only material changes — not every data point update.
+
+## Quarterly Rollup (report lifecycle management)
+
+### Retention Policy
+
+- **Current quarter:** Keep individual per-day reports (e.g., `CRWV_2026-09-13.md`, `CRWV_2026-09-14.md`)
+- **Previous quarters:** Assimilate into a single quarterly report per ticker
+- **Naming convention:** `TICKER_YYYY-QN_quarterly.md` (e.g., `CRWV_2026-Q3_quarterly.md`)
+
+### Quarterly Assimilation Process
+
+At the start of each new quarter, for each ticker with multiple reports from the prior quarter:
+
+1. **Collect** all daily reports from the prior quarter: `TICKER_YYYY-MM-DD.{md,html,json}`
+2. **Synthesize** into a quarterly report following this structure:
+
+```markdown
+# Quarterly Research Report: TICKER (YYYY QN)
+
+**Period:** YYYY-MM-DD to YYYY-MM-DD
+**Reports assimilated:** N daily reports
+
+## Quarter Summary
+{One-page synthesis: What changed over the quarter? What did we get right/wrong?}
+
+## Prediction Scorecard
+| Prediction (from earliest report) | Made | Outcome | Accuracy |
+|-----------------------------------|------|---------|----------|
+| "EPS will exceed $9 TTM by year-end" | Sep 13 | ⏳ Too early | — |
+| "Multiple compression to 40x by Dec" | Sep 13 | ❌ Expanded to 58x | Wrong |
+
+## Score Trajectory
+| Dimension | Start of Quarter | End of Quarter | Trend |
+|-----------|-----------------|---------------|-------|
+| Business Quality | 9/10 | 9/10 | → Stable |
+| Valuation | 5/10 | 4/10 | ↘ Deteriorated |
+
+## Key Data Changes Over Quarter
+{Summary of new fundamentals, price movement, sentiment shifts}
+
+## Thesis Evolution
+{How the bull/bear/contrarian thesis evolved week by week}
+
+## Lessons Learned
+{What the quarter taught us about this stock that the prior quarter didn't}
+```
+
+3. **Archive** daily reports into `reports/TICKER/archive/YYYY-QN/`
+4. **Keep** the quarterly `.md`, `.html`, and the latest `.json` packet in the main ticker directory
+
+### Calendar
+
+This follows the same pattern as the news-summarizer skill's quarterly retrospectives:
+- Q1: Jan–Mar → quarterly rollup generated in first week of April
+- Q2: Apr–Jun → quarterly rollup generated in first week of July
+- Q3: Jul–Sep → quarterly rollup generated in first week of October
+- Q4: Oct–Dec → quarterly rollup generated in first week of January
 
 ## Evidence Rules
 
