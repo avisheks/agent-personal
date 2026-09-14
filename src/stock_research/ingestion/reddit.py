@@ -73,6 +73,7 @@ _NEGATIVE_KEYWORDS = [
 ]
 
 # Engine names for logging
+_ENGINE_RSS = "reddit_rss"
 _ENGINE_DDG = "duckduckgo"
 _ENGINE_REDDIT = "reddit_api"
 _ENGINE_GOOGLE = "google"
@@ -179,10 +180,12 @@ async def _search_subreddit(
 ) -> list[dict]:
     """Search a subreddit for ticker mentions using multi-engine fallback.
 
-    Tries engines in order: DuckDuckGo -> Reddit JSON API -> Google.
+    Tries engines in order: Reddit RSS -> DuckDuckGo -> Reddit JSON API -> Google.
     Returns results from the first engine that produces non-empty results.
+    RSS is the most reliable — no CAPTCHA, no rate-limit issues for low-volume.
     """
     engines = [
+        (_ENGINE_RSS, _search_subreddit_rss),
         (_ENGINE_DDG, _search_subreddit_ddg),
         (_ENGINE_REDDIT, _search_subreddit_reddit_api),
         (_ENGINE_GOOGLE, _search_subreddit_google),
@@ -217,6 +220,88 @@ async def _search_subreddit(
             subreddit, last_exc,
         )
     return []
+
+
+# ---------------------------------------------------------------------------
+# Engine 0: Reddit RSS feed (most reliable — no CAPTCHA, no auth needed)
+# ---------------------------------------------------------------------------
+
+async def _search_subreddit_rss(
+    client,  # httpx.AsyncClient
+    ticker: str,
+    subreddit: str,
+    days: int,
+) -> list[dict]:
+    """Fetch posts from a subreddit via RSS feed.
+
+    For dedicated ticker subs (e.g., r/CRWV): fetches /new.rss (all posts relevant).
+    For general subs (e.g., r/wallstreetbets): fetches /search.rss with ticker query.
+    """
+    is_dedicated = subreddit.upper() == ticker.upper() or ticker.upper() in subreddit.upper()
+
+    if is_dedicated:
+        url = f"https://www.reddit.com/r/{subreddit}/new.rss?limit=25"
+    else:
+        query = quote_plus(f"{ticker} OR {ticker.lower()}")
+        url = f"https://www.reddit.com/r/{subreddit}/search.rss?q={query}&sort=new&t=month&restrict_sr=on&limit=10"
+
+    resp = await _get_with_retry(client, url)
+
+    if resp.status_code != 200 or "<entry>" not in resp.text:
+        return []
+
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError:
+        raise ImportError("beautifulsoup4 required: pip install beautifulsoup4")
+
+    soup = BeautifulSoup(resp.text, "xml")
+    entries = soup.find_all("entry")
+
+    posts: list[dict] = []
+    now_iso = datetime.now(tz=timezone.utc).isoformat()
+
+    for entry in entries[:_MAX_RESULTS_PER_SUBREDDIT * 2]:  # take more from RSS since it's cheap
+        title_el = entry.find("title")
+        content_el = entry.find("content")
+        link_el = entry.find("link")
+        updated_el = entry.find("updated")
+
+        title = title_el.text.strip() if title_el else ""
+        snippet = ""
+        if content_el:
+            # RSS content is HTML — extract text
+            content_soup = BeautifulSoup(content_el.text, "html.parser")
+            snippet = content_soup.get_text()[:500]
+        url_val = link_el.get("href", "") if link_el else ""
+        post_date = updated_el.text[:10] if updated_el else ""
+
+        # For general subs, filter out posts that don't mention the ticker
+        if not is_dedicated:
+            combined = f"{title} {snippet}".upper()
+            if ticker.upper() not in combined:
+                continue
+
+        direction, strength = _classify_sentiment(title, snippet)
+
+        posts.append({
+            "ticker": ticker,
+            "date": post_date or now_iso[:10],
+            "source": "reddit",
+            "source_id": url_val.split("/")[-2] if "/" in url_val else "",
+            "author": "",
+            "title": title,
+            "snippet": snippet[:500],
+            "engagement_score": 0.0,  # RSS doesn't include score
+            "sentiment_direction": direction,
+            "sentiment_strength": strength,
+            "narrative_label": "",
+            "bull_bear": direction if direction != "neutral" else "",
+            "source_url": url_val,
+            "updated_at": now_iso,
+        })
+
+    return posts
 
 
 # ---------------------------------------------------------------------------

@@ -368,15 +368,58 @@
 <!-- ============ REDDIT ============ -->
 <h2 id="reddit">Reddit / Community Analysis</h2>
 
-<p>No Reddit sentiment data available for this report period. Google scraping was rate-limited, returning 0 posts across all searched subreddits.</p>
+<p><strong>Data source:</strong> r/CRWV dedicated subreddit via RSS feed (10 posts, last 30 days)<br>
+<strong>Engine:</strong> Reddit RSS (primary engine &mdash; DuckDuckGo and Google both rate-limited)</p>
 
-<p><strong>Subreddits searched (10 total):</strong></p>
-<ul>
-  <li><strong>General:</strong> r/wallstreetbets, r/stocks, r/investing, r/options, r/SecurityAnalysis</li>
-  <li><strong>Dedicated:</strong> r/CRWV, r/CRWV_Stock, r/CRWVstock, r/CRWVDiscussion, r/CRWV_investors</li>
-</ul>
+<h3>Sentiment Summary</h3>
+<table>
+  <thead>
+    <tr><th>Direction</th><th class="num">Count</th><th class="num">% of Total</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="neg"><strong>Bearish</strong></td><td class="num">6</td><td class="num neg">60%</td></tr>
+    <tr><td>Neutral</td><td class="num">4</td><td class="num">40%</td></tr>
+    <tr><td class="pos">Bullish</td><td class="num">0</td><td class="num">0%</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td><strong>Overall</strong></td><td class="num neg"><strong>BEARISH</strong></td><td class="num neg"><strong>Strength: 0.6</strong></td></tr>
+  </tfoot>
+</table>
 
-<p><em>Note:</em> The ingestion pipeline now automatically discovers dedicated subreddits for each ticker using the pattern: r/TICKER, r/TICKER_Stock, r/TICKERstock, r/TICKERDiscussion, r/TICKER_investors. Dedicated subreddits typically provide higher-signal sentiment data than general investing subreddits, as participants are more likely to be informed shareholders with position-specific knowledge. When Google scraping resumes, these dedicated subreddits will be prioritized for sentiment scoring.</p>
+<h3>Top Posts</h3>
+<table>
+  <thead>
+    <tr><th>#</th><th>Title</th><th>Sentiment</th><th>Snippet</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>CRWV and Neocloud Data Center Tracker</td><td><span class="tag" style="background:#e5e7eb;color:#374151;">Neutral</span></td><td>"Hey everyone, I run Northwise, an independent research business focused heavily on AI infrastructure&hellip;"</td></tr>
+    <tr><td>2</td><td>I bought some more today (Germany). I just can't help myself.</td><td><span class="tag" style="background:#e5e7eb;color:#374151;">Neutral</span></td><td>"I'm in since IPO. I sell some than I buy some more and repeat it. At the end my invest got very huge"</td></tr>
+    <tr><td>3</td><td>It's over</td><td><span class="tag" style="background:#fecaca;color:#991b1b;">Bearish</span></td><td>"Title is self explanatory. Slow down in AI advancement is a death sentence for this poorly managed company"</td></tr>
+    <tr><td>4</td><td>Economics of AI</td><td><span class="tag" style="background:#e5e7eb;color:#374151;">Neutral</span></td><td>"There is a 9 video series courtesy Stanford on the economics of AI."</td></tr>
+    <tr><td>5</td><td>David Sacks Weighs In on Dario Amodei's 'Pace the Frontier' Proposal</td><td><span class="tag" style="background:#fecaca;color:#991b1b;">Bearish</span></td><td>"David Sacks responded to Dario Amodei and Sam Altman's discussion about pacing the frontier."</td></tr>
+    <tr><td>6</td><td>You can't make this up: CRWV bear ends up arguing FOR more AI compute</td><td><span class="tag" style="background:#e5e7eb;color:#374151;">Neutral</span></td><td>Debate about compute demand &mdash; a bear inadvertently makes the case for more GPU infrastructure</td></tr>
+    <tr><td>7</td><td>More turbulent times ahead?</td><td><span class="tag" style="background:#fecaca;color:#991b1b;">Bearish</span></td><td>Concerns about AI policy slowdown triggered by Anthropic CEO's comments on frontier pacing</td></tr>
+    <tr><td>8</td><td>Weekend Discussion</td><td><span class="tag" style="background:#fecaca;color:#991b1b;">Bearish</span></td><td>General bearish sentiment thread</td></tr>
+    <tr><td>9</td><td>Weekend Discussion</td><td><span class="tag" style="background:#fecaca;color:#991b1b;">Bearish</span></td><td>Another bearish discussion thread</td></tr>
+    <tr><td>10</td><td>This stock is frustrating</td><td><span class="tag" style="background:#fecaca;color:#991b1b;">Bearish</span></td><td>"started out green then went red. my cost average is like 80 but I'm getting frustrated"</td></tr>
+  </tbody>
+</table>
+
+<h3>Narrative Themes</h3>
+
+<p>Three dominant themes emerge from the r/CRWV community:</p>
+
+<ol>
+  <li><strong>AI slowdown fears (3 posts):</strong> The most substantive bearish thread centers on policy-level risk &mdash; Anthropic CEO Dario Amodei's "pace the frontier" proposal and David Sacks' response. The community reads this as a potential regulatory headwind that could reduce demand for GPU infrastructure buildout. This aligns with Risk #1 (AI demand cycle normalizes faster than capex payback) and is a legitimate macro concern, not retail noise.</li>
+  <li><strong>Price frustration and capitulation signals (3 posts):</strong> Posts like "It's over" and "This stock is frustrating" (cost basis ~$80, now underwater) reflect retail holder fatigue. The stock's 81% max drawdown has shaken out weaker hands. <span class="tag tag-inference">INFERENCE</span> This level of retail bearishness, combined with an absence of bullish posts, could be a contrarian positive &mdash; capitulation often precedes bottoms. However, the sample is too small (10 posts) to draw high-confidence contrarian signals.</li>
+  <li><strong>Informed analysis holdouts (2 posts):</strong> The Neocloud Data Center Tracker post and Stanford economics series suggest a subset of holders are doing fundamental research rather than trading on sentiment. This is a healthier signal than pure meme-stock behavior.</li>
+</ol>
+
+<p><strong>Notable absence:</strong> Zero bullish posts. In a dedicated subreddit for a stock, this is unusual &mdash; even during drawdowns, dedicated subs typically have some bullish holdouts. The complete absence of bullish sentiment suggests either (a) bulls have gone quiet / left the sub, or (b) the community is genuinely small and this is a statistical artifact of 10 posts.</p>
+
+<h3>Signal Quality Assessment</h3>
+
+<p><strong>Moderate</strong> &mdash; The dedicated subreddit provides focused discussion directly relevant to CRWV, which is higher signal than mentions in general investing subs (r/wallstreetbets, r/stocks). However, the small community size (10 posts over 30 days) may amplify sentiment extremes in both directions. The bearish skew (60%) should be interpreted cautiously: a single bullish post would shift the distribution to 55% bearish / 10% bullish, demonstrating the fragility of small-sample sentiment scoring. The presence of substantive policy discussion (Amodei/Sacks posts) alongside low-information posts ("It's over") suggests a mix of informed and retail sentiment.</p>
 
 <a href="#top" class="back-to-top">Back to Top</a>
 
@@ -521,10 +564,10 @@
 <p>No narrative shifts &mdash; 1-day update with same underlying data.</p>
 
 <h3>New Data Since Last Report</h3>
-<p>Reddit: dedicated subreddits now searched (r/CRWV, r/CRWV_Stock, r/CRWVstock, r/CRWVDiscussion) &mdash; 0 posts returned (Google rate-limited). No new fundamentals or price data (weekend).</p>
+<p>Reddit: 10 posts now available from r/CRWV dedicated subreddit (was 0 in prior report). Sentiment: bearish (6/10 posts). Engine: Reddit RSS fallback (DuckDuckGo and Google both rate-limited; Reddit RSS used as primary engine for dedicated subreddit ingestion).</p>
 
 <h3>Note</h3>
-<p>This report now searches 10 subreddits (5 general + 5 dedicated) vs 5 in the prior report. When Google scraping resumes, dedicated subreddits will provide higher-signal sentiment data.</p>
+<p>This report now searches 10 subreddits (5 general + 5 dedicated) vs 5 in the prior report. Reddit RSS feed successfully returned 10 posts from r/CRWV, resolving the data gap from the prior report where Google scraping was rate-limited. Dedicated subreddit sentiment is bearish (60% bearish, 40% neutral, 0% bullish) with dominant themes of AI slowdown fears and price frustration.</p>
 
 <hr>
 
