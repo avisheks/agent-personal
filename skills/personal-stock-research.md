@@ -264,6 +264,22 @@ Follow this exact structure (derived from the seed prompt):
 13. **Catalysts** — 0-3m / 3-6m / 6-12m with timing and confirmation/invalidation signals
 14. **Investment Dashboard** — scores (1-10) for business quality, financial strength, growth, competitive position, management, valuation, sentiment, risk + bottom line
 15. **Appendix: What Changed** — mandatory if a prior report exists; diff vs previous report
+16. **Appendix: Glossary** — mandatory in every report; definitions with worked examples
+
+## Glossary Appendix (mandatory — every report)
+
+Every report MUST end with a glossary appendix containing definitions and worked examples for every financial term used in the report. The glossary is stored as a reference file at `config/glossary.md` and is appended verbatim to every report.
+
+**Workflow:**
+1. After writing all report sections (1–15), read `config/glossary.md`
+2. Append its contents as the final section of the report (section 16)
+3. In HTML reports, render the glossary with the same table/heading styles as the rest of the report, inside a `<details>` collapsible section (open by default)
+4. Add a TOC entry: `[Glossary](#glossary)`
+5. Add a nav bar link in the HTML
+
+**The glossary file is the single source of truth.** Do not rewrite, summarize, or omit any definitions — append the file contents verbatim. If a term used in the report body is not in the glossary file, flag it for addition to `config/glossary.md` in the comments column of the event log.
+
+**Why a reference file rather than inline:** The glossary is intentionally repetitive across reports. Storing it in one file ensures consistency and makes updates propagate to all future reports without editing prior content.
 
 ## Appendix: What Changed (mandatory for repeat reports)
 
@@ -502,6 +518,8 @@ The `.md` report MUST follow this exact header and TOC pattern (matching options
 - [Catalysts](#catalysts)
 - [Investment Dashboard](#dashboard)
 - [Bottom Line](#bottom-line)
+- [Appendix: What Changed](#what-changed)
+- [Appendix: Glossary](#glossary)
 
 ## Executive Summary
 
