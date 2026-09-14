@@ -1,0 +1,51 @@
+# Stock Research — Data Source Configuration
+#
+# API keys should be set as environment variables, NOT in this file.
+# This file defines source behavior (endpoints, timeouts, rate limits).
+
+sources:
+  sec_edgar:
+    enabled: true
+    base_url: "https://data.sec.gov"
+    ticker_lookup_url: "https://www.sec.gov/files/company_tickers.json"
+    user_agent_env: "EDGAR_USER_AGENT"  # SEC requires: "Name email@example.com"
+    rate_limit_per_second: 10
+    timeout_seconds: 20
+
+  yahoo_finance:
+    enabled: true
+    # Uses yfinance library — no API key needed
+    history_years: 10
+    timeout_seconds: 30
+
+  alpha_vantage:
+    enabled: false  # Enable when API key is configured
+    api_key_env: "ALPHA_VANTAGE_API_KEY"
+    base_url: "https://www.alphavantage.co/query"
+    rate_limit_per_minute: 5  # Free tier
+    timeout_seconds: 20
+
+  fmp:
+    enabled: false  # Enable when API key is configured
+    api_key_env: "FMP_API_KEY"
+    base_url: "https://financialmodelingprep.com/api/v3"
+    timeout_seconds: 20
+
+  reddit:
+    enabled: true
+    # Scrapes Google for Reddit posts — no API key needed
+    default_subreddits:
+      - wallstreetbets
+      - stocks
+      - investing
+      - StockMarket
+    max_results_per_subreddit: 10
+    delay_between_requests_seconds: 2
+    timeout_seconds: 15
+
+# Freshness thresholds — how old data can be before auto-refresh
+freshness:
+  prices: 1          # days (trading days)
+  fundamentals: 30   # days
+  sentiment: 3       # days
+  earnings: 90       # days

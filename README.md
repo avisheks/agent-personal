@@ -476,3 +476,116 @@ Helper scripts in [src/skills/researcher/](src/skills/researcher/):
 - `anki_sync.py` — AnkiConnect HTTP integration
 
 **Data:** `.notlocal/data/personal-researcher/` (knowledge: 1,054 pages across 45 topics, 166 sources, 83 reports, 40 Anki CSVs, 20 seeds)
+
+---
+
+## Appendix: Stock Research Agent (`personal-personal-investor`)
+
+### Overview
+
+Evidence-driven contrarian stock analysis. Two-stage architecture:
+
+1. **Stage 1 (deterministic Python):** Fetches financial data from SEC EDGAR, Yahoo Finance, Reddit, and optional APIs (Alpha Vantage, FMP). Normalizes into a DuckDB research database. Computes derived metrics (CAGR, valuation models, risk, sentiment→return analysis). Produces a structured JSON research packet.
+
+2. **Stage 2 (LLM reasoning):** Three sub-agents consume the packet — a Bull Analyst, a Contrarian Analyst, and an Adjudicator — producing a cited investment report with explicit falsification triggers.
+
+### Quick Start
+
+```bash
+# Set required environment variable for SEC EDGAR
+export EDGAR_USER_AGENT="Your Name your.email@example.com"
+
+# Optional: enable additional data sources
+export ALPHA_VANTAGE_API_KEY="your_key"
+export FMP_API_KEY="your_key"
+
+# Install dependencies (one-time)
+pip install duckdb yfinance httpx beautifulsoup4 pyyaml
+```
+
+Then ask the agent:
+
+```
+/research-stock NVDA
+/research-stock AAPL --quick
+/compare-stocks NVDA AMD AVGO
+/contrarian TSLA
+```
+
+### Architecture
+
+```
+SEC EDGAR ─┐
+Yahoo Fin  │
+Reddit     ├─→ DuckDB ─→ Research Packet ─→ Bull + Contrarian ─→ Adjudicator ─→ Report
+FMP (opt)  │                                    Analysts
+AV (opt)  ─┘
+```
+
+### Data Sources
+
+| Source | What it provides | API key needed? | Rate limit |
+|--------|-----------------|-----------------|------------|
+| SEC EDGAR XBRL | Quarterly fundamentals (10+ years) | No (User-Agent required) | 10 req/sec |
+| Yahoo Finance | Daily prices, current valuation ratios | No | Generous |
+| Reddit (via Google) | Investor sentiment, narratives, claims | No | 2s delay between requests |
+| Alpha Vantage | Company overview, income statements | Yes (free tier: 5/min) | 5 req/min |
+| FMP | Earnings transcripts, estimates | Yes | Varies |
+
+### Key Code Components
+
+| Module | Purpose |
+|--------|---------|
+| `src/stock_research/db.py` | DuckDB schema (8 tables) + connection management |
+| `src/stock_research/ingestion/sec.py` | SEC EDGAR XBRL API integration |
+| `src/stock_research/ingestion/market_data.py` | Yahoo Finance prices + fundamentals |
+| `src/stock_research/ingestion/reddit.py` | Reddit sentiment via Google search scraping |
+| `src/stock_research/ingestion/earnings.py` | FMP earnings transcripts + estimates |
+| `src/stock_research/analytics/valuation.py` | 5-model intrinsic value (Owner-Earnings, DCF, Graham, EV/EBITDA, PEG) |
+| `src/stock_research/analytics/risk.py` | Volatility, VaR, max drawdown |
+| `src/stock_research/analytics/returns.py` | CAGR, forward returns, peer-relative |
+| `src/stock_research/analytics/peers.py` | SIC-based peer comparison |
+| `src/stock_research/analytics/sentiment_returns.py` | Sentiment bucket → forward 1M/3M/6M/12M return |
+| `src/stock_research/extraction/claim_classifier.py` | LLM-based claim extraction from Reddit posts |
+| `src/stock_research/packet_builder.py` | Assembles all data into research packet JSON |
+
+### Configuration
+
+**Ticker config** (`config/tickers.yaml`): Define tickers with named peers and preferred subreddits.
+
+**Source config** (`config/sources.yaml`): Enable/disable data sources, set rate limits and freshness thresholds.
+
+### Data Storage
+
+```
+.notlocal/data/personal-investor/
+├── db/research.duckdb       # Longitudinal research database
+├── raw/                     # Raw ingested data (provenance)
+└── reports/
+    └── NVDA/
+        ├── NVDA_2026-09-13.md    # Generated report
+        └── NVDA_2026-09-13.json  # Research packet snapshot
+```
+
+### Harvested From
+
+This skill consolidates patterns from several existing projects:
+
+| Source | What was harvested |
+|--------|-------------------|
+| `agent-investor` (fundamentals_sec.py) | SEC EDGAR XBRL API, CIK lookup, concept-priority fallbacks |
+| `agent-investor` (valuation.py) | 5-model intrinsic value calculation |
+| `agent-investor` (perspectives.py) | Buffett/Munger/Lynch/Fisher persona scoring → bull/contrarian prompts |
+| `agent-investor` (risk.py) | Volatility, VaR, max drawdown |
+| `agentic-trader` (alpha_vantage_fundamentals.py) | Alpha Vantage endpoint patterns |
+| `agentic-trader` (bull/bear_researcher.py) | Bull/bear debate agent prompts |
+| `trading-copilot` (reddit.py) | Reddit scraping via Google search with date filters |
+| `trading-copilot` (evaluation/) | Statistical eval framework for sentiment→return analysis |
+
+### Design Principles
+
+1. **Stage 1 produces facts; Stage 2 produces interpretations.** Never ask the LLM to calculate P/E, CAGR, or forward returns — Python owns those.
+2. **Store observations, not just reports.** The DuckDB database is the source of truth; reports are generated from it.
+3. **Deterministic-first, classifier fast-follow.** Sentiment classification starts with keyword matching; LLM classification is an optional upgrade.
+4. **Evidence hierarchy.** SEC filings > earnings transcripts > financial media > Reddit. Use Reddit for sentiment, not financial facts.
+5. **Contrarianism requires evidence.** A contrarian conclusion exists only when data contradicts the consensus — not for its own sake.
