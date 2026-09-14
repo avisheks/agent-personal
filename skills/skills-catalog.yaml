@@ -353,3 +353,42 @@ skills:
     companions:
       - skills/personal-researcher-anki-sync.md
     data_dir: ".notlocal/data/personal-researcher/"
+
+  - id: personal-stock-research
+    name: "Stock Research"
+    file: skills/personal-stock-research.md
+    category: personal
+    description: "Evidence-driven contrarian stock analysis — deterministic data pipeline + bull/contrarian/adjudicator agents producing investment research reports"
+    commands:
+      - "/research-stock TICKER"
+      - "/research-stock TICKER --quick"
+      - "/research-stock TICKER --refresh"
+      - "/compare-stocks T1 T2 T3"
+      - "/contrarian TICKER"
+    triggers:
+      - "stock research"
+      - "stock analysis"
+      - "analyze stock"
+      - "research stock"
+      - "investment research"
+      - "bull case"
+      - "bear case"
+      - "contrarian"
+      - "valuation"
+      - "fundamentals"
+      - "P/E ratio"
+      - "earnings analysis"
+      - "sentiment analysis"
+      - "stock sentiment"
+      - "Reddit sentiment"
+      - "DCF"
+      - "intrinsic value"
+      - "peer comparison"
+      - "is X overvalued"
+      - "should I buy"
+      - "stock outlook"
+    requires_config: false
+    companions:
+      - config/tickers.yaml
+      - config/sources.yaml
+    data_dir: ".notlocal/data/personal-investor/"

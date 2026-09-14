@@ -1,0 +1,212 @@
+# Stock Research — Ticker Configuration
+#
+# Two sections:
+#   tickers: Per-ticker config with named peers and subreddits (for deep research)
+#   sectors: Sector-to-ticker mapping (for screening, grouping, sector rotation)
+#
+# Ported from: .local/data/options-pnl/sector-map.json (~120 tickers, 30 sectors)
+# Merged with: agent-investor/config.yaml segments
+
+# ─── Per-Ticker Research Config ─────────────────────────────────────────
+# Used by /research-stock and /compare-stocks for peer comparison.
+# Each ticker lists economically comparable peers (not just same-industry).
+
+tickers:
+  NVDA:
+    name: "NVIDIA Corporation"
+    sector: CHIPS
+    peers:
+      - AMD    # Direct GPU competitor, similar AI exposure
+      - AVGO   # Broadcom — AI/datacenter semiconductor, similar margin profile
+      - INTC   # Intel — CPU/GPU competitor, contrasting trajectory
+      - QCOM   # Qualcomm — AI edge compute, different end-market mix
+      - TSM    # TSMC — foundry partner, upstream supply chain
+    subreddits: [wallstreetbets, stocks, investing, nvidia]
+
+  AAPL:
+    name: "Apple Inc."
+    sector: MAG7
+    peers:
+      - MSFT   # Enterprise + consumer platform, similar scale
+      - GOOGL  # Advertising + devices + cloud, similar ecosystem breadth
+      - AMZN   # Devices + services, different margin structure
+    subreddits: [wallstreetbets, stocks, investing, apple]
+
+  MSFT:
+    name: "Microsoft Corporation"
+    sector: MAG7
+    peers: [AAPL, GOOGL, AMZN, META]
+    subreddits: [wallstreetbets, stocks, investing]
+
+  GOOGL:
+    name: "Alphabet Inc."
+    sector: MAG7
+    peers: [META, MSFT, AMZN, AAPL]
+    subreddits: [wallstreetbets, stocks, investing]
+
+  META:
+    name: "Meta Platforms"
+    sector: MAG7
+    peers: [GOOGL, SNAP, PINS, TTD]
+    subreddits: [wallstreetbets, stocks, investing]
+
+  TSLA:
+    name: "Tesla Inc."
+    sector: MAG7
+    peers: [NIO, RIVN, F, GM, LCID]
+    subreddits: [wallstreetbets, stocks, investing, teslainvestorsclub]
+
+  AMD:
+    name: "Advanced Micro Devices"
+    sector: CHIPS
+    peers: [NVDA, INTC, QCOM, AVGO, ARM]
+    subreddits: [wallstreetbets, stocks, investing, AMD_Stock]
+
+  PLTR:
+    name: "Palantir Technologies"
+    sector: TECH-SAAS
+    peers: [SNOW, DDOG, CRM, NOW]
+    subreddits: [wallstreetbets, stocks, investing, PLTR]
+
+  SMCI:
+    name: "Super Micro Computer"
+    sector: CHIPS
+    peers: [DELL, HPE, NVDA, AMD]
+    subreddits: [wallstreetbets, stocks, investing]
+
+# Add more per-ticker configs as needed. Format:
+# TICKER:
+#   name: "Company Name"
+#   sector: SECTOR_KEY (from sectors below)
+#   peers: [PEER1, PEER2, ...]
+#   subreddits: [sub1, sub2, ...]
+
+# ─── Sector-to-Ticker Mapping ──────────────────────────────────────────
+# Ported from options-pnl/sector-map.json + agent-investor/config.yaml.
+# Used for sector screening, grouping in reports, and auto-peer discovery
+# when a ticker doesn't have explicit peers above.
+
+sectors:
+  MAG7:
+    label: "Magnificent Seven"
+    tickers: [NVDA, GOOG, META, TSLA, MSFT, AMZN, AAPL]
+
+  AI-DATA:
+    label: "AI Data & Platforms"
+    tickers: [INOD, RDDT]
+
+  AI-INFRA:
+    label: "AI Infrastructure"
+    tickers: [CRWV, NBIS]
+
+  CHINA:
+    label: "China Tech"
+    tickers: [BIDU, TCEHY, JD, PDD, BABA]
+
+  CHIPS:
+    label: "Semiconductors"
+    tickers: [ARM, AMD, SMCI, GFS, AVGO, TSM, TXN, QCOM, NVDA, INTC, ADI, MRVL]
+
+  CHIPS-MEM:
+    label: "Memory & Storage"
+    tickers: [DRAM, SKHY, MU, STX, SNDK, WDC, LRCX]
+
+  CRYPTO:
+    label: "Cryptocurrency"
+    tickers: [DOGE, ETH, BTC]
+
+  DATACENTER-INFRA:
+    label: "Datacenter Infrastructure"
+    tickers: [IREN, CARR, NEE, BE, VRT, AAON, WCC, ETN, PWR]
+
+  EDA:
+    label: "EDA & Chip Design Tools"
+    tickers: [CDNS, SNPS]
+
+  ENERGY:
+    label: "Energy (General)"
+    tickers: [CEG, BE]
+
+  ENERGY-BAT:
+    label: "Energy — Batteries"
+    tickers: [AMPX]
+
+  ENERGY-NUC:
+    label: "Energy — Nuclear"
+    tickers: [SMR, OKLO]
+
+  ENERGY-OIL:
+    label: "Energy — Oil & Gas"
+    tickers: [WTI, CVX, COP, VLO, XLE, OXY, PBF]
+
+  FINANCE:
+    label: "Banks & Financial Services"
+    tickers: [BNY, SYF, WFC, C, BAC, JPM, COF, AXP, GS, MS]
+
+  FINTECH:
+    label: "Fintech"
+    tickers: [PYPL, HOOD, COIN, V, MA, SQ, AFRM, SOFI]
+
+  MISC:
+    label: "Miscellaneous"
+    tickers: [QURE]
+
+  PHARMA:
+    label: "Pharma & Healthcare"
+    tickers: [MRNA, KMB, KVUE, ABBV, PFE, NVO, MRK, UNH, HUM, LLY, JNJ, BMY, AMGN, GILD]
+
+  QUANTUM:
+    label: "Quantum Computing"
+    tickers: [IONQ, RGTI, QUBT, QBTS]
+
+  RETAIL:
+    label: "Retail"
+    tickers: [KSS, COST, LULU]
+
+  RARE-EARTH:
+    label: "Rare Earth & Critical Minerals"
+    tickers: [UUUU, USAR, MP]
+
+  TECH-ADTECH:
+    label: "Ad Tech"
+    tickers: [TTD]
+
+  TECH-DEF:
+    label: "Defense & Aerospace"
+    tickers: [LMT, BA]
+
+  TECH-ECOM:
+    label: "E-Commerce"
+    tickers: [SHOP, ETSY, AMZN, CPNG, WMT, ORCL]
+
+  TECH-SAAS:
+    label: "SaaS & Enterprise Software"
+    tickers: [CRM, ADBE, WDAY, PLTR, INTU, SNOW, DDOG, NOW, ZS, CRWD, NET, PANW, TEAM, HUBS]
+
+  TECH-GIG:
+    label: "Gig Economy & Marketplaces"
+    tickers: [LYFT, ABNB, UBER, DASH]
+
+  CONSUMER-STAPLES:
+    label: "Consumer Staples"
+    tickers: [PEP, KO, PG, COST, WMT, MCD]
+
+  TRAVEL:
+    label: "Travel"
+    tickers: [EXPE]
+
+  TRAVEL-AIRLINES:
+    label: "Airlines"
+    tickers: [UAL, DAL, LUV, AAL]
+
+  TRAVEL-SPACE:
+    label: "Space & Satellites"
+    tickers: [SPCX, RKLB, ROKT, ASTS, SPCE]
+
+  VENTURE-FUNDS:
+    label: "Venture & Investment Funds"
+    tickers: [PSUS, RVI, VCX]
+
+  OTHERS:
+    label: "Other"
+    tickers: [IBM, NFLX]
