@@ -100,6 +100,21 @@ If `--refresh` flag is set, refresh all sources regardless of staleness.
 
 Log what was refreshed and any errors. If a source fails, proceed with available data and note the gap.
 
+**Data-before-report rule (mandatory):** ALL ingestion must complete and be stored in DuckDB BEFORE Step 3 (packet building) runs. The research packet reads from the DB, and the report reads from the packet. If Reddit ingestion returns N>0 posts, those posts MUST appear in the Reddit/Community Analysis section of the final report — not a stale "0 posts" message from a prior run. After ingestion, verify the DB has fresh data:
+
+```bash
+PYTHONPATH=src python3 -c "
+from stock_research import db
+conn = db.get_connection()
+for src in ['sec_xbrl','yahoo_finance','reddit']:
+    ts = db.get_freshness(conn, 'TICKER', src)
+    count = conn.execute(\"SELECT record_count FROM data_freshness WHERE ticker='TICKER' AND source_name='\"+src+\"'\").fetchone()
+    print(f'{src}: last_updated={ts}, records={count[0] if count else 0}')
+"
+```
+
+If Reddit shows record_count > 0, the report MUST include those posts. If the report section says "0 posts" but the DB has posts, the report is WRONG — re-generate it.
+
 ### Step 3 — Build research packet
 
 Run: `python src/stock_research/packet_builder.py TICKER`
@@ -151,6 +166,16 @@ It produces the final synthesis:
 - Bottom-line recommendation
 
 ### Step 7 — Generate report (two-stage rendering)
+
+**Post-ingestion verification (mandatory before writing any report text):**
+
+Before writing the .md, read the research packet JSON and verify it reflects the latest ingested data. Specifically:
+- If `recent_sentiment` in the packet has posts, the Reddit/Community Analysis section MUST list those posts with titles, subreddits, sentiment direction, and snippets
+- If `fundamentals_10y` has N quarters, the quarterly history table MUST have N rows
+- If `risk_metrics` has values, the Risk Analysis section MUST use those values (not invent them)
+- Do NOT write "0 posts" or "data unavailable" for any field where the packet has data
+
+**The research packet is the single source of truth for all data in the report.** The LLM adds interpretation (bull/bear/contrarian analysis) but does NOT override, omit, or contradict any data in the packet.
 
 Generate output in two stages, matching the options-pnl-v3 pattern:
 
