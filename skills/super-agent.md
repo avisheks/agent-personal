@@ -17,10 +17,11 @@ The user invokes you with a natural-language question or request. There is no sp
 
 At the start of every session:
 
-1. Read `skills/skills-catalog.yaml` to load the skill index.
-2. Check `.local/logs/super-agent/events.jsonl` for events from today's date. If today's events exist, reconstruct session state: extract approved skills from `plan_response` (action: approved/auto_approved) and `escalation` (user_response: approved) events, and execution progress from `step_execution` events.
-3. If no events exist for today, start fresh.
-4. Emit a `session_start` event.
+1. **Resolve the log directory.** Run `REPO_ROOT="$(git rev-parse --show-toplevel)"` and set `LOG_DIR="$REPO_ROOT/.local/logs/super-agent"`. Run `mkdir -p "$LOG_DIR"`. All subsequent log reads and writes in this session MUST use `"$LOG_DIR/events.jsonl"` — never a bare relative path.
+2. Read `skills/skills-catalog.yaml` to load the skill index.
+3. Check `"$LOG_DIR/events.jsonl"` for events from today's date. If today's events exist, reconstruct session state: extract approved skills from `plan_response` (action: approved/auto_approved) and `escalation` (user_response: approved) events, and execution progress from `step_execution` events.
+4. If no events exist for today, start fresh.
+5. Emit a `session_start` event.
 
 ## Core Protocol: Plan → Approve → Execute
 
@@ -125,7 +126,7 @@ During execution or follow-up conversation, you may discover a need for a skill 
 
 **Escalation protocol:**
 
-1. Check approved skills by scanning today's events in `events.jsonl` for `plan_response` and `escalation` events with positive approval.
+1. Check approved skills by scanning today's events in `"$LOG_DIR/events.jsonl"` for `plan_response` and `escalation` events with positive approval.
 2. If the needed skill is already approved → proceed without asking.
 3. If the needed skill is NOT approved → STOP and ask:
 
@@ -193,7 +194,7 @@ Every decision point emits a structured JSON event to a shared, append-only log 
 
 ### Event Log Location
 
-`.local/logs/super-agent/events.jsonl` — single shared file across all sessions. Create the directory if it doesn't exist. Each line is one self-contained JSON object.
+`$REPO_ROOT/.local/logs/super-agent/events.jsonl` where `REPO_ROOT` is resolved via `git rev-parse --show-toplevel` during the Startup Protocol. This ensures logs are written to the correct worktree root, not a stale relative path. Single shared file across all sessions within a given worktree. Each line is one self-contained JSON object.
 
 ### Common Fields (every event)
 
@@ -301,7 +302,7 @@ The `gaps_self_noted` field uses the gap taxonomy codes (G1-G8) from the evaluat
 **Session close banner (MANDATORY):** After emitting `session_end`, always print a closing banner to the user:
 
 ```
-📋 Session logged → .local/logs/super-agent/events.jsonl
+📋 Session logged → $LOG_DIR/events.jsonl
 📊 Events this session: {total_events} | Turns: {total_turns} | Steps: {steps_completed}✅ {steps_failed}❌
 🔍 Gaps noted: {gap_list or "none"}
 ```
@@ -338,10 +339,10 @@ This banner MUST appear as the last output of every session — whether interact
 
 ### How to Emit
 
-Append one JSON line to `.local/logs/super-agent/events.jsonl` per event. Use a shell append:
+Append one JSON line to `"$LOG_DIR/events.jsonl"` per event (where `LOG_DIR` was set during the Startup Protocol). Use a shell append:
 
 ```bash
-echo '{"ts":"2026-09-11T14:01:00Z","session":"2026-09-11","turn":1,"event":"query",...}' >> .local/logs/super-agent/events.jsonl
+echo '{"ts":"2026-09-11T14:01:00Z","session":"2026-09-11","turn":1,"event":"query",...}' >> "$LOG_DIR/events.jsonl"
 ```
 
 Or use the Write tool in append mode. Each line must be valid JSON. No trailing commas, no wrapping array. One object per line.
@@ -359,4 +360,4 @@ Query the event log for debugging and trend analysis.
 | `/events --gaps` | Show all `session_end` events that have non-empty `gaps_self_noted` |
 | `/events --stats` | Aggregate stats across all sessions: average turns to approval, gap frequency by code, completion rate, escalation rate |
 
-**Implementation:** Read `.local/logs/super-agent/events.jsonl`, filter by the requested criteria, and format as a readable table. For `--stats`, parse all `session_end` events and compute aggregates. For `--gaps`, filter for `session_end` events where `gaps_self_noted` is non-empty and list the gap codes with their session dates.
+**Implementation:** Read `"$LOG_DIR/events.jsonl"`, filter by the requested criteria, and format as a readable table. For `--stats`, parse all `session_end` events and compute aggregates. For `--gaps`, filter for `session_end` events where `gaps_self_noted` is non-empty and list the gap codes with their session dates.
