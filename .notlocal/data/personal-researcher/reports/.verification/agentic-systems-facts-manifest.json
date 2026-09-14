@@ -1,0 +1,1429 @@
+{
+  "topic": "agentic-systems",
+  "timestamp": "2026-05-18T22:38:01.117861+00:00",
+  "total_facts": 142,
+  "contradictions_found": 0,
+  "contradictions_resolved": 0,
+  "facts": [
+    {
+      "question": "What is the primary goal of Agentic Cost Optimization?",
+      "answer": "To reduce the computational and financial costs associated with running AI agent systems while maintaining or improving their performance and reliability.",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost range for a single agentic task in 2026?",
+      "answer": "$0.04-$0.05",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost range for a single model inference call?",
+      "answer": "$0.003-$0.01",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What percentage of agentic tasks can be templated using plan template caching?",
+      "answer": "60-80%",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost reduction achieved by plan template caching for applicable tasks?",
+      "answer": "70-75%",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of model routing in agentic cost optimization?",
+      "answer": "To reduce costs by matching the cognitive load to model capability.",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost reduction achieved by strategic model routing?",
+      "answer": "30-40%",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of step consolidation in agentic cost optimization?",
+      "answer": "To reduce the total number of LLM invocations by combining related operations.",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost reduction achieved by tiered service architecture at the population level?",
+      "answer": "5-10x",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary risk in agentic cost optimization?",
+      "answer": "Degrading the system's core value proposition.",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended approach for deploying cost optimizations?",
+      "answer": "Gradual rollout with A/B testing.",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Agentic Cost Optimization and other areas of AI System Design?",
+      "answer": "It intersects with several other areas, including Multi-Agent Systems, Tool Use in AI, and Production AI Monitoring.",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-cost-optimization.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between the number of possible actions per step and the total number of possible trajectories in a multi-step agent?",
+      "answer": "The total number of possible trajectories is exponential in the number of possible actions per step.",
+      "confidence": 0.9,
+      "sources": [
+        "agent-state-space-explosion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the formula for calculating the total number of possible trajectories in a multi-step agent?",
+      "answer": "K^N, where K is the number of possible actions per step and N is the number of planning steps.",
+      "confidence": 0.9,
+      "sources": [
+        "agent-state-space-explosion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of state space explosion on an agent's ability to generate optimal plans?",
+      "answer": "It directly impacts an agent's ability to generate optimal plans, forcing agents to resort to greedy planning.",
+      "confidence": 0.9,
+      "sources": [
+        "agent-state-space-explosion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost implication of exploring the full state space in enterprise-scale systems?",
+      "answer": "The cost can reach hundreds of thousands of dollars monthly for systems serving millions of users.",
+      "confidence": 0.9,
+      "sources": [
+        "agent-state-space-explosion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of action space reduction as a mitigation strategy for state space explosion?",
+      "answer": "To constrain the available actions at each step based on task context, reducing the effective branching factor.",
+      "confidence": 0.9,
+      "sources": [
+        "agent-state-space-explosion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does hierarchical decomposition mitigate state space explosion?",
+      "answer": "By breaking complex tasks into independent sub-goals, each with its own smaller state space.",
+      "confidence": 0.9,
+      "sources": [
+        "agent-state-space-explosion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using plan templates in mitigating state space explosion?",
+      "answer": "Pre-computed plan templates eliminate the need for runtime search entirely for recurring task patterns.",
+      "confidence": 0.9,
+      "sources": [
+        "agent-state-space-explosion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Agent State Space Explosion and Planning as Search?",
+      "answer": "Agent State Space Explosion is closely related to Planning as Search.",
+      "confidence": 0.9,
+      "sources": [
+        "agent-state-space-explosion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of state space explosion on debugging agentic tasks?",
+      "answer": "It makes it difficult to determine whether the chosen path was optimal or if better alternatives existed.",
+      "confidence": 0.9,
+      "sources": [
+        "agent-state-space-explosion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of monitoring and alerting in production systems for state space explosion?",
+      "answer": "To monitor for symptoms of state space explosion and trigger circuit breakers when agents exceed computational budgets.",
+      "confidence": 0.9,
+      "sources": [
+        "agent-state-space-explosion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of problem is agentic planning formalized as?",
+      "answer": "A search problem over a tree of possible action sequences",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the state space defined by in the search formulation?",
+      "answer": "All possible configurations of the agent's working memory and environment",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the action space defined by in the search formulation?",
+      "answer": "Available tools and operations at each decision point",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What algorithm applies to agentic planning by simulating multiple random rollouts from each decision node?",
+      "answer": "MCTS",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the selection policy used by MCTS?",
+      "answer": "UCB1: mean_reward + C * sqrt(ln(parent_visits) / child_visits)",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approach maintains K candidate plans in parallel?",
+      "answer": "Beam search",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What provides explicit tree decomposition where the LLM generates multiple thought branches at each step?",
+      "answer": "Tree of Thought",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the most effective optimization for reducing the action space?",
+      "answer": "Pre-filtering tools by task type before search begins",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What involves decomposing complex tasks into sub-goals with independent search within each sub-goal?",
+      "answer": "Hierarchical decomposition",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approach handles 60-80% of tasks through classification and template retrieval?",
+      "answer": "Plan templates",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is suitable for simple tasks where one plan execution is sufficient?",
+      "answer": "Greedy with look-ahead",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is appropriate for medium tasks requiring multiple candidate evaluation?",
+      "answer": "Beam search with K=3",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is justified for complex/high-stakes tasks where wrong plans have significant consequences?",
+      "answer": "Tree of Thought with explicit evaluation",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What can complement search by providing learned priors that narrow the search space to high-probability tools?",
+      "answer": "Tool Selection as Contextual Bandit",
+      "confidence": 0.9,
+      "sources": [
+        "agentic-planning-as-search.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary component of Human-in-the-Loop Agent Design?",
+      "answer": "Human judgment",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-agent-design.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the three fundamental dimensions of Human-in-the-Loop design framework?",
+      "answer": "When to involve humans, how to present decisions, and timeout behavior",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-agent-design.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the risk profile of Level 0 systems in Human-in-the-loop systems?",
+      "answer": "Negligible risk",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-agent-design.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of actions do Level 3 systems handle in Human-in-the-loop systems?",
+      "answer": "Irreversible actions",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-agent-design.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the presentation layer in Human-in-the-Loop systems?",
+      "answer": "To determine user trust and system adoption",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-agent-design.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do high approval rates affect Human-in-the-Loop systems?",
+      "answer": "May indicate either excellent agent performance or insufficient human review depth",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-agent-design.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the goal of capturing human decisions as training signals in Human-in-the-Loop systems?",
+      "answer": "Continuous improvement and gradual expansion of agent autonomy",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-agent-design.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is required for compliance purposes in regulated environments?",
+      "answer": "Comprehensive audit trails showing why specific decisions were made and who approved them",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-agent-design.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Human-in-the-loop agent design and Agentic Systems architecture?",
+      "answer": "Intersects with Agentic Systems architecture",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-agent-design.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relevance of Human-in-the-loop agent design to Enterprise AI deployments?",
+      "answer": "Particularly relevant for trust, compliance, and risk management",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-agent-design.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architectural pattern is Multi-Agent Decomposition?",
+      "answer": "An architectural pattern for agentic AI systems",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary function of the Analytics Agent in Multi-Agent Decomposition?",
+      "answer": "Handles read-only data retrieval and analysis",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of the Orchestration Layer in Multi-Agent Decomposition?",
+      "answer": "Coordinates specialist agents and handles task decomposition, contract validation, state management, conflict resolution, and circuit breaking",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What communication pattern uses a supervisor orchestrator to direct all agent interactions?",
+      "answer": "A pattern that provides clear authority and single-point coordination",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using Multi-Agent Decomposition in terms of security?",
+      "answer": "Provides security isolation, where each agent operates with minimal necessary permissions",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the disadvantage of using Multi-Agent Decomposition in terms of communication?",
+      "answer": "Requires more coordination, schema validation, and state management compared to a single agent",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended approach when agents produce contradictory recommendations in Multi-Agent Decomposition?",
+      "answer": "The orchestrator should surface both perspectives to users rather than arbitrating automatically",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Recommendation Agent in Multi-Agent Decomposition?",
+      "answer": "Generates suggestions based on processed data",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the function of the Strategy Agent in Multi-Agent Decomposition?",
+      "answer": "Synthesizes high-level plans and decisions",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of the Execution Agent in Multi-Agent Decomposition?",
+      "answer": "Performs write operations with appropriate safeguards",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What pattern does Multi-Agent Decomposition often work in conjunction with for individual agent reasoning and transparency?",
+      "answer": "ReAct Pattern",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of using Multi-Agent Decomposition in terms of error containment?",
+      "answer": "Failures in one agent do not cascade to others",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using Multi-Agent Decomposition in terms of debugging?",
+      "answer": "Provides debugging clarity by making it possible to isolate which agent produced faulty input",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-decomposition.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture is Human-in-the-Loop Architecture?",
+      "answer": "A design pattern for AI systems that incorporates human judgment and oversight",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary principle of Human-in-the-Loop Architecture?",
+      "answer": "The question isn't 'can it be autonomous?' but 'should it?'",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What determines the system's position on the autonomy spectrum in Human-in-the-Loop Architecture?",
+      "answer": "The intentional design choice of where human judgment adds more value than it costs in latency",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the different frequencies of human involvement in Human-in-the-Loop systems?",
+      "answer": "Every action, high-risk actions only, low-confidence scenarios, and never (fully autonomous)",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the different interaction modalities in Human-in-the-Loop systems?",
+      "answer": "Approve/reject binary, edit the action, choose from alternatives, and free-form override",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended pattern for high-stakes environments with sophisticated users in Human-in-the-Loop Architecture?",
+      "answer": "The Enterprise Pattern",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of presenting context and reasoning in Human-in-the-Loop systems?",
+      "answer": "To improve adoption rates",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the different autonomy levels in Human-in-the-Loop Architecture?",
+      "answer": "Level 0: Inform, Level 1: Recommend, Level 2: Execute Reversible, Level 3: Execute Irreversible, and Level 4: Fully Autonomous",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the risk level associated with Level 3: Execute Irreversible in Human-in-the-Loop Architecture?",
+      "answer": "High risk",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of approval rate analysis in Human-in-the-Loop systems?",
+      "answer": "To distinguish between excellent system performance and ineffective human review",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the different learning mechanisms in Human-in-the-Loop systems?",
+      "answer": "Logging only, confidence model updates, agent fine-tuning, and autonomy boundary adjustment",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Human-in-the-Loop Architecture and Agent State Space Explosion?",
+      "answer": "Human gates can prevent Agent State Space Explosion",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Human-in-the-Loop Architecture and Agentic Cost Optimization?",
+      "answer": "Agentic Cost Optimization must account for human approval workflows",
+      "confidence": 0.9,
+      "sources": [
+        "human-in-the-loop-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of optimization technique is Plan Template Caching?",
+      "answer": "An optimization technique for Agentic Cost Optimization",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary goal of Plan Template Caching?",
+      "answer": "To reduce computational overhead in multi-step agent systems",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Plan Template Caching achieve cost reduction?",
+      "answer": "By converting planning from a generation problem to a retrieval and personalization problem",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical cost reduction achieved by Plan Template Caching?",
+      "answer": "70-80% cost reduction for matching tasks",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the architecture of Plan Template Caching?",
+      "answer": "A three-stage pipeline: Task Classification, Template Retrieval and Personalization, and Execution",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are templates typically discovered in Plan Template Caching?",
+      "answer": "Through analysis of production trajectories",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Plan Template Caching and ReAct Pattern?",
+      "answer": "Templates can incorporate ReAct-style reasoning traces for auditability",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Plan Template Caching and Tool Selection as Contextual Bandit?",
+      "answer": "Template parameters can include learned tool preferences based on historical performance",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary limitation of Plan Template Caching?",
+      "answer": "It is most effective for systems with recurring task patterns and may provide limited benefit for highly novel or exploratory workloads",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Plan Template Caching improve latency?",
+      "answer": "By skipping the planning phase, reducing task completion time by 30-50%",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical template coverage aimed for in Plan Template Caching?",
+      "answer": "60-80% template coverage",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are templates maintained in Plan Template Caching?",
+      "answer": "Through template versioning and validation, with automated testing to detect when templates begin failing",
+      "confidence": 0.9,
+      "sources": [
+        "plan-template-caching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture does Multi-Agent Orchestration use?",
+      "answer": "Decomposed architecture with specialist agents and a central orchestrator",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary function of the orchestrator in Multi-Agent Orchestration?",
+      "answer": "Manages task decomposition, agent routing, and workflow coordination",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of shared state management in Multi-Agent Orchestration?",
+      "answer": "Maintains context and intermediate results across agent interactions",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What design principle does Multi-Agent Orchestration use to prevent errors in low-risk operations from cascading into high-stakes actions?",
+      "answer": "Separation of Concerns",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do agents communicate with each other in Multi-Agent Orchestration?",
+      "answer": "Through structured state stores with defined schemas",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using a hierarchical structure in Multi-Agent Orchestration?",
+      "answer": "Allows for efficient decomposition of high-level tasks into sub-goals assigned to specialist agents",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What pattern is used for well-defined workflows in Multi-Agent Orchestration?",
+      "answer": "Agents are arranged in sequential pipelines where each agent's output becomes the next agent's input",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of using event-driven architecture in Multi-Agent Orchestration?",
+      "answer": "Decouples agents temporally and allows for parallel execution of independent sub-tasks",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary trade-off of using Multi-Agent Orchestration?",
+      "answer": "Introduces significant architectural complexity",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is required for state management in production Multi-Agent Orchestration systems?",
+      "answer": "Robust state management that persists across agent interactions and survives individual component failures",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do production Multi-Agent Orchestration systems typically resolve conflicts between specialist agents?",
+      "answer": "Surface both perspectives to users with their underlying reasoning, or apply predefined business rules that prioritize lower-risk options",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended approach for monitoring and observability in Multi-Agent Orchestration?",
+      "answer": "Comprehensive monitoring of both individual agent performance and system-level coordination",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "When is Multi-Agent Orchestration most appropriate?",
+      "answer": "When tasks span different risk levels requiring distinct permission boundaries, or when error isolation between domains is critical for system reliability",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What architectural principles does Multi-Agent Orchestration share with?",
+      "answer": "Microservices Architecture",
+      "confidence": 0.9,
+      "sources": [
+        "multi-agent-orchestration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of security vulnerability is Prompt Injection via Tool Responses?",
+      "answer": "A security vulnerability in agentic AI systems",
+      "confidence": 0.9,
+      "sources": [
+        "prompt-injection-via-tool-responses.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary mechanism of the Prompt Injection via Tool Responses attack?",
+      "answer": "Malicious instructions embedded in tool outputs hijack an agent's behavior",
+      "confidence": 0.9,
+      "sources": [
+        "prompt-injection-via-tool-responses.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between agentic systems and traditional Retrieval-Augmented Generation systems?",
+      "answer": "Agentic systems can take real-world actions based on tool responses, unlike traditional Retrieval-Augmented Generation systems",
+      "confidence": 0.9,
+      "sources": [
+        "prompt-injection-via-tool-responses.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of strict role separation in prompt design?",
+      "answer": "To treat system instructions as inviolable and tool responses as data",
+      "confidence": 0.9,
+      "sources": [
+        "prompt-injection-via-tool-responses.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to prevent injection patterns in tool outputs?",
+      "answer": "Scanning for injection patterns and stripping or escaping potentially malicious elements",
+      "confidence": 0.9,
+      "sources": [
+        "prompt-injection-via-tool-responses.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of action validation in agentic systems?",
+      "answer": "To check whether the proposed action is consistent with the user's original request",
+      "confidence": 0.9,
+      "sources": [
+        "prompt-injection-via-tool-responses.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between tool-level permissions and injection attempts?",
+      "answer": "Tool-level permissions can prevent execution even if injection succeeds in changing the agent's intent",
+      "confidence": 0.9,
+      "sources": [
+        "prompt-injection-via-tool-responses.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of honeypot detection in agentic systems?",
+      "answer": "To detect potential injection attempts by including canary instructions in tool responses",
+      "confidence": 0.9,
+      "sources": [
+        "prompt-injection-via-tool-responses.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of systems should implement monitoring to identify potential injection attempts?",
+      "answer": "Organizations should implement monitoring systems to track sudden changes in agent behavior patterns",
+      "confidence": 0.9,
+      "sources": [
+        "prompt-injection-via-tool-responses.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary consideration for defense against prompt injection via tool responses?",
+      "answer": "To prioritize this vulnerability in security architecture and build defense into the fundamental prompt architecture",
+      "confidence": 0.9,
+      "sources": [
+        "prompt-injection-via-tool-responses.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architectural approach is the ReAct Pattern?",
+      "answer": "An architectural approach for agentic AI systems that interleaves explicit reasoning steps with action execution and observation of results",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the core components of the ReAct Pattern?",
+      "answer": "Thought Step, Action Step, and Observation Step",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Thought Step in the ReAct Pattern?",
+      "answer": "To explicitly articulate the agent's reasoning about the current situation and what action to take next",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Action Step in the ReAct Pattern?",
+      "answer": "To execute a specific action based on the reasoning in the thought step",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Observation Step in the ReAct Pattern?",
+      "answer": "To process and document the results of the action",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is a key benefit of using the ReAct Pattern?",
+      "answer": "Auditability and Transparency",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is a potential trade-off of using the ReAct Pattern?",
+      "answer": "Increased Latency",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "When is the ReAct Pattern most appropriate to use?",
+      "answer": "High-stakes applications, multi-step tasks, debugging-intensive environments, and human-supervised workflows",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is an alternative pattern to the ReAct Pattern?",
+      "answer": "Plan-then-execute, Direct action, and Hierarchical planning",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between the ReAct Pattern and model routing?",
+      "answer": "Production implementations often use model routing to manage costs",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between the ReAct Pattern and trace storage and analysis?",
+      "answer": "ReAct generates substantial trace data that must be stored, indexed, and made searchable for debugging and analysis",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between the ReAct Pattern and verification integration?",
+      "answer": "The explicit reasoning steps provide natural points for verification and safety checks",
+      "confidence": 0.9,
+      "sources": [
+        "react-pattern.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of evaluation does Trajectory-Level Evaluation perform?",
+      "answer": "Multi-step process evaluation",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-level-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary success metric in Trajectory-Level Evaluation?",
+      "answer": "Task Completion",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-level-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the key evaluation dimensions in Trajectory-Level Evaluation?",
+      "answer": "Task Completion, Trajectory Efficiency, Trajectory Safety, Tool Call Correctness, Recovery Quality, Explanation Quality",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-level-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is required for comprehensive trajectory evaluation?",
+      "answer": "Detailed logging of full reasoning traces, tool calls, verification results, and state transitions",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-level-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Trajectory-Level Evaluation scoring methodology work?",
+      "answer": "Multi-dimensional scoring",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-level-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Layer 1 in the production verification architecture?",
+      "answer": "Structural Validation",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-level-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of validation does Layer 2 in the production verification architecture perform?",
+      "answer": "Semantic Validation",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-level-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the latency of deterministic checks in Layer 1?",
+      "answer": "Sub-millisecond",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-level-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the latency of LLM-based validation in Layer 2?",
+      "answer": "200-500ms",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-level-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How often does Layer 4 perform trajectory validation?",
+      "answer": "Periodically every N steps",
+      "confidence": 0.9,
+      "sources": [
+        "trajectory-level-evaluation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of problem is tool selection formulated as in the given approach?",
+      "answer": "Contextual bandit problem",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the state defined as in the contextual bandit formulation?",
+      "answer": "Current context (task description, conversation history, partial results)",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the action defined as in the contextual bandit formulation?",
+      "answer": "Selecting one of K available tools",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the reward defined as in the contextual bandit formulation?",
+      "answer": "Contribution to task completion (tool response)",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What algorithm is used for contextual bandits in the given implementation?",
+      "answer": "Linear Upper Confidence Bound",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the exploration term in the LinUCB algorithm?",
+      "answer": "Ensures under-tried tools get selected occasionally",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the hybrid approach used for in tool selection?",
+      "answer": "Combines bandit-based and LLM-based selection methods",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "When is bandit-based tool selection preferred over LLM-based selection?",
+      "answer": "When there is sufficient historical data and task types are recurring",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cold start problem in the context of tool selection?",
+      "answer": "Lack of initial data when adding new tools to the system",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What strategies are used to address the cold start problem?",
+      "answer": "Forced exploration, transfer learning, and LLM fallback",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of bandit-based tool selection in production?",
+      "answer": "Deterministic nature and ability to improve over time",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of the LLM-based selection method in the hybrid approach?",
+      "answer": "Handles novel or ambiguous situations and provides flexibility",
+      "confidence": 0.9,
+      "sources": [
+        "tool-selection-as-contextual-bandit.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

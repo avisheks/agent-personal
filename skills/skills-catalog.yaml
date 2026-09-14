@@ -314,3 +314,42 @@ skills:
       - "sightseeing"
     requires_config: false
     data_dir: ".notlocal/data/tour-planner/"
+
+  - id: personal-researcher
+    name: "Researcher"
+    file: skills/personal-researcher.md
+    category: personal
+    description: "Knowledge-base research agent — ingest sources, compile wiki-style knowledge pages, generate reports with verification, query with citations, generate Anki flashcards"
+    commands:
+      - "/ingest <url-or-file> [--topic T]"
+      - "/compile"
+      - "/query <question> [--save] [--topic T] [--web]"
+      - "/discover --topic T"
+      - "/topics"
+      - "/generate-report --topic T [--format study-notes|faq]"
+      - "/update-report --topic T"
+      - "/verify-report --topic T [--question Q]"
+      - "/version-report <slug>"
+      - "/report-history <slug>"
+      - "/generate-anki --topic T | --report R | --all"
+      - "/anki-sync [--topic T] [--dry-run] [--delete] [--status]"
+      - "/check-and-integrate --paper <title> --report <file>"
+    triggers:
+      - "research"
+      - "knowledge base"
+      - "ingest"
+      - "compile knowledge"
+      - "discover sources"
+      - "query knowledge"
+      - "generate report"
+      - "verify report"
+      - "anki"
+      - "flashcards"
+      - "literature survey"
+      - "study notes"
+      - "knowledge pages"
+      - "wiki"
+    requires_config: true
+    companions:
+      - skills/personal-researcher-anki-sync.md
+    data_dir: ".notlocal/data/personal-researcher/"

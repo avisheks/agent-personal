@@ -1,0 +1,1333 @@
+{
+  "topic": "enterprise-rag",
+  "timestamp": "2026-05-18T22:42:05.420006+00:00",
+  "total_claims": 180,
+  "correct": 60,
+  "incorrect": 0,
+  "unverifiable": 110,
+  "partially_correct": 10,
+  "overall_score": 0.8571428571428571,
+  "summary": "Verified 180 claims: 60 correct, 0 incorrect, 10 partially correct, 110 unverifiable. Score: 86%",
+  "sections": [
+    {
+      "section_name": "Design Flow Framework",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The Design Flow Framework consists of 7 steps.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework, so we cannot verify the claim about the number of steps it consists of.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 1 of the Design Flow Framework is to clarify requirements.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework, so we cannot verify the claim about Step 1.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 2 of the Design Flow Framework is to identify constraints.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework, so we cannot verify the claim about Step 2.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 3 of the Design Flow Framework is to propose a baseline.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework, so we cannot verify the claim about Step 3.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The baseline in the Design Flow Framework is simple embedding search + LLM generation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the baseline in the Design Flow Framework, so we cannot verify the claim about the baseline.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 4 of the Design Flow Framework is to identify gaps.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework, so we cannot verify the claim about Step 4.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 5 of the Design Flow Framework is to introduce improvements.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework, so we cannot verify the claim about Step 5.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Improvements in the Design Flow Framework include hybrid retrieval, reranking, chunking strategy, and routing.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the improvements in the Design Flow Framework, so we cannot verify the claim about the improvements.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 6 of the Design Flow Framework is to add evaluation + guardrails.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the Design Flow Framework or its steps.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RAGAS metrics are used in the Design Flow Framework for evaluation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention RAGAS metrics or their use in the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Citation verification is used in the Design Flow Framework for evaluation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not discuss citation verification in the context of the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Guardrails are used in the Design Flow Framework for evaluation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about guardrails in the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 7 of the Design Flow Framework is to discuss scaling tradeoffs.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention the Design Flow Framework or its steps, including Step 7.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cost, latency, freshness, and multi-tenancy are considered in scaling tradeoffs in the Design Flow Framework.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not discuss scaling tradeoffs or the factors considered in the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Token economics dominate in the Design Flow Framework.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about token economics in the context of the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Optimizing prompt size is the first step in optimizing token economics in the Design Flow Framework.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not discuss optimizing prompt size or its relation to token economics in the Design Flow Framework.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Interview Q&A Bank",
+      "score": 0.7894736842105263,
+      "claims": [
+        {
+          "text": "RAG externalizes knowledge from model weights to a retrieval system, solving six fundamental LLM limitations.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that RAG externalizes knowledge from model weights to a retrieval system, solving six fundamental LLM limitations, is supported by the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fine-tuning changes HOW the model reasons, while RAG changes WHAT it reasons about.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that fine-tuning changes HOW the model reasons, while RAG changes WHAT it reasons about, is consistent with the principles of RAG and fine-tuning as described in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Long context doesn't solve the problem of information retrieval, it shifts it.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that long context doesn't solve the problem of information retrieval, it shifts it, is supported by the discussion on 'Lost in the Middle' phenomenon in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hybrid retrieval uses both BM25 and dense retrieval methods.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that hybrid retrieval uses both BM25 and dense retrieval methods is supported by the Facts Manifest, which describes hybrid retrieval as combining sparse and dense retrieval methods.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reranking uses a cross-encoder to jointly score query-document pairs.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that reranking uses a cross-encoder to jointly score query-document pairs is supported by the Facts Manifest, which describes cross-encoder reranking as a two-stage retrieval architecture.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Access control should filter results by user permissions at retrieval time, not post-generation.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that access control should filter results by user permissions at retrieval time, not post-generation, is supported by the Facts Manifest, which discusses access control filtering in the context of hybrid retrieval.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Chunking strategy involves tradeoffs between size, overlap, boundary strategy, and hierarchical retrieval.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that chunking strategy involves tradeoffs between size, overlap, boundary strategy, and hierarchical retrieval is supported by the Facts Manifest, which discusses various chunking strategies and their tradeoffs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-hop questions require detecting query complexity, decomposing the query, and iterative retrieval.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that multi-hop questions require detecting query complexity, decomposing the query, and iterative retrieval is supported by the Facts Manifest, which describes multi-hop reasoning as a process involving query decomposition and iterative retrieval.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fine-tuned embeddings can be trained on domain-specific query-document pairs for moderate improvement.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Fine-tuned embeddings can indeed be trained on domain-specific query-document pairs, but the claim about 'moderate improvement' is vague and may not always hold true. The effectiveness of fine-tuning depends on various factors including the quality of the training data, the complexity of the domain, and the specific metrics used to evaluate improvement.",
+          "suggested_correction": "Fine-tuned embeddings can be trained on domain-specific query-document pairs for potentially significant improvement, depending on factors like data quality and domain complexity."
+        },
+        {
+          "text": "RAG can be used for open-ended enterprise QA over millions of documents.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "RAG can indeed be used for open-ended enterprise QA over millions of documents, as it is designed to handle complex queries by retrieving relevant information from large document collections and generating answers based on that information.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Long context is useful for specific queries over a known document set, not for open-ended enterprise QA.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Long context is useful for specific queries over a known document set, not for open-ended enterprise QA, because in the latter case, the system needs to efficiently retrieve and process information from a vast number of documents, which can be challenging with long contexts.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hallucination can be prevented using prompt architecture, two-step generation, citation enforcement, and decoding constraints.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions several techniques for preventing hallucination, including prompt architecture, two-step generation, citation enforcement, and decoding constraints. However, it does not provide a comprehensive overview of all possible methods, and some techniques like contextual chunking and hierarchical chunking are not mentioned.",
+          "suggested_correction": "Hallucination can be prevented or reduced using a variety of techniques, including but not limited to prompt architecture, two-step generation, citation enforcement, decoding constraints, contextual chunking, and hierarchical chunking."
+        },
+        {
+          "text": "Evaluation of a RAG system should include component-level, end-to-end, and user-level metrics.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The evaluation of a RAG system should indeed include component-level, end-to-end, and user-level metrics to ensure a comprehensive understanding of its performance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Latency and cost bottlenecks can be mitigated by optimizing generation tokens, query routing, caching, and progressive response.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Latency and cost bottlenecks in RAG systems can be mitigated by optimizing generation tokens, query routing, caching, and using progressive response techniques.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-tenant access control requires shared index filtering, index per tenant, or a hybrid approach.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Multi-tenant access control does require strategies like shared index filtering, index per tenant, or a hybrid approach to manage access effectively.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RAG is best for factual grounding, citations, freshness, and access control, while fine-tuning is best for style and tone adaptation.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "While RAG is beneficial for factual grounding, citations, freshness, and access control, and fine-tuning is useful for style and tone adaptation, this claim oversimplifies the capabilities of each approach. RAG can also be used for style and tone adaptation, and fine-tuning can be applied to various aspects beyond just style and tone.",
+          "suggested_correction": "RAG systems are particularly useful for factual grounding, citations, freshness, and access control, but can also be adapted for style and tone. Fine-tuning, on the other hand, is a versatile technique that can be applied to improve style, tone, and other specific aspects of generated text."
+        },
+        {
+          "text": "Document freshness can be handled using batch re-indexing, scheduled incremental indexing, or real-time index updates.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Document freshness can indeed be handled using batch re-indexing, scheduled incremental indexing, or real-time index updates, depending on the system's requirements and constraints.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Freshness signals in answers should include last updated timestamps, freshness metadata in citations, and version-aware retrieval.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Freshness signals in answers, such as last updated timestamps, freshness metadata in citations, and version-aware retrieval, are important for ensuring the relevance and accuracy of the information provided.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The gte-large model outperformed larger models on specific enterprise tasks.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim about the gte-large model outperforming larger models on specific enterprise tasks cannot be verified without more specific information about the tasks, the models compared, and the metrics used for evaluation.",
+          "suggested_correction": "Without specific details on the tasks and comparison metrics, it's challenging to verify the claim about the gte-large model's performance relative to larger models."
+        }
+      ]
+    },
+    {
+      "section_name": "Full System Design Walkthrough (Principal/Director Level, ~4 min)",
+      "score": 0.3684210526315789,
+      "claims": [
+        {
+          "text": "Enterprise RAG is fundamentally a trust problem, not a retrieval problem.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim that Enterprise RAG is fundamentally a trust problem, not a retrieval problem, is partially supported by the Facts Manifest. While trust is an essential aspect of Enterprise RAG, the manifest also emphasizes the importance of retrieval precision and generation quality.",
+          "suggested_correction": "Enterprise RAG is both a trust problem and a retrieval problem, as it requires accurate retrieval of information and generation of high-quality responses while maintaining user trust."
+        },
+        {
+          "text": "The system must be accurate enough that users stop verifying, fast enough that they don't switch to search, and controlled enough that it never leaks data across tenant boundaries.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that the system must be accurate enough that users stop verifying, fast enough that they don't switch to search, and controlled enough that it never leaks data across tenant boundaries is consistent with the requirements for Enterprise RAG systems outlined in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Latency for enterprise users is expected to be <2s for factual lookup and <5s for synthesis.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim about latency expectations for enterprise users is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Token economics dominate the cost of each query, with generation cost being 80%+ of the total cost at scale.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The claim that token economics dominate the cost of each query is supported by the Facts Manifest, which states that token economics often represent 60-80% of total system costs. However, the manifest also notes that generation cost is a significant factor, but it does not specify that it is 80%+ of the total cost at scale.",
+          "suggested_correction": "Token economics are a significant component of the cost of each query, often representing 60-80% of total system costs, with generation costs also playing a crucial role."
+        },
+        {
+          "text": "Access control is non-negotiable for enterprise and must filter at retrieval time, not post-generation.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that access control is non-negotiable for enterprise and must filter at retrieval time, not post-generation, is consistent with the importance of access control in Enterprise RAG systems as implied by the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GDPR right-to-erasure requires cascade deletion across embeddings, cache, and indices.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim about GDPR right-to-erasure requirements is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SOC-2 requires audit logs.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim about SOC-2 requirements is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The baseline RAG system can be established in days and creates a baseline to measure improvements against.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim about the baseline RAG system is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Trustworthiness dimensions include Factuality, Robustness, Fairness, Transparency, Accountability, and Privacy.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about trustworthiness dimensions is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Prompt size is the biggest cost lever, and aggressive context pruning can reduce costs.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that reducing prompt size has a 3-5x impact on cost optimization, which aligns with the claim that prompt size is the biggest cost lever.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model routing can be used to route simple factual queries to smaller/cheaper models and complex synthesis to larger models.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest discusses model routing as a strategy to achieve 2-3x cost improvements by matching model capability to query complexity, which supports the claim about routing simple factual queries to smaller models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Most RAG failures are diagnosed by comparing against the baseline RAG system.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim is about diagnosing RAG failures, which is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hybrid retrieval (BM25 + dense) is more effective than pure dense retrieval for enterprise settings.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that hybrid retrieval combines sparse and dense retrieval methods and is effective in enterprise settings, capturing both exact-match and semantic queries.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reranking with a cross-encoder can improve answer quality by converting recall@20 into precision@5.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest discusses cross-encoder reranking, which improves precision by converting recall@20 into precision@5, aligning with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Adaptive retrieval (Self-RAG) can save latency and cost on queries that don't need retrieval.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Self-RAG is described in the Facts Manifest as an advanced RAG architecture that can save latency and cost by adaptively deciding when to retrieve information, supporting the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Corrective RAG (CRAG) can be used when retrieval confidence is low.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Corrective RAG (CRAG) is not addressed in the provided Facts Manifest, making it unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Graph RAG can be used for questions requiring global understanding.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Graph RAG is not directly supported or contradicted by the Facts Manifest, as it does not discuss Graph RAG specifically.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The RAGAS evaluation framework includes metrics such as Context Precision, Context Recall, Faithfulness, and Answer Relevancy.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The RAGAS evaluation framework and its metrics are not mentioned in the provided Facts Manifest, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The RAG Triad evaluation framework includes metrics such as Context Relevance, Groundedness, and Answer Relevance.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The RAG Triad evaluation framework is not discussed in the Facts Manifest, so the claim cannot be verified.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Advanced Patterns Summary",
+      "score": 0.5714285714285714,
+      "claims": [
+        {
+          "text": "Corrective RAG (CRAG) is used when corpus has coverage gaps.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Corrective RAG (CRAG) is not addressed in the provided Facts Manifest, making it unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Graph RAG is used for 'Summarize all X' or 'What are the main themes?' questions.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Graph RAG is not addressed in the provided Facts Manifest, making it unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Agentic RAG is used for multi-hop, tool-calling, iterative refinement.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Agentic RAG is not addressed in the provided Facts Manifest, making it unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Contextual Retrieval is used for enterprise docs where chunks lose meaning in isolation.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "Contextual Retrieval is related to preserving document structure and context, but the specific application to enterprise docs where chunks lose meaning in isolation is not fully detailed in the Facts Manifest.",
+          "suggested_correction": "Contextual chunking is used to address the issue of chunks losing meaning in isolation by prepending a context summary to each chunk."
+        },
+        {
+          "text": "Query Routing is used for mixed query types (factual vs synthesis vs comparison).",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Query Routing is not directly addressed in the provided Facts Manifest, making it unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hierarchical Retrieval is used when fine-grained retrieval but section-level synthesis is needed.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "Hierarchical Retrieval is mentioned in the context of addressing tradeoffs between retrieval precision and generation context quality, but the specific use case of needing fine-grained retrieval with section-level synthesis is not fully detailed in the Facts Manifest.",
+          "suggested_correction": "Hierarchical chunking allows for fine-grained retrieval with broader context for synthesis by maintaining parent-child relationships between chunks of different sizes."
+        },
+        {
+          "text": "Self-RAG solves over-retrieval and unnecessary latency.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Self-RAG solves over-retrieval and unnecessary latency by adaptively deciding when to retrieve information, thus optimizing the retrieval process.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Corrective RAG (CRAG) solves low-confidence retrieval.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Corrective RAG (CRAG) indeed addresses low-confidence retrieval issues by refining the retrieval process to improve the accuracy of retrieved information.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Graph RAG solves global/theme questions over large corpora.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Graph RAG is designed to handle global or theme questions over large corpora by leveraging graph structures to connect relevant information across documents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Agentic RAG solves complex multi-step reasoning.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Agentic RAG is focused on complex multi-step reasoning, enabling the system to perform more sophisticated reasoning tasks that require multiple steps of inference or deduction.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Contextual Retrieval solves chunk-boundary information loss.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Contextual Retrieval addresses chunk-boundary information loss by prepending context summaries to chunks, making each chunk self-contained and improving retrieval quality.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Query Routing solves one-size-doesn't-fit-all for mixed query types.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Query Routing solves the 'one-size-doesn't-fit-all' problem for mixed query types by determining the appropriate retrieval strategy based on query complexity or type.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hierarchical Retrieval solves precision vs context tradeoff.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Hierarchical Retrieval balances the precision vs. context tradeoff by using a hierarchical approach to retrieval, allowing for both precise retrieval and broader contextual understanding.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-RAG is used when many queries don't need retrieval.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Self-RAG is indeed used when many queries don't need retrieval, as it adaptively decides whether to retrieve additional information based on the query's complexity and the model's confidence.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Cost Model",
+      "score": 0.75,
+      "claims": [
+        {
+          "text": "The cost of query embedding is $0.00002 per query.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The cost of query embedding is $0.00002 per query, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of vector search (managed) is $0.00005 per query.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The cost of vector search (managed) is $0.00005 per query, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of BM25 search is $0.00001 per query.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the cost of BM25 search.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of reranking (cross-encoder) is $0.0003 per query.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The cost of cross-encoder reranking is $0.0003 per query, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of generation (input tokens) is $0.005 per query.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The cost of generation (input tokens) for 2000 tokens is $0.005, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of generation (output tokens) is $0.003 per query.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The cost of generation (output tokens) for 500 tokens is $0.003, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total cost of a simple query is ~$0.008.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The total cost of a simple query is approximately $0.008, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total cost of a complex query is ~$0.04.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The total cost of a complex query is approximately $0.04, as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Pinecone costs $70/mo per 1M vectors.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about Pinecone costs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenAI/Cohere API costs $0.02/1M tokens.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about OpenAI/Cohere API costs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sentence-transformers on GPU costs $2K/mo for A10G.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about sentence-transformers on GPU costs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cohere Rerank API costs $1/1K searches.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about Cohere Rerank API costs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 1K users, the monthly cost is ~$1,200.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the token economics section, which states that at 1K users, the monthly cost is ~$1,200.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 50K users, the monthly cost is ~$15,000.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the token economics section, which states that at 50K users, the monthly cost is ~$15,000.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 1M+ users, the monthly cost is ~$120,000.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the token economics section, which states that at 1M+ users, the monthly cost is ~$120,000.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reducing prompt size yields 3-5x savings.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the token economics section, which states that reducing prompt size yields 3-5x savings.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model routing yields 2-3x impact.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the token economics section, which states that model routing yields 2-3x impact.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Caching yields 1.3-1.5x impact.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the token economics section, which states that caching yields 1.3-1.5x impact.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Selective reranking yields 1.2x impact.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the token economics section, which states that selective reranking yields 1.2x impact.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Batch/async processing for non-urgent queries yields 1.1x impact.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the token economics section, which states that batch/async processing for non-urgent queries yields 1.1x impact.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Distinguished Engineer Depth Probes",
+      "score": 0.35,
+      "claims": [
+        {
+          "text": "Semantic caching means caching answers keyed not by exact query match but by semantic similarity",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Semantic caching is defined as caching answers based on semantic similarity rather than exact query match, which matches the provided definition.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Threshold calibration for semantic caching is critical and typically ranges from 0.92-0.95 for factual queries",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information on the typical range for threshold calibration in semantic caching for factual queries.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Indirect prompt injection is an attack vector where an attacker can plant malicious content in the document corpus",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not address indirect prompt injection as an attack vector or discuss defenses against it.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Defenses against indirect prompt injection include input sanitization, prompt architecture, privilege separation, output validation, and provenance scoring",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information on defenses against indirect prompt injection, including input sanitization, prompt architecture, privilege separation, output validation, and provenance scoring.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Vector quantization options include FP32, scalar quantization, product quantization, and binary quantization",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not discuss vector quantization options such as FP32, scalar quantization, product quantization, and binary quantization.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model quantization options include FP16, INT8, INT4, and GGUF Q4_K_M",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information on model quantization options including FP16, INT8, INT4, and GGUF Q4_K_M.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Quantization can break RAG quality if vector PQ has insufficient subspaces or generator INT4 is used for complex reasoning",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not address how quantization affects RAG quality, including the impact of insufficient subspaces in vector PQ or the use of generator INT4 for complex reasoning.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The decision framework for RAG quantization involves considering embedding model, reranker, generator, and vector index",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not discuss the decision framework for RAG quantization, including considerations for the embedding model, reranker, generator, and vector index.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dense embeddings are trained with contrastive objectives (e.g., InfoNCE loss): L = -log(exp(sim(q,d+)/\u03c4) / \u03a3 exp(sim(q,d)/\u03c4))",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about dense embeddings being trained with contrastive objectives matches the information provided in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The failure on exact terms happens because of subword tokenization, frequency-based representation quality, and semantic smoothing",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions subword tokenization and frequency-based representation quality as reasons for failure on exact terms, which is partially supported by the Facts Manifest. However, it does not fully capture the complexity of the issue as described in the manifest.",
+          "suggested_correction": "The failure on exact terms happens due to a combination of factors including subword tokenization, frequency-based representation quality, and semantic smoothing, as well as the limitations of dense embeddings in capturing exact keyword matches."
+        },
+        {
+          "text": "BM25 uses exact lexical matching with IDF weighting \u2014 rare terms get HIGH weight because IDF = log(N/df)",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about BM25 using exact lexical matching with IDF weighting is consistent with the information provided in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HNSW (Hierarchical Navigable Small World) builds a multi-layer graph",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about HNSW building a multi-layer graph is supported by the Facts Manifest, although the manifest does not explicitly describe HNSW in detail.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HNSW has a search complexity of O(log(N) * ef_search * M) \u2014 logarithmic in dataset size due to hierarchical layers",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about the search complexity of HNSW being logarithmic in dataset size due to hierarchical layers is consistent with the general understanding of HNSW, although the Facts Manifest does not provide specific details on HNSW's complexity.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The 'lost in the middle' phenomenon has three contributing mechanisms: positional encoding decay, training distribution bias, and attention sink phenomenon",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about the 'lost in the middle' phenomenon having three contributing mechanisms is supported by the Facts Manifest, which describes positional encoding decay, training distribution bias, and attention sink phenomenon as factors.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cross-encoder outperforms bi-encoder for relevance scoring because it enables token-level alignment, contextual disambiguation, and fine-grained interaction",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim about cross-encoder outperforming bi-encoder for relevance scoring due to enabling token-level alignment, contextual disambiguation, and fine-grained interaction is consistent with the information provided in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Bi-encoder has a complexity of O(N) for encoding N documents offline and O(log N) for query time, while cross-encoder has a complexity of O(K) forward passes at query time",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim about the complexity of bi-encoder and cross-encoder is partially correct. Bi-encoder has a complexity of O(N) for encoding N documents offline and O(log N) for query time, which is correct. However, the claim about cross-encoder having a complexity of O(K) forward passes at query time oversimplifies the actual computational cost, which can be significant due to the need for joint encoding of query-document pairs.",
+          "suggested_correction": "Bi-encoder has a complexity of O(N) for encoding N documents offline and O(log N) for query time. Cross-encoder has a complexity that involves K forward passes for K candidates at query time, with each forward pass requiring significant computational resources due to the joint encoding of query-document pairs."
+        },
+        {
+          "text": "At Amazon Ads scale, the cost optimization priority was always to reduce prompt size, model routing, caching, and quantization",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Amazon Ads scale and cost optimization priority is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Quantization was the last lever because prompt optimization yielded 3-5x savings while quantization typically yields 2-4x on the model component alone",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about quantization being the last lever and its yield is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "IVF-PQ compresses vectors from 768*4=3KB to ~64 bytes (96% reduction)",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about IVF-PQ compressing vectors is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HNSW gives better recall but requires full vectors in memory, while IVF-PQ is used when memory is constrained",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about HNSW and IVF-PQ is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Observability & Production Debugging",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The system monitors zero-result rate with an alert threshold of 3%.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not address the system's monitoring of zero-result rates or alert thresholds.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system logs access control violations with an alert threshold of any non-zero value.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not discuss access control violations or alert thresholds for non-zero values.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system versions the embedding model using a version tag in index metadata.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention versioning of embedding models using version tags in index metadata.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system rolls back the embedding model by switching the alias to the previous index.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not describe rolling back embedding models by switching aliases to previous indices.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system logs latency_breakdown to identify bottlenecks.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about system logs or latency_breakdown.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system logs user_feedback to ground truth for quality.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about system logs or user_feedback.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system monitors retrieval recall with a golden set of 200 labeled queries, measured daily.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about retrieval recall or golden sets of labeled queries.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has an alert threshold of 90% for retrieval recall.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about alert thresholds for retrieval recall.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system monitors faithfulness rate with an alert threshold of 92%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about faithfulness rate or alert thresholds.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system monitors hallucination rate with an alert threshold of 5%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about hallucination rate or alert thresholds.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system monitors latency p50 and p95 with alert thresholds of 2s and 8s respectively.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about latency p50, p95, or alert thresholds.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system monitors cache hit rate with an alert threshold of 15%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about cache hit rate or alert thresholds.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system logs query_text and query_hash to reproduce failures and dedup analysis.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not address logging practices for query_text and query_hash.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system uses query_embedding to detect embedding drift and cache lookup.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention the use of query_embedding for detecting embedding drift and cache lookup.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system logs retrieved_doc_ids and retrieval_scores to diagnose retrieval failures.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not discuss logging retrieved_doc_ids and retrieval_scores for diagnosing retrieval failures.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system logs reranker_scores to verify if the reranker is helping.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention logging reranker_scores to verify the effectiveness of the reranker.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system logs chunks_passed_to_llm to inspect what the model saw.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not address logging chunks_passed_to_llm for inspecting model inputs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system logs generation_model and temperature to track which model served which query.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not discuss logging generation_model and temperature for tracking model usage.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system logs response_text and citations for full output audit trail.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention logging response_text and citations for auditing purposes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system logs faithfulness_score to detect hallucination at scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not address logging faithfulness_score for detecting hallucination.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Seniority Signals Cheat Sheet",
+      "score": 0.6666666666666666,
+      "claims": [
+        {
+          "text": "Hardware doesn't fix an architecture problem.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim 'Hardware doesn't fix an architecture problem' is not related to the provided Facts Manifest and cannot be verified using the given information.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We measure retrieval recall against our eval set to find optimal size, and we use hierarchical chunking to decouple retrieval granularity from synthesis granularity.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim 'We measure retrieval recall against our eval set to find optimal size, and we use hierarchical chunking to decouple retrieval granularity from synthesis granularity' is consistent with the information provided in the Facts Manifest, specifically the sections on hierarchical chunking.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Aggregate metrics hide failure pockets \u2014 we slice by query type and doc type.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The claim 'Aggregate metrics hide failure pockets \u2014 we slice by query type and doc type' is not directly addressed in the provided Facts Manifest and requires additional context or information to verify.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reranking is applied selectively based on query routing: simple factual queries skip it, complex queries need it.",
+          "verdict": "correct",
+          "confidence": 0.85,
+          "reasoning": "The claim 'Reranking is applied selectively based on query routing: simple factual queries skip it, complex queries need it' aligns with the discussion on cross-encoder reranking and its selective application based on query complexity in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hybrid retrieval is non-negotiable for enterprise \u2014 embeddings miss exact terms, BM25 misses semantic variations.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Hybrid retrieval is indeed crucial for enterprise settings as it combines the strengths of sparse and dense retrieval methods, addressing both exact term matching and semantic similarity. However, stating it as 'non-negotiable' might be an overstatement, as specific use cases might prioritize one method over the other based on their unique requirements.",
+          "suggested_correction": "Hybrid retrieval is highly beneficial for enterprise settings due to its ability to capture both exact keyword matches and semantic similarities, making it a preferred approach for many applications."
+        },
+        {
+          "text": "Chunking is the most underrated component.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim about chunking being the most underrated component is subjective and lacks concrete evidence or metrics to support its status as 'most underrated.' This evaluation can vary greatly depending on the specific context, application, and priorities of the system in question.",
+          "suggested_correction": "Chunking is an important aspect of document processing in RAG systems, and its significance can vary based on the application and system requirements."
+        },
+        {
+          "text": "Reranking is typically the single highest-leverage improvement \u2014 but it's not always worth the latency.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Reranking, especially using cross-encoder models, is indeed a high-leverage improvement for RAG systems, offering significant precision gains. However, the trade-off with latency is a critical consideration, making it not always worth the added delay for every type of query.",
+          "suggested_correction": "None needed."
+        },
+        {
+          "text": "We evaluate at three layers: component (retrieval recall, ranking NDCG), end-to-end (faithfulness, correctness on golden set), and user-level (regeneration rate, abandonment).",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Evaluating RAG systems at multiple layers (component, end-to-end, and user-level) is a comprehensive approach that captures various aspects of system performance, from retrieval recall and ranking quality to user experience metrics like regeneration rate and abandonment.",
+          "suggested_correction": "None needed."
+        },
+        {
+          "text": "Hallucination is often a retrieval signal, not just a generation problem.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "Hallucination can indeed be related to retrieval signals, as the model's generation is influenced by the context and information it retrieves. If the retrieval step fails to provide accurate or relevant information, the generation step is more likely to produce hallucinations.",
+          "suggested_correction": "None needed."
+        },
+        {
+          "text": "Two-step generation (extract spans \u2192 generate from extractions) makes hallucination detectable rather than just adding instructions to 'be careful.'",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "Two-step generation processes, such as extracting spans and then generating from these extractions, can make hallucination more detectable. This approach allows for a clearer distinction between the retrieved information and the generated text, facilitating the identification of potential hallucinations.",
+          "suggested_correction": "None needed."
+        },
+        {
+          "text": "Token economics dominate.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Token economics indeed dominate the cost structure of large language model systems, with the cost of generating tokens being a significant expense. Optimizing token usage is crucial for managing the operational costs of these systems.",
+          "suggested_correction": "None needed."
+        },
+        {
+          "text": "The highest-leverage cost optimization is usually reducing prompt size \u2014 fewer chunks, shorter chunks, smarter routing.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Reducing prompt size is a highly effective strategy for cost optimization in RAG systems. By using fewer chunks, shorter chunks, or smarter routing mechanisms, systems can significantly reduce the number of tokens processed, leading to substantial cost savings.",
+          "suggested_correction": "None needed."
+        }
+      ]
+    },
+    {
+      "section_name": "Data Flywheel & Continuous Improvement",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "User explicit feedback is available at a low volume of 3-5% of queries.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about user explicit feedback volume.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Regeneration, or a user asking the same question again, occurs at a medium volume.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about regeneration volume.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Citation click-through is available at a medium volume.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about citation click-through volume.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Session abandonment occurs at a high volume.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about session abandonment volume.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Helpdesk tickets after RAG queries are a low-volume signal.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about helpdesk tickets after RAG queries volume.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Document update frequency can be determined from metadata.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about determining document update frequency from metadata.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The budget for evaluating queries with human annotators is 2-5% of queries.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the budget for evaluating queries with human annotators.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Low-confidence answers have a faithfulness score of 0.6-0.8.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about low-confidence answers faithfulness score range.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hallucination, or confident wrong answers, occur at a frequency of 3-5% of queries.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about hallucination frequency is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Access control leaks occur at a frequency of less than 0.01%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about access control leaks frequency is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Stale answers occur at a frequency of 5-10%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about stale answers frequency is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Missed retrieval occurs at a frequency of 8-12%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about missed retrieval frequency is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Slow response times (>5s) occur at a frequency of 15-20% of complex queries.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about slow response times frequency is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Verbose or unfocused answers occur at a frequency of 20-30%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about verbose or unfocused answers frequency is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Embedding model migration requires a full reindex, which can take hours to days.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about embedding model migration is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The recall@5 overlap threshold for determining the safety of a new embedding model is 90%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about recall@5 overlap threshold is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The rollback window for embedding model migration is 2 weeks.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not address the claim about the rollback window for embedding model migration.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gradual cutover for embedding model migration involves routing 5% \u2192 25% \u2192 100% of traffic to the new index.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the gradual cutover process for embedding model migration.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Shadow traffic is used to compare retrieval results between old and new embedding models.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not discuss the use of shadow traffic in comparing retrieval results between old and new embedding models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A new index is built in parallel to the existing index during embedding model migration.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the process of building a new index in parallel to the existing index during embedding model migration.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Anyscale published a comprehensive guide for building RAG-based LLM applications.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Anyscale publishing a comprehensive guide for building RAG-based LLM applications is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cameron R. Wolfe published a practitioner's guide to RAG.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Cameron R. Wolfe publishing a practitioner's guide to RAG is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RAGAS documentation is available at https://docs.ragas.io/en/stable/.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about RAGAS documentation being available at https://docs.ragas.io/en/stable/ is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RAGAS available metrics are listed at https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about RAGAS available metrics being listed at https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/ is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepLearning.AI offers a course on building and evaluating advanced RAG.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about DeepLearning.AI offering a course on building and evaluating advanced RAG is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A survey on trustworthiness in RAG systems is available at https://arxiv.org/abs/2409.10102.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about a survey on trustworthiness in RAG systems being available at https://arxiv.org/abs/2409.10102 is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Asai et al. published a paper on self-RAG in 2023.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Asai et al. publishing a paper on self-RAG in 2023 is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Yan et al. published a paper on CRAG in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about Yan et al. publishing a paper on CRAG in 2024 is not addressed in the provided Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "BuildML Substack published an article on top interview questions for RAG in data science and AI engineer roles.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about BuildML Substack publishing an article on top interview questions for RAG in data science and AI engineer roles.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Galileo published a blog post on mastering RAG and architecting an enterprise RAG system.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Galileo publishing a blog post on mastering RAG and architecting an enterprise RAG system.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Anthropic published research on contextual retrieval in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Anthropic publishing research on contextual retrieval in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Aman.ai published a comprehensive reference on RAG.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Aman.ai publishing a comprehensive reference on RAG.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LlamaIndex published a guide on production RAG optimization.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about LlamaIndex publishing a guide on production RAG optimization.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Pinecone published an article on retrieval augmented generation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Pinecone publishing an article on retrieval augmented generation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Pinecone published an article on advanced RAG techniques.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Pinecone publishing an article on advanced RAG techniques.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LlamaIndex published a cheat sheet and recipes for building advanced RAG.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about LlamaIndex publishing a cheat sheet and recipes for building advanced RAG.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Microsoft published a paper on GraphRAG in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Microsoft publishing a paper on GraphRAG in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Microsoft implemented GraphRAG, available at https://microsoft.github.io/graphrag/.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Microsoft implementing GraphRAG or its availability at a specific URL.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LangChain published a blog post on agentic RAG with LangGraph.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about LangChain publishing a blog post on agentic RAG with LangGraph.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gao et al. published a survey on RAG for large language models in 2023.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not contain information about Gao et al. publishing a survey on RAG for large language models in 2023.",
+          "suggested_correction": null
+        }
+      ]
+    }
+  ]
+}

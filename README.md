@@ -61,6 +61,7 @@ To set up: copy [skills/sample-config.yaml](skills/sample-config.yaml) to `.loca
 | **News Summarizer** | [personal-news-summarizer.md](skills/personal-news-summarizer.md) | Weekly 23-section AI research briefings with topic specializations |
 | **Options PnL** | [personal-options-pnl-v3.md](skills/personal-options-pnl-v3.md) | Wheel trading PnL reporting + trade recommendations across 3 brokerages |
 | **Tour Planner** | [personal-tour-planner-v3.md](skills/personal-tour-planner-v3.md) | Family travel itinerary generation with day-by-day timing and booking links |
+| **Researcher** | [personal-researcher.md](skills/personal-researcher.md) | Knowledge-base research — ingest sources, compile wiki-style knowledge pages, generate reports, verify claims, Anki flashcards |
 
 ### Coworker Skills
 
@@ -444,3 +445,34 @@ Experiment strategy agent for iterative ML research. Analyzes experiment history
 Pattern detection includes: hyperparameter sensitivity (Pearson correlation), diminishing returns, metric tradeoffs, and top configuration clustering.
 
 **Data:** `data/scientist/results/` (experiment JSONs), `data/scientist/notebooks/` (Jupyter files), `data/scientist/tracking/` (MLflow/W&B exports)
+
+---
+
+### A.12 Researcher — [personal-researcher.md](skills/personal-researcher.md)
+
+Knowledge-base research agent with a 5-stage pipeline: **Ingest → Discover → Compile → Report → Verify**. Ingests web pages, PDFs, and papers into topic-partitioned sources, compiles them into wiki-style knowledge pages with `[[cross-links]]` and `^[source-citations]`, generates reports (deep-dive notes, study-notes, FAQs), verifies claims using cross-model verification, and generates Anki flashcards.
+
+| Command | Description |
+|---------|-------------|
+| `/ingest <url-or-file> [--topic T]` | Ingest a source document (web page, PDF, markdown) |
+| `/compile` | Compile new/changed sources into knowledge pages |
+| `/query <question> [--save] [--topic T] [--web]` | Query the knowledge base with cited answers |
+| `/discover --topic T` | Discover related web sources for a topic |
+| `/topics` | List all research topics |
+| `/generate-report --topic T [--format F]` | Generate a report (standard, study-notes, or faq) |
+| `/update-report --topic T` | Update an existing report with new knowledge |
+| `/verify-report --topic T [--question Q]` | Verify report claims via cross-model pipeline |
+| `/version-report <slug>` | Create/check report version snapshot |
+| `/report-history <slug>` | Show version history for a report |
+| `/generate-anki --topic T` | Generate Anki flashcard CSVs from reports |
+| `/anki-sync [--topic T]` | Sync flashcards to Anki Desktop via AnkiConnect |
+| `/check-and-integrate --paper <title> --report <file>` | Verify paper coverage and integrate into report |
+
+Companion: [personal-researcher-anki-sync.md](skills/personal-researcher-anki-sync.md) — detailed Anki sync instructions.
+
+Helper scripts in [src/skills/researcher/](src/skills/researcher/):
+- `compile_state.py` — SHA-256 hashing and incremental compilation state tracking
+- `cross_model_verify.py` — cross-model claim verification via Bedrock (GPT-OSS)
+- `anki_sync.py` — AnkiConnect HTTP integration
+
+**Data:** `.notlocal/data/personal-researcher/` (knowledge: 1,054 pages across 45 topics, 166 sources, 83 reports, 40 Anki CSVs, 20 seeds)

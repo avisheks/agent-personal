@@ -1,0 +1,990 @@
+{
+  "topic": "anthropic",
+  "timestamp": "2026-06-10T14:06:09.250473+00:00",
+  "total_claims": 131,
+  "correct": 83,
+  "incorrect": 13,
+  "unverifiable": 29,
+  "partially_correct": 6,
+  "overall_score": 0.8137254901960784,
+  "summary": "Verified 131 claims: 83 correct, 13 incorrect, 6 partially correct, 29 unverifiable. Score: 81%",
+  "sections": [
+    {
+      "section_name": "Innovations By Model",
+      "score": 0.8947368421052632,
+      "claims": [
+        {
+          "text": "Haiku 4.5 matches Sonnet 4 quality at 1/3 cost",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Haiku 4.5 matches Sonnet 4 performance at 1/3 the cost, as stated in the model-family-comparison.md knowledge page.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Extended thinking mode uses explicit CoT and user-set budget",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Extended thinking mode does use explicit CoT and user-set budget, but the claim does not account for models that support both extended and adaptive thinking, such as Sonnet 4.6.",
+          "suggested_correction": "Extended thinking mode uses explicit CoT and user-set budget, and is supported by models like Sonnet 4.6 and Haiku 4.5."
+        },
+        {
+          "text": "Adaptive thinking mode auto-adjusts depth per query",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Adaptive thinking mode does auto-adjust depth per query, as stated in the model-family-comparison.md knowledge page for models like Opus 4.8 and Fable 5.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 has 4x fewer code flaws missed",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Opus 4.8 has 4x fewer code flaws missed is supported by the knowledge pages, which state that Opus 4.8 is 4x less likely to let code flaws pass unremarked.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 is 61% cheaper than Opus 4.7",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Opus 4.8 is 61% cheaper than Opus 4.7 is supported by the Facts Manifest, which states that the token cost of Opus 4.8 is 61% cheaper than Opus 4.7.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 has hybrid reasoning and efficiency",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Sonnet 4.6 has hybrid reasoning and efficiency is supported by the Facts Manifest and knowledge pages, which state that Sonnet 4.6 supports hybrid reasoning.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 has both extended and adaptive thinking",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Sonnet 4.6 has both extended and adaptive thinking is supported by the knowledge pages, which state that Sonnet 4.6 supports both extended thinking and adaptive thinking.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 is 70% more token-efficient",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Sonnet 4.6 is 70% more token-efficient is supported by the knowledge pages, which state that Sonnet 4.6 is 70% more token-efficient than Sonnet 4.5.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 has strong prompt injection resistance",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Sonnet 4.6 has strong prompt injection resistance is supported by the knowledge pages, which state that Sonnet 4.6 has strong prompt injection resistance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 has speed without quality sacrifice",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Haiku 4.5 has speed without quality sacrifice is supported by the knowledge pages, which state that Haiku 4.5 matches Sonnet 4 performance at 1/3 the cost and 2x the speed.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 is 4-5x faster than Sonnet 4.5",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Haiku 4.5 is 4-5x faster than Sonnet 4.5 is supported by the Facts Manifest and knowledge pages, which state that Haiku 4.5 is 4-5x faster than Sonnet 4.5.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 has autonomous zero-day discovery",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Mythos 5 has autonomous zero-day discovery according to the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 finds vulnerabilities in every major OS/browser without human steering",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Mythos 5 finds vulnerabilities in every major OS/browser without human steering as stated in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 discovered a 27-year-old OpenBSD bug",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Mythos 5 discovered a 27-year-old OpenBSD bug according to the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fable 5 has multi-day autonomous work",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Fable 5 has multi-day autonomous work as described in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fable 5 plans across stages, delegates sub-agents, and self-validates",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Fable 5 plans across stages, delegates sub-agents, and self-validates according to the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fable 5 is equivalent to a senior research scientist grade",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or knowledge pages that directly compares Fable 5 to a senior research scientist grade.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 has adaptive thinking and code rigor",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Opus 4.8 has adaptive thinking according to the Facts Manifest and knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 auto-adjusts reasoning depth",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Opus 4.8 auto-adjusts reasoning depth as stated in the knowledge pages.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Quick Catchup",
+      "score": 1.0,
+      "claims": [
+        {
+          "text": "Adaptive thinking auto-adjusts reasoning depth.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages both describe adaptive thinking as auto-adjusting reasoning depth, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The hierarchy of Anthropic's models is: Mythos > Fable > Opus > Sonnet > Haiku.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages describe the hierarchy of Anthropic's models as: Mythos > Fable > Opus > Sonnet > Haiku, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Adaptive thinking replaces manual 'extended thinking' configuration in newest models.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that adaptive thinking replaces manual 'extended thinking' configuration in newest models, specifically mentioning Opus 4.8, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Anthropic's model family expanded to 5 tiers with the June 9 launch of Fable 5 and Mythos 5.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages confirm the June 9 launch of Fable 5 and the expansion of Anthropic's model family.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos is the first restricted-access frontier model from a major lab.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages describe Mythos as the first restricted-access frontier model from a major lab.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos scores 93.9% SWE-bench.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Mythos 5 scores 93.9% on SWE-bench.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos autonomously discovers zero-day vulnerabilities.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages confirm that Mythos autonomously discovers zero-day vulnerabilities.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos found over 10,000 zero-day vulnerabilities.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages state that Mythos found over 10,000 high/critical vulnerabilities.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fable 5 works autonomously for days.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages describe Fable 5 as working autonomously for days.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fable 5 has the same base as Mythos and is generally available (GA).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages confirm that Fable 5 has the same base as Mythos and is generally available (GA).",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 introduced adaptive thinking.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Opus 4.8 introduced adaptive thinking.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Specifications",
+      "score": 0.5263157894736842,
+      "claims": [
+        {
+          "text": "Mythos/Fable 5 has a low tool use overhead",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that Opus 4.8 has the lowest tool-use system prompt overhead, but it also mentions that Mythos/Fable 5 has a low tool use overhead in the context of the cost-efficiency analysis.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos/Fable 5 uses a new tokenizer that produces 30-35% more tokens",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or the knowledge pages about Mythos/Fable 5 using a new tokenizer that produces 30-35% more tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 uses a new tokenizer",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or the knowledge pages about Opus 4.8 using a new tokenizer.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 has a knowledge cutoff of Jan 2026",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "No information about Opus 4.8's knowledge cutoff is found in the Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 has a knowledge cutoff of Aug 2025",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "No information about Sonnet 4.6's knowledge cutoff is found in the Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 has a knowledge cutoff of Feb 2025",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "No information about Haiku 4.5's knowledge cutoff is found in the Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos/Fable 5 has vision capabilities",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "No information about Mythos/Fable 5's vision capabilities is found in the Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 has vision capabilities with 3.75MP",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "No information about Opus 4.8's vision capabilities is found in the Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 has vision capabilities",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "No information about Sonnet 4.6's vision capabilities is found in the Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 has vision capabilities",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "No information about Haiku 4.5's vision capabilities is found in the Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 has a tool use overhead of 290 tokens",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not directly state this information, but the Knowledge Pages mention that Opus 4.8 has the lowest tool-use system prompt overhead of 290 tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos/Fable 5 has a context input of 1M tokens",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and the Knowledge Pages both state that Mythos 5 has a context window of 1M tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 has a context input of 1M tokens",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Opus 4.8 has a context window of 1M tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 has a context input of 1M tokens",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and the Knowledge Pages both state that Sonnet 4.6 has a context window of 1M tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 has a context input of 200K tokens",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Haiku 4.5 has a context window of 200K tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos/Fable 5 has a max output of 128K tokens",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Mythos 5 has a max output of 128K tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 has a max output of 128K tokens",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Opus 4.8 has a max output of 128K tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 has a max output of 64K tokens",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Sonnet 4.6 has a max output of 64K tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 has a max output of 64K tokens",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Haiku 4.5 has a max output of 64K tokens.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Model Hierarchy",
+      "score": 0.9230769230769231,
+      "claims": [
+        {
+          "text": "Sonnet 4.6 is near-Opus at 60% cost",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not directly state this, but the knowledge pages indicate Sonnet 4.6 is near-Opus quality at 60% of Opus cost.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 is 4-5x faster than other models",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "Haiku 4.5 is 4-5x faster than Sonnet 4.5, not necessarily other models.",
+          "suggested_correction": "Haiku 4.5 is 4-5x faster than Sonnet 4.5."
+        },
+        {
+          "text": "Haiku 4.5 matches Sonnet 4 in performance",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state Haiku 4.5 matches Sonnet 4 performance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 features sub-agents",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention Haiku 4.5 is excellent for sub-agent orchestration.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 has the best cost-efficiency",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The cost-efficiency analysis in the knowledge pages shows Haiku 4.5 has the best cost-efficiency at $0.068 per SWE-bench point per MTok.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 has 93.9% SWE-bench, autonomous vuln discovery",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Mythos 5 has a 93.9% SWE-bench score according to the Facts Manifest, and the knowledge pages also mention its autonomous vuln discovery capability.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Access to Mythos 5 is restricted to Project Glasswing only (~150 orgs)",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Access to Mythos 5 is restricted to Project Glasswing, which includes ~150 organizations, as stated in the Facts Manifest and further detailed in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fable 5 has the same base model as Mythos 5, with safety-routed features",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Fable 5 has the same base model as Mythos 5 and features safety-routed features, as mentioned in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fable 5 supports multi-day autonomous sessions",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Fable 5 supports multi-day autonomous sessions, according to the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 features adaptive thinking and self-correction",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Opus 4.8 features adaptive thinking, as stated in the Facts Manifest and further described in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 is best for complex reasoning and coding",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Opus 4.8 is best for complex reasoning and coding, as suggested in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 uses hybrid reasoning",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Sonnet 4.6 uses hybrid reasoning, according to the Facts Manifest and the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 is 70% token-efficient",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Sonnet 4.6 is 70% token-efficient, as mentioned in the knowledge pages.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Benchmarks",
+      "score": 0.2631578947368421,
+      "claims": [
+        {
+          "text": "Mythos 5 achieved 83.1% on CyberGym",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Mythos 5 achieved 83.1% on CyberGym as stated in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.6 achieved 66.6% on CyberGym",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information about Opus 4.6's CyberGym score in the provided Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 achieved 82.0% on Terminal-Bench 2.0",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information about Mythos 5's Terminal-Bench 2.0 score in the provided Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.6 achieved 65.4% on Terminal-Bench 2.0",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information about Opus 4.6's Terminal-Bench 2.0 score in the provided Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 achieved 77.8% on SWE-bench Pro",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "Mythos 5 achieved 93.9% on SWE-bench as stated in the Facts Manifest.",
+          "suggested_correction": "Mythos 5 achieved 93.9% on SWE-bench."
+        },
+        {
+          "text": "Opus 4.6 achieved 53.4% on SWE-bench Pro",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information about Opus 4.6's SWE-bench Pro score in the provided Facts Manifest or Knowledge Pages, but Opus 4.8 has a score of ~83% on SWE-bench.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 achieved 79.6% on OSWorld-Verified",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information about Mythos 5's OSWorld-Verified score in the provided Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.6 achieved 72.7% on OSWorld-Verified",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information about Opus 4.6's OSWorld-Verified score in the provided Facts Manifest or Knowledge Pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 achieved 86.9% on BrowseComp",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about Mythos 5's performance on BrowseComp.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.6 achieved 83.7% on BrowseComp",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about Opus 4.6's performance on BrowseComp, but it does mention Opus 4.8.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 achieved 60.4% on ARC-AGI-2 (high effort)",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about Sonnet 4.6's performance on ARC-AGI-2.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 achieved 93.9% on SWE-bench Verified",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and the Knowledge Pages both state that Mythos 5 achieved 93.9% on SWE-bench Verified.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.6 achieved 81.4% on SWE-bench Verified",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Opus 4.8 achieved ~83% on SWE-bench, but the claim is about Opus 4.6. The correct score for Opus 4.6 is not found in the Facts Manifest, but the Knowledge Pages provide a score of 80.2% for Sonnet 4.6 and ~83% for Opus 4.8, suggesting that Opus 4.6 may have a similar or lower score.",
+          "suggested_correction": "Opus 4.6 achieved a score on SWE-bench Verified, but the exact score is not provided in the Facts Manifest. However, based on the Knowledge Pages, it is likely that the score is around 80-83%."
+        },
+        {
+          "text": "Sonnet 4.6 achieved 80.2% on SWE-bench Verified",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Sonnet 4.6 achieved 80.2% on SWE-bench Verified.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 achieved 73.3% on SWE-bench Verified",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Haiku 4.5 achieved 73.3% on SWE-bench Verified.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 achieved 94.6% on GPQA Diamond",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Mythos 5 achieved 94.6% on GPQA Diamond.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.6 achieved 91.3% on GPQA Diamond",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "There is no information in the Facts Manifest or the Knowledge Pages about Opus 4.6 achieving 91.3% on GPQA Diamond. The Knowledge Pages do provide information about Opus 4.8, but not Opus 4.6.",
+          "suggested_correction": "The score of Opus 4.6 on GPQA Diamond is not provided in the Facts Manifest or the Knowledge Pages."
+        },
+        {
+          "text": "Mythos 5 achieved 64.7% on Humanity's Last Exam (tools)",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or the Knowledge Pages about Mythos 5 achieving 64.7% on Humanity's Last Exam (tools).",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.6 achieved 53.0% on Humanity's Last Exam (tools)",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or the Knowledge Pages about Opus 4.6 achieving 53.0% on Humanity's Last Exam (tools).",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Pricing (per Million Tokens, June 2026)",
+      "score": 0.3,
+      "claims": [
+        {
+          "text": "The price of Mythos/Fable 5 per million tokens is $10 for input and $50 for output.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages both state that the pricing of Fable 5 (also referred to as Mythos 5 in some contexts) is $10/$50.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The price of Opus 4.8 per million tokens is $5 for input and $25 for output.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that the pricing of Opus 4.8 is $5/$25.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The price of Opus 4.8 Fast per million tokens is $10 for input and $50 for output.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that the pricing of Opus 4.8 is $5/$25, not $10/$50. However, Opus 4.8 Fast is mentioned to have the same pricing as Fable at $10/$50.",
+          "suggested_correction": "The price of Opus 4.8 Fast per million tokens is $10 for input and $50 for output, but this is for the fast mode, not the standard Opus 4.8."
+        },
+        {
+          "text": "The price of Sonnet 4.6 per million tokens is $3 for input and $15 for output.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that the pricing of Sonnet 4.6 is $3/$15.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The price of Haiku 4.5 per million tokens is $1 for input and $5 for output.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages both state that the pricing of Haiku 4.5 is $1/$5.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The batch input price of Mythos/Fable 5 is $5 per million tokens.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages do not explicitly state a 'batch input price' of $5 for Mythos/Fable 5, but they do mention that the standard pricing for Fable 5 (and by extension, possibly Mythos 5 in certain contexts) is $10/$50.",
+          "suggested_correction": "The standard input price of Mythos/Fable 5 is $10 per million tokens."
+        },
+        {
+          "text": "The batch output price of Mythos/Fable 5 is $25 per million tokens.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages do not explicitly state a 'batch output price' of $25 for Mythos/Fable 5, but they do mention that the standard pricing for Fable 5 (and by extension, possibly Mythos 5 in certain contexts) is $10/$50.",
+          "suggested_correction": "The standard output price of Mythos/Fable 5 is $50 per million tokens."
+        },
+        {
+          "text": "The batch input price of Opus 4.8 is $2.50 per million tokens.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or the knowledge pages about the 'batch input price' of Opus 4.8 being $2.50 per million tokens, although there is a mention of a bulk batch cost for Haiku 4.5.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The batch output price of Opus 4.8 is $12.50 per million tokens.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and Knowledge Pages do not mention the batch output price of Opus 4.8 as $12.50 per million tokens. According to the Knowledge Pages, the pricing of Opus 4.8 is $5/$25.",
+          "suggested_correction": "The batch output price of Opus 4.8 is $2.50 per million tokens (based on $5/$25 pricing)."
+        },
+        {
+          "text": "The batch input price of Sonnet 4.6 is $1.50 per million tokens.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and Knowledge Pages do not mention the batch input price of Sonnet 4.6 as $1.50 per million tokens. According to the Knowledge Pages, the pricing of Sonnet 4.6 is $3/$15.",
+          "suggested_correction": "The batch input price of Sonnet 4.6 is $3 per million tokens (based on $3/$15 pricing)."
+        },
+        {
+          "text": "The batch output price of Sonnet 4.6 is $7.50 per million tokens.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and Knowledge Pages do not mention the batch output price of Sonnet 4.6 as $7.50 per million tokens. According to the Knowledge Pages, the pricing of Sonnet 4.6 is $3/$15.",
+          "suggested_correction": "The batch output price of Sonnet 4.6 is $15 per million tokens (based on $3/$15 pricing, but this is not explicitly stated)."
+        },
+        {
+          "text": "The batch input price of Haiku 4.5 is $0.50 per million tokens.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages mention the pricing of Haiku 4.5 as $1/$5, which implies a batch input price of $1 per million tokens for bulk batch (cost-optimized) usage.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The batch output price of Haiku 4.5 is $2.50 per million tokens.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages mention the pricing of Haiku 4.5 as $1/$5, which implies a batch output price of $2.50 per million tokens for bulk batch (cost-optimized) usage, but $5 per million tokens is the standard output price.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cache write price of Mythos/Fable 5 is $12.50 per million tokens.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and Knowledge Pages do not mention the cache write price of Mythos/Fable 5 as $12.50 per million tokens. According to the Knowledge Pages, the pricing of Mythos/Fable 5 is $10/$50.",
+          "suggested_correction": "The cache write price of Mythos/Fable 5 is not explicitly stated, but the pricing is $10/$50."
+        },
+        {
+          "text": "The cache read price of Mythos/Fable 5 is $1 per million tokens.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest and Knowledge Pages do not provide information about the cache read price of Mythos/Fable 5.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cache write price of Opus 4.8 is $6.25 per million tokens.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and Knowledge Pages do not mention the cache write price of Opus 4.8 as $6.25 per million tokens. According to the Knowledge Pages, the pricing of Opus 4.8 is $5/$25.",
+          "suggested_correction": "The cache write price of Opus 4.8 is not explicitly stated, but the pricing is $5/$25."
+        },
+        {
+          "text": "The cache read price of Opus 4.8 is $0.50 per million tokens.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the cache read price of Opus 4.8. However, the Knowledge Pages provide a cost-efficiency analysis that includes the output cost per million tokens for various models, but it does not explicitly state the cache read price for Opus 4.8.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cache write price of Sonnet 4.6 is $3.75 per million tokens.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the cache write price of Sonnet 4.6. The Knowledge Pages provide pricing information for Sonnet 4.6, but it does not explicitly state the cache write price.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cache read price of Sonnet 4.6 is $0.30 per million tokens.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the cache read price of Sonnet 4.6. The Knowledge Pages provide pricing information for Sonnet 4.6, but it does not explicitly state the cache read price.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cache write price of Haiku 4.5 is $1.25 per million tokens.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the cache write price of Haiku 4.5. The Knowledge Pages provide pricing information for Haiku 4.5, but it does not explicitly state the cache write price.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Project Glasswing (Mythos Context)",
+      "score": 0.8333333333333334,
+      "claims": [
+        {
+          "text": "Project Glasswing is a consortium for AI-powered defensive cybersecurity",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the purpose of Project Glasswing is to use Mythos for defensive cybersecurity at scale, which is consistent with the claim that Project Glasswing is a consortium for AI-powered defensive cybersecurity.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Project Glasswing partners include AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorgan, Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages state that Project Glasswing is a consortium of 12+ major tech/security companies, including AWS, Apple, Cisco, CrowdStrike, Google, JPMorgan, Microsoft, NVIDIA, and Palo Alto Networks, but does not mention Broadcom or Linux Foundation as partners.",
+          "suggested_correction": "Project Glasswing partners include AWS, Apple, Cisco, CrowdStrike, Google, JPMorgan, Microsoft, NVIDIA, and Palo Alto Networks."
+        },
+        {
+          "text": "Project Glasswing has ~150 organizations in 15+ countries as of June 2026",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the number of organizations using Mythos via Project Glasswing is ~150 organizations, which is consistent with the claim that Project Glasswing has ~150 organizations in 15+ countries as of June 2026.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Project Glasswing has found >10,000 high/critical vulnerabilities",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the number of high/critical vulnerabilities found by Mythos 5 is >10,000, which is consistent with the claim that Project Glasswing has found >10,000 high/critical vulnerabilities.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Project Glasswing is the first restricted-access model tier from a frontier lab",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Project Glasswing is the first restricted model tier from a frontier lab, which is consistent with the claim that Project Glasswing is the first restricted-access model tier from a frontier lab.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Project Glasswing capability is withheld for safety while deployed through vetted partners",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that the capability of Project Glasswing is withheld from the general public for safety, which is consistent with the claim that Project Glasswing capability is withheld for safety while deployed through vetted partners.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.6,
+      "claims": [
+        {
+          "text": "Anthropic released Claude Models Documentation in 2026",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the release of Claude Models Documentation in 2026, and there is no relevant information in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Anthropic has a project called Project Glasswing",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions Project Glasswing and its purpose, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Anthropic announced Claude Fable 5 in 2026",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions the release date of Fable 5, which is June 9, 2026, and the knowledge pages also confirm this.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Anthropic released Claude Opus 4.8 in 2026",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages mention the release of Opus 4.8, but the exact release date is only mentioned in the knowledge pages as May 28, 2026, which is in 2026.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Anthropic has a pricing page available at anthropic.com/pricing",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages do not mention the availability of a pricing page at anthropic.com/pricing.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Changelog",
+      "score": 0.6666666666666666,
+      "claims": [
+        {
+          "text": "Mythos has a SWE-bench score of 93.9%",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the SWE-bench score of Mythos 5 is 93.9%, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The full model family includes Mythos, Fable, Opus, Sonnet, and Haiku",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page model-family-comparison.md lists the full model family as including Mythos, Fable, Opus, Sonnet, and Haiku, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The initial v2 generation occurred on 2026-06-10",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the release date of Fable 5 is June 9, 2026, and the knowledge page model-family-comparison.md also mentions that Mythos was released on June 9, 2026, via Project Glasswing, which contradicts the claim of the initial v2 generation occurring on 2026-06-10.",
+          "suggested_correction": "The initial v2 generation occurred on 2026-06-09."
+        }
+      ]
+    },
+    {
+      "section_name": "Decision Framework",
+      "score": 0.75,
+      "claims": [
+        {
+          "text": "Haiku 4.5 has 1/3 the cost of other models",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Haiku 4.5 has 1/3 the cost of other models is supported by the Facts Manifest and the Knowledge Pages, which state that Haiku 4.5 matches Sonnet 4 performance at 1/3 the cost and 2x the speed.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 has a 73% SWE-bench score",
+          "verdict": "partially_correct",
+          "confidence": 0.9,
+          "reasoning": "The claim that Haiku 4.5 has a 73% SWE-bench score is partially correct, as the Knowledge Pages state that Haiku 4.5 has a 73.3% SWE-bench score.",
+          "suggested_correction": "Haiku 4.5 has a 73.3% SWE-bench score."
+        },
+        {
+          "text": "Haiku 4.5 batch has a cost of $0.50/$2.50 per token",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Haiku 4.5 batch has a cost of $0.50/$2.50 per token is supported by the Knowledge Pages, which state that bulk batch (cost-optimized) using Haiku 4.5 has a cost of $0.50/$2.50 per MTok.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fable 5 has the highest GA capability across all benchmarks",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The claim that Fable 5 has the highest GA capability across all benchmarks is incorrect, as the Facts Manifest and the Knowledge Pages do not provide sufficient information to support this claim, and the SWE-bench score of Mythos 5 is actually higher.",
+          "suggested_correction": "Mythos 5 has a higher SWE-bench score than Fable 5."
+        },
+        {
+          "text": "Haiku 4.5 has a cost-efficiency of $0.068 per SWE-bench percentage point per MTok output",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Haiku 4.5 has a cost-efficiency of $0.068 per SWE-bench percentage point per MTok is supported by the Facts Manifest and the Knowledge Pages, which state that Haiku 4.5 has a cost-efficiency of $0.068 per SWE-bench point per MTok.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 has a cost-efficiency of $0.187 per SWE-bench percentage point per MTok output",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Sonnet 4.6 has a cost-efficiency of $0.187 per SWE-bench percentage point per MTok is supported by the Knowledge Pages, which state that Sonnet 4.6 has a cost-efficiency of $0.187 per SWE-bench point per MTok.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 has a cost-efficiency of $0.301 per SWE-bench percentage point per MTok output",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Opus 4.8 has a cost-efficiency of $0.301 per SWE-bench percentage point per MTok is supported by the Knowledge Pages, which state that Opus 4.8 has a cost-efficiency of $0.301 per SWE-bench point per MTok.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fable 5 has a cost-efficiency of $0.556 per SWE-bench percentage point per MTok output",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim that Fable 5 has a cost-efficiency of $0.556 per SWE-bench percentage point per MTok is supported by the Knowledge Pages, which state that Fable 5 has a cost-efficiency of $0.556 per SWE-bench point per MTok.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fable 5 self-validates, delegates, and sustains days-long sessions",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages both describe Fable 5 as capable of multi-day autonomous work, self-validation, and delegation, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 has a 93.9% SWE-bench score",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest directly states that Mythos 5 has a 93.9% SWE-bench score, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mythos 5 can perform autonomous zero-day discovery",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages describe Mythos 5 as capable of autonomous zero-day discovery, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Opus 4.8 has the best reasoning and adaptive thinking capabilities",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "While Opus 4.8 is described as using adaptive thinking, the claim that it has the best reasoning and adaptive thinking capabilities is not fully supported by the Facts Manifest. Other models, like Sonnet 4.6, also support hybrid reasoning.",
+          "suggested_correction": "Opus 4.8 has strong adaptive thinking capabilities, but the best overall reasoning and adaptive thinking capabilities are not exclusively attributed to Opus 4.8 in the provided references."
+        },
+        {
+          "text": "Opus 4.8 has strong self-correction capabilities",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages describe Opus 4.8 as having strong self-correction capabilities, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 has near-Opus quality at 60% cost",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages describe Sonnet 4.6 as having near-Opus quality at 60% of the cost, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sonnet 4.6 can process 1M context",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest directly states that Sonnet 4.6 has a 1M context window, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Haiku 4.5 is 4-5x faster than other models",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that Haiku 4.5 is 4-5x faster than Sonnet 4.5, but the claim does not specify the comparison model. However, based on the knowledge pages, Haiku 4.5 is indeed faster than other models in the family, particularly in the context of sub-agent orchestration and high-volume tasks.",
+          "suggested_correction": "Haiku 4.5 is 4-5x faster than Sonnet 4.5, and it offers significant speed advantages in specific use cases, such as sub-agent orchestration and high-volume tasks."
+        }
+      ]
+    }
+  ]
+}

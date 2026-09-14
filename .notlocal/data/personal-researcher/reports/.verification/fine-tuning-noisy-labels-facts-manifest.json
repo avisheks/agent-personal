@@ -1,0 +1,3639 @@
+{
+  "topic": "fine-tuning-noisy-labels",
+  "timestamp": "2026-05-20T03:28:28.683308+00:00",
+  "total_facts": 363,
+  "contradictions_found": 0,
+  "contradictions_resolved": 0,
+  "facts": [
+    {
+      "question": "What type of mechanism is Anchor-Guided Refinement?",
+      "answer": "A mechanism used in machine learning to validate and correct noisy labels",
+      "confidence": 0.9,
+      "sources": [
+        "anchor-guided-refinement.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What does Anchor-Guided Refinement use to validate labels?",
+      "answer": "External semantic anchors",
+      "confidence": 0.9,
+      "sources": [
+        "anchor-guided-refinement.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the TANGO framework designed for?",
+      "answer": "Robust fine-tuning of Vision-Language Models under label noise conditions",
+      "confidence": 0.9,
+      "sources": [
+        "anchor-guided-refinement.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What component of the TANGO framework is Anchor-Guided Refinement?",
+      "answer": "A core component",
+      "confidence": 0.9,
+      "sources": [
+        "anchor-guided-refinement.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the Text-Anchored Classifier make predictions in the TANGO framework?",
+      "answer": "Through direct, weighted consensus of clean anchors",
+      "confidence": 0.9,
+      "sources": [
+        "anchor-guided-refinement.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of scenarios is Anchor-Guided Refinement particularly valuable for?",
+      "answer": "Supervised Fine-Tuning (SFT) scenarios",
+      "confidence": 0.9,
+      "sources": [
+        "anchor-guided-refinement.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is Anchor-Guided Refinement used to address in fine-tuning large-scale Vision-Language Models?",
+      "answer": "Challenges undermined by label noise prevalent in real-world datasets",
+      "confidence": 0.9,
+      "sources": [
+        "anchor-guided-refinement.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What has Anchor-Guided Refinement demonstrated in experimental evaluations?",
+      "answer": "Competitive and often state-of-the-art performance",
+      "confidence": 0.9,
+      "sources": [
+        "anchor-guided-refinement.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What broader concepts in machine learning does Anchor-Guided Refinement relate to?",
+      "answer": "Noisy SME Label Supervision, Multi-Annotator Label Aggregation, and LLM-Based Label Correction",
+      "confidence": 0.9,
+      "sources": [
+        "anchor-guided-refinement.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approach does Anchor-Guided Refinement represent an evolution in?",
+      "answer": "Handling label noise by incorporating external validation rather than relying solely on internal model consistency",
+      "confidence": 0.9,
+      "sources": [
+        "anchor-guided-refinement.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of algorithms is Confident Learning?",
+      "answer": "A suite of algorithms",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What does Confident Learning use to estimate mislabeled data?",
+      "answer": "Out-of-sample predicted class probabilities and novel calibration techniques",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the core principle of Confident Learning?",
+      "answer": "Estimating which data points are mislabeled by analyzing the relationship between predicted class probabilities and given labels",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is required for Confident Learning algorithms?",
+      "answer": "Out-of-sample predicted class probabilities for all training examples",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are out-of-sample predicted class probabilities typically obtained?",
+      "answer": "Through cross-validation techniques",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the cleanlab package?",
+      "answer": "To provide an open-source Python implementation of Confident Learning",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of applying Confident Learning to fine-tuning of large language models?",
+      "answer": "Significant improvement in model performance",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What was the error rate reduction when removing potentially mislabeled examples from a training dataset?",
+      "answer": "8% reduction",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What was the error rate reduction when manually correcting identified label issues?",
+      "answer": "37% reduction",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Is the effectiveness of Confident Learning consistent across different model architectures?",
+      "answer": "Yes, it appears to be consistent",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is Confident Learning a key component of?",
+      "answer": "The broader LLM-Based Label Correction and data-centric AI paradigm",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of issues does Confident Learning address?",
+      "answer": "Data quality issues, specifically label noise",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What percentage of annotation errors are found in real-world datasets?",
+      "answer": "Between 7-50% annotation errors",
+      "confidence": 0.9,
+      "sources": [
+        "confident-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of technique is the Context-Enhanced Relabeling Strategy?",
+      "answer": "Denoising technique",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary goal of the Context-Enhanced Relabeling Strategy?",
+      "answer": "Generate reliable annotations for noisy training data",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of information does the Context-Enhanced Relabeling Strategy leverage to correct mislabeled examples?",
+      "answer": "Contextual information",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the name of the framework that the Context-Enhanced Relabeling Strategy operates within?",
+      "answer": "RobustFT framework",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many stages are in the pipeline of the RobustFT framework?",
+      "answer": "Three",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the name of the component that generates corrected labels using contextual information in the RobustFT framework?",
+      "answer": "Context-enhanced relabeling strategy",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of models are used to provide reliable annotation generation in the Context-Enhanced Relabeling Strategy?",
+      "answer": "Inference-enhanced models",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the name of the engine that the Context-Enhanced Relabeling Strategy can be used with for model serving?",
+      "answer": "VLLM Inference Engine",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of fine-tuning does the Context-Enhanced Relabeling Strategy integrate with?",
+      "answer": "Supervised Fine-Tuning (SFT)",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the name of the factory that the Context-Enhanced Relabeling Strategy can be used with for training?",
+      "answer": "Llama-Factory",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What datasets has the Context-Enhanced Relabeling Strategy been tested on?",
+      "answer": "ARC, DROP, FPB, MMLU, and PubMedQA",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary advantage of using the Context-Enhanced Relabeling Strategy?",
+      "answer": "Ability to generate reliable annotations for noisy training data",
+      "confidence": 0.9,
+      "sources": [
+        "context-enhanced-relabeling-strategy.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique does Cross-Validation Probability Estimation use to generate out-of-sample predicted class probabilities?",
+      "answer": "k-fold cross-validation",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-probability-estimation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary application of Cross-Validation Probability Estimation?",
+      "answer": "identifying potentially mislabeled examples in training datasets",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-probability-estimation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What algorithm is used in conjunction with Cross-Validation Probability Estimation for label quality assessment?",
+      "answer": "Confident Learning",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-probability-estimation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many folds are commonly used in the cross-validation setup for Cross-Validation Probability Estimation?",
+      "answer": "10-fold",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-probability-estimation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of model is often used for generating text embeddings in language model applications?",
+      "answer": "pre-trained model like OpenAI's text-similarity engines",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-probability-estimation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using Cross-Validation Probability Estimation in a Noisy SME Label Supervision pipeline?",
+      "answer": "significant improvements in model performance",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-probability-estimation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Does Cross-Validation Probability Estimation require changes to model architecture or hyperparameters?",
+      "answer": "No",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-probability-estimation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of classifier is trained on the embeddings and labels from the remaining folds?",
+      "answer": "logistic regression",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-probability-estimation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of generating embeddings for all training examples?",
+      "answer": "to use as input for the classifier",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-probability-estimation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Is Cross-Validation Probability Estimation compatible with existing Supervised Fine-Tuning workflows?",
+      "answer": "Yes",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-probability-estimation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of information does Cross-Modal Noise Detection leverage?",
+      "answer": "Information from multiple modalities (such as text and vision)",
+      "confidence": 0.9,
+      "sources": [
+        "cross-modal-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the core principle behind Cross-Modal Noise Detection?",
+      "answer": "Different modalities can provide independent sources of validation for label correctness",
+      "confidence": 0.9,
+      "sources": [
+        "cross-modal-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the significance of Cross-Modal Noise Detection in Vision-Language Models?",
+      "answer": "It helps identify and handle noisy or incorrect labels in training datasets",
+      "confidence": 0.9,
+      "sources": [
+        "cross-modal-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approach does Text-Anchored Methods involve?",
+      "answer": "Establishing semantic anchors - pure, immutable reference points generated from diverse text descriptions",
+      "confidence": 0.9,
+      "sources": [
+        "cross-modal-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Cross-Modal Validation?",
+      "answer": "To check each sample's given label against information from alternative modalities",
+      "confidence": 0.9,
+      "sources": [
+        "cross-modal-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is Cross-Modal Noise Detection closely related to?",
+      "answer": "Multi-Annotator Label Aggregation, LLM-Based Label Correction, Noise-Aware Fine-Tuning, and Noisy SME Label Supervision",
+      "confidence": 0.9,
+      "sources": [
+        "cross-modal-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the key advantage of Cross-Modal Noise Detection approaches?",
+      "answer": "The independence of the validation signal from the potentially corrupted training data",
+      "confidence": 0.9,
+      "sources": [
+        "cross-modal-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of methods do traditional approaches to learning with noisy labels typically rely on?",
+      "answer": "A self-referential loop, using a model's own predictions to correct errors",
+      "confidence": 0.9,
+      "sources": [
+        "cross-modal-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the significance of using the text modality in Cross-Modal Noise Detection?",
+      "answer": "It can establish a source of ground truth that is fully independent of the training data's potentially corrupt labels",
+      "confidence": 0.9,
+      "sources": [
+        "cross-modal-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the outcome of extensive experiments on Cross-Modal Noise Detection approaches?",
+      "answer": "They can achieve competitive and often state-of-the-art performance compared to traditional single-modal methods",
+      "confidence": 0.9,
+      "sources": [
+        "cross-modal-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of model is used for cross-validation?",
+      "answer": "Auxiliary vision-language model",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-with-auxiliary-vision-language-models.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the auxiliary model in cross-validation?",
+      "answer": "To validate predictions or label corrections made by the primary model",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-with-auxiliary-vision-language-models.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to generate quality scores for rectified labels?",
+      "answer": "Two-component Gaussian Mixture Model (GMM)",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-with-auxiliary-vision-language-models.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the threshold typically used to separate high-quality and low-quality samples?",
+      "answer": "0.5",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-with-auxiliary-vision-language-models.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary advantage of using an auxiliary vision-language model?",
+      "answer": "Reduction of self-confirmation bias",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-with-auxiliary-vision-language-models.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of model should be used as the auxiliary model?",
+      "answer": "Architecturally different from the primary model",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-with-auxiliary-vision-language-models.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is an example of a vision-language architecture that can be used as an auxiliary model?",
+      "answer": "Vision-language architecture with different design principles",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-with-auxiliary-vision-language-models.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How is the cross-validation step typically integrated into the training pipeline?",
+      "answer": "As a final validation before samples are used for model optimization",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-with-auxiliary-vision-language-models.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between cross-validation with auxiliary vision-language models and label noise filtering?",
+      "answer": "Closely related to other robustness methods in machine learning",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-with-auxiliary-vision-language-models.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of using a separate pre-trained vision-language model for cross-validation?",
+      "answer": "To mitigate self-confirmation bias in noisy label learning",
+      "confidence": 0.9,
+      "sources": [
+        "cross-validation-with-auxiliary-vision-language-models.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of approach does Data-Centric AI for Label Noise use?",
+      "answer": "Data-centric approach",
+      "confidence": 0.9,
+      "sources": [
+        "data-centric-ai-for-label-noise.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary technique used in Data-Centric AI for Label Noise?",
+      "answer": "Confident Learning Algorithm",
+      "confidence": 0.9,
+      "sources": [
+        "data-centric-ai-for-label-noise.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the estimated percentage of annotation errors in real-world datasets?",
+      "answer": "7-50%",
+      "confidence": 0.9,
+      "sources": [
+        "data-centric-ai-for-label-noise.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Confident Learning Algorithm?",
+      "answer": "To estimate which data points are mislabeled in a classification dataset",
+      "confidence": 0.9,
+      "sources": [
+        "data-centric-ai-for-label-noise.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical workflow for implementing Data-Centric AI for Label Noise?",
+      "answer": "Embedding Generation, Cross-Validation, Label Issue Detection, and Dataset Improvement",
+      "confidence": 0.9,
+      "sources": [
+        "data-centric-ai-for-label-noise.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What was the error reduction achieved by filtering out automatically-identified mislabeled examples?",
+      "answer": "8%",
+      "confidence": 0.9,
+      "sources": [
+        "data-centric-ai-for-label-noise.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What was the error reduction achieved by manually correcting the identified label errors?",
+      "answer": "37%",
+      "confidence": 0.9,
+      "sources": [
+        "data-centric-ai-for-label-noise.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the nature of the Data-Centric AI for Label Noise approach?",
+      "answer": "Model-agnostic",
+      "confidence": 0.9,
+      "sources": [
+        "data-centric-ai-for-label-noise.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using Data-Centric AI for Label Noise in enterprise settings?",
+      "answer": "Allows organizations to systematically improve their datasets through automation",
+      "confidence": 0.9,
+      "sources": [
+        "data-centric-ai-for-label-noise.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Data-Centric AI for Label Noise and other machine learning concepts?",
+      "answer": "Connected to concepts such as Label Noise Filtering, LLM-Based Label Correction, and Noise-Aware Fine-Tuning",
+      "confidence": 0.9,
+      "sources": [
+        "data-centric-ai-for-label-noise.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of textual prompts does Dual-Level Semantic Matching use?",
+      "answer": "Macro-level and micro-level textual prompts",
+      "confidence": 0.9,
+      "sources": [
+        "dual-level-semantic-matching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of macro-level textual prompts in Dual-Level Semantic Matching?",
+      "answer": "To ensure inter-class separability",
+      "confidence": 0.9,
+      "sources": [
+        "dual-level-semantic-matching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the limitation of macro-level textual prompts in Dual-Level Semantic Matching?",
+      "answer": "Prone to overfitting noisy samples",
+      "confidence": 0.9,
+      "sources": [
+        "dual-level-semantic-matching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of features do micro-level textual prompts incorporate in Dual-Level Semantic Matching?",
+      "answer": "Detailed class-specific features such as shapes, textures, colors, and other unique attributes",
+      "confidence": 0.9,
+      "sources": [
+        "dual-level-semantic-matching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the consistency constraint in Dual-Level Semantic Matching?",
+      "answer": "To mitigate the impact of noisy labels by promoting agreement between macro-level and micro-level prompts",
+      "confidence": 0.9,
+      "sources": [
+        "dual-level-semantic-matching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the entropy penalty term in Dual-Level Semantic Matching?",
+      "answer": "To encourage more confident predictions by penalizing overly smooth outputs",
+      "confidence": 0.9,
+      "sources": [
+        "dual-level-semantic-matching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Dual-Level Semantic Matching categorize training samples?",
+      "answer": "Into three distinct groups: clean samples, ambiguous samples, and noisy samples",
+      "confidence": 0.9,
+      "sources": [
+        "dual-level-semantic-matching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using Dual-Level Semantic Matching compared to using either macro-level or micro-level prompts alone?",
+      "answer": "Significantly reduces the overlap between clean and noisy samples",
+      "confidence": 0.9,
+      "sources": [
+        "dual-level-semantic-matching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of noise scenarios has Dual-Level Semantic Matching shown superior performance in?",
+      "answer": "Symmetric flip noise and pairwise flip noise scenarios",
+      "confidence": 0.9,
+      "sources": [
+        "dual-level-semantic-matching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Dual-Level Semantic Matching and vision-language models like CLIP?",
+      "answer": "Particularly valuable when fine-tuning pre-trained vision-language models like CLIP",
+      "confidence": 0.9,
+      "sources": [
+        "dual-level-semantic-matching.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture does the Embedding-Based Classification Pipeline use?",
+      "answer": "Embedding-based architecture with a combination of pre-trained language models and traditional classifiers",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary function of the embedding generation stage in the pipeline?",
+      "answer": "To convert text inputs into dense vector representations using pre-trained language models",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of classifier is commonly used in the classification stage of the pipeline?",
+      "answer": "Logistic regression, support vector machines, or neural networks",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using the embedding-based classification pipeline over end-to-end fine-tuning of large language models?",
+      "answer": "Reduced computational requirements, faster training times, and the ability to leverage high-quality embeddings from state-of-the-art models",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique can be employed to generate out-of-sample predictions for all training examples?",
+      "answer": "Cross-validation",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of using Confident Learning in the pipeline?",
+      "answer": "To automatically identify potentially mislabeled examples in the training data",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of filtering out automatically detected label errors on model accuracy?",
+      "answer": "Improved model accuracy from 63% to 66%, representing an 8% reduction in error rate",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of manually correcting label errors on model accuracy?",
+      "answer": "Improved model accuracy to 77%, achieving a 37% reduction in error rate",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What factors influence the quality of the resulting representations and downstream classification performance?",
+      "answer": "The choice of embedding model, embedding dimensionality, and pre-training objectives",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What techniques can be integrated to systematically improve training data quality?",
+      "answer": "Label Noise Filtering and LLM-Based Label Correction",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of language models can be used for embedding generation?",
+      "answer": "Transformer-based architectures, such as OpenAI's text-similarity models",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using the pipeline approach in scenarios with limited computational resources?",
+      "answer": "Reduced computational requirements and faster training times",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of text classification tasks is the pipeline approach suitable for?",
+      "answer": "Intent recognition, sentiment analysis, and content categorization",
+      "confidence": 0.9,
+      "sources": [
+        "embedding-based-classification-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of technique is Label Noise Filtering?",
+      "answer": "A preprocessing technique",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary goal of Label Noise Filtering?",
+      "answer": "To improve model generalization on noisy datasets",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What occurs when training data contains incorrect or inconsistent labels?",
+      "answer": "It significantly reduces generalization in deep models",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are raw human annotations treated in modern Supervised Fine-Tuning pipelines?",
+      "answer": "As noisy supervision rather than ground truth",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of using raw SME labels directly in training?",
+      "answer": "They degrade model performance",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Sample Selection and Reweighting in Label Noise Filtering?",
+      "answer": "To identify and remove or downweight problematic training samples",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do LLM-Based Label Correction methods improve robustness?",
+      "answer": "By using external LLMs to detect and correct noisy labels during training",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using Multi-Annotator Aggregation in Label Noise Filtering?",
+      "answer": "It reduces variance and individual bias through agreement modeling",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Structured Scoring Systems in Label Noise Filtering?",
+      "answer": "To decompose annotations into multiple dimensions and reduce ambiguity",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are SME labels treated in modern LLM training pipelines?",
+      "answer": "As noisy observations of an underlying preference function that require explicit denoising",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Label Noise Filtering and modern training pipelines?",
+      "answer": "It is now standard practice in state-of-the-art LLM training pipelines",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of label noise on deep networks?",
+      "answer": "It systematically hurts generalization",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of fine-tuning methods consistently outperform naive supervised fine-tuning on corrupted datasets?",
+      "answer": "Methods explicitly designed for noisy labels",
+      "confidence": 0.9,
+      "sources": [
+        "label-noise-filtering.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of fine-tuning does Llama-Factory support?",
+      "answer": "Supervised Fine-Tuning (SFT)",
+      "confidence": 0.9,
+      "sources": [
+        "llama-factory-training-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What parameter-efficient method does Llama-Factory support?",
+      "answer": "LoRA (Low-Rank Adaptation)",
+      "confidence": 0.9,
+      "sources": [
+        "llama-factory-training-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Llama-Factory integrate with training workflows?",
+      "answer": "Multi-stage training pipelines",
+      "confidence": 0.9,
+      "sources": [
+        "llama-factory-training-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What file is used to register training datasets in Llama-Factory?",
+      "answer": "dataset_info.json",
+      "confidence": 0.9,
+      "sources": [
+        "llama-factory-training-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are training parameters specified in Llama-Factory?",
+      "answer": "YAML configuration files",
+      "confidence": 0.9,
+      "sources": [
+        "llama-factory-training-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of training does Llama-Factory support through LoRA adapters?",
+      "answer": "Parameter-Efficient Fine-Tuning (PEFT)",
+      "confidence": 0.9,
+      "sources": [
+        "llama-factory-training-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Llama-Factory integrate with inference engines?",
+      "answer": "vLLM Inference Engine",
+      "confidence": 0.9,
+      "sources": [
+        "llama-factory-training-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What tool provides a command-line interface for Llama-Factory?",
+      "answer": "llamafactory-cli",
+      "confidence": 0.9,
+      "sources": [
+        "llama-factory-training-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What environment variables are used to specify GPU in Llama-Factory?",
+      "answer": "Environment variables",
+      "confidence": 0.9,
+      "sources": [
+        "llama-factory-training-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of files are accepted as input parameters by the Llama-Factory CLI?",
+      "answer": "YAML configuration files",
+      "confidence": 0.9,
+      "sources": [
+        "llama-factory-training-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of technique is LLM-Based Label Correction?",
+      "answer": "A machine learning technique used to improve the quality of training data",
+      "confidence": 0.9,
+      "sources": [
+        "llm-based-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used as a critic to evaluate existing labels in LLM-Based Label Correction?",
+      "answer": "A strong language model",
+      "confidence": 0.9,
+      "sources": [
+        "llm-based-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary goal of the comparison and analysis step in LLM-Based Label Correction?",
+      "answer": "To identify inconsistencies between SME-provided labels and the LLM's assessment",
+      "confidence": 0.9,
+      "sources": [
+        "llm-based-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of errors can LLMs identify more effectively than statistical filtering alone?",
+      "answer": "Semantic errors",
+      "confidence": 0.9,
+      "sources": [
+        "llm-based-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using LLM-Based Label Correction in terms of model generalization?",
+      "answer": "Improved generalization stability",
+      "confidence": 0.9,
+      "sources": [
+        "llm-based-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended approach to validating LLM-based corrections?",
+      "answer": "Through sampling and human review or by measuring downstream task performance",
+      "confidence": 0.9,
+      "sources": [
+        "llm-based-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between LLM-Based Label Correction and Weak Supervision?",
+      "answer": "Can be combined with Weak Supervision when multiple SMEs provide conflicting labels",
+      "confidence": 0.9,
+      "sources": [
+        "llm-based-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary consideration for selecting a model for LLM-Based Label Correction?",
+      "answer": "The model should be sufficiently capable and stronger than the model being trained",
+      "confidence": 0.9,
+      "sources": [
+        "llm-based-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using structured rubrics in LLM-Based Label Correction?",
+      "answer": "Reduces ambiguity and provides more nuanced feedback",
+      "confidence": 0.9,
+      "sources": [
+        "llm-based-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended best practice for training models with human feedback?",
+      "answer": "Never train directly on raw SME labels without some form of noise handling",
+      "confidence": 0.9,
+      "sources": [
+        "llm-based-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of prompts does the Macro-Level approach use?",
+      "answer": "Simple class name templates",
+      "confidence": 0.9,
+      "sources": [
+        "macro-level-vs-micro-level-textual-prompts.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Micro-Level Textual Prompts?",
+      "answer": "To enhance alignment between image and text embeddings by incorporating class-specific features",
+      "confidence": 0.9,
+      "sources": [
+        "macro-level-vs-micro-level-textual-prompts.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Macro-Level and Micro-Level Textual Prompts?",
+      "answer": "They are combined in a unified framework to improve label screening",
+      "confidence": 0.9,
+      "sources": [
+        "macro-level-vs-micro-level-textual-prompts.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to impose agreement between predictions from Macro-Level and Micro-Level prompts?",
+      "answer": "Jensen-Shannon divergence",
+      "confidence": 0.9,
+      "sources": [
+        "macro-level-vs-micro-level-textual-prompts.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Entropy Penalty term in the loss function?",
+      "answer": "To encourage confident predictions by penalizing overly smooth outputs",
+      "confidence": 0.9,
+      "sources": [
+        "macro-level-vs-micro-level-textual-prompts.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the Dual-Level approach integrate with existing vision-language architectures?",
+      "answer": "It integrates seamlessly with existing vision-language architectures, particularly CLIP-based models",
+      "confidence": 0.9,
+      "sources": [
+        "macro-level-vs-micro-level-textual-prompts.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the computational overhead of the Dual-Level approach?",
+      "answer": "Minimal additional computational overhead",
+      "confidence": 0.9,
+      "sources": [
+        "macro-level-vs-micro-level-textual-prompts.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the performance benefit of the Dual-Level approach in high-noise scenarios?",
+      "answer": "Improvements ranging from 8-10% compared to baseline approaches",
+      "confidence": 0.9,
+      "sources": [
+        "macro-level-vs-micro-level-textual-prompts.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of noise does the Dual-Level approach show particular strength in handling?",
+      "answer": "Symmetric flip noise and pair flip noise",
+      "confidence": 0.9,
+      "sources": [
+        "macro-level-vs-micro-level-textual-prompts.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Cross-Entropy Loss term in the loss function?",
+      "answer": "To evaluate the discrepancy between predicted class probabilities and the observed label",
+      "confidence": 0.9,
+      "sources": [
+        "macro-level-vs-micro-level-textual-prompts.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approach does Multi-Annotator Label Aggregation use to combine labels from multiple human annotators?",
+      "answer": "It treats individual annotator judgments as noisy observations of an underlying ground truth, requiring sophisticated aggregation methods to produce high-quality training signals.",
+      "confidence": 0.9,
+      "sources": [
+        "multi-annotator-label-aggregation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of using statistical methods in Multi-Annotator Label Aggregation?",
+      "answer": "To infer more reliable consensus labels from multiple independent annotations.",
+      "confidence": 0.9,
+      "sources": [
+        "multi-annotator-label-aggregation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the simplest aggregation approach in Multi-Annotator Label Aggregation?",
+      "answer": "Majority voting across annotators.",
+      "confidence": 0.9,
+      "sources": [
+        "multi-annotator-label-aggregation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What does Disagreement Modeling in Multi-Annotator Label Aggregation help to identify?",
+      "answer": "Cases where consensus is genuinely difficult versus cases where individual annotators made errors.",
+      "confidence": 0.9,
+      "sources": [
+        "multi-annotator-label-aggregation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of LLM in LLM-Assisted Label Correction?",
+      "answer": "To identify and correct inconsistent annotations by comparing human annotations against model reasoning.",
+      "confidence": 0.9,
+      "sources": [
+        "multi-annotator-label-aggregation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to reduce ambiguity in annotation tasks?",
+      "answer": "Decomposing annotation tasks into structured rubric dimensions such as correctness, relevance, and completeness.",
+      "confidence": 0.9,
+      "sources": [
+        "multi-annotator-label-aggregation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of sample filtering and reweighting in Multi-Annotator Label Aggregation?",
+      "answer": "To identify and remove high-loss or inconsistent samples before training and to prevent overfitting to annotation noise.",
+      "confidence": 0.9,
+      "sources": [
+        "multi-annotator-label-aggregation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using Synthetic Augmentation in Multi-Annotator Label Aggregation?",
+      "answer": "To expand training coverage while maintaining quality standards when aggregated labels remain sparse or noisy.",
+      "confidence": 0.9,
+      "sources": [
+        "multi-annotator-label-aggregation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the importance of annotator selection in Multi-Annotator Label Aggregation?",
+      "answer": "Effective aggregation requires careful selection of annotators with relevant domain expertise.",
+      "confidence": 0.9,
+      "sources": [
+        "multi-annotator-label-aggregation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of naive training on raw annotator labels on model performance?",
+      "answer": "It degrades model performance compared to properly aggregated labels.",
+      "confidence": 0.9,
+      "sources": [
+        "multi-annotator-label-aggregation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using Multi-Annotator Label Aggregation in Supervised Fine-Tuning (SFT) pipelines?",
+      "answer": "It shows significant improvements in generalization and robustness across diverse evaluation metrics.",
+      "confidence": 0.9,
+      "sources": [
+        "multi-annotator-label-aggregation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique does Multi-Expert Collaborative Noise Detection use to identify noisy labels?",
+      "answer": "Collaborative framework with inference-enhanced models",
+      "confidence": 0.9,
+      "sources": [
+        "multi-expert-collaborative-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary challenge addressed by Multi-Expert Collaborative Noise Detection in Supervised Fine-Tuning?",
+      "answer": "Noisy training data degrading model performance",
+      "confidence": 0.9,
+      "sources": [
+        "multi-expert-collaborative-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many stages are in the pipeline of Multi-Expert Collaborative Noise Detection?",
+      "answer": "Three",
+      "confidence": 0.9,
+      "sources": [
+        "multi-expert-collaborative-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What datasets has Multi-Expert Collaborative Noise Detection been applied to?",
+      "answer": "ARC, DROP, FPB, MMLU, PubMedQA",
+      "confidence": 0.9,
+      "sources": [
+        "multi-expert-collaborative-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the maximum noise level tested in training data for Multi-Expert Collaborative Noise Detection?",
+      "answer": "30% of the dataset",
+      "confidence": 0.9,
+      "sources": [
+        "multi-expert-collaborative-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What inference framework does Multi-Expert Collaborative Noise Detection integrate with?",
+      "answer": "VLLM Inference Engine",
+      "confidence": 0.9,
+      "sources": [
+        "multi-expert-collaborative-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the collaborative detection results in Multi-Expert Collaborative Noise Detection?",
+      "answer": "To generate denoised datasets for subsequent fine-tuning workflows",
+      "confidence": 0.9,
+      "sources": [
+        "multi-expert-collaborative-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What related concept is Multi-Expert Collaborative Noise Detection an advancement of?",
+      "answer": "Noise-Aware Fine-Tuning methodologies",
+      "confidence": 0.9,
+      "sources": [
+        "multi-expert-collaborative-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of models are used in the collaborative framework of Multi-Expert Collaborative Noise Detection?",
+      "answer": "Multiple expert models",
+      "confidence": 0.9,
+      "sources": [
+        "multi-expert-collaborative-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using multiple expert models in Multi-Expert Collaborative Noise Detection?",
+      "answer": "More reliable identification of data points with incorrect or low-quality responses",
+      "confidence": 0.9,
+      "sources": [
+        "multi-expert-collaborative-noise-detection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary goal of the first stage in multi-stage noise handling?",
+      "answer": "Identifying potentially problematic examples in the dataset",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-noise-handling.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used in the second stage of multi-stage noise handling?",
+      "answer": "Noise classification",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-noise-handling.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of noise classification in multi-stage noise handling?",
+      "answer": "To determine the appropriate treatment strategy for each type of noise",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-noise-handling.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used for mislabeled examples in the final stage of multi-stage noise handling?",
+      "answer": "LLM-Based Label Correction",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-noise-handling.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does multi-stage noise handling integrate with fine-tuning?",
+      "answer": "It is particularly valuable in Supervised Fine-Tuning (SFT) workflows",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-noise-handling.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approach does multi-stage noise handling complement?",
+      "answer": "Label Noise Filtering",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-noise-handling.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is a benefit of using multi-stage noise handling?",
+      "answer": "It allows for more nuanced treatment of different noise types",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-noise-handling.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "In what scenarios is multi-stage noise handling particularly effective?",
+      "answer": "Scenarios involving Rubric-Based Scoring",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-noise-handling.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What techniques can enhance multi-stage noise handling?",
+      "answer": "Model Calibration techniques",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-noise-handling.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between multi-stage noise handling and dataset quality control?",
+      "answer": "It intersects with dataset quality control methodologies",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-noise-handling.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of training methodology is Noise-Aware Fine-Tuning?",
+      "answer": "A training methodology that explicitly handles label noise and annotation inconsistencies",
+      "confidence": 0.9,
+      "sources": [
+        "noise-aware-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the core principle of Noise-Aware Fine-Tuning?",
+      "answer": "SME labels should be treated as noisy observations of an underlying preference function",
+      "confidence": 0.9,
+      "sources": [
+        "noise-aware-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of label noise on deep models?",
+      "answer": "Label noise significantly reduces generalization",
+      "confidence": 0.9,
+      "sources": [
+        "noise-aware-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of filtering and reweighting in Noise-Aware Fine-Tuning?",
+      "answer": "To improve generalization stability by dropping high-loss or inconsistent SME samples and downweighting uncertain labels",
+      "confidence": 0.9,
+      "sources": [
+        "noise-aware-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of LLMs in LLM-Based Label Correction?",
+      "answer": "To compare SME labels against model reasoning and rewrite or correct labels when inconsistencies are detected",
+      "confidence": 0.9,
+      "sources": [
+        "noise-aware-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the goal of weak supervision and aggregation in Noise-Aware Fine-Tuning?",
+      "answer": "To reduce variance and individual bias by aggregating multiple noisy sources",
+      "confidence": 0.9,
+      "sources": [
+        "noise-aware-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of rubric-based scoring in Noise-Aware Fine-Tuning?",
+      "answer": "To reduce ambiguity by converting subjective labels into decomposable signals",
+      "confidence": 0.9,
+      "sources": [
+        "noise-aware-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Noise-Aware Fine-Tuning relate to supervised fine-tuning?",
+      "answer": "It complements supervised fine-tuning by adding robustness mechanisms",
+      "confidence": 0.9,
+      "sources": [
+        "noise-aware-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of noise-robust training on model capabilities?",
+      "answer": "It helps preserve model capabilities across domains",
+      "confidence": 0.9,
+      "sources": [
+        "noise-aware-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the consensus from literature reviews on the importance of noise-aware fine-tuning?",
+      "answer": "It is an essential component of production-grade model development",
+      "confidence": 0.9,
+      "sources": [
+        "noise-aware-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the principle that Noise Detection via Perplexity operates on?",
+      "answer": "The principle that high-quality, coherent responses will have lower perplexity scores when evaluated by a language model, while noisy, incorrect, or poorly formatted responses will exhibit higher perplexity.",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What serves as an effective indicator of response quality in Supervised Fine-Tuning (SFT) datasets?",
+      "answer": "An effective indicator of response quality",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are responses with high perplexity scores treated in the noise detection process?",
+      "answer": "Flagged as potentially noisy examples",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the basis for setting the threshold for flagging potentially noisy examples?",
+      "answer": "Statistical analysis of the perplexity distribution or empirical validation on known clean and noisy subsets",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using perplexity-based noise detection in dataset quality control?",
+      "answer": "Improves the overall quality of fine-tuning datasets and potentially achieves better model performance with fewer training examples",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Can perplexity-based noise detection be combined with other training methods?",
+      "answer": "Yes, it can be combined with Noise-Aware Fine-Tuning approaches",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is a limitation of perplexity-based noise detection?",
+      "answer": "Threshold sensitivity and domain dependence",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between perplexity-based noise detection and other quality control methods?",
+      "answer": "It complements other methods such as LLM-Based Label Correction and Multi-Annotator Label Aggregation",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the computational efficiency of perplexity calculation?",
+      "answer": "Relatively fast compared to more complex quality assessment methods",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Is perplexity-based noise detection model-agnostic?",
+      "answer": "Yes, it can be applied using various pre-trained language models as evaluators",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is a potential issue with perplexity-based noise detection?",
+      "answer": "False positives, where novel or creative responses are incorrectly flagged as noisy",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the suitability of perplexity-based noise detection for large-scale dataset processing?",
+      "answer": "Suitable for large-scale dataset processing and automated quality control pipelines",
+      "confidence": 0.9,
+      "sources": [
+        "noise-detection-via-perplexity.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of models does the OpenAI Fine-Tuning API support?",
+      "answer": "State-of-the-art LLM variants, including Davinci, Ada, and Curie models",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the most capable GPT-3 model offered by OpenAI?",
+      "answer": "OpenAI's most capable GPT-3 model",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the foundation for ChatGPT?",
+      "answer": "Serves as the foundation for ChatGPT",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What data format does the OpenAI Fine-Tuning API require for training data?",
+      "answer": "JSONL (JSON Lines) files",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are fine-tuning jobs initiated in the OpenAI Fine-Tuning API?",
+      "answer": "Through command-line interface calls",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of label noise on fine-tuned model performance?",
+      "answer": "Adversely affected by noisy training data",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the reported range of annotation errors in real-world datasets?",
+      "answer": "Between 7-50% annotation errors",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the reported accuracy gain from using improved datasets for fine-tuning?",
+      "answer": "Up to 37% better test-set performance",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Confident Learning algorithm in the OpenAI Fine-Tuning API?",
+      "answer": "To identify mislabeled examples in training datasets",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the reported error reduction from automated filtering of problematic examples?",
+      "answer": "Approximately 8% error reduction",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the reported accuracy of fine-tuning Davinci models on original datasets with annotation errors?",
+      "answer": "Approximately 63% baseline accuracy",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the reported accuracy gain from systematic data quality improvements?",
+      "answer": "Up to 77% accuracy",
+      "confidence": 0.9,
+      "sources": [
+        "openai-fine-tuning-api.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of supervision signals are SME annotations used as in Noisy SME Label Supervision?",
+      "answer": "Weak supervision signals",
+      "confidence": 0.9,
+      "sources": [
+        "noisy-sme-label-supervision.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of using raw SME labels directly as ground truth in LLM fine-tuning systems?",
+      "answer": "Degraded performance",
+      "confidence": 0.9,
+      "sources": [
+        "noisy-sme-label-supervision.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of filtering and reweighting in Noisy SME Label Supervision?",
+      "answer": "To remove high-loss or inconsistent SME samples and downweight uncertain labels",
+      "confidence": 0.9,
+      "sources": [
+        "noisy-sme-label-supervision.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of noise is SME noise often characterized as?",
+      "answer": "Semantic",
+      "confidence": 0.9,
+      "sources": [
+        "noisy-sme-label-supervision.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do modern state-of-the-art systems use LLMs in label correction?",
+      "answer": "As critics or judges to compare SME labels against model reasoning",
+      "confidence": 0.9,
+      "sources": [
+        "noisy-sme-label-supervision.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using multiple SMEs in Noisy SME Label Supervision?",
+      "answer": "Reduced variance and individual bias through agreement modeling",
+      "confidence": 0.9,
+      "sources": [
+        "noisy-sme-label-supervision.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of rubric-based scoring in Noisy SME Label Supervision?",
+      "answer": "To convert subjective labels into decomposable signals",
+      "confidence": 0.9,
+      "sources": [
+        "noisy-sme-label-supervision.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Noisy SME Label Supervision integrate with fine-tuning approaches?",
+      "answer": "Through various fine-tuning approaches including supervised fine-tuning, direct preference optimization, and constitutional AI",
+      "confidence": 0.9,
+      "sources": [
+        "noisy-sme-label-supervision.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of label noise on generalization in deep networks?",
+      "answer": "Systematic hurt",
+      "confidence": 0.9,
+      "sources": [
+        "noisy-sme-label-supervision.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended approach for handling noisy labels in Noisy SME Label Supervision?",
+      "answer": "Combining multiple denoising strategies such as filtering, reweighting, and LLM-based correction",
+      "confidence": 0.9,
+      "sources": [
+        "noisy-sme-label-supervision.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of models are used for response correction?",
+      "answer": "Large Language Models (LLMs)",
+      "confidence": 0.9,
+      "sources": [
+        "response-correction-with-llms.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary challenge addressed by response correction?",
+      "answer": "LLMs generating plausible-sounding but incorrect responses",
+      "confidence": 0.9,
+      "sources": [
+        "response-correction-with-llms.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What techniques do modern response correction systems employ?",
+      "answer": "Automated error detection, self-correction approaches",
+      "confidence": 0.9,
+      "sources": [
+        "response-correction-with-llms.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of self-correction approaches in response correction?",
+      "answer": "Enable models to review and revise their own outputs",
+      "confidence": 0.9,
+      "sources": [
+        "response-correction-with-llms.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of fine-tuning processes can be made more robust by incorporating correction mechanisms?",
+      "answer": "Processes that help models learn to identify and avoid reproducing errors",
+      "confidence": 0.9,
+      "sources": [
+        "response-correction-with-llms.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of integrating correction mechanisms into the training process?",
+      "answer": "Improves model robustness without requiring perfectly clean training datasets",
+      "confidence": 0.9,
+      "sources": [
+        "response-correction-with-llms.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "In which domains are response correction techniques applied?",
+      "answer": "Factual question answering, mathematical reasoning, code generation",
+      "confidence": 0.9,
+      "sources": [
+        "response-correction-with-llms.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between response correction and other areas of LLM development?",
+      "answer": "Intersects with Constitutional AI for Ads, LLM as Judge Quality Scoring, Factual Grounding Rate measurement",
+      "confidence": 0.9,
+      "sources": [
+        "response-correction-with-llms.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of response correction in LLM development?",
+      "answer": "To improve the quality of model outputs by identifying and fixing errors",
+      "confidence": 0.9,
+      "sources": [
+        "response-correction-with-llms.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of data can response correction handle?",
+      "answer": "Noisy training data",
+      "confidence": 0.9,
+      "sources": [
+        "response-correction-with-llms.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique does Response Entropy-Based Data Selection use to identify high-quality training samples?",
+      "answer": "Measuring the uncertainty or randomness in model responses",
+      "confidence": 0.9,
+      "sources": [
+        "response-entropy-based-data-selection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary goal of Response Entropy-Based Data Selection?",
+      "answer": "To select high-quality training samples by measuring the uncertainty or randomness in model responses",
+      "confidence": 0.9,
+      "sources": [
+        "response-entropy-based-data-selection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "In which framework is Response Entropy-Based Data Selection implemented?",
+      "answer": "RobustFT framework",
+      "confidence": 0.9,
+      "sources": [
+        "response-entropy-based-data-selection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of training data does Response Entropy-Based Data Selection help to remove?",
+      "answer": "Noisy or low-quality examples",
+      "confidence": 0.9,
+      "sources": [
+        "response-entropy-based-data-selection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the final step in the RobustFT framework for ensuring high-quality samples?",
+      "answer": "Response entropy-based data selection",
+      "confidence": 0.9,
+      "sources": [
+        "response-entropy-based-data-selection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What datasets has the RobustFT framework been applied to?",
+      "answer": "ARC, DROP, FPB, MMLU, and PubMedQA",
+      "confidence": 0.9,
+      "sources": [
+        "response-entropy-based-data-selection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of entropy calculation in Response Entropy-Based Data Selection?",
+      "answer": "To compute the entropy of model response distributions for each training example",
+      "confidence": 0.9,
+      "sources": [
+        "response-entropy-based-data-selection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used to identify samples with acceptable uncertainty levels in Response Entropy-Based Data Selection?",
+      "answer": "Entropy thresholds",
+      "confidence": 0.9,
+      "sources": [
+        "response-entropy-based-data-selection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of combining Response Entropy-Based Data Selection with other data quality methods?",
+      "answer": "To create comprehensive data quality frameworks and enhance the effectiveness of other approaches",
+      "confidence": 0.9,
+      "sources": [
+        "response-entropy-based-data-selection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What other techniques can Response Entropy-Based Data Selection be combined with?",
+      "answer": "LLM-Based Label Correction, Multi-Annotator Label Aggregation, and Noise-Aware Fine-Tuning",
+      "confidence": 0.9,
+      "sources": [
+        "response-entropy-based-data-selection.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of noise is present in supervised fine-tuning datasets for large language models?",
+      "answer": "Incorrect, low-quality, or inconsistent responses",
+      "confidence": 0.9,
+      "sources": [
+        "response-noise-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the nature of response noise in SFT datasets?",
+      "answer": "Factual errors, poor structure, inconsistent formatting, and failure to address instructions",
+      "confidence": 0.9,
+      "sources": [
+        "response-noise-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the challenge of response noise in large-scale training scenarios?",
+      "answer": "Manual quality control becomes impractical, creating a trade-off between dataset scale and quality",
+      "confidence": 0.9,
+      "sources": [
+        "response-noise-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does response noise impact model performance?",
+      "answer": "Models may learn to replicate incorrect patterns, leading to degraded performance on downstream tasks",
+      "confidence": 0.9,
+      "sources": [
+        "response-noise-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between response noise and catastrophic forgetting in fine-tuning?",
+      "answer": "Response noise can lead to catastrophic forgetting, where models lose previously acquired capabilities",
+      "confidence": 0.9,
+      "sources": [
+        "response-noise-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What techniques are used to mitigate response noise in SFT datasets?",
+      "answer": "Robust training algorithms, data filtering techniques, ensemble methods, LLM-Based Label Correction, and Multi-Annotator Label Aggregation",
+      "confidence": 0.9,
+      "sources": [
+        "response-noise-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do advanced techniques like LLM-Based Label Correction help with response noise?",
+      "answer": "They leverage large language models to assess response quality and provide corrections or alternative responses",
+      "confidence": 0.9,
+      "sources": [
+        "response-noise-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between response noise and dataset quality control for SFT?",
+      "answer": "Response noise is closely related to dataset quality control, as noisy responses can exacerbate domain transfer issues",
+      "confidence": 0.9,
+      "sources": [
+        "response-noise-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does response noise intersect with human feedback integration in SFT?",
+      "answer": "Human annotators may introduce inconsistencies or errors when providing training responses, making robust methods for handling response noise crucial",
+      "confidence": 0.9,
+      "sources": [
+        "response-noise-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of response noise on the learning process of fine-tuned language models?",
+      "answer": "Inconsistent responses can confuse the learning process, making it difficult for models to converge on optimal behavior patterns",
+      "confidence": 0.9,
+      "sources": [
+        "response-noise-in-sft.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of framework is RobustFT?",
+      "answer": "Noise-robust supervised fine-tuning framework",
+      "confidence": 0.9,
+      "sources": [
+        "robustft-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary goal of RobustFT?",
+      "answer": "To enhance Large Language Model performance in the presence of noisy training data",
+      "confidence": 0.9,
+      "sources": [
+        "robustft-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique does RobustFT use for noise detection?",
+      "answer": "Multi-expert collaborative noise detection",
+      "confidence": 0.9,
+      "sources": [
+        "robustft-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What strategy does RobustFT employ for relabeling?",
+      "answer": "Context-enhanced relabeling strategy",
+      "confidence": 0.9,
+      "sources": [
+        "robustft-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What method does RobustFT use for data selection?",
+      "answer": "Response entropy-based data selection",
+      "confidence": 0.9,
+      "sources": [
+        "robustft-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What datasets does RobustFT support?",
+      "answer": "ARC, DROP, FPB, MMLU, PubMedQA",
+      "confidence": 0.9,
+      "sources": [
+        "robustft-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What engine does RobustFT integrate with for model serving?",
+      "answer": "VLLM Inference Engine",
+      "confidence": 0.9,
+      "sources": [
+        "robustft-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of fine-tuning does RobustFT perform?",
+      "answer": "Supervised Fine-Tuning (SFT)",
+      "confidence": 0.9,
+      "sources": [
+        "robustft-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the denoising approach in RobustFT?",
+      "answer": "To maximize the utility of available training data",
+      "confidence": 0.9,
+      "sources": [
+        "robustft-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What formats can the denoised datasets generated by RobustFT be consumed by?",
+      "answer": "Standard training formats",
+      "confidence": 0.9,
+      "sources": [
+        "robustft-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of evaluation method is Rubric-Based Scoring?",
+      "answer": "A structured evaluation method",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What does Rubric-Based Scoring decompose subjective assessment tasks into?",
+      "answer": "Multiple discrete dimensions",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the dimensions that Rubric-Based Scoring can be based on?",
+      "answer": "Correctness, relevance, and completeness",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Rubric-Based Scoring reduce ambiguity in human annotations?",
+      "answer": "By breaking down complex judgments into specific, measurable criteria",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of signals does Rubric-Based Scoring convert subjective labels into?",
+      "answer": "More structured, decomposable signals",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using Rubric-Based Scoring in LLM training pipelines?",
+      "answer": "Better capture of nuanced aspects of model performance",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the evaluation criteria for Rubric-Based Scoring in content generation?",
+      "answer": "Factual accuracy, coherence, style appropriateness, and safety",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of systems can implement Rubric-Based Scoring?",
+      "answer": "Human subject matter experts (SMEs) or LLM as Judge Quality Scoring systems",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of Rubric-Based Scoring over single-label approaches?",
+      "answer": "Reduces ambiguity and provides richer training signals",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Rubric-Based Scoring support better analysis and debugging of model behavior?",
+      "answer": "By examining performance across individual rubric dimensions",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Rubric-Based Scoring and noise-robust training?",
+      "answer": "It serves as one component of modern noise-aware fine-tuning pipelines",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What techniques can Rubric-Based Scoring be combined with?",
+      "answer": "Supervised Fine-Tuning (SFT), LLM as Judge Quality Scoring, and aggregation methods",
+      "confidence": 0.9,
+      "sources": [
+        "rubric-based-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of bias occurs when models use their own predictions to correct noisy labels?",
+      "answer": "Self-Confirmation Bias",
+      "confidence": 0.9,
+      "sources": [
+        "self-confirmation-bias-in-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary mechanism by which self-confirmation bias operates?",
+      "answer": "A cyclical process where models generate pseudo-labels or confidence scores based on their current predictions",
+      "confidence": 0.9,
+      "sources": [
+        "self-confirmation-bias-in-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of models are particularly susceptible to self-confirmation bias?",
+      "answer": "Vision-Language Models and other deep learning systems",
+      "confidence": 0.9,
+      "sources": [
+        "self-confirmation-bias-in-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between self-confirmation bias and catastrophic forgetting in fine-tuning?",
+      "answer": "Closely related, as both phenomena involve the degradation of model performance through problematic training dynamics",
+      "confidence": 0.9,
+      "sources": [
+        "self-confirmation-bias-in-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is one effective mitigation strategy for self-confirmation bias?",
+      "answer": "Using separate, independently trained models to validate label corrections",
+      "confidence": 0.9,
+      "sources": [
+        "self-confirmation-bias-in-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique can help prevent low-confidence predictions from being used as pseudo-labels?",
+      "answer": "Implementing strict confidence thresholds for label corrections",
+      "confidence": 0.9,
+      "sources": [
+        "self-confirmation-bias-in-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of systems can self-confirmation bias occur in?",
+      "answer": "Language models that use their own outputs to evaluate and modify training labels without external validation",
+      "confidence": 0.9,
+      "sources": [
+        "self-confirmation-bias-in-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of self-confirmation bias on label noise filtering approaches?",
+      "answer": "Significantly undermines the effectiveness of these approaches",
+      "confidence": 0.9,
+      "sources": [
+        "self-confirmation-bias-in-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the result of self-confirmation bias on model performance?",
+      "answer": "Catastrophic degradation of model performance, particularly on clean samples",
+      "confidence": 0.9,
+      "sources": [
+        "self-confirmation-bias-in-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is one approach to mitigate self-confirmation bias in multi-model systems?",
+      "answer": "Employing multiple models with different architectures or training procedures to generate consensus-based label corrections",
+      "confidence": 0.9,
+      "sources": [
+        "self-confirmation-bias-in-label-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the key characteristic of Semantic Anchors in terms of their generation?",
+      "answer": "They are generated from clean text descriptions rather than noisy training labels",
+      "confidence": 0.9,
+      "sources": [
+        "semantic-anchors.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What property do Semantic Anchors possess in terms of their establishment?",
+      "answer": "Immutability",
+      "confidence": 0.9,
+      "sources": [
+        "semantic-anchors.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are Semantic Anchors created to capture different semantic aspects?",
+      "answer": "From varied text descriptions",
+      "confidence": 0.9,
+      "sources": [
+        "semantic-anchors.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Semantic Anchors and potentially corrupted training data?",
+      "answer": "They provide ground truth that is separate from potentially corrupted training data",
+      "confidence": 0.9,
+      "sources": [
+        "semantic-anchors.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approach do Semantic Anchors enable in vision-language models for classification?",
+      "answer": "Text-Anchored Classification",
+      "confidence": 0.9,
+      "sources": [
+        "semantic-anchors.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of Semantic Anchors in label validation and correction?",
+      "answer": "They serve as an external ground truth for validating training samples' given labels",
+      "confidence": 0.9,
+      "sources": [
+        "semantic-anchors.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What framework are Semantic Anchors implemented within?",
+      "answer": "TANGO (Text-Anchored Guided Optimization) framework",
+      "confidence": 0.9,
+      "sources": [
+        "semantic-anchors.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is a key aspect of learning with noisy labels that the TANGO framework reframes?",
+      "answer": "Classification Mechanism and Refinement Process",
+      "confidence": 0.9,
+      "sources": [
+        "semantic-anchors.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What benefit does the semantic anchor approach offer over conventional noise-handling methods?",
+      "answer": "Provides validation independent of potentially corrupted training data",
+      "confidence": 0.9,
+      "sources": [
+        "semantic-anchors.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "In what context are Semantic Anchors particularly relevant?",
+      "answer": "Supervised Fine-Tuning (SFT) of vision-language models",
+      "confidence": 0.9,
+      "sources": [
+        "semantic-anchors.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of framework is TANGO?",
+      "answer": "Text-Anchored Guided Optimization framework",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary purpose of the TANGO framework?",
+      "answer": "Robust fine-tuning of Vision-Language Models under label noise",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What does the TANGO framework use as external ground truth?",
+      "answer": "Semantic anchors generated from diverse text descriptions",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of classifier does the TANGO framework use?",
+      "answer": "Parameter-free Text-Anchored Classifier",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the Text-Anchored Classifier make predictions?",
+      "answer": "Through a direct, weighted consensus of the clean anchors",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What mechanism does the TANGO framework introduce for sample selection and label correction?",
+      "answer": "Anchor-Guided Refinement mechanism",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of models is the TANGO framework specifically designed for fine-tuning?",
+      "answer": "Large-scale Vision-Language Models",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of tasks is the TANGO framework designed for?",
+      "answer": "Specialized tasks where label noise is prevalent in real-world datasets",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the TANGO framework address label noise?",
+      "answer": "By using text-based semantic anchors as external ground truth",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the performance of the TANGO framework in robust fine-tuning scenarios?",
+      "answer": "Competitive and often state-of-the-art",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of the TANGO framework's approach?",
+      "answer": "Provides superior robustness compared to traditional self-referential noise handling methods",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What does the TANGO framework replace in traditional approaches?",
+      "answer": "The conventional linear classifier",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of semantic anchors in the TANGO framework?",
+      "answer": "Serve as clean, external ground truth references",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are semantic anchors generated?",
+      "answer": "From diverse text descriptions",
+      "confidence": 0.9,
+      "sources": [
+        "tango-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of classification mechanism is the Text-Anchored Classifier?",
+      "answer": "Parameter-free classification mechanism",
+      "confidence": 0.9,
+      "sources": [
+        "text-anchored-classifier.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the Text-Anchored Classifier make predictions?",
+      "answer": "Through a direct, weighted consensus of clean semantic anchors",
+      "confidence": 0.9,
+      "sources": [
+        "text-anchored-classifier.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of semantic anchors in the Text-Anchored Classifier?",
+      "answer": "To provide an external ground truth source that remains unaffected by label noise in the training dataset",
+      "confidence": 0.9,
+      "sources": [
+        "text-anchored-classifier.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Does the Text-Anchored Classifier require trainable parameters?",
+      "answer": "No",
+      "confidence": 0.9,
+      "sources": [
+        "text-anchored-classifier.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What framework is the Text-Anchored Classifier a central component of?",
+      "answer": "TANGO (Text-Anchored Guided Optimization) framework",
+      "confidence": 0.9,
+      "sources": [
+        "text-anchored-classifier.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What challenge does the TANGO framework address?",
+      "answer": "Noisy SME Label Supervision challenges in Supervised Fine-Tuning (SFT) of vision-language models",
+      "confidence": 0.9,
+      "sources": [
+        "text-anchored-classifier.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the Text-Anchored Classifier validate sample labels?",
+      "answer": "Through an Anchor-Guided Refinement mechanism that validates sample labels against the external ground truth provided by the semantic anchors",
+      "confidence": 0.9,
+      "sources": [
+        "text-anchored-classifier.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of tasks is the Text-Anchored Classifier particularly valuable for?",
+      "answer": "Specialized tasks requiring fine-tuning of large-scale vision-language models where Label Noise Filtering is critical",
+      "confidence": 0.9,
+      "sources": [
+        "text-anchored-classifier.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approach does the Text-Anchored Classifier represent an alternative to?",
+      "answer": "Traditional LLM-Based Label Correction approaches",
+      "confidence": 0.9,
+      "sources": [
+        "text-anchored-classifier.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What information does the Text-Anchored Classifier leverage to establish an independent source of truth for classification decisions?",
+      "answer": "Cross-modal information from text descriptions",
+      "confidence": 0.9,
+      "sources": [
+        "text-anchored-classifier.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of model is used in Tri-Segment Sample Screening?",
+      "answer": "Gaussian Mixture Model",
+      "confidence": 0.9,
+      "sources": [
+        "tri-segment-sample-screening.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many components does the Gaussian Mixture Model have in Tri-Segment Sample Screening?",
+      "answer": "Two",
+      "confidence": 0.9,
+      "sources": [
+        "tri-segment-sample-screening.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What do the first and second Gaussian components represent in Tri-Segment Sample Screening?",
+      "answer": "Clean and noisy data loss distributions",
+      "confidence": 0.9,
+      "sources": [
+        "tri-segment-sample-screening.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How often is the Gaussian Mixture Model fitted during training in Tri-Segment Sample Screening?",
+      "answer": "Every two epochs",
+      "confidence": 0.9,
+      "sources": [
+        "tri-segment-sample-screening.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the ambiguous region in Tri-Segment Sample Screening?",
+      "answer": "To account for the overlap between clean and noisy data distributions",
+      "confidence": 0.9,
+      "sources": [
+        "tri-segment-sample-screening.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How are the boundaries of the ambiguous region determined in Tri-Segment Sample Screening?",
+      "answer": "By solving for the confidence level \u03b8",
+      "confidence": 0.9,
+      "sources": [
+        "tri-segment-sample-screening.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the classification strategy used in Tri-Segment Sample Screening?",
+      "answer": "Clean, Ambiguous, and Noisy",
+      "confidence": 0.9,
+      "sources": [
+        "tri-segment-sample-screening.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of using Tri-Segment Sample Screening over binary screening methods?",
+      "answer": "Reduced misclassification, improved label rectification, and enhanced robustness",
+      "confidence": 0.9,
+      "sources": [
+        "tri-segment-sample-screening.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What techniques is Tri-Segment Sample Screening often used in conjunction with?",
+      "answer": "Label Noise Filtering, Noisy SME Label Supervision, LLM-Based Label Correction, and Multi-Annotator Label Aggregation",
+      "confidence": 0.9,
+      "sources": [
+        "tri-segment-sample-screening.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of fine-tuning strategies does Tri-Segment Sample Screening represent an advancement in?",
+      "answer": "Noise-Aware Fine-Tuning",
+      "confidence": 0.9,
+      "sources": [
+        "tri-segment-sample-screening.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of challenge does Vision-Language Model Fine-Tuning with Noisy Labels refer to?",
+      "answer": "Adapting pre-trained vision-language models to downstream tasks when training data contains incorrect or mislabeled samples",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning-with-noisy-labels.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the core challenge in Vision-Language Model Fine-Tuning with Noisy Labels?",
+      "answer": "Adapting a pre-trained vision-language model using training data with incorrect or mislabeled samples",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning-with-noisy-labels.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the goal of Vision-Language Model Fine-Tuning with Noisy Labels?",
+      "answer": "To maintain model performance despite the presence of noisy labels",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning-with-noisy-labels.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique does the Screening, Rectifying, and Re-Screening Framework use to differentiate clean samples from noisy ones?",
+      "answer": "Dual-Level Semantic Matching",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning-with-noisy-labels.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the three main steps of the Screening, Rectifying, and Re-Screening Framework?",
+      "answer": "Screening observed labels, rectifying these labels, and re-screening to mitigate self-confirmation bias",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning-with-noisy-labels.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of sample classification does the Tri-Segment Sample Classification approach use?",
+      "answer": "Clean, ambiguous, and noisy classes",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning-with-noisy-labels.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used for cross-validation of rectified labels in the Screening, Rectifying, and Re-Screening Framework?",
+      "answer": "An auxiliary vision-language model such as BLIP",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning-with-noisy-labels.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of loss function does the Screening, Rectifying, and Re-Screening Framework employ?",
+      "answer": "A composite loss function including cross-entropy loss, consistency constraints, and entropy penalty terms",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning-with-noisy-labels.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What datasets has the Screening, Rectifying, and Re-Screening Framework been evaluated on?",
+      "answer": "Flowers102, EuroSAT, StanfordCars, OxfordPets, DTD, Caltech101, UCF101, Food101, ImageNet, and SUN397",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning-with-noisy-labels.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effectiveness of the Screening, Rectifying, and Re-Screening Framework in extreme scenarios?",
+      "answer": "It maintains reasonable performance even in datasets with 100% label noise",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning-with-noisy-labels.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of models does VLLM Inference Server support?",
+      "answer": "Large Language Models",
+      "confidence": 0.9,
+      "sources": [
+        "vllm-inference-server.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of LoRA integration in VLLM Inference Server?",
+      "answer": "To enable efficient deployment of multiple model adaptations without requiring separate server instances for each variant",
+      "confidence": 0.9,
+      "sources": [
+        "vllm-inference-server.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of adaptation modules does VLLM Inference Server support?",
+      "answer": "Low-Rank Adaptation (LoRA) modules",
+      "confidence": 0.9,
+      "sources": [
+        "vllm-inference-server.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between VLLM Inference Server and Supervised Fine-Tuning (SFT) approaches?",
+      "answer": "It can serve models that have been fine-tuned using SFT approaches",
+      "confidence": 0.9,
+      "sources": [
+        "vllm-inference-server.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the architecture of the models served by VLLM Inference Server?",
+      "answer": "Various model architectures, including instruction-tuned models",
+      "confidence": 0.9,
+      "sources": [
+        "vllm-inference-server.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the model size of the Meta-Llama-3.1-8B-Instruct model supported by VLLM Inference Server?",
+      "answer": "8B",
+      "confidence": 0.9,
+      "sources": [
+        "vllm-inference-server.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the capability of VLLM Inference Server in terms of model deployment?",
+      "answer": "Efficient model deployment and inference capabilities",
+      "confidence": 0.9,
+      "sources": [
+        "vllm-inference-server.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique does VLLM Inference Server use for noise-robust training methods?",
+      "answer": "Noise-robust training methods, including those processed through Supervised Fine-Tuning (SFT) approaches",
+      "confidence": 0.9,
+      "sources": [
+        "vllm-inference-server.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between VLLM Inference Server and evaluation pipelines?",
+      "answer": "It works seamlessly with evaluation pipelines and downstream applications",
+      "confidence": 0.9,
+      "sources": [
+        "vllm-inference-server.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the configuration management approach used by VLLM Inference Server?",
+      "answer": "Setting up model definitions with appropriate names, URLs, and serving parameters",
+      "confidence": 0.9,
+      "sources": [
+        "vllm-inference-server.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary challenge in fine-tuning Vision-Language Models?",
+      "answer": "Label noise in real-world datasets",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approach do traditional methods use to learn with noisy labels?",
+      "answer": "A self-referential loop using a model's own predictions to correct errors",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do recent VLM-specific methods aid in noise detection?",
+      "answer": "By leveraging cross-modal information",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used as a source of ground truth in alternative approaches?",
+      "answer": "The text modality, independent of the training data's potentially corrupt labels",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of anchors are used in Text-Anchored Methods?",
+      "answer": "Semantic anchors, which are pure and immutable reference points generated from diverse text descriptions",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do Text-Anchored Methods make predictions?",
+      "answer": "Through direct, weighted consensus of clean anchors",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used for sample selection and label correction in Cross-Modal Validation?",
+      "answer": "External ground truth sources, providing more robust signals",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What areas in machine learning does Vision-Language Model Fine-tuning intersect with?",
+      "answer": "Supervised Fine-Tuning, Parameter-Efficient Fine-Tuning, and Catastrophic Forgetting in Fine-Tuning",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What techniques help maintain model performance despite imperfect training data?",
+      "answer": "Label Noise Filtering techniques",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of data is used to train Vision-Language Models?",
+      "answer": "Multimodal data",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the goal of fine-tuning Vision-Language Models?",
+      "answer": "To adapt their general multimodal understanding to specific domains or applications",
+      "confidence": 0.9,
+      "sources": [
+        "vision-language-model-fine-tuning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique does Weighted Loss Training use to address noisy data?",
+      "answer": "Assigning different importance weights to individual training samples",
+      "confidence": 0.9,
+      "sources": [
+        "weighted-loss-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary goal of Weighted Loss Training in supervised fine-tuning?",
+      "answer": "To reduce the impact of corrupted data",
+      "confidence": 0.9,
+      "sources": [
+        "weighted-loss-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Weighted Loss Training modify the standard supervised fine-tuning approach?",
+      "answer": "By introducing sample-specific weights",
+      "confidence": 0.9,
+      "sources": [
+        "weighted-loss-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used to compute the weight for each training sample in Weighted Loss Training?",
+      "answer": "Quality indicators or confidence scores",
+      "confidence": 0.9,
+      "sources": [
+        "weighted-loss-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do samples with higher weights contribute to the model's parameter updates?",
+      "answer": "More significantly",
+      "confidence": 0.9,
+      "sources": [
+        "weighted-loss-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of datasets can benefit from Weighted Loss Training?",
+      "answer": "Datasets with varying levels of annotation quality",
+      "confidence": 0.9,
+      "sources": [
+        "weighted-loss-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique can be combined with Weighted Loss Training to create more resilient training pipelines?",
+      "answer": "Noise-aware fine-tuning",
+      "confidence": 0.9,
+      "sources": [
+        "weighted-loss-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Does Weighted Loss Training require significant architectural changes to the underlying model?",
+      "answer": "No",
+      "confidence": 0.9,
+      "sources": [
+        "weighted-loss-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "At what level can the weighting mechanism of Weighted Loss Training be implemented?",
+      "answer": "Loss computation level",
+      "confidence": 0.9,
+      "sources": [
+        "weighted-loss-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approaches is Weighted Loss Training compatible with?",
+      "answer": "Various optimization strategies and parameter-efficient fine-tuning approaches",
+      "confidence": 0.9,
+      "sources": [
+        "weighted-loss-training.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

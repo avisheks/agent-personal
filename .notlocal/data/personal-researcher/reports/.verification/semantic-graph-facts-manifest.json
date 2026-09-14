@@ -1,0 +1,149 @@
+{
+  "topic": "semantic-graph",
+  "timestamp": "2026-06-10T18:02:26.873064+00:00",
+  "total_facts": 14,
+  "contradictions_found": 0,
+  "contradictions_resolved": 0,
+  "facts": [
+    {
+      "question": "What type of system is a Knowledge Graph?",
+      "answer": "A system that stores entities, typed relationships, and properties with formal semantics (ontologies).",
+      "confidence": 1.0,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": "[web-confirmed]"
+    },
+    {
+      "question": "What is the primary function of GraphRAG?",
+      "answer": "LLM-built KG + community detection for global corpus sensemaking.",
+      "confidence": 1.0,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": "[web-confirmed]"
+    },
+    {
+      "question": "What is the main limitation of Knowledge Graphs?",
+      "answer": "Construction cost and schema rigidity.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary advantage of Hybrid KG+Vector systems?",
+      "answer": "Combines the benefits of similarity search and structured reasoning.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Zep's Context Graph?",
+      "answer": "Temporal knowledge graph implementation featuring entities with relationships extracted from conversations and facts with temporal validity.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Knowledge Graphs and Vector DBs?",
+      "answer": "They are complementary systems, with Knowledge Graphs providing structured reasoning and Vector DBs providing similarity search capabilities.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary application of HippoRAG?",
+      "answer": "Multi-hop QA, with a reported 20% improvement over the state-of-the-art.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the main difference between LightRAG and GraphRAG?",
+      "answer": "LightRAG is a simpler and faster system, while GraphRAG is more comprehensive for global questions.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of AriGraph?",
+      "answer": "KG as agent world model, which outperforms all memory methods.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the reported accuracy of Zep's Context Graph on the LoCoMo benchmark?",
+      "answer": "94.7% accuracy.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary challenge in constructing Knowledge Graphs?",
+      "answer": "Manual construction is expensive, and LLM extraction is noisy and token-heavy.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Knowledge Graphs and LLMs?",
+      "answer": "Knowledge Graphs can be used to ground LLM reasoning in verified facts and reduce hallucination.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the main advantage of using Knowledge Graphs for entity resolution?",
+      "answer": "They can identify the same entity across different sources.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Hybrid KG+Vector pattern?",
+      "answer": "To combine the benefits of Knowledge Graphs and Vector DBs for semantic search and reasoning.",
+      "confidence": 0.9,
+      "sources": [
+        "knowledge-graphs-semantic-layer.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

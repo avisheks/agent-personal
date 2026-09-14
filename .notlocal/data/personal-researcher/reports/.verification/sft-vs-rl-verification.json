@@ -1,0 +1,1380 @@
+{
+  "topic": "sft-vs-rl",
+  "timestamp": "2026-06-09T12:01:41.123232+00:00",
+  "total_claims": 185,
+  "correct": 84,
+  "incorrect": 14,
+  "unverifiable": 61,
+  "partially_correct": 26,
+  "overall_score": 0.6774193548387096,
+  "summary": "Verified 185 claims: 84 correct, 14 incorrect, 26 partially correct, 61 unverifiable. Score: 68%",
+  "sections": [
+    {
+      "section_name": "Quick Catchup",
+      "score": 0.6666666666666666,
+      "claims": [
+        {
+          "text": "DeepSeek-R1 showed pure RL produces emergent reasoning without SFT.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that DeepSeek-R1 uses pure RL (GRPO) for training and produces emergent reasoning behaviors, including self-reflection, verification, and dynamic strategy adaptation, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepSeek-R1 was published in Nature in 2025.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that DeepSeek-R1 was published in Nature in 2025, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Online/iterative methods are replacing offline DPO.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that online iterative RLHF is required for state-of-the-art quality, but it does not explicitly state that online/iterative methods are replacing offline DPO. However, the Knowledge Pages suggest that online methods are being used in some cases, such as InstructGPT.",
+          "suggested_correction": "Online/iterative methods are being used in some cases, but it is not clear if they are fully replacing offline DPO."
+        },
+        {
+          "text": "Verifiable rewards are replacing learned rewards.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that verifiable rewards enable strong RL signal for math/code reasoning, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Post-training has evolved from 'SFT is sufficient' to 'SFT initializes, RL optimizes' as the industry standard pipeline.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest suggests that SFT and RL are used in various pipelines, but it does not explicitly state that the industry standard pipeline has evolved to 'SFT initializes, RL optimizes'. However, it does imply that RL is used for optimization in some cases.",
+          "suggested_correction": "The industry standard pipeline involves a combination of SFT and RL, with SFT used for initialization and RL used for optimization in certain scenarios."
+        },
+        {
+          "text": "Key methods include DPO, GRPO, PPO, and RFT.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions DPO, GRPO, PPO, and RFT as techniques used in various pipelines.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DPO is an offline and simple method.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that DPO is used for general instruction following, which implies that it is a simple method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GRPO is an online and reasoning-focused method.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that GRPO is used for tasks that require exploration, such as math and code reasoning, which implies that it is a reasoning-focused method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "PPO is a complex but powerful method.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest mentions PPO as a technique used in the InstructGPT pipeline, but it does not explicitly state that it is complex or powerful.",
+          "suggested_correction": "PPO is a technique used in the InstructGPT pipeline, but its complexity and power are not explicitly stated in the Facts Manifest."
+        },
+        {
+          "text": "RFT is a method that uses minimal data.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about RFT using minimal data.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The main open problem is reward hacking.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions reward hacking as a limitation of SFT and RL.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLHF gains are partially driven by length bias, not genuine quality.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that RLHF gains are partially driven by length bias, not genuine quality.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Executive Summary",
+      "score": 0.5555555555555556,
+      "claims": [
+        {
+          "text": "SFT is bounded by demonstration quality but stable",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not directly state that SFT is bounded by demonstration quality but stable. However, it implies that SFT has limitations, such as failing due to distribution mismatch between training errors and model's own errors.",
+          "suggested_correction": "SFT is limited by the quality of demonstrations and may not be stable in certain scenarios."
+        },
+        {
+          "text": "RL can exceed the demonstration quality ceiling but introduces instability, reward hacking, and 2-6x compute cost",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that RL can optimize holistic properties that are easier to evaluate than to demonstrate, and it requires verifiable rewards for strong RL signal. This is consistent with the claim that RL can exceed demonstration quality but introduces instability and other issues.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT teaches format and basic capabilities via imitation",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that SFT is used for format/style adaptation, which implies that it teaches format and basic capabilities via imitation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RL optimizes holistic properties (safety, reasoning quality) that are easier to evaluate than to demonstrate",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that RL optimizes holistic properties that are easier to evaluate than to demonstrate, such as safety and reasoning quality.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT alone enables format transfer, instruction following, and budget-constrained capabilities",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest states that SFT is used for format/style adaptation, and DPO is used for general instruction following. However, it does not explicitly state that SFT alone enables format transfer, instruction following, and budget-constrained capabilities.",
+          "suggested_correction": "SFT enables format transfer, but DPO is required for general instruction following."
+        },
+        {
+          "text": "SFT + DPO enables general alignment and preference optimization at low cost",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest states that DPO is used for general instruction following, but it does not explicitly state that SFT + DPO enables general alignment and preference optimization at low cost.",
+          "suggested_correction": "SFT + DPO enables general instruction following, but the cost and alignment aspects are not explicitly stated."
+        },
+        {
+          "text": "SFT + RL (GRPO/PPO) enables reasoning, safety, and exceeding demonstration quality",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that RL is necessary for safety alignment and optimizing holistic properties, and it can be used with SFT to enable reasoning, safety, and exceeding demonstration quality.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Pure RL (no SFT) is possible but less efficient",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that pure RL (no SFT) is possible, as seen in the example of DeepSeek-R1, which uses pure RL (GRPO) to produce emergent reasoning behaviors.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT initialization helps in pure RL",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not directly state that SFT initialization helps in pure RL. However, it mentions that RL is used for tasks that need exploration and that SFT can be used in conjunction with RL for tasks like math/code reasoning. Additionally, the Knowledge Pages discuss the successes and failures of SFT and RL in various models, including InstructGPT and DeepSeek-R1.",
+          "suggested_correction": "SFT can be used in conjunction with RL to improve performance in certain tasks, but it is not a direct initialization method for pure RL."
+        }
+      ]
+    },
+    {
+      "section_name": "State of the Art",
+      "score": 0.4375,
+      "claims": [
+        {
+          "text": "SFT + DPO achieves 1.5-2x compute.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that SFT + offline DPO achieves the best quality/compute tradeoff for resource-constrained scenarios, but it does not explicitly mention the compute gain. However, it implies that SFT + DPO can be effective for general instruction following.",
+          "suggested_correction": "SFT + DPO achieves effective general instruction following."
+        },
+        {
+          "text": "DeepSeek-R1 achieves SOTA on math/code.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that DeepSeek-R1 achieves emergent reasoning behaviors, including self-reflection, verification, and dynamic strategy adaptation, and the Knowledge Pages mention it achieves SOTA on math, coding competitions, and STEM.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-Rewarding LLMs outperform GPT-4.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Self-Rewarding Language Models improve both instruction-following and reward quality simultaneously and outperform GPT-4.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Constitutional AI (RLAIF) achieves harmlessness without human harm labels.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Constitutional AI (RLAIF) achieves harmlessness without human harm labels.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RFT (Reinforcement Fine-Tuning) uses RL with rubrics instead of demonstrations.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that RFT (Reinforcement Fine-Tuning) uses RL with rubrics instead of demonstrations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepSeek-R1 produces emergent self-reflection, verification, backtracking.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that DeepSeek-R1 produces emergent reasoning behaviors, including self-reflection, verification, and dynamic strategy adaptation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "PRIME achieves 15.1% over SFT with 10% of training data.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that PRIME achieves 15.1% average improvement over SFT on reasoning with 10% of training data.",
+          "suggested_correction": null
+        },
+        {
+          "text": "TTRL achieves 211% improvement on AIME.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not mention TTRL or its performance on AIME.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SimPO outperforms DPO by 6.4 points on AlpacaEval 2.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about SimPO or AlpacaEval 2.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLVR Elicitation Theory provides evidence that RL redistributes, doesn't create, capabilities.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that RL does not generate fundamentally new reasoning abilities beyond what exists in the base model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Improvements are largely driven by increasing response length.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages mention that improvements are largely driven by increasing response length, but this is not a direct match with the Facts Manifest.",
+          "suggested_correction": "Improvements are partially driven by increasing response length, but other factors also contribute."
+        },
+        {
+          "text": "Gold reward follows inverted-U as proxy optimization increases.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about gold reward following an inverted-U curve as proxy optimization increases, but the Knowledge Pages do.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Offline DPO is widely reported significantly inferior to online iterative RLHF.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that SFT + offline DPO is the best quality/compute tradeoff for resource-constrained scenarios, implying that offline DPO is not significantly inferior.",
+          "suggested_correction": "Offline DPO can be a viable option for resource-constrained scenarios."
+        },
+        {
+          "text": "Llama 3.1 pipeline uses SFT + DPO.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that SFT only is used for format/style adaptation, and DPO is used for general instruction following, but it does not mention the Llama 3.1 pipeline.",
+          "suggested_correction": "The Llama 3.1 pipeline is not specified in the Facts Manifest."
+        },
+        {
+          "text": "SFT + GRPO is critic-free online RL.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about SFT + GRPO being critic-free online RL.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + online iterative RLHF is the highest quality but most complex approach.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that online iterative RLHF is required for state-of-the-art quality, but it does not mention SFT + online iterative RLHF being the highest quality approach.",
+          "suggested_correction": "SFT + online iterative RLHF is a high-quality approach, but its complexity and effectiveness depend on the specific use case."
+        }
+      ]
+    },
+    {
+      "section_name": "System Design Walkthrough (Summary)",
+      "score": 0.6923076923076923,
+      "claims": [
+        {
+          "text": "RL improves both simultaneous accuracy and diversity, whereas SFT trades off maj@1 vs pass@96",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim that RL improves both simultaneous accuracy and diversity is supported, but the statement about SFT trading off maj@1 vs pass@96 is not directly addressed in the Facts Manifest.",
+          "suggested_correction": "RL improves both simultaneous accuracy and diversity, whereas the trade-offs of SFT are more nuanced and depend on the specific task and evaluation metrics."
+        },
+        {
+          "text": "SCoRe (RL) improves by 15.6% on MATH where SFT fails",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that SFT fails due to distribution mismatch between training errors and model's own errors, and RL (SCoRe) improves self-correction by 15.6% on MATH.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-reflection and verification appear from pure RL",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that DeepSeek-R1, which uses pure RL (GRPO), produces emergent reasoning behaviors, including self-reflection, verification, and dynamic strategy adaptation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RL discovers solutions not in demonstrations",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest implies that RL can discover solutions not in demonstrations, as it is used for tasks that require exploration, such as math and code reasoning.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RL optimizes safety and helpfulness as unified objectives",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that RL is used for safety alignment and can optimize holistic properties, such as helpfulness and safety.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RL does NOT teach new capabilities, it elicits and amplifies latent ones",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that RL does not generate fundamentally new reasoning abilities beyond what exists in the base model, and instead elicits and amplifies latent ones.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Base models at high pass@k solve everything RL models solve at pass@1",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that base models at high pass@k can solve everything RL models solve at pass@1, implying that RL redistributes probability mass and organizes latent micro-skills into coherent strategies.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RL redistributes probability mass, chains micro-skills, makes rare behaviors reliable",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest implies that RL redistributes probability mass, chains micro-skills, and makes rare behaviors reliable, as it is used for tasks that require exploration and optimization of holistic properties.",
+          "suggested_correction": null
+        },
+        {
+          "text": "If base model cannot solve a problem at all, RL will not help",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that 'RL does not generate fundamentally new reasoning abilities beyond what exists in the base model' and 'If the base model cannot solve a problem at all, RL will not help.'",
+          "suggested_correction": null
+        },
+        {
+          "text": "The post-training pipeline consists of four stages: SFT, Reward Signal, RL Optimization, and Evaluation",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions the pipeline for InstructGPT as 'SFT \u2192 Reward Model \u2192 PPO', which matches the claim. However, it does not explicitly state that this is the general post-training pipeline.",
+          "suggested_correction": "The post-training pipeline for InstructGPT consists of four stages: SFT, Reward Model, PPO, and Evaluation"
+        },
+        {
+          "text": "The RL Optimization stage uses algorithms such as PPO, DPO, GRPO, or RFT",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions PPO and GRPO as techniques used in RL Optimization, but does not explicitly mention DPO or RFT.",
+          "suggested_correction": "The RL Optimization stage uses algorithms such as PPO and GRPO"
+        },
+        {
+          "text": "The Evaluation stage includes held-out evaluation, base capability regression, and safety checks",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide explicit information about the Evaluation stage, but the claim is consistent with general evaluation practices in the field.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The compute required for the RL Optimization stage is 1.5-6x the compute required for the SFT stage",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about the compute required for the RL Optimization stage relative to the SFT stage.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Design Flow Framework",
+      "score": 0.5714285714285714,
+      "claims": [
+        {
+          "text": "Preference pairs can be used with DPO or PPO.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not explicitly contradict the use of preference pairs with DPO or PPO, and the knowledge pages provide examples of successful applications of these techniques.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Constitution can be used with RLAIF.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Claude / Constitutional AI uses RLAIF with a constitution of principles for training.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reward hacking, mode collapse, and forgetting are potential failures in RL.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention reward hacking, mode collapse, and forgetting as potential failures in RL.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Tracking length correlation, base capability regression, and reward vs true quality divergence can help monitor for failure.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages discuss tracking length correlation, base capability regression, and reward vs true quality divergence as ways to monitor for failure in RL.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Online/iterative approaches can compound gains in RL.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that online/iterative approaches can compound gains in RL, as seen in the recommended pipeline for GPT-OSS-120B.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Self-rewarding or iterative DPO can generate better data for the next round.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that self-rewarding or iterative DPO can generate better data for the next round, as seen in the Self-Rewarding Language Models example.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The goal of the design flow framework is to determine whether the objective is demonstrable or evaluable-but-hard-to-demonstrate.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not explicitly mention the goal of the design flow framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "PPO requires 4-6x compute.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the compute requirements of PPO.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DPO requires 1.5-2x compute.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the compute requirements of DPO.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The SFT model is trained and evaluated on held-out domain tasks to measure quality ceiling.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that the SFT model is trained and evaluated on held-out domain tasks to measure quality ceiling, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "If the quality gap between SFT and human-preferred quality is less than 3%, SFT is sufficient.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide a specific threshold for determining when SFT is sufficient based on the quality gap.",
+          "suggested_correction": "The decision to use SFT or other methods depends on various factors, including the task, available data, and desired outcomes, as outlined in the SFT vs RL Decision Framework."
+        },
+        {
+          "text": "If the quality gap between SFT and human-preferred quality is between 3-10%, DPO is added.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide a specific threshold for determining when DPO should be added based on the quality gap.",
+          "suggested_correction": "DPO is used for general instruction following and can be added to SFT for preference alignment, but the decision depends on the specific use case and requirements."
+        },
+        {
+          "text": "If the quality gap between SFT and human-preferred quality is greater than 10% or safety-critical, full RL is used.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions that RL is necessary for safety alignment and tasks that require exploration, but it does not provide a specific threshold for determining when full RL should be used.",
+          "suggested_correction": "The choice between SFT, DPO, and RL depends on the task, safety requirements, and available data, as outlined in the SFT vs RL Decision Framework."
+        },
+        {
+          "text": "Verifiable rewards can be used with GRPO.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that verifiable rewards enable strong RL signal, which is consistent with the claim that verifiable rewards can be used with GRPO.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Interview Q&A Bank",
+      "score": 0.65,
+      "claims": [
+        {
+          "text": "The InstructGPT pipeline consists of SFT, RLHF, and PPO stages",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the InstructGPT pipeline consists of SFT, Reward Model, and PPO stages, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT made GPT-3 follow instructions, while RLHF made it follow them well",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention SFT making GPT-3 follow instructions or RLHF making it follow them well. Instead, it states that DPO is used for general instruction following.",
+          "suggested_correction": "DPO is used for general instruction following, not SFT or RLHF."
+        },
+        {
+          "text": "The 1.3B RLHF model was preferred over the 175B base model",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the 1.3B RLHF model in InstructGPT is preferred over the 175B GPT-3 by human labelers.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepSeek-R1 showed pure RL works without SFT, but is less efficient",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that DeepSeek-R1 uses pure RL (GRPO) and shows emergent reasoning behaviors, but does not explicitly state that it is less efficient than SFT.",
+          "suggested_correction": null
+        },
+        {
+          "text": "R1 (SFT cold start + GRPO) outperforms R1-Zero (pure RL)",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about the performance of R1 (SFT cold start + GRPO) compared to R1-Zero (pure RL).",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT reduces RL compute by 2-5x",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about the reduction of RL compute by SFT.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gao et al. (2022) showed gold reward follows an inverted-U as proxy optimization increases",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Gao et al. (2022) showed that gold reward follows an inverted-U curve as proxy optimization increases.",
+          "suggested_correction": null
+        },
+        {
+          "text": "KL penalty can prevent reward hacking",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that KL penalty can prevent reward hacking.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT trains with cross-entropy loss on expert demonstrations",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not explicitly mention how SFT trains, so this claim cannot be verified against the primary reference.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RL trains with a reward signal that evaluates output quality",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest implies RL involves evaluating output quality, which aligns with the concept of a reward signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Singhal et al. (2023) showed RLHF improvements are largely driven by increasing response length",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages mention Singhal et al. (2023) showing RLHF improvements are largely driven by increasing response length, which supports this claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A purely length-based reward reproduces most gains of RLHF",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages also mention that a purely length-based reward reproduces most gains of RLHF, supporting this claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Real RLHF value appears in safety alignment and reasoning, not general helpfulness",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "While the Facts Manifest suggests RL is necessary for safety alignment, it does not explicitly state that real RLHF value appears only in safety alignment and reasoning, not general helpfulness. Thus, the claim might overstate or mischaracterize the manifest's content.",
+          "suggested_correction": "RL is necessary for safety alignment and can improve reasoning abilities, but its value is not limited to these areas alone."
+        },
+        {
+          "text": "Length-normalize reward scores to prevent length hacking",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "Length-normalizing reward scores is a strategy to prevent length hacking, as mentioned in the context of addressing issues with RLHF.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DPO with length-controlled preference pairs can prevent length hacking",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "Using DPO with length-controlled preference pairs can help prevent length hacking by focusing on the quality of the response rather than its length.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SimPO uses average log probability as the reward signal, which is inherently length-normalized",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The Facts Manifest does not provide information about SimPO or its reward signal, making this claim unverifiable against the primary reference.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Diverse reward signals can prevent reward hacking",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "Diverse reward signals can help prevent reward hacking by making it more difficult for the model to exploit a single reward signal.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Process rewards over outcome rewards can prevent reward hacking",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "Process rewards over outcome rewards can help prevent reward hacking by focusing on the process rather than the outcome.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gao et al. derive scaling laws showing the optimal KL budget depends on reward model quality",
+          "verdict": "partially_correct",
+          "confidence": 0.6,
+          "reasoning": "Gao et al. do discuss the relationship between the KL budget and reward model quality, but the specifics of their findings are not detailed in the provided Facts Manifest.",
+          "suggested_correction": "Gao et al. derive scaling laws that relate the KL budget to the quality of the reward model, but the exact nature of this relationship is not specified in the provided Facts Manifest."
+        },
+        {
+          "text": "With a perfect reward model, infinite optimization is fine, but with any imperfect model, there's an optimal stopping point",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "With a perfect reward model, infinite optimization is fine, but with any imperfect model, there's an optimal stopping point to prevent over-optimization.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Cost Model",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "SFT only method requires 1 model in memory",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the memory requirements of the SFT only method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT only method has a relative compute of 1x",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the relative compute of the SFT only method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT only method takes 4-12 hours of wall clock time with 8xA100",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the wall clock time of the SFT only method with 8xA100.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT only method costs $50-150",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of the SFT only method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + DPO method requires 2 models in memory (policy + ref)",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the memory requirements of the SFT + DPO method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + DPO method has a relative compute of 1.5-2x",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the relative compute of the SFT + DPO method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + DPO method takes 8-20 hours of wall clock time with 8xA100",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the wall clock time of the SFT + DPO method with 8xA100.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + DPO method costs $100-250",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of the SFT + DPO method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT method requires 10K-100K expert demonstrations",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information on the number of expert demonstrations required for the SFT method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT method has an annotation cost of $5-50 per example",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information on the annotation cost of the SFT method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RL adds 1.5-6x compute cost",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information on the compute cost added by RL.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RL is worth the cost when the quality gap between SFT and desired output is > 3% on domain eval",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information on when RL is worth the cost in terms of the quality gap between SFT and desired output.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + GRPO method requires 1 model in memory plus sampling",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the SFT + GRPO method requiring 1 model in memory plus sampling.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + GRPO method has a relative compute of 2-3x",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the relative compute of the SFT + GRPO method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + GRPO method takes 15-30 hours of wall clock time with 8xA100",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the wall clock time of the SFT + GRPO method with 8xA100.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + GRPO method costs $180-400",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of the SFT + GRPO method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + PPO method requires 4 models in memory (policy, ref, RM, value)",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the SFT + PPO method requiring 4 models in memory.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + PPO method has a relative compute of 4-6x",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the relative compute of the SFT + PPO method.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + PPO method takes 30-60 hours of wall clock time with 8xA100",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the wall clock time of the SFT + PPO method with 8xA100.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT + PPO method costs $400-800",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the cost of the SFT + PPO method.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Advanced Patterns Summary",
+      "score": 0.4166666666666667,
+      "claims": [
+        {
+          "text": "Process Reward Models are used for multi-step tasks where the final answer is insufficient signal",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Process Reward Models are indeed used for tasks where the final answer is not a sufficient signal, which aligns with the concept of using PRMs for multi-step tasks or tasks requiring more nuanced feedback than just the final answer.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RFT (rubric-based) is used for low-annotation RL",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "RFT (rubric-based) is used for tasks that require domain expertise, especially when there are verifiable criteria. However, the statement about low-annotation RL is not fully accurate as RFT is more specifically related to domain expertise tasks rather than being broadly applicable to all low-annotation RL scenarios.",
+          "suggested_correction": "RFT is used for domain expertise tasks with verifiable criteria."
+        },
+        {
+          "text": "RFT (rubric-based) is used for domain expertise tasks with verifiable criteria",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "RFT (rubric-based) is indeed used for domain expertise tasks, especially those with verifiable criteria, which matches the information provided in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT \u2192 DPO is the default for most fine-tuning",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "The default pipeline for most fine-tuning tasks is not universally SFT \u2192 DPO. The choice of fine-tuning method depends on the specific task, model, and desired outcomes. For example, InstructGPT uses SFT \u2192 Reward Model \u2192 PPO, and other models might use different pipelines like distillation or pure RL.",
+          "suggested_correction": "The choice of fine-tuning pipeline depends on the task and model specifics, such as SFT \u2192 Reward Model \u2192 PPO for InstructGPT."
+        },
+        {
+          "text": "SFT \u2192 DPO is used for cheap preference alignment",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention SFT \u2192 DPO being used for cheap preference alignment. Instead, it states that DPO is used for general instruction following and that SFT + offline DPO is the best quality/compute tradeoff for resource-constrained scenarios.",
+          "suggested_correction": "SFT + DPO is used for general instruction following"
+        },
+        {
+          "text": "SFT \u2192 GRPO is used for reasoning quality in math, code, or any verifiable domain",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest mentions that verifiable rewards enable strong RL signal for math/code reasoning, but it does not specifically state that SFT \u2192 GRPO is used for this purpose. However, it does mention that DeepSeek-R1 uses pure RL (GRPO) to produce emergent reasoning behaviors.",
+          "suggested_correction": "GRPO is used for reasoning quality in math, code, or any verifiable domain, but the manifest does not specify the use of SFT \u2192 GRPO"
+        },
+        {
+          "text": "SFT \u2192 PPO is used for maximum flexibility in reward for complex multi-objective alignment",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest does not mention SFT \u2192 PPO being used for maximum flexibility in reward for complex multi-objective alignment. Instead, it mentions that InstructGPT uses the pipeline SFT \u2192 Reward Model \u2192 PPO.",
+          "suggested_correction": "InstructGPT uses the pipeline SFT \u2192 Reward Model \u2192 PPO"
+        },
+        {
+          "text": "Constitutional AI is used for safety without harm labels when safety is critical and annotation is expensive",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that Claude / Constitutional AI uses RLAIF with a constitution of principles for training, which is used for safety without harm labels when safety is critical and annotation is expensive.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Iterative self-rewarding is used to address the frozen RM bottleneck",
+          "verdict": "partially_correct",
+          "confidence": 0.6,
+          "reasoning": "The Facts Manifest mentions that Self-Rewarding Language Models improve both instruction-following and reward quality simultaneously, but it does not specifically state that iterative self-rewarding is used to address the frozen RM bottleneck.",
+          "suggested_correction": "Self-Rewarding Language Models improve both instruction-following and reward quality simultaneously"
+        },
+        {
+          "text": "Distillation from RL model is used to transfer RL gains cheaply",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions that distillation is used to transfer RL gains via SFT for small model improvement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Distillation from RL model is used to improve small models from large RL-trained ones",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions that distillation is used to transfer RL gains via SFT for small model improvement, which implies improving small models from large RL-trained ones.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Process Reward Models are used for credit assignment in reasoning",
+          "verdict": "unverifiable",
+          "confidence": 0.4,
+          "reasoning": "The Facts Manifest does not mention Process Reward Models being used for credit assignment in reasoning.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.17647058823529413,
+      "claims": [
+        {
+          "text": "Ouyang et al. published a paper in 2022 on training language models to follow instructions with human feedback.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention Ouyang et al. or their publication.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Rafailov et al. published a paper in 2023 on Direct Preference Optimization.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention Rafailov et al. or their publication.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Bai et al. published a paper in 2022 on Constitutional AI: Harmlessness from AI Feedback.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions Claude / Constitutional AI but does not specify the publication details of Bai et al.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepSeek-AI published a paper in 2025 on DeepSeek-R1: Incentivizing Reasoning via RL.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions DeepSeek-R1 and its training technique as Pure RL (GRPO).",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hu et al. published a paper in 2021 on LoRA: Low-Rank Adaptation.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention Hu et al. or their publication.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Lightman et al. published a paper in 2023 on Let's Verify Step by Step.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention Lightman et al. or their publication.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gao et al. published a paper in 2022 on Scaling Laws for Reward Model Overoptimization.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions Gao et al. in the context of reward overoptimization but does not specify the publication details.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Singh et al. published a paper in 2024 on Beyond Human Data: Scaling Self-Training.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention Singh et al. or their publication.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meng et al. published a paper in 2024 on SimPO: Simple Preference Optimization.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about Meng et al. publishing a paper in 2024 on SimPO: Simple Preference Optimization. The knowledge pages also do not provide relevant information to verify this claim.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Yuan et al. published a paper in 2024 on Self-Rewarding Language Models.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge page 'industry-successes-failures.md', which mentions 'Self-Rewarding Language Models (ICML 2024)'",
+          "suggested_correction": null
+        },
+        {
+          "text": "PRIME published a paper in 2025 on Process Reinforcement through Implicit Rewards.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge page 'industry-successes-failures.md', which mentions 'PRIME (2025)'",
+          "suggested_correction": null
+        },
+        {
+          "text": "Singhal et al. published a paper in 2023 on Length Correlations in RLHF.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The claim is contradicted by the knowledge page 'industry-successes-failures.md', which mentions 'Length Bias Exploitation' by Singhal et al. (2023) but does not state it is about 'Length Correlations in RLHF'",
+          "suggested_correction": "Singhal et al. (2023) published a paper on 'Length Bias Exploitation', which found that RLHF improvements are 'largely driven by increasing response length'"
+        },
+        {
+          "text": "Qu et al. published a paper in 2025 on Demystifying Long Chain-of-Thought Reasoning.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the provided Facts Manifest or knowledge pages about 'Qu et al.' or 'Demystifying Long Chain-of-Thought Reasoning'",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLVR published a paper in 2025 on Does Not Teach New Reasoning.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the provided Facts Manifest or knowledge pages about 'RLVR' or 'Does Not Teach New Reasoning'",
+          "suggested_correction": null
+        },
+        {
+          "text": "TTRL published a paper in 2025 on Test-Time Reinforcement Learning.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the provided Facts Manifest or knowledge pages about 'TTRL' or 'Test-Time Reinforcement Learning'",
+          "suggested_correction": null
+        },
+        {
+          "text": "Kumar et al. published a paper in 2024 on SCoRe: Self-Correction via RL.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the provided Facts Manifest or knowledge pages about 'Kumar et al.' or 'SCoRe: Self-Correction via RL'",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meta published a paper in 2024 on The Llama 3 Herd of Models.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the provided Facts Manifest or knowledge pages about 'Meta' or 'The Llama 3 Herd of Models'",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Seniority Signals Cheat Sheet",
+      "score": 0.38461538461538464,
+      "claims": [
+        {
+          "text": "Pure RL is a research result, not an operational recommendation",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim is about the nature of Pure RL being a research result rather than an operational recommendation, which is not directly addressed in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT-only safety creates over-refusal or under-refusal.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "SFT-only safety can lead to issues, but the specific claim about over-refusal or under-refusal is not directly supported by the Facts Manifest. However, it mentions tension between alignment and capabilities, which could imply such issues.",
+          "suggested_correction": "SFT-only approaches may face challenges in achieving optimal safety alignment, potentially leading to issues like over-refusal or under-refusal, as hinted at by the tension between alignment and capabilities in InstructGPT."
+        },
+        {
+          "text": "RL enables nuanced safety boundaries that generalize to adversarial inputs",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that RL is used for safety alignment across adversarial distributions, implying that RL enables nuanced safety boundaries that generalize to adversarial inputs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "First measure the SFT ceiling.",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The claim about measuring the SFT ceiling is not directly addressed in the Facts Manifest, and its relevance or application is not clear without more context.",
+          "suggested_correction": null
+        },
+        {
+          "text": "If it's within 3% of target, DPO is sufficient at 1/4 the cost of PPO",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide a direct comparison or statement about the cost-effectiveness of DPO versus PPO in the context of being within 3% of a target. The decision framework suggests different approaches based on scenarios but does not specify cost comparisons in such detail.",
+          "suggested_correction": "The choice between DPO and PPO should be based on the specific requirements of the task, such as the need for preference alignment or the availability of verifiable rewards, rather than a general cost-effectiveness claim."
+        },
+        {
+          "text": "DPO is offline \u2014 bounded by collected data quality.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "DPO is indeed bounded by collected data quality, but the claim does not fully capture the nuances of when DPO is effective or limited.",
+          "suggested_correction": "DPO's effectiveness is bounded by the quality and relevance of the collected data, as well as the model's latent capabilities."
+        },
+        {
+          "text": "If we need to exceed that ceiling, online methods are worth the complexity",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim aligns with the idea that online methods, despite their complexity, are worth considering when exceeding the limitations of offline methods is necessary.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Track reward score vs held-out human eval independently.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Tracking reward score versus held-out human evaluation independently is a recognized practice for assessing model performance and alignment.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Divergence signals reward hacking \u2014 check length correlation first",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "Divergence can signal issues like reward hacking, but checking length correlation first might not always be the primary step in diagnosing problems.",
+          "suggested_correction": "Divergence in performance metrics can indicate reward hacking or other issues, and while length correlation is a factor to consider, a comprehensive diagnostic approach is necessary."
+        },
+        {
+          "text": "RL redistributes probability mass onto correct solutions already latent in the base model.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "RL redistributes probability mass onto correct solutions already latent in the base model, which is a principle supported by the elicitation theory.",
+          "suggested_correction": null
+        },
+        {
+          "text": "If pass@1000 can't solve it, RL won't either",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "If a base model cannot solve a problem (as indicated by metrics like pass@1000), it's unlikely that RL will enable it to do so, aligning with the idea that RL does not generate fundamentally new abilities.",
+          "suggested_correction": null
+        },
+        {
+          "text": "R1-Zero works but R1 (SFT cold start + GRPO) is more efficient.",
+          "verdict": "incorrect",
+          "confidence": 0.6,
+          "reasoning": "The claim about R1-Zero and R1 (SFT cold start + GRPO) does not directly align with the provided Facts Manifest, which does not compare these specific configurations.",
+          "suggested_correction": "The effectiveness of different training methods like R1-Zero and R1 (SFT cold start + GRPO) can depend on various factors including the task, model, and dataset, and should be evaluated based on specific outcomes and requirements."
+        },
+        {
+          "text": "SFT reduces RL compute 2-5x.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "SFT can reduce RL compute, but the specific reduction range of 2-5x is not universally applicable and depends on the context.",
+          "suggested_correction": "SFT can potentially reduce the computational requirements for RL by leveraging demonstrations, but the extent of this reduction can vary based on the task, model architecture, and specific implementation details."
+        }
+      ]
+    },
+    {
+      "section_name": "MoE SFT Debugging: When GPT-OSS-120B Doesn't Improve",
+      "score": 0.75,
+      "claims": [
+        {
+          "text": "LoRA targets should not target MLP layers",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that LoRA should target attention layers only in MoE models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Each expert gets ~3% of tokens",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The moe-sft-debugging knowledge page states that each expert gets gradient from ~3% of tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "5K samples are insufficient for 128 experts",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that 5K samples are insufficient for sparse routing in MoE models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MoE needs higher learning rate than dense",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest recommends a learning rate of 2-5e-4 for MoE models, but does not explicitly state that MoE needs a higher learning rate than dense models.",
+          "suggested_correction": "MoE models may benefit from a learning rate of 2-5e-4."
+        },
+        {
+          "text": "SFT can't create what's not latent",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that RL does not generate fundamentally new reasoning abilities beyond what exists in the base model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ESFT expert relevance: only 5-15% of experts matter per task",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no relevant information in the Facts Manifest or knowledge pages to support or refute this claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Active params: 5.1B of 117B (4.4% utilization)",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no relevant information in the Facts Manifest or knowledge pages to support or refute this claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Expert coverage per sample: ~3% (top-4 of 128)",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that top-4 of 128 experts are engaged in MoE routing for a single task.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Distillation from teacher can instill new capability",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that distillation is used to transfer RL gains via SFT for small model improvement, which implies that distillation from a teacher can instill new capabilities.",
+          "suggested_correction": null
+        },
+        {
+          "text": "CoT demos can provide more tokens and more experts get gradient",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The moe-sft-debugging.md knowledge page mentions that CoT generates more tokens, which can lead to more experts getting gradient in MoE models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Together AI supports SFT \u2192 DPO \u2192 deploy pipeline",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The moe-sft-debugging.md knowledge page states that the recommended pipeline for GPT-OSS-120B is Distill from teacher, SFT with LoRA targeting attention layers only, and follow with DPO using preference pairs, which is supported by Together AI.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Learning rate of 2e-4 to 5e-4 can be tried for MoE",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the recommended learning rate for MoE models is 2-5e-4, which includes the range of 2e-4 to 5e-4.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Effective samples per expert at 5K: ~150",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that 5K samples are insufficient for sparse routing in MoE models, and the recommended number of samples for MoE models with task diversity is 50K+ samples. It also mentions that with top-4 of 128 experts, each expert gets gradient from ~3% of tokens, resulting in ~150 effective samples per expert at 5K samples, which is insufficient.",
+          "suggested_correction": "Effective samples per expert should be increased to at least 50K+ samples for sufficient sparse routing in MoE models."
+        },
+        {
+          "text": "Minimum recommended: 50K+ diverse samples",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the recommended number of samples for MoE models with task diversity is 50K+ samples.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Together AI max LoRA rank: 64",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the maximum LoRA rank for Together AI.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GPT-OSS-120B can be improved with distillation from teacher",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the recommended pipeline for GPT-OSS-120B includes distillation from a teacher.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DPO respects existing routing specialization",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that DPO respects existing routing specialization.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RL decision can improve consistency of existing capability",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that RL decision can improve consistency of existing capability.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Pass@100 at T=0.8 on base model can indicate high or low performance",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the pass@k test can determine if the model knows the answer and needs reliability or if the capability doesn't exist, which implies that pass@100 at T=0.8 can indicate high or low performance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Overfitting on 100 examples can indicate architecture/precision problem or data quality/quantity problem",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that overfitting on 100 examples can indicate architecture/precision problem or data quality/quantity problem.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Changelog",
+      "score": 0.3157894736842105,
+      "claims": [
+        {
+          "text": "Elicitation theory was considered in SFT vs RL comparison",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention elicitation theory in the context of SFT vs RL comparison.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A cost model was established for SFT vs RL comparison",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention a cost model for SFT vs RL comparison.",
+          "suggested_correction": null
+        },
+        {
+          "text": "5 Q&As with hard follow-ups were conducted for SFT vs RL comparison",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the number of Q&As with hard follow-ups conducted for SFT vs RL comparison.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A distillation-vs-RL decision query was filed",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention a distillation-vs-RL decision query.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GPT-OSS-120B and Qwen3-32B were compared in the context of distillation-vs-RL decision query",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention the comparison of GPT-OSS-120B and Qwen3-32B in the context of distillation-vs-RL decision query.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A pass@64 diagnostic was conducted for GPT-OSS-120B and Qwen3-32B",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention a pass@64 diagnostic for GPT-OSS-120B and Qwen3-32B.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A 5-question decision framework was established for distillation-vs-RL decision query",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention a 5-question decision framework for distillation-vs-RL decision query.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A knowledge base query was filed for distillation-vs-RL decision query",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention a knowledge base query for distillation-vs-RL decision query.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GPT-OSS-120B was not improving after 5K SFT",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not directly state that GPT-OSS-120B was not improving after 5K SFT, but it does provide information on the limitations of SFT for MoE models, such as insufficient data and incorrect LoRA targeting.",
+          "suggested_correction": "GPT-OSS-120B may not improve with standard SFT due to insufficient data and incorrect LoRA targeting."
+        },
+        {
+          "text": "Root causes of GPT-OSS-120B not improving include LoRA on MLP, gradient dilution, and insufficient data",
+          "verdict": "partially_correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that LoRA targeting MLP layers and insufficient data can be issues for MoE models, but it does not explicitly state that these are the root causes of GPT-OSS-120B not improving.",
+          "suggested_correction": "Root causes of GPT-OSS-120B not improving may include LoRA targeting incorrect layers and insufficient data."
+        },
+        {
+          "text": "A diagnostic protocol was established for GPT-OSS-120B",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest provides a diagnostic protocol for MoE SFT debugging, which includes the pass@k test and overfit test.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Distillation vs RL decision tree was considered for GPT-OSS-120B",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest includes a decision tree for choosing between distillation and RL for MoE models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A recommended pipeline was established for GPT-OSS-120B",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest provides a recommended pipeline for GPT-OSS-120B, which includes distillation, SFT with LoRA targeting attention layers, and DPO.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT vs RL comprehensive comparison was conducted",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide a comprehensive comparison of SFT and RL.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A decision framework was established for SFT vs RL comparison",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest includes a decision framework for choosing between SFT and RL, which considers factors such as latent capability and verifiable rewards.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Industry successes and failures were considered in SFT vs RL comparison",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages include a document on industry successes and failures, which considers the application of SFT and RL in various scenarios.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT dominates for format/schema adherence with 1K-5K examples",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not explicitly state that SFT dominates for format/schema adherence with 1K-5K examples. However, it does mention that SFT is used for format/style adaptation.",
+          "suggested_correction": "SFT is used for format/style adaptation, but the number of examples required is not specified in the Facts Manifest."
+        },
+        {
+          "text": "RL adds value only for multi-step sequencing and error recovery",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest states that RL is necessary for safety alignment, math/code reasoning, and domain expertise, which goes beyond just multi-step sequencing and error recovery.",
+          "suggested_correction": "RL adds value in various areas, including safety alignment, math/code reasoning, and domain expertise, not just multi-step sequencing and error recovery."
+        },
+        {
+          "text": "Challenge breakdown for tool-calling fine-tuning includes schema adherence, argument hallucination, when-to-call, multi-step planning, and error recovery",
+          "verdict": "correct",
+          "confidence": 0.95,
+          "reasoning": "The knowledge pages mention that challenge breakdown for tool-calling fine-tuning includes schema adherence, argument hallucination, when-to-call, multi-step planning, and error recovery, which matches the claim.",
+          "suggested_correction": null
+        }
+      ]
+    }
+  ]
+}

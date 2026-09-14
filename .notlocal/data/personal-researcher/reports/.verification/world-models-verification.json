@@ -1,0 +1,949 @@
+{
+  "topic": "world-models",
+  "timestamp": "2026-06-09T18:45:20.402116+00:00",
+  "total_claims": 126,
+  "correct": 87,
+  "incorrect": 5,
+  "unverifiable": 18,
+  "partially_correct": 16,
+  "overall_score": 0.8055555555555556,
+  "summary": "Verified 126 claims: 87 correct, 5 incorrect, 16 partially correct, 18 unverifiable. Score: 81%",
+  "sections": [
+    {
+      "section_name": "Quick Catchup",
+      "score": 1.0,
+      "claims": [
+        {
+          "text": "Wayve developed GAIA-1.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the GAIA-1 model has 9B+ params and is developed by Wayve.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meta developed V-JEPA.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions V-JEPA and its technique for training efficiency, and the Knowledge Pages state that V-JEPA is from Meta.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Ha 2018 described toy latent dynamics with 867 parameters.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages mention Ha 2018 and its description of toy latent dynamics with 867 parameters.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Long-horizon consistency is limited to ~1 minute.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages list long-horizon consistency as an open problem and state that the best models maintain physics for ~1 minute max.",
+          "suggested_correction": null
+        },
+        {
+          "text": "World models evolved from toy latent dynamics to billion-parameter foundation models.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which describe the evolution of world models from latent dynamics to billion-parameter foundation models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DreamerV3 proved one config works across 150+ domains.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that DreamerV3 achieved 150+ tasks with a single configuration, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DIAMOND proved diffusion is better than discrete tokenization for agent performance.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that DIAMOND proved diffusion is better than discrete tokenization for agent performance, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "V-JEPA proved predicting representations is better than predicting pixels.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that V-JEPA uses the technique of predicting representations, not pixels, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "V-JEPA achieved 1.5-6x efficiency by predicting representations.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that V-JEPA achieved 1.5-6x training efficiency by predicting representations, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenAI developed Sora, a billion-parameter foundation model.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions Sora as a model developed by OpenAI, and the knowledge pages describe it as a billion-parameter foundation model, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepMind developed Genie 2 and MuZero.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that DeepMind developed Genie 2 and MuZero, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "NVIDIA developed Cosmos, a billion-parameter foundation model.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions Cosmos as a model developed by NVIDIA, and the knowledge pages describe it as a billion-parameter foundation model, which matches the claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "What Are World Models",
+      "score": 0.42105263157894735,
+      "claims": [
+        {
+          "text": "Physics engines are interactive and controllable.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the interactivity and controllability of physics engines.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Video generators have limited interactivity and controllability.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the interactivity and controllability of video generators.",
+          "suggested_correction": null
+        },
+        {
+          "text": "World models have a compact latent state.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that world models have a compact latent state, which is a key aspect of their architecture.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Physics engines do not have a compact latent state, but a full state.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the state of physics engines.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Video generators do not have a compact latent state.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the state of video generators.",
+          "suggested_correction": null
+        },
+        {
+          "text": "World models support planning.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that world models enable planning by simulating future states without interacting with the real environment.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Physics engines support planning.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the planning capabilities of physics engines.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Video generators do not support planning.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the planning capabilities of video generators.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A controller trained entirely in an imagined world can transfer to reality.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is supported by the Facts Manifest, which mentions the UniSim model achieving zero-shot sim-to-real from a learned simulator.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SFT teaches format, while world models teach dynamics.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "While SFT and world models are related to format and dynamics, the claim oversimplifies the relationship. World models can teach both format and dynamics, depending on their architecture and application.",
+          "suggested_correction": "SFT and world models can both contribute to learning format and dynamics, but their specific roles depend on the context and architecture."
+        },
+        {
+          "text": "A controller with 867 parameters can be trained entirely in an imagined world and transfer to reality.",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "The claim is contradicted by the Facts Manifest, which states that the model size of RSSM-based world models is ~100M params, and the smallest model mentioned in the knowledge pages has <1M params for latent dynamics, but there is no evidence to support a 867-parameter controller being sufficient for transfer to reality.",
+          "suggested_correction": "A controller with a larger number of parameters, such as those found in RSSM-based world models (~100M params), may be necessary for successful transfer to reality."
+        },
+        {
+          "text": "Internal learned models predict how environments evolve in response to actions.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the definition of world models in the knowledge pages, which states that internal learned models predict how environments evolve in response to actions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "World models enable agents to imagine futures for planning without real-world interaction.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the definition of world models in the knowledge pages, which states that they enable 'imagination' \u2014 agents plan by simulating future states without interacting with the real environment.",
+          "suggested_correction": null
+        },
+        {
+          "text": "World models are learned from data.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Facts Manifest, which mentions various world models learned from data, such as the Dreamer v1/v2/v3 model and the DIAMOND model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Physics engines are not learned from data, but are hand-coded.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The claim is contradicted by the Facts Manifest, which mentions the MuZero model, where a learned world model replaces a hand-coded simulator, implying that physics engines can be learned from data.",
+          "suggested_correction": "Physics engines can be learned from data, as shown by the MuZero model."
+        },
+        {
+          "text": "World models are action-conditioned.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention action-conditioned world models, such as the GAIA-1 model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Physics engines are action-conditioned.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The claim is not supported by the provided references, and the MuZero model implies that learned world models can replace hand-coded simulators, which are typically not action-conditioned in the same way as learned models.",
+          "suggested_correction": "Physics engines are not necessarily action-conditioned in the same way as learned world models."
+        },
+        {
+          "text": "Video generators are usually not action-conditioned.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention that video generators are usually not action-conditioned, but can be used as world simulators, such as in the Sora model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "World models are interactive and controllable.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is partially supported by the knowledge pages, which mention interactive world models, such as the Genie 2 model, but also note that long-horizon consistency and real-time inference remain open problems.",
+          "suggested_correction": "Some world models are interactive and controllable, but long-horizon consistency and real-time inference remain open problems."
+        }
+      ]
+    },
+    {
+      "section_name": "Architecture Evolution",
+      "score": 0.7857142857142857,
+      "claims": [
+        {
+          "text": "In 2018, VAE + RNN was used by Ha & Schmidhuber for CarRacing with 906 score",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention the use of VAE + RNN by Ha & Schmidhuber for CarRacing with a 906 score. However, the knowledge pages mention Ha & Schmidhuber (2018) as founding the field, but the specific details are not provided in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "In 2019, RSSM (Dreamer V1) was used for stochastic and deterministic continuous control",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that the Dreamer v1/v2/v3 model uses RSSM (stochastic+deterministic) architecture, which is consistent with the claim that RSSM (Dreamer V1) was used for stochastic and deterministic continuous control in 2019.",
+          "suggested_correction": null
+        },
+        {
+          "text": "In 2021, Discrete RSSM (DreamerV2) achieved human-level performance in Atari world model",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that Discrete RSSM (DreamerV2) achieved human-level performance in Atari world model in 2021, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "In 2023, Transformer (IRIS) used autoregressive latent tokens and achieved HNS 1.046",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that IRIS (Transformer) achieved HNS 1.046 in 2023, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "In 2023, Universal Sim (UniSim) was used for multi-modal zero-shot sim-to-real",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that UniSim achieved zero-shot sim-to-real from learned simulator, which is consistent with the claim that Universal Sim (UniSim) was used for multi-modal zero-shot sim-to-real in 2023.",
+          "suggested_correction": null
+        },
+        {
+          "text": "In 2024, Diffusion (DIAMOND) achieved full-fidelity visual and HNS 1.46",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that DIAMOND (Diffusion) achieved HNS 1.46 in 2024, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "In 2024, DiT (Sora) used spacetime patches for video as world simulation",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that Sora used DiT video generation as world simulation, which is consistent with the claim that DiT (Sora) used spacetime patches for video as world simulation in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "In 2024, JEPA (V-JEPA) predicted representations not pixels and achieved 1.5-6x efficiency",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions that V-JEPA predicted representations not pixels and achieved 1.5-6x efficiency, which is consistent with the claim that JEPA (V-JEPA) predicted representations not pixels and achieved 1.5-6x efficiency in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "In 2024, Foundation (Genie 2) created interactive 3D worlds from a single image",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the key achievement of the Genie 2 model is 'Interactive 3D worlds from single image; 1 min consistency', which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "In 2025, Platform (Cosmos) was used as an open-weight world foundation model",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the Cosmos model uses a 'Foundation video world model', and the Knowledge Pages mention that Cosmos is an 'open-weight world foundation model for physical AI' in 2025, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DreamerV2 used discrete latent space",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages mention 'Discrete RSSM (DreamerV2 2021)', which implies that DreamerV2 uses discrete latent space, but this information is not present in the Facts Manifest.",
+          "suggested_correction": "DreamerV2 uses discrete latent space, as mentioned in the Knowledge Pages."
+        },
+        {
+          "text": "JEPA generates at the representation level",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the JEPA insight uses 'Predicting in abstract representation space' for generative models, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Diffusion generates at the pixel level",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages mention that Diffusion generates at the pixel level, which matches the claim, but this information is not present in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DIAMOND achieved +40% over tokenized methods",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages mention '+40% agent performance (visual fidelity matters)' for the DIAMOND model, which implies that DIAMOND achieved +40% over tokenized methods, but this information is not present in the Facts Manifest.",
+          "suggested_correction": "DIAMOND achieved +40% agent performance due to visual fidelity, as mentioned in the Knowledge Pages."
+        }
+      ]
+    },
+    {
+      "section_name": "Academic Success Stories",
+      "score": 0.8,
+      "claims": [
+        {
+          "text": "Ha & Schmidhuber introduced a VAE+RNN framework in 2018.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages mention Ha & Schmidhuber introducing a VAE+RNN framework in 2018, but the Facts Manifest does not explicitly confirm this. However, it does mention the introduction of dream training in 2018.",
+          "suggested_correction": "Ha & Schmidhuber introduced dream training and a VAE+RNN framework in 2018."
+        },
+        {
+          "text": "Ha & Schmidhuber introduced dream training in 2018.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge pages and Facts Manifest both confirm that Ha & Schmidhuber introduced dream training in 2018.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Ha & Schmidhuber developed an 867-param controller that transfers to reality in 2018.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge pages mention Ha & Schmidhuber developing an 867-param controller that transfers to reality in 2018.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DreamerV3 proved world models are general-purpose in 2024.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not explicitly state that DreamerV3 proved world models are general-purpose in 2024. However, it does mention the key achievement of DreamerV3, which includes 150+ tasks single config and first Minecraft diamonds without human data.",
+          "suggested_correction": "DreamerV3 achieved 150+ tasks single config and first Minecraft diamonds without human data in 2024, demonstrating the general-purpose nature of world models."
+        },
+        {
+          "text": "DreamerV3 achieved single config, 150+ domains, Minecraft diamonds in 2024.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest confirms that DreamerV3 achieved single config, 150+ domains, and Minecraft diamonds in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MuZero unified planning and model-free RL via learned model in 2020.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest and knowledge pages both confirm that MuZero unified planning and model-free RL via learned model in 2020.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DIAMOND showed visual fidelity directly affects agent performance in 2024.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge pages mention that DIAMOND showed visual fidelity directly affects agent performance in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DIAMOND found diffusion is better than discrete tokenization in 2024.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge pages mention that DIAMOND found diffusion is better than discrete tokenization in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "JEPA theoretically predicts abstractions not pixels.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that JEPA predicts in abstract representation space, which implies it predicts abstractions, not pixels.",
+          "suggested_correction": null
+        },
+        {
+          "text": "JEPA theoretically discards unpredictable information.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that the JEPA insight predicts in abstract representation space, discarding irrelevant variation, which implies it discards unpredictable information.",
+          "suggested_correction": null
+        },
+        {
+          "text": "R2I solves long-term memory in world models using State Space Models.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that R2I solves long-term memory in world models using State Space Models (SSMs).",
+          "suggested_correction": null
+        },
+        {
+          "text": "IRIS is the first Transformer world model competitive on Atari without lookahead.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that IRIS is the first Transformer world model competitive on Atari without lookahead.",
+          "suggested_correction": null
+        },
+        {
+          "text": "IRIS was presented at ICLR 2023 and ranked in the top 5%.",
+          "verdict": "partially_correct",
+          "confidence": 0.5,
+          "reasoning": "The knowledge pages state that IRIS was presented at ICLR 2023, but there is no information about its ranking.",
+          "suggested_correction": "IRIS was presented at ICLR 2023."
+        },
+        {
+          "text": "MuZero was published in Nature in 2020.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that MuZero was published in Nature in 2020.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DreamerV3 was published in Nature in 2024.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that DreamerV3 was published in Nature in 2024, and the knowledge pages also mention this, but for DreamerV3, not DreamerV3's publication year is mentioned as 2024, which implies the same for DreamerV3.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DIAMOND was published in NeurIPS in 2024.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that DIAMOND was published in NeurIPS in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "R2I was published in ICLR in 2024.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md mentions R2I was published in ICLR in 2024 under the SOTA World Models section.",
+          "suggested_correction": null
+        },
+        {
+          "text": "IRIS was published in ICLR in 2023.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md mentions IRIS was published in ICLR in 2023 under the SOTA World Models section.",
+          "suggested_correction": null
+        },
+        {
+          "text": "JEPA was published by LeCun in 2022.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge page world-models-overview.md mentions JEPA (LeCun, 2022) as a position paper, but does not explicitly state it was published by LeCun in 2022 as a full publication.",
+          "suggested_correction": "JEPA was introduced by LeCun in a 2022 position paper."
+        },
+        {
+          "text": "Ha & Schmidhuber was published in 2018.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md mentions Ha & Schmidhuber (2018) as founding the field of world models.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Industry Success Stories",
+      "score": 0.8571428571428571,
+      "claims": [
+        {
+          "text": "OpenAI's Sora system can scale video generation to achieve emergent world understanding",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the Sora model achieves 'DiT video generation as world simulation; emergent 3D + physics', which implies that it can scale video generation to achieve emergent world understanding.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepMind's Genie 2 system can generate interactive 3D worlds from a single image",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the Genie 2 model can generate 'interactive 3D worlds from single image; 1 min consistency'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepMind's MuZero system learned a world model that fully replaces hand-coded game rules",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the MuZero model learned a world model that 'replaces hand-coded simulator' and achieves 'superhuman without game rules'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "NVIDIA's Cosmos system uses world models as an infrastructure layer",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the Cosmos model uses 'Foundation video world model' as its type of world model, which can be considered as an infrastructure layer.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Wayve's GAIA-1 system has 9B+ parameters and was trained from 4,700 hours of London driving",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the GAIA-1 model has '9B+ params'. However, it does not mention the training hours. The Knowledge Pages provide additional information that GAIA-1 was trained from 4,700 hours of London driving, but this is not present in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Wayve's GAIA-1 system scales like large language models (LLMs) with a power-law relationship",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages mention that GAIA-1 confirms 'LLM-like scaling laws for world models', which implies a power-law relationship. However, this information is not directly present in the Facts Manifest.",
+          "suggested_correction": "GAIA-1 confirms LLM-like scaling laws for world models, which may imply a power-law relationship."
+        },
+        {
+          "text": "Meta's V-JEPA system predicts representations instead of pixels, achieving 1.5-6x efficiency",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the V-JEPA model uses 'predicting in abstract representation space' and achieves '1.5-6x training efficiency'.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "SOTA Models (2024-2026)",
+      "score": 0.6666666666666666,
+      "claims": [
+        {
+          "text": "DreamerV3 achieved 150+ tasks with a single configuration and was the first to obtain Minecraft diamonds.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the key achievement of the DreamerV3 model as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DIAMOND achieved a score of 1.46 on the HNS benchmark, the best at the time, and was used to create a neural game engine for CS:GO.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim about DIAMOND achieving a score of 1.46 on the HNS benchmark is supported by the knowledge pages, but there is no information in the Facts Manifest about it being used to create a neural game engine for CS:GO.",
+          "suggested_correction": "DIAMOND achieved a score of 1.46 on the HNS benchmark."
+        },
+        {
+          "text": "TD-MPC2 was able to scale to 317M agents and 80 tasks, and provided scaling laws for model-based reinforcement learning (MBRL).",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about TD-MPC2, and the knowledge pages do not provide enough information to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "R2I achieved superhuman performance on the Memory Maze task and demonstrated long-term credit assignment.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about R2I, and the knowledge pages do not provide enough information to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "IRIS achieved a score of 1.046 on the HNS benchmark from only 2 hours of gameplay.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim about IRIS achieving a score of 1.046 on the HNS benchmark is supported by the knowledge pages, but there is no information in the Facts Manifest about it being achieved from only 2 hours of gameplay.",
+          "suggested_correction": "IRIS achieved a score of 1.046 on the HNS benchmark."
+        },
+        {
+          "text": "MuZero achieved superhuman performance on Go, Chess, Shogi, and Atari without being given the rules of the games.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the key achievement of the MuZero model as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sora generated 60s HD videos and demonstrated emergent 3D and physics capabilities.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the key achievement of the Sora model as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Genie 2 created 3D interactive worlds with 1 minute consistency and action-controllable features.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the key achievement of the Genie 2 model as stated in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Genie had 11B parameters and used unsupervised latent actions.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions that the Genie model has 11B parameters and uses unsupervised latent actions, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "UniSim achieved zero-shot sim-to-real transfer.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the UniSim model achieved zero-shot sim-to-real transfer, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GameGen-X generated 1M+ clips from 150 games and allowed for interactive control.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages mention that GameGen-X generated 1M+ gameplay clips from 150 games, but it does not mention interactive control. However, it does mention a diffusion transformer, which could be related to interactive control.",
+          "suggested_correction": "GameGen-X generated 1M+ gameplay clips from 150 games using a diffusion transformer."
+        },
+        {
+          "text": "Cosmos is an open-weight platform for physical AI and is based on a world foundation model.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the Cosmos model is an open-weight platform for physical AI and is based on a world foundation model, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GAIA-1 confirmed scaling laws for driving world models with 9B+ parameters and 4,700 hours of training.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions that the GAIA-1 model has 9B+ parameters, which matches the claim. However, it does not mention the exact number of hours of training, but it does mention that scaling laws were confirmed.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DriveDreamer was the first real-world driving world model and was trained on the nuScenes dataset.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages mention that DriveDreamer was the first real-world driving world model and was trained on the nuScenes dataset, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ViDAR reduced collision rates by 15% via visual point cloud forecasting.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages mention that ViDAR reduced collision rates by 15% via visual point cloud forecasting, which matches the claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Open Problems",
+      "score": 0.5454545454545454,
+      "claims": [
+        {
+          "text": "Distribution shift occurs between the learned world and physical reality",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not address the concept of distribution shift between the learned world and physical reality. The knowledge pages discuss world models and their applications but do not explicitly mention distribution shift in this context.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Unconditional models (like Sora) have the best fidelity",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The Sora model is mentioned in the Facts Manifest and knowledge pages as achieving DiT video generation as world simulation with emergent 3D and physics. However, it is not explicitly stated that unconditional models like Sora have the best fidelity overall.",
+          "suggested_correction": "Unconditional models like Sora can achieve high fidelity in specific tasks such as video generation, but the best fidelity across all tasks is not solely attributed to unconditional models."
+        },
+        {
+          "text": "Conditioned models lose quality compared to unconditional models",
+          "verdict": "partially_correct",
+          "confidence": 0.6,
+          "reasoning": "The knowledge pages discuss the trade-offs between different model architectures and techniques, including the potential loss of quality when conditioning models. However, the Facts Manifest does not provide direct evidence that conditioned models always lose quality compared to unconditional models.",
+          "suggested_correction": "Conditioned models may lose some quality compared to unconditional models in certain aspects, but they can also offer precise control and better performance in specific tasks, depending on the application and implementation."
+        },
+        {
+          "text": "Max long-horizon consistency is approximately 1 minute (Genie 2)",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the key achievement of the Genie 2 model is 'Interactive 3D worlds from single image; 1 min consistency', which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Current models learn correlations, not causality",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that 'Physical law grounding: Learn correlations, not causality', which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Conservation laws and rigid body constraints are not emergent from video",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the Sora model achieves 'emergent 3D + physics', which contradicts the claim that conservation laws and rigid body constraints are not emergent from video.",
+          "suggested_correction": "Some models, such as Sora, can emerge conservation laws and rigid body constraints from video."
+        },
+        {
+          "text": "Real-time inference requires a distilled version with quality reduction (Genie 2)",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages state that 'Real-time inference: Billion-param models too slow for interactive use', but the claim specifically mentions 'Genie 2' and 'distilled version with quality reduction', which is not explicitly stated in the Facts Manifest or Knowledge Pages.",
+          "suggested_correction": "Billion-parameter models, such as Genie 2, may require distillation or other optimizations for real-time inference, potentially with some quality reduction."
+        },
+        {
+          "text": "Models with billion parameters and autoregressive processing are too slow for interactive use",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that 'Real-time inference: Billion-param models too slow for interactive use', and also mention 'autoregressive processing' as a factor, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Current evaluation metrics include FVD and agent scores, but there is no consensus",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that 'Evaluation metrics: No consensus beyond FVD + agent performance', which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Physics accuracy, causality, and consistency are not standardly measured",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that 'Open Problems' include 'Physical law grounding: Learn correlations, not causality' and 'Long-horizon consistency: Best models maintain physics for ~1 minute max', which implies that physics accuracy, causality, and consistency are not standardly measured.",
+          "suggested_correction": null
+        },
+        {
+          "text": "UniSim achieves zero-shot sim-to-real transfer, but it is fragile",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the key achievement of the UniSim model is 'Zero-shot sim-to-real from learned simulator', and the Knowledge Pages mention that 'Sim-to-real transfer: UniSim showed zero-shot works, but remains fragile', which matches the claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.5333333333333333,
+      "claims": [
+        {
+          "text": "Ha & Schmidhuber published 'World Models' in 2018",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention Ha & Schmidhuber (2018) as founding the field of world models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hafner et al. published 'DreamerV3: Mastering Diverse Domains' in 2023",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention DreamerV3 being published in Nature 2024, implying Hafner et al. published 'DreamerV3: Mastering Diverse Domains' in 2023 or later.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Schrittwieser et al. published 'MuZero' in 2020",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention MuZero (2020) as a key achievement by DeepMind, published in Nature 2020.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Alonso et al. published 'DIAMOND' in 2024",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention DIAMOND being published in NeurIPS 2024, implying Alonso et al. published 'DIAMOND' in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Micheli et al. published 'IRIS' in 2023",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention IRIS being published in ICLR 2023, implying Micheli et al. published 'IRIS' in 2023.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Bruce et al. published 'Genie' in 2024",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention Genie being a model by DeepMind, but the exact publication year is not specified. However, Genie 2 is mentioned as being published in 2024, so it is plausible that Bruce et al. published 'Genie' in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepMind published 'Genie 2' in 2024",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention Genie 2 being published in 2024 by DeepMind.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenAI published 'Sora: Video Generation Models as World Simulators' in 2024",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention Sora being published in 2024 by OpenAI, with the title 'Video Generation Models as World Simulators'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hu et al. published 'GAIA-1' in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not contain information about the publication 'GAIA-1' by Hu et al. in 2023.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meta AI published 'V-JEPA' in 2024",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not contain information about the publication 'V-JEPA' by Meta AI in 2024, but it does mention V-JEPA as a model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "NVIDIA published 'Cosmos World Foundation Model' in 2025",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest mentions the Cosmos model, but it does not specify the publication year or the author.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Yang et al. published 'UniSim' in 2023",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest mentions the UniSim model, but it does not specify the publication year or the author.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hansen et al. published 'TD-MPC2' in 2024",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not contain information about the publication 'TD-MPC2' by Hansen et al. in 2024, but it does mention TD-MPC2 as a model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Samsami et al. published 'R2I: Recall to Imagine' in 2024",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest mentions the R2I model, but it does not specify the publication year or the author.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LeCun published 'A Path Towards Autonomous Machine Intelligence' in 2022",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not contain information about the publication 'A Path Towards Autonomous Machine Intelligence' by LeCun in 2022, but it does mention LeCun's work on JEPA.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Changelog",
+      "score": 0.7692307692307693,
+      "claims": [
+        {
+          "text": "OpenAI is an industry entity involved in world models",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md mentions OpenAI as an industry entity involved in world models, specifically with the Sora model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepMind is an industry entity involved in world models",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md mentions DeepMind as an industry entity involved in world models, specifically with the Genie 2 and MuZero models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "NVIDIA is an industry entity involved in world models",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md mentions NVIDIA as an industry entity involved in world models, specifically with the Cosmos model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Wayve is an industry entity involved in world models",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md mentions Wayve as an industry entity involved in world models, specifically with the GAIA-1 model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Meta is an industry entity involved in world models",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The knowledge page world-models-overview.md does not mention Meta as an industry entity involved in world models, although it mentions the JEPA insight from LeCun/Meta.",
+          "suggested_correction": "Meta is associated with the JEPA insight, but it is not explicitly listed as an industry entity involved in world models in the provided knowledge page."
+        },
+        {
+          "text": "The initial v2 generation occurred on 2026-06-09",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the initial v2 generation date.",
+          "suggested_correction": null
+        },
+        {
+          "text": "World models have a definition",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md defines world models as internal learned models that predict how environments evolve in response to actions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "World models have an architecture evolution from VAE to RSSM to Transformer to Diffusion to DiT to JEPA",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge page world-models-overview.md mentions the architecture evolution from VAE to RSSM to Transformer to Diffusion to DiT, but does not explicitly mention JEPA in this sequence.",
+          "suggested_correction": "The architecture evolution is from VAE to RSSM to Transformer to Diffusion to DiT."
+        },
+        {
+          "text": "DreamerV3 is a state-of-the-art (SOTA) world model",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md lists DreamerV3 as a state-of-the-art world model, with a key achievement of 150+ tasks single config and first Minecraft diamonds without human data.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DIAMOND is a state-of-the-art (SOTA) world model",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md lists DIAMOND as a state-of-the-art world model, with a key achievement of HNS 1.46 on Atari 100k.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Genie 2 is a state-of-the-art (SOTA) world model",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md lists Genie 2 as a state-of-the-art world model, with a key achievement of interactive 3D worlds from single image.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sora is a state-of-the-art (SOTA) world model",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md lists Sora as a state-of-the-art world model, with a key achievement of DiT video generation as world simulation and emergent 3D + physics.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cosmos is a state-of-the-art (SOTA) world model",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page world-models-overview.md lists Cosmos as a state-of-the-art world model, with a key achievement of open-weight world foundation model for physical AI.",
+          "suggested_correction": null
+        }
+      ]
+    }
+  ]
+}

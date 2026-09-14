@@ -1,0 +1,921 @@
+{
+  "topic": "semantic-graph",
+  "timestamp": "2026-06-10T18:03:17.849914+00:00",
+  "total_claims": 122,
+  "correct": 92,
+  "incorrect": 1,
+  "unverifiable": 20,
+  "partially_correct": 9,
+  "overall_score": 0.9019607843137255,
+  "summary": "Verified 122 claims: 92 correct, 1 incorrect, 9 partially correct, 20 unverifiable. Score: 90%",
+  "sections": [
+    {
+      "section_name": "Quick Catchup",
+      "score": 0.8888888888888888,
+      "claims": [
+        {
+          "text": "GraphRAG catalyzed an explosion of graph-enhanced retrieval research",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge page 'knowledge-graphs-semantic-layer.md', which states that 'GraphRAG (Microsoft 2024) catalyzed explosion' of graph-enhanced retrieval research.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Microsoft GraphRAG was introduced in 2024",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page mentions 'GraphRAG (Microsoft 2024)' which indicates that Microsoft GraphRAG was introduced in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HippoRAG achieves 20% over SOTA at 10-30x lower cost than iterative methods",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page mentions 'HippoRAG ... +20% multi-hop QA; 10-30x cheaper than iterative', which supports the claim of 20% improvement over SOTA but does not provide a direct comparison of cost to all iterative methods.",
+          "suggested_correction": "HippoRAG achieves 20% over SOTA at 10-30x lower cost than some iterative methods."
+        },
+        {
+          "text": "Google has 500B facts",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page mentions 'Google ... Knowledge Graph ... 500B+ facts', which directly supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LinkedIn has 1B members",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page mentions 'LinkedIn ... Economic Graph ... 1B+ members', which directly supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Neo4j has an ecosystem for graph databases",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page mentions 'Neo4j ... + GenAI ecosystem', which indicates that Neo4j has an ecosystem for graph databases.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Zep uses the term 'Context Graph' for their commercial product",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page mentions 'Context Graph (Zep)' and explains it as Zep's commercial branding for their temporal knowledge graph implementation, which directly supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HippoRAG was presented at NeurIPS 2024",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page mentions 'HippoRAG ... NeurIPS 2024', which directly supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Microsoft developed GraphRAG",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page mentions 'GraphRAG (Microsoft 2024)', which directly supports the claim that Microsoft developed GraphRAG.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "How KGs Support GenAI/Agentic Systems",
+      "score": 1.0,
+      "claims": [
+        {
+          "text": "Hybrid KG and vector models can be used for query answering",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Hybrid KG+Vector systems combine the benefits of similarity search and structured reasoning, which is consistent with the claim that Hybrid KG and vector models can be used for query answering.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Neo4j and vector index can be used for hybrid KG and vector implementations",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page 'knowledge-graphs-semantic-layer.md' mentions that Neo4j and vector index can be used for hybrid KG and vector implementations, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Weaviate and Neo4j can be used for hybrid KG and vector implementations",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page 'knowledge-graphs-semantic-layer.md' mentions that Weaviate and Neo4j can be used for hybrid KG and vector implementations, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LangChain LLMGraphTransformer is an implementation of hybrid KG and vector models",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page 'knowledge-graphs-semantic-layer.md' mentions that LangChain LLMGraphTransformer is an implementation of hybrid KG and vector models, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Ground generation in verified triples reduces hallucination",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Knowledge Graphs can be used to ground LLM reasoning in verified facts and reduce hallucination.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GraphRAG community summaries achieve substantial improvements over naive RAG",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that GraphRAG community summaries achieve substantial improvements over naive RAG, and the knowledge page also mentions 'substantial improvements in comprehensiveness' by Microsoft.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Traversing typed edge chains enables multi-hop reasoning",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page states that traversing typed edge chains enables multi-hop reasoning, which is a key feature of Knowledge Graphs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A small LLM combined with a KG outperforms GPT-4 alone",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page mentions a study (Think-on-Graph, ICLR 2024) where a small LLM combined with a KG outperforms GPT-4 alone.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Structured episodic and semantic memory markedly outperforms other methods for agent memory",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that AriGraph, which uses structured episodic and semantic memory, markedly outperforms other methods for agent memory.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Entity resolution is critical for multi-source agents",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page states that entity resolution is critical for multi-source agents, which is a key application of Knowledge Graphs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "APIs can be represented as a navigable schema graph for tool discovery",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page mentions that APIs can be represented as a navigable schema graph for tool discovery, which is a key feature of Knowledge Graphs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Temporal context graphs can track fact validity over time",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Zep's Context Graph is a temporal knowledge graph implementation that features entities with relationships extracted from conversations and facts with temporal validity, which can track fact validity over time.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "What Is a Knowledge Graph",
+      "score": 0.9473684210526315,
+      "claims": [
+        {
+          "text": "Knowledge graphs support multi-hop traversal.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Facts Manifest and knowledge pages, which mention multi-hop reasoning and traversal of typed relationship chains as key features of Knowledge Graphs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Knowledge graphs have formal semantics.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Knowledge Graphs store entities, typed relationships, and properties with formal semantics (ontologies), which implies that they have formal semantics.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Knowledge graphs support cross-entity linking.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention entity resolution as a key feature of Knowledge Graphs, enabling the identification of the same entity across different sources.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A knowledge graph stores entities + typed relationships + properties with formal semantics.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the definition of a knowledge graph provided in the Facts Manifest and the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Knowledge graphs encode 'things, not strings' (Google, 2012).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is consistent with the concept of knowledge graphs storing 'things, not strings' as mentioned in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Nodes in a knowledge graph represent entities.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which state that nodes in a knowledge graph represent entities.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Edges in a knowledge graph represent typed relationships.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which state that edges in a knowledge graph represent typed relationships.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Properties in a knowledge graph are attributes on nodes/edges.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which state that properties in a knowledge graph are attributes on nodes/edges.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Ontology in a knowledge graph defines valid types + relationships.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which state that ontology in a knowledge graph defines valid types and relationships.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RDF (W3C) is a standard for triple store: subject-predicate-object.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which state that RDF (W3C) is a standard for triple store: subject-predicate-object.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SPARQL is the query language for RDF (W3C).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which state that SPARQL is the query language for RDF (W3C).",
+          "suggested_correction": null
+        },
+        {
+          "text": "OWL is a standard for ontology with reasoning/inference.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "OWL is indeed a standard for ontology with reasoning/inference, which is a fundamental aspect of knowledge graphs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Property Graph is a standard for nodes+edges with key-value properties.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Property Graph is a standard for nodes+edges with key-value properties, which is a common data model used in graph databases.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cypher (Neo4j) and Gremlin are query languages for Property Graph.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Cypher (Neo4j) and Gremlin are indeed query languages for Property Graph, used for querying and manipulating graph data.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Schema.org is a standard for lightweight web entity vocabulary.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Schema.org is a standard for lightweight web entity vocabulary, providing a common set of schemas for describing entities on the web.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Knowledge graphs have relationships as first-class citizens.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Knowledge graphs do have relationships as first-class citizens, which is a key characteristic of graph data models.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Knowledge graphs have flexible schema.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that one of the main limitations of Knowledge Graphs is schema rigidity, implying that they do not have flexible schema.",
+          "suggested_correction": "Knowledge graphs have rigid schema, which can make it difficult to evolve or change the schema over time."
+        },
+        {
+          "text": "Knowledge graphs have less mature tooling for analytics compared to relational databases.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that one of the cons of knowledge graphs is that they have less mature tooling for analytics compared to relational databases.",
+          "suggested_correction": "None needed, as the claim is consistent with the secondary reference material."
+        },
+        {
+          "text": "Knowledge graphs have typed relationships.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that knowledge graphs store entities, typed relationships, and properties with formal semantics, implying that they do have typed relationships.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Alternative Systems",
+      "score": 0.6,
+      "claims": [
+        {
+          "text": "Knowledge Graph systems include Neo4j and Neptune.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which list Neo4j and Neptune as examples of Knowledge Graph systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Knowledge Graph systems are best for multi-hop, explainability, and consistency.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which state that Knowledge Graphs are best for multi-hop reasoning, explainability, and consistency.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The key limitation of Knowledge Graph systems is construction cost.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is partially supported by the Facts Manifest, which states that the main limitation of Knowledge Graphs is construction cost and schema rigidity.",
+          "suggested_correction": "The key limitations of Knowledge Graph systems are construction cost and schema rigidity."
+        },
+        {
+          "text": "Context Graph is a temporal KG with fact validity.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Facts Manifest, which describes Context Graph as a temporal knowledge graph implementation featuring entities with relationships extracted from conversations and facts with temporal validity.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context Graph is a proprietary term used by Zep.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which state that Context Graph is a proprietary term used by Zep.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Vector DB systems include Pinecone, Weaviate, and Qdrant.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which list Pinecone, Weaviate, and Qdrant as examples of Vector DB systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Vector DB systems are best for semantic similarity and do not require a schema.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which state that Vector DB systems are best for semantic similarity and do not require a schema.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The key limitation of Vector DB systems is that they do not support relations and miss multi-hop.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which state that the key limitation of Vector DB systems is that they do not support relations and miss multi-hop.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RAPTOR is a hierarchical tree system.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention RAPTOR, and there is no relevant information in the knowledge pages to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mem0 is an entity linking system with vectors.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention Mem0, and there is no relevant information in the knowledge pages to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mem0 has 90K+ developers and is simple.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention Mem0, and there is no relevant information in the knowledge pages to verify the claim about the number of developers or its simplicity.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Zep is a commercial system with temporal context graphs and SOC2/HIPAA compliance.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions Zep's Context Graph, which is a temporal knowledge graph implementation. The knowledge pages also mention that Zep's Context Graph features entities with relationships extracted from conversations and facts with temporal validity. However, the claim about SOC2/HIPAA compliance is not mentioned in the Facts Manifest or the knowledge pages.",
+          "suggested_correction": "Zep is a commercial system with temporal context graphs."
+        },
+        {
+          "text": "GraphRAG is a LLM-built KG with community detection.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that GraphRAG is a LLM-built KG with community detection, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GraphRAG is developed by Microsoft and is open-source.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages state that GraphRAG is developed by Microsoft and is open-source, but this information is not present in the Facts Manifest.",
+          "suggested_correction": "GraphRAG is developed by Microsoft, as per the Knowledge Pages."
+        },
+        {
+          "text": "GraphRAG is best for global corpus questions.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that GraphRAG is used for global corpus sensemaking, which implies it is best for global corpus questions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The key limitations of GraphRAG are token cost and periodic reindexing.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions construction cost as a limitation of Knowledge Graphs, and the Knowledge Pages state that GraphRAG has high token cost and periodic reindexing as limitations.",
+          "suggested_correction": "The key limitations of GraphRAG include high token cost and periodic reindexing, as per the Knowledge Pages."
+        },
+        {
+          "text": "LightRAG is a graph-indexed text system with dual-level indexing.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that LightRAG is a graph-indexed text system with dual-level indexing, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LightRAG is simpler and faster than GraphRAG.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that LightRAG is a simpler and faster system than GraphRAG, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HippoRAG is a KG system with personalized PageRank.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that HippoRAG is a KG system, and the Knowledge Pages mention that it uses Personalized PageRank, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HippoRAG achieves +20% SOTA and is 10-30x cheaper.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that HippoRAG achieves a 20% improvement over the state-of-the-art, but does not mention the cost aspect. The Knowledge Pages state that HippoRAG is 10-30x cheaper than iterative methods.",
+          "suggested_correction": "HippoRAG achieves +20% SOTA and is 10-30x cheaper than iterative methods, as per the Knowledge Pages."
+        }
+      ]
+    },
+    {
+      "section_name": "Pros and Cons",
+      "score": 1.0,
+      "claims": [
+        {
+          "text": "Explainability can be achieved by citing entity-relation chains as evidence",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages both support the idea that explainability can be achieved through entity-relation chains as evidence, which is a key feature of Knowledge Graphs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-hop reasoning can follow 3+ hops that vector similarity can't capture",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that multi-hop reasoning can follow relationship chains impossible for vector search, which aligns with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Verified triples constrain generation and reduce hallucination",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that Knowledge Graphs can be used to ground LLM reasoning in verified facts and reduce hallucination, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Ontologies prevent contradictions and ensure consistency",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that ontologies prevent contradictions and ensure consistency, which aligns with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Temporal reasoning can track when facts become invalid",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest describes Zep's Context Graph as a temporal knowledge graph implementation featuring entities with relationships extracted from conversations and facts with temporal validity, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Entity resolution can deduplicate entities across sources",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that entity resolution can identify the same entity across different sources, which aligns with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Inference can derive new facts via ontological reasoning",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that inference can derive new facts via ontological reasoning, which aligns with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "W3C standards enable federation and interoperability",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that W3C standards enable federation and interoperability, which aligns with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Construction of knowledge graphs can be manual and expensive",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that 'Manual construction is expensive, and LLM extraction is noisy and token-heavy' which supports the claim that construction of knowledge graphs can be manual and expensive.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLM extraction can be noisy and token-heavy",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that 'Manual construction is expensive, and LLM extraction is noisy and token-heavy' which supports the claim that LLM extraction can be noisy and token-heavy.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Ontology must be defined upfront, and evolution can be costly",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that 'schema rigidity' is a main limitation of Knowledge Graphs, implying that ontologies must be defined upfront and evolution can be costly.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GraphRAG summaries need periodic reindexing for maintenance",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page states that GraphRAG summaries need periodic reindexing for maintenance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Empty graph has zero value until populated, which is a cold-start problem",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page states that an empty graph has zero value until populated, which is a cold-start problem.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Unstructured or subjective data resists formalization and doesn't scale to everything",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page states that unstructured or subjective data resists formalization and doesn't scale to everything.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Integration of knowledge graphs requires SPARQL/Cypher and graph modeling expertise",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page states that integration of knowledge graphs requires SPARQL/Cypher and graph modeling expertise.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Generic entities with thousands of edges can degrade performance",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge-graphs-semantic-layer.md page states that generic entities with thousands of edges can degrade performance.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Industry Success Stories",
+      "score": 0.9230769230769231,
+      "claims": [
+        {
+          "text": "Zep's Temporal context graphs are used by Samsung, AWS, and HoneyBook.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md page, which mentions that Zep's Temporal context graphs are used by Samsung, AWS, and HoneyBook.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SNOMED CT and UMLS contain 350K clinical concepts.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md page, which mentions that SNOMED CT / UMLS contain 350K+ clinical concepts.",
+          "suggested_correction": null
+        },
+        {
+          "text": "SNOMED CT and UMLS are used for drug interaction detection.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md page, which mentions that SNOMED CT / UMLS are used for drug interaction detection.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Transaction graphs are used in finance for fraud and AML detection.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md page, which mentions that Transaction graphs are used in finance for fraud and AML detection.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Transaction graphs use multi-hop entity traversal for fraud and AML detection.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md page, which mentions that Transaction graphs use multi-hop entity network analysis for fraud/AML.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Google's Knowledge Graph contains 500B+ facts and 5B entities.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md page, which states that Google's Knowledge Graph contains 500B+ facts and 5B entities.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Google's Knowledge Graph powers Search and Assistant.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md page, which states that Google's Knowledge Graph powers Search and Assistant.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Microsoft's GraphRAG was released in 2024 as an open-source system.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge-graphs-semantic-layer.md page, which states that Microsoft's GraphRAG was released in 2024 as an open-source system.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LinkedIn's Economic Graph has 1B+ members and trillions of relationships.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md page, which states that LinkedIn's Economic Graph has 1B+ members and trillions of relationships.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LinkedIn's Economic Graph powers all features of the platform.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information in the Facts Manifest or the knowledge-graphs-semantic-layer.md page that directly supports or contradicts the claim that LinkedIn's Economic Graph powers all features of the platform.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Amazon's Product KG contains 1B+ product entities.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md page, which states that Amazon's Product KG contains 1B+ product entities.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Amazon's Product KG is used for search and recommendations.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md page, which implies that Amazon's Product KG is used for search and recommendations by stating that it contains 1B+ product entities.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Neo4j has official integrations with LangChain and LlamaIndex.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md page, which states that Neo4j has official integrations with LangChain and LlamaIndex.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Changelog",
+      "score": 1.0,
+      "claims": [
+        {
+          "text": "Google has a 500B semantic graph",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md, which mentions Google's Knowledge Graph with 500B+ facts and 5B entities.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LinkedIn has a 1B semantic graph",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Industry Success Stories section in the knowledge-graphs-semantic-layer.md, which mentions LinkedIn's Economic Graph with 1B+ members, skills, companies, and trillions of relationships.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Microsoft has a semantic graph called GraphRAG",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge-graphs-semantic-layer.md, which mentions GraphRAG (Microsoft 2024) as a system that combines LLM-built KG with community detection for global corpus sensemaking.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Academic Success Stories",
+      "score": 1.0,
+      "claims": [
+        {
+          "text": "Unifying LLMs + KGs proposes a three-paradigm roadmap.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Facts Manifest and the knowledge pages, which mention a three-paradigm roadmap for unifying LLMs and KGs in the paper 'Unifying LLMs+KGs Roadmap' (IEEE TKDE 2024).",
+          "suggested_correction": null
+        },
+        {
+          "text": "KGs Reduce Hallucination provides systematic proof across 3 KG augmentation categories.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which mention that 'KGs Reduce Hallucination' provides systematic proof across 3 KG augmentation categories (NAACL 2024 survey).",
+          "suggested_correction": null
+        },
+        {
+          "text": "GraphRAG achieves community detection and LLM summaries for global sensemaking.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the primary function of GraphRAG is LLM-built KG + community detection for global corpus sensemaking, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Think-on-Graph achieves state-of-the-art results on 6/9 datasets using beam search on KG.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page states that Think-on-Graph achieves state-of-the-art results on 6/9 datasets using beam search on KG, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Think-on-Graph shows that a small LLM + KG can outperform GPT-4.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page states that Think-on-Graph shows that a small LLM + KG can outperform GPT-4, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HippoRAG improves multi-hop QA by +20%.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the primary application of HippoRAG is multi-hop QA, with a reported 20% improvement over the state-of-the-art, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HippoRAG is 10-30x cheaper than iterative methods.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page states that HippoRAG is 10-30x cheaper than iterative methods, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reasoning on Graphs generates faithful plan from KG relation paths.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page states that Reasoning on Graphs generates faithful plan from KG relation paths, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LightRAG uses dual-level graph retrieval with incremental updates.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge page states that LightRAG uses dual-level graph retrieval with incremental updates, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AriGraph uses KG as an agent world model and outperforms all memory methods.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the purpose of AriGraph is KG as agent world model, which outperforms all memory methods, which matches the claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.05,
+      "claims": [
+        {
+          "text": "Edge et al. published a paper titled 'GraphRAG: From Local to Global' in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the authors or publication year of the paper 'GraphRAG: From Local to Global'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The paper 'GraphRAG: From Local to Global' has an arXiv identifier of 2404.16130.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the arXiv identifier of the paper 'GraphRAG: From Local to Global'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Pan et al. published a paper titled 'Unifying LLMs and KGs: A Roadmap' in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the authors or publication year of the paper 'Unifying LLMs and KGs: A Roadmap'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The paper 'Unifying LLMs and KGs: A Roadmap' was published in IEEE TKDE and has an arXiv identifier of 2306.08302.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages mention 'Unifying LLMs+KGs Roadmap' as a paper published in IEEE TKDE 2024, but do not provide the arXiv identifier.",
+          "suggested_correction": "The paper 'Unifying LLMs and KGs: A Roadmap' was published in IEEE TKDE 2024."
+        },
+        {
+          "text": "Sun et al. published a paper titled 'Think-on-Graph' in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the authors or publication year of the paper 'Think-on-Graph'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The paper 'Think-on-Graph' was presented at ICLR 2024 and has an arXiv identifier of 2307.07697.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages mention 'Think-on-Graph' as a paper presented at ICLR 2024, but do not provide the arXiv identifier.",
+          "suggested_correction": "The paper 'Think-on-Graph' was presented at ICLR 2024."
+        },
+        {
+          "text": "Gutierrez et al. published a paper titled 'HippoRAG' in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the authors or publication year of the paper 'HippoRAG'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The paper 'HippoRAG' was presented at NeurIPS 2024 and has an arXiv identifier of 2405.14831.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages mention 'HippoRAG' as a paper presented at NeurIPS 2024, but do not provide the arXiv identifier.",
+          "suggested_correction": "The paper 'HippoRAG' was presented at NeurIPS 2024."
+        },
+        {
+          "text": "Guo et al. published a paper titled 'LightRAG' in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about Guo et al. publishing a paper titled 'LightRAG' in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The paper 'LightRAG' has an arXiv identifier of 2410.05779.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the arXiv identifier of the paper 'LightRAG'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Anokhin et al. published a paper titled 'AriGraph' in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about Anokhin et al. publishing a paper titled 'AriGraph' in 2024, but it does mention AriGraph as a KG as agent world model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The paper 'AriGraph' has an arXiv identifier of 2407.04363.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the arXiv identifier of the paper 'AriGraph'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Agrawal et al. published a paper titled 'Can KGs Reduce Hallucinations?' in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about Agrawal et al. publishing a paper titled 'Can KGs Reduce Hallucinations?' in 2024, but it does mention a paper 'KGs Reduce Hallucination' presented at NAACL 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The paper 'Can KGs Reduce Hallucinations?' was presented at NAACL 2024 and has an arXiv identifier of 2311.07914.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the arXiv identifier of the paper 'Can KGs Reduce Hallucinations?'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "W3C published a document titled 'RDF 1.1 Concepts'.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about W3C publishing a document titled 'RDF 1.1 Concepts'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The document 'RDF 1.1 Concepts' is available at w3.org/TR/rdf11-concepts.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the availability of the document 'RDF 1.1 Concepts' at w3.org/TR/rdf11-concepts.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Zep published a document titled 'Temporal Context Graphs'.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions 'Zep's Context Graph' which implies Zep published a document related to it, titled 'Temporal Context Graphs'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The document 'Temporal Context Graphs' is available at getzep.com.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or the Knowledge Pages about the document 'Temporal Context Graphs' being available at getzep.com.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Han et al. published a paper titled 'GraphRAG Survey' in 2025.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about Han et al. publishing a paper titled 'GraphRAG Survey' in 2025.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The paper 'GraphRAG Survey' has an arXiv identifier of 2501.00309.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about the paper 'GraphRAG Survey' having an arXiv identifier of 2501.00309.",
+          "suggested_correction": null
+        }
+      ]
+    }
+  ]
+}

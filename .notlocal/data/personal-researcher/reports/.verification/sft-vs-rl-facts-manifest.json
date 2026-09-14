@@ -1,0 +1,369 @@
+{
+  "topic": "sft-vs-rl",
+  "timestamp": "2026-06-09T12:00:11.601377+00:00",
+  "total_facts": 36,
+  "contradictions_found": 0,
+  "contradictions_resolved": 0,
+  "facts": [
+    {
+      "question": "What approach is used for format/style adaptation?",
+      "answer": "SFT only",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used for general instruction following?",
+      "answer": "DPO",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is necessary for safety alignment?",
+      "answer": "RL",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What enables strong RL signal for math/code reasoning?",
+      "answer": "Verifiable rewards",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approach is used for domain expertise?",
+      "answer": "RL with rubrics",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the best quality/compute tradeoff for resource-constrained scenarios?",
+      "answer": "SFT + offline DPO",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is required for state-of-the-art quality?",
+      "answer": "Online iterative RLHF",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used to transfer RL gains via SFT for small model improvement?",
+      "answer": "Distillation",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What does RL not generate beyond what exists in the base model?",
+      "answer": "Fundamentally new reasoning abilities",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the implication if the base model cannot solve a problem at all?",
+      "answer": "RL will not help",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used to optimize holistic properties?",
+      "answer": "Evaluating rather than demonstrating",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is required for tasks that need exploration?",
+      "answer": "RL",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used for safety alignment across adversarial distributions?",
+      "answer": "RL",
+      "confidence": 0.9,
+      "sources": [
+        "sft-vs-rl-decision-framework.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of layers should LoRA target in MoE models?",
+      "answer": "Attention layers only",
+      "confidence": 0.9,
+      "sources": [
+        "moe-sft-debugging.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many samples are insufficient for sparse routing in MoE models?",
+      "answer": "5K samples",
+      "confidence": 0.9,
+      "sources": [
+        "moe-sft-debugging.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended number of samples for MoE models with task diversity?",
+      "answer": "50K+ samples",
+      "confidence": 0.9,
+      "sources": [
+        "moe-sft-debugging.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What precision may limit gradient fidelity in MoE models?",
+      "answer": "4-bit expert weights (MXFP4 precision floor)",
+      "confidence": 0.9,
+      "sources": [
+        "moe-sft-debugging.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What method should be used if a model already has latent capability?",
+      "answer": "DPO/GRPO",
+      "confidence": 0.9,
+      "sources": [
+        "moe-sft-debugging.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the pass@k test in MoE SFT debugging?",
+      "answer": "To determine if the model knows the answer and needs reliability or if the capability doesn't exist",
+      "confidence": 0.9,
+      "sources": [
+        "moe-sft-debugging.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many experts are engaged in MoE routing for a single task?",
+      "answer": "Top-4 of 128 experts",
+      "confidence": 0.9,
+      "sources": [
+        "moe-sft-debugging.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended learning rate for MoE models?",
+      "answer": "2-5e-4",
+      "confidence": 0.9,
+      "sources": [
+        "moe-sft-debugging.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of freezing the router in MoE models?",
+      "answer": "To prevent instability",
+      "confidence": 0.9,
+      "sources": [
+        "moe-sft-debugging.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended pipeline for GPT-OSS-120B?",
+      "answer": "Distill from teacher, SFT with LoRA targeting attention layers only, and follow with DPO using preference pairs",
+      "confidence": 0.9,
+      "sources": [
+        "moe-sft-debugging.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of pipeline does InstructGPT use?",
+      "answer": "SFT \u2192 Reward Model \u2192 PPO",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the size of the RLHF model in InstructGPT?",
+      "answer": "1.3B",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique does DeepSeek-R1 use for training?",
+      "answer": "Pure RL (GRPO)",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the capability of DeepSeek-R1 in terms of reasoning behaviors?",
+      "answer": "Emergent reasoning behaviors, including self-reflection, verification, and dynamic strategy adaptation",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between InstructGPT and GPT-3 in terms of human preference?",
+      "answer": "Preferred over 175B GPT-3 by human labelers",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the technique used by Claude / Constitutional AI for training?",
+      "answer": "RLAIF with a constitution of principles",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the capability of Self-Rewarding Language Models in terms of instruction-following and reward quality?",
+      "answer": "Improves both instruction-following and reward quality simultaneously",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the size of the model used in Self-Rewarding Language Models?",
+      "answer": "Llama 2 70B",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the technique used by PRIME for training?",
+      "answer": "Process RL with implicit rewards",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the size of the model used in PRIME?",
+      "answer": "Eurus-2-7B-PRIME",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the limitation of SFT in terms of self-correction?",
+      "answer": "Fails due to distribution mismatch between training errors and model's own errors",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the technique used by DPO to avoid mode collapse?",
+      "answer": "Asymmetric gradient problem",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between alignment and capabilities in InstructGPT?",
+      "answer": "Tension between alignment and capabilities, partially mitigated in later work",
+      "confidence": 0.9,
+      "sources": [
+        "industry-successes-failures.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

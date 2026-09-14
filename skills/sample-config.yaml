@@ -86,3 +86,23 @@ paper-reviewer:
       - "us-east-2"
     model_id: "us.anthropic.claude-sonnet-4-20250514-v1:0"
     model_prefix: "us."
+
+researcher:
+  data_dir: ".notlocal/data/personal-researcher"
+  state_dir: ".local/data/personal-researcher"
+  llm:
+    model_id: "us.anthropic.claude-sonnet-4-20250514-v1:0"
+    aws_region: "us-west-2"
+    aws_profile: "default"
+  verification:
+    model_id: "openai.gpt-oss-120b"
+    aws_region: "us-west-2"
+    aws_profile: "default"
+  compilation:
+    concurrency: 3
+    max_source_chars: 100000
+  discovery:
+    max_results: 5
+  reports:
+    subdirs: ["v2/notes", "v2/faqs", "v1", "."]
+    filename_patterns: ["{topic}.md", "{topic}--notes.md", "{topic}-ref.md"]

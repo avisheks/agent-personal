@@ -1,0 +1,1229 @@
+{
+  "topic": "recommendation-ranking",
+  "timestamp": "2026-05-18T22:38:00.385430+00:00",
+  "total_facts": 122,
+  "contradictions_found": 0,
+  "contradictions_resolved": 0,
+  "facts": [
+    {
+      "question": "What type of experimental design methodology is double-randomized experimentation?",
+      "answer": "An advanced experimental design methodology",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What assumption does double-randomized experimentation address?",
+      "answer": "The Stable Unit Treatment Value Assumption (SUTVA)",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the two layers of randomization in double-randomized experimentation?",
+      "answer": "User/Entity Randomization and Marketplace Context Randomization",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Layer 1: User/Entity Randomization?",
+      "answer": "To randomly assign users or entities to treatment or control conditions",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Layer 2: Marketplace Context Randomization?",
+      "answer": "To randomize marketplace contexts into separate pools where treatment and control groups operate separately",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of systems can double-randomized experimentation be applied to?",
+      "answer": "Recommendation systems and advertising platforms",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is required for double-randomized experiments?",
+      "answer": "Large traffic volumes, complex experimental infrastructure, and sophisticated measurement systems",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the alternative approaches for limited traffic?",
+      "answer": "Interleaving, Synthetic Control, and Geographic Experiments",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of double-randomized experimentation?",
+      "answer": "Provides accurate causal measurement in marketplace settings where standard A/B testing fails",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the limitation of double-randomized experimentation?",
+      "answer": "Requires substantially larger traffic volumes than standard A/B testing",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of bias does double-randomized experimentation eliminate?",
+      "answer": "Systematic underestimation of treatment effects caused by interference",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the industry impact of double-randomized experimentation?",
+      "answer": "Has become an organizational standard at major technology companies for measuring marketplace-level interventions",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture is cross-attention ranking?",
+      "answer": "Deep learning architecture",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do cross-attention ranking models process queries and items?",
+      "answer": "Through separate encoding layers and attention mechanisms",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary limitation of cross-attention ranking?",
+      "answer": "Computational cost",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does cross-attention ranking differ from two-tower models?",
+      "answer": "It captures token-level alignments and fine-grained semantic relationships",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the computational complexity of cross-attention ranking?",
+      "answer": "O(|query| \u00d7 |item|) computation per query-item pair",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How is cross-attention ranking typically deployed in production?",
+      "answer": "As part of multi-stage recommendation pipelines",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What strategy is used to manage latency in cross-attention ranking?",
+      "answer": "Model distillation, pre-computation, and selective application",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does cross-attention ranking address the representation bottleneck of two-tower models?",
+      "answer": "It captures fine-grained semantic relationships between query and item tokens",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between cross-attention ranking and other architectures?",
+      "answer": "It represents an evolution in the progression from manual feature engineering to automatic interaction learning",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is required for training cross-attention ranking models?",
+      "answer": "Careful attention to training data quality and sophisticated negative sampling strategies",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does cross-attention ranking improve over two-tower baselines?",
+      "answer": "It achieved +900 basis points relevance improvement at Amazon Ads",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical use case for cross-attention ranking?",
+      "answer": "Precision ranking on smaller candidate sets",
+      "confidence": 0.9,
+      "sources": [
+        "cross-attention-ranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the Adoption Ceiling Problem?",
+      "answer": "The phenomenon where users only engage with the top few recommendations regardless of list quality.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical number of items users engage with from recommendation sets?",
+      "answer": "The top 10-30 items.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary constraint in recommendation system design related to the Adoption Ceiling Problem?",
+      "answer": "Human behavior and cognitive limitations.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of cognitive overhead on user behavior in marketplace and advertising contexts?",
+      "answer": "It leads users to satisfice rather than optimize across the entire recommendation set.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between recommendation list length and user adoption rates?",
+      "answer": "Consistent adoption rates regardless of recommendation list length.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of ranking optimizations on business metrics beyond the top 20-30 positions?",
+      "answer": "Minimal improvement.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of high-quality recommendations in lower positions on user engagement?",
+      "answer": "Negligible engagement.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary cause of the Adoption Ceiling Problem?",
+      "answer": "Cognitive limitations and information presentation issues.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended approach to mitigate the Adoption Ceiling Problem?",
+      "answer": "Focus on presenting fewer, higher-confidence suggestions and improving presentation and trust-building.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of providing expected impact metrics on adoption rates?",
+      "answer": "Significant improvement.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between the Adoption Ceiling Problem and Position Bias?",
+      "answer": "Position Bias contributes to adoption ceiling effects.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended focus for product development to address the Adoption Ceiling Problem?",
+      "answer": "Optimizing the presentation of top recommendations and improving user trust.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended approach to measuring business impact in the context of the Adoption Ceiling Problem?",
+      "answer": "Using position-weighted metrics and focusing on adoption rate optimization.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical Expected Calibration Error (ECE) for well-calibrated models?",
+      "answer": "ECE < 0.02",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration-in-recommendations.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical Expected Calibration Error (ECE) for uncalibrated deep neural networks?",
+      "answer": "ECE = 0.05-0.10",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration-in-recommendations.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Platt Scaling in model calibration?",
+      "answer": "To learn a logistic transformation for calibration",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration-in-recommendations.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Isotonic Regression in model calibration?",
+      "answer": "To provide a non-parametric monotone mapping from raw model scores to calibrated probabilities",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration-in-recommendations.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Temperature Scaling in model calibration for neural networks?",
+      "answer": "To apply a single parameter to soften the output for calibration",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration-in-recommendations.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How often do production systems typically re-calibrate using isotonic regression?",
+      "answer": "Weekly",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration-in-recommendations.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the challenge faced by global recommendation systems serving multiple markets?",
+      "answer": "Different regions have different base rates for user actions",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration-in-recommendations.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the solution to the challenge faced by global recommendation systems serving multiple markets?",
+      "answer": "Fitting per-locale calibration functions on locale-specific holdout data",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration-in-recommendations.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between model calibration and business outcomes?",
+      "answer": "Calibration serves as a bridge between model improvements and measurable business outcomes",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration-in-recommendations.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of poor calibration on model quality improvements?",
+      "answer": "It can mask improvements in model quality",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration-in-recommendations.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of online learning algorithm is FTRL?",
+      "answer": "Follow-The-Regularized-Leader",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What regularization techniques does FTRL use?",
+      "answer": "L1 and L2 regularization",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary advantage of FTRL over SGD in terms of feature weights?",
+      "answer": "Produces exactly zero weights for irrelevant features",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does FTRL adapt to changing data distributions?",
+      "answer": "Through non-stationary adaptation and per-coordinate learning rates",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of per-coordinate learning rates in FTRL?",
+      "answer": "To automatically adapt the effective learning rate based on feature update frequency",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of problems is FTRL well-suited for?",
+      "answer": "High-dimensional sparse problems",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does FTRL handle sparse categorical features?",
+      "answer": "Through its built-in sparsity mechanisms",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between FTRL and deep learning models in recommendation systems?",
+      "answer": "Complementary, with FTRL used for real-time components and deep learning for offline feature generation",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the key hyperparameters in FTRL?",
+      "answer": "L1 regularization strength, L2 regularization strength, and learning rate schedule parameters",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the importance of feature engineering in FTRL?",
+      "answer": "Crucial, as the algorithm's effectiveness depends heavily on meaningful interaction features",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does FTRL enable real-time learning in production systems?",
+      "answer": "Through immediate updates of model parameters after each user interaction",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What data structures does FTRL use to store model parameters?",
+      "answer": "Hash maps or other sparse data structures to store non-zero entries",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What applications is FTRL particularly effective for?",
+      "answer": "Click prediction and recommendation systems",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the scalability of FTRL in production deployments?",
+      "answer": "Proven to achieve 100% coverage of query-ad pairs in large-scale advertising systems",
+      "confidence": 0.9,
+      "sources": [
+        "ftrl-online-learning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of technique is LLM Reranking?",
+      "answer": "A technique in recommendation and search systems",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical position of LLM Reranking in a Multi-Stage Recommendation Pipeline?",
+      "answer": "The third stage",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the input size for LLM Reranking?",
+      "answer": "A small set of top candidates (usually 20-100 items)",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the latency introduced by LLM Reranking?",
+      "answer": "100-300ms",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of understanding does LLM Reranking provide?",
+      "answer": "Semantic understanding and contextual relevance",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between LLM Reranking and traditional machine learning rankers?",
+      "answer": "LLM Reranking is used in conjunction with traditional machine learning rankers",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost of LLM Reranking per query?",
+      "answer": "$0.005",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost of traditional ML ranking per query?",
+      "answer": "$0.0001",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary advantage of LLM Reranking in cold-start scenarios?",
+      "answer": "Ability to assess relevance purely from content descriptions",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of using LLM Reranking for complex query understanding?",
+      "answer": "Ability to parse complex intent and match it against item attributes",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to bootstrap recommendation systems in new geographic markets?",
+      "answer": "Leverages LLM Reranking",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the challenge of LLMs producing relevance judgments?",
+      "answer": "They typically do not produce well-calibrated probabilities",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the potential issue with LLM Reranking in terms of position bias?",
+      "answer": "It may inadvertently learn position biases present in training data",
+      "confidence": 0.9,
+      "sources": [
+        "llm-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical Expected Calibration Error (ECE) for uncalibrated deep neural networks?",
+      "answer": "0.05-0.10",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical threshold for good calibration in terms of Expected Calibration Error (ECE)?",
+      "answer": "< 0.02",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Platt Scaling in model calibration?",
+      "answer": "To learn a logistic transformation for binary classification problems",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Temperature Scaling calibrate neural network predictions?",
+      "answer": "By applying a single parameter T to soften the predictions",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of Distribution Shift on model calibration?",
+      "answer": "It can cause models to become miscalibrated when the underlying data distribution changes",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of Position Bias on model calibration in recommendation systems?",
+      "answer": "It can cause models to overpredict click-through rates for items typically shown at high positions",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Negative Sampling affect model calibration?",
+      "answer": "It can inflate predicted probabilities by training with random negatives rather than true negatives",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between calibration and ranking quality in recommendation systems?",
+      "answer": "Calibration corrections typically preserve ranking quality while improving probability estimates",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "Why is calibration important in auction-based advertising systems?",
+      "answer": "Because predicted probabilities directly influence business decisions, such as bidding and revenue",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of isotonic regression in model calibration?",
+      "answer": "To provide a non-parametric monotone mapping from raw scores to calibrated probabilities",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How often should models be recalibrated in production systems?",
+      "answer": "Regularly, such as weekly, using fresh data",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the importance of per-segment calibration in multi-market systems?",
+      "answer": "It is necessary to avoid systematic over- or under-prediction due to different base rates in each locale or segment",
+      "confidence": 0.9,
+      "sources": [
+        "model-calibration.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture does a Multi-Stage Recommendation Pipeline use?",
+      "answer": "Sequential stages",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary focus of Stage 1 in a Multi-Stage Recommendation Pipeline?",
+      "answer": "Recall",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What techniques are used in Stage 1 of a Multi-Stage Recommendation Pipeline?",
+      "answer": "Collaborative filtering, embedding-based approximate nearest neighbor search, popularity-based recommendations, rule-based matching",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary focus of Stage 2 in a Multi-Stage Recommendation Pipeline?",
+      "answer": "Precision-focused ranking",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What models are typically used in Stage 2 of a Multi-Stage Recommendation Pipeline?",
+      "answer": "Gradient boosted decision trees, deep neural networks",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the optional Stage 3 in a Multi-Stage Recommendation Pipeline?",
+      "answer": "Large Language Model reranking",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary benefit of using a Multi-Stage Recommendation Pipeline?",
+      "answer": "Addresses scaling constraints and allows for specialization of each stage",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does a Multi-Stage Recommendation Pipeline handle the cold-start problem?",
+      "answer": "Uses Large Language Models to generate embeddings for new items",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical latency added by Stage 3 in a Multi-Stage Recommendation Pipeline?",
+      "answer": "100-300ms",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the final stage in a Multi-Stage Recommendation Pipeline?",
+      "answer": "Applies business constraints",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the estimated monthly cost of a classical pipeline serving 300 million monthly active users?",
+      "answer": "$450,000",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the estimated monthly cost of adding LLM reranking to all queries in a pipeline serving 300 million monthly active users?",
+      "answer": "$10.5 million",
+      "confidence": 0.9,
+      "sources": [
+        "multi-stage-recommendation-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of bias does Position Bias Correction address?",
+      "answer": "Systematic bias introduced when users interact with items based on their display position",
+      "confidence": 0.9,
+      "sources": [
+        "position-bias-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the most common model for understanding position bias?",
+      "answer": "Assumes that click probability factorizes as P(click | item i, position k) = P(relevant | item i) \u00d7 P(examine | position k)",
+      "confidence": 0.9,
+      "sources": [
+        "position-bias-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Inverse Propensity Weighting (IPW) in position bias correction?",
+      "answer": "To weight each training example by the inverse of the examination probability",
+      "confidence": 0.9,
+      "sources": [
+        "position-bias-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Position-Aware Modeling approach position bias correction?",
+      "answer": "Includes position as an explicit feature during model training and sets position to a neutral value at inference time",
+      "confidence": 0.9,
+      "sources": [
+        "position-bias-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the limitation of the IPW approach?",
+      "answer": "Can suffer from high variance when examination probabilities are very small",
+      "confidence": 0.9,
+      "sources": [
+        "position-bias-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the assumption of the Position-Based Model?",
+      "answer": "Examination probability depends only on position and not on item characteristics",
+      "confidence": 0.9,
+      "sources": [
+        "position-bias-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of not correcting position bias in production recommendation systems?",
+      "answer": "Popular items accumulate disproportionate positive signals, making long-tail items effectively invisible to users",
+      "confidence": 0.9,
+      "sources": [
+        "position-bias-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the trade-off involved in position bias correction?",
+      "answer": "Accepting a small decrease in immediate CTR in exchange for better long-term catalog coverage and user experience diversity",
+      "confidence": 0.9,
+      "sources": [
+        "position-bias-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between position bias correction and other debiasing techniques?",
+      "answer": "Closely related to other debiasing techniques in machine learning, including Model Calibration and Multi-Objective Optimization",
+      "confidence": 0.9,
+      "sources": [
+        "position-bias-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of randomization experiments in position bias correction?",
+      "answer": "To provide unbiased signals for calibration by randomly shuffling a small percentage of results",
+      "confidence": 0.9,
+      "sources": [
+        "position-bias-correction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture is the two-tower model?",
+      "answer": "Neural network design pattern",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary advantage of the two-tower architecture?",
+      "answer": "Serving efficiency",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the fundamental limitation of two-tower models?",
+      "answer": "Representation bottleneck",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do two-tower models typically handle the encoding of queries and items?",
+      "answer": "Independently through separate neural networks",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used to compute the similarity between query and item embeddings in two-tower models?",
+      "answer": "Dot product or cosine similarity",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to train two-tower models?",
+      "answer": "Contrastive learning with in-batch negatives",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the temperature parameter in the training objective of two-tower models?",
+      "answer": "To control the softmax loss function",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the result of the representation bottleneck in two-tower models?",
+      "answer": "Loss of fine-grained interactions between query and item features",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do two-tower models enable fast retrieval in production systems?",
+      "answer": "Through pre-computation of item embeddings and approximate nearest neighbor search",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical use case for two-tower architecture in production systems?",
+      "answer": "Candidate generation in multi-stage recommendation pipelines",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between two-tower models and cross-attention architectures?",
+      "answer": "Cross-attention architectures are used for precision ranking after two-tower models have narrowed down the candidate set",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the tradeoff between serving efficiency and interaction modeling quality in two-tower models?",
+      "answer": "Serving efficiency is prioritized over interaction modeling quality",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of log-Q weighting in two-tower models?",
+      "answer": "To correct for negative sampling bias",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of position bias on two-tower models?",
+      "answer": "Models can learn position effects rather than true relevance",
+      "confidence": 0.9,
+      "sources": [
+        "two-tower-architecture.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

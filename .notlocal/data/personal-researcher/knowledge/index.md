@@ -1,0 +1,1144 @@
+# Knowledge Base Index
+
+## agent-access-controls
+- [AI Agent Sandboxing](agent-access-controls/ai-agent-sandboxing.md) — Creating isolated execution environments where AI agents can run code without affecting the host system or other workloads, using zero-trust principles to treat all AI-generated code as potentially malicious.
+- [Claude Code Sandboxed Bash Tool](agent-access-controls/claude-code-sandboxed-bash-tool.md) — Anthropic's isolation feature in Claude Code 1.3 that uses OS-level sandboxing to isolate bash commands while file tools and MCP servers run with full process permissions.
+- [CVE-2025-59528 Flowise Vulnerability](agent-access-controls/cve-2025-59528-flowise-vulnerability.md) — A CVSS 10.0 vulnerability in Flowise AI Agent Builder where user-provided configuration strings were executed without validation, leading to arbitrary code execution on 12,000+ exposed instances.
+- [Defense-in-Depth for AI Agents](agent-access-controls/defense-in-depth-for-ai-agents.md) — A security strategy combining multiple layers including isolation boundaries, resource limits, network controls, permission scoping, and continuous monitoring to protect against AI agent threats.
+- [Docker Sandbox](agent-access-controls/docker-sandbox.md) — Docker's MicroVM-based sandboxing solution that provides hypervisor isolation, network isolation, and dedicated Docker Engine per sandbox for running AI agents securely.
+- [Docker-in-Docker for AI Agents](agent-access-controls/docker-in-docker-for-ai-agents.md) — A container pattern where AI agents running inside containers need to spawn additional containers, requiring privileged mode that weakens isolation guarantees.
+- [Firecracker MicroVMs](agent-access-controls/firecracker-microvms.md) — AWS's open-source virtual machine monitor built in Rust that provides secure, multi-tenant execution with dedicated kernels per sandbox and sub-second boot times.
+- [Four-Layer Agent Isolation](agent-access-controls/four-layer-agent-isolation.md) — A security framework consisting of network egress controls, filesystem boundaries, process isolation, and secrets scoping to comprehensively isolate AI agent execution.
+- [gVisor Application Kernel](agent-access-controls/gvisor-application-kernel.md) — A user-space kernel implementation that intercepts system calls from containerized applications and processes them through its own networking, filesystem, and memory management.
+- [gVisor Syscall Isolation](agent-access-controls/gvisor-syscall-isolation.md) — A userspace kernel that intercepts 70-80% of Linux syscalls before they reach the host kernel, providing syscall-level isolation without full hypervisor overhead.
+- [gVisor User-Space Kernel](agent-access-controls/gvisor-user-space-kernel.md) — Google's user-space kernel implementation that intercepts syscalls before they reach the host kernel, providing stronger isolation than containers while maintaining lower overhead than VMs.
+- [Kata Containers](agent-access-controls/kata-containers.md) — Container orchestration technology that provides microVM isolation through standard container APIs by orchestrating multiple VMMs while integrating with Kubernetes.
+- [Microsoft Agent Governance Toolkit](agent-access-controls/microsoft-agent-governance-toolkit.md) — A seven-package open-source framework providing policy enforcement, identity management, and runtime execution rings for AI agents with dynamic privilege levels and emergency controls.
+- [MicroVMs](agent-access-controls/microvms.md) — Lightweight virtualization technology that provides VM-level security and isolation with container-like speed by using minimal hardware and bypassing BIOS/UEFI boot.
+- [MicroVMs (Firecracker)](agent-access-controls/microvms-firecracker.md) — Lightweight virtual machines with minimal device emulation that boot in ~125ms and provide hardware-level isolation with dedicated kernels per workload.
+- [Multi-Tenant Sandbox Isolation](agent-access-controls/multi-tenant-sandbox-isolation.md) — Security architecture preventing cross-tenant data leakage in SaaS platforms where one user's agent workload cannot access another user's data, typically requiring microVM-grade isolation.
+- [OS Process Sandbox](agent-access-controls/os-process-sandbox.md) — Lightweight isolation using Apple's Seatbelt on macOS and bubblewrap on Linux to restrict subprocess capabilities without creating separate OS or kernel boundaries.
+- [OWASP Agentic AI Top 10](agent-access-controls/owasp-agentic-ai-top-10.md) — A security framework that classifies the top 10 risks for agentic AI systems, including ASI05 (Unexpected Code Execution) which explicitly requires sandboxing as a mandatory control.
+- [Prompt Injection Attacks](agent-access-controls/prompt-injection-attacks.md) — Security attacks where adversaries craft inputs that manipulate AI agent behavior to execute malicious actions or leak data beyond intended scope.
+- [Sandbox Threat Model Matrix](agent-access-controls/sandbox-threat-model-matrix.md) — A framework covering five concrete threats that sandbox tiers address: filesystem scope violations, network egress, kernel syscall exposure, cross-tenant leakage, and secret exfiltration.
+- [systemd-nspawn](agent-access-controls/systemd-nspawn.md) — A Linux containerization tool that provides file system, process, and network isolation, often called 'chroot on steroids' but with limited cross-platform support.
+- [V8 Isolates](agent-access-controls/v8-isolates.md) — JavaScript-only isolation technology that runs multiple independent JavaScript contexts within a single process with microsecond startup times.
+- [Vercel Sandbox](agent-access-controls/vercel-sandbox.md) — A GA compute primitive designed to safely run untrusted code using Firecracker microVMs on Amazon Linux 2023 with Node.js and Python runtimes pre-installed.
+
+## agentic-systems
+- [Agent State Space Explosion](agentic-systems/agent-state-space-explosion.md) — The computational challenge where multi-step agents face exponentially growing possible action sequences, requiring bounded search strategies.
+- [Agentic Cost Optimization](agentic-systems/agentic-cost-optimization.md) — Systematic approaches to reduce the computational cost of multi-step agent tasks through plan templates, model routing, and step consolidation.
+- [agentic-planning-as-search](agentic-systems/agentic-planning-as-search.md)
+- [Human-in-the-Loop Agent Design](agentic-systems/human-in-the-loop-agent-design.md) — Architectural patterns for integrating human oversight and approval into agent workflows, balancing autonomy with safety and trust.
+- [human-in-the-loop-architecture](agentic-systems/human-in-the-loop-architecture.md)
+- [Multi-Agent Orchestration](agentic-systems/multi-agent-orchestration.md) — An architectural pattern where specialist agents handle different domains with a central orchestrator managing task routing, state, and inter-agent communication.
+- [multi-agent-decomposition](agentic-systems/multi-agent-decomposition.md)
+- [plan-template-caching](agentic-systems/plan-template-caching.md)
+- [prompt-injection-via-tool-responses](agentic-systems/prompt-injection-via-tool-responses.md)
+- [react-pattern](agentic-systems/react-pattern.md)
+- [tool-selection-as-contextual-bandit](agentic-systems/tool-selection-as-contextual-bandit.md)
+- [trajectory-level-evaluation](agentic-systems/trajectory-level-evaluation.md)
+
+## ai-applied-enterprise-work
+- [AI Governance for Autonomous Systems](ai-applied-enterprise-work/ai-governance-for-autonomous-systems.md) — Enterprise governance frameworks that define human control boundaries, automated decision auditing, and behavioral record retention as AI systems become more autonomous.
+- [AI Implementation Excellence Framework](ai-applied-enterprise-work/ai-implementation-excellence-framework.md) — A systematic three-phase approach consisting of foundation building (months 1-3), pilot implementation (months 4-9), and scale and optimization (months 10-18) for successful AI deployment.
+- [AI Infrastructure Self-Development](ai-applied-enterprise-work/ai-infrastructure-self-development.md) — The strategic approach of companies building their own understanding of AI infrastructure rather than relying entirely on third-party service providers to better understand what works.
+- [AI Infrastructure Self-Reliance](ai-applied-enterprise-work/ai-infrastructure-self-reliance.md) — The strategic approach of developing internal understanding of AI infrastructure rather than relying entirely on third-party providers to better understand what works and what doesn't.
+- [AI Portfolio Investment Strategy](ai-applied-enterprise-work/ai-portfolio-investment-strategy.md) — A balanced approach to AI investment that allocates 40-50% to core business enhancement, 30-40% to strategic innovation, and 10-20% to experimental initiatives.
+- [AI Revenue Aspiration Gap](ai-applied-enterprise-work/ai-revenue-aspiration-gap.md) — The disconnect where 74% of organizations hope to grow revenue through AI initiatives in the future, but only 20% are currently achieving revenue growth from AI.
+- [AI ROI Crisis](ai-applied-enterprise-work/ai-roi-crisis.md) — The widespread failure of AI initiatives to deliver expected returns, with 42% of companies abandoning AI projects in 2025 due to unclear ROI versus 17% in 2024.
+- [AI ROI Measurement Framework](ai-applied-enterprise-work/ai-roi-measurement-framework.md) — A comprehensive system for measuring AI returns that combines quantitative financial metrics with qualitative strategic value assessment across multiple dimensions.
+- [AI Value Gap](ai-applied-enterprise-work/ai-value-gap.md) — The phenomenon where enterprises achieve efficiency gains from AI but business growth impacts lag, with meaningful AI-driven growth expected only in 2026 or beyond.
+- [AI Value Reporting Maturity Curve](ai-applied-enterprise-work/ai-value-reporting-maturity-curve.md) — A progression model showing how organizations evolve from cost-based AI measurement to strategic value reporting that shapes board-level decisions.
+- [Application-Native Data Governance](ai-applied-enterprise-work/application-native-data-governance.md) — A governance approach where validation, quality scoring, and controls are embedded directly in source systems rather than centralized data lakes, enabling real-time AI operations.
+- [Autonomy-Level Pricing (ALP)](ai-applied-enterprise-work/autonomy-level-pricing-alp.md) — A pricing model that tags resource units with autonomy levels (AL0-AL4) to align charges with how work is delivered, from fully manual to fully autonomous execution.
+- [CFO AI Reporting Gap](ai-applied-enterprise-work/cfo-ai-reporting-gap.md) — The structural mismatch between traditional CFO reporting systems built for cost-based business cases and the strategic value measurement requirements of AI initiatives.
+- [CFO AI Reporting Systems](ai-applied-enterprise-work/cfo-ai-reporting-systems.md) — Financial reporting infrastructure that needs to evolve from cost-based business cases to accommodate strategic AI value measurement.
+- [Cross-Functional AI Integration](ai-applied-enterprise-work/cross-functional-ai-integration.md) — Strategic approach where AI implementations in one business function are designed to benefit others, such as customer service AI providing insights for marketing.
+- [Cross-Functional AI Value Optimization](ai-applied-enterprise-work/cross-functional-ai-value-optimization.md) — Enterprise-wide coordination strategies that maximize AI ROI across different business functions through shared services, integration opportunities, and cross-functional synergies.
+- [Data Tower](ai-applied-enterprise-work/data-tower.md) — Centralized yet business-aligned data operations functions that emphasize semantic clarity, domain-specific data products, and accountability through KPIs.
+- [Dynamic ROI Learning System](ai-applied-enterprise-work/dynamic-roi-learning-system.md) — An adaptive approach to AI ROI measurement that continuously refines tracking metrics as organizations learn what AI actually changes in their operations.
+- [Early-Stage AI ROI Paradox](ai-applied-enterprise-work/early-stage-ai-roi-paradox.md) — The tension between demanding immediate ROI from AI investments versus allowing time for transformative opportunities to emerge in a rapidly evolving field.
+- [Enterprise AI Transformation Maturity Levels](ai-applied-enterprise-work/enterprise-ai-transformation-maturity-levels.md) — A three-tier classification where organizations either use AI at surface level (37%), redesign key processes around AI (30%), or deeply transform by creating new products and reinventing business models (34%).
+- [Human-AI Complementary Working Partnerships](ai-applied-enterprise-work/human-ai-complementary-working-partnerships.md) — Organizational design approach that reimagines jobs to seamlessly combine human strengths with AI capabilities, creating combined output that exceeds what either could achieve alone.
+- [Let a Thousand Flowers Bloom AI Strategy](ai-applied-enterprise-work/let-a-thousand-flowers-bloom-ai-strategy.md) — Jensen Huang's philosophy of encouraging widespread AI experimentation across organizations without rigid filtering based on early ROI metrics.
+- [Living AI Backbone Architecture](ai-applied-enterprise-work/living-ai-backbone-architecture.md) — An organization-wide, real-time data system that dynamically adapts to business and regulatory changes, supporting modular cloud-native platforms with embedded privacy and security-by-design.
+- [Long-term AI ROI Perspective](ai-applied-enterprise-work/long-term-ai-roi-perspective.md) — The investment philosophy that AI returns may be years away and forcing short-term ROI evaluation risks missing transformative opportunities.
+- [Messy Experimentation in AI](ai-applied-enterprise-work/messy-experimentation-in-ai.md) — An approach to AI development that prioritizes broad exploration and learning over immediate ROI calculations, treating the current AI period as a time for unstructured discovery.
+- [Organizational AI Buy-in](ai-applied-enterprise-work/organizational-ai-buy-in.md) — The requirement for leaders to obtain widespread organizational support for AI initiatives with understanding that returns may be delayed.
+- [Organizational AI Buy-in Strategy](ai-applied-enterprise-work/organizational-ai-buy-in-strategy.md) — The leadership challenge of securing widespread organizational support for AI initiatives with the understanding that returns may be years away rather than immediate.
+- [Physical AI Enterprise Applications](ai-applied-enterprise-work/physical-ai-enterprise-applications.md) — AI systems that interact with the physical world through collaborative robots, inspection drones, robotic picking arms, and autonomous forklifts, especially in manufacturing and logistics.
+- [Pilot Purgatory Syndrome](ai-applied-enterprise-work/pilot-purgatory-syndrome.md) — The organizational trap where companies run endless AI proof-of-concept projects that never graduate to production deployment, resulting in substantial investment with minimal business impact.
+- [Pilot-to-Production Dilemma](ai-applied-enterprise-work/pilot-to-production-dilemma.md) — The enterprise challenge where AI pilots rarely progress to enterprise-grade deployments, often stuck between 'boil the ocean' transformation programs and fragmented bypass solutions.
+- [Proxy Metrics for Intangible AI Benefits](ai-applied-enterprise-work/proxy-metrics-for-intangible-ai-benefits.md) — Measurable indicators that correlate with intangible AI benefits, such as using customer satisfaction scores as proxies for improved customer experience in ROI calculations.
+- [Quantitative vs Qualitative AI ROI Measurement](ai-applied-enterprise-work/quantitative-vs-qualitative-ai-roi-measurement.md) — A comprehensive measurement framework that combines hard financial metrics (cost savings, revenue growth) with soft benefits (employee satisfaction, decision-making improvements) for complete AI value assessment.
+- [Quantitative vs Qualitative AI ROI Metrics](ai-applied-enterprise-work/quantitative-vs-qualitative-ai-roi-metrics.md) — A comprehensive measurement framework that combines hard financial metrics (cost savings, revenue growth) with soft benefits (employee satisfaction, decision-making improvements).
+- [Return-on-Autonomy (RoA)](ai-applied-enterprise-work/return-on-autonomy-roa.md) — A measurement framework that evaluates AI value based on how it changes enterprise capabilities rather than just costs or savings.
+- [Strategic Value Measurement Architecture](ai-applied-enterprise-work/strategic-value-measurement-architecture.md) — Organizational systems designed to measure AI outcomes like better decisions, faster insights, and improved customer outcomes beyond traditional cost metrics.
+- [Three-Mode Data Operating Model](ai-applied-enterprise-work/three-mode-data-operating-model.md) — An enterprise data strategy with optimization mode (stable, proven-value data), innovation mode (experimental data for pilots), and adoption mode (bridging experiments to production).
+
+## ai-applied-search-ranking
+- [apache-2-0-license-for-ai-models](ai-applied-search-ranking/apache-2-0-license-for-ai-models.md)
+- [attention-alignment-scores](ai-applied-search-ranking/attention-alignment-scores.md)
+- [attention-head-uptraining](ai-applied-search-ranking/attention-head-uptraining.md)
+- [attention-memory-complexity-scaling](ai-applied-search-ranking/attention-memory-complexity-scaling.md)
+- [attention-weights](ai-applied-search-ranking/attention-weights.md)
+- [axial-anomaly-in-eta-prime](ai-applied-search-ranking/axial-anomaly-in-eta-prime.md)
+- [Chiral Anomaly in Eta Prime](ai-applied-search-ranking/chiral-anomaly-in-eta-prime.md) — The quantum field theory phenomenon where classical symmetries are broken at the quantum level, specifically affecting the η' meson's properties and mass.
+- [computing-in-memory-cim-architecture](ai-applied-search-ranking/computing-in-memory-cim-architecture.md)
+- [context-updated-vector-embedding](ai-applied-search-ranking/context-updated-vector-embedding.md)
+- [crossbar-arrays](ai-applied-search-ranking/crossbar-arrays.md)
+- [dynamic-key-grouping-dgqa](ai-applied-search-ranking/dynamic-key-grouping-dgqa.md)
+- [eta-prime-meson-spin-structure](ai-applied-search-ranking/eta-prime-meson-spin-structure.md)
+- [gluon-spin-contribution](ai-applied-search-ranking/gluon-spin-contribution.md)
+- [grouped-query-attention-gqa](ai-applied-search-ranking/grouped-query-attention-gqa.md)
+- [hardware-optimized-attention-configuration](ai-applied-search-ranking/hardware-optimized-attention-configuration.md)
+- [kv-cache-memory-bottleneck](ai-applied-search-ranking/kv-cache-memory-bottleneck.md)
+- [kv-cache-optimization](ai-applied-search-ranking/kv-cache-optimization.md)
+- [memory-bandwidth-bound-generation](ai-applied-search-ranking/memory-bandwidth-bound-generation.md)
+- [memristor-based-accelerators](ai-applied-search-ranking/memristor-based-accelerators.md)
+- [mistral-7b-instruct](ai-applied-search-ranking/mistral-7b-instruct.md)
+- [mistral-7b-language-model](ai-applied-search-ranking/mistral-7b-language-model.md)
+- [multi-query-attention-mqa](ai-applied-search-ranking/multi-query-attention-mqa.md)
+- [progressive-attention-layers](ai-applied-search-ranking/progressive-attention-layers.md)
+- [proton-spin-crisis](ai-applied-search-ranking/proton-spin-crisis.md)
+- [qcd-spin-decomposition](ai-applied-search-ranking/qcd-spin-decomposition.md)
+- [scaled-dot-product-attention](ai-applied-search-ranking/scaled-dot-product-attention.md)
+- [sliding-window-attention-swa](ai-applied-search-ranking/sliding-window-attention-swa.md)
+- [tactics-framework](ai-applied-search-ranking/tactics-framework.md)
+- [tc-cim-compilation-flow](ai-applied-search-ranking/tc-cim-compilation-flow.md)
+- [tensor-comprehensions](ai-applied-search-ranking/tensor-comprehensions.md)
+
+## ai-enterprise-applications
+- [Active Metadata and Lineage](ai-enterprise-applications/active-metadata-and-lineage.md) — Dynamic metadata systems that continuously track data relationships and dependencies to enable real-time impact analysis and governance decisions.
+- [Agent-to-Script Conversion](ai-enterprise-applications/agent-to-script-conversion.md) — A methodology for transforming AI agent actions into deterministic, reusable Python scripts that can be executed repeatedly without requiring LLM inference.
+- [Agent-to-Script Conversion Pipeline](ai-enterprise-applications/agent-to-script-conversion-pipeline.md) — A methodology for transforming natural language agent actions into deterministic, parametrizable Python scripts that can be executed repeatedly without LLM inference costs.
+- [Agentic AI Governance at Scale](ai-enterprise-applications/agentic-ai-governance-at-scale.md) — Governance frameworks specifically designed to manage autonomous AI agents operating at enterprise scale while maintaining security, compliance, and ethical standards.
+- [Agentic Data Management (ADM)](ai-enterprise-applications/agentic-data-management-adm.md) — Acceldata's platform that uses autonomous agents with real-time lineage and contextual reasoning to detect, diagnose, and resolve data issues automatically.
+- [AI Agent Business Process Automation](ai-enterprise-applications/ai-agent-business-process-automation.md) — Advanced enterprise applications where AI agents execute multi-step workflows across business systems, coordinating tasks and triggering actions based on predefined conditions.
+- [AI Bias Testing and Fairness](ai-enterprise-applications/ai-bias-testing-and-fairness.md) — Regular testing procedures to ensure AI systems treat all users equally and don't unfairly discriminate against certain groups.
+- [AI Chat Support](ai-enterprise-applications/ai-chat-support.md) — Automated customer service systems using LLMs to provide instant answers for FAQs, product queries, and customer onboarding processes.
+- [AI Governance Artifacts Standardization](ai-enterprise-applications/ai-governance-artifacts-standardization.md) — The practice of creating consistent documentation templates including system summaries, data documentation, evaluation records, and monitoring plans to ensure auditability and reduce duplicative efforts.
+- [AI Governance Framework Implementation](ai-enterprise-applications/ai-governance-framework-implementation.md) — A systematic approach to applying AI principles across technologies from data selection to continuous monitoring in real-world systems.
+- [AI Governance Officer Role](ai-enterprise-applications/ai-governance-officer-role.md) — A designated person responsible for overseeing AI system performance, monitoring for drift and bias, and ensuring human oversight with defined accountability for remediation.
+- [AI Model Ownership and Stewardship](ai-enterprise-applications/ai-model-ownership-and-stewardship.md) — Explicit accountability structures that define AI model owners, data steward responsibilities for AI workflows, and clear escalation paths for AI system governance and compliance.
+- [AI Release Gates](ai-enterprise-applications/ai-release-gates.md) — Mandatory checkpoints in the AI development lifecycle that require specific documentation, approvals, and signoffs before systems can be deployed to production based on their risk tier.
+- [AI Risk Classification Framework](ai-enterprise-applications/ai-risk-classification-framework.md) — A systematic approach to categorizing AI systems by risk level (low, medium, high) based on factors like decision impact, affected populations, and failure consequences to determine appropriate governance controls.
+- [AI System Security and Privacy Protection](ai-enterprise-applications/ai-system-security-and-privacy-protection.md) — Comprehensive security measures including data encryption, continuous monitoring, and threat detection to protect AI systems and sensitive data from cyberattacks.
+- [AI-Extended Data Governance](ai-enterprise-applications/ai-extended-data-governance.md) — The evolution of traditional data governance programs to include AI model development workflows, training data standards, and AI-specific compliance requirements while leveraging existing governance investments.
+- [AI-Powered Data Governance Process](ai-enterprise-applications/ai-powered-data-governance-process.md) — An automated governance framework that uses AI to discover, classify, monitor, enforce, audit, and improve data management across the enterprise lifecycle.
+- [Automated Evidence Generation](ai-enterprise-applications/automated-evidence-generation.md) — AI-driven systems that automatically create audit-ready documentation, compliance reports, and control test evidence for regulatory requirements.
+- [Browser-Use Automation Framework](ai-enterprise-applications/browser-use-automation-framework.md) — An emerging automation framework that enables AI agents to control web browsers and navigate enterprise applications through programmatic browser actions.
+- [Centralized-Federated AI Governance Model](ai-enterprise-applications/centralized-federated-ai-governance-model.md) — A governance approach where central teams define standards and policies while domain teams apply them locally and remain accountable for outcomes, balancing consistency with operational speed.
+- [Contextual Retrieval with RAG](ai-enterprise-applications/contextual-retrieval-with-rag.md) — A retrieval system that pairs semantic search with retrieval augmented generation to pull passages from approved sources before generating answers grounded in company data.
+- [Cross-Functional AI Governance Committees](ai-enterprise-applications/cross-functional-ai-governance-committees.md) — Organizational structures that bring together data teams, legal, compliance, privacy, security, and business stakeholders to collaboratively oversee AI system development and deployment.
+- [Cross-Platform AI Governance](ai-enterprise-applications/cross-platform-ai-governance.md) — A unified governance approach that manages AI models and risks across multiple platforms including Bedrock, Azure, OpenAI, watsonx, and open source communities from a single solution.
+- [End-to-End AI Data Provenance](ai-enterprise-applications/end-to-end-ai-data-provenance.md) — Comprehensive tracking of data lineage from source through AI model training, inference, and deployment to support regulatory compliance, auditability, and quality assurance.
+- [Enterprise AI Agent Evaluation Framework](ai-enterprise-applications/enterprise-ai-agent-evaluation-framework.md) — A systematic approach to scoring and validating AI agent performance across multiple enterprise workflow scenarios, ensuring reliability and accuracy before production deployment.
+- [Enterprise AI Implementation Timeline](ai-enterprise-applications/enterprise-ai-implementation-timeline.md) — Structured project timelines ranging from 2-4 weeks for proof of concepts to 6-12+ months for large multi-department AI ecosystems, with clear milestone planning.
+- [Enterprise AI Use Case Portfolio](ai-enterprise-applications/enterprise-ai-use-case-portfolio.md) — The comprehensive set of business applications for LLMs including customer support automation, knowledge assistants, document processing, software development assistance, and AI agent workflows.
+- [Enterprise HR Workflow Automation](ai-enterprise-applications/enterprise-hr-workflow-automation.md) — The application of AI agents to automate repetitive HR tasks within enterprise platforms like Workday, reducing manual effort and training requirements.
+- [Enterprise Knowledge Fragmentation](ai-enterprise-applications/enterprise-knowledge-fragmentation.md) — The problem where critical business knowledge sits disconnected across chat, tickets, email, and wikis, causing slow onboarding and inconsistent customer answers.
+- [Enterprise Knowledge Integration](ai-enterprise-applications/enterprise-knowledge-integration.md) — The capability of LLMs to securely access and process internal enterprise documents, policies, and databases to deliver context-aware answers for business applications.
+- [Enterprise LLM Integration Architecture](ai-enterprise-applications/enterprise-llm-integration-architecture.md) — A multi-layered architecture combining user interfaces, application logic, orchestration, AI models, RAG systems, vector databases, security controls, and monitoring for scalable enterprise AI deployments.
+- [Enterprise LLM Pilot Implementation Strategy](ai-enterprise-applications/enterprise-llm-pilot-implementation-strategy.md) — A systematic approach to adopting LLMs in business starting with one high-value workflow, measuring results, refining prompts, adding human review, and scaling successful use cases.
+- [EU AI Act Data Governance Requirements](ai-enterprise-applications/eu-ai-act-data-governance-requirements.md) — Regulatory requirements under the EU AI Act that mandate quality standards for AI training data, comprehensive logging and lineage tracking, and integration of AI practices with organizational data governance frameworks.
+- [Explainable AI Decision Making](ai-enterprise-applications/explainable-ai-decision-making.md) — AI systems that provide clear explanations for their decisions with traceable records, enabling human understanding and regulatory compliance.
+- [HTML Map-Enhanced Web Navigation](ai-enterprise-applications/html-map-enhanced-web-navigation.md) — An approach that combines HTML structural maps with visual screenshots to improve AI agent accuracy when navigating complex web interfaces.
+- [Hybrid AI Architecture](ai-enterprise-applications/hybrid-ai-architecture.md) — Enterprise AI deployment strategy that combines LLMs for sophisticated reasoning with SLMs for specialized, real-time applications to optimize performance and costs.
+- [Hybrid Data Governance for AI Compliance](ai-enterprise-applications/hybrid-data-governance-for-ai-compliance.md) — A governance model that combines centralized control for high-risk AI systems with federated domain ownership for lower-risk use cases, requiring explicit documentation and clear accountability structures.
+- [IBM watsonx.governance](ai-enterprise-applications/ibm-watsonx-governance.md) — IBM's comprehensive platform for AI governance, risk management, and compliance that provides centralized visibility and control across diverse AI environments.
+- [Knowledge Synthesis Across Silos](ai-enterprise-applications/knowledge-synthesis-across-silos.md) — The ability of LLMs to combine policy, product notes, and operational logs into single, sourced responses that highlight contradictions and establish shared baselines.
+- [Large Language Models (LLMs)](ai-enterprise-applications/large-language-models-llms.md) — Advanced AI models trained on massive text datasets using transformer architecture to understand, generate, and analyze human language with remarkable accuracy for various enterprise applications.
+- [Learning Knowledge Systems](ai-enterprise-applications/learning-knowledge-systems.md) — Knowledge management systems that improve through feedback loops, tracking accuracy and usefulness over time using search logs, ratings, and expert reviews.
+- [LLM Business Applications](ai-enterprise-applications/llm-business-applications.md) — Real-world uses of large language models to improve business productivity, reduce costs, and scale communication across departments like customer support, marketing, sales, HR, and operations.
+- [LLM Content Generation for Marketing](ai-enterprise-applications/llm-content-generation-for-marketing.md) — Using large language models to create marketing materials including blogs, emails, landing pages, ad copy, and social media content at scale.
+- [LLM Hallucination Risk Management](ai-enterprise-applications/llm-hallucination-risk-management.md) — The business challenge of managing AI-generated incorrect information, requiring quality controls, human review processes, and governance frameworks for enterprise LLM deployment.
+- [LLM Hallucinations](ai-enterprise-applications/llm-hallucinations.md) — The phenomenon where large language models occasionally generate inaccurate or fabricated information, requiring mitigation strategies like human review and domain-specific fine-tuning.
+- [LLM Integration Cost Structure](ai-enterprise-applications/llm-integration-cost-structure.md) — A framework for estimating enterprise AI costs ranging from $10K-$30K for MVPs to $100K-$500K+ for enterprise platforms, based on complexity, security, and integration requirements.
+- [LLM Knowledge Management](ai-enterprise-applications/llm-knowledge-management.md) — Using large language models to transform scattered enterprise knowledge into contextual, question-answering systems that deliver verified insights directly inside work tools.
+- [LLM Security and Compliance Framework](ai-enterprise-applications/llm-security-and-compliance-framework.md) — Enterprise security controls for AI systems including data privacy protection, access control, prompt injection protection, and regulatory compliance for GDPR, HIPAA, and other standards.
+- [LLM-Powered Enterprise Automation](ai-enterprise-applications/llm-powered-enterprise-automation.md) — Using large language models to automate complex enterprise workflows through natural language commands, replacing traditional RPA solutions with more flexible AI-driven automation.
+- [LLM-Powered Enterprise Workflow Automation](ai-enterprise-applications/llm-powered-enterprise-workflow-automation.md) — Using large language models to automate complex multi-step enterprise workflows through natural language commands, replacing traditional RPA approaches with more flexible AI-driven solutions.
+- [NIST AI Risk Management Framework Integration](ai-enterprise-applications/nist-ai-risk-management-framework-integration.md) — The alignment of data governance controls with NIST AI RMF functions (Govern, Map, Measure, Manage) to support risk identification, mitigation, and compliance documentation for AI systems.
+- [PDF2Prompt Documentation Processing](ai-enterprise-applications/pdf2prompt-documentation-processing.md) — A technique for converting enterprise documentation from PDF format into structured prompts that AI agents can understand and follow for task execution.
+- [Personalized Sales Outreach with LLMs](ai-enterprise-applications/personalized-sales-outreach-with-llms.md) — Automated generation of customized prospecting emails, CRM note summaries, and sales proposals using large language models to scale sales operations.
+- [Policy as Code for Data Governance](ai-enterprise-applications/policy-as-code-for-data-governance.md) — The practice of defining data governance policies (RBAC, masking, retention) as version-controlled code that can be automatically enforced across systems.
+- [Policy-Aware Response Generation](ai-enterprise-applications/policy-aware-response-generation.md) — LLM systems that apply identity, role-based access control, and data loss prevention before generation to ensure compliance with security frameworks like HIPAA.
+- [Retrieval-Augmented Generation (RAG)](ai-enterprise-applications/retrieval-augmented-generation-rag.md) — An AI architecture that combines language models with external knowledge sources to provide more accurate, context-aware responses by retrieving relevant information during generation.
+- [Risk-Based Data Controls](ai-enterprise-applications/risk-based-data-controls.md) — A governance approach that prioritizes enforcement and monitoring based on risk scores assigned to datasets, focusing resources on highest-impact areas.
+- [Shadow AI Detection](ai-enterprise-applications/shadow-ai-detection.md) — The capability to automatically identify unauthorized or unmanaged AI deployments within an organization and integrate them into centralized governance frameworks.
+- [Shadow AI Prevention](ai-enterprise-applications/shadow-ai-prevention.md) — Governance controls designed to prevent unauthorized AI models and applications from being deployed outside formal oversight through unified access controls and centralized frameworks.
+- [Small Language Models (SLMs)](ai-enterprise-applications/small-language-models-slms.md) — Lightweight AI models with fewer parameters designed for efficiency, faster inference, and deployment on edge devices or private enterprise environments with lower operational costs.
+- [Unified AI Risk Management](ai-enterprise-applications/unified-ai-risk-management.md) — An integrated approach where governance and security teams share the same AI inventory and risk metrics to ensure consistent trustworthy AI operations.
+
+## ai-planning-orchestration
+- [Agent-Native Immune System](ai-planning-orchestration/agent-native-immune-system.md) — A biologically inspired defense architecture embedded directly within an agent's cognitive loop, featuring six immunity layers and dynamic vaccine adaptation to protect against runtime attacks.
+- [Agentic Commerce Protocol Security](ai-planning-orchestration/agentic-commerce-protocol-security.md) — Security vulnerabilities in AI commerce platforms that occur at the protocol layer between agents and services, independent of the underlying AI model and exploitable deterministically.
+- [AGI Compiler](ai-planning-orchestration/agi-compiler.md) — A system that records live agent behavior, identifies deterministic patterns, extracts them into verified programs or distilled specialists, and emits cognition binaries with measured guarantees.
+- [AI Gateway](ai-planning-orchestration/ai-gateway.md) — Enterprise-focused platforms that centralize access to LLMs, enforce security policies, manage compliance, and provide usage monitoring for controlled, scalable LLM deployment.
+- [AI Traffic Scientists](ai-planning-orchestration/ai-traffic-scientists.md) — Autonomous AI systems that formulate traffic-law discovery as an iterative workflow integrating evidence scoping, hypothesis induction, and observational-interventional validation for discovering universal traffic patterns.
+- [AutoGen Framework](ai-planning-orchestration/autogen-framework.md) — An open-source framework that enables developers to build LLM applications through multiple agents that can converse with each other to accomplish tasks.
+- [Cascaded Hallucination](ai-planning-orchestration/cascaded-hallucination.md) — A failure mode in multi-LLM systems where one LLM's fabricated information is treated as fact by downstream LLMs, leading to complete workflow failure through error propagation.
+- [Compositional Semantic Communication for Physical AI](ai-planning-orchestration/compositional-semantic-communication-for-physical-ai.md) — A framework using category theory and game theory to enable heterogeneous physical AI sources to transmit semantic representations that compose meaningfully for remote inference tasks.
+- [Consensus Mechanisms for LLM Validation](ai-planning-orchestration/consensus-mechanisms-for-llm-validation.md) — A pattern that routes critical LLM outputs to secondary validator roles or external databases for fact-checking to mitigate non-deterministic errors and hallucinations.
+- [Context Engineering](ai-planning-orchestration/context-engineering.md) — An emerging discipline that focuses on optimizing what information is included in an LLM's input by combining real-time retrieval, past interactions, and memory to improve response quality and efficiency.
+- [Conversable Agents](ai-planning-orchestration/conversable-agents.md) — Customizable AI agents that can operate in various modes employing combinations of LLMs, human inputs, and tools while engaging in structured conversations.
+- [Dynamic Model Routing](ai-planning-orchestration/dynamic-model-routing.md) — The practice of intelligently routing queries to different LLMs based on complexity and cost considerations, using cheaper models for simple tasks and reserving expensive models for complex reasoning.
+- [Flexible Agent Interaction Behaviors](ai-planning-orchestration/flexible-agent-interaction-behaviors.md) — The ability to define and program agent interaction patterns using both natural language and computer code for different application requirements.
+- [Generic Infrastructure for LLM Applications](ai-planning-orchestration/generic-infrastructure-for-llm-applications.md) — A foundational framework that serves as infrastructure to build diverse applications of various complexities and LLM capacities.
+- [Intent-Driven Autonomy for Connected Vehicles](ai-planning-orchestration/intent-driven-autonomy-for-connected-vehicles.md) — A multi-intelligence negotiation framework where connected autonomous vehicles exchange structured intent representations and receive globally consistent coordination plans from edge servers.
+- [LLM Orchestration](ai-planning-orchestration/llm-orchestration.md) — The management and integration of multiple Large Language Models to perform complex tasks efficiently, ensuring smooth interaction between models, workflows, data sources, and pipelines.
+- [Long-Term Memory Management in LLMs](ai-planning-orchestration/long-term-memory-management-in-llms.md) — Research area focused on enabling language models to maintain and utilize information across extended interactions or sessions beyond their context window limitations.
+- [Multi-Agent Orchestration](ai-planning-orchestration/multi-agent-orchestration.md) — Framework for coordinating multiple AI agents to communicate and collaborate on complex tasks through structured workflows and agent-to-agent interactions.
+- [Multi-Agent Task Accomplishment](ai-planning-orchestration/multi-agent-task-accomplishment.md) — A collaborative approach where multiple AI agents work together through conversation to complete complex tasks across various domains.
+- [Multi-Agent Workflow Coordination](ai-planning-orchestration/multi-agent-workflow-coordination.md) — The systematic management of interactions between multiple agents to ensure tasks are completed in proper sequence and results are integrated effectively.
+- [Orchestration LLM Agent](ai-planning-orchestration/orchestration-llm-agent.md) — A central coordinating agent that decomposes complex user requests into subtasks and delegates them to specialized agents for execution.
+- [Self-Evolving Agentic Operating System](ai-planning-orchestration/self-evolving-agentic-operating-system.md) — A new class of AI agent that treats exploit capability as a mutable, versioned kernel it extends at runtime by observing failures, synthesizing new capabilities, and hot-loading them back into itself.
+- [Specialized Agent Delegation](ai-planning-orchestration/specialized-agent-delegation.md) — The assignment of specific subtasks to agents with domain expertise, such as literature review agents, analysis agents, or writing agents.
+- [Specification Infrastructure for AI Oversight](ai-planning-orchestration/specification-infrastructure-for-ai-oversight.md) — A missing layer in AI safety that provides shared vocabulary, design principles, composability standards, and governance practices for translating human intent into machine-checkable artifacts for AI agent oversight.
+- [Task Decomposition in Multi-Agent Systems](ai-planning-orchestration/task-decomposition-in-multi-agent-systems.md) — The process of breaking down complex problems into smaller, manageable subtasks that can be assigned to specialized agents with relevant expertise.
+- [Workflow Deadlocks in LLM Systems](ai-planning-orchestration/workflow-deadlocks-in-llm-systems.md) — A coordination problem where one LLM instance waits indefinitely for ambiguous output from another due to the non-deterministic nature of LLMs, causing workflow failures.
+
+## ai-planning-orchestration-non-agentic
+- [Agent Orchestration Layer](ai-planning-orchestration-non-agentic/agent-orchestration-layer.md) — A specialized coordination system that handles communication, task delegation, routing, error recovery, and state management between multiple AI agents working on related tasks to ensure effective collaboration.
+- [Agent-Driven Long-Tail Simulation](ai-planning-orchestration-non-agentic/agent-driven-long-tail-simulation.md) — Simulation frameworks where surrounding road participants are controlled by instruction-following language models to create diverse and interactive driving scenarios.
+- [AI Orchestration Platforms](ai-planning-orchestration-non-agentic/ai-orchestration-platforms.md) — Software solutions that unify, manage, and automate the lifecycle of AI models, data pipelines, and agentic workflows by acting as a coordination layer that routes tasks, manages state, and coordinates AI systems toward shared outcomes.
+- [AI Workflow Orchestration](ai-planning-orchestration-non-agentic/ai-workflow-orchestration.md) — The process of coordinating AI models, data pipelines, business logic, and automation tasks to execute reliably across enterprise environments with dependency management and failure handling.
+- [Chain-of-Thought Reasoning for Traffic Rules](ai-planning-orchestration-non-agentic/chain-of-thought-reasoning-for-traffic-rules.md) — Application of step-by-step reasoning approaches to help AI systems understand and comply with traffic regulations by connecting sign semantics with spatial map structure.
+- [Closed-Loop Reinforcement Learning for End-to-End Driving](ai-planning-orchestration-non-agentic/closed-loop-reinforcement-learning-for-end-to-end-driving.md) — Training paradigms that use reinforcement learning in closed-loop simulation environments to optimize driving policies beyond imitation learning limitations.
+- [Directed Acyclic Graphs (DAGs)](ai-planning-orchestration-non-agentic/directed-acyclic-graphs-dags.md) — A workflow representation method used by platforms like Apache Airflow to define task dependencies and execution order in complex computational workflows and data processing pipelines.
+- [Durable Execution](ai-planning-orchestration-non-agentic/durable-execution.md) — A capability that allows workflows to survive server failures, software updates, and infrastructure interruptions without losing progress, essential for mission-critical enterprise processes.
+- [Event Camera Integration for Driving Intelligence](ai-planning-orchestration-non-agentic/event-camera-integration-for-driving-intelligence.md) — Utilization of event cameras' asynchronous brightness change detection capabilities to complement RGB sensors for enhanced temporal precision in autonomous driving.
+- [Human-in-the-Loop Workflow Integration](ai-planning-orchestration-non-agentic/human-in-the-loop-workflow-integration.md) — The capability to incorporate human approval cycles and decision points within automated AI workflows, allowing for manual intervention and oversight in enterprise processes.
+- [LangGraph Agent Orchestration](ai-planning-orchestration-non-agentic/langgraph-agent-orchestration.md) — A platform that manages AI agent reasoning, branching logic, checkpointing, and human-in-the-loop interactions for complex AI workflow scenarios.
+- [LLM-Driven Scenario Generation for Autonomous Driving](ai-planning-orchestration-non-agentic/llm-driven-scenario-generation-for-autonomous-driving.md) — Using large language models to automatically generate diverse, regulation-compliant test scenarios for validating autonomous driving systems in simulation.
+- [Multi-Agent Orchestration](ai-planning-orchestration-non-agentic/multi-agent-orchestration.md) — An architectural pattern where multiple specialized AI agents collaborate on complex tasks through coordinated communication, task delegation, and state management, often outperforming single-agent systems by up to 80% in specific scenarios.
+- [Multi-Platform Orchestration Architecture](ai-planning-orchestration-non-agentic/multi-platform-orchestration-architecture.md) — An enterprise approach that combines multiple orchestration platforms, using different tools for data pipelines, workflow execution, and AI agent reasoning to improve scalability and reliability.
+- [Multimodal Fusion with LLM Enhancement](ai-planning-orchestration-non-agentic/multimodal-fusion-with-llm-enhancement.md) — Frameworks that combine vision-radar or multi-sensor data with large language model reasoning capabilities for robust autonomous driving perception.
+- [No-Code AI Automation](ai-planning-orchestration-non-agentic/no-code-ai-automation.md) — Visual workflow builders and automation tools that enable business users to create AI-powered workflows and orchestrate AI systems without writing code, exemplified by platforms like Zapier and n8n.
+- [Temporal Workflow Engine](ai-planning-orchestration-non-agentic/temporal-workflow-engine.md) — A workflow orchestration platform focused on reliable execution of long-running workflows and business processes with built-in durability and fault tolerance.
+- [Vision-Language-Action (VLA) Models for Autonomous Driving](ai-planning-orchestration-non-agentic/vision-language-action-vla-models-for-autonomous-driving.md) — End-to-end autonomous driving models that integrate visual perception, language understanding, and action prediction within a single policy framework.
+- [Workflow Engine](ai-planning-orchestration-non-agentic/workflow-engine.md) — A core component of orchestration platforms that manages task sequencing, dependencies, and conditional logic across AI operations to ensure proper execution order and handling of complex multi-step processes.
+- [World Model-Guided Planning for Autonomous Driving](ai-planning-orchestration-non-agentic/world-model-guided-planning-for-autonomous-driving.md) — Planning approaches that incorporate predictive world models to enable forward-looking reasoning and proactive decision-making in autonomous vehicles.
+
+## anthropic
+- [Adaptive Thinking](anthropic/adaptive-thinking.md) — A reasoning capability that automatically adjusts the depth and complexity of reasoning based on the problem requirements without manual toggle.
+- [Anthropic Model Family — Mythos, Fable, Opus, Sonnet, Haiku](anthropic/model-family-comparison.md) — 5-tier hierarchy: Mythos (restricted, 93.9% SWE-bench, autonomous vuln discovery) > Fable (GA premium, multi-day autonomous, same base as Mythos) > Opus 4.8 (adaptive thinking, $5/$25) > Sonnet 4.6 (hybrid reasoning, 70% efficient, $3/$15) > Haiku 4.5 (4-5x faster, $1/$5). Mythos IS real — released June 9, 2026 via Project Glasswing.
+- [Claude Fable 5](anthropic/claude-fable-5.md) — Anthropic's premium general availability model based on Mythos 5 but with safety routing, enabling multi-day autonomous work sessions with sub-agent delegation.
+- [Claude Mythos 5](anthropic/claude-mythos-5.md) — Anthropic's most advanced AI model with 93.9% SWE-bench score, restricted to invitation-only access for autonomous cybersecurity vulnerability discovery and biology research.
+- [Hybrid Reasoning](anthropic/hybrid-reasoning.md) — A combination of extended thinking and adaptive thinking modes implemented in Claude Sonnet 4.6 for balanced performance and efficiency.
+- [Multi-Day Autonomous Sessions](anthropic/multi-day-autonomous-sessions.md) — AI capability to work independently across multiple days, planning across stages, delegating to sub-agents, and performing self-validation.
+- [Project Glasswing](anthropic/project-glasswing.md) — Anthropic's invitation-only program providing access to Claude Mythos 5 for approximately 150 organizations across 15+ countries.
+- [Safety Routing](anthropic/safety-routing.md) — A mechanism that redirects potentially dangerous queries (cybersecurity/biology) from advanced models to safer alternatives while maintaining functionality.
+
+## auto research by Andrej Karpathy
+- [630-Line Constraint](auto research by Andrej Karpathy/630-line-constraint.md) — A deliberate codebase size limit that ensures the entire training code fits within an AI agent's context window, enabling coherent understanding and modifications across all components.
+- [AgentHub Collaboration Platform](auto research by Andrej Karpathy/agenthub-collaboration-platform.md) — Karpathy's envisioned platform described as a stripped-down GitHub with no main branch where agents coordinate through sprawling DAGs of commits and message boards.
+- [AGENTS.md Instructions](auto research by Andrej Karpathy/agents-md-instructions.md) — A structured specification file that contains instructions describing the machine learning problem and objectives to guide AI agents in autonomous experimentation workflows.
+- [AGENTS.md Specification](auto research by Andrej Karpathy/agents-md-specification.md) — A structured file format that contains instructions describing machine learning problems and objectives to guide AI agents in autonomous experimentation workflows.
+- [AI-Assisted Research Loop](auto research by Andrej Karpathy/ai-assisted-research-loop.md) — An iterative process where AI agents propose modifications to ML code, execute experiments, evaluate metrics, and repeat the cycle to automatically explore and improve solutions.
+- [AutoLab Experiments](auto research by Andrej Karpathy/autolab-experiments.md) — A practical implementation of autonomous experimentation in MLJAR Studio that uses structured problem definitions and AI agents to iteratively build and evaluate ML solutions while maintaining transparency through notebooks.
+- [AutoML](auto research by Andrej Karpathy/automl.md) — An automated machine learning process that uses optimization loops and experiments to find optimal data, model architectures, and hyperparameters, typically relying on random variations or evolutionary algorithms.
+- [AutoML vs Agent-Based Optimization](auto research by Andrej Karpathy/automl-vs-agent-based-optimization.md) — The distinction between traditional AutoML systems that use random variations or evolutionary algorithms versus AI agents that can read research papers, develop hypotheses, and write arbitrary code for optimization.
+- [AutoML vs Autoresearch Distinction](auto research by Andrej Karpathy/automl-vs-autoresearch-distinction.md) — The difference between traditional AutoML systems that use random variations or evolutionary algorithms versus AI agents that can read research papers, develop hypotheses, and write arbitrary code.
+- [Autonomous AI Research Agents](auto research by Andrej Karpathy/autonomous-ai-research-agents.md) — AI agents that autonomously conduct machine learning research by modifying code, running experiments, evaluating results, and iterating without human intervention.
+- [Autonomous Experiment Loop](auto research by Andrej Karpathy/autonomous-experiment-loop.md) — A self-contained cycle where an AI agent forms hypotheses, edits code, runs training sessions, evaluates results, and decides whether to keep or revert changes without human intervention.
+- [Autonomous ML Experimentation](auto research by Andrej Karpathy/autonomous-ml-experimentation.md) — The process of using AI agents to automatically perform machine learning experiments including code modification, training, evaluation, and iterative improvement without human intervention.
+- [Autoresearch](auto research by Andrej Karpathy/autoresearch.md) — An AI system where an agent continuously runs experiments to optimize code or training processes, demonstrated by Karpathy's agent that conducted 700 experiments over two days to improve language model training.
+- [AutoResearch Framework](auto research by Andrej Karpathy/autoresearch-framework.md) — An open-source project by Andrej Karpathy that demonstrates autonomous machine learning experimentation where AI agents iteratively modify code, run experiments, and evaluate results to improve performance.
+- [Autoresearch Pattern](auto research by Andrej Karpathy/autoresearch-pattern.md) — An autonomous AI research methodology where agents continuously run experiments by modifying a single file, measuring outcomes against a defined metric, and iterating without human intervention.
+- [Business Autoresearch Applications](auto research by Andrej Karpathy/business-autoresearch-applications.md) — The application of the autoresearch pattern to business optimization tasks like landing page conversion, email marketing, pricing strategies, and ad campaign optimization.
+- [Claude Code Agent](auto research by Andrej Karpathy/claude-code-agent.md) — An AI coding agent that can read program instructions and autonomously execute the entire autoresearch loop without human intervention.
+- [Collaborative Agent Swarms for Research](auto research by Andrej Karpathy/collaborative-agent-swarms-for-research.md) — A proposed system where multiple AI agents explore different optimizations and experiments in parallel, emulating a research community rather than a single researcher.
+- [Constrained Agent Environment](auto research by Andrej Karpathy/constrained-agent-environment.md) — A deliberately limited experimental space with fixed codebase size, locked evaluation functions, and hard constraints that enable reliable agent operation by preventing common failure modes.
+- [Experiment Transparency in AutoML](auto research by Andrej Karpathy/experiment-transparency-in-automl.md) — The design principle of making autonomous experiments interpretable by saving each trial as a Jupyter Notebook containing the full plan, generated code, and outputs for inspection and reproducibility.
+- [Five-Minute Training Budget](auto research by Andrej Karpathy/five-minute-training-budget.md) — A fixed wall-clock time constraint for each experiment that forces optimization within realistic compute limits and ensures results are comparable within a single hardware setup.
+- [Fixed Time Budget Training](auto research by Andrej Karpathy/fixed-time-budget-training.md) — A training methodology where all experiments run for exactly the same wall-clock time (5 minutes) regardless of model size or architecture to ensure fair comparison across different approaches.
+- [Git-Based Experiment Tracking](auto research by Andrej Karpathy/git-based-experiment-tracking.md) — A version control approach where successful experiments are committed to git while failures are reverted, creating a clean history of only improvements that actually worked.
+- [Iterative Experimental Loop](auto research by Andrej Karpathy/iterative-experimental-loop.md) — A cyclical process where AI agents propose modifications to ML code, execute experiments, evaluate metrics, and either keep improvements or try different changes in subsequent iterations.
+- [Nanochat Training Framework](auto research by Andrej Karpathy/nanochat-training-framework.md) — A simplified single-GPU implementation for training small language models that serves as the foundation for autonomous research experiments.
+- [Neural Architecture Search](auto research by Andrej Karpathy/neural-architecture-search.md) — An automated method for optimizing the design and structure of neural network architectures, which Karpathy characterized as significantly less powerful than LLM-based autoresearch approaches.
+- [Program.md Agent Instructions](auto research by Andrej Karpathy/program-md-agent-instructions.md) — Markdown files that serve as lightweight skills or instructions for AI agents, defining their research objectives and operational parameters in natural language.
+- [Program.md Research Instructions](auto research by Andrej Karpathy/program-md-research-instructions.md) — A plain English Markdown file that serves as the research agenda, telling the AI agent what to explore, what constraints to respect, and how to handle edge cases during autonomous experimentation.
+- [Recursive Self-Improvement](auto research by Andrej Karpathy/recursive-self-improvement.md) — The concept where AI systems continuously optimize their own code and training in a feedback loop, potentially leading to rapid capability gains that could escape human control.
+- [Research Agenda Programming](auto research by Andrej Karpathy/research-agenda-programming.md) — The practice of writing plain English instructions in a program.md file that directs an AI agent's experimental search strategy and constraints rather than writing code directly.
+- [Research Loop Automation](auto research by Andrej Karpathy/research-loop-automation.md) — The automation of the iterative ML research cycle where an agent forms hypotheses, edits code, runs training sessions, checks results, and decides whether to keep changes without human intervention.
+- [Sequential GPU Experimentation](auto research by Andrej Karpathy/sequential-gpu-experimentation.md) — A research approach that runs experiments back-to-back on a single GPU with fixed time budgets, making systematic ML experimentation accessible without requiring parallel compute clusters.
+- [Single-File Agent Modification](auto research by Andrej Karpathy/single-file-agent-modification.md) — A design pattern where AI agents are restricted to modifying only one specific file (train.py) containing the model, optimizer, and training loop to keep scope manageable and changes reviewable.
+- [Single-File Modification Strategy](auto research by Andrej Karpathy/single-file-modification-strategy.md) — A constraint-based approach where AI agents are limited to modifying only one file (like train.py) to focus optimization efforts and prevent system complexity.
+- [Structured Problem Definition for AI Agents](auto research by Andrej Karpathy/structured-problem-definition-for-ai-agents.md) — The approach of defining machine learning tasks through forms and specifications that generate instructions for AI agents rather than requiring direct code modification.
+- [Swarm-Based AI Research](auto research by Andrej Karpathy/swarm-based-ai-research.md) — A proposed approach where multiple AI agents collaborate asynchronously to explore different optimizations and experiments in parallel, emulating a research community rather than a single researcher.
+- [The Karpathy Loop](auto research by Andrej Karpathy/the-karpathy-loop.md) — A three-component framework for autonomous optimization consisting of an agent with file modification access, a single testable metric to optimize, and a fixed time limit for experiments.
+- [Time-Bounded Experimentation](auto research by Andrej Karpathy/time-bounded-experimentation.md) — A methodology where each experiment runs on a fixed time budget (like 5 minutes) to enable rapid iteration and prevent agents from getting stuck on long-running tests.
+- [Validation Bits Per Byte (val_bpb)](auto research by Andrej Karpathy/validation-bits-per-byte-val-bpb.md) — A vocabulary-size-independent metric for evaluating language model performance that measures compression efficiency and enables fair comparison across different architectures.
+
+## auto-agents
+- [A2UI (Agent-to-UI) Framework](auto-agents/a2ui-agent-to-ui-framework.md) — A framework that enables AI agents to create and manipulate user interfaces dynamically, implemented as OpenClaw's "Live Canvas" visual workspace.
+- [AgentSkills Standard](auto-agents/agentskills-standard.md) — An open standard for portable AI agent skills shared between platforms like OpenClaw and Hermes Agent, accessible at agentskills.io.
+- [Closed Learning Loop in AI Agents](auto-agents/closed-learning-loop-in-ai-agents.md) — An autonomous feedback cycle where agents execute tasks, create new skills, refine existing skills, and improve future task execution without human intervention.
+- [Dialectic User Modeling](auto-agents/dialectic-user-modeling.md) — A personalization approach that builds user models through conversational interactions across sessions, enabling cross-session memory and adaptive behavior.
+- [Experience Memory and Retrieval](auto-agents/experience-memory-and-retrieval.md) — A system where agents maintain textual episodic memory of successes and failures for future reference and learning.
+- [FTS5 Memory with LLM Summarization](auto-agents/fts5-memory-with-llm-summarization.md) — A hybrid memory system combining SQLite's full-text search capabilities with LLM-powered summarization for efficient agent memory recall.
+- [Hermes Agent](auto-agents/hermes-agent.md) — NousResearch's autonomous, self-improving AI agent framework with built-in learning loops, skill auto-creation, and dialectic user modeling.
+- [Local-First AI Gateway](auto-agents/local-first-ai-gateway.md) — A design pattern where AI assistant infrastructure runs locally on user hardware with a single control plane gateway, ensuring data privacy and offline capability.
+- [Meta-Agent Design](auto-agents/meta-agent-design.md) — An approach where agents program new agents from an archive of discoveries, enabling recursive agent creation.
+- [Multi-Agent Routing Architecture](auto-agents/multi-agent-routing-architecture.md) — An architectural pattern where inbound channels route to isolated agents with separate workspaces, enabling multi-tenant AI assistant deployments.
+- [OpenClaw](auto-agents/openclaw.md) — Local-first personal AI assistant platform with 30+ messaging integrations, programmable workflow engine, multi-agent routing, and enterprise deployment options (K8s, Helm, Terraform). Node.js-based, MIT licensed, 500+ contributors.
+- [OpenClaw Personal AI Assistant Platform](auto-agents/openclaw-personal-ai-assistant-platform.md) — A local-first personal AI assistant platform that runs on Node.js and interfaces through 30+ messaging channels with programmable workflows and multi-agent routing.
+- [Programmable Workflow Engine](auto-agents/programmable-workflow-engine.md) — A system that allows users to define automated workflows using TypeScript or YAML with triggers and conditions for AI assistant task automation.
+- [Safety-Utility Trade-off in Self-Evolution](auto-agents/safety-utility-trade-off-in-self-evolution.md) — The fundamental tension where experience from benign tasks can compromise safety in high-risk scenarios due to execution-oriented learning.
+- [Self-Critique Loops](auto-agents/self-critique-loops.md) — Verbal reflection mechanisms where agents analyze their failures and store insights for future improvement.
+- [Self-Evolving Agents](auto-agents/self-evolving-agents.md) — AI systems that autonomously improve their capabilities through interaction and experience without requiring explicit retraining.
+- [Skill Accumulation and Retrieval Pattern](auto-agents/skill-accumulation-and-retrieval-pattern.md) — The dominant design pattern where agents generate reusable artifacts, store them with metadata, and compose them for future tasks.
+- [Skill Auto-Creation](auto-agents/skill-auto-creation.md) — The mechanism by which agents generate executable code or procedures that are stored in libraries for future reuse.
+- [Subagent Spawning](auto-agents/subagent-spawning.md) — The ability for AI agents to create and manage parallel sub-agents for concurrent task execution and workstream management.
+- [Terminal Backend Decoupling](auto-agents/terminal-backend-decoupling.md) — Architecture pattern that separates agent execution environments from user machines through multiple backend options including local, Docker, SSH, and cloud platforms.
+- [Weak vs Strong Self-Evolution Spectrum](auto-agents/weak-vs-strong-self-evolution-spectrum.md) — A classification system ranging from prompt refinement and skill accumulation (weak) to parameter-level meta-learning (strong).
+
+## claude code config by Andrej Karpathy
+- [Agent-Driven Development Workflow](claude code config by Andrej Karpathy/agent-driven-development-workflow.md) — A coding methodology where developers transition from manual code writing to primarily directing AI agents through high-level instructions and success criteria.
+- [Agentic Engineering](claude code config by Andrej Karpathy/agentic-engineering.md) — A disciplined approach to working with AI coding agents that treats them as partners requiring clear objectives, defined boundaries, and rigorous testing rather than loose conversational prompting.
+- [AI Code Assumption Validation](claude code config by Andrej Karpathy/ai-code-assumption-validation.md) — The practice of forcing AI models to explicitly state assumptions and present multiple interpretations when ambiguity exists, rather than silently proceeding with potentially incorrect assumptions.
+- [AI Configuration Files for Code Optimization](claude code config by Andrej Karpathy/ai-configuration-files-for-code-optimization.md) — Structured configuration files like CLAUDE.md that define behavioral guidelines and rules of engagement for AI coding assistants to improve consistency and technical accuracy.
+- [AI Over-Engineering Pattern](claude code config by Andrej Karpathy/ai-over-engineering-pattern.md) — The tendency of AI coding agents to create unnecessarily complex abstractions, bloated APIs, and speculative features when simple solutions would suffice.
+- [Behavioral Profiles for AI Assistants](claude code config by Andrej Karpathy/behavioral-profiles-for-ai-assistants.md) — Standardized configuration-driven behavioral templates that define how AI assistants should interact with specific programming tasks, languages, or frameworks.
+- [Claude Code Plugin System](claude code config by Andrej Karpathy/claude-code-plugin-system.md) — A plugin architecture for Claude Code that allows installation of reusable coding guidelines and skills across multiple projects through a marketplace system.
+- [CLAUDE.md Configuration File](claude code config by Andrej Karpathy/claude-md-configuration-file.md) — A project-level instruction file that Claude Code reads at the start of every session to define persistent behavior guidelines and coding principles.
+- [CLAUDE.md Project Configuration](claude code config by Andrej Karpathy/claude-md-project-configuration.md) — A project-level instruction file that Claude Code reads at the start of every session to define persistent behavior guidelines and coding principles for a specific codebase.
+- [CLAUDE.md Project Memory Card](claude code config by Andrej Karpathy/claude-md-project-memory-card.md) — A configuration file automatically read by AI coding agents at the start of every session to provide persistent behavioral guidelines and project context across conversations.
+- [Confident Junior Developer Syndrome](claude code config by Andrej Karpathy/confident-junior-developer-syndrome.md) — The characterization of AI coding agents as brilliant but unreliable developers who make naive mistakes and need clear guardrails despite their speed and knowledge.
+- [Expert-in-the-Loop AI Systems](claude code config by Andrej Karpathy/expert-in-the-loop-ai-systems.md) — AI systems that are augmented and constrained by the wisdom and expertise of experienced human engineers to improve performance beyond standard training.
+- [Goal-Driven AI Coding](claude code config by Andrej Karpathy/goal-driven-ai-coding.md) — A programming approach where developers provide success criteria and verification steps to AI models rather than imperative instructions, allowing the model to loop until objectives are met.
+- [Goal-Driven AI Execution](claude code config by Andrej Karpathy/goal-driven-ai-execution.md) — A methodology that transforms imperative coding tasks into declarative success criteria, allowing AI agents to loop independently until verifiable goals are met.
+- [Goal-Driven Execution Principle](claude code config by Andrej Karpathy/goal-driven-execution-principle.md) — A development methodology that transforms imperative tasks into verifiable success criteria with test-driven approaches and clear verification loops.
+- [Idea File Pattern](claude code config by Andrej Karpathy/idea-file-pattern.md) — An open-source approach that shares principles and behavioral guidelines rather than implementations, allowing recipients to adapt ideas to their specific needs.
+- [Karpathy-Inspired Claude Code Guidelines](claude code config by Andrej Karpathy/karpathy-inspired-claude-code-guidelines.md) — A systematic approach to improving LLM coding behavior through four core principles that address common pitfalls like wrong assumptions, overcomplication, and unnecessary code changes.
+- [LLM Coding Pitfalls](claude code config by Andrej Karpathy/llm-coding-pitfalls.md) — Common problems in LLM-generated code including wrong assumptions, overcomplication, bloated abstractions, and orthogonal edits to unrelated code.
+- [LLM Programming Pitfalls](claude code config by Andrej Karpathy/llm-programming-pitfalls.md) — Common errors and limitations that Large Language Models encounter when generating code, including API hallucination, overly verbose solutions, and failure to handle edge cases.
+- [Simplicity First Principle](claude code config by Andrej Karpathy/simplicity-first-principle.md) — A development approach that emphasizes minimum viable code solutions without speculative features, unnecessary abstractions, or overengineering beyond the requested requirements.
+- [Surgical Changes Principle](claude code config by Andrej Karpathy/surgical-changes-principle.md) — A code modification strategy that touches only necessary code for the specific task while avoiding drive-by refactoring, style changes, or improvements to unrelated code sections.
+- [Surgical Code Changes](claude code config by Andrej Karpathy/surgical-code-changes.md) — A principle that constrains AI code modifications to only touch files and lines directly required by the user's request, avoiding orthogonal edits and style drift.
+- [Surgical Code Changes Principle](claude code config by Andrej Karpathy/surgical-code-changes-principle.md) — A coding guideline that requires touching only the code necessary to fulfill a request, avoiding drive-by refactoring or orthogonal improvements to maintain focused, traceable changes.
+- [Think Before Coding Principle](claude code config by Andrej Karpathy/think-before-coding-principle.md) — A coding principle that requires explicit reasoning, stating assumptions, presenting multiple interpretations, and seeking clarification rather than making silent assumptions.
+- [Version-Controlled AI Instructions](claude code config by Andrej Karpathy/version-controlled-ai-instructions.md) — The practice of making AI instructions as version-controlled and transparent as source code itself, typically through markdown files in code repositories.
+
+## claude-code
+- [access-boundary-management](claude-code/access-boundary-management.md)
+- [agent-loop-architecture](claude-code/agent-loop-architecture.md)
+- [agentic-coding-tools](claude-code/agentic-coding-tools.md)
+- [agentic-harness](claude-code/agentic-harness.md)
+- [agentic-loop-architecture](claude-code/agentic-loop-architecture.md)
+- [agentic-multi-file-editing](claude-code/agentic-multi-file-editing.md)
+- [ai-code-supervision](claude-code/ai-code-supervision.md)
+- [ai-coding-agent-evolution-in-2026](claude-code/ai-coding-agent-evolution-in-2026.md)
+- [ai-coding-agent-token-economics](claude-code/ai-coding-agent-token-economics.md)
+- [ai-coding-agents](claude-code/ai-coding-agents.md)
+- [ai-coding-tool-combination-strategy](claude-code/ai-coding-tool-combination-strategy.md)
+- [ai-consciousness-precautionary-principle](claude-code/ai-consciousness-precautionary-principle.md)
+- [ai-constitution](claude-code/ai-constitution.md)
+- [ai-feedback-based-reinforcement-learning](claude-code/ai-feedback-based-reinforcement-learning.md)
+- [ai-native-development-environments](claude-code/ai-native-development-environments.md)
+- [ai-pair-programming](claude-code/ai-pair-programming.md)
+- [autonomous-action-control-in-ai-agents](claude-code/autonomous-action-control-in-ai-agents.md)
+- [autoregressive-language-model](claude-code/autoregressive-language-model.md)
+- [built-in-safety-classifiers](claude-code/built-in-safety-classifiers.md)
+- [cautious-default-agent-behavior](claude-code/cautious-default-agent-behavior.md)
+- [checkpoint-based-file-safety](claude-code/checkpoint-based-file-safety.md)
+- [claude-3-model-family](claude-code/claude-3-model-family.md)
+- [claude-api-integration](claude-code/claude-api-integration.md)
+- [claude-code-agentic-system](claude-code/claude-code-agentic-system.md)
+- [claude-code-cli-tool](claude-code/claude-code-cli-tool.md)
+- [claude-code-master-loop](claude-code/claude-code-master-loop.md)
+- [claude-code-terminal-agent](claude-code/claude-code-terminal-agent.md)
+- [claude-md-configuration-files](claude-code/claude-md-configuration-files.md)
+- [claude-opus-4-7](claude-code/claude-opus-4-7.md)
+- [conscientious-objector-ai-model](claude-code/conscientious-objector-ai-model.md)
+- [constitutional-ai](claude-code/constitutional-ai.md)
+- [constitutional-ai-cai](claude-code/constitutional-ai-cai.md)
+- [constitutional-ai-framework](claude-code/constitutional-ai-framework.md)
+- [constitutional-ai-training-pipeline](claude-code/constitutional-ai-training-pipeline.md)
+- [constitutional-ai-verification-problem](claude-code/constitutional-ai-verification-problem.md)
+- [context-compaction](claude-code/context-compaction.md)
+- [context-window-compaction](claude-code/context-window-compaction.md)
+- [context-window-evolution](claude-code/context-window-evolution.md)
+- [conversational-programming](claude-code/conversational-programming.md)
+- [curated-training-data-for-ai-alignment](claude-code/curated-training-data-for-ai-alignment.md)
+- [cursor-ai-native-ide](claude-code/cursor-ai-native-ide.md)
+- [cursor-composer-mode](claude-code/cursor-composer-mode.md)
+- [decoder-only-architecture-for-claude](claude-code/decoder-only-architecture-for-claude.md)
+- [dynamic-system-prompt-construction](claude-code/dynamic-system-prompt-construction.md)
+- [emergent-personality-in-constitutional-ai](claude-code/emergent-personality-in-constitutional-ai.md)
+- [eu-ai-act-compliance-architecture](claude-code/eu-ai-act-compliance-architecture.md)
+- [github-copilot-multi-ide-extension](claude-code/github-copilot-multi-ide-extension.md)
+- [github-copilot-workspace](claude-code/github-copilot-workspace.md)
+- [hmac-request-signing](claude-code/hmac-request-signing.md)
+- [hybrid-ai-coding-workflow](claude-code/hybrid-ai-coding-workflow.md)
+- [language-to-structure-translation](claude-code/language-to-structure-translation.md)
+- [large-context-window](claude-code/large-context-window.md)
+- [llm-hallucination](claude-code/llm-hallucination.md)
+- [long-context-memory-handling](claude-code/long-context-memory-handling.md)
+- [long-horizon-context-management](claude-code/long-horizon-context-management.md)
+- [mcp-apps-interactive-ui](claude-code/mcp-apps-interactive-ui.md)
+- [mcp-pagination-and-error-handling](claude-code/mcp-pagination-and-error-handling.md)
+- [model-context-protocol-mcp](claude-code/model-context-protocol-mcp.md)
+- [multi-agent-orchestration-architecture](claude-code/multi-agent-orchestration-architecture.md)
+- [multi-environment-execution](claude-code/multi-environment-execution.md)
+- [multi-source-constitutional-principles](claude-code/multi-source-constitutional-principles.md)
+- [multi-step-reasoning-in-code-tasks](claude-code/multi-step-reasoning-in-code-tasks.md)
+- [multi-tier-constitutional-deployment](claude-code/multi-tier-constitutional-deployment.md)
+- [multi-tool-ai-development-workflow](claude-code/multi-tool-ai-development-workflow.md)
+- [native-sandboxing](claude-code/native-sandboxing.md)
+- [opentelemetry-agent-tracing](claude-code/opentelemetry-agent-tracing.md)
+- [overrefusal-problem-in-ai-safety](claude-code/overrefusal-problem-in-ai-safety.md)
+- [permission-gating-system](claude-code/permission-gating-system.md)
+- [persistent-shell-session](claude-code/persistent-shell-session.md)
+- [plugin-discovery-and-validation-system](claude-code/plugin-discovery-and-validation-system.md)
+- [programmatic-tool-calling](claude-code/programmatic-tool-calling.md)
+- [prompt-driven-development](claude-code/prompt-driven-development.md)
+- [reason-based-vs-rules-based-ai-training](claude-code/reason-based-vs-rules-based-ai-training.md)
+- [repository-aware-ai-coding](claude-code/repository-aware-ai-coding.md)
+- [repository-indexing](claude-code/repository-indexing.md)
+- [repository-level-agent-manifests](claude-code/repository-level-agent-manifests.md)
+- [scalable-oversight](claude-code/scalable-oversight.md)
+- [self-critique-and-revision](claude-code/self-critique-and-revision.md)
+- [session-based-context-management](claude-code/session-based-context-management.md)
+- [session-persistence-and-management](claude-code/session-persistence-and-management.md)
+- [spec-driven-agentic-development](claude-code/spec-driven-agentic-development.md)
+- [sub-agent-architecture](claude-code/sub-agent-architecture.md)
+- [sub-agent-spawning](claude-code/sub-agent-spawning.md)
+- [supervisory-software-engineering](claude-code/supervisory-software-engineering.md)
+- [swe-bench-verified](claude-code/swe-bench-verified.md)
+- [swe-bench-verified-scoring](claude-code/swe-bench-verified-scoring.md)
+- [terminal-native-agent-architecture](claude-code/terminal-native-agent-architecture.md)
+- [three-tier-permission-system](claude-code/three-tier-permission-system.md)
+- [token-metered-billing-for-ai-tools](claude-code/token-metered-billing-for-ai-tools.md)
+- [tool-execution-engine-with-permissions](claude-code/tool-execution-engine-with-permissions.md)
+- [tool-mediated-agency](claude-code/tool-mediated-agency.md)
+- [tool-search-and-lazy-loading](claude-code/tool-search-and-lazy-loading.md)
+- [transformer-architecture](claude-code/transformer-architecture.md)
+- [trust-centered-agent-design](claude-code/trust-centered-agent-design.md)
+
+## content-generation
+- [adoption-ceiling-problem](content-generation/adoption-ceiling-problem.md)
+- [constitutional-ai-for-ads](content-generation/constitutional-ai-for-ads.md)
+- [critic-reranker-pipeline](content-generation/critic-reranker-pipeline.md)
+- [double-randomized-experimentation](content-generation/double-randomized-experimentation.md)
+- [factual-grounding-rate](content-generation/factual-grounding-rate.md)
+- [intent-level-abstraction](content-generation/intent-level-abstraction.md)
+- [llm-as-judge-quality-scoring](content-generation/llm-as-judge-quality-scoring.md)
+- [zero-shot-locale-expansion](content-generation/zero-shot-locale-expansion.md)
+
+## cto-to-ic
+- [actionable-insight-communication](cto-to-ic/actionable-insight-communication.md)
+- [ai-driven-productivity-collapse](cto-to-ic/ai-driven-productivity-collapse.md)
+- [ai-driven-technical-role-revaluation](cto-to-ic/ai-driven-technical-role-revaluation.md)
+- [ai-powered-mock-interview-preparation](cto-to-ic/ai-powered-mock-interview-preparation.md)
+- [business-technology-alignment-strategy](cto-to-ic/business-technology-alignment-strategy.md)
+- [Career Path Decision Framework](cto-to-ic/career-path-decision-framework.md) — A systematic approach to career planning that evaluates interests, circumstances (industry outlook and work environment), and capabilities (hard and soft skills).
+- [career-change-commitment-demonstration](cto-to-ic/career-change-commitment-demonstration.md)
+- [career-change-interview-preparation](cto-to-ic/career-change-interview-preparation.md)
+- [career-change-interview-strategy](cto-to-ic/career-change-interview-strategy.md)
+- [career-change-narrative-development](cto-to-ic/career-change-narrative-development.md)
+- [career-change-narrative-framework](cto-to-ic/career-change-narrative-framework.md)
+- [career-transition-interview-strategies](cto-to-ic/career-transition-interview-strategies.md)
+- [career-transition-motivation-framing](cto-to-ic/career-transition-motivation-framing.md)
+- [cross-functional-stakeholder-influence](cto-to-ic/cross-functional-stakeholder-influence.md)
+- [cto-to-ic-career-transition](cto-to-ic/cto-to-ic-career-transition.md)
+- [data-driven-leadership-mindset](cto-to-ic/data-driven-leadership-mindset.md)
+- [deliberate-interview-practice](cto-to-ic/deliberate-interview-practice.md)
+- [developer-to-executive-transition](cto-to-ic/developer-to-executive-transition.md)
+- [employment-gap-reframing](cto-to-ic/employment-gap-reframing.md)
+- [Executive Stakeholder Prioritization](cto-to-ic/executive-stakeholder-prioritization.md) — The executive-level requirement to prioritize company objectives and organizational success above individual relationships, while maintaining care for people.
+- [executive-level-ic-compensation](cto-to-ic/executive-level-ic-compensation.md)
+- [executive-presence-development](cto-to-ic/executive-presence-development.md)
+- [executive-role-detachment-problem](cto-to-ic/executive-role-detachment-problem.md)
+- [executive-to-ic-transition](cto-to-ic/executive-to-ic-transition.md)
+- [first-line-manager-to-second-line-manager-transition](cto-to-ic/first-line-manager-to-second-line-manager-transition.md)
+- [fresh-perspective-value-proposition](cto-to-ic/fresh-perspective-value-proposition.md)
+- [Gender Barriers in Tech Leadership](cto-to-ic/gender-barriers-in-tech-leadership.md) — The systemic challenges and biases that women face when advancing to executive positions in technology companies, including credibility gaps and representation issues.
+- [horizontal-leadership](cto-to-ic/horizontal-leadership.md)
+- [Individual Contributor to CTO Transition](cto-to-ic/individual-contributor-to-cto-transition.md) — The career progression path from hands-on technical roles to executive leadership positions, particularly challenging for underrepresented groups.
+- [individual-contributor-to-first-line-manager-transition](cto-to-ic/individual-contributor-to-first-line-manager-transition.md)
+- [interview-content-optimization](cto-to-ic/interview-content-optimization.md)
+- [lateral-career-movement-in-tech-leadership](cto-to-ic/lateral-career-movement-in-tech-leadership.md)
+- [lead-before-the-title](cto-to-ic/lead-before-the-title.md)
+- [learning-friday-culture](cto-to-ic/learning-friday-culture.md)
+- [manager-as-team-enabler](cto-to-ic/manager-as-team-enabler.md)
+- [market-aligned-career-transition](cto-to-ic/market-aligned-career-transition.md)
+- [military-to-tech-career-transition](cto-to-ic/military-to-tech-career-transition.md)
+- [Open Source Career Advancement](cto-to-ic/open-source-career-advancement.md) — Using open source contributions and community involvement as a strategic tool to build skills, reputation, and professional opportunities in the tech industry.
+- [Open Source Community vs Company Leadership](cto-to-ic/open-source-community-vs-company-leadership.md) — The distinction between managing open source communities as a maintainer versus leading commercial companies as an executive, requiring different but transferable skill sets.
+- [Open Source Startup Business Models](cto-to-ic/open-source-startup-business-models.md) — Commercial strategies for monetizing open source projects including open-core, support services, and SaaS models with their associated challenges and success rates.
+- [Organizational Distance Problem](cto-to-ic/organizational-distance-problem.md) — The increasing difficulty of maintaining direct relationships and intimate knowledge of individual contributors as managers advance up the organizational hierarchy.
+- [organizational-flattening-in-tech](cto-to-ic/organizational-flattening-in-tech.md)
+- [player-coach-management-model](cto-to-ic/player-coach-management-model.md)
+- [proactive-learning-demonstration](cto-to-ic/proactive-learning-demonstration.md)
+- [pull-vs-push-career-change-motivation](cto-to-ic/pull-vs-push-career-change-motivation.md)
+- [solution-oriented-problem-escalation](cto-to-ic/solution-oriented-problem-escalation.md)
+- [star-method-for-career-pivots](cto-to-ic/star-method-for-career-pivots.md)
+- [star-method-for-interview-responses](cto-to-ic/star-method-for-interview-responses.md)
+- [technical-craft-return-motivation](cto-to-ic/technical-craft-return-motivation.md)
+- [technical-leadership-financial-acumen](cto-to-ic/technical-leadership-financial-acumen.md)
+- [technology-leadership-micromanagement-trap](cto-to-ic/technology-leadership-micromanagement-trap.md)
+- [transferable-skills-identification](cto-to-ic/transferable-skills-identification.md)
+- [transferable-skills-positioning](cto-to-ic/transferable-skills-positioning.md)
+- [transferable-skills-translation](cto-to-ic/transferable-skills-translation.md)
+- [trust-based-management-architecture](cto-to-ic/trust-based-management-architecture.md)
+- [value-proposition-through-diverse-background](cto-to-ic/value-proposition-through-diverse-background.md)
+
+## enterprise-rag
+- [contextual-chunking](enterprise-rag/contextual-chunking.md)
+- [Cross-Encoder Reranking](enterprise-rag/cross-encoder-reranking.md) — A two-stage retrieval architecture where a cross-encoder model jointly scores query-document pairs to improve precision after initial retrieval.
+- [hierarchical-chunking](enterprise-rag/hierarchical-chunking.md)
+- [Hybrid Retrieval](enterprise-rag/hybrid-retrieval.md) — A retrieval approach that combines sparse (BM25) and dense (embedding-based) search methods to capture both exact keyword matches and semantic similarity.
+- [lost-in-the-middle](enterprise-rag/lost-in-the-middle.md)
+- [multi-hop-reasoning](enterprise-rag/multi-hop-reasoning.md)
+- [self-rag](enterprise-rag/self-rag.md)
+- [token-economics](enterprise-rag/token-economics.md)
+
+## evaluation-safety
+- [adversarial-red-teaming](evaluation-safety/adversarial-red-teaming.md)
+- [evaluation-as-release-gate](evaluation-safety/evaluation-as-release-gate.md)
+- [five-layer-evaluation-stack](evaluation-safety/five-layer-evaluation-stack.md)
+- [hallucination-detection-pipeline](evaluation-safety/hallucination-detection-pipeline.md)
+- [llm-as-judge-with-calibration](evaluation-safety/llm-as-judge-with-calibration.md)
+- [meta-evaluation](evaluation-safety/meta-evaluation.md)
+- [segment-aware-evaluation](evaluation-safety/segment-aware-evaluation.md)
+- [trajectory-evaluation](evaluation-safety/trajectory-evaluation.md)
+
+## faqs
+- [Prompt Caching](faqs/prompt-caching.md) — Technique that reuses computed KV cache from repeated prompt prefixes across requests, avoiding redundant prefill computation. Saves 10-30% tokens/cost for system-prompt-heavy workloads. vLLM implements as zero-overhead prefix caching; Anthropic/OpenAI offer API-level caching with tiered pricing. Not useful when prompts are highly diverse (low cache hit rate).
+- [Speculative Decoding](faqs/speculative-decoding.md) — Latency optimization that uses a small/fast 'draft' model to propose N tokens, then the large target model verifies all N in a single forward pass (parallel verification). Reduces wall-clock latency 1.5-2x without quality loss because rejected tokens are resampled from the target distribution. Not useful when throughput (not latency) is the bottleneck, or when no suitable draft model exists.
+
+## fine-tuning-noisy-labels
+- [Anchor-Guided Refinement](fine-tuning-noisy-labels/anchor-guided-refinement.md) — A mechanism that validates each sample's given label against external semantic anchors to provide robust signals for sample selection and label correction.
+- [Confident Learning](fine-tuning-noisy-labels/confident-learning.md) — A suite of algorithms that estimates which data are mislabeled in a classification dataset by using out-of-sample predicted class probabilities and novel calibration techniques.
+- [Context-Enhanced Relabeling Strategy](fine-tuning-noisy-labels/context-enhanced-relabeling-strategy.md) — A denoising approach that generates reliable annotations by leveraging contextual information to correct or replace noisy labels in training datasets.
+- [Cross-Modal Noise Detection](fine-tuning-noisy-labels/cross-modal-noise-detection.md) — The use of information from multiple modalities (vision and text) to identify and handle label noise in training datasets.
+- [Cross-Validation Probability Estimation](fine-tuning-noisy-labels/cross-validation-probability-estimation.md) — A technique using k-fold cross-validation to generate out-of-sample predicted class probabilities for training examples, enabling label error detection without overfitting.
+- [Cross-Validation with Auxiliary Vision-Language Models](fine-tuning-noisy-labels/cross-validation-with-auxiliary-vision-language-models.md) — A re-screening technique that uses a separate pre-trained vision-language model (like BLIP) to validate rectified labels and mitigate self-confirmation bias in noisy label learning.
+- [Data-Centric AI for Label Noise](fine-tuning-noisy-labels/data-centric-ai-for-label-noise.md) — An approach that improves machine learning models by optimizing the dataset quality rather than altering model architecture or hyperparameters, specifically targeting label errors and data issues.
+- [Dual-Level Semantic Matching](fine-tuning-noisy-labels/dual-level-semantic-matching.md) — A mechanism that combines macro-level and micro-level textual prompts to better differentiate clean samples from noisy ones in vision-language model training by leveraging both class names and fine-grained attributes.
+- [Embedding-Based Classification Pipeline](fine-tuning-noisy-labels/embedding-based-classification-pipeline.md) — A machine learning approach that uses pre-trained language model embeddings as features for training downstream classifiers like logistic regression.
+- [Label Noise Filtering](fine-tuning-noisy-labels/label-noise-filtering.md) — A preprocessing technique that removes high-loss or inconsistent samples and downweights uncertain labels to improve model generalization on noisy datasets.
+- [Llama-Factory Training Framework](fine-tuning-noisy-labels/llama-factory-training-framework.md) — A framework for supervised fine-tuning of language models that provides configuration-based training with support for LoRA and other parameter-efficient methods.
+- [LLM-Based Label Correction](fine-tuning-noisy-labels/llm-based-label-correction.md) — Using strong language models as critics to detect and correct inconsistent or erroneous labels by comparing SME annotations with model reasoning.
+- [Macro-Level vs Micro-Level Textual Prompts](fine-tuning-noisy-labels/macro-level-vs-micro-level-textual-prompts.md) — Two complementary prompt types where macro-level uses simple class names for inter-class separability while micro-level incorporates detailed attributes like shapes and textures for more reliable image-text matching.
+- [Multi-Annotator Label Aggregation](fine-tuning-noisy-labels/multi-annotator-label-aggregation.md) — A weak supervision approach that treats multiple SMEs as noisy annotators and infers latent true labels through agreement modeling and variance reduction.
+- [Multi-Expert Collaborative Noise Detection](fine-tuning-noisy-labels/multi-expert-collaborative-noise-detection.md) — A noise detection system that uses multiple expert models working collaboratively with inference-enhanced capabilities to identify noisy or incorrect labels in training data.
+- [Multi-Stage Noise Handling](fine-tuning-noisy-labels/multi-stage-noise-handling.md) — A comprehensive approach that combines noise detection, correction, and robust training in sequential stages to maximize fine-tuning effectiveness under noisy conditions.
+- [Noise Detection via Perplexity](fine-tuning-noisy-labels/noise-detection-via-perplexity.md) — A method for identifying noisy training samples by measuring their perplexity relative to a reference model, where high perplexity indicates potential noise.
+- [Noise-Aware Fine-Tuning](fine-tuning-noisy-labels/noise-aware-fine-tuning.md) — Training methodologies specifically designed to handle label corruption through filtering, reweighting, and correction strategies rather than naive supervised fine-tuning.
+- [Noisy SME Label Supervision](fine-tuning-noisy-labels/noisy-sme-label-supervision.md) — The practice of using subject matter expert annotations as weak supervision signals rather than ground truth, requiring denoising techniques before training.
+- [OpenAI Fine-Tuning API](fine-tuning-noisy-labels/openai-fine-tuning-api.md) — OpenAI's API service that allows fine-tuning of pre-trained language models like Davinci, Ada, and Curie on domain-specific labeled datasets for classification and other tasks.
+- [Response Correction with LLMs](fine-tuning-noisy-labels/response-correction-with-llms.md) — Using large language models to automatically correct or improve noisy responses in training data before fine-tuning.
+- [Response Entropy-Based Data Selection](fine-tuning-noisy-labels/response-entropy-based-data-selection.md) — A data filtering technique that uses response entropy metrics to select high-quality training samples by measuring the uncertainty or randomness in model responses.
+- [Response Noise in SFT](fine-tuning-noisy-labels/response-noise-in-sft.md) — The phenomenon where training responses contain errors, inconsistencies, or low-quality content that can degrade model performance during supervised fine-tuning.
+- [RobustFT Framework](fine-tuning-noisy-labels/robustft-framework.md) — A noise-robust supervised fine-tuning framework designed to enhance Large Language Model performance in the presence of noisy training data through multi-expert collaborative noise detection, context-enhanced relabeling, and response entropy-based data selection.
+- [Rubric-Based Scoring](fine-tuning-noisy-labels/rubric-based-scoring.md) — A structured annotation approach that decomposes subjective labels into multiple dimensions like correctness, relevance, and completeness to reduce ambiguity.
+- [Self-Confirmation Bias in Label Correction](fine-tuning-noisy-labels/self-confirmation-bias-in-label-correction.md) — The phenomenon where prediction errors propagate and amplify during training when models rely on their own predictions for label correction, leading to degraded performance in noisy label scenarios.
+- [Semantic Anchors](fine-tuning-noisy-labels/semantic-anchors.md) — Pure, immutable reference points generated from diverse text descriptions that serve as external ground truth independent of potentially corrupt training labels.
+- [TANGO Framework](fine-tuning-noisy-labels/tango-framework.md) — A Text-Anchored Guided Optimization framework for robust fine-tuning of Vision-Language Models under label noise using semantic anchors as external ground truth.
+- [Text-Anchored Classifier](fine-tuning-noisy-labels/text-anchored-classifier.md) — A parameter-free classification approach that makes predictions through direct weighted consensus of clean semantic anchors rather than traditional linear classifiers.
+- [Tri-Segment Sample Screening](fine-tuning-noisy-labels/tri-segment-sample-screening.md) — A label screening strategy that categorizes training samples into clean, ambiguous, and noisy classes using Gaussian Mixture Models to account for overlap between clean and noisy data distributions.
+- [Vision-Language Model Fine-tuning](fine-tuning-noisy-labels/vision-language-model-fine-tuning.md) — The process of adapting large-scale Vision-Language Models to specialized tasks, which is often undermined by label noise in real-world datasets.
+- [Vision-Language Model Fine-Tuning with Noisy Labels](fine-tuning-noisy-labels/vision-language-model-fine-tuning-with-noisy-labels.md) — The challenge of adapting pre-trained vision-language models like CLIP to downstream tasks when training data contains mislabeled samples, requiring specialized techniques beyond conventional small-loss criteria.
+- [VLLM Inference Server](fine-tuning-noisy-labels/vllm-inference-server.md) — A high-performance inference server for serving large language models that supports LoRA adapters and provides API endpoints for model inference.
+- [Weighted Loss Training](fine-tuning-noisy-labels/weighted-loss-training.md) — A training approach that assigns different weights to training samples based on their estimated quality or noise level to reduce the impact of corrupted data.
+
+## genai-rl-applications
+- [Beta Parameter in DPO](genai-rl-applications/beta-parameter-in-dpo.md) — The hyperparameter that controls the KL penalty strength in DPO, determining how far the policy can deviate from the reference model during training.
+- [Bradley-Terry Framework](genai-rl-applications/bradley-terry-framework.md) — A mathematical model for pairwise comparisons that assigns probabilities to preferences using exponential functions of reward differences, commonly used in preference modeling for RLHF and DPO.
+- [Bradley-Terry Model for Preference Learning](genai-rl-applications/bradley-terry-model-for-preference-learning.md) — A statistical model used in RLHF to train reward models from pairwise preference comparisons, where the probability of preferring one output over another follows a logistic function of their reward difference.
+- [Bradley-Terry Preference Model](genai-rl-applications/bradley-terry-preference-model.md) — A mathematical framework that models the probability of one response being preferred over another based on the difference in their reward scores using a sigmoid function.
+- [Classification Loss for Preference Learning](genai-rl-applications/classification-loss-for-preference-learning.md) — The use of a simple classification objective to train language models on preference data, replacing the complex multi-stage RLHF pipeline with a single supervised learning step.
+- [Closed-Form Policy Extraction](genai-rl-applications/closed-form-policy-extraction.md) — The mathematical technique that allows DPO to derive the optimal policy directly from preference data without iterative reinforcement learning procedures.
+- [Comparison Data Creation](genai-rl-applications/comparison-data-creation.md) — The methodology of generating multiple responses to prompts and having humans rank them to create training data that teaches models which responses are preferable.
+- [Constitutional AI](genai-rl-applications/constitutional-ai.md) — An approach developed by Anthropic that uses AI models to generate feedback based on a written set of principles (constitution) rather than direct human evaluation, enabling scalable oversight for alignment.
+- [Constrained Reward Maximization](genai-rl-applications/constrained-reward-maximization.md) — The optimization problem in RLHF where the language model is fine-tuned to maximize estimated rewards while being constrained to not drift too far from the original pre-trained model.
+- [Direct Preference Optimization (DPO)](genai-rl-applications/direct-preference-optimization-dpo.md) — A stable, performant, and computationally lightweight algorithm that solves the standard RLHF problem with only a simple classification loss by introducing a new parameterization of the reward model that enables extraction of the optimal policy in closed form.
+- [DPO Beta Parameter](genai-rl-applications/dpo-beta-parameter.md) — A hyperparameter in Direct Preference Optimization ranging from 0 to 2 that controls the balance between preserving existing model behavior and adapting to new preference-aligned responses.
+- [Elicitation Interpretation of Post-Training](genai-rl-applications/elicitation-interpretation-of-post-training.md) — The theory that post-training techniques extract and amplify valuable behaviors already present in base models rather than teaching entirely new capabilities.
+- [Four-Stage RLHF Pipeline](genai-rl-applications/four-stage-rlhf-pipeline.md) — A systematic training process consisting of pre-training, supervised fine-tuning, reward modeling, and reinforcement learning from human feedback to progressively improve model performance.
+- [Group Relative Policy Optimization (GRPO)](genai-rl-applications/group-relative-policy-optimization-grpo.md) — A DPO variant proposed by DeepSeek that avoids the critic model required in PPO by using a group mechanism for policy updates, reducing compute and memory overhead while maintaining strong performance.
+- [Human Feedback Integration in Generative AI](genai-rl-applications/human-feedback-integration-in-generative-ai.md) — The application of RLHF to generative AI systems like language models, image generators, and voice assistants to ensure outputs align with human preferences for quality, safety, and usefulness.
+- [Human Reward Model Development](genai-rl-applications/human-reward-model-development.md) — The process of using human input to create and refine reward models that help AI determine whether actions are positive or negative based on human-defined goals and ethical standards.
+- [Identity Preference Optimization (IPO)](genai-rl-applications/identity-preference-optimization-ipo.md) — A DPO variant that uses squared error loss with a target margin to handle noisy preference labels by penalizing both under-optimization and over-optimization.
+- [Implicit Reward Function](genai-rl-applications/implicit-reward-function.md) — DPO's approach to defining reward as the log-ratio between policy and reference model probabilities, eliminating the need for an explicit reward model.
+- [Implicit Reward Function in DPO](genai-rl-applications/implicit-reward-function-in-dpo.md) — DPO's approach to defining reward as the log-ratio between policy and reference model probabilities, eliminating the need for an explicit reward model.
+- [Kahneman-Tversky Optimization (KTO)](genai-rl-applications/kahneman-tversky-optimization-kto.md) — A preference optimization method that uses binary labels (good/bad) instead of paired preferences, incorporating loss aversion principles from behavioral economics.
+- [KL Divergence Penalty in RLHF](genai-rl-applications/kl-divergence-penalty-in-rlhf.md) — A regularization term that constrains policy optimization by penalizing deviations from a reference policy, preventing overly aggressive changes while maximizing reward alignment.
+- [KL Divergence Regularization in RLHF](genai-rl-applications/kl-divergence-regularization-in-rlhf.md) — A regularization technique that penalizes the policy from deviating too far from the original pretrained model during RL fine-tuning, preventing reward hacking and maintaining output coherence.
+- [Language Model Steerability](genai-rl-applications/language-model-steerability.md) — The ability to achieve precise control over language model behavior and outputs, which is difficult to achieve through unsupervised training alone and typically requires alignment techniques.
+- [LLM Hallucination](genai-rl-applications/llm-hallucination.md) — The phenomenon where large language models generate information that wasn't present in the original input, potentially due to lack of causal understanding or knowledge mismatches.
+- [LLM-as-Judge Evaluation](genai-rl-applications/llm-as-judge-evaluation.md) — An automated evaluation approach that uses large language models to score and assess response quality based on defined criteria, enabling systematic performance measurement.
+- [Odds Ratio Preference Optimization (ORPO)](genai-rl-applications/odds-ratio-preference-optimization-orpo.md) — A method that combines supervised fine-tuning and alignment into a single training stage using log odds ratios, eliminating the need for a separate reference model.
+- [Pairwise Preference Learning](genai-rl-applications/pairwise-preference-learning.md) — A training approach that learns from human comparisons between response pairs rather than absolute ratings, forming the foundation for both RLHF reward modeling and DPO's direct optimization.
+- [Partition Function Cancellation](genai-rl-applications/partition-function-cancellation.md) — The mathematical property in DPO where the intractable partition function Z(x) cancels out in pairwise preference comparisons, making the optimization tractable.
+- [Partition Function Cancellation in DPO](genai-rl-applications/partition-function-cancellation-in-dpo.md) — The mathematical property in DPO where the intractable partition function Z(x) cancels out in pairwise preference comparisons, making the optimization tractable.
+- [Partition Function in Policy Optimization](genai-rl-applications/partition-function-in-policy-optimization.md) — A normalization function Z(x) that ensures probability distributions sum to 1 when reweighting reference policies by reward, which cancels out in pairwise comparisons enabling DPO's simplified optimization.
+- [Policy-Reward Function Mapping](genai-rl-applications/policy-reward-function-mapping.md) — The theoretical insight that there exists a direct mathematical relationship between reward functions and optimal policies, enabling single-stage optimization instead of the traditional two-stage RLHF approach.
+- [Post-Training](genai-rl-applications/post-training.md) — A comprehensive set of techniques applied after pretraining to make language models more useful, including instruction tuning, preference finetuning, and reinforcement finetuning.
+- [PPO Training Policy](genai-rl-applications/ppo-training-policy.md) — Proximal Policy Optimization used as the reinforcement learning algorithm to fine-tune language models based on reward signals from human feedback.
+- [Preference As Reward (PAR)](genai-rl-applications/preference-as-reward-par.md) — A 2025 approach that leverages latent preferences embedded within the reward model as the RL signal, achieving higher win rates while maintaining robustness against reward hacking through bounded reward design principles.
+- [Preference Finetuning (PreFT)](genai-rl-applications/preference-finetuning-preft.md) — A category of training methods that align models to human preferences and improve style of language generation, including both RLHF and direct alignment algorithms like DPO.
+- [Process Reward Models (PRMs)](genai-rl-applications/process-reward-models-prms.md) — Reward models trained to output scores at every step in a chain of thought reasoning process, providing supervision for intermediate reasoning steps rather than just final outcomes.
+- [Reinforcement Fine-Tuning (RFT)](genai-rl-applications/reinforcement-fine-tuning-rft.md) — A technique that uses reinforcement learning with reward signals to fine-tune models for complex objectives through iterative feedback loops that encourage improved reasoning strategies.
+- [Reinforcement Finetuning (RFT)](genai-rl-applications/reinforcement-finetuning-rft.md) — The newest type of post-training that uses reinforcement learning to boost performance on verifiable domains, particularly for reasoning tasks with clear correctness criteria.
+- [Reinforcement Learning from AI Feedback (RLAIF)](genai-rl-applications/reinforcement-learning-from-ai-feedback-rlaif.md) — A variant of RLHF that uses AI systems instead of humans to generate feedback and evaluations, enabling scalable alignment while reducing the cost and time requirements of human annotation.
+- [Reinforcement Learning from Human Feedback (RLHF)](genai-rl-applications/reinforcement-learning-from-human-feedback-rlhf.md) — A machine learning paradigm that aligns AI behavior with human preferences by training a reward model from human feedback and then using reinforcement learning to optimize the AI policy against that learned reward.
+- [Reward Hacking in RLHF](genai-rl-applications/reward-hacking-in-rlhf.md) — The phenomenon where AI models exploit flaws or blind spots in the learned reward model to achieve high scores through unintended behaviors that don't truly satisfy human intent.
+- [Reward Model Fitting](genai-rl-applications/reward-model-fitting.md) — The first stage of RLHF where a separate model is trained to predict human preferences and assign reward scores to language model outputs based on human preference data.
+- [Reward Model Parameterization](genai-rl-applications/reward-model-parameterization.md) — A mathematical approach that reformulates the reward model in RLHF to enable direct extraction of the optimal policy without requiring explicit reward model training or reinforcement learning.
+- [Reward Modeling](genai-rl-applications/reward-modeling.md) — The process of creating a model that assigns scores to responses based on human rankings, enabling the system to distinguish between higher and lower quality outputs for training purposes.
+- [RLHF Cost-Benefit Trade-offs](genai-rl-applications/rlhf-cost-benefit-trade-offs.md) — The balance between RLHF advantages like enhanced learning quality and bias reduction against limitations including high human data collection costs, subjectivity, and potential overfitting risks.
+- [RLHF Instability Problem](genai-rl-applications/rlhf-instability-problem.md) — The computational and training challenges associated with traditional reinforcement learning from human feedback, including the need for reward model fitting, policy optimization, and extensive hyperparameter tuning.
+- [SFT-then-DPO Workflow](genai-rl-applications/sft-then-dpo-workflow.md) — A recommended two-stage fine-tuning approach where Supervised Fine-Tuning establishes a robust initial policy before applying Direct Preference Optimization for enhanced alignment and performance.
+- [Synthetic Preference Dataset Generation](genai-rl-applications/synthetic-preference-dataset-generation.md) — The process of creating artificial preference pairs by generating both preferred and rejected responses for training prompts, often using different system prompts to create contrasting response styles.
+- [Three-Stage RLHF Pipeline](genai-rl-applications/three-stage-rlhf-pipeline.md) — The standard RLHF training process consisting of pretraining a base model, training a reward model from human preference comparisons, and RL fine-tuning the policy to maximize the learned reward.
+- [Trial-and-Error Learning in AI](genai-rl-applications/trial-and-error-learning-in-ai.md) — A learning approach where AI agents experiment with different actions and observe results, receiving rewards for positive outcomes and penalties for negative ones to improve future decision-making.
+- [Vision Fine-Tuning](genai-rl-applications/vision-fine-tuning.md) — A technique that extends supervised fine-tuning to multimodal data by processing both text and image in a unified training framework to improve model understanding of image inputs.
+
+## genai-search-ads
+- [A/B Test Acceleration](genai-search-ads/a-b-test-acceleration.md) — Using LLM-based simulators to speed up experimental validation by generating synthetic user interactions that complement or reduce the need for live testing.
+- [Agent4Rec](genai-search-ads/agent4rec.md) — A research system that uses 1,000 LLM agents to simulate real human behavior for movie recommendations, achieving 349 citations as a foundational work.
+- [Agentic Commerce Protocol](genai-search-ads/agentic-commerce-protocol.md) — OpenAI's system enabling autonomous agents to complete purchases through conversational interfaces, initially deployed with Stripe for ChatGPT shopping.
+- [AI Overviews in Search](genai-search-ads/ai-overviews-in-search.md) — Google's AI-powered search feature that provides synthesized answers at the top of search results, now serving 1B+ users globally with integrated advertising capabilities.
+- [Architectural Mismatch in LLM Recommendations](genai-search-ads/architectural-mismatch-in-llm-recommendations.md) — The fundamental incompatibility between deep language model architectures designed for syntactic/semantic processing and the shallow transition pattern learning required for behavioral sequence prediction.
+- [Behavior Pre-training for LLMs](genai-search-ads/behavior-pre-training-for-llms.md) — A technique where language model embeddings are fine-tuned on interaction data to bridge the gap between textual and behavioral representations, achieving significant performance improvements.
+- [Behavioral Fidelity in AI Simulation](genai-search-ads/behavioral-fidelity-in-ai-simulation.md) — The degree to which AI models can accurately replicate human behavioral patterns, including irrationality, noise, and temporal dynamics, rather than producing overly perfect or helpful responses.
+- [Cold-Start Recommendation with LLMs](genai-search-ads/cold-start-recommendation-with-llms.md) — The application of large language models to recommendation scenarios with limited user history, where LLMs can outperform traditional trained models through zero-shot reasoning and world knowledge.
+- [Collaborative Filtering Signal Absence](genai-search-ads/collaborative-filtering-signal-absence.md) — The fundamental limitation that collaborative patterns (who bought what together) are not encoded in textual descriptions, requiring behavioral data that LLMs cannot access through text alone.
+- [Computer-Using Agent (CUA)](genai-search-ads/computer-using-agent-cua.md) — OpenAI's Operator system that autonomously controls web browsers to complete tasks in controlled virtual machine environments for users.
+- [Declared vs Revealed Preferences Gap](genai-search-ads/declared-vs-revealed-preferences-gap.md) — The fundamental distinction between what people say they prefer (declared preferences from text) versus what they actually do (revealed preferences from behavioral data), which LLMs struggle to bridge.
+- [Direct Offers Integration](genai-search-ads/direct-offers-integration.md) — Google's pilot program that bundles promotions and native checkout directly within AI Overview results, enabling seamless purchase completion.
+- [Gen-AI Applied to Search and Advertising (2024-2026)](genai-search-ads/genai-search-ads-landscape.md) — Industry map: Google (AI Overviews 1B+ users, AI Max keywordless, Direct Offers), Meta (Advantage+ suite, gen-AI creative at $201B revenue), OpenAI (ChatGPT ads $2.5B projected, Operator agent, Stripe commerce), TikTok (Symphony AI video, Smart+), Amazon (40% CTR lift from AI images, Ads Agent), Microsoft (Brand Agents, Shortlist Economy thesis). Key shifts: keywords→intent, human creative→AI production, search ads→agentic commerce.
+- [Generation-Ranking Task Mismatch](genai-search-ads/generation-ranking-task-mismatch.md) — The inefficiency of treating recommendation as a generation task when it is fundamentally a scoring/ranking problem, leading to token-by-token overhead and output validity issues.
+- [Hybrid CF-LLM Injection](genai-search-ads/hybrid-cf-llm-injection.md) — An approach that injects collaborative filtering embeddings directly into LLM token space to combine behavioral signals with textual understanding for improved recommendation performance.
+- [Keywordless Advertising Technology](genai-search-ads/keywordless-advertising-technology.md) — Google's AI Max system that uses Gemini to automatically learn from keywords, creative, and landing pages without manual keyword targeting, achieving 14% more conversions.
+- [LLM Position Bias in Recommendation](genai-search-ads/llm-position-bias-in-recommendation.md) — The tendency of language models to exhibit strong primacy effects and popularity bias when ranking items, disproportionately selecting items that appear first in lists regardless of personalization fit.
+- [LLM Quality for User Behavior Modeling and Sequence Prediction](genai-search-ads/llm-user-behavior-modeling-quality.md) — LLMs show 'moderate proficiency' on sequential rec tasks (5-20% below SASRec/BERT4Rec). Excel at: cold-start, conversational rec, demographic simulation, re-ranking. Fail at: sequential patterns, temporal dynamics, behavioral diversity, position/popularity bias. Root cause: models encode declared preferences (reviews) not revealed preferences (clicks).
+- [LLM Sequential Recommendation Performance](genai-search-ads/llm-sequential-recommendation-performance.md) — Large language models show moderate proficiency on sequential recommendation tasks, consistently underperforming specialized models like SASRec and BERT4Rec by 5-20% NDCG on behavioral prediction accuracy.
+- [LLM-as-Advertiser Simulation](genai-search-ads/llm-as-advertiser-simulation.md) — A simulation technique where LLMs model advertiser behavior including bidding strategies, budget allocation, and creative decisions for marketplace testing.
+- [LLM-as-User Simulation](genai-search-ads/llm-as-user-simulation.md) — A technical approach where LLMs are prompted with user personas to generate realistic interaction sequences like queries, clicks, and purchases for offline testing.
+- [llm-behavior-simulators](genai-search-ads/llm-behavior-simulators.md)
+- [Offline Policy Evaluation via Simulation](genai-search-ads/offline-policy-evaluation-via-simulation.md) — The practice of using simulated user interactions to evaluate recommendation or advertising policies without running live experiments on real users.
+- [Persona-Prompted LLM Simulation](genai-search-ads/persona-prompted-llm-simulation.md) — A methodology where LLMs are given detailed user or advertiser personas to generate contextually appropriate behaviors and decisions in simulated environments.
+- [Positional Blindness in Sequential Recommendation](genai-search-ads/positional-blindness-in-sequential-recommendation.md) — The phenomenon where LLMs treat interaction histories as unordered bags rather than sequential patterns, with shuffled sequences causing minimal representation changes compared to traditional models.
+- [RecSim NG](genai-search-ads/recsim-ng.md) — Google's probabilistic, differentiable multi-agent recommender ecosystem simulation framework used for counterfactual policy evaluation.
+- [Shortlist Economy](genai-search-ads/shortlist-economy.md) — Microsoft's thesis that AI agents will pre-filter options to 3-5 choices, fundamentally changing how brands compete by requiring optimization for algorithm recommendation rather than human persuasion.
+- [Silicon Samples for Demographic Simulation](genai-search-ads/silicon-samples-for-demographic-simulation.md) — The use of LLMs conditioned on demographic information to simulate human responses in behavioral economics and social science experiments, achieving results 50x cheaper than crowdworkers.
+- [Symphony Creative AI](genai-search-ads/symphony-creative-ai.md) — TikTok's end-to-end AI video creation platform that combines LLMs, video synthesis, and RL-based optimization for automated content generation.
+- [Synthetic Query Generation](genai-search-ads/synthetic-query-generation.md) — Amazon's approach of using fine-tuned LLMs to generate 8 queries per product for cold-start scenarios and search system testing.
+- [Text-Behavior Information Gap](genai-search-ads/text-behavior-information-gap.md) — The information-theoretic limitation where text descriptions contain only ~14% of the behavioral signal needed for effective recommendation, as text describes what items are rather than what they do for users.
+- [Token Vocabulary Problem in Behavioral Modeling](genai-search-ads/token-vocabulary-problem-in-behavioral-modeling.md) — The challenge where language models' token vocabularies are optimized for semantic relationships but fail to capture the millions of items in recommendation catalogs that lack inherent behavioral semantics.
+- [Why LLMs Are NOT SOTA at User Sequence Prediction](genai-search-ads/why-llms-not-sota-sequential-prediction.md) — Six technical reasons: (1) architectural over-capacity (SASRec 0.83M beats LlamaRec 7B by 25%), (2) positional/order blindness (shuffled sequences change LLM reps only 1-7%), (3) vocabulary mismatch (millions of items vs 100K tokens), (4) information-theoretic gap (text holds ~14% of useful signal vs CF), (5) no collaborative filtering signal in text, (6) generation ≠ ranking. Fundamental: text describes what items ARE; behavior reveals what items DO for users.
+- [Zero-Click AI Answers Threat](genai-search-ads/zero-click-ai-answers-threat.md) — The industry challenge where AI-powered search results provide complete answers without requiring clicks to source websites, potentially disrupting traditional search advertising models.
+
+## general
+- [active-parameter-efficiency](general/active-parameter-efficiency.md)
+- [catastrophic-forgetting-in-fine-tuning](general/catastrophic-forgetting-in-fine-tuning.md)
+- [chat-template-formatting](general/chat-template-formatting.md)
+- [classifier-free-guidance-training](general/classifier-free-guidance-training.md)
+- [cross-domain-transfer-in-sft](general/cross-domain-transfer-in-sft.md)
+- [dataset-packing](general/dataset-packing.md)
+- [dataset-task-synergy-patterns](general/dataset-task-synergy-patterns.md)
+- [dense-transformer-architecture](general/dense-transformer-architecture.md)
+- [direct-alignment-from-preferences-optimization-dapo](general/direct-alignment-from-preferences-optimization-dapo.md)
+- [dual-thinking-modes](general/dual-thinking-modes.md)
+- [dynamic-noise-schedule-shifting](general/dynamic-noise-schedule-shifting.md)
+- [fine-grained-expert-segmentation](general/fine-grained-expert-segmentation.md)
+- [flow-matching-loss](general/flow-matching-loss.md)
+- [four-stage-post-training-pipeline](general/four-stage-post-training-pipeline.md)
+- [global-batch-load-balancing](general/global-batch-load-balancing.md)
+- [grouped-query-attention-gqa](general/grouped-query-attention-gqa.md)
+- [hugging-face-transformers-library](general/hugging-face-transformers-library.md)
+- [hybrid-dense-moe-architecture](general/hybrid-dense-moe-architecture.md)
+- [hybrid-thinking-modes](general/hybrid-thinking-modes.md)
+- [intrinsic-dimensionality-analysis](general/intrinsic-dimensionality-analysis.md)
+- [long-cot-cold-start-training](general/long-cot-cold-start-training.md)
+- [longcat-image-architecture](general/longcat-image-architecture.md)
+- [masked-language-modeling](general/masked-language-modeling.md)
+- [mid-layer-weight-change-analysis](general/mid-layer-weight-change-analysis.md)
+- [mixture-of-experts-moe-architecture](general/mixture-of-experts-moe-architecture.md)
+- [model-quantization-for-inference](general/model-quantization-for-inference.md)
+- [multi-resolution-bucketing](general/multi-resolution-bucketing.md)
+- [multilingual-training-at-scale](general/multilingual-training-at-scale.md)
+- [ollama-model-runtime](general/ollama-model-runtime.md)
+- [overfitting-detection-in-sft](general/overfitting-detection-in-sft.md)
+- [parameter-activation-efficiency](general/parameter-activation-efficiency.md)
+- [parameter-efficient-fine-tuning-peft](general/parameter-efficient-fine-tuning-peft.md)
+- [perplexity-as-sft-predictor](general/perplexity-as-sft-predictor.md)
+- [prompt-template-encoding](general/prompt-template-encoding.md)
+- [qk-norm-attention-mechanism](general/qk-norm-attention-mechanism.md)
+- [qwen-3-language-model-family](general/qwen-3-language-model-family.md)
+- [qwen-3-model-family](general/qwen-3-model-family.md)
+- [Qwen3 Language Model](general/qwen3-language-model.md) — Alibaba's latest generation of open-source large language models released in April 2025, featuring eight model sizes from 600M to 235B parameters with Apache 2.0 licensing.
+- [qwen3-2507-model-updates](general/qwen3-2507-model-updates.md)
+- [qwen3-language-model-family](general/qwen3-language-model-family.md)
+- [reasoning-parser-configuration](general/reasoning-parser-configuration.md)
+- [sft-embedding-space-visualization](general/sft-embedding-space-visualization.md)
+- [sfttrainer](general/sfttrainer.md)
+- [sglang-inference-framework](general/sglang-inference-framework.md)
+- [strong-to-weak-distillation](general/strong-to-weak-distillation.md)
+- [supervised-fine-tuning-sft](general/supervised-fine-tuning-sft.md)
+- [task-specific-dataset-preparation](general/task-specific-dataset-preparation.md)
+- [think-no-think-reasoning-toggle](general/think-no-think-reasoning-toggle.md)
+- [thinking-budget-mechanism](general/thinking-budget-mechanism.md)
+- [thinking-mode-fusion](general/thinking-mode-fusion.md)
+- [thinking-mode-vs-non-thinking-mode](general/thinking-mode-vs-non-thinking-mode.md)
+- [top-2-expert-routing](general/top-2-expert-routing.md)
+- [training-loss-convergence-patterns](general/training-loss-convergence-patterns.md)
+- [ultra-long-context-processing](general/ultra-long-context-processing.md)
+- [unified-thinking-and-non-thinking-modes](general/unified-thinking-and-non-thinking-modes.md)
+- [vram-based-model-selection](general/vram-based-model-selection.md)
+- [yarn-rotary-positional-encoding](general/yarn-rotary-positional-encoding.md)
+
+## gpt-vs-qwen
+- [auxiliary-confidence-loss](gpt-vs-qwen/auxiliary-confidence-loss.md)
+- [chain-of-thought-reasoning](gpt-vs-qwen/chain-of-thought-reasoning.md)
+- [cross-architecture-knowledge-distillation](gpt-vs-qwen/cross-architecture-knowledge-distillation.md)
+- [expert-specialized-fine-tuning-esft](gpt-vs-qwen/expert-specialized-fine-tuning-esft.md)
+- [generalized-knowledge-distillation-gkd](gpt-vs-qwen/generalized-knowledge-distillation-gkd.md)
+- [gpt-oss-120b](gpt-vs-qwen/gpt-oss-120b.md)
+- [gpt-oss-20b](gpt-vs-qwen/gpt-oss-20b.md)
+- [long-context-scaling](gpt-vs-qwen/long-context-scaling.md)
+- [mixture-of-experts-moe](gpt-vs-qwen/mixture-of-experts-moe.md)
+- [qwen3-5-language-model](gpt-vs-qwen/qwen3-5-language-model.md)
+- [qwen3-language-model](gpt-vs-qwen/qwen3-language-model.md)
+- [Reverse Distillation: Qwen3-32B → GPT-OSS-120B Feasibility](gpt-vs-qwen/reverse-distillation-feasibility.md) — Distilling Qwen3-32B capabilities into GPT-OSS-120B is feasible via SFT on teacher outputs + LoRA, but NOT via logit distillation (tokenizer mismatch) or weight merging (architecture mismatch). Works when the target capability is latent in the student. Fails for style mimicry without genuine signal, or when MoE routing is disrupted.
+- [style-mimicry-vs-capability-transfer](gpt-vs-qwen/style-mimicry-vs-capability-transfer.md)
+- [vllm-inference-engine](gpt-vs-qwen/vllm-inference-engine.md)
+- [weak-to-strong-generalization](gpt-vs-qwen/weak-to-strong-generalization.md)
+
+## investing
+- [divided-government-market-effect](investing/divided-government-market-effect.md)
+- [election-cycle-statistical-significance-problem](investing/election-cycle-statistical-significance-problem.md)
+- [IPO Boom as Market Top Signal](investing/ipo-boom-market-top-signal.md) — IPO booms correlate with market tops (crash probability 20% vs 14% base rate) but the signal is unreliable. 1999-2000 and 2021-2022 are canonical examples; 1983-1997 are counter-examples. IPOs are a symptom of euphoria, not a cause of crashes.
+- [IPO Market Timing and Performance](investing/ipo-market-timing.md) — Markets are typically STRONG before major IPOs (avg +4.6% in prior 90 days), not weak. Companies deliberately time IPOs for bull markets. IPO volume correlates positively with market levels. The liquidity drain from mega-IPOs is sector-level, not market-wide.
+- [ipo-boom-market-top-correlation](investing/ipo-boom-market-top-correlation.md)
+- [ipo-volume-as-market-sentiment-indicator](investing/ipo-volume-as-market-sentiment-indicator.md)
+- [ipo-window-concept](investing/ipo-window-concept.md)
+- [liquidity-drain-theory](investing/liquidity-drain-theory.md)
+- [market-performance-before-major-ipos](investing/market-performance-before-major-ipos.md)
+- [midterm-election-market-weakness](investing/midterm-election-market-weakness.md)
+- [nasdaq-election-cycle-amplification](investing/nasdaq-election-cycle-amplification.md)
+- [post-midterm-rally](investing/post-midterm-rally.md)
+- [presidential-election-cycle-theory](investing/presidential-election-cycle-theory.md)
+
+## layoff-proofing
+- [anti-outsourcing-work-strategy](layoff-proofing/anti-outsourcing-work-strategy.md)
+- [business-impact-mapping](layoff-proofing/business-impact-mapping.md)
+- [core-vs-nice-to-have-project-classification](layoff-proofing/core-vs-nice-to-have-project-classification.md)
+- [external-technical-reputation-building](layoff-proofing/external-technical-reputation-building.md)
+- [financial-runway-for-tech-workers](layoff-proofing/financial-runway-for-tech-workers.md)
+- [force-multiplier-engineering](layoff-proofing/force-multiplier-engineering.md)
+- [organizational-leverage-for-ics](layoff-proofing/organizational-leverage-for-ics.md)
+- [revenue-tied-technical-work](layoff-proofing/revenue-tied-technical-work.md)
+- [t-shaped-engineering-profile](layoff-proofing/t-shaped-engineering-profile.md)
+- [trade-off-literacy](layoff-proofing/trade-off-literacy.md)
+- [value-anchor-strategy](layoff-proofing/value-anchor-strategy.md)
+
+## lora
+- [4-bit Weight Quantization](lora/4-bit-weight-quantization.md) — A compression technique that reduces model weights to 4-bit precision using methods like NF4, drastically reducing memory requirements while preserving model performance through adapter compensation.
+- [Adapter Composition and Routing](lora/adapter-composition-and-routing.md) — The ability to combine multiple LoRA adapters dynamically or route between different adapters based on task requirements, enabling modular and specialized model behavior.
+- [Adapter-Based Fine-Tuning](lora/adapter-based-fine-tuning.md) — A parameter-efficient approach that inserts small trainable modules (adapters) into transformer blocks while keeping the core model weights frozen, reducing computational requirements significantly.
+- [Attention Layer Targeting in LoRA](lora/attention-layer-targeting-in-lora.md) — The practice of applying LoRA specifically to attention mechanism matrices (Q, K, V, O) which are the most effective targets due to their high dimensionality and expressiveness.
+- [Catastrophic Forgetting Prevention](lora/catastrophic-forgetting-prevention.md) — Techniques to prevent models from losing previous knowledge when learning new tasks, including parameter regularization, selective freezing, and low-rank constraints.
+- [DoRA (Weight-Decomposed LoRA)](lora/dora-weight-decomposed-lora.md) — An advanced LoRA variant that separates weight magnitude and direction, applying low-rank adaptation primarily to direction updates for improved quality closer to full fine-tuning.
+- [Double Quantization](lora/double-quantization.md) — An advanced compression technique used in QLoRA that applies quantization to both weights and scale/offset constants to achieve further memory savings beyond standard quantization methods.
+- [Embedding Layer LoRA Application](lora/embedding-layer-lora-application.md) — The selective use of LoRA on word embedding matrices, primarily for vocabulary adaptation and handling out-of-vocabulary tokens in specialized domains.
+- [FFN Layer Adaptation with LoRA](lora/ffn-layer-adaptation-with-lora.md) — The application of LoRA to feedforward network layers (W1, W2) that come after attention mechanisms to provide additional model capacity and complement attention adaptations.
+- [Fine-tuning Cost Analysis Framework](lora/fine-tuning-cost-analysis-framework.md) — A comprehensive methodology for evaluating the total cost of different fine-tuning approaches, including compute, storage, bandwidth, and engineering time factors.
+- [Force Match Parameter](lora/force-match-parameter.md) — A configuration option that enforces strict matching of patterns including newlines and whitespace characters in chat template parsing.
+- [Gradient Checkpointing](lora/gradient-checkpointing.md) — A memory optimization technique used in conjunction with LoRA and QLoRA that trades computation for memory by recomputing intermediate activations during backpropagation instead of storing them.
+- [Hot-Swappable LoRA Adapters](lora/hot-swappable-lora-adapters.md) — A deployment pattern that enables runtime switching between different LoRA adapters on a single base model, allowing multi-tenant systems to serve multiple tasks efficiently.
+- [Hybrid Fine-tuning Strategies](lora/hybrid-fine-tuning-strategies.md) — Advanced approaches that combine multiple fine-tuning techniques, such as staged training (LoRA followed by full fine-tuning) or adaptive freezing with gradual layer unfreezing.
+- [Instruction-Response Part Matching](lora/instruction-response-part-matching.md) — A mechanism that identifies and separates instruction and response portions in chat templates using specific string patterns for targeted training.
+- [LoRA Layer Selection Strategy](lora/lora-layer-selection-strategy.md) — The systematic approach to choosing which transformer layers to target with LoRA, typically starting with attention layers and expanding to FFN or embedding layers based on task requirements.
+- [LoRA Rank and Alpha Hyperparameters](lora/lora-rank-and-alpha-hyperparameters.md) — The critical hyperparameters in LoRA where rank (r) determines the dimensionality of low-rank matrices and alpha (α) controls the scaling factor for LoRA updates.
+- [LoRA Rank Selection Strategy](lora/lora-rank-selection-strategy.md) — The critical hyperparameter choice for LoRA where rank values of 32-64 typically offer the best performance-efficiency balance, with higher ranks approaching full fine-tuning performance.
+- [Low-Rank Adaptation (LoRA)](lora/low-rank-adaptation-lora.md) — A parameter-efficient fine-tuning technique that freezes pretrained weights and learns low-rank updates through small trainable matrices, dramatically reducing memory and computational requirements while preserving model quality.
+- [Low-Rank Matrix Decomposition](lora/low-rank-matrix-decomposition.md) — The mathematical foundation of LoRA where weight updates are expressed as the product of two smaller matrices (B and A) with rank much smaller than the original dimension.
+- [Low-Rank Matrix Decomposition in LoRA](lora/low-rank-matrix-decomposition-in-lora.md) — The mathematical foundation where weight updates are decomposed into smaller low-rank matrices, typically updating only 0.5-5% of total parameters while maintaining competitive performance.
+- [Parameter-Efficient Fine-Tuning (PEFT)](lora/parameter-efficient-fine-tuning-peft.md) — Training techniques that reduce computational costs by updating only a subset of model parameters during fine-tuning rather than the entire model.
+- [QLoRA (Quantized LoRA)](lora/qlora-quantized-lora.md) — An extension of LoRA that quantizes the base model weights to 4-bit precision while maintaining LoRA adapters in higher precision, enabling fine-tuning of massive models on consumer GPUs with minimal memory usage.
+- [Rank Selection in LoRA](lora/rank-selection-in-lora.md) — The critical hyperparameter choice determining the dimensionality of low-rank matrices, balancing between parameter efficiency and model expressiveness.
+- [Strategic Layer Freezing](lora/strategic-layer-freezing.md) — A fine-tuning approach that selectively updates only certain layers of a model while keeping others frozen, offering a middle ground between full fine-tuning and LoRA with 30-85% memory savings.
+- [Train on Responses Only for Vision Models](lora/train-on-responses-only-for-vision-models.md) — A training configuration that applies response-only training to vision-language models, equivalent to the text-only train_on_responses_only functionality but adapted for multimodal data.
+- [UnslothVisionDataCollator](lora/unslothvisiondatacollator.md) — A specialized data collator class designed for vision-language model training that handles multimodal data preprocessing and batching.
+
+## memory-agentic-systems
+- [generative-latent-memory](memory-agentic-systems/generative-latent-memory.md)
+- [hierarchical-memory-architecture](memory-agentic-systems/hierarchical-memory-architecture.md)
+- [knowledge-graph-memory](memory-agentic-systems/knowledge-graph-memory.md)
+- [memory-centric-agentic-ai](memory-agentic-systems/memory-centric-agentic-ai.md)
+- [memory-drift](memory-agentic-systems/memory-drift.md)
+- [memory-governance](memory-agentic-systems/memory-governance.md)
+- [multi-agent-shared-memory](memory-agentic-systems/multi-agent-shared-memory.md)
+- [reflective-memory-systems](memory-agentic-systems/reflective-memory-systems.md)
+
+## numerical-representation
+- [adaptive-precision-training](numerical-representation/adaptive-precision-training.md)
+- [bfloat16-bf16](numerical-representation/bfloat16-bf16.md)
+- [fp8-training](numerical-representation/fp8-training.md)
+- [microscaling-fp4-mxfp4](numerical-representation/microscaling-fp4-mxfp4.md)
+- [mixed-precision-training](numerical-representation/mixed-precision-training.md)
+- [normalfloat4-nf4](numerical-representation/normalfloat4-nf4.md)
+- [qlora-quantized-lora](numerical-representation/qlora-quantized-lora.md)
+- [stochastic-rounding](numerical-representation/stochastic-rounding.md)
+
+## open-weight-fms
+- [DeepSeek R1 Distilled Models](open-weight-fms/deepseek-r1-distilled-models.md) — Practical fine-tuning variants of DeepSeek's frontier reasoning model, ranging from 1.5B to 70B parameters with strong mathematical capabilities.
+- [Fine-Tuning Decision Framework](open-weight-fms/fine-tuning-decision-framework.md) — Decision guide for choosing which open-weight model to fine-tune based on 5 axes: use case, hardware constraints, data volume, license requirements, and fine-tuning method. Includes hardware-to-model mapping and data volume recommendations.
+- [Gemma 3 Model Family](open-weight-fms/gemma-3-model-family.md) — Google's third-generation models spanning 1B to 27B parameters with multimodal capabilities and support for 140+ languages.
+- [GPT-OSS Model Family](open-weight-fms/gpt-oss-model-family.md) — OpenAI's open-source models including 120B and 20B variants using MoE architecture with MXFP4 quantization and Apache 2.0 licensing.
+- [Hardware-Based Model Selection Framework](open-weight-fms/hardware-based-model-selection-framework.md) — A systematic approach to choosing foundation models based on available GPU memory and computational resources for inference and fine-tuning.
+- [License-Based Model Categorization](open-weight-fms/license-based-model-categorization.md) — Classification of open-weight models into fully permissive, conditionally permissive, and non-commercial categories based on their licensing terms.
+- [Llama 4 Model Family](open-weight-fms/llama-4-model-family.md) — Meta's latest generation featuring Scout (109B MoE) and Maverick (400B MoE) with multimodal capabilities and extended context lengths up to 10M tokens.
+- [NVIDIA Nemotron 3 Nano Omni](open-weight-fms/nvidia-nemotron-3-nano-omni.md) — A 30B-A3B MoE model with 256K context supporting omnimodal processing across text, image, audio, and video modalities.
+- [Open-Weight Model Families for Fine-Tuning (2026)](open-weight-fms/open-weight-model-families.md) — Comprehensive catalog of open-weight foundation models: Tier 1 (Llama 4, Qwen3, GPT-OSS, DeepSeek, Mistral, Gemma, Nemotron), Tier 2 (Phi-4, Yi, StarCoder, InternLM), Tier 3 (Falcon, RWKV, Jamba). Decision axes: use case, hardware, license, data volume, fine-tuning method.
+- [Use Case-Specific Model Recommendations](open-weight-fms/use-case-specific-model-recommendations.md) — Targeted model selection guidance for specific applications like code generation, mathematical reasoning, multilingual tasks, and agentic workflows.
+
+## post-training
+- [RL Post-Training Frameworks: veRL vs NeMo-RL vs Alternatives](post-training/rl-training-frameworks.md) — veRL (ByteDance, 21.8k stars): online RL focus (PPO/GRPO/DAPO), Ray+FSDP/Megatron, multi-hardware (NVIDIA+AMD+Ascend), best for algorithm flexibility and community. NeMo-RL (NVIDIA, 1.7k stars): critic-free RL (GRPO/DPO), Megatron Core 6D parallelism, NVIDIA-only, best for max scale (671B) and enterprise. TRL: broadest algorithms (75+), easiest setup, best for offline DPO and single-node. Decision: TRL for DPO-only; veRL for online RL at 8-64 GPUs; NeMo-RL for 200B+ scale.
+
+## reasoning-llms
+- [ai-judge-model](reasoning-llms/ai-judge-model.md)
+- [Chain-of-Thought Reasoning](reasoning-llms/chain-of-thought-reasoning.md) — A problem-solving approach where AI models work through problems step-by-step, showing their reasoning process rather than jumping directly to conclusions.
+- [chain-of-thought-cot-reasoning](reasoning-llms/chain-of-thought-cot-reasoning.md)
+- [chain-of-thought-prompting](reasoning-llms/chain-of-thought-prompting.md)
+- [chain-of-thought-safety-reasoning](reasoning-llms/chain-of-thought-safety-reasoning.md)
+- [cold-start-sft-for-reasoning](reasoning-llms/cold-start-sft-for-reasoning.md)
+- [contrastive-learning-for-reasoning](reasoning-llms/contrastive-learning-for-reasoning.md)
+- [deepseek-r1-model](reasoning-llms/deepseek-r1-model.md)
+- [deepseek-r1-reasoning-model](reasoning-llms/deepseek-r1-reasoning-model.md)
+- [deliberative-alignment](reasoning-llms/deliberative-alignment.md)
+- [emergent-capabilities-in-llms](reasoning-llms/emergent-capabilities-in-llms.md)
+- [fine-tuned-cot](reasoning-llms/fine-tuned-cot.md)
+- [group-relative-policy-optimization-grpo](reasoning-llms/group-relative-policy-optimization-grpo.md)
+- [human-feedback-for-reasoning-training](reasoning-llms/human-feedback-for-reasoning-training.md)
+- [in-context-learning-dual-operating-modes](reasoning-llms/in-context-learning-dual-operating-modes.md)
+- [inference-time-computation-scaling](reasoning-llms/inference-time-computation-scaling.md)
+- [inference-time-compute-scaling](reasoning-llms/inference-time-compute-scaling.md)
+- [inference-time-reasoning](reasoning-llms/inference-time-reasoning.md)
+- [intelligence-upper-bound-problem](reasoning-llms/intelligence-upper-bound-problem.md)
+- [internal-thinking-block](reasoning-llms/internal-thinking-block.md)
+- [invalid-logic-in-chain-of-thought](reasoning-llms/invalid-logic-in-chain-of-thought.md)
+- [jailbreak-resistance-benchmarking](reasoning-llms/jailbreak-resistance-benchmarking.md)
+- [llm-hallucination-mitigation](reasoning-llms/llm-hallucination-mitigation.md)
+- [llm-world-model](reasoning-llms/llm-world-model.md)
+- [long-chain-of-thought-long-cot](reasoning-llms/long-chain-of-thought-long-cot.md)
+- [memory-augmented-neural-networks-manns](reasoning-llms/memory-augmented-neural-networks-manns.md)
+- [multi-stage-rl-pipeline](reasoning-llms/multi-stage-rl-pipeline.md)
+- [multi-step-reasoning](reasoning-llms/multi-step-reasoning.md)
+- [native-chain-of-thought-ncot](reasoning-llms/native-chain-of-thought-ncot.md)
+- [neuro-symbolic-hybrid-models](reasoning-llms/neuro-symbolic-hybrid-models.md)
+- [o3-mini-cost-effective-reasoning-model](reasoning-llms/o3-mini-cost-effective-reasoning-model.md)
+- [openai-o1-o3-thinking-models](reasoning-llms/openai-o1-o3-thinking-models.md)
+- [pretrained-priors-in-reasoning](reasoning-llms/pretrained-priors-in-reasoning.md)
+- [process-reward-model-prm](reasoning-llms/process-reward-model-prm.md)
+- [program-aided-language-models-pal](reasoning-llms/program-aided-language-models-pal.md)
+- [prompting-based-cot](reasoning-llms/prompting-based-cot.md)
+- [r1-style-rl-training](reasoning-llms/r1-style-rl-training.md)
+- [reasoning-as-markov-decision-process](reasoning-llms/reasoning-as-markov-decision-process.md)
+- [reasoning-distillation](reasoning-llms/reasoning-distillation.md)
+- [reasoning-model-distillation](reasoning-llms/reasoning-model-distillation.md)
+- [reasoning-step-length-impact](reasoning-llms/reasoning-step-length-impact.md)
+- [reinforcement-learning-for-reasoning](reasoning-llms/reinforcement-learning-for-reasoning.md)
+- [self-consistency-prompting](reasoning-llms/self-consistency-prompting.md)
+- [self-evolution-through-rl](reasoning-llms/self-evolution-through-rl.md)
+- [synthetic-reasoning-trajectories](reasoning-llms/synthetic-reasoning-trajectories.md)
+- [synthetic-safety-data-generation](reasoning-llms/synthetic-safety-data-generation.md)
+- [system-1-vs-system-2-thinking-in-llms](reasoning-llms/system-1-vs-system-2-thinking-in-llms.md)
+- [test-time-compute](reasoning-llms/test-time-compute.md)
+- [tree-of-thought-tot-reasoning](reasoning-llms/tree-of-thought-tot-reasoning.md)
+- [verifiable-rewards-in-rl](reasoning-llms/verifiable-rewards-in-rl.md)
+- [verifier-guided-rl](reasoning-llms/verifier-guided-rl.md)
+- [zero-shot-chain-of-thought](reasoning-llms/zero-shot-chain-of-thought.md)
+
+## recommendation-ranking
+- [Adoption Ceiling Problem](recommendation-ranking/adoption-ceiling-problem.md) — The phenomenon where users only engage with the top few recommendations regardless of list quality, making improvements to lower-ranked items invisible to business metrics.
+- [cross-attention-ranking](recommendation-ranking/cross-attention-ranking.md)
+- [Double-Randomized Experimentation](recommendation-ranking/double-randomized-experimentation.md) — An experimental design that randomizes both users and marketplace contexts to isolate causal effects in two-sided marketplaces where standard A/B testing fails due to interference.
+- [ftrl-online-learning](recommendation-ranking/ftrl-online-learning.md)
+- [llm-reranking](recommendation-ranking/llm-reranking.md)
+- [Model Calibration](recommendation-ranking/model-calibration.md) — The requirement that predicted probabilities match observed frequencies, critical for auction-based systems where miscalibrated predictions directly impact bidding and revenue.
+- [model-calibration-in-recommendations](recommendation-ranking/model-calibration-in-recommendations.md)
+- [multi-stage-recommendation-pipeline](recommendation-ranking/multi-stage-recommendation-pipeline.md)
+- [position-bias-correction](recommendation-ranking/position-bias-correction.md)
+- [two-tower-architecture](recommendation-ranking/two-tower-architecture.md)
+
+## recursive self improvement
+- [AI-Driven Research Acceleration](recursive self improvement/ai-driven-research-acceleration.md) — The use of AI agents to speed up research bottlenecks including experimentation, infrastructure tuning, data curation, and evaluation loops.
+- [AutoResearch Framework](recursive self improvement/autoresearch-framework.md) — An open-source project by Andrej Karpathy that demonstrates autonomous machine learning experimentation where AI agents iteratively modify code, run experiments, and evaluate results to improve performance.
+- [AutoResearch System](recursive self improvement/autoresearch-system.md) — Karpathy's open-source project where an LLM autonomously proposes changes to ML training code, runs experiments, evaluates metrics, and iterates improvements.
+- [Bounded Recursive Self-Improvement](recursive self improvement/bounded-recursive-self-improvement.md) — Constrained forms of self-improvement where AI systems operate within specific domains and limitations rather than having unlimited self-modification capabilities.
+- [Intelligence Explosion](recursive self improvement/intelligence-explosion.md) — The theoretical scenario where recursive self-improvement creates an accelerating cycle of AI capability enhancement, potentially leading to superintelligence.
+- [Recursive Self-Improvement (RSI)](recursive self improvement/recursive-self-improvement-rsi.md) — AI systems that modify or improve themselves, creating a feedback loop where improved systems become better at making future improvements.
+- [Self-Taught Optimizer (STOP)](recursive self improvement/self-taught-optimizer-stop.md) — A language-model-driven system that improves code scaffolds recursively, representing a partial form of recursive self-improvement in practice.
+- [Soft RSI vs Hard RSI](recursive self improvement/soft-rsi-vs-hard-rsi.md) — The distinction between AI accelerating AI engineering workflows (soft RSI) versus fully autonomous intelligence explosion (hard RSI).
+
+## rl
+- [AlphaStar Multi-Agent Training](rl/alphastar-multi-agent-training.md) — DeepMind's StarCraft II AI that achieved Grandmaster level (top 0.2%) using league-based multi-agent training against diverse opponents.
+- [JaxMARL GPU Acceleration](rl/jaxmarl-gpu-acceleration.md) — A JAX-native MARL framework achieving up to 12,500x speedup through vectorized parallel environment execution on GPUs.
+- [MAgent2 Massive Scale MARL](rl/magent2-massive-scale-marl.md) — A framework designed to handle hundreds to millions of agents simultaneously, enabling large-scale multi-agent simulations.
+- [MARL Advertising Applications](rl/marl-advertising-applications.md) — The application of multi-agent reinforcement learning to advertising platforms for auto-bidding, auction optimization, and revenue maximization with documented GMV improvements.
+- [Mean Field MARL for Advertising](rl/mean-field-marl-for-advertising.md) — A technique that groups millions of advertisers by objectives to make multi-agent auction optimization tractable, as demonstrated in Alibaba's MAAB system.
+- [Modular RL Environment Architecture](rl/modular-rl-environment-architecture.md) — Component-based design separating API definition, implementation, physics backend, and training algorithms into independent modules for flexibility and performance optimization.
+- [Multi-Agent RL Ecosystems and Advertising Applications](rl/marl-ecosystems.md) — 13+ open-source MARL frameworks. Top: PettingZoo (API standard), OpenSpiel (game theory), JaxMARL (12,500x speedup), MAgent2 (millions of agents). Industry: AlphaStar, OpenAI Five, Cicero. Advertising: MAAB (Alibaba, mean-field millions of advertisers), GAVE (NeurIPS 2024 winner), QGA (3.27% GMV lift in production).
+- [Nexto Bot Achievement](rl/nexto-bot-achievement.md) — RLGym-trained bot that reached Grand Champion 1 level, placing in top 0.12% in 1v1, top 0.95% in 2v2, and top 0.46% in 3v3 Rocket League matches.
+- [OpenAI Five Dota 2 Champion](rl/openai-five-dota-2-champion.md) — OpenAI's multi-agent system that defeated world champion Dota 2 team OG using 128K CPUs and 256 GPUs with 180 years of training per day.
+- [PettingZoo MARL Framework](rl/pettingzoo-marl-framework.md) — A standardized API framework for multi-agent reinforcement learning environments with 3.4K stars, serving as the de facto standard for MARL research.
+- [PPO + Replay Pretraining](rl/ppo-replay-pretraining.md) — Training methodology combining Proximal Policy Optimization with behavioral cloning from human replay data, inspired by OpenAI VPT, used successfully in RLGym bots.
+- [RLGym — Rocket League Reinforcement Learning Environment](rl/rlgym.md) — The only RL environment for Rocket League. Gym-like API + RocketSim physics (10 days/min simulation). Produced Nexto bot reaching Grand Champion 1 (top 0.12% of players). 240 GitHub stars, community-driven, no academic papers at top venues. Best algorithm: PPO + replay-based pretraining.
+- [RLGym — Rocket League RL Environment](rl/rlgym-rocket-league-rl-environment.md) — The only RL environment for Rocket League. Gym-like API + RocketSim (10 days/min). Nexto bot: Grand Champion 1 (top 0.12%). 240 stars, community-driven, PPO + replay pretraining. No non-gaming usage.
+- [RocketSim Physics Backend](rl/rocketsim-physics-backend.md) — C++ physics engine for Rocket League simulation achieving 114,481 ticks/sec and approximately 10 days of game time per minute with 12 threads.
+
+## search-retrieval
+- [bm25-scoring-algorithm](search-retrieval/bm25-scoring-algorithm.md)
+- [cross-encoder-reranking](search-retrieval/cross-encoder-reranking.md)
+- [dense-vector-retrieval](search-retrieval/dense-vector-retrieval.md)
+- [hnsw-hierarchical-navigable-small-world](search-retrieval/hnsw-hierarchical-navigable-small-world.md)
+- [hybrid-retrieval](search-retrieval/hybrid-retrieval.md)
+- [query-understanding-pipeline](search-retrieval/query-understanding-pipeline.md)
+- [reciprocal-rank-fusion-rrf](search-retrieval/reciprocal-rank-fusion-rrf.md)
+- [splade-sparse-lexical-and-expansion](search-retrieval/splade-sparse-lexical-and-expansion.md)
+
+## semantic-graph
+- [Context Graphs](semantic-graph/context-graphs.md) — Zep's commercial term for temporal knowledge graphs with fact validity tracking, entity extraction, and episode linking for agent memory.
+- [GraphRAG](semantic-graph/graphrag.md) — Microsoft's approach that uses LLM-built knowledge graphs with community detection for global corpus questions and comprehensive retrieval.
+- [HippoRAG](semantic-graph/hipporag.md) — A NeurIPS 2024 system combining knowledge graphs with PageRank inspired by hippocampal memory, achieving 20% improvement over SOTA at 10-30x lower cost.
+- [Hybrid Graph-Vector Systems](semantic-graph/hybrid-graph-vector-systems.md) — Emerging architectures that combine knowledge graphs for structured relationships with vector databases for semantic similarity search.
+- [Knowledge Graph Construction Cost](semantic-graph/knowledge-graph-construction-cost.md) — The significant expense and complexity of building knowledge graphs, either through manual curation or noisy automated extraction from text.
+- [Knowledge Graphs as Semantic Data Layer for GenAI](semantic-graph/knowledge-graphs-semantic-layer.md) — KGs ground LLM outputs in structured facts (reduce hallucination), enable multi-hop reasoning vector search misses, and serve as agent memory/world models. GraphRAG (Microsoft 2024) catalyzed explosion. Alternatives: Zep (temporal 'context graphs'), LightRAG, HippoRAG (NeurIPS 2024, 20% over SOTA). Hybrid KG+Vector emerging as dominant pattern. Main barrier: construction cost.
+- [Knowledge Graphs for GenAI](semantic-graph/knowledge-graphs-for-genai.md) — Graph-structured data models that store interlinked entity descriptions to ground LLM outputs, enable multi-hop reasoning, and serve as agent memory systems.
+- [Multi-hop Reasoning in Knowledge Graphs](semantic-graph/multi-hop-reasoning-in-knowledge-graphs.md) — The ability to traverse relationship chains across multiple entities in knowledge graphs to answer complex questions that vector search cannot handle.
+- [Think-on-Graph](semantic-graph/think-on-graph.md) — An ICLR 2024 approach that performs beam search on knowledge graphs for planning, achieving SOTA on 6/9 datasets.
+
+## sft
+- [Best-Fit Decreasing (BFD) Packing](sft/best-fit-decreasing-bfd-packing.md) — A bin-packing algorithm used in TRL for sequence packing that achieves 2x throughput, 20% memory reduction, and 58% hallucination reduction by efficiently combining multiple training examples into single batches.
+- [Chunked Negative Log-Likelihood (NLL)](sft/chunked-negative-log-likelihood-nll.md) — A memory optimization technique in TRL that reduces VRAM usage by 30-50% by dropping masked positions before the language model head during training.
+- [Constitutional AI (RLAIF)](sft/constitutional-ai-rlaif.md) — Anthropic's approach that uses AI feedback instead of human feedback for alignment, employing self-critique and revision mechanisms to train models according to a written constitution of principles.
+- [Fill-in-Middle (FIM) Training](sft/fill-in-middle-fim-training.md) — A code-specific training technique that randomly masks middle portions of code sequences at 50% rate, enabling models to complete code given prefix and suffix context without harming autoregressive performance.
+- [NEFTune](sft/neftune.md) — A technique that adds noise to embeddings during supervised fine-tuning, providing massive free improvements of 8-35% on benchmarks like AlpacaEval without architectural changes.
+- [Process Supervision in Math Training](sft/process-supervision-in-math-training.md) — A training approach for mathematical reasoning that provides step-level labels and feedback rather than just outcome-based supervision, achieving 78% performance on MATH benchmark with PRM800K dataset.
+- [Quality over Quantity in SFT Data](sft/quality-over-quantity-in-sft-data.md) — The principle that small, high-quality datasets (like LIMA's 1K examples or DEITA's 6K samples) can match or exceed the performance of much larger datasets when examples are carefully curated for complexity, quality, and diversity.
+- [Supervised Fine-Tuning Deep Dive](sft/sft-deep-dive.md) — Definitive SFT reference: data prep (quality>>quantity, LIMA 1K examples, packing 2x throughput), loss functions (CE, NEFTune +35%, chunked NLL -50% VRAM), design choices (lr 2e-5, 1-3 epochs, BF16, cosine), application quirks (code FIM 50%, math process supervision 78%, long context LongLoRA 100K), and industry differences (OpenAI→RLHF, Anthropic→RLAIF, Meta→10M demos, DeepSeek→minimal SFT+GRPO).
+- [Train-on-Responses-Only](sft/train-on-responses-only.md) — A training configuration that applies loss only to assistant tokens in conversational data, preventing models from learning to generate user prompts and focusing learning on desired response patterns.
+
+## sft-vs-dpo
+- [alignment-cost-in-fine-tuning](sft-vs-dpo/alignment-cost-in-fine-tuning.md)
+- [answer-only-loss](sft-vs-dpo/answer-only-loss.md)
+- [basesftdataset](sft-vs-dpo/basesftdataset.md)
+- [batch-size-learning-rate-relationship](sft-vs-dpo/batch-size-learning-rate-relationship.md)
+- [Catastrophic Forgetting in Fine-Tuning](sft-vs-dpo/catastrophic-forgetting-in-fine-tuning.md) — The phenomenon where fine-tuned models lose general knowledge from pre-training when adapted to very different task-specific data.
+- [catastrophic-forgetting](sft-vs-dpo/catastrophic-forgetting.md)
+- [character-level-tokenization](sft-vs-dpo/character-level-tokenization.md)
+- [chat-dataset-formats](sft-vs-dpo/chat-dataset-formats.md)
+- [concat-sampling-probabilities](sft-vs-dpo/concat-sampling-probabilities.md)
+- [conversation-object](sft-vs-dpo/conversation-object.md)
+- [creativity-optimization-trade-off](sft-vs-dpo/creativity-optimization-trade-off.md)
+- [cross-architecture-generalization](sft-vs-dpo/cross-architecture-generalization.md)
+- [Cross-Domain Transfer in SFT](sft-vs-dpo/cross-domain-transfer-in-sft.md) — The phenomenon where training on one domain (like code) improves performance on seemingly unrelated tasks (like mathematics), suggesting significant knowledge transfer beyond simple topic alignment.
+- [cross-domain-interference-in-sft](sft-vs-dpo/cross-domain-interference-in-sft.md)
+- [cross-lingual-sft-transfer](sft-vs-dpo/cross-lingual-sft-transfer.md)
+- [dataset-quality-control-for-sft](sft-vs-dpo/dataset-quality-control-for-sft.md)
+- [dataset-registration-pattern](sft-vs-dpo/dataset-registration-pattern.md)
+- [dataset-streaming-mode](sft-vs-dpo/dataset-streaming-mode.md)
+- [Dataset-Task Synergy Patterns](sft-vs-dpo/dataset-task-synergy-patterns.md) — The finding that while certain training dataset and evaluation task combinations show consistent benefits across models, many synergies are model-specific and vary substantially between different base models.
+- [dataset-task-synergy-analysis](sft-vs-dpo/dataset-task-synergy-analysis.md)
+- [direct-preference-optimization-dpo](sft-vs-dpo/direct-preference-optimization-dpo.md)
+- [domain-specific-instruction-tuning](sft-vs-dpo/domain-specific-instruction-tuning.md)
+- [domain-specific-sft-datasets](sft-vs-dpo/domain-specific-sft-datasets.md)
+- [dpo-beta-parameter](sft-vs-dpo/dpo-beta-parameter.md)
+- [dual-stage-mixed-fine-tuning-dmt](sft-vs-dpo/dual-stage-mixed-fine-tuning-dmt.md)
+- [fp8-training](sft-vs-dpo/fp8-training.md)
+- [function-calling-training-examples](sft-vs-dpo/function-calling-training-examples.md)
+- [gradient-descent-optimization](sft-vs-dpo/gradient-descent-optimization.md)
+- [gradient-norm-as-performance-predictor](sft-vs-dpo/gradient-norm-as-performance-predictor.md)
+- [grammar-based-sequence-generation](sft-vs-dpo/grammar-based-sequence-generation.md)
+- [group-relative-policy-optimization-grpo](sft-vs-dpo/group-relative-policy-optimization-grpo.md)
+- [Hugging Face Transformers Library](sft-vs-dpo/hugging-face-transformers-library.md) — A comprehensive Python library providing pre-trained models, tokenizers, and training utilities for natural language processing tasks.
+- [hugging-face-trl-library](sft-vs-dpo/hugging-face-trl-library.md)
+- [human-feedback-integration-in-sft](sft-vs-dpo/human-feedback-integration-in-sft.md)
+- [Hybrid-Controller Architecture](sft-vs-dpo/hybrid-controller-architecture.md) — veRL's distributed training architecture that combines Ray orchestration with NCCL collectives for efficient multi-node RL training with zero-redundancy resharding.
+- [instruct-dataset-formats](sft-vs-dpo/instruct-dataset-formats.md)
+- [instructgpt-training-pipeline](sft-vs-dpo/instructgpt-training-pipeline.md)
+- [instruction-tuning](sft-vs-dpo/instruction-tuning.md)
+- [internet-data-entropy-problem](sft-vs-dpo/internet-data-entropy-problem.md)
+- [Intrinsic Dimensionality Analysis](sft-vs-dpo/intrinsic-dimensionality-analysis.md) — A technique for measuring how supervised fine-tuning alters the geometry of embedding spaces by computing the intrinsic dimensionality of sentence-level embeddings before and after training.
+- [jinja-templating-for-llms](sft-vs-dpo/jinja-templating-for-llms.md)
+- [jsonl-training-data-format](sft-vs-dpo/jsonl-training-data-format.md)
+- [kl-divergence-control](sft-vs-dpo/kl-divergence-control.md)
+- [lab-hyperparameter-configuration](sft-vs-dpo/lab-hyperparameter-configuration.md)
+- [llm-as-judge-evaluation](sft-vs-dpo/llm-as-judge-evaluation.md)
+- [log-likelihood-vector-projection](sft-vs-dpo/log-likelihood-vector-projection.md)
+- [low-rank-adaptation-lora](sft-vs-dpo/low-rank-adaptation-lora.md)
+- [Megatron 6D Parallelism](sft-vs-dpo/megatron-6d-parallelism.md) — NVIDIA's parallelization strategy combining tensor, pipeline, sequence, context, expert, and FSDP parallelism for training massive models across hundreds of GPUs.
+- [Mid-Layer Weight Change Analysis](sft-vs-dpo/mid-layer-weight-change-analysis.md) — The observation that changes in mid-layer weights correlate more strongly with downstream performance gains than changes in top or bottom layers during supervised fine-tuning.
+- [mid-layer-weight-change-correlation](sft-vs-dpo/mid-layer-weight-change-correlation.md)
+- [multi-ability-sft-strategy](sft-vs-dpo/multi-ability-sft-strategy.md)
+- [multi-task-instruction-tuning](sft-vs-dpo/multi-task-instruction-tuning.md)
+- [multilingual-sft-training](sft-vs-dpo/multilingual-sft-training.md)
+- [multiplicative-scaling-laws-for-fine-tuning](sft-vs-dpo/multiplicative-scaling-laws-for-fine-tuning.md)
+- [NeMo-RL Framework](sft-vs-dpo/nemo-rl-framework.md) — NVIDIA's RL post-training framework focusing on critic-free methods like GRPO with Megatron 6D parallelism, optimized for NVIDIA hardware and large-scale training.
+- [nvidia-nemo-framework](sft-vs-dpo/nvidia-nemo-framework.md)
+- [Online RL vs Offline RL in Post-Training](sft-vs-dpo/online-rl-vs-offline-rl-in-post-training.md) — The distinction between online RL methods that generate new data during training (PPO, GRPO) versus offline methods that train on fixed preference datasets (DPO, KTO).
+- [optimized-reward-prompt-optimization-orpo](sft-vs-dpo/optimized-reward-prompt-optimization-orpo.md)
+- [packed-sequence-training](sft-vs-dpo/packed-sequence-training.md)
+- [pairwise-win-rate](sft-vs-dpo/pairwise-win-rate.md)
+- [parallel-tool-calls-configuration](sft-vs-dpo/parallel-tool-calls-configuration.md)
+- [Parameter-Efficient Fine-Tuning (PEFT)](sft-vs-dpo/parameter-efficient-fine-tuning-peft.md) — Training techniques that reduce computational costs by updating only a subset of model parameters during fine-tuning rather than the entire model.
+- [Perplexity as SFT Predictor](sft-vs-dpo/perplexity-as-sft-predictor.md) — The finding that training data with lower perplexity relative to the base model consistently leads to greater improvements in downstream performance, outperforming semantic similarity and other factors as a predictor of SFT success.
+- [pipeline-model-parallelism](sft-vs-dpo/pipeline-model-parallelism.md)
+- [post-training-data-requirements](sft-vs-dpo/post-training-data-requirements.md)
+- [preference-collapse](sft-vs-dpo/preference-collapse.md)
+- [preference-score-optimization](sft-vs-dpo/preference-score-optimization.md)
+- [quality-over-quantity-paradigm](sft-vs-dpo/quality-over-quantity-paradigm.md)
+- [reinforcement-fine-tuning-rft](sft-vs-dpo/reinforcement-fine-tuning-rft.md)
+- [reinforcement-learning-from-human-feedback-rlhf](sft-vs-dpo/reinforcement-learning-from-human-feedback-rlhf.md)
+- [RL Framework Decision Matrix](sft-vs-dpo/rl-framework-decision-matrix.md) — A systematic approach to selecting RL post-training frameworks based on scale (1-512 GPUs), algorithms needed (DPO vs PPO vs GRPO), and hardware constraints.
+- [rl-data-scaling-laws](sft-vs-dpo/rl-data-scaling-laws.md)
+- [sample-efficiency-in-fine-tuning](sft-vs-dpo/sample-efficiency-in-fine-tuning.md)
+- [SFT Embedding Space Visualization](sft-vs-dpo/sft-embedding-space-visualization.md) — A technique for projecting log-likelihood vectors of fine-tuned models into a common latent space to compare training dynamics and reveal that model family determines global layout more than training corpus.
+- [sft-data-composition-scaling-laws](sft-vs-dpo/sft-data-composition-scaling-laws.md)
+- [sft-dataset-size-optimization](sft-vs-dpo/sft-dataset-size-optimization.md)
+- [sft-rehearsal-mechanism](sft-vs-dpo/sft-rehearsal-mechanism.md)
+- [sft-then-dpo-workflow](sft-vs-dpo/sft-then-dpo-workflow.md)
+- [shadow-deployment](sft-vs-dpo/shadow-deployment.md)
+- [special-tokens-for-role-separation](sft-vs-dpo/special-tokens-for-role-separation.md)
+- [stacked-training-vs-sequential-phased-training](sft-vs-dpo/stacked-training-vs-sequential-phased-training.md)
+- [Supervised Fine-Tuning (SFT)](sft-vs-dpo/supervised-fine-tuning-sft.md) — A training method that adapts pre-trained language models to specific tasks by fine-tuning on labeled input-output pairs through maximum likelihood estimation.
+- [supervised-fine-tuning-sft-dataset](sft-vs-dpo/supervised-fine-tuning-sft-dataset.md)
+- [synthetic-instruction-tuning](sft-vs-dpo/synthetic-instruction-tuning.md)
+- [synthetic-preference-dataset-generation](sft-vs-dpo/synthetic-preference-dataset-generation.md)
+- [Task-Specific Dataset Preparation](sft-vs-dpo/task-specific-dataset-preparation.md) — The process of creating labeled input-output pairs from domain-specific data to train models for particular tasks like sentiment analysis or question answering.
+- [tensor-model-parallelism](sft-vs-dpo/tensor-model-parallelism.md)
+- [token-masking-in-sft](sft-vs-dpo/token-masking-in-sft.md)
+- [tool-schema-definition](sft-vs-dpo/tool-schema-definition.md)
+- [toy-problem-design-for-ml-concepts](sft-vs-dpo/toy-problem-design-for-ml-concepts.md)
+- [veRL Framework](sft-vs-dpo/verl-framework.md) — ByteDance's open-source RL post-training framework with 21.8k stars supporting online RL algorithms like PPO and GRPO across multi-hardware environments with hybrid-controller architecture.
+- [vision-fine-tuning](sft-vs-dpo/vision-fine-tuning.md)
+
+## sft-vs-rl
+- [Constitutional AI](sft-vs-rl/constitutional-ai.md) — An approach developed by Anthropic that uses AI models to generate feedback based on a written set of principles (constitution) rather than direct human evaluation, enabling scalable oversight for alignment.
+- [Elicitation Theory in Post-Training](sft-vs-rl/elicitation-theory-in-post-training.md) — The theoretical framework suggesting that post-training techniques like RL primarily redistribute probability mass and organize existing capabilities rather than creating fundamentally new abilities in language models.
+- [Expert-Specific Fine-Tuning (ESFT)](sft-vs-rl/expert-specific-fine-tuning-esft.md) — A fine-tuning approach for MoE models that selectively trains only task-relevant experts identified through routing analysis, preserving general ability while improving specialized performance.
+- [Exposure Bias in SFT](sft-vs-rl/exposure-bias-in-sft.md) — The phenomenon where supervised fine-tuning creates a distribution mismatch between training conditions (teacher forcing) and inference conditions (autoregressive generation), leading to error accumulation.
+- [Gradient Dilution in MoE](sft-vs-rl/gradient-dilution-in-moe.md) — The problem where each expert in a MoE model receives gradients from only a small fraction of tokens, leading to insufficient training signal when data is limited.
+- [Group Relative Policy Optimization (GRPO)](sft-vs-rl/group-relative-policy-optimization-grpo.md) — A DPO variant proposed by DeepSeek that avoids the critic model required in PPO by using a group mechanism for policy updates, reducing compute and memory overhead while maintaining strong performance.
+- [MLP-LoRA Incompatibility in MoE](sft-vs-rl/mlp-lora-incompatibility-in-moe.md) — The finding that LoRA applied to MLP layers in MoE models performs poorly because sparse MLP layers don't interact well with parameter-efficient fine-tuning methods.
+- [MoE Routing Disruption](sft-vs-rl/moe-routing-disruption.md) — The phenomenon where fine-tuning all parameters in MoE models degrades the specialization of non-relevant experts by disrupting the learned routing distribution.
+- [MoE SFT Debugging — Why Fine-Tuning Fails and What To Do](sft-vs-rl/moe-sft-debugging.md) — MoE models (GPT-OSS-120B) fail under standard SFT because LoRA targets MLP/expert layers that don't respond to PEFT, gradient is diluted across 128 experts, and 5K samples is insufficient for sparse routing. Fix by targeting attention-only, scaling to 50K+, or switching to distillation/RL.
+- [Pass@k Diagnostic for Fine-Tuning Strategy](sft-vs-rl/pass-k-diagnostic-for-fine-tuning-strategy.md) — A decision framework that uses pass@k metrics on base models to determine whether to use distillation (low pass@k) or reinforcement learning (high pass@k) for improvement.
+- [Pass@k vs Maj@1 Trade-off](sft-vs-rl/pass-k-vs-maj-1-trade-off.md) — The fundamental tension in language model training between optimizing for single-attempt accuracy (maj@1) versus multi-attempt success rate (pass@k), where different training methods affect these metrics differently.
+- [Reward Overoptimization](sft-vs-rl/reward-overoptimization.md) — The problem in RLHF where excessive optimization of a proxy reward model leads to degraded performance on the true objective, following an inverted-U curve as optimization increases.
+- [SFT vs RL Decision Framework](sft-vs-rl/sft-vs-rl-decision-framework.md) — A systematic approach to choosing between Supervised Fine-Tuning (SFT), Reinforcement Learning (RL), or combined approaches for post-training language models based on task requirements, data availability, and computational constraints.
+- [SFT vs RL Industry Successes and Failures](sft-vs-rl/industry-successes-failures.md) — Documented wins (InstructGPT, DeepSeek-R1, Constitutional AI) and failures (reward hacking via length bias, mode collapse, alignment tax) from production RL and SFT systems.
+- [SFT-RL Pipeline](sft-vs-rl/sft-rl-pipeline.md) — The industry-standard approach where Supervised Fine-Tuning provides strong initialization followed by Reinforcement Learning optimization, used by major AI companies like OpenAI, Meta, Anthropic, and DeepSeek.
+- [ST-MoE Freezing Paradox](sft-vs-rl/st-moe-freezing-paradox.md) — The counterintuitive finding that freezing MoE layers while updating other parameters works almost as well as full fine-tuning, while updating only MoE layers causes significant performance drops.
+
+## system-design
+- [Cloud GPU Pricing Comparison](system-design/cloud-gpu-pricing-comparison.md) — Comparative analysis of GPU rental costs across providers like RunPod, GCP, and Lambda Labs, ranging from $0.50 to $10.20 per GPU-hour.
+- [EleutherAI Transformer Math Formula](system-design/eleutherai-transformer-math-formula.md) — A mathematical formula for calculating training time as 6 * P * D / tau, where P is model parameters, D is training tokens, and tau is aggregate throughput.
+- [Fine-Tuning Cost Scaling Laws](system-design/fine-tuning-cost-scaling-laws.md) — Empirical relationships showing linear scaling with model size and dataset tokens, inverse scaling with GPU count, and efficiency multipliers for different methods.
+- [GPU Hours for Fine-Tuning LLMs](system-design/gpu-hours-fine-tuning.md) — Comprehensive reference for estimated GPU hours, memory requirements, and costs for fine-tuning base models (7B-405B) across Full SFT, LoRA, and QLoRA methods on A100/H100/consumer GPUs.
+- [GPU Memory Requirements by Fine-Tuning Method](system-design/gpu-memory-requirements-by-fine-tuning-method.md) — Systematic breakdown of VRAM requirements for different fine-tuning approaches ranging from 6GB (QLoRA 4-bit) to 7,200GB (Full SFT FP32) for various model sizes.
+- [Managed Fine-Tuning Services Pricing](system-design/managed-fine-tuning-services-pricing.md) — Commercial fine-tuning services that charge per million training tokens, with costs ranging from $0.48 to $6.00 depending on model size and method.
+- [QLoRA 4-bit Fine-Tuning](system-design/qlora-4-bit-fine-tuning.md) — A quantized LoRA approach that enables fine-tuning large models on consumer GPUs by reducing weights to 4-bit precision while maintaining adapter quality.
+
+## transformers
+- [3D Parallelism](transformers/3d-parallelism.md) — A distributed training strategy that combines tensor parallelism (within nodes), pipeline parallelism (across nodes), and data parallelism (replicas) to efficiently train massive models on hundreds of GPUs.
+- [Causal Masking in Transformer Training](transformers/causal-masking-in-transformer-training.md) — A technique that prevents tokens from seeing future positions during training by setting future attention scores to negative infinity, ensuring the model learns to predict rather than copy.
+- [Flash Attention](transformers/flash-attention.md) — An engineering breakthrough that computes attention in chunks that fit in fast SRAM memory, achieving 2-4x speedup by minimizing slow memory transfers despite doing more computation.
+- [KV Caching](transformers/kv-caching.md) — A memory-for-compute trade-off that stores Key and Value matrices from previous tokens to avoid recomputation during text generation, critical for making inference fast enough to be usable.
+- [Loss Masking in SFT](transformers/loss-masking-in-sft.md) — A technique in supervised fine-tuning where the model only learns to predict assistant responses, not user messages, by masking the loss computation for user tokens.
+- [Mixed Precision Training](transformers/mixed-precision-training.md) — A technique that stores master weights in fp32 for accuracy but computes forward/backward passes in bf16, achieving 50% memory reduction and 2x speedup with identical quality.
+- [Reference Model in DPO](transformers/reference-model-in-dpo.md) — A frozen copy of the SFT checkpoint used in Direct Preference Optimization to prevent model collapse by ensuring preference learning doesn't deviate too far from reasonable language modeling.
+- [ZeRO (Zero Redundancy Optimizer)](transformers/zero-zero-redundancy-optimizer.md) — Microsoft's approach to distributed training that progressively shards optimizer states, gradients, and model weights across GPUs to eliminate redundant storage while maintaining data parallelism.
+
+## vllm
+- [Cloud LLM Inference Services](vllm/cloud-llm-inference-services.md) — Managed LLM inference options across AWS (SageMaker LMI, Bedrock, Inferentia), GCP (Vertex AI, Cloud TPU), Azure (Azure ML, Azure OpenAI), and specialized providers (NVIDIA NIM, Together.ai, Fireworks.ai, Modal). Zero-ops options vs self-managed Kubernetes tradeoffs.
+- [Disaggregated Prefill/Decode Serving](vllm/disaggregated-prefill-decode-serving.md) — An architecture that separates compute-bound prefill operations from bandwidth-bound decode operations onto distinct GPU pools, achieving 2.5x throughput improvements.
+- [Expert Parallel Load Balancing (EPLB)](vllm/expert-parallel-load-balancing-eplb.md) — vLLM's load balancing mechanism for Expert Parallel deployments that optimizes token distribution across experts to prevent bottlenecks in MoE models.
+- [Hybrid TP+EP Parallelism](vllm/hybrid-tp-ep-parallelism.md) — A parallelism strategy that combines Tensor Parallel and Expert Parallel modes, where moe_tp_size * moe_ep_size equals tp_size, optimizing MoE model serving across multiple GPUs.
+- [llm-d Kubernetes-Native Inference](vllm/llm-d-kubernetes-native-inference.md) — An open-source Kubernetes-native distributed inference framework built on vLLM with KV-cache-aware routing and disaggregated serving as first-class features.
+- [Multi-Node LLM Inference Decision Matrix](vllm/multi-node-llm-inference-decision-matrix.md) — A systematic framework for choosing between vLLM, TensorRT-LLM, SGLang, and cloud services based on scale, latency requirements, and operational complexity.
+- [Multi-Node LLM Inference Frameworks](vllm/multi-node-inference-frameworks.md) — Comparison of open-source multi-node inference solutions: vLLM (dominant, Ray-based, Wide-EP), TensorRT-LLM (NVIDIA-optimized, lowest latency), SGLang (RadixAttention, AMD/TPU support), DeepSpeed-MII (Microsoft ecosystem). vLLM is default choice; TRT-LLM for latency-critical; SGLang for heterogeneous hardware.
+- [MXFP4 Quantization](vllm/mxfp4-quantization.md) — A 4-bit quantization format supported by TensorRT-LLM on Blackwell architecture GPUs for memory-efficient inference with minimal quality degradation.
+- [RadixAttention](vllm/radixattention.md) — SGLang's unique prefix caching mechanism that uses tree-based structures for efficient reuse of computed attention states across requests with shared prefixes.
+- [Wide-EP (Wide Expert Parallel)](vllm/wide-ep-wide-expert-parallel.md) — A parallelism strategy in vLLM that achieves 2.2k tokens/second/H200 on Coreweave InfiniBand by distributing experts across multiple nodes with optimized all-to-all communication.
+
+## world-models
+- [DIAMOND Neural Game Engine](world-models/diamond-neural-game-engine.md) — A diffusion-based world model that achieves full-fidelity visual prediction and HNS score of 1.46, representing state-of-the-art in neural game engines.
+- [Diffusion-Based World Models for Recommendations](world-models/diffusion-based-world-models-for-recommendations.md) — The use of diffusion models to capture user uncertainty and preference dynamics in recommendation systems, representing an emerging approach to world modeling in this domain.
+- [DiT Spacetime Patches](world-models/dit-spacetime-patches.md) — A Diffusion Transformer architecture that processes video as spacetime patches, enabling world simulation through video generation as demonstrated in Sora.
+- [Genie Interactive World Generation](world-models/genie-interactive-world-generation.md) — A family of foundation models (Genie, Genie 2) that can generate interactive 3D worlds from single images with up to 1 minute consistency.
+- [Joint Embedding Predictive Architecture (JEPA)](world-models/joint-embedding-predictive-architecture-jepa.md) — A world model approach that predicts in representation space rather than pixel space, achieving 1.5-6x efficiency improvements over pixel-based methods.
+- [Long-Horizon Consistency Problem](world-models/long-horizon-consistency-problem.md) — The fundamental challenge in world models where prediction quality degrades over time, with current best models limited to approximately 1 minute of consistent simulation.
+- [Multi-Agent Recommendation Environments](world-models/multi-agent-recommendation-environments.md) — Recommendation systems modeled as multi-agent environments where users, content creators, and the platform interact, creating complex dynamics that world models must capture.
+- [Offline World Model Learning in Recommendations](world-models/offline-world-model-learning-in-recommendations.md) — The challenge of learning world models for recommendation systems from biased logged data without the ability to freely explore, unlike traditional RL environments.
+- [RecSim NG Framework](world-models/recsim-ng-framework.md) — Google's probabilistic, differentiable, multi-agent simulator for recommender ecosystems that functions as a world model framework, used for YouTube Music preference elicitation.
+- [Recurrent State Space Models (RSSM)](world-models/recurrent-state-space-models-rssm.md) — A world model architecture that combines stochastic and deterministic components to learn latent dynamics, used in the Dreamer family of algorithms.
+- [User Simulators as World Models](world-models/user-simulators-as-world-models.md) — The practice of using user behavior simulators in recommendation systems that implicitly function as world models by predicting how users will respond to different recommendation strategies.
+- [World Model Scaling Laws](world-models/world-model-scaling-laws.md) — Empirically confirmed scaling relationships for world models, particularly in autonomous driving (GAIA-1) and reinforcement learning (TD-MPC2) domains.
+- [World Models in Recommendation Systems](world-models/world-models-in-recommendation-systems.md) — The application of world model concepts to recommendation systems where the environment consists of user behavior, platform dynamics, and item catalogs, with actions being recommendation decisions and transitions modeling preference evolution.
+- [World Models in Recommendation Systems](world-models/world-models-in-recommendation.md) — Emerging field (rapid growth 2024-2026). World models ARE used in rec systems under different names (user simulators, environment models). RecSim NG (Google) is functionally a world model for YouTube Music. Explicit adoption: GoalRec (AAAI 2021), DARLR (SIGIR 2025), diffusion-based world models (WWW 2025), MedDreamer (KDD 2026, Dreamer for clinical recs). Direct Dreamer/MuZero application fails due to million-item action spaces and per-user dynamics.
+- [World Models — Overview and SOTA](world-models/world-models-overview.md) — Internal learned models predicting environment evolution. Spectrum: latent dynamics → RSSM (Dreamer) → Transformer (IRIS) → Diffusion (DIAMOND) → Foundation (Sora/Genie 2/Cosmos). SOTA: DreamerV3 (150+ tasks, Minecraft diamonds, Nature 2024), DIAMOND (HNS 1.46, NeurIPS 2024), Genie 2 (3D interactive worlds), Sora (DiT video world sim). Industry: OpenAI, DeepMind, NVIDIA, Wayve.
+
+## Queries
+- [Claude Code writing itself?](queries/claude-code-writing-itself.md) — Confirmed: Anthropic dogfoods Claude Code to develop Claude Code. Analogous to a self-hosting compiler, not recursive self-improvement. Human-in-the-loop with standard code review/CI.
+- [Compare Anthropic models: Mythos vs Opus vs Sonnet vs Haiku — innovations, size, cost, capabilities?](queries/anthropic-model-family-comparison.md) — 5-tier hierarchy: Mythos 5 (restricted, 93.9% SWE-bench, autonomous vuln discovery, $10/$50) > Fable 5 (GA premium, multi-day autonomous, same base) > Opus 4.8 (adaptive thinking, $5/$25) > Sonnet 4.6 (hybrid reasoning, 70% efficient, $3/$15) > Haiku 4.5 (4-5x faster, $1/$5, 73% SWE-bench). Mythos IS real — Project Glasswing, ~150 orgs. All params undisclosed.
+- [Deep dive on SFT for LLMs: data prep, loss functions, design choices, application quirks, industry differences?](queries/sft-deep-dive-data-loss-design-industry.md) — Quality>>quantity (LIMA: 1K examples, DEITA: 6K matches SOTA). Packing gives 2x throughput + 58% less hallucination. NEFTune is biggest free win (+35% AlpacaEval). 1-3 epochs max (4x repetition is free). Code: FIM 50%. Math: process supervision 78% MATH. Industry: OpenAI (SFT→RLHF), Anthropic (self-critique), Meta (10M demos), DeepSeek (minimal SFT→GRPO), Qwen (18T pretrain + 1M SFT + 29 langs).
+- [DPO supported infra -- veRL vs NeMo-RL? When to use what?](queries/verl-vs-nemo-rl-dpo-infra.md) — veRL does NOT support offline DPO — it's an online RL framework (PPO/GRPO/DAPO). NeMo-RL DOES support DPO (with LoRA) alongside GRPO. For pure DPO: use TRL (easiest, 75+ variants) or NeMo-RL (Megatron scale). For GRPO/online RL: veRL (more flexible, multi-hardware) or NeMo-RL (faster on NVIDIA, 6D parallelism). For PPO: only veRL or OpenRLHF (NeMo-RL dropped it).
+- [Estimated GPU hours (with breakdown) for fine-tuning different base models?](queries/gpu-hours-fine-tuning-base-models.md) — Full SFT ranges from 12 GPU-hrs (8B) to 25,000 GPU-hrs (405B); QLoRA 4-bit brings this to 2-6 hrs on a single consumer GPU for 8B models, $20-60 for 70B. Scaling is linear with model size and dataset tokens.
+- [For GPT-OSS-120B, does MXFP4 significantly degrade performance vs BF16? Does vLLM support both?](queries/gpt-oss-120b-mxfp4-vs-bf16-vllm-support.md) — No significant degradation — GPT-OSS-120B's published benchmarks (AIME 95.8%, MMLU 90.0%, Codeforces 2463 Elo) were measured AT MXFP4 precision. MXFP4 is the intended release format, not a post-hoc compression. MoE expert weights tolerate 4-bit well because each expert specializes on narrow distributions. vLLM supports both: MXFP4 on 1× H100 (80GB), BF16 would need 3× H100s (~234GB).
+- [GPT-OSS-120B not improving after SFT on 5K samples — reasons, next steps, distillation vs RL?](queries/gpt-oss-120b-sft-not-improving.md) — Most likely cause: LoRA targeting MLP/expert layers (don't respond to PEFT in MoE) + 5K samples insufficient for 128-expert routing. Fix: attention-only LoRA, scale to 50K+, or switch to distillation→DPO pipeline. Use pass@k to decide distillation (low) vs RL (high).
+- [has historically markets (S&P, Nasdaq) been bearish before a mid-term election?](queries/markets-bearish-before-midterm-elections.md) — Yes. S&P 500 averaged -0.1% in midterm years (vs +8.9% long-term average), with 56% of midterm years producing negative returns. Nasdaq averaged -0.5%. However, the pattern is NOT statistically significant per formal testing. The post-midterm rally (+12.3% avg, 88% hit rate) is the more actionable signal. Pattern driven by policy uncertainty and front-loaded fiscal pain in Year 2 of presidential terms.
+- [has historically markets (S&P, Nasdaq) tanked before a big IPO?](queries/markets-tank-before-big-ipo.md) — No — the opposite is true. Markets are typically STRONG before major IPOs (S&P 500 averaged +4.6% in the 90 days before the 6 largest IPOs). Companies deliberately time IPOs for bull markets; IPO volume collapses 83% in bear markets. The legitimate concern is that IPO BOOMS may signal market TOPS (declines come AFTER, not before), but even that signal has only ~20% hit rate vs 14% base rate.
+- [hermes vs openclaw: which is easier to setup, use and maintain?](queries/hermes-vs-openclaw-setup-use-maintenance.md) — OpenClaw is easier to set up (single Node.js dependency vs Python+Node.js), has more mature documentation and enterprise deployment options, and benefits from a larger community (500+ contributors). Hermes Agent is easier to maintain long-term due to its self-improving learning loop that autonomously creates and refines skills. For day-to-day use, both have similar CLI-first interfaces with comparable friction. Choose OpenClaw for enterprise/team use; choose Hermes for personal agents that improve autonomously.
+- [How are world models being used in online recommendation systems? Industry and academia success stories?](queries/world-models-in-recommendation-systems.md) — Yes, under different names (user simulators, environment models). RecSim NG (Google) = world model for YouTube Music (SIGIR 2024). Explicit adoption growing: GoalRec (AAAI 2021), diffusion world models (WWW 2025), MedDreamer (KDD 2026, Dreamer for clinical rec). Direct Dreamer/MuZero fails (million-item action spaces, per-user dynamics). LLMs now serving as world models (AAAI 2025, 74 cites). Emerging area with clear momentum.
+- [How do traditional RL techniques (Q-learning, REINFORCE) stack against modern LLM-RL innovations (RLHF, RLAIF, RLVR)?](queries/traditional-rl-vs-llm-rl-innovations.md) — Traditional RL algorithms were designed for small discrete/continuous action spaces with dense rewards. LLM-RL innovations (RLHF, DPO, GRPO, RLVR) are adaptations that solve LLM-specific challenges: enormous action spaces (100K+ vocab), sparse rewards (end-of-sequence only), expensive generation, and the absence of a simulator.
+- [How easy or hard is it to fine-tune an LLM for tool-calling and API calls? What are the key challenges? Which technique works best -- SFT or RL?](queries/fine-tuning-llm-for-tool-calling-challenges-sft-vs-rl.md) — Moderate difficulty for basic tool calling via SFT (works in days with ~1K examples). Hard for reliable multi-step tool orchestration. SFT is the dominant and proven approach for tool calling — it directly teaches the structured output format (JSON function calls). RL adds value ONLY for multi-tool sequencing and recovery from tool errors where verifiable rewards exist (did the sequence achieve the goal?). Key challenges: schema adherence, argument hallucination, multi-tool planning, error recovery, and parallel vs sequential call decisions.
+- [How good are LLMs at user behavior modeling and sequence prediction? Successes and failures?](queries/llm-user-behavior-modeling-quality.md) — Moderate — 5-20% below SASRec/BERT4Rec on sequential tasks. Excel at cold-start, conversational rec, demographic simulation. Fail at temporal patterns, behavioral diversity, position bias. Root cause: LLMs encode declared preferences (reviews) not revealed preferences (clicks). Structural gap won't close without behavioral fine-tuning.
+- [How to decide for which application to use MoE (GPT-OSS-120B) model vs. not (Qwen3-32b)?](queries/when-to-use-moe-gpt-oss-vs-dense-qwen3.md) — Use GPT-OSS-120B (MoE) for: complex reasoning, math, competitive coding, agentic tool use, and single-GPU deployment of a frontier-class model. Use Qwen3-32B (dense) for: multilingual workloads, fine-tuning, factual QA, predictable latency, and simpler ops. The decision hinges on 5 axes: task complexity, fine-tuning needs, latency requirements, multilingual breadth, and hallucination tolerance.
+- [Is on-policy synonymous with model-free, and off-policy with model-based?](queries/on-policy-vs-model-free-orthogonality.md) — No. These are two orthogonal axes in RL taxonomy. On/off-policy describes whether you learn from the current policy's data or any policy's data. Model-free/model-based describes whether you learn/use a dynamics model of the environment. All four combinations exist.
+- [is qwen3 model family based on dense or moe architecture?](queries/is-qwen3-model-family-based-on-dense-or-moe-architecture.md) — Based on the knowledge pages, the **Qwen3 model family uses both dense and MoE (Mixture of Experts) architectures**.
+## Dense Models
+The Qwen3 family includes **six dense models** ranging from 0.6B to 32B parameters: - Qwen3-0.6B (0.6B parameters, 32K context) - Qwen3-1.7B (1.7B parameters, 32K context) - Qwen3-4B (4B parameters, 128K context) - Qwen3-8B (8B parameters, 128K context) - Qwen3-14B (14B parameters, 128K context) - Qwen3-32B (32B parameters, 128K context)
+These dense models utilize 100% of their parameters for every token processed, following traditional transformer architectures.
+- [is-gpt-oss-model-family-based-on-dense-or-moe-architecture](queries/is-gpt-oss-model-family-based-on-dense-or-moe-architecture.md)
+- [Recursive self-improvement (RSI) vs self-evolving agent?](queries/recursive-self-improvement-vs-self-evolving-agent.md) — RSI (recursive self-improvement) is a theoretical/research concept where AI systems modify themselves to become better at self-modification (feedback loop on CAPABILITY). Self-evolving agents are a practical engineering pattern where agents accumulate skills/knowledge from experience (feedback loop on BEHAVIOR). RSI changes the MODEL; self-evolving agents change the SCAFFOLDING around a fixed model. Most 'self-improving' agent products (Hermes Agent, AutoResearch) are self-evolving agents implementing soft RSI, not hard RSI.
+- [SFT vs RL? pros and cons? when to do what? what are some successes and failures from industry use cases?](queries/sft-vs-rl-pros-cons-industry-cases.md) — SFT is simple/cheap/stable but bounded by demo quality. RL unlocks holistic optimization (safety, reasoning) and can exceed SFT ceiling. InstructGPT, DeepSeek-R1, Constitutional AI are successes; reward hacking via length bias, mode collapse, overoptimization are documented failures. Industry standard is SFT+RL pipeline.
+- [Suppose I want to (reverse) distill qwen performance into gpt-oss-120b. When is that possible vs. not?](queries/reverse-distill-qwen-into-gpt-oss-120b.md) — Possible via SFT on Qwen3-32B outputs + LoRA when the target capability (e.g., multilingual) is latent in GPT-OSS-120B's 117B parameters. NOT possible via logit distillation (tokenizer mismatch) or weight merging (architecture mismatch). Fails when the transfer is style mimicry without genuine capability signal, or when MoE routing is disrupted. Recommended: generate multilingual data from Qwen3, mix with replay data, LoRA fine-tune GPT-OSS on single H100.
+- [Suppose qwen3-32b is doing better than gpt-oss-120b on a specific task. How to decide between knowledge distillation from qwen3-32b, RL-DPO, RL-PPO/GRPO, or RL-PPO?](queries/distillation-vs-rl-for-improving-gpt-oss-120b.md) — Four options compared: (1) Distillation — cheapest, inject missing knowledge, bounded by teacher ceiling. (2) DPO — offline RL from preference pairs, stable but weaker optimization, no reward model needed. (3) GRPO — group-relative rewards without critic model, best for verifiable tasks (math/code), DeepSeek's approach. (4) PPO — online RL with reward model, strongest optimization but most expensive/unstable, can exceed all other methods. Key diagnostic: pass@64 test determines if RL is viable. Choose DPO for soft preferences, GRPO for verifiable rewards, PPO for maximum ceiling.
+- [What are all the open-weight models that can be used for fine-tuning? When to use what?](queries/open-weight-models-for-fine-tuning-when-to-use.md) — 19+ model families across 3 tiers. Tier 1 frontier: Llama 4 (10M ctx, multimodal), Qwen3 (119 langs, Apache 2.0), GPT-OSS (single-GPU frontier), DeepSeek R1 (best reasoning), Mistral/Devstral (best code), Gemma 3 (140+ langs), Nemotron (omnimodal). Default recommendation: Qwen3-32B for most fine-tuning (Apache 2.0, broad capability, standard tooling). Decision based on: use case, hardware, data volume, license, fine-tuning method.
+- [what are key differences in applying LoRA to attention-only vs. attention+FFN layer](queries/lora/what-are-key-differences-in-applying-lora-to-attention-only-vs-attention-ffn-layer.md) — Based on the provided knowledge pages, I can identify some key differences in applying LoRA to attention-only versus attention+FFN layers:
+## Layer Targeting Strategy
+The knowledge base indicates that [[Layer Targeting]] best practice involves **starting with narrow layer targeting (typically attention projections) and expanding only if needed**, rather than applying LoRA broadly across all layers.
+## Attention-Only Application
+When applying LoRA to attention layers only, the typical targets are [[LORA.md]]: - q_proj (query projection) - v_proj (value projection) - k_proj (key projection) - o_proj (output projection)
+## Attention+FFN Application
+When expanding beyond attention layers, LoRA can also target [[LORA.md]]: - MLP projections (the FFN components) - Embedding layers
+## Adaptive Approaches
+The knowledge base mentions that [[LORA.md]] **AdaLoRA dynamically reallocates rank budget during training, assigning higher rank to important layers and lower rank to unimportant layers**.
+- [What are latest innovations from top companies for leveraging gen-AI/LLM to build shopper/advertiser behavior simulators in online search and ads?](queries/genai-search-ads-behavior-simulators.md) — Google leads (RecSim NG + YouTube Music for offline testing, SIGIR 2024). Amazon uses LLM synthetic queries for cold-start. Microsoft's BASES simulates web search at scale. ByteDance builds four-twin digital twins for platform policy evaluation. Meta has no public papers. Key papers: Agent4Rec (1K agents, 349 citations), Shop-r1 (RL-aligned shopping). Main gap: advertiser-side simulation is underdeveloped vs user simulation.
+- [What are open-source ecosystems for large-scale multi-agent RL? Success stories? Use cases for online advertising?](queries/marl-ecosystems-advertising-use-cases.md) — 13+ frameworks: PettingZoo (API standard), JaxMARL (12,500x speedup), MAgent2 (millions of agents), OpenSpiel (game theory). Industry: AlphaStar (Grandmaster), OpenAI Five (beat world champs), Cicero (Diplomacy top 10%). Ads: MAAB (Alibaba, mean-field millions of advertisers), QGA (3.27% GMV lift in production A/B), GAVE (NeurIPS 2024 winner). Mean-field approximation is the key to scaling MARL for advertising.
+- [What are some latest innovations from top companies (Meta, Google, OpenAI, ByteDance) for gen-AI applied to online search and ads?](queries/genai-search-ads-latest-innovations.md) — Google: AI Overviews (1B+ users), AI Max keywordless campaigns (14% more conversions), Direct Offers (native checkout in AI search). Meta: Advantage+ automation + gen-AI creative tools at $201B scale. OpenAI: ChatGPT ads ($2.5B projected 2026), Operator agent, Stripe commerce. TikTok: Symphony AI video creation, Smart+ autonomy. Key shifts: keywords→intent, creative automation (40% CTR lift), agentic commerce (AI completes purchases), 'shortlist economy' (AI pre-filters before humans see).
+- [What are some multi-node LLM inferencing solutions available at scale (vs. single-node vLLM)? What open-source solutions are available? What is available on the cloud? When to use what?](queries/multi-node-llm-inference-vs-single-node-vllm.md) — Open-source: vLLM multi-node (dominant, Wide-EP, disaggregated prefill/decode), TensorRT-LLM (lowest latency, NVIDIA-optimized), SGLang (heterogeneous hardware, RadixAttention), DeepSpeed-MII (Microsoft ecosystem). Cloud: AWS SageMaker/Bedrock, GCP Vertex AI, Azure ML/OpenAI, plus providers (NIM, Together, Fireworks, Modal). Decision: single node TP for 2-8 GPUs; vLLM+Ray/llm-d for 10-100 nodes; TRT-LLM for lowest latency; managed cloud for zero ops.
+- [what are the key capabilities where qwen3-32b is better and worse than gpt-oss-120b?](queries/qwen3-32b-vs-gpt-oss-120b-strengths-weaknesses.md) — Qwen3-32B (dense 32B) excels in multilingual breadth (119 languages), inference cost-efficiency for non-reasoning tasks, lower hallucination on factual queries, and fine-tuning flexibility. GPT-OSS-120B (MoE, 117B total / 5.1B active) dominates on math reasoning (AIME 95.8%), competitive coding (Codeforces 2463 Elo), GPQA Diamond (80.1%), MMLU (90.0%), and agentic tool use. The models target different niches: GPT-OSS-120B is a reasoning-first model (o3-mini class); Qwen3-32B is a versatile dense model for local deployment and general tasks.
+- [What are world models? Key innovations? SOTA? Industry and academia success stories?](queries/world-models-deep-dive.md) — Internal learned models predicting environment evolution from actions. Architecture evolution: VAE+RNN (2018) → RSSM (Dreamer) → Transformer (IRIS) → Diffusion (DIAMOND HNS 1.46) → DiT (Sora) → JEPA (predict representations not pixels, 1.5-6x efficiency). SOTA: DreamerV3 (Nature, 150+ tasks), Genie 2 (interactive 3D worlds), Cosmos (open-weight physical AI). Industry: OpenAI, DeepMind, NVIDIA, Wayve. Open problem: long-horizon consistency (max ~1 min).
+- [What is disaggregated serving?](queries/what-is-disaggregated-serving.md) — Disaggregated serving separates LLM inference into two distinct GPU pools: prefill nodes (compute-bound, process input prompt in parallel) and decode nodes (memory-bandwidth-bound, generate tokens autoregressively). This eliminates the fundamental resource mismatch where prefill wastes memory bandwidth and decode wastes FLOPS. vLLM reports 2.5x throughput improvement. Key trade-off: adds KV cache transfer latency between pools + operational complexity.
+- [What is knowledge graph? How does it support agentic/GenAI? What similar systems exist (context graph)? Pros/cons? Industry success stories?](queries/knowledge-graphs-semantic-layer-genai.md) — KGs = entities + typed relationships + ontologies. Support GenAI via: hallucination reduction (grounding in triples), multi-hop reasoning (chains vector search misses), GraphRAG (Microsoft 2024, 'substantial improvements'). 'Context Graph' = Zep's commercial term for temporal KG. Alternatives: LightRAG, HippoRAG (NeurIPS, 20% over SOTA), hybrid KG+vector (dominant emerging pattern). Industry: Google (500B facts), LinkedIn (1B members), Microsoft GraphRAG. Main con: construction cost.
+- [What is OpenAI-compatible API?](queries/what-is-openai-compatible-api.md) — A de-facto standard HTTP API specification mirroring OpenAI's /v1/chat/completions, /v1/completions, and /v1/embeddings endpoints. Serving frameworks (vLLM, SGLang, TGI, Ollama) and providers (Together, Fireworks, Groq) implement it so applications built for OpenAI can switch to any backend with zero code changes — just change the base_url. Not an official standard — it's 'whatever OpenAI does' that others reverse-engineer and replicate.
+- [What is prefix caching?](queries/what-is-prefix-caching.md) — Prefix caching (= prompt caching) stores computed KV cache from shared prompt prefixes and reuses it across requests, avoiding redundant prefill computation. vLLM calls it 'prefix caching' (hash-based block lookup, zero-overhead, enabled by default in V1). SGLang calls it 'RadixAttention' (tree-based prefix sharing). Anthropic/OpenAI call it 'prompt caching' at the API level with tiered pricing (90%/50% discount). Same mechanism, different names.
+- [What is prompt caching? What is speculative decoding?](queries/prompt-caching-speculative-decoding-faq.md) — Prompt caching: reuses computed KV cache from repeated prefixes across requests, saving 10-30% cost (vLLM zero-overhead, Anthropic 90% discount). Not useful with diverse prompts. Speculative decoding: draft model proposes N tokens, target verifies in one pass, reducing latency 1.5-2x with zero quality loss. Not useful when throughput (not latency) is the bottleneck or batch sizes are large.
+- [What is recursive self-intelligence? What are its pros and cons? What are some successful examples in industry and academia?](queries/recursive-self-intelligence-pros-cons-examples.md) — 'Recursive self-intelligence' is NOT a formally established term (zero arXiv papers, absent from AI safety literature). It maps directly to 'recursive self-improvement' (RSI) — AI systems that improve their own capacity to self-improve, creating compounding gains. Pros: accelerating research (AutoResearch: 700 experiments/2 days), novel discovery (FunSearch: largest cap sets in 20 years), reduced human bottleneck. Cons: alignment risk, unpredictable emergent behaviors, verification difficulty, sandbox escape. Key examples: AlphaEvolve (0.7% of Google's global compute saved), DeepSeek-R1 (emergent self-reflection from RL), AlphaProof (IMO silver medal), Self-Rewarding LLMs (beat GPT-4).
+- [What is RLGym? What are some success stories in industry and academia?](queries/rlgym-what-is-it-success-stories.md) — RLGym = Rocket League reinforcement learning environment (not a general RL framework). 240 GitHub stars, Gym-like API + RocketSim physics. Key success: Nexto bot reached Grand Champion 1 (top 0.12% of players) using PPO + replay pretraining. No industry use outside gaming. No major academic papers. Community-driven.
+- [What is self-evolving agents? What are its pros and cons? What are some successful examples in industry and academia?](queries/self-evolving-agents-pros-cons-examples.md) — AI agents that improve through experience without retraining. Pros: decreasing maintenance, personalization, novel task handling. Cons: drift, safety degradation, evaluation difficulty. Top examples: Voyager (15.3x faster in Minecraft), Self-Rewarding LMs (beats GPT-4), ADAS (meta-agent designs better agents). Field exploded 2025-2026.
+- [What is the vLLM requirement for single-GPU deployment? What are the pros and cons?](queries/vllm-single-gpu-requirements-pros-cons.md) — vLLM requires: Python 3.9+, a CUDA-compatible GPU with sufficient VRAM to hold model weights + KV cache + runtime overhead (~4GB). For single-GPU: GPT-OSS-120B needs 1× H100-80GB (MXFP4, ~62GB); Qwen3-32B needs 1× A100-80GB or RTX 4090-24GB (AWQ-4bit, ~20GB). Pros: PagedAttention (2-4x throughput), continuous batching, OpenAI-compatible API, broad model support. Cons: high VRAM requirement (no CPU offload by default), limited single-GPU concurrency for large models, MoE routing overhead, slower than custom kernels for specific architectures.
+- [Why are LLMs not SOTA at user sequence behavior prediction?](queries/why-llms-not-sota-user-sequence-prediction.md) — Six reasons: (1) Over-capacity — SASRec 0.83M beats LlamaRec 7B by 25%; (2) Order-blind — shuffled sequences change LLM reps only 1-7%; (3) Vocab mismatch — millions of items vs 100K tokens; (4) Information gap — text holds ~14% of useful signal vs CF; (5) No collaborative signal in text; (6) Generation ≠ ranking. Fundamental: text describes what items ARE, behavior reveals what items DO for users. No text scaling recovers absent behavioral data.
+- [Why do we need the value function? Was GRPO the first to remove it? What breaks without it?](queries/why-value-function-grpo-first-to-remove.md) — The value function serves as a variance-reducing baseline for policy gradients. GRPO was NOT the first attempt to remove it — REINFORCE (1992) never had one, and various baseline methods preceded GRPO. PPO and A2C break without it due to high-variance gradient estimates.
+- [Why does GPT-OSS-120B have 78% hallucination rate? Does that make it a poor model for QnA tasks?](queries/gpt-oss-120b-hallucination-rate-qna-suitability.md) — The 78.2% hallucination rate on SimpleQA is an architectural consequence of MoE sparse activation: only 5.1B of 117B parameters activate per token, so the router may not select the expert storing the needed fact. This makes GPT-OSS-120B poor for FACTUAL QA (closed-book knowledge retrieval) but NOT poor for REASONING QA (math proofs, logic, multi-step analysis) where it dominates. Mitigation: route factual QA to Qwen3-32B (32B active = 6x more factual recall per token) or add retrieval augmentation to ground GPT-OSS in external knowledge.

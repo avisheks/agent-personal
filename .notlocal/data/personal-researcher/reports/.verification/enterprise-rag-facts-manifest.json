@@ -1,0 +1,979 @@
+{
+  "topic": "enterprise-rag",
+  "timestamp": "2026-05-18T22:37:58.716871+00:00",
+  "total_facts": 97,
+  "contradictions_found": 0,
+  "contradictions_resolved": 0,
+  "facts": [
+    {
+      "question": "What is the typical size of child chunks in hierarchical chunking?",
+      "answer": "100-200 tokens",
+      "confidence": 0.9,
+      "sources": [
+        "hierarchical-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical size of parent chunks in hierarchical chunking?",
+      "answer": "400-800 tokens",
+      "confidence": 0.9,
+      "sources": [
+        "hierarchical-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between child and parent chunks in hierarchical chunking?",
+      "answer": "Parent-child relationship",
+      "confidence": 0.9,
+      "sources": [
+        "hierarchical-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does hierarchical chunking address the tradeoff between retrieval precision and generation context quality?",
+      "answer": "By decoupling retrieval precision from generation context quality",
+      "confidence": 0.9,
+      "sources": [
+        "hierarchical-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of using hierarchical chunking over traditional fixed-size chunking?",
+      "answer": "It solves the core tension in chunk size selection",
+      "confidence": 0.9,
+      "sources": [
+        "hierarchical-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does hierarchical chunking reduce hallucination in language models?",
+      "answer": "By providing more complete contextual sections",
+      "confidence": 0.9,
+      "sources": [
+        "hierarchical-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the storage requirement for hierarchical chunking?",
+      "answer": "Additional storage overhead",
+      "confidence": 0.9,
+      "sources": [
+        "hierarchical-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does hierarchical chunking handle deduplication?",
+      "answer": "By serving the parent only once if multiple child chunks from the same parent are retrieved",
+      "confidence": 0.9,
+      "sources": [
+        "hierarchical-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the dependency of hierarchical chunking on document structure?",
+      "answer": "It relies on clear structural boundaries in documents",
+      "confidence": 0.9,
+      "sources": [
+        "hierarchical-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does hierarchical chunking integrate with query routing systems?",
+      "answer": "It works particularly well with query routing systems that determine query type",
+      "confidence": 0.9,
+      "sources": [
+        "hierarchical-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical size of the context summary in contextual chunking?",
+      "answer": "50-100 tokens",
+      "confidence": 0.9,
+      "sources": [
+        "contextual-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of prepending a context summary to each chunk in contextual chunking?",
+      "answer": "To make each chunk self-contained and provide essential background information",
+      "confidence": 0.9,
+      "sources": [
+        "contextual-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of information is typically included in the context summary?",
+      "answer": "Document title and type, section or chapter heading, key entities or topics discussed, and relevant background information",
+      "confidence": 0.9,
+      "sources": [
+        "contextual-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does contextual chunking improve retrieval quality?",
+      "answer": "By reducing retrieval failures and improving answer quality for queries that require understanding document structure or cross-referencing information",
+      "confidence": 0.9,
+      "sources": [
+        "contextual-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the reported reduction in retrieval failures when contextual chunking is combined with BM25 Scoring Algorithm hybrid search?",
+      "answer": "49%",
+      "confidence": 0.9,
+      "sources": [
+        "contextual-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the reported reduction in retrieval failures when contextual chunking is used alongside Cross-Encoder Reranking?",
+      "answer": "67%",
+      "confidence": 0.9,
+      "sources": [
+        "contextual-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between contextual chunking and existing RAG systems?",
+      "answer": "It requires modifications to existing document processing pipelines and may necessitate reindexing of document corpora",
+      "confidence": 0.9,
+      "sources": [
+        "contextual-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does contextual chunking compare to alternative approaches like Hierarchical Chunking?",
+      "answer": "It represents one approach to addressing chunk boundary issues, and can be combined with other approaches for enhanced performance",
+      "confidence": 0.9,
+      "sources": [
+        "contextual-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What techniques are often used in combination with contextual chunking?",
+      "answer": "Cross-Encoder Reranking, Hybrid Retrieval, and query processing techniques like query rewriting and expansion",
+      "confidence": 0.9,
+      "sources": [
+        "contextual-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of adding context summaries on computational overhead?",
+      "answer": "It increases the token count per chunk, leading to higher embedding costs and larger vector indices",
+      "confidence": 0.9,
+      "sources": [
+        "contextual-chunking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture does cross-encoder reranking use?",
+      "answer": "Two-stage retrieval architecture",
+      "confidence": 1.0,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": "[web-confirmed]"
+    },
+    {
+      "question": "How does cross-encoder reranking process query-document pairs?",
+      "answer": "By jointly encoding query-document pairs through a transformer model",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary limitation of cross-encoder reranking?",
+      "answer": "Computational cost",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many forward passes are required for K candidates in cross-encoder reranking?",
+      "answer": "K forward passes",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical number of documents returned by initial retrieval in cross-encoder reranking?",
+      "answer": "Top-20 to top-50 documents",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical number of documents reranked by cross-encoder reranking?",
+      "answer": "Top-3 to top-5 documents",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the improvement in NDCG achieved by cross-encoder reranking over bi-encoder retrieval alone?",
+      "answer": "20-30%",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does ColBERT represent queries and documents?",
+      "answer": "Independently into token-level embeddings",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recall performance of ColBERT compared to cross-encoders?",
+      "answer": "Within 2-3% NDCG of cross-encoders",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How much faster is ColBERT compared to cross-encoders?",
+      "answer": "100x faster",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of using a separator token in cross-encoder reranking?",
+      "answer": "To concatenate each query with each candidate document",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the latency added by cross-encoder reranking per query?",
+      "answer": "50-200ms",
+      "confidence": 0.9,
+      "sources": [
+        "cross-encoder-reranking.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of retrieval methods does Hybrid Retrieval combine?",
+      "answer": "Sparse and dense retrieval methods",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary strength of sparse retrieval methods like BM25?",
+      "answer": "Exact lexical matching with term frequency and inverse document frequency weighting",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of relationships do dense retrieval methods capture?",
+      "answer": "Semantic relationships between concepts, paraphrases, and natural language variations",
+      "confidence": 1.0,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": "[web-confirmed]"
+    },
+    {
+      "question": "How do hybrid retrieval systems typically combine results from multiple retrieval methods?",
+      "answer": "Using fusion strategies like Reciprocal Rank Fusion (RRF), score-based fusion, or learned fusion",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the query processing step in a hybrid retrieval pipeline?",
+      "answer": "To process the input query for both sparse and dense retrieval paths",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of using hybrid retrieval in terms of comprehensive coverage?",
+      "answer": "Captures both exact-match and semantic queries",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the limitation of hybrid retrieval in terms of infrastructure complexity?",
+      "answer": "Requires maintaining dual indexing systems",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How much of exact-term queries are missed by pure semantic retrieval alone in enterprise settings?",
+      "answer": "Approximately 35%",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical latency breakdown for vector search in hybrid retrieval systems?",
+      "answer": "5-20ms",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of caching in hybrid retrieval systems?",
+      "answer": "To store embeddings and frequent query results to reduce computation",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between hybrid retrieval and Retrieval-Augmented Generation?",
+      "answer": "Hybrid retrieval is commonly applied within the framework of Retrieval-Augmented Generation",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of models are used to generate dense embeddings in hybrid retrieval?",
+      "answer": "Sentence transformer models trained with contrastive objectives",
+      "confidence": 1.0,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": "[web-confirmed]"
+    },
+    {
+      "question": "What is the advantage of using Reciprocal Rank Fusion (RRF) in hybrid retrieval?",
+      "answer": "Robust to score scale differences between methods and doesn't require parameter tuning",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of access control filtering in a hybrid retrieval pipeline?",
+      "answer": "To filter results based on user permissions",
+      "confidence": 0.9,
+      "sources": [
+        "hybrid-retrieval.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of phenomenon is 'Lost in the Middle'?",
+      "answer": "A phenomenon observed in large language models where information in the middle of a long input context receives less attention",
+      "confidence": 0.9,
+      "sources": [
+        "lost-in-the-middle.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary mechanism behind 'Lost in the Middle'?",
+      "answer": "Positional encoding decay, training distribution bias, and attention sink phenomenon",
+      "confidence": 0.9,
+      "sources": [
+        "lost-in-the-middle.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of encoding does Rotary Position Embeddings (RoPE) use?",
+      "answer": "Relative position as rotation in embedding space",
+      "confidence": 0.9,
+      "sources": [
+        "lost-in-the-middle.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of 'Attention sink phenomenon'?",
+      "answer": "Disproportionate attention to the first few tokens and recent tokens regardless of content relevance",
+      "confidence": 0.9,
+      "sources": [
+        "lost-in-the-middle.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the 'Lost in the Middle' phenomenon affect RAG systems?",
+      "answer": "Degradation in retrieval precision and generation quality due to middle-positioned chunks receiving less attention",
+      "confidence": 0.9,
+      "sources": [
+        "lost-in-the-middle.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of 'Positional optimization'?",
+      "answer": "Strategically placing high-relevance chunks at the beginning and end of the context window",
+      "confidence": 0.9,
+      "sources": [
+        "lost-in-the-middle.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of 'Context reduction'?",
+      "answer": "Eliminating middle positions by reducing chunk count to improve attention distribution",
+      "confidence": 0.9,
+      "sources": [
+        "lost-in-the-middle.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture does 'Map-reduce architectures' use?",
+      "answer": "Summarizing each chunk independently before synthesizing the summaries",
+      "confidence": 0.9,
+      "sources": [
+        "lost-in-the-middle.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of 'ALiBi (Attention with Linear Biases)'?",
+      "answer": "Replacing learned positional embeddings with explicit linear decay bias",
+      "confidence": 0.9,
+      "sources": [
+        "lost-in-the-middle.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the effect of 'NTK-aware RoPE scaling'?",
+      "answer": "Reducing but not eliminating middle-position weakness by adjusting the frequency base in Rotary Position Embeddings",
+      "confidence": 0.9,
+      "sources": [
+        "lost-in-the-middle.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the measured empirical performance difference in production RAG systems?",
+      "answer": "Approximately 15% higher faithfulness failure rates for answers grounded in middle-positioned chunks",
+      "confidence": 0.9,
+      "sources": [
+        "lost-in-the-middle.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of queries does multi-hop reasoning address?",
+      "answer": "Queries that cannot be satisfied by retrieving a single document or text passage",
+      "confidence": 0.9,
+      "sources": [
+        "multi-hop-reasoning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What indicators are used to detect query complexity in multi-hop reasoning?",
+      "answer": "Multiple entities mentioned in the query, comparison operators, aggregation requirements, and cross-reference needs",
+      "confidence": 0.9,
+      "sources": [
+        "multi-hop-reasoning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the first step in the multi-hop reasoning process?",
+      "answer": "Detection and classification of query complexity",
+      "confidence": 0.9,
+      "sources": [
+        "multi-hop-reasoning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the query decomposition process work in multi-hop reasoning?",
+      "answer": "It involves atomic breakdown, sequential dependency, and entity extraction",
+      "confidence": 0.9,
+      "sources": [
+        "multi-hop-reasoning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of using structured intermediates in multi-hop reasoning?",
+      "answer": "To prevent hallucination compounding across multiple reasoning steps",
+      "confidence": 0.9,
+      "sources": [
+        "multi-hop-reasoning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How much computational overhead does multi-hop reasoning introduce compared to single-step Retrieval-Augmented Generation systems?",
+      "answer": "3-5 times the latency and cost",
+      "confidence": 0.9,
+      "sources": [
+        "multi-hop-reasoning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the most critical failure mode in multi-hop reasoning?",
+      "answer": "Decomposition errors",
+      "confidence": 0.9,
+      "sources": [
+        "multi-hop-reasoning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do systems mitigate decomposition errors in multi-hop reasoning?",
+      "answer": "Through validation of decomposition, template-based decomposition, and backtracking capabilities",
+      "confidence": 0.9,
+      "sources": [
+        "multi-hop-reasoning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between multi-hop reasoning and Retrieval-Augmented Generation architectures?",
+      "answer": "It represents an advanced capability within Retrieval-Augmented Generation architectures",
+      "confidence": 0.9,
+      "sources": [
+        "multi-hop-reasoning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of pipeline mechanisms are used to determine whether to use simple retrieval or engage the multi-hop pipeline?",
+      "answer": "Query Understanding Pipeline mechanisms",
+      "confidence": 0.9,
+      "sources": [
+        "multi-hop-reasoning.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture does Self-RAG use?",
+      "answer": "Advanced RAG architecture",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary function of the 'Retrieve' token in Self-RAG?",
+      "answer": "Determines whether additional context should be fetched",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Self-RAG evaluate the relevance of retrieved passages?",
+      "answer": "Using 'ISREL' tokens",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the 'ISSUP' token in Self-RAG?",
+      "answer": "Assesses whether generated claims are supported by the retrieved sources",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Self-RAG provide an overall usefulness rating of the response?",
+      "answer": "Using 'ISUSE' tokens",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the key benefit of Self-RAG in terms of cost optimization?",
+      "answer": "Avoids unnecessary retrieval operations for 30-40% of queries",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Self-RAG reduce hallucination in generated responses?",
+      "answer": "Through self-critique mechanism using reflection tokens",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary challenge in implementing Self-RAG?",
+      "answer": "Specialized fine-tuning to train reflection tokens",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Self-RAG adapt its behavior based on query complexity?",
+      "answer": "Using adaptive decision flow and reflection tokens",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the expected outcome of poor confidence calibration in Self-RAG?",
+      "answer": "Over-conservative or over-confident behavior",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of evaluation framework is required to assess the quality of Self-RAG?",
+      "answer": "Sophisticated evaluation frameworks that measure intermediate decisions",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the potential future development of Self-RAG?",
+      "answer": "More sophisticated reflection mechanisms and integration with other RAG patterns",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Self-RAG differ from traditional RAG systems in terms of retrieval strategy?",
+      "answer": "Adaptive retrieval vs always-retrieve",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary advantage of Self-RAG in enterprise environments?",
+      "answer": "Cost optimization and quality assurance",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of queries is Self-RAG particularly suitable for?",
+      "answer": "Mixed query complexity and high query volumes",
+      "confidence": 0.9,
+      "sources": [
+        "self-rag.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What percentage of total system costs does token economics often represent in enterprise AI systems?",
+      "answer": "60-80%",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary cost factor in large language model systems?",
+      "answer": "Token economics",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do input tokens typically compare to output tokens in terms of cost per token?",
+      "answer": "Input tokens cost less per token than output tokens",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of reducing prompt size on cost optimization?",
+      "answer": "3-5x impact",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What strategy achieves 2-3x cost improvements by matching model capability to query complexity?",
+      "answer": "Classifying query complexity and routing simple queries to smaller models",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the estimated cost reduction achieved through semantic caching?",
+      "answer": "25-40% reduction in token consumption",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost of a typical enterprise Retrieval Augmented Generation query?",
+      "answer": "$0.008 per simple query and $0.04 per complex multi-hop query",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How do token economics scale with user adoption?",
+      "answer": "Dramatically, with costs increasing from $1,200/month at 1K users to $120,000/month at 1M+ users",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary consideration for production systems in terms of cost monitoring?",
+      "answer": "Token-level cost tracking with metrics such as cost-per-query and token consumption by component",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What influences architectural decisions between managed services and self-hosted solutions?",
+      "answer": "Query volume, with self-hosted solutions becoming cost-effective at higher scales",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the estimated cost of generation input tokens for 2000 tokens?",
+      "answer": "$0.005",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the estimated cost of generation output tokens for 500 tokens?",
+      "answer": "$0.003",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost of query embedding in a Retrieval Augmented Generation query?",
+      "answer": "$0.00002",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost of vector search in a Retrieval Augmented Generation query?",
+      "answer": "$0.00005",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the cost of cross-encoder reranking in a Retrieval Augmented Generation query?",
+      "answer": "$0.0003",
+      "confidence": 0.9,
+      "sources": [
+        "token-economics.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

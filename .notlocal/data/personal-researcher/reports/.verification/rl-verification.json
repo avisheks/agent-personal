@@ -1,0 +1,728 @@
+{
+  "topic": "rl",
+  "timestamp": "2026-06-09T12:30:43.429340+00:00",
+  "total_claims": 97,
+  "correct": 55,
+  "incorrect": 6,
+  "unverifiable": 30,
+  "partially_correct": 6,
+  "overall_score": 0.8208955223880597,
+  "summary": "Verified 97 claims: 55 correct, 6 incorrect, 6 partially correct, 30 unverifiable. Score: 82%",
+  "sections": [
+    {
+      "section_name": "Quick Catchup",
+      "score": 0.16666666666666666,
+      "claims": [
+        {
+          "text": "The RL environments landscape split into two worlds: game/robotics RL and LLM post-training RL",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not address the split of the RL environments landscape into two worlds.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Game/robotics RL uses Gymnasium/Isaac Lab/MuJoCo with PPO/SAC",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions PPO as the algorithm of choice for RLGym, but does not provide information about Gymnasium, Isaac Lab, or MuJoCo.",
+          "suggested_correction": "Game/robotics RL may use various frameworks and algorithms, including PPO in RLGym."
+        },
+        {
+          "text": "LLM post-training RL uses veRL/TRL/NeMo-RL with GRPO/DPO",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not address LLM post-training RL or the specific algorithms and frameworks mentioned.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym's Nexto bot reached Grand Champion 1 in Rocket League",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the Nexto bot reached Grand Champion 1 in Rocket League using RLGym.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reaching Grand Champion 1 in Rocket League puts a player in the top 0.12%",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that reaching Grand Champion 1 puts a player in the top 0.12-0.95% of players, not exactly the top 0.12%.",
+          "suggested_correction": "Reaching Grand Champion 1 in Rocket League puts a player in the top 0.12-0.95% of players."
+        },
+        {
+          "text": "DeepSeek-R1 showed pure GRPO produces emergent reasoning",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not address DeepSeek-R1 or the concept of pure GRPO producing emergent reasoning.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "RL Environments Landscape (2026)",
+      "score": 0.45,
+      "claims": [
+        {
+          "text": "Gymnasium (Farama) has 12K stars",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the number of stars for Gymnasium (Farama).",
+          "suggested_correction": null
+        },
+        {
+          "text": "Unity ML-Agents has 19.5K stars",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the number of stars for Unity ML-Agents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MuJoCo (DeepMind) has 13.8K stars",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the number of stars for MuJoCo (DeepMind).",
+          "suggested_correction": null
+        },
+        {
+          "text": "Isaac Lab (NVIDIA) has 7.4K stars",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the number of stars for Isaac Lab (NVIDIA).",
+          "suggested_correction": null
+        },
+        {
+          "text": "PettingZoo (Farama) has 3.4K stars",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that PettingZoo has 3.4K stars, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Brax (Google) has 3.2K stars",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the number of stars for Brax (Google).",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym has 240 stars",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that RLGym has 240 stars, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "veRL (ByteDance) has 21.9K stars",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the number of stars for veRL (ByteDance).",
+          "suggested_correction": null
+        },
+        {
+          "text": "TRL (HuggingFace) has 18.6K stars",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about TRL (HuggingFace) or its GitHub stars.",
+          "suggested_correction": null
+        },
+        {
+          "text": "NeMo-RL (NVIDIA) has 1.7K stars",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about NeMo-RL (NVIDIA) or its GitHub stars.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gymnasium is used for standard single-agent API",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that Gymnasium is used for standard single-agent API, which is consistent with the information provided.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Unity ML-Agents is used for game AI training",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that Unity ML-Agents is used for game AI training, which is consistent with the information provided.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MuJoCo is used for physics simulation",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that MuJoCo is used for physics simulation, which is consistent with the information provided.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Isaac Lab is used for GPU-accelerated robotics",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that Isaac Lab is used for GPU-accelerated robotics, which is consistent with the information provided.",
+          "suggested_correction": null
+        },
+        {
+          "text": "PettingZoo is used for multi-agent RL",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages mention that PettingZoo is used for multi-agent RL, which is consistent with the information provided.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Brax is used for JAX physics",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that Brax is used for JAX physics, which is consistent with the information provided.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym is used for Rocket League",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not explicitly state that RLGym is used for Rocket League, but the knowledge page rlgym.md confirms this information.",
+          "suggested_correction": null
+        },
+        {
+          "text": "veRL supports HybridFlow and 15+ algorithms",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or the knowledge pages about veRL or its supported algorithms.",
+          "suggested_correction": null
+        },
+        {
+          "text": "TRL supports GRPO/DPO/SFT",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or the knowledge pages about TRL or its supported algorithms (GRPO/DPO/SFT).",
+          "suggested_correction": null
+        },
+        {
+          "text": "NeMo-RL is Ray-based and supports multi-backend and FP8",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or the knowledge pages about NeMo-RL or its characteristics (Ray-based, multi-backend, FP8).",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "RLGym \u2014 Rocket League RL Environment",
+      "score": 0.6,
+      "claims": [
+        {
+          "text": "Nexto (V2) reached the top 0.12% human percentile in 1v1 Rocket League",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that the Nexto bot represents the top 0.12-0.95% of players, which is consistent with reaching the top 0.12% human percentile in 1v1 Rocket League.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Nexto combined behavioral cloning from human replays with PPO reinforcement learning",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest mentions that Nexto used replay-based pretraining, which is a form of behavioral cloning, but it does not explicitly state that it was combined with PPO reinforcement learning. However, the rlgym.md page mentions that PPO is the algorithm of choice and that replay-based pretraining significantly accelerates learning.",
+          "suggested_correction": "Nexto combined behavioral cloning from human replays with PPO reinforcement learning, as PPO is the algorithm of choice and replay-based pretraining accelerates learning."
+        },
+        {
+          "text": "RLGym has a modular architecture with pluggable components",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that RLGym has a modular architecture.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym components include ActionParser, ObsBuilder, RewardFunction, DoneCondition, StateMutator, TransitionEngine, and Renderer",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The rlgym.md page mentions that RLGym components include ActionParsers, ObsBuilders, RewardFunctions, DoneConditions, StateMutators, and other pluggable components, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Nexto achieved near-professional performance without human-designed heuristics",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The rlgym.md page states that Nexto achieved near-professional performance without human-designed heuristics.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Necto won the 2022 RLBot Championship",
+          "verdict": "unverifiable",
+          "confidence": 0,
+          "reasoning": "There is no information in the Facts Manifest or the knowledge pages about Necto winning the 2022 RLBot Championship.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym can simulate 10 days of game per minute on consumer hardware",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that RocketSim, the physics engine used by RLGym, can simulate 10 days of game time per minute on 12 threads, which is consistent with the claim that RLGym can simulate 10 days of game per minute on consumer hardware, assuming 12 threads are available.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym has not been published at NeurIPS, ICML, ICLR, or other top ML venues",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The rlgym.md page states that RLGym has not been published at NeurIPS, ICML, ICLR, or other top ML venues, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym has 240 stars on GitHub",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the fact in the Facts Manifest that RLGym has 240 GitHub stars.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RocketSim can simulate 114K ticks per second",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that RocketSim can simulate 10 days of game time per minute on 12 threads, but does not provide a direct measure of ticks per second. However, rlgym.md mentions 114K ticks/sec.",
+          "suggested_correction": "RocketSim can simulate 10 days of game time per minute on 12 threads."
+        },
+        {
+          "text": "RocketSim can simulate ~10 days of game per minute",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the fact in the Facts Manifest that RocketSim can simulate 10 days of game time per minute.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym-learn can train at 70K steps per second",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the training speed of RLGym-learn. However, rlgym.md mentions 70K steps/sec for RLGymPPO_CPP.",
+          "suggested_correction": "RLGymPPO_CPP can train at 70K steps/sec."
+        },
+        {
+          "text": "RLGym uses the Apache-2.0 license",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the fact in the Facts Manifest that RLGym uses the Apache-2.0 license.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Necto (V1) reached the Diamond level in Rocket League",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about Necto (V1) reaching the Diamond level in Rocket League, but rlgym.md mentions it.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Necto (V1) reached the top ~15% human percentile in Rocket League",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest about Necto (V1) reaching the top ~15% human percentile in Rocket League, but rlgym.md mentions it.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Nexto (V2) reached the Grand Champion 1 level in Rocket League",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the fact in the Facts Manifest that Nexto (V2) reached the Grand Champion 1 level in Rocket League.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym has not been used in robotics, trading, ads, recommendation, or any non-gaming context",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not explicitly state that RLGym has not been used in non-gaming contexts, but the knowledge pages mention that RLGym is the only RL environment for Rocket League and has no non-gaming industry usage. However, this information is not sufficient to confirm the claim, and the manifest does mention other frameworks used in different contexts such as robotics and advertising.",
+          "suggested_correction": "RLGym is primarily used for Rocket League and has no reported non-gaming industry usage."
+        },
+        {
+          "text": "RLGym achieves human-expert-level in complex 3D physics with continuous actions",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions that the Nexto bot achieved Grand Champion 1 level using RLGym, which implies that RLGym can achieve human-expert-level performance in complex 3D physics with continuous actions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym uses PPO + replay pretraining, similar to SFT \u2192 RL in LLM training",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that PPO is overwhelmingly the choice for RLGym and that replay-based pretraining significantly accelerates learning, which is similar to the SFT \u2192 RL pattern in LLM training.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym allows for massive-scale RL training on consumer hardware with $0 environment cost",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about the cost of environment or the scalability of RLGym on consumer hardware.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.26666666666666666,
+      "claims": [
+        {
+          "text": "RLGym has 240 stars on GitHub.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that RLGym has 240 stars on GitHub.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RocketSim uses C++ physics.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about the physics engine used by RocketSim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLBot has 615 stars on GitHub.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about the number of GitHub stars RLBot has.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gymnasium has version v1.3.0.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about the version of Gymnasium.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gymnasium has 12K stars on GitHub.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about the number of GitHub stars Gymnasium has, but it is mentioned in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Isaac Lab has version v3.0.0-beta.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about the version of Isaac Lab.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Isaac Lab has 7.4K stars on GitHub.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not provide information about the number of GitHub stars Isaac Lab has, but it is mentioned in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MAAB is described in Wen et al. (WSDM 2022).",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that MAAB is described in Wen et al. (WSDM 2022).",
+          "suggested_correction": null
+        },
+        {
+          "text": "JaxMARL achieves a 12,500x speedup via JAX vectorization.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that JaxMARL achieves a 12,500x speedup via JAX vectorization, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "PettingZoo has version v1.26.1.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not contain information about the version of PettingZoo.",
+          "suggested_correction": null
+        },
+        {
+          "text": "PettingZoo has 3.4K stars on GitHub.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that PettingZoo has 3.4K stars on GitHub, and this information is not contradicted by the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MAgent2 has version v0.3.4.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not contain information about the version of MAgent2.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MAgent2 is designed for millions of agents.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that MAgent2 is designed for 100K-1M+ agents, which is close to but not exactly 'millions of agents'.",
+          "suggested_correction": "MAgent2 is designed for 100K-1M+ agents."
+        },
+        {
+          "text": "HARL is described in PKU (JMLR 2024).",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest does not contain information about HARL being described in PKU (JMLR 2024).",
+          "suggested_correction": null
+        },
+        {
+          "text": "HARL provides heterogeneous-agent RL with monotonic improvement guarantees.",
+          "verdict": "incorrect",
+          "confidence": 0.0,
+          "reasoning": "The Facts Manifest states that HAPPO provides heterogeneous-agent RL with monotonic improvement guarantees, not HARL.",
+          "suggested_correction": "HAPPO provides heterogeneous-agent RL with monotonic improvement guarantees."
+        }
+      ]
+    },
+    {
+      "section_name": "Changelog",
+      "score": 0.75,
+      "claims": [
+        {
+          "text": "13+ MARL frameworks exist",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge page marl-ecosystems.md, which states '13+ open-source MARL frameworks'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AlphaStar is a landmark in the MARL industry",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge page marl-ecosystems.md, which lists AlphaStar as a landmark in the MARL industry.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenAI Five is a landmark in the MARL industry",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge page marl-ecosystems.md, which lists OpenAI Five as a landmark in the MARL industry.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cicero is a landmark in the MARL industry",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge page marl-ecosystems.md, which lists Cicero as a landmark in the MARL industry.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MAAB is an advertising application of MARL",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge page marl-ecosystems.md, which mentions MAAB as an advertising application of MARL.",
+          "suggested_correction": null
+        },
+        {
+          "text": "QGA achieved a 3.27% GMV lift",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Facts Manifest, which states 'What is the result achieved by QGA in production? A: 3.27% Ad GMV increase in real A/B test'.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GAVE is a NeurIPS winner",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge page marl-ecosystems.md, which mentions GAVE as a NeurIPS 2024 winner.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mean-field strategy can be used for millions of advertisers",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge page marl-ecosystems.md, which explains the mean-field approach used by MAAB for scaling to millions of advertisers.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLGym is a deep dive into RL environments",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim 'RLGym is a deep dive into RL environments' is not directly addressed in the Facts Manifest, and the provided knowledge pages do not offer a clear definition of what constitutes a 'deep dive' in this context.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Nexto uses PPO + replay pretraining",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The Facts Manifest states that 'PPO' is the algorithm overwhelmingly chosen for RLGym and that 'replay-based pretraining' significantly accelerates learning, which aligns with the claim about Nexto using PPO + replay pretraining.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Nexto is in the top 0.12% of GC1",
+          "verdict": "partially_correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest indicates that Nexto is in the top 0.12-0.95% of GC1, which partially supports the claim but provides a range rather than a single percentile.",
+          "suggested_correction": "Nexto is in the top 0.12-0.95% of GC1 players."
+        },
+        {
+          "text": "Nexto has no non-gaming usage",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge page 'rlgym.md' states that there is 'No non-gaming industry usage' for RLGym, supporting the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Nexto is community-driven",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge page 'rlgym.md' describes RLGym as 'community-driven', which directly supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Nexto has no academic papers",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The knowledge page 'rlgym.md' mentions that there are 'No major papers at NeurIPS/ICML/ICLR \u2014 community-driven, not academic', which supports the claim about no academic papers.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The score is 85% after verification",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim 'The score is 85% after verification' cannot be verified against the provided Facts Manifest or knowledge pages as there is no context or reference to such a score.",
+          "suggested_correction": null
+        },
+        {
+          "text": "6 claims were corrected across 4 sections",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim '6 claims were corrected across 4 sections' cannot be verified as it refers to an external process or outcome not addressed in the Facts Manifest or the provided knowledge pages.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Multi-Agent RL Ecosystems",
+      "score": 0.85,
+      "claims": [
+        {
+          "text": "PettingZoo is a de facto MARL API and is framework-agnostic.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest and knowledge pages both describe PettingZoo as a de facto MARL API and framework-agnostic.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenSpiel has the broadest game and algorithm coverage.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that OpenSpiel has the broadest game coverage, which aligns with the information provided in the Facts Manifest about various frameworks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "JaxMARL provides a 12,500x speedup.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest directly states that JaxMARL provides a 12,500x speedup via JAX vectorization.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLlib is distributed and has flexible policy mapping.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages describe RLlib as distributed with flexible policy mapping, which is consistent with the information about different frameworks in the Facts Manifest.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MAgent2 is the only framework for 100K-1M+ agents.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that MAgent2 is designed for 100K-1M+ agents, aligning with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HARL provides theoretical guarantees.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages mention HARL providing monotonic improvement guarantees, not theoretical guarantees in general as the claim suggests.",
+          "suggested_correction": "HARL provides monotonic improvement guarantees."
+        },
+        {
+          "text": "AlphaStar achieved grandmaster level in StarCraft.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest confirms that AlphaStar achieved grandmaster level in SC2, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenAI Five beat the Dota 2 world champions.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages state that OpenAI Five beat the Dota 2 world champions, which aligns with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenSpiel has 5.3K coverage.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the information provided in the knowledge pages, specifically in marl-ecosystems.md, which states that OpenSpiel has 5.3K stars.",
+          "suggested_correction": null
+        },
+        {
+          "text": "PettingZoo has 3.4K coverage.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the information provided in the knowledge pages, specifically in marl-ecosystems.md, which states that PettingZoo has 3.4K stars.",
+          "suggested_correction": null
+        },
+        {
+          "text": "JaxMARL has 814 coverage.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the information provided in the knowledge pages, specifically in marl-ecosystems.md, which states that JaxMARL has 814 stars.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RLlib has 35K+ coverage.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the information provided in the knowledge pages, specifically in marl-ecosystems.md, which states that RLlib has 35K+ stars.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Cicero achieved top 10% human level in Diplomacy.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention Cicero achieving top 10% human level in Diplomacy. However, the knowledge pages mention that Meta Cicero reached the top 10% in Diplomacy.",
+          "suggested_correction": "Cicero achieved top 10% human level in Diplomacy, according to the knowledge pages."
+        },
+        {
+          "text": "Hide-and-Seek exhibited 6 emergent strategy phases.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that OpenAI Hide-and-Seek exhibited 6 emergent strategy phases.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MAAB scales to millions of agents using mean-field approximation.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions that MAAB uses mean-field grouping for scaling to millions of advertisers, which is equivalent to using mean-field approximation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MACG uses cooperative bidding with platform revenue constraint.",
+          "verdict": "partially_correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that MACG uses cooperative bidding with a platform revenue constraint, but also mention a multi-objective evolutionary strategy.",
+          "suggested_correction": "MACG uses cooperative bidding with a platform revenue constraint and a multi-objective evolutionary strategy."
+        },
+        {
+          "text": "MoTiAC uses multi-objective RTB with Pareto convergence.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that MoTiAC uses multi-objective RTB with Pareto convergence.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GAVE won the AIGB auto-bidding competition.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that GAVE won the AIGB auto-bidding competition.",
+          "suggested_correction": null
+        },
+        {
+          "text": "QGA resulted in a 3.27% Ad GMV increase in a real A/B test.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions that QGA resulted in a 3.27% Ad GMV increase in a real A/B test.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mean-field approximation can model group aggregate and optimize against distribution.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages mention that mean-field approximation can model group aggregate and optimize against distribution, which is consistent with the Facts Manifest.",
+          "suggested_correction": null
+        }
+      ]
+    }
+  ]
+}

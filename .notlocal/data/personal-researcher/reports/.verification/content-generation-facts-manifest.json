@@ -1,0 +1,879 @@
+{
+  "topic": "content-generation",
+  "timestamp": "2026-05-18T22:37:52.932593+00:00",
+  "total_facts": 87,
+  "contradictions_found": 0,
+  "contradictions_resolved": 0,
+  "facts": [
+    {
+      "question": "What is the Adoption Ceiling Problem?",
+      "answer": "A phenomenon in AI-powered content generation systems where increasing the volume or quality of generated suggestions does not lead to proportional increases in user adoption.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary cause of the Adoption Ceiling Problem?",
+      "answer": "Cognitive Overload, Trust Deficit, and Lack of Context.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Cognitive Overload contribute to the Adoption Ceiling Problem?",
+      "answer": "Users face decision fatigue when presented with large volumes of suggestions, leading them to focus only on the most obviously relevant options.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the impact of the Trust Deficit on the Adoption Ceiling Problem?",
+      "answer": "Users exhibit caution toward AI-generated content, particularly in performance-critical applications, creating a natural ceiling on adoption regardless of content quality.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the Lack of Context affect the Adoption Ceiling Problem?",
+      "answer": "Generated suggestions without explanatory context provide users no basis for informed decision-making, leading them to default to conservative choices.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the business impact of the Adoption Ceiling Problem?",
+      "answer": "A fundamental constraint on the value delivery of AI content generation systems, resulting in wasted computational resources and missed opportunities to capture additional customer intents or market segments.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is one potential solution to the Adoption Ceiling Problem?",
+      "answer": "Grouping related items into semantic clusters or intent categories, allowing users to reason about and adopt entire clusters rather than evaluating individual items.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How can Volume Reduction with Quality Focus mitigate the Adoption Ceiling Problem?",
+      "answer": "Generating fewer, higher-quality suggestions often yields better adoption than large volumes of mediocre content.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of Progressive Trust Building in addressing the Adoption Ceiling Problem?",
+      "answer": "To start with conservative, high-confidence suggestions for new users and gradually expand to more novel recommendations as trust is established through demonstrated accuracy.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How can Expected Impact Annotation improve user adoption?",
+      "answer": "By providing users with predicted business impact for each suggestion, enabling informed decision-making and increasing adoption of high-value recommendations.",
+      "confidence": 0.9,
+      "sources": [
+        "adoption-ceiling-problem.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary function of the Critic Model in the Critic-Reranker Pipeline?",
+      "answer": "To evaluate each candidate across multiple quality dimensions.",
+      "confidence": 0.9,
+      "sources": [
+        "critic-reranker-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of the Reranker in the Critic-Reranker Pipeline?",
+      "answer": "To predict business-relevant scores for each candidate.",
+      "confidence": 0.9,
+      "sources": [
+        "critic-reranker-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical number of candidate outputs produced by the LLM Generator?",
+      "answer": "50-200",
+      "confidence": 0.9,
+      "sources": [
+        "critic-reranker-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Intent Abstraction component in the Enhanced Architecture?",
+      "answer": "To identify intent clusters or semantic categories before generating candidates.",
+      "confidence": 0.9,
+      "sources": [
+        "critic-reranker-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the target Factual Grounding Rate for business-critical applications?",
+      "answer": "Above 98%",
+      "confidence": 0.9,
+      "sources": [
+        "critic-reranker-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the target Policy Compliance Rate for production systems?",
+      "answer": "Below 0.1%",
+      "confidence": 0.9,
+      "sources": [
+        "critic-reranker-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary benefit of using a Critic-Reranker Pipeline in content generation?",
+      "answer": "To maintain creative diversity while meeting strict quality standards.",
+      "confidence": 0.9,
+      "sources": [
+        "critic-reranker-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does the Critic-Reranker Pipeline address the challenge of large language models producing high-volume output but struggling with consistent quality control?",
+      "answer": "By adding evaluation and ranking layers between initial generation and final output.",
+      "confidence": 0.9,
+      "sources": [
+        "critic-reranker-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between the Critic Model and the Reranker in the Critic-Reranker Pipeline?",
+      "answer": "The Critic Model filters out candidates that fail quality thresholds before the Reranker ranks the remaining candidates.",
+      "confidence": 0.9,
+      "sources": [
+        "critic-reranker-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the Feedback Loop Design in the Critic-Reranker Pipeline?",
+      "answer": "To connect system performance to business outcomes and enable continuous improvement.",
+      "confidence": 0.9,
+      "sources": [
+        "critic-reranker-pipeline.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of architecture does Constitutional AI for Ads typically employ?",
+      "answer": "Multi-Layer Validation Architecture",
+      "confidence": 0.9,
+      "sources": [
+        "constitutional-ai-for-ads.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary goal of the Critic-Reranker Pipeline in Constitutional AI for Ads?",
+      "answer": "To evaluate and select content that meets constitutional principles",
+      "confidence": 0.9,
+      "sources": [
+        "constitutional-ai-for-ads.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used to fine-tune generation models in Constitutional AI for Ads?",
+      "answer": "Using constitutional principles as training objectives",
+      "confidence": 0.9,
+      "sources": [
+        "constitutional-ai-for-ads.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of constrained decoding in Constitutional AI for Ads?",
+      "answer": "To restrict the model's output to tokens that maintain compliance with constitutional rules",
+      "confidence": 0.9,
+      "sources": [
+        "constitutional-ai-for-ads.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the challenge in measuring the effectiveness of constitutional AI in advertising?",
+      "answer": "Attribution complexity",
+      "confidence": 0.9,
+      "sources": [
+        "constitutional-ai-for-ads.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does Constitutional AI for Ads address the trade-off between exploration and safety?",
+      "answer": "By balancing safety with exploration to maintain both policy adherence and business value",
+      "confidence": 0.9,
+      "sources": [
+        "constitutional-ai-for-ads.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of monitoring in Constitutional AI systems?",
+      "answer": "To detect policy drift and evaluate key metrics such as policy violation rates",
+      "confidence": 0.9,
+      "sources": [
+        "constitutional-ai-for-ads.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of experimentation framework is required to test constitutional AI improvements?",
+      "answer": "Double-Randomized Experimentation framework",
+      "confidence": 0.9,
+      "sources": [
+        "constitutional-ai-for-ads.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Constitutional AI for Ads and general Constitutional AI approaches?",
+      "answer": "It builds upon and adapts general Constitutional AI principles to the specific requirements of advertising platforms",
+      "confidence": 0.9,
+      "sources": [
+        "constitutional-ai-for-ads.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of advertiser feedback in refining constitutional principles?",
+      "answer": "Advertiser feedback helps refine constitutional principles and improve the system's ability to generate compliant content",
+      "confidence": 0.9,
+      "sources": [
+        "constitutional-ai-for-ads.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of design pattern is Intent-Level Abstraction?",
+      "answer": "A design pattern in content generation systems",
+      "confidence": 0.9,
+      "sources": [
+        "intent-level-abstraction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What problem does Intent-Level Abstraction solve?",
+      "answer": "The adoption ceiling in content recommendation systems",
+      "confidence": 0.9,
+      "sources": [
+        "intent-level-abstraction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many intent clusters does an intent-level system typically present?",
+      "answer": "5-7",
+      "confidence": 0.9,
+      "sources": [
+        "intent-level-abstraction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What technique is used for semantic clustering of generated candidates?",
+      "answer": "Embedding-based clustering",
+      "confidence": 0.9,
+      "sources": [
+        "intent-level-abstraction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of intent group headers in the presentation layer?",
+      "answer": "To provide clear descriptions of what each cluster represents",
+      "confidence": 0.9,
+      "sources": [
+        "intent-level-abstraction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the benefit of Intent-Level Abstraction in terms of user experience?",
+      "answer": "It allows users to reason about intents in terms of their business goals",
+      "confidence": 0.9,
+      "sources": [
+        "intent-level-abstraction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the recommended range for intent granularity?",
+      "answer": "5-7 clusters",
+      "confidence": 0.9,
+      "sources": [
+        "intent-level-abstraction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the challenge of measuring the performance impact of intent-level changes?",
+      "answer": "It requires careful experimental design",
+      "confidence": 0.9,
+      "sources": [
+        "intent-level-abstraction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "In what domains has Intent-Level Abstraction been successfully applied?",
+      "answer": "Advertising platforms, e-commerce, content platforms, and enterprise software",
+      "confidence": 0.9,
+      "sources": [
+        "intent-level-abstraction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What design pattern is related to Intent-Level Abstraction?",
+      "answer": "Double-Randomized Experimentation, Human-in-the-Loop Agent Design, and Multi-Stage Recommendation Pipeline",
+      "confidence": 0.9,
+      "sources": [
+        "intent-level-abstraction.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of experimentation does double-randomized experimentation address?",
+      "answer": "SUTVA violations in marketplace settings",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the first layer of randomization in double-randomized experimentation?",
+      "answer": "To randomly assign participants to treatment and control groups",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of the second layer of randomization in double-randomized experimentation?",
+      "answer": "To randomly assign marketplace contexts to isolated experimental pools",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the typical duration of double-randomized experiments?",
+      "answer": "2-4 weeks",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What statistical technique is used to account for correlation within participant groups in double-randomized experiments?",
+      "answer": "Cluster-robust standard errors",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of analysis is required to validate that pool isolation is effective in double-randomized experiments?",
+      "answer": "Interference detection tests",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the main limitation of double-randomized experimentation?",
+      "answer": "Scalability challenges due to imperfect marketplace isolation",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does double randomization affect statistical power compared to standard A/B testing?",
+      "answer": "Reduces statistical power",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of increased pool granularity in double-randomized experimentation?",
+      "answer": "To achieve cleaner partitioning and reduce spillover effects",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of estimation can be used when clean partitioning is not feasible in double-randomized experimentation?",
+      "answer": "Interference-aware estimation",
+      "confidence": 0.9,
+      "sources": [
+        "double-randomized-experimentation.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the target Factual Grounding Rate for high-stakes applications?",
+      "answer": ">98%",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the minimum target threshold for Factual Grounding Rate in most commercial applications?",
+      "answer": ">95%",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What triggers investigation and potential system improvements in production content generation systems?",
+      "answer": "<95%",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How is Factual Grounding Rate calculated?",
+      "answer": "(Number of Verifiable Claims / Total Number of Claims) \u00d7 100%",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used to automatically verify claims in generated content?",
+      "answer": "Structured input data",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What approach is used for quality assurance sampling rather than comprehensive evaluation?",
+      "answer": "Human reviewers assess generated claims",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What provides scalable evaluation while maintaining reasonable accuracy for factual verification tasks?",
+      "answer": "A separate language model",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between Factual Grounding Rate and Policy Violation Rate?",
+      "answer": "Part of a broader quality evaluation framework",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What affects how Factual Grounding Rate is calculated and interpreted?",
+      "answer": "Determining what constitutes a claim versus descriptive language",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is assumed to be accurate and complete for Factual Grounding Rate calculation?",
+      "answer": "Input data",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is used to improve Factual Grounding Rate by ensuring complete and accurate input data?",
+      "answer": "Refusing to generate content for products with insufficient attribute data",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What helps ensure that generated claims stay within the bounds of available factual information?",
+      "answer": "Techniques like constrained decoding or structured output formats",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is implemented in production systems to validate generated content?",
+      "answer": "Multiple validation layers",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What serves as a feedback signal for system improvements?",
+      "answer": "Analysis of ungrounded claims",
+      "confidence": 0.9,
+      "sources": [
+        "factual-grounding-rate.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of language models are used in zero-shot locale expansion?",
+      "answer": "Multilingual Language Models",
+      "confidence": 0.9,
+      "sources": [
+        "zero-shot-locale-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of locale-specific prompting in zero-shot locale expansion?",
+      "answer": "To provide cultural and linguistic context",
+      "confidence": 0.9,
+      "sources": [
+        "zero-shot-locale-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How many few-shot examples are typically used per locale in zero-shot locale expansion?",
+      "answer": "10-20",
+      "confidence": 0.9,
+      "sources": [
+        "zero-shot-locale-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary limitation of zero-shot locale expansion?",
+      "answer": "Variable quality across linguistically distant locales",
+      "confidence": 0.9,
+      "sources": [
+        "zero-shot-locale-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between zero-shot locale expansion and few-shot learning techniques?",
+      "answer": "It is a specific application of few-shot learning techniques",
+      "confidence": 0.9,
+      "sources": [
+        "zero-shot-locale-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does zero-shot locale expansion scale to new locales?",
+      "answer": "Using a tiered approach based on market importance and revenue potential",
+      "confidence": 0.9,
+      "sources": [
+        "zero-shot-locale-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the advantage of zero-shot locale expansion over traditional translation-based approaches?",
+      "answer": "Rapid time-to-market for new locales without requiring extensive training data collection or model retraining",
+      "confidence": 0.9,
+      "sources": [
+        "zero-shot-locale-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of quality assurance mechanisms in zero-shot locale expansion?",
+      "answer": "To catch obvious errors and ensure cultural appropriateness and local search pattern alignment",
+      "confidence": 0.9,
+      "sources": [
+        "zero-shot-locale-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "How does zero-shot locale expansion ensure regulatory compliance?",
+      "answer": "By incorporating locale-specific policy constraints",
+      "confidence": 0.9,
+      "sources": [
+        "zero-shot-locale-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the relationship between zero-shot locale expansion and intent-level-abstraction?",
+      "answer": "It often works in conjunction with intent-level-abstraction",
+      "confidence": 0.9,
+      "sources": [
+        "zero-shot-locale-expansion.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What type of technique is LLM-as-Judge Quality Scoring?",
+      "answer": "A technique for evaluating generated content using a large language model",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What does LLM-as-Judge systems work by?",
+      "answer": "Prompting a language model to evaluate generated content against specific criteria and provide structured feedback or numerical scores",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the primary application of LLM-as-Judge in content generation pipelines?",
+      "answer": "Serving as a quality gate between generation and presentation to users",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the role of LLM-as-Judge in multi-tier validation?",
+      "answer": "Evaluating quality, relevance, and compliance in Tier 2",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the capability of judge models in brand safety and policy compliance?",
+      "answer": "Catching subtle policy violations that rule-based filters miss",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What frameworks do LLM-as-Judge systems typically use?",
+      "answer": "Structured evaluation prompts that ask the model to assess specific dimensions",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the purpose of confidence calibration in production LLM-as-Judge systems?",
+      "answer": "To indicate the certainty about quality assessments",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the advantages of LLM-as-Judge?",
+      "answer": "Scalability, consistency, nuanced evaluation, and rapid iteration",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What are the limitations of LLM-as-Judge?",
+      "answer": "Judge model biases, calibration challenges, cost considerations, and ground truth validation",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the target factual grounding rate for LLM-as-Judge systems?",
+      "answer": ">98%",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the target policy violation rate for LLM-as-Judge systems?",
+      "answer": "<0.1%",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the target human review pass rate for LLM-as-Judge systems?",
+      "answer": ">85%",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    },
+    {
+      "question": "What is the target brand alignment score for LLM-as-Judge systems?",
+      "answer": ">4/5",
+      "confidence": 0.9,
+      "sources": [
+        "llm-as-judge-quality-scoring.md"
+      ],
+      "conflict_detected": false,
+      "resolution": ""
+    }
+  ]
+}

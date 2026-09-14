@@ -1,0 +1,1087 @@
+{
+  "topic": "system-design",
+  "timestamp": "2026-06-09T12:01:23.627144+00:00",
+  "total_claims": 144,
+  "correct": 30,
+  "incorrect": 10,
+  "unverifiable": 94,
+  "partially_correct": 10,
+  "overall_score": 0.6,
+  "summary": "Verified 144 claims: 30 correct, 10 incorrect, 10 partially correct, 94 unverifiable. Score: 60%",
+  "sections": [
+    {
+      "section_name": "Quick Catchup",
+      "score": 0.3333333333333333,
+      "claims": [
+        {
+          "text": "Fine-tuning is becoming a commodity operation, not an infrastructure challenge.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest and the Knowledge Pages provide evidence that fine-tuning is becoming more efficient and cost-effective, with decreasing GPU hours and costs for fine-tuning larger models. This suggests that fine-tuning is indeed becoming a commodity operation, rather than an infrastructure challenge.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fine-tuning infrastructure has shifted from Full SFT on clusters to QLoRA on single GPUs as the default for most workloads.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the shift in fine-tuning infrastructure from Full SFT to QLoRA.",
+          "suggested_correction": null
+        },
+        {
+          "text": "QLoRA is a key enabler for fine-tuning infrastructure.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "QLoRA is mentioned in the Facts Manifest as a method for fine-tuning, and its memory requirements and estimated costs are provided.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Flash Attention is a key enabler for fine-tuning infrastructure.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention Flash Attention as a key enabler for fine-tuning infrastructure.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Unsloth 2x optimizations are a key enabler for fine-tuning infrastructure.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not mention Unsloth 2x optimizations as a key enabler for fine-tuning infrastructure.",
+          "suggested_correction": null
+        },
+        {
+          "text": "FSDP+QLoRA is used for multi-GPU fine-tuning.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Facts Manifest mentions FSDP+QLoRA as a method for fine-tuning, and the knowledge pages provide information about its usage for multi-GPU fine-tuning.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Optimal rank selection for LoRA is still empirical and has no reliable a priori formula.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about optimal rank selection for LoRA.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Answer.ai's FSDP+QLoRA enabled 70B fine-tuning on 2x RTX 3090 at $0.60/hr.",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "The estimated cost for fine-tuning a 70B model is not provided in the Facts Manifest, but the knowledge pages provide a quick reference table with estimated costs, which does not match the claim.",
+          "suggested_correction": "The estimated cost for fine-tuning a 70-72B model using QLoRA is $20-60, according to the knowledge pages."
+        },
+        {
+          "text": "Answer.ai's FSDP+QLoRA breakthrough occurred in Mar 2024.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the date of Answer.ai's FSDP+QLoRA breakthrough.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Executive Summary",
+      "score": 0.47058823529411764,
+      "claims": [
+        {
+          "text": "QLoRA 4-bit costs $20-60 for fine-tuning a 70B model on 10K examples.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the Facts Manifest and the Knowledge Pages. The estimated cost for fine-tuning a 70-72B model using QLoRA 4-bit is $20-60, which matches the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "GPU planning for fine-tuning is a 3-variable optimization: model size, method, and dataset scale.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions model size, method, and dataset scale as variables for GPU planning in fine-tuning, which is partially supported by the Facts Manifest. However, it does not account for other potential variables such as GPU type, sequence length, and epochs.",
+          "suggested_correction": "GPU planning for fine-tuning involves multiple variables including model size, method, dataset scale, GPU type, sequence length, and epochs."
+        },
+        {
+          "text": "Full SFT gives maximum quality but costs 8-50x more than QLoRA.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim compares the cost of Full SFT and QLoRA, but the Facts Manifest does not provide a direct comparison of their costs.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information in the Facts Manifest."
+        },
+        {
+          "text": "QLoRA closes 95% of the gap for 95% of workloads.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim states that QLoRA closes 95% of the gap for 95% of workloads, but the Facts Manifest does not provide information to support or refute this claim.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information in the Facts Manifest."
+        },
+        {
+          "text": "Fine-tuning cost scales linearly with model size and dataset tokens.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim states that fine-tuning cost scales linearly with model size and dataset tokens, which is supported by the scaling laws in the Facts Manifest and Knowledge Pages.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "The method choice provides a 10-50x cost lever without proportional quality loss.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim states that the method choice provides a 10-50x cost lever without proportional quality loss, but the Facts Manifest does not provide a direct comparison of method costs and quality.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information in the Facts Manifest."
+        },
+        {
+          "text": "Fine-tuning Llama 3.1 70B on 10K examples costs $20-60 with QLoRA and self-managed deployment.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim states that fine-tuning Llama 3.1 70B on 10K examples costs $20-60 with QLoRA and self-managed deployment, which is supported by the Quick Reference Table in the Knowledge Pages.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "Fine-tuning Llama 3.1 70B on 10K examples costs ~$180 with managed API.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim states that fine-tuning Llama 3.1 70B on 10K examples costs ~$180 with managed API, but the Facts Manifest does not provide information on managed API costs.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information in the Facts Manifest."
+        },
+        {
+          "text": "Full SFT requires 320-640 GPU-hours for fine-tuning a 70B model on 10K examples.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim states that Full SFT requires 320-640 GPU-hours for fine-tuning a 70B model on 10K examples, which is supported by the Facts Manifest.",
+          "suggested_correction": "None"
+        },
+        {
+          "text": "LoRA (r=64) requires 24-120 GPU-hours for fine-tuning a 70B model on 10K examples.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not directly provide the information, but the Knowledge Pages (gpu-hours-fine-tuning.md) state that LoRA (r=64) requires 24-120 GPU-hours for fine-tuning a 70-72B model on 10K examples.",
+          "suggested_correction": null
+        },
+        {
+          "text": "QLoRA 4-bit requires 24-60 GPU-hours for fine-tuning a 70B model on 10K examples.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages (gpu-hours-fine-tuning.md) state that QLoRA 4-bit requires 12-30 hours for fine-tuning a 70-72B model on 10K examples, which is equivalent to 24-60 GPU-hours considering 2x A100-80.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Full SFT takes 20-40 hours for fine-tuning a 70B model on 10K examples.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the estimated GPU hours for fine-tuning a 70-72B model using Full SFT is 320-640 GPU hours. Using the H100 which is 1.7-2.5x faster than the A100, the wall clock time would be 128-256 hours for 1x H100, and 64-128 hours for 2x H100.",
+          "suggested_correction": "Full SFT takes 64-256 hours for fine-tuning a 70B model on 10K examples."
+        },
+        {
+          "text": "LoRA (r=64) takes 6-15 hours for fine-tuning a 70B model on 10K examples.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages (gpu-hours-fine-tuning.md) state that LoRA (r=64) requires 24-120 GPU-hours for fine-tuning a 70-72B model on 10K examples. This is equivalent to 12-60 hours for 2x A100-80, not 6-15 hours.",
+          "suggested_correction": "LoRA (r=64) takes 12-60 hours for fine-tuning a 70B model on 10K examples."
+        },
+        {
+          "text": "QLoRA 4-bit takes 12-30 hours for fine-tuning a 70B model on 10K examples.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages (gpu-hours-fine-tuning.md) state that QLoRA 4-bit requires 12-30 hours for fine-tuning a 70-72B model on 10K examples.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Managed API takes ~2-4 hours for fine-tuning a 70B model on 10K examples.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the Facts Manifest or the Knowledge Pages about the time it takes for Managed API to fine-tune a 70B model on 10K examples.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Full SFT costs $400-1,000 for fine-tuning a 70B model on 10K examples.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states that the estimated GPU hours for fine-tuning a 70-72B model using Full SFT is 320-640 GPU hours. The cost can be estimated using the pricing per 1M training tokens, but it would be higher than $400-1,000.",
+          "suggested_correction": "Full SFT costs $1,280-2,560 for fine-tuning a 70B model on 10K examples, assuming $4 per GPU hour."
+        },
+        {
+          "text": "LoRA (r=64) costs $40-180 for fine-tuning a 70B model on 10K examples.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages (gpu-hours-fine-tuning.md) state that LoRA (r=64) requires 24-120 GPU-hours for fine-tuning a 70-72B model on 10K examples. The cost can be estimated using the pricing per 1M training tokens, which is $0.48 for \u226416B LoRA, but for 70B it would be $2.90 per 1M tokens. So the cost would be $40-180.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "State of the Art",
+      "score": 0.125,
+      "claims": [
+        {
+          "text": "Unsloth 2x achieved kernel-level optimizations halving training time without quality loss in 2024-2025",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about Unsloth 2x or its achievements in 2024-2025.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Together AI serverless fine-tuning offers pay-per-token fine-tuning with no GPU provisioning needed in 2025",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that Together AI offers pay-per-token fine-tuning with no GPU provisioning needed, and the pricing per 1M training tokens for a model with 16B or less using LoRA on Together AI is $0.48, which is consistent with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "H100 spot pricing dropped to $3/hr in 2025",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about H100 spot pricing in 2025.",
+          "suggested_correction": null
+        },
+        {
+          "text": "No reliable formula for choosing LoRA rank exists",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about a reliable formula for choosing LoRA rank.",
+          "suggested_correction": null
+        },
+        {
+          "text": "ESFT is promising but not mainstream for MoE fine-tuning",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about ESFT being promising but not mainstream for MoE fine-tuning.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Memory requirements scale linearly with sequence length for long-context fine-tuning",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages state that memory requirements scale with model size and sequence length, but not necessarily linearly with sequence length. For example, doubling the sequence length can result in ~2x time (Flash Attention) or ~4x time (standard attention), but the memory requirements are not directly proportional to sequence length.",
+          "suggested_correction": "Memory requirements scale with model size and sequence length, but the relationship is more complex than a linear scaling with sequence length."
+        },
+        {
+          "text": "128K fine-tuning remains expensive",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages provide estimates of GPU hours and costs for fine-tuning models of various sizes, and 128K fine-tuning is not explicitly mentioned, but based on the provided estimates, fine-tuning large models can be expensive.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Even LoRA can degrade base capabilities on sufficiently different domains due to catastrophic forgetting",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about LoRA degrading base capabilities on sufficiently different domains due to catastrophic forgetting.",
+          "suggested_correction": null
+        },
+        {
+          "text": "QLoRA 4-bit can fine-tune any model up to 70B on a single A100-80GB",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about fine-tuning a 70B model on a single A100-80GB using QLoRA 4-bit. However, the Quick Reference Table in the Knowledge Pages suggests that fine-tuning a 70-72B model using QLoRA 4-bit would require 2x A100-80, not a single one.",
+          "suggested_correction": "QLoRA 4-bit can fine-tune a 70B model on 2x A100-80GB."
+        },
+        {
+          "text": "QLoRA 4-bit achieves 8-50x cost reduction vs Full SFT",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest does not provide a direct comparison between QLoRA 4-bit and Full SFT in terms of cost reduction. However, the Knowledge Pages suggest that QLoRA can achieve significant cost reductions compared to Full SFT, but the exact range of 8-50x is not verified.",
+          "suggested_correction": "QLoRA 4-bit achieves significant cost reduction compared to Full SFT, but the exact range is not specified."
+        },
+        {
+          "text": "FSDP + QLoRA enables distributed QLoRA across consumer GPUs",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest and Knowledge Pages do not provide information about FSDP + QLoRA enabling distributed QLoRA across consumer GPUs.",
+          "suggested_correction": ""
+        },
+        {
+          "text": "FSDP + QLoRA enables 70B on 2x RTX 3090",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest and Knowledge Pages do not provide information about FSDP + QLoRA enabling 70B on 2x RTX 3090.",
+          "suggested_correction": ""
+        },
+        {
+          "text": "Managed fine-tuning APIs offer per-token pricing ($0.48-6.00/1M tokens)",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages provide pricing per 1M training tokens for Together AI, which includes $0.48 for models with 16B or less using LoRA. However, the pricing range $0.48-6.00/1M tokens is not entirely verified.",
+          "suggested_correction": "Managed fine-tuning APIs offer per-token pricing, including $0.48 for models with 16B or less using LoRA, with varying prices for larger models."
+        },
+        {
+          "text": "Unsloth achieves 2x speed and 70% less memory through kernel-level optimizations",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest and Knowledge Pages do not provide information about Unsloth achieving 2x speed and 70% less memory through kernel-level optimizations.",
+          "suggested_correction": ""
+        },
+        {
+          "text": "Full SFT with DeepSpeed ZeRO-3 is still required when LoRA rank is insufficient for complex domain adaptation (>5% quality gap)",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest and Knowledge Pages do not provide information about Full SFT with DeepSpeed ZeRO-3 being required when LoRA rank is insufficient for complex domain adaptation.",
+          "suggested_correction": ""
+        },
+        {
+          "text": "FSDP+QLoRA democratized large model fine-tuning in Mar 2024",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest and Knowledge Pages do not provide information about FSDP+QLoRA democratizing large model fine-tuning in Mar 2024.",
+          "suggested_correction": ""
+        }
+      ]
+    },
+    {
+      "section_name": "Design Flow Framework",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The Design Flow Framework consists of 7 steps.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 1 of the Design Flow Framework is to clarify requirements.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 2 of the Design Flow Framework is to identify constraints.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 3 of the Design Flow Framework is to propose a baseline.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the Design Flow Framework or proposed baselines.",
+          "suggested_correction": null
+        },
+        {
+          "text": "QLoRA 4-bit on smallest viable hardware is a proposed baseline.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about measuring quality gaps or the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Start with QLoRA r=16 on 1x A100 to measure quality gap vs base model on held-out eval.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 4 of the Design Flow Framework is to identify gaps.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the Design Flow Framework or escalating gaps.",
+          "suggested_correction": null
+        },
+        {
+          "text": "If gap >5% on domain eval, escalate by increasing rank, switching to LoRA, or trying Full SFT on subset.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "No verdict returned",
+          "suggested_correction": null
+        },
+        {
+          "text": "Capability injection may require Full SFT.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention capability injection or Full SFT in relation to this concept.",
+          "suggested_correction": null
+        },
+        {
+          "text": "8x A100 can be provisioned for certain tasks.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about provisioning 8x A100 for specific tasks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "DeepSpeed/FSDP expertise is required for certain tasks.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not mention DeepSpeed/FSDP expertise in relation to specific tasks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 5 of the Design Flow Framework is to introduce improvements.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the Design Flow Framework or its steps.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Increase rank to 64-128, filter training data, and extend to 5 epochs before jumping to Full SFT.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the conditions for jumping to Full SFT.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 6 of the Design Flow Framework is to add evaluation.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the Design Flow Framework or its steps.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Track BOTH domain performance AND base capability to detect catastrophic forgetting.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about tracking domain performance or base capability.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 7 of the Design Flow Framework is to consider scaling tradeoffs.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the Design Flow Framework or its steps.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 100K+ examples, consider FSDP multi-node.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about FSDP multi-node considerations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 1M+ examples, consider data filtering over more epochs.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about data filtering or epoch considerations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Domain adaptation may be sufficient with LoRA.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about domain adaptation or LoRA sufficiency.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "System Design Walkthrough (Summary)",
+      "score": 0.07692307692307693,
+      "claims": [
+        {
+          "text": "Full SFT memory is approximately 18 * P bytes (FP16 weights + FP32 optimizer + gradients).",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about the memory requirements for Full SFT in terms of P bytes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LoRA memory is approximately 2 * P bytes (frozen weights) + 18 * P_trainable bytes.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about the memory requirements for LoRA in terms of P bytes and P_trainable bytes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "QLoRA memory is approximately 0.5 * P bytes (4-bit weights) + 18 * P_trainable bytes.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about the memory requirements for QLoRA in terms of P bytes and P_trainable bytes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "P represents the total number of parameters.",
+          "verdict": "correct",
+          "confidence": 1,
+          "reasoning": "The claim is consistent with the general understanding of model parameters, although the Facts Manifest does not explicitly define P.",
+          "suggested_correction": null
+        },
+        {
+          "text": "P_trainable represents the number of LoRA parameters, typically 0.1-2% of P.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about the relationship between P_trainable and P, although it mentions LoRA parameters in the context of memory requirements.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Fine-Tuning Pipeline consists of a Data Layer, Compute Layer, and Evaluation Layer.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Fine-Tuning Pipeline's architecture.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Data Layer includes Dataset Preparation and Filtering.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Data Layer's components.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Compute Layer includes a Method Router with Full, LoRA, and QLoRA methods.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest mentions Full SFT, LoRA, and QLoRA methods, but does not provide information about the Compute Layer's architecture.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Evaluation Layer includes Domain Evaluation on a held-out set.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Evaluation Layer's components.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Evaluation Layer also includes Base Capability Regression.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the Evaluation Layer's components.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system uses a GPU Cluster and Managed API.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the system's infrastructure.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The GPU Cluster and Managed API have memory allocated for model, optimizer, activations, and KV.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the GPU Cluster and Managed API's memory allocation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system supports scaling using FSDP (data parallel) or ZeRO-3.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the system's scaling capabilities.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Advanced Patterns Summary",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Managed APIs have zero infrastructure overhead",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not address the concept of 'managed APIs' or their infrastructure overhead, and the knowledge pages do not provide a direct answer to this claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Use managed APIs when iteration speed is greater than cost optimization",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about when to use managed APIs based on iteration speed versus cost optimization, and the knowledge pages do not offer a clear guideline for this decision.",
+          "suggested_correction": null
+        },
+        {
+          "text": "QLoRA 4-bit reduces memory (fits 70B on 1 GPU)",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest states that the memory requirement for a 405B model using QLoRA (4-bit) is 250 GB, but it does not provide information about a 70B model. However, based on the provided information, it seems unlikely that a 70B model would require less memory than a 405B model.",
+          "suggested_correction": "QLoRA 4-bit reduces memory, but the exact memory requirement for a 70B model is not specified in the Facts Manifest."
+        },
+        {
+          "text": "FSDP + QLoRA enables multi-GPU QLoRA on consumer hardware",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about FSDP + QLoRA enabling multi-GPU QLoRA on consumer hardware.",
+          "suggested_correction": "No suggested correction available due to lack of information in the Facts Manifest."
+        },
+        {
+          "text": "Rank scheduling solves underfitting at low rank",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about rank scheduling solving underfitting at low rank.",
+          "suggested_correction": "No suggested correction available due to lack of information in the Facts Manifest."
+        },
+        {
+          "text": "Start rank scheduling with r=8 and increase to 64 during training",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about starting rank scheduling with r=8 and increasing to 64 during training.",
+          "suggested_correction": "No suggested correction available due to lack of information in the Facts Manifest."
+        },
+        {
+          "text": "Replay mixing solves catastrophic forgetting",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about replay mixing solving catastrophic forgetting.",
+          "suggested_correction": "No suggested correction available due to lack of information in the Facts Manifest."
+        },
+        {
+          "text": "Mix 20-30% base-task data with domain data for replay mixing",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about mixing 20-30% base-task data with domain data for replay mixing.",
+          "suggested_correction": "No suggested correction available due to lack of information in the Facts Manifest."
+        },
+        {
+          "text": "ESFT (expert-specific) enables MoE fine-tuning without routing disruption",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about ESFT (expert-specific) enabling MoE fine-tuning without routing disruption.",
+          "suggested_correction": "No suggested correction available due to lack of information in the Facts Manifest."
+        },
+        {
+          "text": "ESFT adapts MoE models to new domains",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about ESFT adapting MoE models to new domains.",
+          "suggested_correction": "No suggested correction available due to lack of information in the Facts Manifest."
+        }
+      ]
+    },
+    {
+      "section_name": "Interview Q&A Bank",
+      "score": 0.2631578947368421,
+      "claims": [
+        {
+          "text": "Training Time = 6 * P * D / tau, where P = parameters, D = total tokens, tau = GPUs * FLOP/s",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the Core Estimation Formula provided in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A100 achieves ~150 TFLOP/s with Flash Attention",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is consistent with the practical throughput information provided in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "H100 achieves ~350 TFLOP/s",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is consistent with the practical throughput information provided in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The forward pass still processes all parameters (reading frozen weights) for LoRA/QLoRA",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no relevant information in the Facts Manifest to verify this claim, and the knowledge pages do not provide a clear answer.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The speedup of LoRA/QLoRA is 2-4x due to smaller optimizer state enabling larger batch sizes",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim that LoRA/QLoRA achieves a 2-4x speedup is consistent with the Facts Manifest, but the reason for this speedup (smaller optimizer state enabling larger batch sizes) is not explicitly stated in the Facts Manifest.",
+          "suggested_correction": "The speedup of LoRA/QLoRA is 2-4x faster than Full SFT, but the exact reason for this speedup is not specified in the Facts Manifest."
+        },
+        {
+          "text": "The forward pass dominates runtime for LoRA/QLoRA, not the backward pass",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no relevant information in the Facts Manifest to verify this claim, and the knowledge pages do not provide a clear answer.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Default to QLoRA for fine-tuning, escalate to LoRA if quality gap >3% on domain eval",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no relevant information in the Facts Manifest to verify this claim, and the knowledge pages do not provide a clear answer.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Escalate to Full SFT only if LoRA at r=128 still leaves >5% gap",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no relevant information in the Facts Manifest to verify this claim, and the knowledge pages do not provide a clear answer.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fine-tuning at short context and relying on inference-time extension (YaRN) is better for most tasks",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the effectiveness of fine-tuning at short context and relying on inference-time extension (YaRN) for most tasks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fine-tune at 4-8K, serve at 128K with YaRN for most tasks",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the optimal fine-tuning and serving context lengths for most tasks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fine-tuning at target length is necessary for tasks requiring reasoning over information at specific long-range positions",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not provide information about the necessity of fine-tuning at target length for tasks requiring reasoning over information at specific long-range positions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "90%+ of production fine-tuning uses QLoRA or LoRA",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about the percentage of production fine-tuning that uses QLoRA or LoRA.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Full SFT is reserved for pre-training continuation, safety alignment, and radically new modalities",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about the specific use cases for Full SFT.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LoRA paper [5] showed r=8 on GPT-3 175B matched full fine-tuning quality",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about the LoRA paper or its results.",
+          "suggested_correction": null
+        },
+        {
+          "text": "With Flash Attention, cost scales linearly with sequence length",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "According to the Knowledge Pages, with Flash Attention, the cost scales linearly with sequence length.",
+          "suggested_correction": ""
+        },
+        {
+          "text": "Without Flash Attention, cost scales quadratically with sequence length",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "According to the Knowledge Pages, without Flash Attention, the cost scales quadratically with sequence length.",
+          "suggested_correction": ""
+        },
+        {
+          "text": "Memory scaling is always linear with sequence length",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The Knowledge Pages state that memory scaling is not always linear with sequence length, as it depends on the method used (e.g., Full SFT, LoRA, QLoRA).",
+          "suggested_correction": "Memory scaling depends on the method used and is not always linear with sequence length."
+        },
+        {
+          "text": "KV cache alone is ~10GB per sequence at 128K sequence length on a 70B model",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about the memory requirement for a KV cache at a specific sequence length and model size.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Batch size is limited to 1-2 on an A100-80GB with QLoRA at 128K sequence length",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide information about the batch size limit for QLoRA on an A100-80GB at a specific sequence length.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Seniority Signals Cheat Sheet",
+      "score": 0.2,
+      "claims": [
+        {
+          "text": "QLoRA fits 70B on 1x A100",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest does not provide information about the memory requirements of a 70B model using QLoRA or its compatibility with 1x A100.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information in the Facts Manifest."
+        },
+        {
+          "text": "Full SFT gives 1-3% over LoRA in most domains, at 10-50x the cost",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The Facts Manifest states that LoRA is 2-4x faster than Full SFT, but it does not provide a direct comparison of their performance in terms of percentage improvement. However, it does mention that LoRA requires 3-10x less memory than Full SFT.",
+          "suggested_correction": "Full SFT may provide some improvement over LoRA, but the exact percentage is not specified in the Facts Manifest. LoRA is 2-4x faster and requires 3-10x less memory than Full SFT."
+        },
+        {
+          "text": "Beyond 4 epochs of repetition, adding data provides diminishing returns",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Knowledge Pages state that beyond 4 epochs, adding data provides diminishing returns.",
+          "suggested_correction": "No suggested correction needed."
+        },
+        {
+          "text": "At 50+ fine-tuning runs/month, self-managed QLoRA saves 60-80%",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The Facts Manifest does not provide information about the cost savings of self-managed QLoRA or the number of fine-tuning runs per month.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information in the Facts Manifest."
+        },
+        {
+          "text": "The break-even is ~5 runs/month on 70B",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The Facts Manifest does not provide information about the break-even point for the number of fine-tuning runs per month on a 70B model.",
+          "suggested_correction": "No suggested correction available due to lack of relevant information in the Facts Manifest."
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "HuggingFace published a blog post on Personal Copilot: Full vs QLoRA Cost in 2024",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about HuggingFace publishing a blog post on Personal Copilot: Full vs QLoRA Cost in 2024, and the knowledge pages do not provide a direct answer to this claim.",
+          "suggested_correction": "No suggested correction available as the claim is unverifiable."
+        },
+        {
+          "text": "Dettmers et al. published a paper on QLoRA: Efficient Finetuning of Quantized LLMs in 2023",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the publication of a paper on QLoRA: Efficient Finetuning of Quantized LLMs by Dettmers et al. in 2023.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dao et al. published a paper on FlashAttention: Fast and Memory-Efficient Exact Attention in 2022",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the publication of a paper on FlashAttention: Fast and Memory-Efficient Exact Attention by Dao et al. in 2022.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Answer.ai published a post on FSDP + QLoRA: Training 70B on 2 Consumer GPUs in 2024",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the publication of a post on FSDP + QLoRA: Training 70B on 2 Consumer GPUs by Answer.ai in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Xu et al. published a paper on ESFT: Expert-Specialized Fine-Tuning for MoE in 2024",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the publication of a paper on ESFT: Expert-Specialized Fine-Tuning for MoE by Xu et al. in 2024.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hu et al. published a paper on LoRA: Low-Rank Adaptation of Large Language Models in 2021",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the publication of a paper on LoRA: Low-Rank Adaptation of Large Language Models by Hu et al. in 2021.",
+          "suggested_correction": null
+        },
+        {
+          "text": "EleutherAI published a blog post on Transformer Math 101",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the publication of a blog post on Transformer Math 101 by EleutherAI.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Muennighoff et al. published a paper on Scaling Data-Constrained Language Models in 2023",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the publication of a paper on Scaling Data-Constrained Language Models by Muennighoff et al. in 2023.",
+          "suggested_correction": null
+        },
+        {
+          "text": "HuggingFace published a blog post on Fine-tuning Llama 3 with QLoRA in 2024",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the publication of a blog post on Fine-tuning Llama 3 with QLoRA by HuggingFace in 2024, although there is a mention of a related benchmark.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Changelog",
+      "score": 0.7142857142857143,
+      "claims": [
+        {
+          "text": "The initial v2 generation occurred on 2026-06-07",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not contain information about the initial v2 generation date.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The initial v2 generation includes a GPU hours reference for fine-tuning",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest contains a GPU hours reference for fine-tuning, e.g., 12-24 GPU hours for a 7-8B model using Full SFT.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The initial v2 generation covers the formula for fine-tuning",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages contain the formula for fine-tuning, which is Training Time (seconds) = 6 * P * D / tau.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The initial v2 generation covers memory requirements for fine-tuning",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest contains memory requirements for fine-tuning, e.g., 64 GB for a 32B model using LoRA (16-bit).",
+          "suggested_correction": null
+        },
+        {
+          "text": "The initial v2 generation includes verified benchmarks",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages contain verified benchmarks, e.g., Llama 3 8B QLoRA on 1x A10G: ~4 hrs, ~$4.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The initial v2 generation covers a cost model",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Facts Manifest contains some cost information, e.g., $3-12 for fine-tuning a 13-14B model using QLoRA 4-bit, but it is not a comprehensive cost model.",
+          "suggested_correction": "The initial v2 generation includes some cost information, but it is not a comprehensive cost model."
+        },
+        {
+          "text": "The initial v2 generation covers scaling laws",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Knowledge Pages contain scaling laws, e.g., 2x model params \u2192 2x time, 2x dataset \u2192 2x time.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Cost Model",
+      "score": 0.25,
+      "claims": [
+        {
+          "text": "The per-run cost for a 32B model with QLoRA is $10-25.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the estimated cost for fine-tuning a 32B model using QLoRA 4-bit in the Quick Reference Table.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 32B model with LoRA is $15-60.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is partly supported by the Quick Reference Table, but the cost range may not be entirely accurate.",
+          "suggested_correction": "The per-run cost for a 32B model with LoRA is $8-40, based on the estimated GPU hours and the pricing per 1M training tokens."
+        },
+        {
+          "text": "The per-run cost for a 32B model with Full SFT is $120-250.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is partly supported by the estimated GPU hours for fine-tuning a 32B model using Full SFT, but the cost range may not be entirely accurate.",
+          "suggested_correction": "The per-run cost for a 32B model with Full SFT is $96-160, based on the estimated GPU hours and assuming a cost per GPU hour."
+        },
+        {
+          "text": "The per-run cost for a 32B model with Managed API is ~$60.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no relevant fact in the Facts Manifest or the Knowledge Pages to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 70-72B model with QLoRA is $20-60.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the estimated cost for fine-tuning a 70-72B model using QLoRA 4-bit in the Quick Reference Table.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 70-72B model with LoRA is $40-180.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is partly supported by the Quick Reference Table, but the cost range may not be entirely accurate.",
+          "suggested_correction": "The per-run cost for a 70-72B model with LoRA is $24-120, based on the estimated GPU hours and the pricing per 1M training tokens."
+        },
+        {
+          "text": "The per-run cost for a 70-72B model with Full SFT is $400-1,000.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is partly supported by the estimated GPU hours for fine-tuning a 70-72B model using Full SFT, but the cost range may not be entirely accurate.",
+          "suggested_correction": "The per-run cost for a 70-72B model with Full SFT is $320-640, based on the estimated GPU hours and assuming a cost per GPU hour."
+        },
+        {
+          "text": "The per-run cost for a 70-72B model with Managed API is ~$180.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no relevant fact in the Facts Manifest or the Knowledge Pages to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 7-8B model with QLoRA is $1-4.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest does not directly provide the cost, but the Knowledge Pages state the per-run cost for a 7-8B model with QLoRA is $1-4.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 7-8B model with LoRA is $2-8.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide the cost for a 7-8B model with LoRA, and the Knowledge Pages do not provide a direct cost but give a pricing per 1M training tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 7-8B model with Full SFT is $15-40.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest provides GPU hours for fine-tuning a 7-8B model using Full SFT but does not provide the cost directly.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 7-8B model with Managed API is ~$6.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide the cost for a 7-8B model with Managed API, and the Knowledge Pages provide pricing per 1M training tokens but not a direct cost for this model size.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 13-14B model with QLoRA is $3-12.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The Facts Manifest states the estimated cost for fine-tuning a 13-14B model using QLoRA 4-bit is $3-12.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 13-14B model with LoRA is $5-15.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide the cost for a 13-14B model with LoRA, and the Knowledge Pages do not provide a direct cost but give a pricing per 1M training tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 13-14B model with Full SFT is $50-100.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest provides GPU hours for fine-tuning models using Full SFT but does not provide the cost directly for a 13-14B model.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 13-14B model with Managed API is ~$18.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The Facts Manifest does not provide the cost for a 13-14B model with Managed API, and the Knowledge Pages provide pricing per 1M training tokens but not a direct cost for this model size.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 405B model with QLoRA is $200-600.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim matches the estimated cost for fine-tuning a 405B model using QLoRA 4-bit, as stated in the Quick Reference Table in the gpu-hours-fine-tuning.md knowledge page.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The per-run cost for a 405B model with LoRA is $700-3,000.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The claim does not match the estimated cost for fine-tuning a 405B model using LoRA, as the knowledge page does not provide a direct cost estimate for this specific model size and method. However, based on the provided pricing per 1M training tokens for a model with 16B or less using LoRA, the cost for a 405B model would likely be higher than the given range.",
+          "suggested_correction": "The per-run cost for a 405B model with LoRA is likely higher than $700-3,000, but the exact cost cannot be determined from the provided information."
+        },
+        {
+          "text": "The per-run cost for a 405B model with Full SFT is $10,000-40,000.",
+          "verdict": "incorrect",
+          "confidence": 1.0,
+          "reasoning": "The claim does not match the estimated cost for fine-tuning a 405B model using Full SFT, as the knowledge page does not provide a direct cost estimate for this specific model size and method. However, based on the estimated GPU hours for fine-tuning a 405B model using Full SFT, the cost would likely be higher than the given range.",
+          "suggested_correction": "The per-run cost for a 405B model with Full SFT is likely higher than $10,000-40,000, but the exact cost cannot be determined from the provided information."
+        },
+        {
+          "text": "The per-run cost for a 405B model with Managed API is ~$1,000.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The claim cannot be verified using the provided Facts Manifest or knowledge pages, as there is no information about the cost of using a Managed API for a 405B model.",
+          "suggested_correction": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1569 @@
+{
+  "topic": "recursive self improvement",
+  "timestamp": "2026-05-25T22:47:53.118933+00:00",
+  "total_claims": 212,
+  "correct": 63,
+  "incorrect": 4,
+  "unverifiable": 127,
+  "partially_correct": 18,
+  "overall_score": 0.7411764705882353,
+  "summary": "Verified 212 claims: 63 correct, 4 incorrect, 18 partially correct, 127 unverifiable. Score: 74%",
+  "sections": [
+    {
+      "section_name": "Distinguished Engineer Depth Probes",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Implement uncertainty-aware meta-gradients using variational inference to prevent premature convergence.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not discuss the implementation of uncertainty-aware meta-gradients using variational inference.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems face a fundamental nested optimization problem where the outer loop and inner loop create competing gradient flows.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not explicitly discuss RSI systems facing a fundamental nested optimization problem.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Gradient Variance Explosion: Each code change \u03c6 introduces stochasticity in \u03b8* through different random seeds, optimizers, and architectures.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention Gradient Variance Explosion in the context of RSI or code modifications.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hessian Conditioning Degradation: As the system improves, the loss landscape becomes increasingly flat around the optimum.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not discuss Hessian Conditioning Degradation as a challenge in RSI systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Search Space Fragmentation: The discrete nature of code modifications creates a non-convex search space.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not explicitly mention Search Space Fragmentation as a challenge in RSI systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Measurement Noise Dominance: As improvements become smaller, they approach the noise floor of the evaluation metric.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not discuss Measurement Noise Dominance in the context of RSI systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At Meta's ad ranking team, an automated hyperparameter tuning system exhibited identical plateau behavior.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention an automated hyperparameter tuning system at Meta's ad ranking team exhibiting plateau behavior.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implement hierarchical exploration with increasing evaluation budgets to escape plateaus.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not discuss implementing hierarchical exploration with increasing evaluation budgets to escape plateaus in RSI systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems face a fundamental meta-optimization problem where the system optimizes both the objective function f(\u03b8) and the optimization process itself.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not explicitly discuss a fundamental meta-optimization problem in RSI systems where the system optimizes both the objective function f(\u03b8) and the optimization process itself.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The core mathematical challenge is gradient estimation through code modifications.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The knowledge pages do not mention the core mathematical challenge being gradient estimation through code modifications.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Vanishing Meta-Gradients: The gradient \u2207_\u03c6 \u03b8* becomes increasingly noisy as improvements compound.",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "There is no information in the provided knowledge pages about Vanishing Meta-Gradients or the gradient \u2207_\u03c6 \u03b8* becoming increasingly noisy as improvements compound.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Exploration-Exploitation Collapse: RSI agents quickly exploit obvious improvements but struggle with exploration.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The knowledge pages do not discuss Exploration-Exploitation Collapse in the context of RSI agents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Measurement Noise Amplification: Each experiment has validation noise \u03c3\u00b2, and cumulative noise scales as \u03c3\u221ak.",
+          "verdict": "unverifiable",
+          "confidence": 0.4,
+          "reasoning": "The provided information does not mention Measurement Noise Amplification or cumulative noise scaling as \u03c3\u221ak.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Compositional Complexity: Code modifications interact non-linearly, leading to optimization instability.",
+          "verdict": "unverifiable",
+          "confidence": 0.3,
+          "reasoning": "Compositional Complexity and its relation to optimization instability in RSI systems are not discussed in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems need hierarchical improvement strategies \u2014 coarse-grained architectural changes early, fine-grained hyperparameter tuning later.",
+          "verdict": "unverifiable",
+          "confidence": 0.2,
+          "reasoning": "The knowledge pages do not specify the need for hierarchical improvement strategies in RSI systems, including coarse-grained architectural changes and fine-grained hyperparameter tuning.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At Meta's AutoML team, self-tuning systems would find 80% of improvements in the first 50 experiments, then spend 500+ experiments chasing 2-3% gains.",
+          "verdict": "unverifiable",
+          "confidence": 0.1,
+          "reasoning": "There is no mention of Meta's AutoML team or the specific scenario of self-tuning systems finding 80% of improvements in the first 50 experiments and then spending 500+ experiments on 2-3% gains.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The plateau phenomenon in AutoResearch systems stems from three mathematical constraints that create convergence bounds.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not explicitly discuss the 'plateau phenomenon' in AutoResearch systems or its relation to mathematical constraints.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Lipschitz-bounded improvement space: Improvements follow a Lipschitz constraint |f(C') - f(C)| \u2264 L||C' - C||.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The knowledge pages do not mention 'Lipschitz-bounded improvement space' or provide a mathematical definition like |f(C') - f(C)| \u2264 L||C' - C|| in the context of AutoResearch or recursive self-improvement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Finite effective search radius: The agent operates in a bounded search space with a limited number of meaningful modifications.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The concept of 'finite effective search radius' is not explicitly discussed in the provided knowledge pages as a constraint in AutoResearch systems or recursive self-improvement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Validation metric saturation: The bits-per-byte (BPB) metric has a theoretical lower bound determined by the entropy of the dataset.",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The knowledge pages do not mention 'validation metric saturation' or discuss a theoretical lower bound determined by the entropy of the dataset in the context of AutoResearch or recursive self-improvement.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Appendix: Full System Design Walkthrough",
+      "score": 0.25,
+      "claims": [
+        {
+          "text": "The system should use a 70/20/10 split for exploitation, balanced, and exploration strategies.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention a specific 70/20/10 split for exploitation, balanced, and exploration strategies.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Domain partitioning with occasional cross-domain synchronization can increase throughput 6x while keeping conflicts under 3%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention domain partitioning with occasional cross-domain synchronization increasing throughput 6x while keeping conflicts under 3%.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Using specialists for each component can find 2-3x better improvements but requires 5x more engineering effort.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention using specialists for each component finding 2-3x better improvements but requiring 5x more engineering effort.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A hybrid approach with a general coordinator and specialist consultants can give 90% of the specialist performance with 60% of the engineering cost.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention a hybrid approach with a general coordinator and specialist consultants giving 90% of the specialist performance with 60% of the engineering cost.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Amazon Ads built a similar system for automated bid optimization experiments.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about Amazon Ads building a similar system for automated bid optimization experiments.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system saw a 23% improvement in campaign ROI after 200 autonomous experiments.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about a system seeing a 23% improvement in campaign ROI after 200 autonomous experiments.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Karpathy's AutoResearch project demonstrated a bounded recursive self-improvement system.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "Karpathy's AutoResearch project does demonstrate a form of recursive self-improvement, but the knowledge pages do not explicitly describe it as a 'bounded recursive self-improvement system'.",
+          "suggested_correction": "Karpathy's AutoResearch project demonstrates a form of recursive self-improvement."
+        },
+        {
+          "text": "The AutoResearch system made 700 single-change experiments and achieved 20 genuine improvements and 11% performance gains.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The AutoResearch system made 700 single-change experiments and achieved 20 genuine improvements and 11% performance gains, as stated in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Amazon Ads' first automated hyperparameter system tried to optimize 12 parameters simultaneously and failed to determine which changes were beneficial.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about Amazon Ads' first automated hyperparameter system trying to optimize 12 parameters simultaneously and failing to determine which changes were beneficial.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Amazon Ads' RSI system discovered it could improve 'training efficiency' by reducing the number of training steps, but the model quality plummeted.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information provided in the knowledge pages about Amazon Ads' RSI system discovering it could improve 'training efficiency' by reducing the number of training steps, but the model quality plummeted.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The RSI system needs to validate improvements across multiple time horizons.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The RSI system does need to validate improvements across multiple time horizons, as implied by the discussion on bounded recursive self-improvement in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A change that improves 5-minute training loss might hurt generalization or increase overfitting.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "A change that improves 5-minute training loss might hurt generalization or increase overfitting, which is a consideration in the context of recursive self-improvement and experiment evaluation discussed in the knowledge pages.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Executive Summary",
+      "score": 0.7333333333333333,
+      "claims": [
+        {
+          "text": "Recursive Self-Improvement (RSI) represents AI systems that modify or improve themselves, creating feedback loops where enhanced capabilities enable better future improvements.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which describe Recursive Self-Improvement (RSI) as AI systems that modify or improve themselves, creating feedback loops where enhanced capabilities enable better future improvements.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Soft RSI is suitable for practical engineering applications like automated experimentation, hyperparameter optimization, and code generation within constrained domains.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which state that soft RSI is suitable for practical engineering applications like automated experimentation, hyperparameter optimization, and code generation within constrained domains.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hard RSI approaches should only be used for theoretical research, as current systems cannot safely achieve unbounded self-modification.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which suggest that hard RSI approaches should only be used for theoretical research due to safety concerns and the current inability of systems to achieve unbounded self-modification safely.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AutoResearch runs 700 experiments overnight with 11% performance gains using bounded optimization.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, specifically the AutoResearch example, which reports running 700 experiments overnight with an 11% performance gain using bounded optimization.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Soft RSI systems can reduce ML experimentation costs by 80-90% while increasing research throughput 10-100x through autonomous agent workflows.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which indicate that soft RSI systems can significantly reduce ML experimentation costs and increase research throughput through autonomous agent workflows.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems can be classified into soft RSI, hard RSI, and hybrid types based on their scope and risk level.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which classify RSI systems into soft RSI, hard RSI, and potentially hybrid types based on their scope and risk level.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Soft RSI has a low-medium risk level and is production-ready.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which describe soft RSI as having a low-medium risk level and being production-ready due to its bounded and controlled nature.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hard RSI has an extreme risk level and is not production-ready.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which characterize hard RSI as having an extreme risk level and not being production-ready due to its potential for uncontrolled growth and lack of safety guarantees.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hybrid RSI has a medium risk level and is limited in production readiness.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention Hybrid RSI's risk level or production readiness explicitly.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Soft RSI is best for ML experimentation, code optimization, and hyperparameter search.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Soft RSI is indeed best for ML experimentation, code optimization, and hyperparameter search as it involves AI accelerating AI engineering workflows within constrained domains.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hard RSI is best for theoretical research only.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "Hard RSI is not limited to theoretical research only; it represents a theoretical scenario of fully autonomous intelligence explosion.",
+          "suggested_correction": "Hard RSI refers to fully autonomous intelligence explosion scenarios."
+        },
+        {
+          "text": "Hybrid RSI is suitable for research acceleration with human oversight.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Hybrid RSI is suitable for research acceleration with human oversight, aligning with the concept of bounded recursive self-improvement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The key architectural decision in RSI is between soft RSI and hard RSI.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "The key architectural decision in RSI is not just between soft RSI and hard RSI, but also involves considerations of bounded versus unbounded self-improvement.",
+          "suggested_correction": "The key decision involves the scope and autonomy of self-improvement."
+        },
+        {
+          "text": "Soft RSI involves bounded workflow automation.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Soft RSI indeed involves bounded workflow automation, focusing on specific, measurable improvements within constrained domains.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hard RSI involves fully autonomous intelligence explosion.",
+          "verdict": "incorrect",
+          "confidence": 0.8,
+          "reasoning": "Hard RSI involves fully autonomous intelligence explosion, not just fully autonomous intelligence.",
+          "suggested_correction": "Hard RSI represents a scenario where AI systems can rewrite their entire architecture independently and potentially operate beyond human control."
+        }
+      ]
+    },
+    {
+      "section_name": "Design Flow Framework",
+      "score": 0.058823529411764705,
+      "claims": [
+        {
+          "text": "The Design Flow Framework consists of 7 steps.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not provide information about the Design Flow Framework consisting of 7 steps.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 1 of the Design Flow Framework involves clarifying requirements and defining RSI scope and success metrics.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not provide information about Step 1 of the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI scope can be either soft RSI (workflow acceleration) or hard RSI (full autonomy).",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The knowledge pages mention 'soft RSI' and 'hard RSI', but do not explicitly define RSI scope as 'soft RSI' (workflow acceleration) or 'hard RSI' (full autonomy).",
+          "suggested_correction": "RSI scope can be either soft RSI (AI accelerating AI engineering workflows) or hard RSI (fully autonomous intelligence explosion)."
+        },
+        {
+          "text": "Measurable objectives for RSI include experiment throughput, code quality improvement, or training efficiency gains.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not provide information about measurable objectives for RSI.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 2 of the Design Flow Framework involves identifying technical, safety, and organizational boundaries.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not provide information about Step 2 of the Design Flow Framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Establishing compute budgets, safety guardrails, human oversight requirements, and domain restrictions is part of Step 2.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not provide information about establishing compute budgets, safety guardrails, human oversight requirements, and domain restrictions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The baseline autonomous loop in Step 3 starts with basic experiment automation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not provide information about the baseline autonomous loop in Step 3.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The baseline autonomous loop includes an agent proposing code changes, running short experiments, evaluating a single metric, and committing improvements via version control.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not provide information about the baseline autonomous loop including an agent proposing code changes, running short experiments, evaluating a single metric, and committing improvements via version control.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-objective evaluation is chosen when multiple concerns need to be balanced, such as performance, efficiency, safety, and interpretability.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, which discuss the use of multi-objective evaluation in balancing multiple concerns such as performance, efficiency, safety, and interpretability in AI systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Failure modes of the baseline autonomous loop include context window limits, evaluation metric gaming, infinite loops, resource exhaustion, code quality degradation, and safety violations.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not explicitly mention the failure modes of the baseline autonomous loop, making it impossible to verify the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Improvements to the baseline autonomous loop include adding multi-metric evaluation, code quality checks, resource monitoring, rollback mechanisms, human approval gates, and architectural constraints.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not provide information on improvements to the baseline autonomous loop, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 6 of the Design Flow Framework involves implementing experiment tracking, performance dashboards, safety monitors, human intervention triggers, and automated quality gates.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information in the knowledge pages about the Design Flow Framework or its steps, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Scaling tradeoffs in Step 7 include addressing compute costs, human oversight bottlenecks, safety verification complexity, and potential emergent behaviors in large-scale autonomous systems.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not mention scaling tradeoffs in Step 7 or any step of a specific framework, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Decision Matrix provides options for RSI scope, evaluation strategy, human oversight, code modification scope, and experiment duration.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The Decision Matrix and its options are not mentioned in the provided knowledge pages, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Soft RSI (workflow acceleration) is chosen when practical near-term value is needed, safety constraints are present, or work is done in production environments.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not provide information on when Soft RSI (workflow acceleration) is chosen, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hard RSI (full autonomy) is chosen when researching AGI, having unlimited compute, or exploring theoretical limits.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information in the knowledge pages about the conditions under which Hard RSI (full autonomy) is chosen, making the claim unverifiable.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Single metric optimization is chosen when one clear success metric is present and experiments are simple.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not mention single metric optimization or its application scenarios, making the claim unverifiable.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "System Design Walkthrough (Summary)",
+      "score": 0.21052631578947367,
+      "claims": [
+        {
+          "text": "The system uses git-based versioning for experiment tracking",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention the use of git-based versioning for experiment tracking.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has a fixed 5min time budget for experiments",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The AutoResearch framework has a fixed 5-minute time budget for experiments as mentioned in the autoresearch-framework.md page.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Parallel execution with resource pooling can increase throughput by 10x",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The knowledge pages do not provide specific information on the throughput increase due to parallel execution with resource pooling.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Adaptive budgets based on experiment complexity can improve optimization",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The provided knowledge pages do not discuss adaptive budgets based on experiment complexity.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Learned safety constraints from experiment history can enable autonomous risk management",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The knowledge pages do not mention learned safety constraints from experiment history for autonomous risk management.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-objective optimization with Pareto frontiers can discover better trade-offs",
+          "verdict": "unverifiable",
+          "confidence": 0.4,
+          "reasoning": "The provided knowledge pages do not discuss multi-objective optimization with Pareto frontiers.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Distributed experiment tracking with lineage graphs can improve collaboration",
+          "verdict": "unverifiable",
+          "confidence": 0.3,
+          "reasoning": "The knowledge pages do not mention distributed experiment tracking with lineage graphs for improving collaboration.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 10x scale, parallel execution becomes critical to prevent GPU starvation",
+          "verdict": "unverifiable",
+          "confidence": 0.2,
+          "reasoning": "The provided knowledge pages do not discuss the criticality of parallel execution at 10x scale to prevent GPU starvation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Amazon Ads has a scale of 300M+ MAU",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention Amazon Ads' scale of 300M+ MAU.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Researchers at Amazon Ads run 8-10 experiments per day",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "According to the AutoResearch Framework page, researchers can manually conduct 8-10 experimental cycles per day, but the system enables AI agents to run continuous 5-minute experiments overnight.",
+          "suggested_correction": "Researchers at Amazon Ads do not have a specified number of experiments run per day in the provided text, but AutoResearch can run hundreds of experiments autonomously overnight."
+        },
+        {
+          "text": "Competitors of Amazon Ads can ship 100x faster with automated optimization loops",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information in the provided knowledge pages about competitors of Amazon Ads shipping 100x faster with automated optimization loops.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The RSI Control Plane orchestrates the RSI loop with safety guardrails",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention the RSI Control Plane or its role in orchestrating the RSI loop with safety guardrails.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Execution Environment has a 5min time budget for sandboxed training",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The AutoResearch Framework page mentions that the Execution Environment has a 5-minute time budget for sandboxed training.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Execution Environment uses a single GPU for sandboxed training",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The AutoResearch Framework page states that the Execution Environment uses a single GPU for sandboxed training.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Execution Environment has locked dependencies to prevent dependency hell",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The AutoResearch Framework page mentions that the Execution Environment has locked dependencies to prevent dependency hell.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Feedback Engine performs autonomous hypothesis formation and result evaluation",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention the Feedback Engine performing autonomous hypothesis formation and result evaluation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 100x scale, distributed execution across multiple clusters is necessary",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not discuss the necessity of distributed execution across multiple clusters at 100x scale.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 1000x scale, hierarchical optimization with meta-agents is required",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not mention the requirement of hierarchical optimization with meta-agents at 1000x scale.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sophisticated safety monitoring and automatic anomaly detection are necessary at 1000x scale",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided information does not discuss the necessity of sophisticated safety monitoring and automatic anomaly detection at 1000x scale.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Interview Q&A Bank",
+      "score": 0.8421052631578947,
+      "claims": [
+        {
+          "text": "RSI systems can run 100+ experiments overnight, potentially executing hundreds of trials.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The knowledge pages describe RSI systems as capable of running multiple experiments overnight, which aligns with the claim of running 100+ experiments.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AutoResearch demonstrated an 11% performance improvement on already-optimized GPT-2 code.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The AutoResearch framework is reported to have achieved an 11% performance improvement on already-optimized GPT-2 code, as stated in the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems can discover implementation bugs missed during manual review.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The AutoResearch framework discovered implementation bugs missed during manual review, supporting the claim about RSI systems discovering implementation bugs.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Soft RSI involves AI accelerating specific engineering workflows within bounds.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Soft RSI is defined as AI accelerating specific engineering workflows within bounds, which matches the description provided in the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hard RSI refers to theoretical scenarios involving fully autonomous intelligence explosion.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Hard RSI refers to theoretical scenarios involving fully autonomous intelligence explosion, aligning with the claim's description.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Current industry implementations are exclusively soft RSI.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "Current industry implementations are indeed focused on soft RSI, as stated in the claim, with hard RSI being more theoretical.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AutoResearch operates within a 630-line codebase constraint.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The AutoResearch system operates within a 630-line codebase constraint for the train.py file, as mentioned in the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems address researcher productivity limits, experimentation speed bottlenecks, and infrastructure tuning complexity.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "RSI systems are designed to address researcher productivity limits, experimentation speed bottlenecks, and infrastructure tuning complexity, as stated in the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Traditional research workflows require researchers to manually propose hypotheses, modify code, run experiments, and evaluate results in cycles that typically allow 8-10 experiments per day.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions traditional research workflows but does not accurately represent the capabilities of AutoResearch in the provided context. AutoResearch can run hundreds of experiments autonomously, not just 8-10 experiments per day.",
+          "suggested_correction": "Traditional research workflows are limited by human intervention, whereas AutoResearch can automate the loop, enabling hundreds of experiments to be run autonomously."
+        },
+        {
+          "text": "RSI systems can automate the entire loop, enabling AI agents to propose changes to their own training code, execute experiments, evaluate metrics, and iterate improvements continuously.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "RSI systems, as described in the knowledge pages, can indeed automate the entire loop of proposing changes, executing experiments, evaluating metrics, and iterating improvements continuously.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The key distinction between traditional optimization and RSI lies in the feedback mechanism.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The key distinction between traditional optimization and RSI indeed lies in the feedback mechanism, where RSI involves AI systems improving themselves.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI creates a compounding effect where each improvement makes the system better at generating subsequent improvements.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "RSI creates a compounding effect where each improvement makes the system better at generating subsequent improvements, as described in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems require elastic compute for parallel experimentation.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The provided knowledge pages do not explicitly discuss the requirement of elastic compute for parallel experimentation in RSI systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems can be particularly susceptible to overfitting on evaluation metrics.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "RSI systems can be susceptible to overfitting on evaluation metrics, which is a recognized challenge in the development of such systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems transform ML infrastructure from optimizing for large, long-running training jobs to optimizing for massive numbers of short, parallel experiments.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "RSI systems transform ML infrastructure from optimizing for large, long-running training jobs to optimizing for massive numbers of short, parallel experiments, as described in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems can deliver immediate value by accelerating research throughput, reducing human requirements per experiment, and enabling continuous optimization of production systems.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "RSI systems can deliver immediate value by accelerating research throughput, reducing human requirements per experiment, and enabling continuous optimization of production systems, aligning with the information provided in the knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The best RSI systems optimize for sustainable business impact rather than impressive technical benchmarks.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not explicitly discuss the optimization goals of RSI systems, making it difficult to verify the claim about optimizing for sustainable business impact rather than technical benchmarks.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems can be used for foundation model development, where experimentation bottlenecks limit progress.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages mention that RSI systems can be used for foundation model development, where experimentation bottlenecks limit progress, which aligns with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems can be used for advertising systems, where rapid A/B testing of model configurations directly impacts revenue.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages discuss the application of RSI systems in advertising systems for rapid A/B testing of model configurations, which directly impacts revenue, supporting the claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Cost Model",
+      "score": 0.1,
+      "claims": [
+        {
+          "text": "RSI systems can achieve 10-100x cost efficiency versus traditional R&D approaches, with break-even typically occurring around 50K experiments.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain specific information about the cost efficiency of RSI systems versus traditional R&D approaches or the break-even point of 50K experiments.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 1M+ experiments annually, RSI systems can achieve 10-100x cost efficiency versus traditional R&D approaches.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not provide data on the cost efficiency of RSI systems at 1M+ experiments annually.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total per-experiment cost is $0.328.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information in the provided knowledge pages about the total per-experiment cost being $0.328.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLM Inference (Code Generation) costs $0.002/1K tokens.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not mention the cost of LLM Inference (Code Generation) as $0.002/1K tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLM Inference (Evaluation) costs $0.002/1K tokens.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The cost of LLM Inference (Evaluation) is not specified in the provided knowledge pages as $0.002/1K tokens.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Compute (Training Experiment) costs $0.50/GPU-hour.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not contain information about Compute (Training Experiment) costing $0.50/GPU-hour.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Storage (Experiment Artifacts) costs $0.023/GB-month.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no mention of Storage (Experiment Artifacts) costing $0.023/GB-month in the provided knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Network Transfer costs $0.09/GB.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not specify the cost of Network Transfer as $0.09/GB.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Orchestration Infrastructure costs $0.10/experiment.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention the cost of Orchestration Infrastructure per experiment.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Git Operations & Versioning costs $0.001/operation.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention the cost of Git Operations & Versioning per operation.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Monitoring & Logging costs $0.005/experiment.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention the cost of Monitoring & Logging per experiment.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Error Recovery & Retry has a 15% overhead.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention the overhead of Error Recovery & Retry.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At Amazon Ads, RSI-style systems hit cost efficiency inflection points around 50K experiments/month.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention the cost efficiency inflection points of RSI-style systems at Amazon Ads.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Above 100K experiments/month, the automation overhead amortizes and you see 5-10x cost advantages over traditional R&D approaches.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention the cost advantages of automation overhead above 100K experiments/month.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The build vs buy decision fundamentally depends on your experiment volume and domain specificity.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages mention that the build vs buy decision depends on experiment volume and domain specificity.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Below 10K experiments/month, buy everything possible.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention the strategy for buying everything possible below 10K experiments/month.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Above 100K experiments/month, the evaluation framework becomes your competitive moat and justifies custom development.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not discuss the concept of a competitive moat in relation to the evaluation framework and custom development above 100K experiments/month.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI systems create a cost inversion where compute becomes cheaper than human researchers, but only at sufficient scale to amortize the automation infrastructure.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "RSI systems can create a cost inversion where compute becomes cheaper than human researchers, but the knowledge pages do not specify that this occurs only at sufficient scale to amortize the automation infrastructure. However, they do discuss the potential for RSI to accelerate AI research and development workflows, which could lead to cost savings.",
+          "suggested_correction": "RSI systems can create a cost inversion where compute becomes cheaper than human researchers by accelerating AI research and development workflows."
+        },
+        {
+          "text": "Choose bounded RSI when you have >100 experiments/month and measurable objectives; choose human-driven development when experiments are <10/month or highly exploratory.",
+          "verdict": "partially_correct",
+          "confidence": 0.6,
+          "reasoning": "The knowledge pages suggest that bounded RSI is suitable for scenarios with measurable objectives, but they do not provide a clear threshold of >100 experiments/month for choosing bounded RSI over human-driven development. They also discuss the importance of bounded RSI in optimizing training pipelines, hyperparameter search, code generation, and experiment automation.",
+          "suggested_correction": "Choose bounded RSI when you have measurable objectives and sufficient experimentation volume; choose human-driven development when experiments are highly exploratory or have low volume."
+        },
+        {
+          "text": "The Cost Model for Recursive Self-Improvement systems represents a fundamental shift from human-driven R&D to AI-accelerated experimentation loops.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages discuss the Cost Model for Recursive Self-Improvement systems as representing a fundamental shift from human-driven R&D to AI-accelerated experimentation loops, which aligns with the claim.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Data Flywheel & Continuous Improvement",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "A 1% improvement in feedback quality can drive 10-15% model performance gains over 6 months through compounding effects at 300M+ MAU scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about the specific claim regarding a 1% improvement in feedback quality driving 10-15% model performance gains.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system processes 50B+ daily interactions at 300M+ MAU scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not mention the system processing 50B+ daily interactions at 300M+ MAU scale.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Distributed feedback aggregation, hierarchical model updates, and careful resource allocation between exploration and exploitation are required at 300M+ MAU scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided information does not discuss the specific requirements for distributed feedback aggregation, hierarchical model updates, and resource allocation at 300M+ MAU scale.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The flywheel effect becomes pronounced after 3-6 months of consistent operation.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no mention of the flywheel effect or its timeline in the given knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Engagement signals have a 2-3 day lag in reflecting true user satisfaction due to habit-driven clicking.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not provide information about engagement signals having a 2-3 day lag in reflecting true user satisfaction.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implementing a 'delayed satisfaction' metric improved model quality by 18%.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The claim about implementing a 'delayed satisfaction' metric improving model quality by 18% is not supported by the provided knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Click-through rate target is >3.2% for engagement signals.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not mention a click-through rate target of >3.2% for engagement signals.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dwell time target is >45s for engagement signals.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information in the provided knowledge pages about a dwell time target of >45s for engagement signals.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Scroll depth target is >60% for engagement signals.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention a scroll depth target for engagement signals.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Conversion rate target is >2.1% for conversion signals.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention a conversion rate target for conversion signals.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Revenue per user target is >$0.85 for conversion signals.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention a revenue per user target for conversion signals.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Response rate target is >12% for explicit feedback.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention a response rate target for explicit feedback.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sentiment score target is >0.7 for explicit feedback.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention a sentiment score target for explicit feedback.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Feedback actionability target is >80% for explicit feedback.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention a feedback actionability target for explicit feedback.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Coherence score target is >0.85 for behavioral coherence.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention a coherence score target for behavioral coherence.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Fraud detection rate target is <0.3% for behavioral coherence.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention a fraud detection rate target for behavioral coherence.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Session quality target is >0.9 for behavioral coherence.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention a session quality target of >0.9 for behavioral coherence.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implementing 'human-in-the-loop confidence calibration' improved active learning selection by 23%.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention the implementation of 'human-in-the-loop confidence calibration' or its impact on active learning selection.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implementing 'human-in-the-loop confidence calibration' reduced annotation waste from 31% to 12%.",
+          "verdict": "unverifiable",
+          "confidence": 1.0,
+          "reasoning": "The provided knowledge pages do not mention the implementation of 'human-in-the-loop confidence calibration' or its impact on reducing annotation waste.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Observability & Production Debugging",
+      "score": 0.0625,
+      "claims": [
+        {
+          "text": "Differential privacy techniques can be used to balance user privacy with debugging capabilities in real-time personalization systems.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not discuss differential privacy techniques in the context of real-time personalization systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Chaos engineering can be used to test the resilience and observability of ML systems under failure conditions.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention chaos engineering or its application to testing ML systems under failure conditions.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A rollback system for a machine learning model should include automated health checks, circuit breakers, and traffic shifting to minimize blast radius.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not discuss rollback systems for machine learning models or the components of such systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model drift can be detected by monitoring input feature distributions, prediction confidence scores, and business outcome metrics.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not address model drift detection methods or the metrics used for such detection.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Effective logging for debugging model inference issues requires structured logging with adaptive sampling and asynchronous log processing.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not discuss logging strategies for debugging model inference issues.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Federated learning systems require monitoring and debugging strategies that account for device-level telemetry and model update quality.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not cover federated learning systems or their monitoring and debugging requirements.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Bias detection in production ML systems can be achieved through statistical parity tests, disparate impact monitoring, and automated bias detection with configurable fairness thresholds.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not address bias detection in production ML systems or the methods used for such detection.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Distributed tracing can be used to detect filter bubbles in recommendation systems by monitoring recommendation diversity metrics and user engagement patterns.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not discuss distributed tracing or its application to detecting filter bubbles in recommendation systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Comprehensive observability typically costs 2-5% of total infrastructure spend but reduces MTTR from hours to minutes at 300M+ MAU scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about the cost of comprehensive observability or its impact on MTTR at a 300M+ MAU scale.",
+          "suggested_correction": null
+        },
+        {
+          "text": "15% of recommendation latency spikes were caused by cache misses in the user profile service during peak traffic.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information in the knowledge pages about the causes of recommendation latency spikes or the specific impact of cache misses in the user profile service.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model accuracy can be affected by changes to feature engineering code, configuration updates, or even infrastructure changes that alter request routing.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages discuss how changes to feature engineering code, configuration updates, or infrastructure changes can affect model accuracy, aligning with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Automated rollback systems must be tested regularly and should never depend on the same infrastructure as the failing component.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The provided knowledge pages do not specifically address the testing or infrastructure dependency of automated rollback systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implementing a 'canary with automatic rollback' system can reduce mean time to recovery from 45 minutes to under 5 minutes.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information in the knowledge pages about the impact of 'canary with automatic rollback' systems on mean time to recovery.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A model's accuracy can drop by 15% due to silent failures in the feature pipeline, such as stale embeddings.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The knowledge pages do not discuss the specific impact of silent failures in the feature pipeline, such as stale embeddings, on a model's accuracy.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Using a blue-green deployment strategy with traffic shifting can minimize blast radius during incidents.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The provided knowledge pages do not mention the use of blue-green deployment strategies or their effects on minimizing blast radius during incidents.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Monitoring model performance across different user segments can help detect bias in production.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "There is no information in the knowledge pages about monitoring model performance across different user segments to detect bias in production.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Advanced Patterns Summary",
+      "score": 0.25,
+      "claims": [
+        {
+          "text": "The Constrained Autonomy Framework balances autonomous operation with human oversight and safety bounds.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not explicitly mention the Constrained Autonomy Framework or its role in balancing autonomous operation with human oversight and safety bounds.",
+          "suggested_correction": null
+        },
+        {
+          "text": "At Amazon Ads, a bounded RSI system for bid optimization generated 23% efficiency gains over 6 months while maintaining system stability.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "There is no information in the provided knowledge pages about Amazon Ads or a bounded RSI system for bid optimization generating efficiency gains.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implementing a shadow experimentation framework with strict resource isolation, evaluation locks, and gradual rollout mechanisms can prevent the system from degrading production performance.",
+          "verdict": "partially_correct",
+          "confidence": 0.9,
+          "reasoning": "Implementing a shadow experimentation framework can help prevent system degradation, but the provided details about strict resource isolation, evaluation locks, and gradual rollout mechanisms are not fully supported by the knowledge pages.",
+          "suggested_correction": "Shadow experimentation frameworks can help maintain production performance by isolating experiments and evaluating their impact before full deployment."
+        },
+        {
+          "text": "A comprehensive evaluation auditing process can help investigate suspected non-real gains in an RSI system.",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "The knowledge pages do not discuss comprehensive evaluation auditing processes for investigating suspected non-real gains in RSI systems.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Designing a 4-hour experiment cycle with feature engineering constraints, A/B testing integration, and business metric alignment can accelerate the optimization process.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "There is no information provided about designing a 4-hour experiment cycle with specific constraints and its potential to accelerate the optimization process.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implementing the 'evaluation lock' pattern for a system optimizing ad auction bidding strategies can prevent metric gaming.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The 'evaluation lock' pattern can prevent metric gaming, but its application to ad auction bidding strategies is not explicitly mentioned in the knowledge pages.",
+          "suggested_correction": "Evaluation locks can be used to prevent metric manipulation in various optimization contexts, including ad auction bidding strategies."
+        },
+        {
+          "text": "Expanding an RSI system to handle architectural changes requires a staged capability expansion with architectural change validation, extended evaluation periods, and human approval gates.",
+          "verdict": "unverifiable",
+          "confidence": 0.4,
+          "reasoning": "The knowledge pages do not discuss the process of expanding an RSI system to handle architectural changes or the necessity of staged capability expansion, architectural change validation, extended evaluation periods, and human approval gates.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implementing Pareto frontier tracking with weighted objective functions, constraint-based optimization, and automated trade-off analysis can handle multi-objective optimization in a bounded RSI framework.",
+          "verdict": "unverifiable",
+          "confidence": 0.3,
+          "reasoning": "There is no information provided about implementing Pareto frontier tracking with weighted objective functions, constraint-based optimization, and automated trade-off analysis for handling multi-objective optimization in a bounded RSI framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "A bounded RSI system can prevent runaway self-modification while enabling systematic improvement.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "A bounded RSI system can indeed prevent runaway self-modification, but the claim about enabling systematic improvement is partially correct because it depends on the specific implementation and constraints of the RSI system.",
+          "suggested_correction": "A bounded RSI system can prevent runaway self-modification and may enable systematic improvement within its constrained domain."
+        },
+        {
+          "text": "The Bounded Experimentation Loop pattern can be used for small-scale ML optimization, hyperparameter tuning, and code refinement with measurable metrics.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Bounded Experimentation Loop pattern is indeed used for small-scale ML optimization, hyperparameter tuning, and code refinement with measurable metrics, as seen in the AutoResearch framework.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Metric-Constrained Improvement pattern ensures improvements are genuine and comparable across iterations.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Metric-Constrained Improvement pattern ensures that improvements are genuine and comparable across iterations by using a fixed metric for evaluation, such as validation bits per byte (val_bpb) in the AutoResearch system.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Code Scaffold Preservation pattern maintains system coherence while allowing targeted modifications.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Code Scaffold Preservation pattern maintains system coherence by restricting modifications to specific parts of the codebase, such as the train.py file in the AutoResearch framework, and ensuring that changes are evaluated and retained or reverted based on their impact.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Evaluation Lock Pattern prevents gaming of improvement metrics through evaluation manipulation.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Evaluation Lock Pattern prevents gaming of improvement metrics by locking certain components, such as the data pipeline or evaluation functions, to prevent manipulation and ensure that improvements are measured fairly.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Gradual Capability Expansion pattern manages risk while building toward more sophisticated self-improvement.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The Gradual Capability Expansion pattern does manage risk by gradually increasing capabilities, but the claim is partially correct because it implies a more linear progression than what might actually occur in practice, where expansions could be more nuanced or dependent on specific breakthroughs.",
+          "suggested_correction": "The Gradual Capability Expansion pattern manages risk by incrementally increasing capabilities, allowing for more controlled and predictable growth."
+        },
+        {
+          "text": "The Agent-Mediated Research Acceleration pattern scales human research throughput through AI-assisted experimentation.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The Agent-Mediated Research Acceleration pattern does scale human research throughput by leveraging AI agents to automate experimentation, data analysis, and other research tasks, as discussed in the context of AI-driven research acceleration.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Recursive Code Generation pattern enables systems to improve their own implementation through iterative refinement.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The Recursive Code Generation pattern enables systems to improve their implementation through iterative refinement, but the claim is partially correct because it simplifies the complexity and variability of actual recursive code generation processes.",
+          "suggested_correction": "The Recursive Code Generation pattern allows systems to iteratively refine their implementation, but the process involves complex interactions between code generation, evaluation, and refinement stages."
+        },
+        {
+          "text": "A hierarchical constraint system with meta-level approval gates, constraint modification validation, and gradual boundary expansion can enable safe self-modification of system boundaries.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not discuss hierarchical constraint systems or their role in safe self-modification of system boundaries.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Implementing modality-specific optimization agents with cross-modal coordination, shared representation constraints, and unified evaluation frameworks can optimize across different modalities while maintaining system coherence.",
+          "verdict": "unverifiable",
+          "confidence": 0.7,
+          "reasoning": "The knowledge pages do not mention modality-specific optimization agents or their implementation details.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Dual-horizon optimization with stability-aware evaluation, temporal constraint balancing, and long-term performance tracking can ensure improvements don't sacrifice model robustness for immediate gains.",
+          "verdict": "unverifiable",
+          "confidence": 0.6,
+          "reasoning": "There is no information about dual-horizon optimization or its application to model robustness in the provided knowledge pages.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Comprehensive metric-to-business-value tracing, validation of improvement transferability to production conditions, and auditing of optimization objectives can help debug an RSI system that's making improvements according to its metrics but those improvements aren't translating to business value.",
+          "verdict": "unverifiable",
+          "confidence": 0.5,
+          "reasoning": "The knowledge pages do not discuss comprehensive metric-to-business-value tracing or its relevance to debugging RSI systems.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Seniority Signals Cheat Sheet",
+      "score": 0.5625,
+      "claims": [
+        {
+          "text": "We deployed bounded RSI to compress our research cycle from 6-month hypothesis testing to 2-week validated improvements, reducing time-to-production by 70% and freeing our team to focus on architectural decisions rather than hyperparameter tuning.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions deploying bounded RSI to compress the research cycle, which aligns with the concept of bounded recursive self-improvement. However, the specific metrics and outcomes mentioned (70% reduction in time-to-production, freeing the team to focus on architectural decisions) are not directly supported by the provided knowledge pages.",
+          "suggested_correction": "The deployment of bounded RSI can lead to significant improvements in research efficiency, but specific outcomes may vary based on the implementation and context."
+        },
+        {
+          "text": "We're implementing soft RSI across three bottlenecks: experiment velocity (300% faster iteration), infrastructure optimization (40% cost reduction), and evaluation pipeline automation (eliminating 80% of manual scoring), with hard constraints preventing architectural drift.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The claim discusses implementing soft RSI across various bottlenecks, which is consistent with the concept of soft RSI. However, the specific percentages and areas of improvement (300% faster iteration, 40% cost reduction, 80% reduction in manual scoring) are not explicitly mentioned in the knowledge pages.",
+          "suggested_correction": "Soft RSI can be applied to various bottlenecks in AI development, including experiment velocity, infrastructure optimization, and evaluation pipeline automation, leading to significant efficiency gains."
+        },
+        {
+          "text": "We've established a bounded improvement framework where agents optimize within defined safety rails\u2014locked evaluation functions, hardware constraints, and architectural boundaries\u2014while maintaining human oversight on fundamental design decisions and business objective alignment.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim describes establishing a bounded improvement framework with defined safety rails, which aligns with the principles of bounded recursive self-improvement and soft RSI.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Our RSI implementation targets measurable workflows with clear success metrics: reducing val_bpb from 2.02 to 1.80 hours represents 11% efficiency gains, but more importantly, it discovered implementation bugs our senior engineers missed and scales our research capacity without linear headcount growth.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions targeting measurable workflows with clear success metrics and achieving efficiency gains, which is consistent with the application of RSI. However, the specific example of reducing val_bpb from 2.02 to 1.80 hours and discovering implementation bugs is not directly supported by the knowledge pages.",
+          "suggested_correction": "RSI implementations can target measurable workflows and achieve efficiency gains, but specific outcomes may depend on the context and implementation details."
+        },
+        {
+          "text": "We distinguish between tactical optimization (hyperparameters, training schedules) where RSI excels, versus strategic decisions (model architecture, business objectives) that require human judgment\u2014this prevents the system from optimizing for local maxima while missing broader product requirements.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim distinguishes between tactical optimization (where RSI excels) and strategic decisions (requiring human judgment), which aligns with the discussion on soft RSI and its limitations.",
+          "suggested_correction": null
+        },
+        {
+          "text": "RSI addresses our core constraint: researcher productivity bottlenecks. By automating the mechanical aspects of experimentation, we've shifted our team's focus to problem definition and result interpretation, increasing our effective research throughput by 4x while maintaining quality standards.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim discusses addressing researcher productivity bottlenecks through RSI, which is consistent with the concept. However, the specific claim of increasing effective research throughput by 4x while maintaining quality standards is not directly supported by the knowledge pages.",
+          "suggested_correction": "RSI can help address researcher productivity bottlenecks and potentially increase research throughput, but specific outcomes may vary based on the implementation and context."
+        },
+        {
+          "text": "Our implementation follows the soft RSI paradigm\u2014bounded, measurable improvements within constrained domains\u2014rather than hard RSI scenarios. This gives us practical acceleration benefits while maintaining system predictability and alignment with business objectives.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The claim mentions following the soft RSI paradigm, which aligns with the discussion on bounded recursive self-improvement and its practical applications.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We've implemented a three-tier improvement framework: tactical (hyperparameters), operational (training efficiency), and strategic (architecture decisions), with RSI handling tiers 1-2 while humans retain control over tier 3 to ensure business alignment and prevent capability overhang.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "The claim describes a three-tier improvement framework with RSI handling certain tiers, which is consistent with the concept of applying RSI to specific areas of AI development. However, the specific details of the framework and the division of tasks between RSI and humans are not explicitly mentioned in the knowledge pages.",
+          "suggested_correction": "RSI can be applied to various tiers of improvement in AI development, but the specific framework and division of tasks may vary based on the context and implementation."
+        },
+        {
+          "text": "We implemented AutoResearch to automate our ML experiments and it's running 100+ experiments per day.",
+          "verdict": "partially_correct",
+          "confidence": 0.8,
+          "reasoning": "The claim mentions AutoResearch and its capability to automate ML experiments, which is supported by the knowledge pages. However, the claim of running 100+ experiments per day is not explicitly verified in the provided text.",
+          "suggested_correction": "AutoResearch automates ML experiments and has run hundreds of experiments autonomously, but the exact daily rate is not specified."
+        },
+        {
+          "text": "Our system uses recursive self-improvement to optimize training pipelines and generate better code automatically.",
+          "verdict": "incorrect",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages discuss recursive self-improvement and its applications but do not explicitly state that the system uses recursive self-improvement to optimize training pipelines and generate better code automatically in the context provided.",
+          "suggested_correction": "AI-driven research acceleration involves AI systems that can modify or improve aspects of AI development processes, but the specific implementation details are not as claimed."
+        },
+        {
+          "text": "The AI agent can modify its own training code and run experiments to improve performance metrics.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages support the idea that an AI agent can modify its own training code and run experiments to improve performance metrics, as seen in the AutoResearch project.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We're seeing good results from letting the model improve itself through iterative code changes.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is supported by the knowledge pages, which mention the AutoResearch project and its ability to improve model performance through iterative code changes.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system can automatically tune hyperparameters and optimize model architectures for better performance.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages explicitly mention that the system can automatically tune hyperparameters and optimize model architectures for better performance, aligning with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Our recursive self-improvement loop helps us iterate faster on machine learning experiments.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The recursive self-improvement loop is discussed in the context of accelerating machine learning experiments, which supports the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "We built an agent that can modify training code, run experiments, and keep the improvements automatically.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "The knowledge pages describe an agent that can modify training code, run experiments, and keep improvements automatically, aligning with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "The AI system learns to improve itself by running lots of experiments and keeping what works.",
+          "verdict": "correct",
+          "confidence": 0.8,
+          "reasoning": "The claim is supported by the description of AI systems learning to improve themselves through running experiments and retaining improvements, as discussed in the knowledge pages.",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.5789473684210527,
+      "claims": [
+        {
+          "text": "Good, I.J. published 'Speculations Concerning the First Ultraintelligent Machine' in 1965.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by historical records and the knowledge pages do not contradict it.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Yudkowsky, E. published 'Creating Friendly AI 1.0: The Analysis and Design of Benevolent Goal Architectures' in 2001.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by historical records and the knowledge pages do not contradict it.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Bostrom, N. published 'Superintelligence: Paths, Dangers, Strategies' in 2014.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by historical records and the knowledge pages do not contradict it.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Karpathy, A. published 'AutoResearch: Autonomous Machine Learning Experimentation' in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the knowledge pages to confirm or deny the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Chen, X. et al. published 'Self-Taught Optimizer (STOP): Recursively Self-Improving Code' in 2024.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the knowledge pages to confirm or deny the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Russell, S. & Norvig, P. published 'Artificial Intelligence: A Modern Approach (4th Edition)' in 2020.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "There is no information in the knowledge pages to confirm or deny the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Schmidhuber, J. published 'G\u00f6del Machines: Fully Self-Referential Optimal Universal Self-Improvers' in 2003.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by historical records and the knowledge pages do not contradict it.",
+          "suggested_correction": null
+        },
+        {
+          "text": "AutoResearch Framework is an open-source autonomous ML experimentation system developed by Karpathy.",
+          "verdict": "correct",
+          "confidence": 1.0,
+          "reasoning": "The claim is supported by the knowledge pages, specifically the autoresearch-framework.md file.",
+          "suggested_correction": null
+        },
+        {
+          "text": "STOP (Self-Taught Optimizer) is a language-model-driven recursive code improvement system.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not mention STOP (Self-Taught Optimizer) as a language-model-driven recursive code improvement system.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MLJAR Studio AutoLab provides structured autonomous experimentation with dashboard monitoring.",
+          "verdict": "partially_correct",
+          "confidence": 0.7,
+          "reasoning": "MLJAR Studio AutoLab does provide structured autonomous experimentation, but the details about dashboard monitoring are not fully verified in the provided knowledge pages.",
+          "suggested_correction": "MLJAR Studio AutoLab provides structured autonomous experimentation with some form of monitoring."
+        },
+        {
+          "text": "OpenAI Codex/GitHub Copilot is a code generation and assistance tool for iterative development.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "OpenAI Codex/GitHub Copilot is indeed a code generation and assistance tool for iterative development, aligning with the concept of AI-driven code improvement.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Weights & Biases Sweeps is a hyperparameter optimization and experiment tracking tool.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Weights & Biases Sweeps is recognized as a tool for hyperparameter optimization and experiment tracking, fitting the description of managing and improving AI model performance.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Ray Tune is a distributed hyperparameter tuning and experiment orchestration tool.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Ray Tune is identified as a distributed hyperparameter tuning and experiment orchestration tool, matching the claim's description.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Optuna is an automatic hyperparameter optimization framework.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Optuna is confirmed as an automatic hyperparameter optimization framework, aligning with the claim.",
+          "suggested_correction": null
+        },
+        {
+          "text": "MLflow is an ML lifecycle management and experiment tracking tool.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "MLflow is recognized as an ML lifecycle management and experiment tracking tool, fitting the description provided.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Kubeflow Pipelines is an ML workflow orchestration tool on Kubernetes.",
+          "verdict": "correct",
+          "confidence": 0.9,
+          "reasoning": "Kubeflow Pipelines is indeed an ML workflow orchestration tool on Kubernetes, matching the claim's details.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Apache Airflow is a workflow automation and scheduling tool for ML pipelines.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about Apache Airflow being a workflow automation and scheduling tool for ML pipelines.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Bommasani, R. et al. published 'On the Opportunities and Risks of Foundation Models' in 2021.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about Bommasani, R. et al. publishing 'On the Opportunities and Risks of Foundation Models' in 2021.",
+          "suggested_correction": null
+        },
+        {
+          "text": "Qiu, X. et al. published 'Pre-trained Models for Natural Language Processing: A Survey' in 2020.",
+          "verdict": "unverifiable",
+          "confidence": 0.8,
+          "reasoning": "The provided knowledge pages do not contain information about Qiu, X. et al. publishing 'Pre-trained Models for Natural Language Processing: A Survey' in 2020.",
+          "suggested_correction": null
+        }
+      ]
+    }
+  ]
+}

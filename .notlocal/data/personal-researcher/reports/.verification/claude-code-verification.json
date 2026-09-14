@@ -1,0 +1,1741 @@
+{
+  "topic": "claude-code",
+  "timestamp": "2026-06-09T12:10:19.439165+00:00",
+  "total_claims": 234,
+  "correct": 0,
+  "incorrect": 0,
+  "unverifiable": 234,
+  "partially_correct": 0,
+  "overall_score": 1.0,
+  "summary": "Verified 234 claims: 0 correct, 0 incorrect, 0 partially correct, 234 unverifiable. Score: 100%",
+  "sections": [
+    {
+      "section_name": "Executive Summary",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Per-task cost ranges $0.80-$2.00 at production scale",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Claude Code achieves 60-80% developer time savings",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has an orchestration loop",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has a tool execution component",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has a result collection component",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has a permission gating component",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has a context manager with a 5-layer hierarchy",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has a compaction component",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Claude Code is a terminal-native autonomous software engineering agent",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The core architectural decision is agentic loop with tool execution and permission gating",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Tasks that span multiple files, require shell access, or run longer than 5 minutes should use agentic loop",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Claude Code has a permission model",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Claude Code has shell access",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has a context retention mechanism across hours",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has safe execution with blast-radius control",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system knows when to stop execution",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system has an output component",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Quick Catchup",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Agentic coding has evolved from IDE-centric autocomplete to terminal-native autonomous agents executing full development workflows.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Key players in agentic coding include Claude Code, SWE-agent, OpenDevin, and AutoCodeRover.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The main open problem in agentic coding is reliable long-horizon task completion beyond single-file edits.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "SWE-bench Verified passed 70%+ in early 2026.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The trend direction in agentic coding is toward spec-driven multi-agent orchestration with human-in-the-loop supervision.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "State of the Art",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "ReAct-style agentic loops interleave reasoning and tool actions in a continuous cycle until task completion",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Agent-Computer Interfaces (ACI) are purpose-built tool interfaces for code navigation and editing",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-agent orchestration delegates sub-tasks to specialized agents running in isolated worktrees",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Spec-driven execution uses structured manifests for persistent project context rather than conversational prompts",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Claude-based agents crossed the threshold on verified real-world GitHub issues with SWE-bench Verified 70%+ in Q1 2026",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sub-agent worktree isolation via Git worktrees eliminated file-level conflicts in Q3 2025",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context compaction at 200K tokens enables 8+ hour coding sessions",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Model Context Protocol reached 100+ production integrations between 2025-2026",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Claude Code achieved a score of ~72% resolved on SWE-bench Verified in Q1 2026",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "SWE-agent + Claude achieved a score of 64% resolved on SWE-bench Lite in 2024",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "GPT-4/Claude achieved a score of 90%+ pass@1 on HumanEval in 2024",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Code Llama 70B achieved a score of 77% pass@1 on MBPP in 2024",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hierarchical summarization pipelines enable context compaction",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Parallel agent execution via Git worktrees is possible",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Design Flow Framework",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The Design Flow Framework consists of 7 steps.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 1 of the Design Flow Framework is to clarify requirements, including agent scope and autonomy level.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Step 2 of the Design Flow Framework is to identify constraints, including security, context, and scale boundaries.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The baseline agent loop in Step 3 uses ReAct-style orchestration with file edit + shell tools.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The baseline agent loop in Step 3 includes simple approval gates and a CLAUDE.md manifest.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context loss occurs after 1 hour in the baseline agent loop.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Permission fatigue and tool timeout cascades are gaps in the baseline agent loop.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The 5-layer compaction is an improvement introduced in Step 5.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Risk-adaptive gating is an improvement introduced in Step 5.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sub-agent delegation is an improvement introduced in Step 5.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Circuit breakers are an improvement introduced in Step 5.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "SWE-bench pass rate is a safety and quality metric used in Step 6.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context retention accuracy is a safety and quality metric used in Step 6.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sandbox escape detection is a safety and quality metric used in Step 6.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Approval audit trails are a safety and quality metric used in Step 6.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context cost explosion occurs when scaling up to 10x/100x.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-agent coordination overhead occurs when scaling up to 10x/100x.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Permission system bottlenecks occur when scaling up to 10x/100x.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Multi-agent delegation is suitable for complex parallel tasks and specialization.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "System Design Walkthrough (Summary)",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The system is a distributed runtime where one node is an LLM with unpredictable failure modes.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Orchestration Loop is a continuous model-tool-result cycle with error recovery and state persistence.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Permission Gating is a multi-tier approval with command classification and dynamic risk thresholds.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Context Manager uses hierarchical memory with 1:1 to 200:1 compression.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Sub-Agent Delegator spawns specialized agents in isolated Git worktrees for parallel work.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Safety Layer uses VM/container isolation to prevent credential leakage and destructive operations.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "5-layer hierarchical compaction with causal graph preservation can achieve 10x session reliability with 3x storage.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Risk-adaptive gating with ML-based operation classification can reduce incidents by 90% with 40% more approvals.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Circuit breakers with graceful degradation and fallback tools can prevent tool timeout cascades.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Git worktree isolation with merge coordination can achieve 3x throughput with 4x disk space.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Auto-validating CLAUDE.md with drift detection can maintain spec freshness with maintenance overhead.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 10x scale (10K devs), context storage becomes a bottleneck.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 100x scale (100K ops/day), the permission system can be overwhelmed.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "At 1000x scale (Enterprise), multi-tenancy and organization-level policy engines are required.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Distributed memory with async compaction can solve the context storage bottleneck at 10x scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "ML-based auto-approval for low-risk operations can solve the permission system overload at 100x scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Federated identity and audit trails are required for multi-tenancy at 1000x scale.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Interview Q&A Bank",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The architecture of an agentic coding system like Claude Code follows the ReAct pattern.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The ReAct pattern involves a continuous orchestration loop that calls the model, selects tools, executes actions, collects results, and updates context until task completion.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "LLMs can learn effective tool use through self-supervised signals, but production systems require explicit safety boundaries that go beyond what the model internalizes.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Agentic loops ground reasoning in real execution results, creating a closed feedback loop that converges on working solutions.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The permission gating system prevents autonomous agents from causing damage by classifying operations into tiers based on risk level.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Operations are classified into five risk tiers: read-only, write-local, write-destructive, network-egress, and credential-access.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The system tracks operation sequences to detect escalation patterns and prevent dangerous workflows.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sandboxing via gVisor containers provides defense-in-depth and prevents external system failures from corrupting agent state.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The five-layer context compaction pipeline preserves causal dependencies rather than optimizing for semantic similarity alone.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The pipeline consists of five layers: active buffer, recent history, session summary, architectural state, and project manifest.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Model Context Protocol (MCP) is a standardized protocol for AI agents to connect to external systems.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "MCP abstracts away API format differences, authentication methods, and data schemas into a uniform tool interface.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Repository manifests (CLAUDE.md) provide persistent, structured context about coding conventions, architecture, and workflows.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "CLAUDE.md files significantly reduce agent errors on repository-specific tasks.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The multi-agent orchestration architecture spawns specialized sub-agents in isolated Git worktrees for parallel execution.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The primary production failure modes in agentic coding systems are context corruption, tool execution errors, API timeouts, and permission misconfigurations.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Shadow validation involves running a lightweight verification agent to check output consistency against the original intent.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "SWE-bench is the gold standard for agentic evaluation because it uses real GitHub issues with real test suites.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Pass@k metrics measure reliability across attempts and reveal the gap between best-case and expected-case performance.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Cost Model",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The unit cost of LLM Inference (input) is $3.00/1M tokens",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The average per-task usage of LLM Inference (input) is 150K tokens",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of LLM Inference (input) per task is $0.450",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The unit cost of LLM Inference (output) is $15.00/1M tokens",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The average per-task usage of LLM Inference (output) is 25K tokens",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of LLM Inference (output) per task is $0.375",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The unit cost of context compaction is $0.50/1M tokens",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The average per-task usage of context compaction is 75K tokens processed",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of context compaction per task is $0.038",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The unit cost of tool execution compute is $0.12/vCPU-hour",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The average per-task usage of tool execution compute is 0.25 hours",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of tool execution compute per task is $0.030",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The unit cost of sandbox/isolation is $0.08/container-hour",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The average per-task usage of sandbox/isolation is 0.5 hours",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of sandbox/isolation per task is $0.040",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The unit cost of MCP protocol calls is $0.02/call",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The average per-task usage of MCP protocol calls is 15 external calls",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The cost of MCP protocol calls per task is $0.300",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The total per-task cost is $1.23",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hierarchical summarization reduces active context by 70%",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Distinguished Engineer Depth Probes",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "The minimum context to preserve full causal structure is O(d) \u2014 independent of session length for bounded-depth workflows.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "gVisor provides syscall-level interposition with 10-20% overhead.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The blast-radius formalization is defined as B(op) = scope(op) \u00d7 reversibility(op)^{-1} \u00d7 sensitivity(data_accessed).",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The approval fatigue mitigation strategy reduces approval events by 80% while maintaining safety for operations that exceed the declared scope.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The convergence criterion for task completion detection is defined as V_t = E[reward_{t+1:T}] - cost_{t+1:T}.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The pass@k estimation is defined as pass@k = 1 - C(n-c, k) / C(n, k).",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The partial credit scoring is measured as partial_score = (tests_passed_after - tests_passed_before) / tests_failed_initially.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The AutoCodeRover evaluation demonstrated that agents solving real GitHub issues need evaluation beyond test passage.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The dependency-aware edit planning is done using topological sort and strongly connected components.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The atomic commit strategy commits each atomic group together and rolls back the entire group if any file fails validation.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The coordination overhead model is defined as Total_cost = n \u00d7 task_cost + C(n,2) \u00d7 c \u00d7 sync_frequency.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The result aggregation strategies include sequential merge, semantic merge, and conflict escalation.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The MetaGPT assigns roles with standardized communication protocols (SOPs).",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The AutoGen provides the foundational multi-agent conversation framework where agents communicate through structured messages.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The SWE-bench measures 'does the patch resolve the issue' \u2014 binary.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The HumanEval measures 'does the function pass unit tests' \u2014 also binary.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The AlphaCode showed that filtering + clustering large sample sets dramatically improves effective pass@k.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Reflexion showed that agents can get stuck in 'reflection spirals' \u2014 repeatedly diagnosing the same failure without progress.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The SWE-agent implements mandatory self-verification as a final 'review' action before submitting patches.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Observability & Production Debugging",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Task success rate alert threshold is < 85% over 24 hours",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context corruption rate alert threshold is > 0.1%",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Tool timeout rate alert threshold is > 5%",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Permission escalation attempts alert threshold is > 1%",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Mean decision latency alert threshold is > 2.5s",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sandbox escape attempts alert threshold is > 0",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Session cost velocity alert threshold is > $100/min",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Base model versioning uses semantic versioning and blue/green deploy",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Agent runtime versioning uses Git SHA and feature flags",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Tool definitions versioning uses schema versioning and backward compatibility",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Safety classifiers versioning uses model checkpoints and A/B testing",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context compressors versioning uses algorithm versioning and fallbacks",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Permission rules versioning uses rule versioning and audit trail",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Rolling back the base model affects all users and takes 15-30 minutes",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Rolling back the agent runtime takes 2-5 minutes",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Rolling back tool definitions affects per-tool users and takes 1-2 minutes",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "A model rollback can break context compression compatibility",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "40K active sessions lost state simultaneously due to a model rollback",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "It is recommended to version context formats independently and maintain backward compatibility across 3+ model versions",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Advanced Patterns Summary",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Worktree isolation solves multi-agent file conflicts.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reflexion loops solve single-attempt failures.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Spec-driven execution solves ambiguous requirements.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Risk-budget gating solves permission fatigue.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hierarchical compaction solves long-session context loss.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "MCP server federation solves multi-system orchestration.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Semantic merge solves multi-agent conflict resolution.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Worktree isolation is used for parallel independent sub-tasks.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reflexion loops are used for tasks with test feedback.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Spec-driven execution is used for complex multi-step workflows.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Risk-budget gating is used for high-frequency agent usage.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hierarchical compaction is used for sessions > 1 hour.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "MCP server federation is used for enterprise environments.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Semantic merge is used for related file changes.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Worktree isolation is not used for tightly coupled edits.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reflexion loops are not used when no validation signal is available.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Spec-driven execution is not used for simple one-shot edits.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Risk-budget gating is not used for low-trust environments.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Hierarchical compaction is not used for short interactions (< 10 min).",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "MCP server federation is not used for single-tool workflows.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Data Flywheel & Continuous Improvement",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Task completion is collected through automated test execution.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "User acceptance of edits is collected through accept/reject tracking.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Session duration before abandon is collected through telemetry.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Retry count per task is collected through loop instrumentation.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "User satisfaction score is collected through post-session survey.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Manifest drift frequency is collected through automated diff detection.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Tool reliability rules and circuit breaker thresholds are updated daily.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Permission classification model is updated weekly.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Context compaction parameters are updated monthly.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Agent reasoning capabilities are updated quarterly.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Automated regression pass is used as a gate criteria for daily updates.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "No increase in false-positive rate is used as a gate criteria for weekly updates.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Retention accuracy > 95% on test set is used as a gate criteria for monthly updates.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "SWE-bench score non-regression is used as a gate criteria for quarterly updates.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Task completion has a high value.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "User acceptance of edits has a high value.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Session duration before abandon has a medium value.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Retry count per task has a medium value.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "User satisfaction score has a medium value.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Manifest drift frequency has a low value.",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Seniority Signals Cheat Sheet",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Binary pass/fail misses partial correctness; we need pass@k with patch minimality",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Coordination overhead dominates beyond 5 agents \u2014 the decomposition quality matters more than parallelism",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Compaction must preserve causal DAGs, not semantic similarity \u2014 ROUGE is irrelevant here",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Approval fatigue makes prompts security theater; risk budgets with behavioral sequence analysis actually work",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The competitive moat is tool-graph breadth, not model quality \u2014 MCP is the ecosystem play",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Isolation is per-operation blast-radius bounding with sequence-level threat detection",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The loop is trivial \u2014 the hard part is convergence detection and knowing when to stop",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Self-Hosting: Claude Code Developing Itself",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Anthropic confirms that Claude Code is used to develop Claude Code",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Claude Code is used to write features, fix bugs, write tests, and refactor Claude Code's own TypeScript codebase",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Claude Code repository contains its own CLAUDE.md instructing Claude Code how to work on itself",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Standard CI/CD is used for Claude Code development, including Jest/Vitest, human code review, and conventional npm build",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Claude Code development always involves a human-in-the-loop, with no autonomous self-modification",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The underlying model (Sonnet/Opus) is trained separately from CLI changes",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "CLI changes do not affect model weights",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "If Claude Code can't effectively work on its own codebase, that's a real-world regression signal",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Around 75% of Anthropic code is AI-assisted",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The Claude Code team is among the heaviest internal users of AI-assisted code development",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The 'use the tool to build the tool' pattern is viable when the tool's output can be verified by the tool's own test suite",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "A human review before merge is necessary to prevent degenerate loops in the 'use the tool to build the tool' pattern",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The tool and the model powering it should be architecturally separate to prevent changes to one from directly affecting the other",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "Changelog",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "Anthropic uses Claude Code for its own development",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "A self-hosting section was added on 2026-06-07",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The v2 generation was initially released on 2026-05-31",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "v2 is a complete rewrite from v1",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Quick Catchup was added in v2",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "State of the Art was added in v2",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "DE Probes were diversified across 6 sub-topics in v2",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Inline citations were added in v2",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "The appendix was removed in v2",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Sub-Q&A banks were removed in v2",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    },
+    {
+      "section_name": "References",
+      "score": 0.0,
+      "claims": [
+        {
+          "text": "SWE-bench is a gold-standard benchmark for agentic coding evaluation on real issues",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "HumanEval and pass@k estimation are used for code generation evaluation",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "ReAct is a foundational pattern for interleaved reasoning and tool use in agents",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Toolformer demonstrates self-supervised tool learning for language models",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Reflexion improves task completion through self-correction and episodic reflection memory",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "SWE-agent demonstrates purpose-built ACIs outperform raw shell for coding agents",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "AutoCodeRover uses a context-retrieval-based approach for autonomous bug fixing",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "AutoGen enables complex task orchestration through multi-agent conversation",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "MetaGPT uses role-based multi-agent development with standardized operating procedures",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "OpenDevin is an open platform for reproducible agent development research",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Claude Code has official documentation for its architecture, MCP, and deployment patterns",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "AlphaCode uses large-scale sampling with filtering for competitive programming",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "MBPP is a benchmark for code synthesis evaluation",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "Code Llama is an open-weight code model with infilling and long-context capabilities",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        },
+        {
+          "text": "A comprehensive taxonomy of LLM-based agent architectures exists across planning, memory, and tool use",
+          "verdict": "unverifiable",
+          "confidence": 0.0,
+          "reasoning": "Verification failed: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: This model's maximum context length is 131072 tokens. Please reduce the length of the prompt",
+          "suggested_correction": null
+        }
+      ]
+    }
+  ]
+}
