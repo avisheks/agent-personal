@@ -118,12 +118,6 @@
 
 ### {Sub-area 3}
 
-### Recent (last 12 months)
-<!-- MANDATORY sub-area. ≥5 entries dated within the last 12 months.
-     If knowledge cutoff prevents populating, insert RECENCY GAP comments
-     with specific search queries for the user to fill in. See generation guide rule 7. -->
-<!-- [N] Author (Year) — Title — Venue — {1-line annotation} -->
-
 ---
 
 ## Practitioner Appendix
