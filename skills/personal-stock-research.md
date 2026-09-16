@@ -482,7 +482,7 @@ After ALL individual ticker reports (.md) are generated, produce a master compar
 
 The date matches the weekly run date (same as the individual report dates).
 
-**Master report structure:**
+**Master report structure (sections in this order):**
 
 #### 1. Header + Summary
 
@@ -493,7 +493,18 @@ The date matches the weekly run date (same as the individual report dates).
 **Sectors:** N unique sectors represented
 ```
 
-#### 2. Fundamentals Comparison Table
+#### 2. Risk Tier Summary (FIRST after header)
+
+Group all tickers into risk tiers. This goes first because it's the quickest way to orient the reader on the risk profile of the entire batch.
+
+| Risk Tier | Tickers | Characteristics |
+|-----------|---------|-----------------|
+| Low (Vol <30%) | — | — |
+| Medium (30-50%) | BKNG, SNPS, EXPE | Profitable, established |
+| High (50-75%) | VRT, TSLA, UUUU, MP, HOOD | Growth premium, cyclical |
+| Very High (>75%) | CRWV, IREN, IONQ, ASTS, ... | Pre-profit, speculative |
+
+#### 3. Fundamentals Comparison Table
 
 One row per ticker, sorted by dashboard composite score (highest first). **Links point to .html files (not .md).**
 
@@ -506,7 +517,7 @@ One row per ticker, sorted by dashboard composite score (highest first). **Links
 - All 19 tickers must be present — no omissions
 - Data source: read each ticker's research packet JSON. Do NOT re-derive.
 
-#### 3. Sector Grouping
+#### 5. Sector Grouping
 
 Group tickers by sector. Within each sector, show ALL tickers — do not omit any ticker from its own sector table. Median is computed from ALL tickers in the sector group.
 
@@ -521,6 +532,8 @@ Group tickers by sector. Within each sector, show ALL tickers — do not omit an
 ```
 
 #### 4. Explore These Next (same-sector, not in batch)
+
+**Comes before Sector Grouping** — the user sees "what else to look at" before the detailed per-sector breakdown.
 
 **Purpose:** For each batch ticker, suggest 2-3 tickers that the user should explore next. These MUST:
 1. Be from the **same sector** (per `config/tickers.yaml` sectors section)
@@ -541,17 +554,6 @@ If a sector has NO other tickers beyond the batch ticker(s), say "No additional 
 
 Read the `sectors:` section of `config/tickers.yaml` to find sector members. The "explore" suggestions are the sector members that are NOT in the weekly batch.
 
-#### 5. Risk Tier Summary
-
-Group all tickers into risk tiers:
-
-| Risk Tier | Tickers | Characteristics |
-|-----------|---------|-----------------|
-| Low (Vol <30%) | — | — |
-| Medium (30-50%) | BKNG, SNPS, EXPE | Profitable, established |
-| High (50-75%) | VRT, TSLA, UUUU, MP, HOOD | Growth premium, cyclical |
-| Very High (>75%) | CRWV, IREN, IONQ, ASTS, ... | Pre-profit, speculative |
-
 #### 6. Best/Worst Table
 
 | Category | Ticker | Value | Note |
@@ -567,6 +569,28 @@ Group all tickers into risk tiers:
 **HTML rendering:** Same v3 CSS as individual reports. Sticky nav, sortable tables (add `onclick` sort for each column header), links to individual reports open in same directory. No ECharts needed — tables are the primary visualization.
 
 **Trigger:** The master report is generated AFTER the `batch_end` event confirms all tickers succeeded. If some tickers failed, generate the master with available data and note the missing tickers.
+
+**Link validation (mandatory before committing):** After generating the master, verify that EVERY linked file actually exists:
+
+```bash
+# Run from the reports/ directory
+cd .notlocal/data/personal-investor/reports
+for link in $(grep -oP '\]\(\K[^)]+\.html' YYYY-MM-DD-master.md); do
+  if [ ! -f "$link" ]; then echo "BROKEN: $link"; fi
+done
+```
+
+If ANY link is broken, the master report is WRONG — do not commit it. The most common cause: `.html` files were not generated for individual tickers (Stage 2 only produced `.md`). Fix: generate the missing `.html` files before regenerating the master.
+
+**HTML generation is mandatory for every ticker before the master is generated.** The weekly pipeline must produce `.md` AND `.html` for each ticker. The master links to `.html` — if only `.md` exists, the link breaks. Add this check to the batch pipeline:
+
+```bash
+# After Stage 2, verify all tickers have .html
+for ticker in $(cat config/weekly-batch.yaml | grep '^ *- ' | sed 's/.*- //'); do
+  f="reports/$ticker/${ticker}_YYYY-MM-DD.html"
+  if [ ! -f "$f" ]; then echo "MISSING HTML: $ticker"; fi
+done
+```
 
 **Style guide:** Follow `config/report-style-guide.md` for all formatting decisions (header blocks, evidence labels, table alignment, HTML CSS, color-coding, link extensions). The style guide is the formatting source of truth — this SKILL.md defines *what* to include; the style guide defines *how* it looks.
 
