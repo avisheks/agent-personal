@@ -365,6 +365,9 @@ skills:
       - "/research-stock TICKER --refresh"
       - "/compare-stocks T1 T2 T3"
       - "/contrarian TICKER"
+      - "/batch --weekly"
+      - "/batch TICKER1 TICKER2"
+      - "/batch --dry-run"
     triggers:
       - "stock research"
       - "stock analysis"
@@ -391,4 +394,6 @@ skills:
     companions:
       - config/tickers.yaml
       - config/sources.yaml
+      - config/weekly-batch.yaml
+      - config/glossary.md
     data_dir: ".notlocal/data/personal-investor/"

@@ -1,0 +1,32 @@
+# Weekly Batch — Tickers to process every Sunday 9AM PT
+#
+# Edit this file to add/remove tickers from the weekly run.
+# The batch runner reads this file when invoked with --weekly flag.
+# Tickers here don't need entries in tickers.yaml — the runner will
+# use sector-derived peers and auto-discovered subreddits as defaults.
+#
+# Format: flat list of ticker symbols, one per line.
+
+tickers:
+  - SNPS
+  - TSLA
+  - VRT
+  - EXPE
+  - SPCX
+  - ASTS
+  - CRWV
+  - RDDT
+  - IREN
+  - IONQ
+  - BKNG
+  - COIN
+  - HOOD
+  - RKLB
+  - OKLO
+  - MP
+  - UUUU    # Energy Fuels (note: ticker is UUUU, not UUU)
+  - QURE
+  - INOD
+
+# Batch settings (overridable via CLI flags)
+delay_seconds: 600   # 10 min between tickers

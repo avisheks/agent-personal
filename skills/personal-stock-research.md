@@ -15,6 +15,9 @@ Investment research agent that produces evidence-driven, contrarian stock analys
 | `/research-stock TICKER --refresh` | Force full data refresh before analysis |
 | `/compare-stocks T1 T2 T3` | Peer comparison across fundamentals, valuation, sentiment |
 | `/contrarian TICKER` | Contrarian-only deep dive (skip bull case, focus on what could go wrong) |
+| `/batch --weekly` | Run weekly batch from `config/weekly-batch.yaml` (19 tickers, 10-min throttle) |
+| `/batch TICKER1 TICKER2` | Run batch for specific tickers |
+| `/batch --dry-run` | Preview what the batch would process |
 
 ## Architecture
 
@@ -386,6 +389,68 @@ This follows the same pattern as the news-summarizer skill's quarterly retrospec
 - Q2: Apr–Jun → quarterly rollup generated in first week of July
 - Q3: Jul–Sep → quarterly rollup generated in first week of October
 - Q4: Oct–Dec → quarterly rollup generated in first week of January
+
+## Weekly Batch Job
+
+### Config
+
+The weekly ticker list is stored in an editable config file:
+
+```
+config/weekly-batch.yaml
+```
+
+Edit this file to add/remove tickers. The batch runner reads it when invoked with `--weekly`. Format:
+
+```yaml
+tickers:
+  - SNPS
+  - TSLA
+  - VRT
+  # ... add/remove tickers here
+
+delay_seconds: 600  # 10 min between tickers
+```
+
+### Schedule
+
+**Cron: Sunday 9:03 AM PT** (durable — survives session restarts)
+
+The weekly job runs Stage 1 only (deterministic data pipeline):
+- SEC XBRL fundamentals
+- Yahoo Finance prices + valuation
+- Reddit sentiment (RSS → DDG → Reddit API → Google fallback)
+- Research packet JSON assembly
+
+**The weekly job does NOT generate LLM reports** (bull/contrarian/adjudicator). Those are generated on-demand via `/research-stock TICKER` using the fresh data the batch job collected.
+
+### CLI
+
+```bash
+# Weekly mode (reads config/weekly-batch.yaml)
+PYTHONPATH=src EDGAR_USER_AGENT="Name email@example.com" \
+  python3 -m stock_research.batch_runner --weekly
+
+# Specific tickers (ignores weekly config)
+python3 -m stock_research.batch_runner CRWV VRT NVDA
+
+# Preview without running
+python3 -m stock_research.batch_runner --weekly --dry-run
+
+# Custom throttle (5 min instead of 10)
+python3 -m stock_research.batch_runner --weekly --delay 300
+```
+
+### What it produces
+
+For each ticker: a research packet JSON at `.notlocal/data/personal-investor/reports/TICKER/TICKER_YYYY-MM-DD.json`, plus updated DuckDB records for fundamentals, prices, and sentiment.
+
+### Event logging
+
+The batch runner emits events to `.local/logs/super-agent/events.jsonl`:
+- `batch_start` — ticker list, delay, dry_run flag
+- `batch_ticker_complete` — per-ticker: sources refreshed/failed, record counts, duration
+- `batch_end` — success/failure counts
 
 ## Evidence Rules
 
