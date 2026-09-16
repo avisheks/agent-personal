@@ -495,42 +495,51 @@ The date matches the weekly run date (same as the individual report dates).
 
 #### 2. Fundamentals Comparison Table
 
-One row per ticker, sorted by dashboard composite score (highest first):
+One row per ticker, sorted by dashboard composite score (highest first). **Links point to .html files (not .md).**
 
-| Ticker | Sector | Price | MCap | P/E | Fwd P/E | EV/EBITDA | EV/Sales | FCF Yield | ROE | Vol | Dashboard | Report |
-|--------|--------|-------|------|-----|---------|-----------|----------|-----------|-----|-----|-----------|--------|
-| BKNG | TRAVEL | $171 | $133B | 19.1x | 13.9x | ... | ... | 9.0% | ... | 33% | 7.6/10 | [→](BKNG/BKNG_2026-09-16.md) |
+| Ticker | Sector | Price | MCap | P/E | Fwd P/E | EV/EBITDA | EV/Sales | Vol | Dashboard | Report |
+|--------|--------|-------|------|-----|---------|-----------|----------|-----|-----------|--------|
+| BKNG | TRAVEL | $171 | $133B | 19.1x | 13.9x | 12.7x | 4.7x | 33% | 7.6/10 | [→](BKNG/BKNG_YYYY-MM-DD.html) |
 
-**Data source:** Read each ticker's research packet JSON (`TICKER_YYYY-MM-DD.json`) for the metrics. Do NOT re-derive — use packet values directly.
+**Rules:**
+- Links use `.html` extension (not `.md`) — the HTML is the user-facing report
+- All 19 tickers must be present — no omissions
+- Data source: read each ticker's research packet JSON. Do NOT re-derive.
 
 #### 3. Sector Grouping
 
-Group tickers by sector. Within each sector, show:
-- Sector median for each metric
-- Each ticker's deviation from sector median
-- Relative ranking within sector
+Group tickers by sector. Within each sector, show ALL tickers — do not omit any ticker from its own sector table. Median is computed from ALL tickers in the sector group.
 
 ```markdown
 ### TRAVEL-SPACE (3 tickers)
 | Ticker | P/E | vs Median | Fwd P/E | vs Median | Dashboard |
 |--------|-----|-----------|---------|-----------|-----------|
-| RKLB   | N/A | —         | 1398x   | +1300x    | —/10      |
-| ASTS   | N/A | —         | -46x    | —         | 3.0/10    |
+| RKLB   | N/A | —         | 1398x   | +1311x    | 4.0/10    |
 | SPCX   | N/A | —         | 86.6x   | —         | 4.5/10    |
+| ASTS   | N/A | —         | -46x    | -133x     | 3.0/10    |
+| **Median** | — | —      | 86.6x   | —         | 4.0       |
 ```
 
-#### 4. Similar Tickers (cross-sector)
+#### 4. Explore These Next (same-sector, not in batch)
 
-For each ticker, find the 2-3 most similar tickers from the batch based on fundamental similarity. Similarity is measured by normalized distance across: Fwd P/E, EV/EBITDA, EV/Sales, volatility, and market cap (log-scaled). Tickers from the same sector AND cross-sector matches are both valid.
+**Purpose:** For each batch ticker, suggest 2-3 tickers that the user should explore next. These MUST:
+1. Be from the **same sector** (per `config/tickers.yaml` sectors section)
+2. **NOT** be any of the 19 batch tickers — these are NEW suggestions
+
+This section answers: "I track SNPS — what other tickers in the same sector should I look at?"
 
 ```markdown
-### Similar Tickers
-| Ticker | Most Similar | Why |
-|--------|-------------|-----|
-| CRWV | IREN (both AI-infra, negative earnings, >100% vol), SPCX (similar EV/Sales) | Same growth profile, same risk tier |
-| VRT | SNPS (both profitable, Fwd P/E 21-26x, mid-30% vol) | Mature growth at premium valuation |
-| EXPE | BKNG (travel, similar P/E range, profitable, FCF-generative) | Direct peer |
+| Batch Ticker | Sector | Explore These (same sector, not in batch) | Why |
+|-------------|--------|------------------------------------------|-----|
+| SNPS | EDA | CDNS (Cadence Design Systems) | Duopoly partner, similar EV/Sales ~8x |
+| VRT | DATACENTER-INFRA | CARR, ETN, PWR, NEE, BE | Same sector from tickers.yaml |
+| CRWV | AI-INFRA | NBIS | Only other AI-INFRA ticker in universe |
+| TSLA | MAG7 | NVDA, GOOG, META, MSFT, AMZN, AAPL | Other MAG7 members not in batch |
 ```
+
+If a sector has NO other tickers beyond the batch ticker(s), say "No additional tickers in sector."
+
+Read the `sectors:` section of `config/tickers.yaml` to find sector members. The "explore" suggestions are the sector members that are NOT in the weekly batch.
 
 #### 5. Risk Tier Summary
 
@@ -558,6 +567,8 @@ Group all tickers into risk tiers:
 **HTML rendering:** Same v3 CSS as individual reports. Sticky nav, sortable tables (add `onclick` sort for each column header), links to individual reports open in same directory. No ECharts needed — tables are the primary visualization.
 
 **Trigger:** The master report is generated AFTER the `batch_end` event confirms all tickers succeeded. If some tickers failed, generate the master with available data and note the missing tickers.
+
+**Style guide:** Follow `config/report-style-guide.md` for all formatting decisions (header blocks, evidence labels, table alignment, HTML CSS, color-coding, link extensions). The style guide is the formatting source of truth — this SKILL.md defines *what* to include; the style guide defines *how* it looks.
 
 ## Evidence Rules
 
