@@ -169,10 +169,23 @@ If a sector has no other tickers beyond the batch ticker, say "No additional tic
 
 All HTML reports use the same CSS:
 - `max-width: 960px`, font: Inter/-apple-system, `font-size: 15px`, `line-height: 1.75`
-- Sticky nav bar: `rgba(253,253,253,0.92)` + `backdrop-filter: blur(10px)`
-- Tables: `font-variant-numeric: lining-nums tabular-nums`, sticky thead, `tr:hover #f5f5f5`
+- Sticky nav bar: `position: sticky; top: 0; z-index: 100; rgba(253,253,253,0.92)` + `backdrop-filter: blur(10px)`
+- Tables: `font-variant-numeric: lining-nums tabular-nums`, `tr:hover #f5f5f5`
 - Metric cards: `.dashboard` grid, `.metric-card` with colored left-border
 - Responsive at 768px, print-safe (hide nav)
+
+### Table header rendering (IMPORTANT — prevents hidden header rows)
+
+**Do NOT use `position: sticky` on `thead`.** In multi-table documents, sticky theads at `top: 48px` (below the nav) cause header rows to be hidden behind the nav bar when scrolling to a table via anchor link or on initial render.
+
+Instead:
+- `thead { position: static; }` — headers render normally within the table flow
+- `[id] { scroll-margin-top: 60px; }` — anchor link targets offset by nav height so the nav doesn't cover the content
+- `h2, h3 { scroll-margin-top: 60px; }` — section headings also offset
+
+This ensures that when a user clicks a nav link or scrolls to a table, the header row is always visible.
+
+**For individual reports with a SINGLE main table:** Sticky thead is acceptable since there's less ambiguity. But for master reports with 12+ tables, use static thead.
 
 ### Individual report HTML additions
 
