@@ -471,6 +471,94 @@ The batch runner emits events to `.local/logs/super-agent/events.jsonl`:
 - `batch_ticker_complete` — per-ticker: sources refreshed/failed, record counts, duration
 - `batch_end` — success/failure counts
 
+### Stage 3: Master Report (mandatory — fires after all individual reports complete)
+
+After ALL individual ticker reports (.md) are generated, produce a master comparison doc:
+
+```
+.notlocal/data/personal-investor/reports/YYYY-MM-DD-master.md
+.notlocal/data/personal-investor/reports/YYYY-MM-DD-master.html
+```
+
+The date matches the weekly run date (same as the individual report dates).
+
+**Master report structure:**
+
+#### 1. Header + Summary
+
+```markdown
+# Weekly Stock Research — Master Comparison (YYYY-MM-DD)
+
+**Tickers:** 19 | **Reports generated:** 19/19
+**Sectors:** N unique sectors represented
+```
+
+#### 2. Fundamentals Comparison Table
+
+One row per ticker, sorted by dashboard composite score (highest first):
+
+| Ticker | Sector | Price | MCap | P/E | Fwd P/E | EV/EBITDA | EV/Sales | FCF Yield | ROE | Vol | Dashboard | Report |
+|--------|--------|-------|------|-----|---------|-----------|----------|-----------|-----|-----|-----------|--------|
+| BKNG | TRAVEL | $171 | $133B | 19.1x | 13.9x | ... | ... | 9.0% | ... | 33% | 7.6/10 | [→](BKNG/BKNG_2026-09-16.md) |
+
+**Data source:** Read each ticker's research packet JSON (`TICKER_YYYY-MM-DD.json`) for the metrics. Do NOT re-derive — use packet values directly.
+
+#### 3. Sector Grouping
+
+Group tickers by sector. Within each sector, show:
+- Sector median for each metric
+- Each ticker's deviation from sector median
+- Relative ranking within sector
+
+```markdown
+### TRAVEL-SPACE (3 tickers)
+| Ticker | P/E | vs Median | Fwd P/E | vs Median | Dashboard |
+|--------|-----|-----------|---------|-----------|-----------|
+| RKLB   | N/A | —         | 1398x   | +1300x    | —/10      |
+| ASTS   | N/A | —         | -46x    | —         | 3.0/10    |
+| SPCX   | N/A | —         | 86.6x   | —         | 4.5/10    |
+```
+
+#### 4. Similar Tickers (cross-sector)
+
+For each ticker, find the 2-3 most similar tickers from the batch based on fundamental similarity. Similarity is measured by normalized distance across: Fwd P/E, EV/EBITDA, EV/Sales, volatility, and market cap (log-scaled). Tickers from the same sector AND cross-sector matches are both valid.
+
+```markdown
+### Similar Tickers
+| Ticker | Most Similar | Why |
+|--------|-------------|-----|
+| CRWV | IREN (both AI-infra, negative earnings, >100% vol), SPCX (similar EV/Sales) | Same growth profile, same risk tier |
+| VRT | SNPS (both profitable, Fwd P/E 21-26x, mid-30% vol) | Mature growth at premium valuation |
+| EXPE | BKNG (travel, similar P/E range, profitable, FCF-generative) | Direct peer |
+```
+
+#### 5. Risk Tier Summary
+
+Group all tickers into risk tiers:
+
+| Risk Tier | Tickers | Characteristics |
+|-----------|---------|-----------------|
+| Low (Vol <30%) | — | — |
+| Medium (30-50%) | BKNG, SNPS, EXPE | Profitable, established |
+| High (50-75%) | VRT, TSLA, UUUU, MP, HOOD | Growth premium, cyclical |
+| Very High (>75%) | CRWV, IREN, IONQ, ASTS, ... | Pre-profit, speculative |
+
+#### 6. Best/Worst Table
+
+| Category | Ticker | Value | Note |
+|----------|--------|-------|------|
+| Cheapest (Fwd P/E) | EXPE | 11.7x | Travel recovery play |
+| Most Expensive (Fwd P/E) | RKLB | 1398x | Space, pre-scale |
+| Highest FCF Yield | EXPE | 9.0% | Cash machine |
+| Best Dashboard | BKNG | 7.6/10 | Quality + value |
+| Worst Dashboard | IONQ | 2.8/10 | Quantum, pre-revenue |
+| Most Volatile | IREN | 115% | AI infra, max drawdown 99% |
+| Least Volatile | BKNG | 33% | Established travel |
+
+**HTML rendering:** Same v3 CSS as individual reports. Sticky nav, sortable tables (add `onclick` sort for each column header), links to individual reports open in same directory. No ECharts needed — tables are the primary visualization.
+
+**Trigger:** The master report is generated AFTER the `batch_end` event confirms all tickers succeeded. If some tickers failed, generate the master with available data and note the missing tickers.
+
 ## Evidence Rules
 
 ### Labeling (mandatory in every section)
