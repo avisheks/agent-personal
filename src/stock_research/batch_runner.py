@@ -297,6 +297,44 @@ def run_batch(
 # CLI
 # ---------------------------------------------------------------------------
 
+def _load_weekly_batch(batch_path: Path, tickers_path: Path) -> tuple[list[dict], int]:
+    """Load tickers from weekly-batch.yaml, enrich with tickers.yaml metadata.
+
+    Returns (ticker_configs, delay_seconds).
+    """
+    try:
+        import yaml
+    except ImportError:
+        raise ImportError("pyyaml required: pip install pyyaml")
+
+    with open(batch_path) as f:
+        batch_cfg = yaml.safe_load(f)
+
+    batch_tickers = batch_cfg.get("tickers", [])
+    delay = batch_cfg.get("delay_seconds", _DEFAULT_DELAY_SECONDS)
+
+    # Load full ticker config for enrichment
+    all_tickers = _load_tickers(tickers_path, specific=batch_tickers)
+
+    # Ensure every batch ticker is included even if not in tickers.yaml/sectors
+    found = {t["ticker"] for t in all_tickers}
+    for ticker in batch_tickers:
+        if ticker not in found:
+            all_tickers.append({
+                "ticker": ticker,
+                "name": ticker,
+                "sector": "",
+                "peers": [],
+                "subreddits": [],
+            })
+
+    # Preserve the order from weekly-batch.yaml
+    order = {t: i for i, t in enumerate(batch_tickers)}
+    all_tickers.sort(key=lambda x: order.get(x["ticker"], 999))
+
+    return all_tickers, delay
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Batch stock research data pipeline — ingests + builds packets for all tickers"
@@ -306,12 +344,16 @@ def main():
         help="Specific tickers to process (default: all from tickers.yaml)"
     )
     parser.add_argument(
-        "--delay", type=int, default=_DEFAULT_DELAY_SECONDS,
-        help=f"Seconds between tickers (default: {_DEFAULT_DELAY_SECONDS})"
+        "--weekly", action="store_true",
+        help="Use config/weekly-batch.yaml for ticker list and delay (the weekly cron mode)"
     )
     parser.add_argument(
-        "--max", type=int, default=15,
-        help="Max tickers to process (safety cap, default: 15). Use --max 0 for no limit."
+        "--delay", type=int, default=None,
+        help=f"Seconds between tickers (default: {_DEFAULT_DELAY_SECONDS}, or from weekly-batch.yaml)"
+    )
+    parser.add_argument(
+        "--max", type=int, default=25,
+        help="Max tickers to process (safety cap, default: 25). Use --max 0 for no limit."
     )
     parser.add_argument(
         "--dry-run", action="store_true",
@@ -321,6 +363,11 @@ def main():
         "--config", type=str,
         default=str(_PROJECT_ROOT / "config" / "tickers.yaml"),
         help="Path to tickers.yaml"
+    )
+    parser.add_argument(
+        "--batch-config", type=str,
+        default=str(_PROJECT_ROOT / "config" / "weekly-batch.yaml"),
+        help="Path to weekly-batch.yaml (used with --weekly)"
     )
     args = parser.parse_args()
 
@@ -335,16 +382,25 @@ def main():
         logger.error("EDGAR_USER_AGENT env var required for SEC data")
         sys.exit(1)
 
-    tickers = _load_tickers(
-        Path(args.config),
-        specific=args.tickers if args.tickers else None,
-    )
+    # Determine ticker list and delay
+    if args.weekly:
+        tickers, batch_delay = _load_weekly_batch(
+            Path(args.batch_config), Path(args.config)
+        )
+        delay = args.delay if args.delay is not None else batch_delay
+        logger.info("Weekly mode: loaded %d tickers from %s", len(tickers), args.batch_config)
+    elif args.tickers:
+        tickers = _load_tickers(Path(args.config), specific=args.tickers)
+        delay = args.delay if args.delay is not None else _DEFAULT_DELAY_SECONDS
+    else:
+        tickers = _load_tickers(Path(args.config))
+        delay = args.delay if args.delay is not None else _DEFAULT_DELAY_SECONDS
 
     if not tickers:
-        logger.error("No tickers found in config")
+        logger.error("No tickers found")
         sys.exit(1)
 
-    # Safety cap: prevent accidentally running 147 tickers
+    # Safety cap
     if args.max > 0 and len(tickers) > args.max:
         logger.warning(
             "Found %d tickers but --max is %d. Processing first %d only. "
@@ -354,11 +410,11 @@ def main():
         tickers = tickers[:args.max]
 
     logger.info("Batch runner: %d tickers, %ds delay, dry_run=%s",
-                len(tickers), args.delay, args.dry_run)
+                len(tickers), delay, args.dry_run)
     for t in tickers:
         logger.info("  %s — %s [%s]", t["ticker"], t["name"], t["sector"])
 
-    summary = run_batch(tickers, delay_seconds=args.delay, dry_run=args.dry_run)
+    summary = run_batch(tickers, delay_seconds=delay, dry_run=args.dry_run)
 
     # Print summary
     print(f"\n{'='*60}")
