@@ -422,13 +422,32 @@ The weekly job runs Stage 1 only (deterministic data pipeline):
 - Reddit sentiment (RSS → DDG → Reddit API → Google fallback)
 - Research packet JSON assembly
 
-**The weekly job does NOT generate LLM reports** (bull/contrarian/adjudicator). Those are generated on-demand via `/research-stock TICKER` using the fresh data the batch job collected.
+The weekly cron job runs both Stage 1 (data ingestion) and Stage 2 (LLM report generation) for all tickers in the weekly batch config.
+
+### Prerequisites
+
+Before running any batch or research command, ensure:
+
+1. **AWS credentials** (needed for Bedrock LLM calls in Stage 2):
+   ```bash
+   ada credentials update --account=237287177058 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --profile=default --once
+   ```
+
+2. **SEC EDGAR User-Agent** (required by SEC for API access):
+   ```bash
+   export EDGAR_USER_AGENT="Avishek Saha avisaha@example.com"
+   ```
+
+3. **Python dependencies**:
+   ```bash
+   pip install duckdb yfinance httpx beautifulsoup4 pyyaml
+   ```
 
 ### CLI
 
 ```bash
 # Weekly mode (reads config/weekly-batch.yaml)
-PYTHONPATH=src EDGAR_USER_AGENT="Name email@example.com" \
+PYTHONPATH=src EDGAR_USER_AGENT="Avishek Saha avisaha@example.com" \
   python3 -m stock_research.batch_runner --weekly
 
 # Specific tickers (ignores weekly config)
