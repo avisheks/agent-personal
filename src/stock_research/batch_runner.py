@@ -45,7 +45,14 @@ _EVENT_LOG = _PROJECT_ROOT / ".local" / "logs" / "super-agent" / "events.jsonl"
 
 
 def _load_tickers(config_path: Path, specific: list[str] | None = None) -> list[dict]:
-    """Load ticker configs from tickers.yaml."""
+    """Load tickers from BOTH tickers: and sectors: sections of tickers.yaml.
+
+    The tickers: section has rich per-ticker config (peers, subreddits).
+    The sectors: section has tickers grouped by sector but no per-ticker detail.
+    This function merges both: tickers: entries take priority, and any ticker
+    in sectors: that isn't in tickers: gets a default config derived from its
+    sector (sector peers = other tickers in the same sector).
+    """
     try:
         import yaml
     except ImportError:
@@ -55,17 +62,52 @@ def _load_tickers(config_path: Path, specific: list[str] | None = None) -> list[
         cfg = yaml.safe_load(f)
 
     tickers_section = cfg.get("tickers", {})
-    result = []
+    sectors_section = cfg.get("sectors", {})
+
+    # Build sector lookup: ticker → (sector_key, label, peer_tickers)
+    ticker_to_sector: dict[str, dict] = {}
+    for sector_key, sector_info in sectors_section.items():
+        label = sector_info.get("label", sector_key)
+        sector_tickers = sector_info.get("tickers", [])
+        for t in sector_tickers:
+            ticker_to_sector[t] = {
+                "sector": sector_key,
+                "label": label,
+                "sector_peers": [p for p in sector_tickers if p != t][:5],
+            }
+
+    # Start with explicit tickers: entries (rich config)
+    seen: set[str] = set()
+    result: list[dict] = []
+
     for ticker, info in tickers_section.items():
-        if specific and ticker not in [s.upper() for s in specific]:
+        if specific and ticker.upper() not in [s.upper() for s in specific]:
             continue
+        seen.add(ticker.upper())
+        sector_info = ticker_to_sector.get(ticker, {})
         result.append({
             "ticker": ticker,
             "name": info.get("name", ticker),
-            "sector": info.get("sector", ""),
-            "peers": info.get("peers", []),
+            "sector": info.get("sector", sector_info.get("sector", "")),
+            "peers": info.get("peers", sector_info.get("sector_peers", [])),
             "subreddits": info.get("subreddits", []),
         })
+
+    # Add tickers from sectors: that aren't in tickers: (default config)
+    for ticker, sector_info in ticker_to_sector.items():
+        if ticker.upper() in seen:
+            continue
+        if specific and ticker.upper() not in [s.upper() for s in specific]:
+            continue
+        seen.add(ticker.upper())
+        result.append({
+            "ticker": ticker,
+            "name": ticker,  # no human name available
+            "sector": sector_info["sector"],
+            "peers": sector_info["sector_peers"],
+            "subreddits": [],  # auto-discovery will handle dedicated subs
+        })
+
     return result
 
 
@@ -268,6 +310,10 @@ def main():
         help=f"Seconds between tickers (default: {_DEFAULT_DELAY_SECONDS})"
     )
     parser.add_argument(
+        "--max", type=int, default=15,
+        help="Max tickers to process (safety cap, default: 15). Use --max 0 for no limit."
+    )
+    parser.add_argument(
         "--dry-run", action="store_true",
         help="Show what would be processed without running"
     )
@@ -297,6 +343,15 @@ def main():
     if not tickers:
         logger.error("No tickers found in config")
         sys.exit(1)
+
+    # Safety cap: prevent accidentally running 147 tickers
+    if args.max > 0 and len(tickers) > args.max:
+        logger.warning(
+            "Found %d tickers but --max is %d. Processing first %d only. "
+            "Pass specific tickers or use --max 0 to override.",
+            len(tickers), args.max, args.max,
+        )
+        tickers = tickers[:args.max]
 
     logger.info("Batch runner: %d tickers, %ds delay, dry_run=%s",
                 len(tickers), args.delay, args.dry_run)
