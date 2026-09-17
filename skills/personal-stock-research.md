@@ -616,49 +616,48 @@ for ticker in $(cat config/weekly-batch.yaml | grep '^ *- ' | sed 's/.*- //'); d
 done
 ```
 
-#### 7. Appendix: Worked Example
+#### 7. Appendix: How the Numbers Work (Glossary + Worked Example)
 
-**Mandatory in every master report.** Pick ONE ticker from the batch (preferably a profitable one like BKNG, EXPE, or VRT) and show the complete computation chain for all new metrics introduced in this SOP update:
+A single appendix with two parts:
+
+**Part A — Glossary (verbatim from `config/glossary.md`)**
+
+All 34 financial terms with Acme Corp worked examples. Appended verbatim — never modified. This is the reference for what each metric means and how to compute it generically.
+
+**Part B — Worked Example (one real ticker from the batch)**
+
+Pick ONE profitable ticker (preferably BKNG, EXPE, or VRT) and show the complete computation chain using that ticker's actual numbers. This demonstrates how the glossary formulas apply to a real company.
+
+Required computations:
+1. **Earnings Quality**: Reported EPS vs SBC-adjusted EPS, P/E on both, the delta
+2. **Reverse DCF**: From current price → implied FCF CAGR → "is that realistic?"
+3. **SBC-Adjusted FCF**: Reported FCF → subtract SBC → adjusted FCF yield
 
 ```markdown
-## Appendix: Worked Example — EXPE (2026-09-13)
+## Appendix: How the Numbers Work
 
-### Earnings Quality Computation
-- Reported EPS: $9.81 **FACT** [SEC XBRL]
-- Stock-Based Compensation: $XXM (YY% of revenue) **FACT** [SEC XBRL]
-- SBC per share: $XX
-- Adjusted EPS: Reported EPS - SBC/share = $9.81 - $XX = $YY
-- P/E on reported: $287 / $9.81 = 29.2x
-- P/E on adjusted: $287 / $YY = ZZx
-- Delta: Nx — this is the "hidden cost" of SBC
+### Part A: Glossary of Financial Terms
+[verbatim contents of config/glossary.md]
 
-### Reverse DCF Computation
-- Current price: $287
-- Shares: 120M → Market Cap = $34.4B
-- Net debt: $XB → Enterprise Value = $YB
-- Current FCF: $3.11B
-- Discount rate (WACC): 10%
-- Terminal growth: 2.5%
-- Implied FCF CAGR over 5 years: solve for g where:
-  EV = Σ(FCF₀ × (1+g)^t / (1+WACC)^t) + Terminal
-- Result: market implies g = X% annual FCF growth
-- Verdict: "Is X% realistic? Compare to historical CAGR of Y%"
+### Part B: Worked Example — EXPE (2026-09-13)
 
-### SBC-Adjusted FCF
-- Operating Cash Flow: $4.35B
-- CapEx: $1.24B
-- FCF: $3.11B
-- SBC: $XXM
-- SBC-adjusted FCF: $3.11B - $XXM = $YB
-- FCF yield (reported): $3.11B / $34.4B = 9.0%
-- FCF yield (SBC-adjusted): $YB / $34.4B = Z%
+#### Earnings Quality
+- Reported EPS: $15.86 → P/E = 18.1x
+- SBC estimate: ~$700M → SBC/share = ~$5.83
+- Adjusted EPS: $15.86 - $5.83 = $10.03 → Adjusted P/E = 28.6x
+- Delta: 10.5x — the hidden cost of SBC
+
+#### Reverse DCF
+- EV = $39.4B, FCF = $3.11B, WACC = 10%, Terminal growth = 2.5%
+- Solving: market implies ~1% annual FCF growth
+- Historical FCF CAGR: ~8-12% → stock is priced for near-zero growth
+
+#### SBC-Adjusted FCF
+- FCF: $3.11B, SBC: ~$700M → Adjusted FCF: $2.41B
+- FCF yield: 9.0% reported → 7.0% adjusted (still strong)
 ```
 
-This example shows the reader exactly how each metric is computed so they can replicate it for any ticker.
-
-#### 8. Appendix: Glossary
-
-The glossary from `config/glossary.md` is appended verbatim to the master report only. It includes 34 terms with Acme Corp worked examples. Individual ticker reports do NOT include the glossary.
+In HTML: render Part A (glossary) inside `<details open>` and Part B (worked example) as a visible section above it.
 
 **Style guide:** Follow `config/report-style-guide.md` for all formatting decisions (header blocks, evidence labels, table alignment, HTML CSS, color-coding, link extensions). The style guide is the formatting source of truth — this SKILL.md defines *what* to include; the style guide defines *how* it looks.
 
