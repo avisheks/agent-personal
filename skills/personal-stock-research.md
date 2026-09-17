@@ -535,24 +535,46 @@ Group tickers by sector. Within each sector, show ALL tickers — do not omit an
 
 **Comes before Sector Grouping** — the user sees "what else to look at" before the detailed per-sector breakdown.
 
-**Purpose:** For each batch ticker, suggest 2-3 tickers that the user should explore next. These MUST:
-1. Be from the **same sector** (per `config/tickers.yaml` sectors section)
-2. **NOT** be any of the 19 batch tickers — these are NEW suggestions
+**Purpose:** For each batch ticker, show 2-3 tickers from the same sector that are NOT in the 19-ticker batch, with fundamentals compared against the batch ticker as benchmark.
 
-This section answers: "I track SNPS — what other tickers in the same sector should I look at?"
+**Rules:**
+1. Explore tickers MUST be from the **same sector** (per `config/tickers.yaml` sectors section)
+2. Explore tickers MUST NOT be any of the 19 batch tickers
+3. Each explore group is a **multi-row sub-table grouped by the batch ticker**
+4. The batch ticker's fundamentals appear as the **benchmark row** (bolded), and each explore ticker shows its own fundamentals alongside for direct comparison
+
+**Format — multi-row grouped table:**
 
 ```markdown
-| Batch Ticker | Sector | Explore These (same sector, not in batch) | Why |
-|-------------|--------|------------------------------------------|-----|
-| SNPS | EDA | CDNS (Cadence Design Systems) | Duopoly partner, similar EV/Sales ~8x |
-| VRT | DATACENTER-INFRA | CARR, ETN, PWR, NEE, BE | Same sector from tickers.yaml |
-| CRWV | AI-INFRA | NBIS | Only other AI-INFRA ticker in universe |
-| TSLA | MAG7 | NVDA, GOOG, META, MSFT, AMZN, AAPL | Other MAG7 members not in batch |
+### SNPS (EDA) — Explore: CDNS
+
+| Ticker | Price | MCap | Fwd P/E | EV/EBITDA | EV/Sales | Vol | Note |
+|--------|-------|------|---------|-----------|----------|-----|------|
+| **SNPS (benchmark)** | **$378** | **$73B** | **21.6x** | **37.4x** | **8.3x** | **37%** | **In batch** |
+| CDNS | — | ~$80B | ~25x | ~35x | ~15x | ~30% | Duopoly partner; similar margin profile |
+
+### VRT (DATACENTER-INFRA) — Explore: CARR, ETN, PWR
+
+| Ticker | Price | MCap | Fwd P/E | EV/EBITDA | EV/Sales | Vol | Note |
+|--------|-------|------|---------|-----------|----------|-----|------|
+| **VRT (benchmark)** | **$239** | **$92B** | **26.2x** | **33.8x** | **7.9x** | **56%** | **In batch** |
+| CARR | — | ~$70B | ~25x | ~20x | ~4x | ~30% | HVAC/thermal peer, lower growth premium |
+| ETN | — | ~$130B | ~28x | ~22x | ~5x | ~25% | Power mgmt, similar datacenter exposure |
+| PWR | — | ~$45B | ~30x | ~18x | ~2x | ~35% | Infrastructure services, different model |
 ```
 
-If a sector has NO other tickers beyond the batch ticker(s), say "No additional tickers in sector."
+**Data for explore tickers:** Since explore tickers are NOT in the batch (no research packet), use approximate fundamentals from the `config/tickers.yaml` sector context or note "data not available — research recommended." The point is to show the batch ticker's numbers as a benchmark and flag the explore tickers for future research.
 
-Read the `sectors:` section of `config/tickers.yaml` to find sector members. The "explore" suggestions are the sector members that are NOT in the weekly batch.
+**If a sector has NO other tickers beyond the batch ticker(s):**
+
+```markdown
+### QURE (MISC) — No additional tickers in sector
+| Ticker | Price | MCap | Fwd P/E | EV/EBITDA | EV/Sales | Vol | Note |
+|--------|-------|------|---------|-----------|----------|-----|------|
+| **QURE (benchmark)** | **$42** | **$3B** | **-14.0x** | **-14.9x** | **146.3x** | **96%** | **In batch — sole sector member** |
+```
+
+Read the `sectors:` section of `config/tickers.yaml` to find sector members. The explore suggestions are sector members NOT in the weekly batch.
 
 #### 6. Best/Worst Table
 
