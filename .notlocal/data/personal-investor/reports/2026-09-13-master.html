@@ -3,1034 +3,719 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weekly Stock Research — Master Comparison (2026-09-13)</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Portfolio Report -- 2026-09-13</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; }
-  body {
-    margin: 0; padding: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 15px; line-height: 1.75;
-    color: #1a1a1a; background: #fafafa;
-  }
-  .container { max-width: 960px; margin: 0 auto; padding: 0 20px 60px; }
-
-  /* Sticky nav */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(253,253,253,0.92);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid #e5e5e5;
-    padding: 10px 0;
-  }
-  nav ul {
-    list-style: none; margin: 0; padding: 0;
-    display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;
-    max-width: 960px; margin: 0 auto; padding: 0 20px;
-  }
-  nav li a {
-    text-decoration: none; color: #555; font-size: 13px; font-weight: 500;
-    padding: 4px 10px; border-radius: 4px; transition: background 0.15s, color 0.15s;
-    white-space: nowrap;
-  }
-  nav li a:hover { background: #e8e8e8; color: #111; }
-
-  /* Scroll offset for anchor targets */
-  [id] { scroll-margin-top: 60px; }
-  h2, h3 { scroll-margin-top: 60px; }
-
-  /* Typography */
-  h1 { font-size: 1.6em; font-weight: 700; margin: 1.5em 0 0.3em; color: #111; }
-  h2 { font-size: 1.3em; font-weight: 600; margin: 1.8em 0 0.6em; color: #222; border-bottom: 2px solid #e0e0e0; padding-bottom: 6px; }
-  h3 { font-size: 1.1em; font-weight: 600; margin: 1.4em 0 0.5em; color: #333; }
-  p { margin: 0.6em 0; }
-  a { color: #2563eb; }
-  blockquote { margin: 1em 0; padding: 10px 16px; background: #f8f9fa; border-left: 3px solid #d0d0d0; border-radius: 4px; font-size: 14px; }
-  hr { border: none; border-top: 1px solid #e0e0e0; margin: 2em 0; }
-
-  /* Tables */
-  table {
-    width: 100%; border-collapse: collapse; margin: 1em 0;
-    font-variant-numeric: lining-nums tabular-nums; font-size: 14px;
-  }
-  thead { position: static; }
-  thead th {
-    background: #f5f5f5; font-weight: 600; text-align: left;
-    padding: 8px 10px; border-bottom: 2px solid #d0d0d0; font-size: 13px;
-    white-space: nowrap;
-  }
-  thead th.num { text-align: right; }
-  tbody td { padding: 7px 10px; border-bottom: 1px solid #eee; }
-  tbody tr:hover { background: #f5f5f5; }
-  td.num { text-align: right; font-variant-numeric: lining-nums tabular-nums; }
-  .benchmark-row { background: #f0f7ff !important; }
-  .benchmark-row:hover { background: #e4efff !important; }
-  .benchmark-row td { font-weight: 600; }
-  tr.median-row td { font-weight: 700; background: #f8f8f8; }
-
-  /* Score colors */
-  .score-green { color: #16a34a; font-weight: 700; }
-  .score-amber { color: #d97706; font-weight: 700; }
-  .score-red { color: #dc2626; font-weight: 700; }
-
-  /* Score pill badges */
-  .score-pill {
-    display: inline-block; padding: 2px 10px; border-radius: 12px;
-    font-size: 13px; font-weight: 700; white-space: nowrap;
-  }
-  .score-pill.pill-green { background: #dcfce7; color: #166534; }
-  .score-pill.pill-amber { background: #fef3c7; color: #92400e; }
-  .score-pill.pill-red { background: #fee2e2; color: #991b1b; }
-
-  /* Section cards */
-  .section-card {
-    background: #fff; border-radius: 8px; padding: 20px 24px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin: 1.5em 0;
-  }
-
-  /* Valuation range */
-  .val-range { font-size: 12px; white-space: nowrap; font-variant-numeric: lining-nums tabular-nums; }
-  .val-current { font-weight: 700; }
-  .val-above { color: #dc2626; font-size: 11px; }
-
-  /* Risk tier badges */
-  .risk-low { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; background: #dcfce7; color: #166534; }
-  .risk-medium { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; background: #dcfce7; color: #166534; }
-  .risk-high { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; background: #fef3c7; color: #92400e; }
-  .risk-veryhigh { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; background: #fee2e2; color: #991b1b; }
-
-  /* Sortable table */
-  .sortable th { cursor: pointer; user-select: none; position: relative; }
-  .sortable th:hover { background: #e8e8e8; }
-  .sortable th::after { content: ' \2195'; font-size: 11px; opacity: 0.4; }
-  .sortable th.sort-asc::after { content: ' \2191'; opacity: 0.8; }
-  .sortable th.sort-desc::after { content: ' \2193'; opacity: 0.8; }
-  .sortable th:first-child::after, .sortable th:last-child::after { content: ''; }
-
-  /* Report link */
-  .report-link { text-decoration: none; font-weight: 600; font-size: 15px; }
-
-  /* Back to top */
-  .back-top { font-size: 13px; margin-top: 1em; display: inline-block; }
-
-  /* Header meta */
-  .meta { color: #666; font-size: 14px; margin: 0.2em 0; }
-
-  /* Details/summary for glossary */
-  details { margin: 1em 0; }
-  details summary {
-    font-weight: 600; font-size: 1.1em; cursor: pointer; padding: 8px 0;
-    color: #333; list-style: none;
-  }
-  details summary::-webkit-details-marker { display: none; }
-  details summary::before { content: '\25B6  '; font-size: 12px; transition: transform 0.2s; display: inline-block; }
-  details[open] summary::before { transform: rotate(90deg); }
-  details .glossary-content { padding: 0 0 1em; }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    nav ul { gap: 2px; }
-    nav li a { font-size: 11px; padding: 3px 6px; }
-    table { font-size: 12px; }
-    thead th, tbody td { padding: 5px 6px; }
-    h1 { font-size: 1.3em; }
-    h2 { font-size: 1.15em; }
-    .container { padding: 0 12px 40px; }
-  }
-
-  /* Print */
-  @media print {
-    nav { display: none !important; }
-    body { font-size: 12px; background: white; }
-    .container { max-width: 100%; padding: 0; }
-    .back-top { display: none; }
-    table { page-break-inside: auto; }
-    tr { page-break-inside: avoid; }
-  }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#ffffff;color:#1a1a2e;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.75;padding:0}
+.wrap{max-width:960px;margin:0 auto;padding:24px 20px 60px}
+h1{font-size:1.75rem;font-weight:700;margin-bottom:4px;color:#1a1a2e}
+h2{font-size:1.35rem;font-weight:700;margin:2.2em 0 0.6em;padding-top:0.5em;border-top:2px solid #e8e8ed;color:#1a1a2e;scroll-margin-top:60px}
+h3{font-size:1.1rem;font-weight:600;margin:1.5em 0 0.4em;color:#2d2d44;scroll-margin-top:60px}
+h4{font-size:1rem;font-weight:600;margin:1.2em 0 0.3em;color:#3a3a52;scroll-margin-top:60px}
+p,li{margin-bottom:0.5em}
+a{color:#3b5998;text-decoration:none}
+a:hover{text-decoration:underline}
+hr{border:none;border-top:1px solid #e8e8ed;margin:1.5em 0}
+blockquote{border-left:3px solid #c0c0d0;padding:8px 16px;margin:12px 0;background:#f8f8fb;color:#4a4a6a;font-size:0.93em;border-radius:0 6px 6px 0}
+code,pre{font-family:'SF Mono','Fira Code',monospace;font-size:0.88em}
+pre{background:#f5f5fa;padding:14px 18px;border-radius:8px;overflow-x:auto;margin:12px 0;line-height:1.55}
+/* Sticky nav */
+nav.sticky{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #e0e0e8;padding:10px 0;margin:0 -20px;padding-left:20px;padding-right:20px}
+nav.sticky ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 16px}
+nav.sticky li{font-size:0.82rem;font-weight:500}
+nav.sticky a{color:#3a3a52;padding:3px 0}
+nav.sticky a:hover{color:#3b5998;text-decoration:none;border-bottom:2px solid #3b5998}
+/* Subtitle */
+.subtitle{color:#5a5a7a;font-size:0.93em;margin-bottom:6px}
+.source{color:#8a8aa0;font-size:0.82em;font-style:italic;margin-bottom:20px}
+/* Signal breakdown banner */
+.signal-banner{background:#f5f5fa;border:1px solid #e0e0e8;border-radius:10px;padding:16px 20px;margin:16px 0 24px;font-size:0.95em}
+.signal-banner .counts{font-weight:600;margin-bottom:8px;font-size:1.02em}
+.signal-banner .signal-list{margin:4px 0}
+.sg{font-weight:600;padding:2px 8px;border-radius:4px;font-size:0.88em;white-space:nowrap}
+.sg-green{background:#e6f4ea;color:#1a7431}
+.sg-amber{background:#fef3e0;color:#8a6d00}
+.sg-red{background:#fce8e6;color:#b71c1c}
+/* Tables */
+.table-wrap{overflow-x:auto;margin:12px 0}
+table{width:100%;border-collapse:collapse;font-size:0.88em}
+thead{background:#f5f5fa}
+th{font-weight:600;text-align:left;padding:10px 10px;border-bottom:2px solid #d0d0dd;white-space:nowrap;color:#2d2d44;position:static}
+td{padding:8px 10px;border-bottom:1px solid #ececf0;vertical-align:top}
+tr:hover td{background:#f8f8fb}
+/* Score pills */
+.pill{display:inline-block;padding:2px 10px;border-radius:12px;font-weight:600;font-size:0.82em;white-space:nowrap}
+.pill-green{background:#e6f4ea;color:#1a7431}
+.pill-amber{background:#fef3e0;color:#8a6d00}
+.pill-red{background:#fce8e6;color:#b71c1c}
+/* Signal badges */
+.signal{display:inline-block;padding:2px 10px;border-radius:12px;font-weight:600;font-size:0.82em;white-space:nowrap}
+.signal-green{background:#e6f4ea;color:#1a7431}
+.signal-amber{background:#fef3e0;color:#8a6d00}
+.signal-red{background:#fce8e6;color:#b71c1c}
+/* Risk tier badges */
+.tier{display:inline-block;padding:2px 10px;border-radius:12px;font-weight:600;font-size:0.82em}
+.tier-low{background:#e6f4ea;color:#1a7431}
+.tier-med{background:#fef3e0;color:#8a6d00}
+.tier-high{background:#fce8e6;color:#b71c1c}
+.tier-vhigh{background:#f5e0e0;color:#8b0000}
+/* Sortable */
+th.sortable{cursor:pointer;user-select:none}
+th.sortable:hover{background:#eaeaf0}
+th.sortable::after{content:' \25B4\25BE';font-size:0.7em;color:#999;margin-left:3px}
+th.sort-asc::after{content:' \25B4';color:#3b5998}
+th.sort-desc::after{content:' \25BE';color:#3b5998}
+/* Details/Summary for Appendix */
+details{margin:1.5em 0;border:1px solid #e0e0e8;border-radius:8px;overflow:hidden}
+details>summary{padding:14px 18px;background:#f5f5fa;font-weight:600;cursor:pointer;font-size:1rem;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:'+ ';font-weight:700;color:#3b5998}
+details[open]>summary::before{content:'- '}
+details>.appendix-body{padding:18px 20px}
+/* Legend */
+.legend{background:#f8f8fb;border:1px solid #e8e8ed;border-radius:8px;padding:10px 16px;font-size:0.82em;color:#5a5a7a;margin:12px 0}
+/* Responsive */
+@media(max-width:768px){
+  .wrap{padding:12px 10px 40px}
+  nav.sticky ul{gap:4px 10px}
+  nav.sticky li{font-size:0.75rem}
+  table{font-size:0.8em}
+  th,td{padding:6px 6px}
+  h1{font-size:1.4rem}
+  h2{font-size:1.15rem}
+}
+/* Print */
+@media print{
+  nav.sticky{position:static;border:none;background:white}
+  details{break-inside:avoid}
+  details[open]>summary{page-break-after:avoid}
+  .table-wrap{overflow:visible}
+  body{font-size:12px}
+}
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<nav>
-  <ul>
-    <li><a href="#risk-tiers">⚖️ Risk Tiers</a></li>
-    <li><a href="#comparison">📊 Comparison</a></li>
-    <li><a href="#explore">🔍 Explore</a></li>
-    <li><a href="#sectors">🏭 Sectors</a></li>
-    <li><a href="#best-worst">🏆 Best/Worst</a></li>
-    <li><a href="#how-it-works">📖 How It Works</a></li>
-  </ul>
+<h1>Personal Investment Portfolio: Risk &amp; Fundamentals Report</h1>
+<p class="subtitle"><strong>20 tickers | ~14 sectors | Data as of 2026-09-13</strong></p>
+<p class="source">Source: Individual ticker reports extracted and scored by the Personal Investor agent.</p>
+
+<nav class="sticky" id="top">
+<ul>
+<li><a href="#risk-tiers">&#9878;&#65039; Risk Tiers</a></li>
+<li><a href="#comparison">&#128202; Comparison</a></li>
+<li><a href="#explore">&#128269; Explore</a></li>
+<li><a href="#sectors">&#127981; Sectors</a></li>
+<li><a href="#best-worst">&#127942; Best/Worst</a></li>
+<li><a href="#worked-example">&#128214; How It Works</a></li>
+</ul>
 </nav>
 
-<div class="container">
+<div class="signal-banner">
+<div class="counts">Signal Breakdown: <span class="sg sg-green">8 Bullish</span> &nbsp; <span class="sg sg-amber">2 Neutral</span> &nbsp; <span class="sg sg-red">10 Bearish</span></div>
+<div class="signal-list"><span class="sg sg-green">&#x1F7E2; Bullish:</span> BKNG, SNPS, VRT, HOOD, LULU, UUUU, OKLO, QURE</div>
+<div class="signal-list"><span class="sg sg-amber">&#x1F7E1; Neutral:</span> EXPE, SPCX</div>
+<div class="signal-list"><span class="sg sg-red">&#x1F534; Bearish:</span> RDDT, INOD, COIN, TSLA, RKLB, MP, CRWV, IREN, IONQ, ASTS</div>
+</div>
 
-<a id="top"></a>
-<h1>Weekly Stock Research -- Master Comparison (2026-09-13)</h1>
-<p class="meta"><strong>Tickers:</strong> 20 | <strong>Reports generated:</strong> 20/20</p>
-<p class="meta"><strong>Sectors:</strong> 13 unique sectors represented</p>
+<!-- Section 1: Risk Tiers -->
+<h2 id="risk-tiers">1. &#9878;&#65039; Risk Tier Summary</h2>
+<p>Tickers grouped by annualized volatility. Lower vol = more predictable price action; higher vol = wider swings and drawdown risk.</p>
 
-<hr>
-
-<!-- ============ 1. RISK TIERS ============ -->
-<a id="risk-tiers"></a>
-<h2>1. ⚖️ Risk Tier Summary</h2>
-
-<table>
-<thead>
-  <tr><th>Risk Tier</th><th>Tickers</th><th>Characteristics</th></tr>
-</thead>
+<h3><span class="tier tier-med">Medium Volatility (30%&ndash;50%)</span></h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Vol%</th></tr></thead>
 <tbody>
-  <tr>
-    <td><span class="risk-low">Low (Vol &lt;30%)</span></td>
-    <td>--</td>
-    <td>--</td>
-  </tr>
-  <tr>
-    <td><span class="risk-medium">Medium (30-50%)</span></td>
-    <td>BKNG (33%), SNPS (37%), EXPE (45%), LULU (45%)</td>
-    <td>Profitable, established businesses with positive earnings</td>
-  </tr>
-  <tr>
-    <td><span class="risk-high">High (50-75%)</span></td>
-    <td>VRT (56%), TSLA (59%), MP (71%), UUUU (72%), HOOD (73%)</td>
-    <td>Growth premium, cyclical or emerging profitability</td>
-  </tr>
-  <tr>
-    <td><span class="risk-veryhigh">Very High (&gt;75%)</span></td>
-    <td>RKLB (77%), RDDT (80%), COIN (84%), INOD (85%), OKLO (87%), SPCX (91%), ASTS (95%), IONQ (95%), QURE (96%), CRWV (110%), IREN (115%)</td>
-    <td>Pre-profit or speculative; high drawdown risk</td>
-  </tr>
+<tr><td>BKNG</td><td>32.9%</td></tr>
+<tr><td>SNPS</td><td>36.7%</td></tr>
+<tr><td>LULU</td><td>41.8%</td></tr>
+<tr><td>EXPE</td><td>44.7%</td></tr>
 </tbody>
-</table>
+</table></div>
 
-<a href="#top" class="back-top">Back to Top</a>
-
-<hr>
-
-<!-- ============ 2. COMPARISON TABLE ============ -->
-<a id="comparison"></a>
-<h2>2. 📊 Fundamentals Comparison Table</h2>
-<p>Sorted by Dashboard composite score (highest first). Links point to individual ticker reports.</p>
-
-<table class="sortable" id="compTable">
-<thead>
-  <tr>
-    <th>Ticker</th>
-    <th>Sector</th>
-    <th class="num">Price</th>
-    <th class="num">MCap</th>
-    <th class="num">P/E</th>
-    <th class="num">Fwd P/E</th>
-    <th class="num">EV/EBITDA</th>
-    <th class="num">EV/Sales</th>
-    <th class="num">Vol</th>
-    <th>Valuation Range</th>
-    <th class="num">Dashboard</th>
-    <th>Report</th>
-  </tr>
-</thead>
+<h3><span class="tier tier-high">High Volatility (50%&ndash;75%)</span></h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Vol%</th></tr></thead>
 <tbody>
-  <tr><td>BKNG</td><td>TRAVEL</td><td class="num">$171</td><td class="num">$133B</td><td class="num">19.1x</td><td class="num">13.9x</td><td class="num">12.7x</td><td class="num">4.7x</td><td class="num">33%</td><td class="val-range">$50–<span class="val-current">$171</span>–$88 <span class="val-above">⬆️</span></td><td class="num"><span class="score-pill pill-green">7.4/10</span></td><td><a href="BKNG/BKNG_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>RDDT</td><td>AI-DATA</td><td class="num">$158</td><td class="num">$30B</td><td class="num">36.7x</td><td class="num">16.3x</td><td class="num">34.9x</td><td class="num">10.1x</td><td class="num">80%</td><td class="val-range">$30–<span class="val-current">$158</span>–$100 <span class="val-above">⬆️</span></td><td class="num"><span class="score-pill pill-green">7.0/10</span></td><td><a href="RDDT/RDDT_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>SNPS</td><td>EDA</td><td class="num">$378</td><td class="num">$73B</td><td class="num">65.9x</td><td class="num">21.6x</td><td class="num">37.4x</td><td class="num">8.3x</td><td class="num">37%</td><td class="val-range">$324–<span class="val-current">$378</span>–$576</td><td class="num"><span class="score-pill pill-amber">6.8/10</span></td><td><a href="SNPS/SNPS_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>VRT</td><td>DATACENTER-INFRA</td><td class="num">$239</td><td class="num">$92B</td><td class="num">54.3x</td><td class="num">26.2x</td><td class="num">33.8x</td><td class="num">7.9x</td><td class="num">56%</td><td class="val-range">$158–<span class="val-current">$239</span>–$365</td><td class="num"><span class="score-pill pill-amber">6.6/10</span></td><td><a href="VRT/VRT_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>EXPE</td><td>TRAVEL</td><td class="num">$287</td><td class="num">$34B</td><td class="num">18.1x</td><td class="num">11.7x</td><td class="num">12.1x</td><td class="num">2.2x</td><td class="num">45%</td><td class="val-range">$244–<span class="val-current">$287</span>–$537</td><td class="num"><span class="score-pill pill-amber">6.0/10</span></td><td><a href="EXPE/EXPE_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>SPCX</td><td>TRAVEL-SPACE</td><td class="num">$151</td><td class="num">$1988B</td><td class="num">N/A</td><td class="num">86.6x</td><td class="num">631.3x</td><td class="num">161.5x</td><td class="num">91%</td><td class="val-range">$23–<span class="val-current">$151</span>–$194</td><td class="num"><span class="score-pill pill-amber">5.9/10</span></td><td><a href="SPCX/SPCX_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>INOD</td><td>AI-DATA</td><td class="num">$55</td><td class="num">$2B</td><td class="num">43.0x</td><td class="num">26.5x</td><td class="num">27.4x</td><td class="num">5.1x</td><td class="num">85%</td><td class="val-range">$28–<span class="val-current">$55</span>–$95</td><td class="num"><span class="score-pill pill-amber">5.5/10</span></td><td><a href="INOD/INOD_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>HOOD</td><td>FINTECH</td><td class="num">$104</td><td class="num">$94B</td><td class="num">N/A</td><td class="num">30.9x</td><td class="num">N/A</td><td class="num">19.9x</td><td class="num">73%</td><td class="val-range">$20–<span class="val-current">$104</span>–$55 <span class="val-above">⬆️</span></td><td class="num"><span class="score-pill pill-amber">5.4/10</span></td><td><a href="HOOD/HOOD_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>COIN</td><td>FINTECH</td><td class="num">$165</td><td class="num">$43B</td><td class="num">N/A</td><td class="num">58.1x</td><td class="num">61.9x</td><td class="num">7.2x</td><td class="num">84%</td><td class="val-range">$108–<span class="val-current">$165</span>–$440</td><td class="num"><span class="score-pill pill-red">4.7/10</span></td><td><a href="COIN/COIN_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>TSLA</td><td>MAG7</td><td class="num">$358</td><td class="num">$1414B</td><td class="num">334.7x</td><td class="num">165.9x</td><td class="num">128.5x</td><td class="num">13.3x</td><td class="num">59%</td><td class="val-range">$100–<span class="val-current">$358</span>–$500</td><td class="num"><span class="score-pill pill-red">4.6/10</span></td><td><a href="TSLA/TSLA_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>RKLB</td><td>TRAVEL-SPACE</td><td class="num">$64</td><td class="num">$41B</td><td class="num">N/A</td><td class="num">1398x</td><td class="num">-238.2x</td><td class="num">46.6x</td><td class="num">77%</td><td class="val-range">$3–<span class="val-current">$64</span>–$69</td><td class="num"><span class="score-pill pill-red">4.6/10</span></td><td><a href="RKLB/RKLB_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>LULU</td><td>RETAIL</td><td class="num">$266</td><td class="num">$33B</td><td class="num">7.9x</td><td class="num">10.9x</td><td class="num">N/A</td><td class="num">3.4x</td><td class="num">45%</td><td class="val-range">$65–<span class="val-current">$266</span>–$188 <span class="val-above">⬆️</span></td><td class="num"><span class="score-pill pill-red">4.5/10</span></td><td><a href="LULU/LULU_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>MP</td><td>RARE-EARTH</td><td class="num">$49</td><td class="num">$9B</td><td class="num">N/A</td><td class="num">56.1x</td><td class="num">213.9x</td><td class="num">20.9x</td><td class="num">71%</td><td class="val-range">$5–<span class="val-current">$49</span>–$43 <span class="val-above">⬆️</span></td><td class="num"><span class="score-pill pill-red">4.5/10</span></td><td><a href="MP/MP_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>CRWV</td><td>AI-INFRA</td><td class="num">$83</td><td class="num">$46B</td><td class="num">N/A</td><td class="num">-42.8x</td><td class="num">23.9x</td><td class="num">12.0x</td><td class="num">110%</td><td class="val-range">$20–<span class="val-current">$83</span>–$85</td><td class="num"><span class="score-pill pill-red">4.25/10</span></td><td><a href="CRWV/CRWV_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>IREN</td><td>DATACENTER-INFRA</td><td class="num">$43</td><td class="num">$17B</td><td class="num">N/A</td><td class="num">-160.8x</td><td class="num">478.0x</td><td class="num">25.9x</td><td class="num">115%</td><td class="val-range">$11–<span class="val-current">$43</span>–$58</td><td class="num"><span class="score-pill pill-red">3.65/10</span></td><td><a href="IREN/IREN_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>IONQ</td><td>QUANTUM</td><td class="num">$37</td><td class="num">$15B</td><td class="num">N/A</td><td class="num">-28.2x</td><td class="num">-15.2x</td><td class="num">48.9x</td><td class="num">95%</td><td class="val-range">$12–<span class="val-current">$37</span>–$75</td><td class="num"><span class="score-pill pill-red">3.5/10</span></td><td><a href="IONQ/IONQ_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>UUUU</td><td>RARE-EARTH</td><td class="num">$12</td><td class="num">$3B</td><td class="num">N/A</td><td class="num">24.2x</td><td class="num">-37.8x</td><td class="num">25.6x</td><td class="num">72%</td><td class="val-range">$5–<span class="val-current">$12</span>–$25</td><td class="num"><span class="score-pill pill-red">3.5/10</span></td><td><a href="UUUU/UUUU_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>ASTS</td><td>TRAVEL-SPACE</td><td class="num">$59</td><td class="num">$23B</td><td class="num">N/A</td><td class="num">-46.0x</td><td class="num">-46.3x</td><td class="num">163.3x</td><td class="num">95%</td><td class="val-range">$4–<span class="val-current">$59</span>–$28 <span class="val-above">⬆️</span></td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td><a href="ASTS/ASTS_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>OKLO</td><td>ENERGY-NUC</td><td class="num">$36</td><td class="num">$7B</td><td class="num">N/A</td><td class="num">-35.2x</td><td class="num">-19.5x</td><td class="num">3497.4x</td><td class="num">87%</td><td class="val-range">$1–<span class="val-current">$36</span>–$34 <span class="val-above">⬆️</span></td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td><a href="OKLO/OKLO_2026-09-13.md" class="report-link">→</a></td></tr>
-  <tr><td>QURE</td><td>MISC</td><td class="num">$42</td><td class="num">$3B</td><td class="num">N/A</td><td class="num">-14.0x</td><td class="num">-14.9x</td><td class="num">146.3x</td><td class="num">96%</td><td class="val-range">$10–<span class="val-current">$42</span>–$90</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td><a href="QURE/QURE_2026-09-13.md" class="report-link">→</a></td></tr>
+<tr><td>VRT</td><td>56.5%</td></tr>
+<tr><td>TSLA</td><td>59.4%</td></tr>
+<tr><td>MP</td><td>70.6%</td></tr>
+<tr><td>UUUU</td><td>72.3%</td></tr>
+<tr><td>HOOD</td><td>72.6%</td></tr>
 </tbody>
-</table>
-<p style="font-size:12px;color:#888;margin-top:4px;">Valuation Range: $Bear–<strong>$Current</strong>–$Bull. ⬆️ = trading above bull case.</p>
+</table></div>
 
-<a href="#top" class="back-top">Back to Top</a>
-
-<hr>
-
-<!-- ============ 3. EXPLORE THESE NEXT ============ -->
-<a id="explore"></a>
-<h2>3. 🔍 Explore These Next</h2>
-<p>Same-sector tickers not in the weekly batch. Batch ticker shown as <strong>benchmark</strong> row for direct comparison.</p>
-
-<!-- SNPS / EDA -->
-<h3 id="explore-snps">SNPS (EDA) -- Explore: CDNS</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h3><span class="tier tier-vhigh">Very High Volatility (&gt;75%)</span></h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Vol%</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>SNPS (benchmark)</strong></td><td class="num"><strong>$378</strong></td><td class="num"><strong>$73B</strong></td><td class="num"><strong>21.6x</strong></td><td class="num"><strong>37.4x</strong></td><td class="num"><strong>8.3x</strong></td><td class="num"><strong>37%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr><td>CDNS</td><td class="num">--</td><td class="num">~$80B</td><td class="num">~25x</td><td class="num">~35x</td><td class="num">~15x</td><td class="num">~30%</td><td>EDA duopoly partner; similar margin profile, slightly higher growth premium</td></tr>
+<tr><td>RKLB</td><td>76.9%</td></tr>
+<tr><td>RDDT</td><td>79.7%</td></tr>
+<tr><td>COIN</td><td>84.2%</td></tr>
+<tr><td>INOD</td><td>84.6%</td></tr>
+<tr><td>OKLO</td><td>86.6%</td></tr>
+<tr><td>SPCX</td><td>91.6%</td></tr>
+<tr><td>IONQ</td><td>95.4%</td></tr>
+<tr><td>ASTS</td><td>95.4%</td></tr>
+<tr><td>QURE</td><td>96.1%</td></tr>
+<tr><td>CRWV</td><td>109.7%</td></tr>
+<tr><td>IREN</td><td>115.3%</td></tr>
 </tbody>
-</table>
+</table></div>
 
-<!-- VRT / DATACENTER-INFRA -->
-<h3 id="explore-vrt">VRT (DATACENTER-INFRA) -- Explore: CARR, NEE, BE, AAON, WCC, ETN, PWR</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<blockquote><strong>No tickers fall in the Low Volatility (&lt;30%) tier.</strong></blockquote>
+
+<!-- Section 2: Comparison -->
+<h2 id="comparison">2. &#128202; Fundamentals Comparison</h2>
+<p>Sorted by Dashboard score descending. Click any column header to re-sort.</p>
+
+<div class="table-wrap"><table id="comp-table">
+<thead><tr>
+<th class="sortable" data-col="0" data-type="str">Ticker</th>
+<th class="sortable" data-col="1" data-type="str">Sector</th>
+<th class="sortable" data-col="2" data-type="num">Price</th>
+<th>52wk Range</th>
+<th class="sortable" data-col="4" data-type="str">MCap</th>
+<th class="sortable" data-col="5" data-type="num">P/E</th>
+<th class="sortable" data-col="6" data-type="num">Fwd P/E</th>
+<th class="sortable" data-col="7" data-type="num">EV/EBITDA</th>
+<th class="sortable" data-col="8" data-type="num">EV/Sales</th>
+<th class="sortable" data-col="9" data-type="num">Vol</th>
+<th>Valuation Range</th>
+<th class="sortable" data-col="11" data-type="str">Signal</th>
+<th class="sortable" data-col="12" data-type="num">Dashboard</th>
+<th>Report</th>
+</tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>VRT (benchmark)</strong></td><td class="num"><strong>$239</strong></td><td class="num"><strong>$92B</strong></td><td class="num"><strong>26.2x</strong></td><td class="num"><strong>33.8x</strong></td><td class="num"><strong>7.9x</strong></td><td class="num"><strong>56%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr><td>CARR</td><td class="num">--</td><td class="num">~$70B</td><td class="num">~25x</td><td class="num">~20x</td><td class="num">~4x</td><td class="num">~30%</td><td>HVAC/thermal peer, lower growth premium</td></tr>
-  <tr><td>NEE</td><td class="num">--</td><td class="num">~$160B</td><td class="num">~22x</td><td class="num">~15x</td><td class="num">~6x</td><td class="num">~25%</td><td>Utility-scale energy, different risk profile</td></tr>
-  <tr><td>BE</td><td class="num">--</td><td class="num">~$6B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~4x</td><td class="num">~70%</td><td>Fuel cells; pre-profit, high vol</td></tr>
-  <tr><td>AAON</td><td class="num">--</td><td class="num">~$12B</td><td class="num">~40x</td><td class="num">~30x</td><td class="num">~8x</td><td class="num">~35%</td><td>HVAC specialist, smaller scale</td></tr>
-  <tr><td>WCC</td><td class="num">--</td><td class="num">~$10B</td><td class="num">~12x</td><td class="num">~10x</td><td class="num">~0.6x</td><td class="num">~35%</td><td>Electrical distribution, value play</td></tr>
-  <tr><td>ETN</td><td class="num">--</td><td class="num">~$130B</td><td class="num">~28x</td><td class="num">~22x</td><td class="num">~5x</td><td class="num">~25%</td><td>Power management, similar datacenter exposure</td></tr>
-  <tr><td>PWR</td><td class="num">--</td><td class="num">~$45B</td><td class="num">~30x</td><td class="num">~18x</td><td class="num">~2x</td><td class="num">~35%</td><td>Infrastructure services, different model</td></tr>
+<tr><td>SNPS</td><td>EDA</td><td>$390</td><td>$367.70&ndash;$534.56</td><td>72.5B</td><td>65.9x</td><td>21.6x</td><td>38.4x</td><td>8.47x</td><td>36.7%</td><td>$324&ndash;<strong>$390</strong>&ndash;$576</td><td><span class="signal signal-green">Bullish</span></td><td><span class="pill pill-green">7.6</span></td><td><a href="SNPS/SNPS_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>BKNG</td><td>Travel</td><td>$57.92</td><td>$153.37&ndash;$221.01</td><td>132.8B</td><td>19.0x</td><td>13.9x</td><td>12.7x</td><td>4.7x</td><td>32.9%</td><td>$50&ndash;<strong>$57.92</strong>&ndash;$88</td><td><span class="signal signal-green">Bullish</span></td><td><span class="pill pill-green">7.2</span></td><td><a href="BKNG/BKNG_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>RDDT</td><td>Communication Services</td><td>$152.10</td><td>$121.84&ndash;$270.71</td><td>29.3B</td><td>37.2x</td><td>16.3x</td><td>34.9x</td><td>10.1x</td><td>79.7%</td><td>$25-35&ndash;<strong>$152.10</strong>&ndash;$80-120</td><td><span class="signal signal-red">Bearish</span></td><td><span class="pill pill-green">7.0</span></td><td><a href="RDDT/RDDT_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>VRT</td><td>Datacenter Infrastructure</td><td>$240.70</td><td>$136.50&ndash;$376.06</td><td>92.2B</td><td>54.3x</td><td>26.2x</td><td>34.5x</td><td>8.05x</td><td>56.5%</td><td>$145&ndash;<strong>$240.70</strong>&ndash;$390</td><td><span class="signal signal-green">Bullish</span></td><td><span class="pill pill-amber">6.8</span></td><td><a href="VRT/VRT_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>EXPE</td><td>Travel / OTA</td><td>$294</td><td>$187.43&ndash;$338.64</td><td>34.4B</td><td>18.5x</td><td>11.7x</td><td>11.9x</td><td>2.2x</td><td>44.7%</td><td>$244&ndash;<strong>$294</strong>&ndash;$537</td><td><span class="signal signal-amber">Neutral</span></td><td><span class="pill pill-amber">6.3</span></td><td><a href="EXPE/EXPE_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>SPCX</td><td>Space</td><td>$161</td><td>$108.27&ndash;$211.39</td><td>1.988T</td><td>N/A</td><td>86.6x</td><td>664.3x</td><td>170.0x</td><td>91.6%</td><td>$23&ndash;<strong>$161</strong>&ndash;$194</td><td><span class="signal signal-amber">Neutral</span></td><td><span class="pill pill-amber">6.1</span></td><td><a href="SPCX/SPCX_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>HOOD</td><td>Fintech</td><td>$34.82</td><td>$65.16&ndash;$152.46</td><td>93.9B</td><td>48.8x</td><td>30.9x</td><td>N/A</td><td>18.8x</td><td>72.6%</td><td>$20&ndash;<strong>$34.82</strong>&ndash;$55</td><td><span class="signal signal-green">Bullish</span></td><td><span class="pill pill-amber">5.8</span></td><td><a href="HOOD/HOOD_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>INOD</td><td>AI Data Services</td><td>$59</td><td>$34.45&ndash;$121.50</td><td>1.91B</td><td>42.3x</td><td>26.5x</td><td>28.0x</td><td>5.2x</td><td>84.6%</td><td>$28&ndash;<strong>$59</strong>&ndash;$95</td><td><span class="signal signal-red">Bearish</span></td><td><span class="pill pill-amber">5.5</span></td><td><a href="INOD/INOD_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>LULU</td><td>Athletic Apparel / Retail</td><td>$94</td><td>$96.88&ndash;$215.88</td><td>10.6B</td><td>7.9x</td><td>10.9x</td><td>4.77x</td><td>1.03x</td><td>41.8%</td><td>$55&ndash;<strong>$94</strong>&ndash;$200</td><td><span class="signal signal-green">Bullish</span></td><td><span class="pill pill-amber">5.5</span></td><td><a href="LULU/LULU_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>RKLB</td><td>Space</td><td>$74.90</td><td>$39.48&ndash;$150.23</td><td>40.73B</td><td>N/A</td><td>1398.2x</td><td>-238.8x</td><td>46.7x</td><td>76.9%</td><td>$2.8&ndash;<strong>$74.90</strong>&ndash;$64-74</td><td><span class="signal signal-red">Bearish</span></td><td><span class="pill pill-amber">5.4</span></td><td><a href="RKLB/RKLB_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>TSLA</td><td>EV / Auto / Energy / AI</td><td>$377</td><td>$298.32&ndash;$489.88</td><td>1.41T</td><td>334.7x</td><td>165.9x</td><td>128.5x</td><td>13.3x</td><td>59.4%</td><td>$60-140&ndash;<strong>$377</strong>&ndash;$400-600</td><td><span class="signal signal-red">Bearish</span></td><td><span class="pill pill-amber">5.3</span></td><td><a href="TSLA/TSLA_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>COIN</td><td>Fintech</td><td>$328</td><td>$141.09&ndash;$387.27</td><td>43.4B</td><td>73.7x</td><td>58.1x</td><td>59.0x</td><td>6.8x</td><td>84.2%</td><td>$108&ndash;<strong>$328</strong>&ndash;$440</td><td><span class="signal signal-red">Bearish</span></td><td><span class="pill pill-red">4.8</span></td><td><a href="COIN/COIN_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>CRWV</td><td>AI Cloud Infrastructure</td><td>$80.43</td><td>$60.82&ndash;$143.08</td><td>44.4B</td><td>N/A</td><td>-42.8x</td><td>24.3x</td><td>12.1x</td><td>109.7%</td><td>$15-25&ndash;<strong>$80.43</strong>&ndash;$70-100</td><td><span class="signal signal-red">Bearish</span></td><td><span class="pill pill-red">4.58</span></td><td><a href="CRWV/CRWV_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>MP</td><td>Materials / Rare Earth</td><td>$49</td><td>$38.10&ndash;$98.65</td><td>8.73B</td><td>N/A</td><td>56.1x</td><td>213.1x</td><td>20.8x</td><td>70.6%</td><td>$3-6&ndash;<strong>$49</strong>&ndash;$30-55</td><td><span class="signal signal-red">Bearish</span></td><td><span class="pill pill-red">4.5</span></td><td><a href="MP/MP_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>IREN</td><td>Data Center Infrastructure</td><td>$43.42</td><td>$29.31&ndash;$76.41</td><td>17.1B</td><td>N/A</td><td>-160.8x</td><td>478.0x</td><td>25.9x</td><td>115.3%</td><td>$8-14&ndash;<strong>$43.42</strong>&ndash;$45-70</td><td><span class="signal signal-red">Bearish</span></td><td><span class="pill pill-red">3.83</span></td><td><a href="IREN/IREN_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>UUUU</td><td>Uranium / Critical Minerals</td><td>$12.92</td><td>$10.74&ndash;$27.72</td><td>3.11B</td><td>N/A</td><td>24.2x</td><td>-37.4x</td><td>25.3x</td><td>72.3%</td><td>$4-6&ndash;<strong>$12.92</strong>&ndash;$20-30</td><td><span class="signal signal-green">Bullish</span></td><td><span class="pill pill-red">3.5</span></td><td><a href="UUUU/UUUU_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>OKLO</td><td>Advanced Nuclear</td><td>$41.30</td><td>$35.98&ndash;$174.14</td><td>6.63B</td><td>N/A</td><td>-35.2x</td><td>-19.2x</td><td>3442x</td><td>86.6%</td><td>$0.93&ndash;<strong>$41.30</strong>&ndash;$34</td><td><span class="signal signal-green">Bullish</span></td><td><span class="pill pill-red">3.33</span></td><td><a href="OKLO/OKLO_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>IONQ</td><td>Quantum</td><td>$41.15</td><td>$26.59&ndash;$82.09</td><td>14.9B</td><td>N/A</td><td>-28.2x</td><td>N/A</td><td>48.6x</td><td>95.4%</td><td>$12&ndash;<strong>$41.15</strong>&ndash;$75</td><td><span class="signal signal-red">Bearish</span></td><td><span class="pill pill-red">3.2</span></td><td><a href="IONQ/IONQ_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>QURE</td><td>Biotech / Gene Therapy</td><td>$47</td><td>$9.03&ndash;$70.59</td><td>2.95B</td><td>N/A</td><td>-14.0x</td><td>-14.7x</td><td>144.0x</td><td>96.1%</td><td>$5-15&ndash;<strong>$47</strong>&ndash;$80-100</td><td><span class="signal signal-green">Bullish</span></td><td><span class="pill pill-red">3.1</span></td><td><a href="QURE/QURE_2026-09-13.md">-&gt;</a></td></tr>
+<tr><td>ASTS</td><td>Space / Telecom</td><td>$9.77</td><td>$40.43&ndash;$133.09</td><td>23.1B</td><td>N/A</td><td>-46.0x</td><td>-46.3x</td><td>163.3x</td><td>95.4%</td><td>$3-5&ndash;<strong>$9.77</strong>&ndash;$20-35</td><td><span class="signal signal-red">Bearish</span></td><td><span class="pill pill-red">2.47</span></td><td><a href="ASTS/ASTS_2026-09-13.md">-&gt;</a></td></tr>
 </tbody>
-</table>
+</table></div>
 
-<!-- IREN / DATACENTER-INFRA -->
-<h3 id="explore-iren">IREN (DATACENTER-INFRA) -- See VRT explore group above</h3>
-<p>IREN shares the DATACENTER-INFRA sector with VRT. The same explore tickers (CARR, NEE, BE, AAON, WCC, ETN, PWR) apply.</p>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<div class="legend"><strong>Legend:</strong> 52wk Range = $Low&ndash;$High | Valuation Range = $Bear&ndash;<strong>$Current</strong>&ndash;$Bull | Signal: <span class="signal signal-green">Bullish</span> <span class="signal signal-amber">Neutral</span> <span class="signal signal-red">Bearish</span> | Dashboard: <span class="pill pill-green">&ge;7</span> <span class="pill pill-amber">5&ndash;6.9</span> <span class="pill pill-red">&lt;5</span></div>
+
+<!-- Section 3: Explore -->
+<h2 id="explore">3. &#128269; Explore These Next</h2>
+<p>Same-sector tickers <strong>not</strong> in this week's batch, compared against batch benchmarks. Explore rows use <strong>~approximations</strong> (not live data).</p>
+
+<h3>EDA (EDA &amp; Chip Design Tools)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Type</th><th>Price</th><th>MCap</th><th>P/E</th><th>Fwd P/E</th><th>EV/EBITDA</th><th>EV/Sales</th><th>Vol</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>IREN (benchmark)</strong></td><td class="num"><strong>$43</strong></td><td class="num"><strong>$17B</strong></td><td class="num"><strong>-160.8x</strong></td><td class="num"><strong>478.0x</strong></td><td class="num"><strong>25.9x</strong></td><td class="num"><strong>115%</strong></td><td><strong>In batch</strong></td></tr>
-</tbody>
-</table>
+<tr><td>SNPS</td><td>Batch</td><td>$390</td><td>72.5B</td><td>65.9x</td><td>21.6x</td><td>38.4x</td><td>8.47x</td><td>36.7%</td><td>Death Cross (2026-07-30)</td></tr>
+<tr><td><strong>CDNS</strong></td><td>Explore</td><td>~$290</td><td>~$80B</td><td>~55x</td><td>~30x</td><td>~40x</td><td>~13x</td><td>~30%</td><td>Research needed</td></tr>
+</tbody></table></div>
+<blockquote>CDNS (Cadence Design Systems) &mdash; direct SNPS peer in EDA; similar AI-driven chip design tailwinds, comparable margin profile.</blockquote>
 
-<!-- CRWV / AI-INFRA -->
-<h3 id="explore-crwv">CRWV (AI-INFRA) -- Explore: NBIS</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h3>Datacenter Infrastructure</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Type</th><th>Price</th><th>MCap</th><th>P/E</th><th>Fwd P/E</th><th>EV/EBITDA</th><th>EV/Sales</th><th>Vol</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>CRWV (benchmark)</strong></td><td class="num"><strong>$83</strong></td><td class="num"><strong>$46B</strong></td><td class="num"><strong>-42.8x</strong></td><td class="num"><strong>23.9x</strong></td><td class="num"><strong>12.0x</strong></td><td class="num"><strong>110%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr><td>NBIS</td><td class="num">--</td><td class="num">~$5B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~15x</td><td class="num">~80%</td><td>Nebius (ex-Yandex); AI cloud infra, earlier stage</td></tr>
-</tbody>
-</table>
+<tr><td>VRT</td><td>Batch</td><td>$240.70</td><td>92.2B</td><td>54.3x</td><td>26.2x</td><td>34.5x</td><td>8.05x</td><td>56.5%</td><td>Golden Cross (2025-07-03)</td></tr>
+<tr><td>IREN</td><td>Batch</td><td>$43.42</td><td>17.1B</td><td>N/A</td><td>-160.8x</td><td>478.0x</td><td>25.9x</td><td>115.3%</td><td>Death Cross (2026-08-07)</td></tr>
+<tr><td><strong>ETN</strong></td><td>Explore</td><td>~$320</td><td>~$130B</td><td>~35x</td><td>~28x</td><td>~25x</td><td>~5x</td><td>~25%</td><td>Research needed</td></tr>
+<tr><td><strong>PWR</strong></td><td>Explore</td><td>~$310</td><td>~$55B</td><td>~40x</td><td>~30x</td><td>~20x</td><td>~3x</td><td>~35%</td><td>Research needed</td></tr>
+<tr><td><strong>CARR</strong></td><td>Explore</td><td>~$75</td><td>~$68B</td><td>~30x</td><td>~22x</td><td>~20x</td><td>~3x</td><td>~30%</td><td>Research needed</td></tr>
+</tbody></table></div>
+<blockquote><strong>ETN</strong> (Eaton Corp) &mdash; power management for data centers. <strong>PWR</strong> (Quanta Services) &mdash; datacenter construction. <strong>CARR</strong> (Carrier Global) &mdash; cooling systems for AI racks.</blockquote>
 
-<!-- TSLA / MAG7 -->
-<h3 id="explore-tsla">TSLA (MAG7) -- Explore: NVDA, GOOG, META, MSFT, AMZN, AAPL</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h3>Travel / Space &amp; Satellites</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Type</th><th>Price</th><th>MCap</th><th>P/E</th><th>Fwd P/E</th><th>EV/EBITDA</th><th>EV/Sales</th><th>Vol</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>TSLA (benchmark)</strong></td><td class="num"><strong>$358</strong></td><td class="num"><strong>$1414B</strong></td><td class="num"><strong>165.9x</strong></td><td class="num"><strong>128.5x</strong></td><td class="num"><strong>13.3x</strong></td><td class="num"><strong>59%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr><td>NVDA</td><td class="num">--</td><td class="num">~$3200B</td><td class="num">~30x</td><td class="num">~28x</td><td class="num">~25x</td><td class="num">~45%</td><td>AI chip leader; far cheaper on Fwd P/E</td></tr>
-  <tr><td>GOOG</td><td class="num">--</td><td class="num">~$2100B</td><td class="num">~20x</td><td class="num">~15x</td><td class="num">~7x</td><td class="num">~30%</td><td>Search + Cloud; deep value vs TSLA</td></tr>
-  <tr><td>META</td><td class="num">--</td><td class="num">~$1500B</td><td class="num">~22x</td><td class="num">~14x</td><td class="num">~8x</td><td class="num">~35%</td><td>Social + AI; strong FCF, lower premium</td></tr>
-  <tr><td>MSFT</td><td class="num">--</td><td class="num">~$3100B</td><td class="num">~30x</td><td class="num">~23x</td><td class="num">~12x</td><td class="num">~25%</td><td>Enterprise + Cloud; steady compounder</td></tr>
-  <tr><td>AMZN</td><td class="num">--</td><td class="num">~$2200B</td><td class="num">~32x</td><td class="num">~18x</td><td class="num">~4x</td><td class="num">~30%</td><td>E-commerce + AWS; lower EV/Sales</td></tr>
-  <tr><td>AAPL</td><td class="num">--</td><td class="num">~$3400B</td><td class="num">~32x</td><td class="num">~25x</td><td class="num">~9x</td><td class="num">~20%</td><td>Consumer hardware + services; lowest vol</td></tr>
-</tbody>
-</table>
+<tr><td>SPCX</td><td>Batch</td><td>$161</td><td>1.988T</td><td>N/A</td><td>86.6x</td><td>664.3x</td><td>170.0x</td><td>91.6%</td><td>N/A</td></tr>
+<tr><td>RKLB</td><td>Batch</td><td>$74.90</td><td>40.73B</td><td>N/A</td><td>1398.2x</td><td>-238.8x</td><td>46.7x</td><td>76.9%</td><td>Death Cross (2026-08-27)</td></tr>
+<tr><td>ASTS</td><td>Batch</td><td>$9.77</td><td>23.1B</td><td>N/A</td><td>-46.0x</td><td>-46.3x</td><td>163.3x</td><td>95.4%</td><td>Death Cross (2026-07-29)</td></tr>
+<tr><td><strong>ROKT</strong></td><td>Explore</td><td>~$25</td><td>~$8B</td><td>N/A</td><td>N/A</td><td>N/A</td><td>~100x</td><td>~90%</td><td>Research needed</td></tr>
+<tr><td><strong>SPCE</strong></td><td>Explore</td><td>~$5</td><td>~$1B</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>~80%</td><td>Research needed</td></tr>
+</tbody></table></div>
+<blockquote><strong>ROKT</strong> &mdash; next-gen launch competitor to RKLB. <strong>SPCE</strong> (Virgin Galactic) &mdash; space tourism, volatility comp.</blockquote>
 
-<!-- COIN / FINTECH -->
-<h3 id="explore-coin">COIN (FINTECH) -- Explore: PYPL, V, MA, SQ, AFRM, SOFI</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h3>Fintech</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Type</th><th>Price</th><th>MCap</th><th>P/E</th><th>Fwd P/E</th><th>EV/EBITDA</th><th>EV/Sales</th><th>Vol</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>COIN (benchmark)</strong></td><td class="num"><strong>$165</strong></td><td class="num"><strong>$43B</strong></td><td class="num"><strong>58.1x</strong></td><td class="num"><strong>61.9x</strong></td><td class="num"><strong>7.2x</strong></td><td class="num"><strong>84%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr><td>PYPL</td><td class="num">--</td><td class="num">~$80B</td><td class="num">~16x</td><td class="num">~12x</td><td class="num">~2.5x</td><td class="num">~35%</td><td>Payments giant; deep value vs COIN</td></tr>
-  <tr><td>V</td><td class="num">--</td><td class="num">~$600B</td><td class="num">~28x</td><td class="num">~22x</td><td class="num">~18x</td><td class="num">~20%</td><td>Card network; premium but steady</td></tr>
-  <tr><td>MA</td><td class="num">--</td><td class="num">~$450B</td><td class="num">~30x</td><td class="num">~25x</td><td class="num">~17x</td><td class="num">~20%</td><td>Card network; similar to V</td></tr>
-  <tr><td>SQ</td><td class="num">--</td><td class="num">~$50B</td><td class="num">~25x</td><td class="num">~20x</td><td class="num">~2.5x</td><td class="num">~55%</td><td>Payments + crypto exposure</td></tr>
-  <tr><td>AFRM</td><td class="num">--</td><td class="num">~$18B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~7x</td><td class="num">~70%</td><td>BNPL; pre-GAAP-profit, high growth</td></tr>
-  <tr><td>SOFI</td><td class="num">--</td><td class="num">~$15B</td><td class="num">~25x</td><td class="num">~15x</td><td class="num">~6x</td><td class="num">~60%</td><td>Neobank; recently profitable</td></tr>
-</tbody>
-</table>
+<tr><td>HOOD</td><td>Batch</td><td>$34.82</td><td>93.9B</td><td>48.8x</td><td>30.9x</td><td>N/A</td><td>18.8x</td><td>72.6%</td><td>Golden Cross (2026-08-07)</td></tr>
+<tr><td>COIN</td><td>Batch</td><td>$328</td><td>43.4B</td><td>73.7x</td><td>58.1x</td><td>59.0x</td><td>6.8x</td><td>84.2%</td><td>Death Cross (2025-12-29)</td></tr>
+<tr><td><strong>PYPL</strong></td><td>Explore</td><td>~$78</td><td>~$82B</td><td>~18x</td><td>~14x</td><td>~13x</td><td>~2.5x</td><td>~35%</td><td>Research needed</td></tr>
+<tr><td><strong>SQ</strong></td><td>Explore</td><td>~$80</td><td>~$48B</td><td>~55x</td><td>~25x</td><td>~30x</td><td>~2.5x</td><td>~50%</td><td>Research needed</td></tr>
+<tr><td><strong>SOFI</strong></td><td>Explore</td><td>~$14</td><td>~$15B</td><td>~65x</td><td>~30x</td><td>N/A</td><td>~6x</td><td>~60%</td><td>Research needed</td></tr>
+</tbody></table></div>
+<blockquote><strong>PYPL</strong> &mdash; mature fintech at a value multiple. <strong>SQ</strong> &mdash; payments + crypto. <strong>SOFI</strong> &mdash; neobank/lending.</blockquote>
 
-<!-- HOOD / FINTECH -->
-<h3 id="explore-hood">HOOD (FINTECH) -- See COIN explore group above</h3>
-<p>HOOD shares the FINTECH sector with COIN. The same explore tickers apply.</p>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h3>MAG7 (Magnificent Seven)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Type</th><th>Price</th><th>MCap</th><th>P/E</th><th>Fwd P/E</th><th>EV/EBITDA</th><th>EV/Sales</th><th>Vol</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>HOOD (benchmark)</strong></td><td class="num"><strong>$104</strong></td><td class="num"><strong>$94B</strong></td><td class="num"><strong>30.9x</strong></td><td class="num"><strong>N/A</strong></td><td class="num"><strong>19.9x</strong></td><td class="num"><strong>73%</strong></td><td><strong>In batch</strong></td></tr>
-</tbody>
-</table>
+<tr><td>TSLA</td><td>Batch</td><td>$377</td><td>1.41T</td><td>334.7x</td><td>165.9x</td><td>128.5x</td><td>13.3x</td><td>59.4%</td><td>Death Cross (2026-04-09)</td></tr>
+<tr><td><strong>NVDA</strong></td><td>Explore</td><td>~$138</td><td>~$3.4T</td><td>~55x</td><td>~30x</td><td>~45x</td><td>~28x</td><td>~45%</td><td>Research needed</td></tr>
+<tr><td><strong>MSFT</strong></td><td>Explore</td><td>~$460</td><td>~$3.4T</td><td>~35x</td><td>~30x</td><td>~25x</td><td>~13x</td><td>~25%</td><td>Research needed</td></tr>
+<tr><td><strong>AAPL</strong></td><td>Explore</td><td>~$230</td><td>~$3.5T</td><td>~33x</td><td>~30x</td><td>~25x</td><td>~8.5x</td><td>~20%</td><td>Research needed</td></tr>
+</tbody></table></div>
+<blockquote><strong>NVDA</strong> &mdash; AI infrastructure leader. <strong>MSFT</strong> &mdash; cloud/AI enterprise. <strong>AAPL</strong> &mdash; defensive mega-cap.</blockquote>
 
-<!-- IONQ / QUANTUM -->
-<h3 id="explore-ionq">IONQ (QUANTUM) -- Explore: RGTI, QUBT, QBTS</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h3>Retail</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Type</th><th>Price</th><th>MCap</th><th>P/E</th><th>Fwd P/E</th><th>EV/EBITDA</th><th>EV/Sales</th><th>Vol</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>IONQ (benchmark)</strong></td><td class="num"><strong>$37</strong></td><td class="num"><strong>$15B</strong></td><td class="num"><strong>-28.2x</strong></td><td class="num"><strong>-15.2x</strong></td><td class="num"><strong>48.9x</strong></td><td class="num"><strong>95%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr><td>RGTI</td><td class="num">--</td><td class="num">~$5B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~100x</td><td class="num">~120%</td><td>Rigetti; superconducting qubits, smaller scale</td></tr>
-  <tr><td>QUBT</td><td class="num">--</td><td class="num">~$2B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~130%</td><td>Quantum Computing Inc; early-stage, minimal revenue</td></tr>
-  <tr><td>QBTS</td><td class="num">--</td><td class="num">~$3B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~80x</td><td class="num">~110%</td><td>D-Wave; annealing approach, niche commercial use</td></tr>
-</tbody>
-</table>
+<tr><td>LULU</td><td>Batch</td><td>$94</td><td>10.6B</td><td>7.9x</td><td>10.9x</td><td>4.77x</td><td>1.03x</td><td>41.8%</td><td>Death Cross (2025-04-25)</td></tr>
+<tr><td><strong>COST</strong></td><td>Explore</td><td>~$950</td><td>~$420B</td><td>~55x</td><td>~48x</td><td>~35x</td><td>~1.6x</td><td>~15%</td><td>Research needed</td></tr>
+<tr><td><strong>KSS</strong></td><td>Explore</td><td>~$12</td><td>~$1.3B</td><td>~5x</td><td>~5x</td><td>~4x</td><td>~0.1x</td><td>~50%</td><td>Research needed</td></tr>
+</tbody></table></div>
+<blockquote><strong>COST</strong> &mdash; premium retail comp. <strong>KSS</strong> &mdash; deep-value retail.</blockquote>
 
-<!-- OKLO / ENERGY-NUC -->
-<h3 id="explore-oklo">OKLO (ENERGY-NUC) -- Explore: SMR</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h3>Rare Earth &amp; Critical Minerals</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Type</th><th>Price</th><th>MCap</th><th>P/E</th><th>Fwd P/E</th><th>EV/EBITDA</th><th>EV/Sales</th><th>Vol</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>OKLO (benchmark)</strong></td><td class="num"><strong>$36</strong></td><td class="num"><strong>$7B</strong></td><td class="num"><strong>-35.2x</strong></td><td class="num"><strong>-19.5x</strong></td><td class="num"><strong>3497.4x</strong></td><td class="num"><strong>87%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr><td>SMR</td><td class="num">--</td><td class="num">~$10B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~80%</td><td>NuScale Power; SMR technology, pre-revenue peer</td></tr>
-</tbody>
-</table>
+<tr><td>MP</td><td>Batch</td><td>$49</td><td>8.73B</td><td>N/A</td><td>56.1x</td><td>213.1x</td><td>20.8x</td><td>70.6%</td><td>Death Cross (2026-07-02)</td></tr>
+<tr><td>UUUU</td><td>Batch</td><td>$12.92</td><td>3.11B</td><td>N/A</td><td>24.2x</td><td>-37.4x</td><td>25.3x</td><td>72.3%</td><td>Death Cross (2026-06-29)</td></tr>
+<tr><td><strong>USAR</strong></td><td>Explore</td><td>~$8</td><td>~$0.5B</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>~80%</td><td>Research needed</td></tr>
+</tbody></table></div>
+<blockquote><strong>USAR</strong> &mdash; smaller-cap critical minerals play.</blockquote>
 
-<!-- MP / RARE-EARTH -->
-<h3 id="explore-mp">MP (RARE-EARTH) -- Explore: USAR</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h3>AI Infrastructure</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Type</th><th>Price</th><th>MCap</th><th>P/E</th><th>Fwd P/E</th><th>EV/EBITDA</th><th>EV/Sales</th><th>Vol</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>MP (benchmark)</strong></td><td class="num"><strong>$49</strong></td><td class="num"><strong>$9B</strong></td><td class="num"><strong>56.1x</strong></td><td class="num"><strong>213.9x</strong></td><td class="num"><strong>20.9x</strong></td><td class="num"><strong>71%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr><td>USAR</td><td class="num">--</td><td class="num">~$1B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~90%</td><td>USA Rare Earth; earlier stage, domestic processing</td></tr>
-</tbody>
-</table>
+<tr><td>CRWV</td><td>Batch</td><td>$80.43</td><td>44.4B</td><td>N/A</td><td>-42.8x</td><td>24.3x</td><td>12.1x</td><td>109.7%</td><td>Death Cross (2026-07-28)</td></tr>
+<tr><td><strong>NBIS</strong></td><td>Explore</td><td>~$45</td><td>~$12B</td><td>N/A</td><td>N/A</td><td>~80x</td><td>~20x</td><td>~90%</td><td>Research needed</td></tr>
+</tbody></table></div>
+<blockquote><strong>NBIS</strong> (Nebius Group) &mdash; AI cloud infrastructure peer.</blockquote>
 
-<!-- UUUU / RARE-EARTH -->
-<h3 id="explore-uuuu">UUUU (RARE-EARTH) -- See MP explore group above</h3>
-<p>UUUU shares the RARE-EARTH sector with MP. The same explore ticker (USAR) applies.</p>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h3>Quantum Computing</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Type</th><th>Price</th><th>MCap</th><th>P/E</th><th>Fwd P/E</th><th>EV/EBITDA</th><th>EV/Sales</th><th>Vol</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>UUUU (benchmark)</strong></td><td class="num"><strong>$12</strong></td><td class="num"><strong>$3B</strong></td><td class="num"><strong>24.2x</strong></td><td class="num"><strong>-37.8x</strong></td><td class="num"><strong>25.6x</strong></td><td class="num"><strong>72%</strong></td><td><strong>In batch</strong></td></tr>
-</tbody>
-</table>
+<tr><td>IONQ</td><td>Batch</td><td>$41.15</td><td>14.9B</td><td>N/A</td><td>-28.2x</td><td>N/A</td><td>48.6x</td><td>95.4%</td><td>Death Cross (2026-08-20)</td></tr>
+<tr><td><strong>RGTI</strong></td><td>Explore</td><td>~$12</td><td>~$4B</td><td>N/A</td><td>N/A</td><td>N/A</td><td>~100x</td><td>~95%</td><td>Research needed</td></tr>
+<tr><td><strong>QUBT</strong></td><td>Explore</td><td>~$8</td><td>~$2B</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>~100%</td><td>Research needed</td></tr>
+<tr><td><strong>QBTS</strong></td><td>Explore</td><td>~$6</td><td>~$3B</td><td>N/A</td><td>N/A</td><td>N/A</td><td>~80x</td><td>~90%</td><td>Research needed</td></tr>
+</tbody></table></div>
+<blockquote><strong>RGTI</strong> (Rigetti), <strong>QUBT</strong> (Quantum Computing Inc), <strong>QBTS</strong> (D-Wave) &mdash; quantum sector comps.</blockquote>
 
-<!-- SPCX / TRAVEL-SPACE -->
-<h3 id="explore-spcx">SPCX (TRAVEL-SPACE) -- Explore: ROKT, SPCE</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h3>Energy &mdash; Nuclear</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Type</th><th>Price</th><th>MCap</th><th>P/E</th><th>Fwd P/E</th><th>EV/EBITDA</th><th>EV/Sales</th><th>Vol</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>SPCX (benchmark)</strong></td><td class="num"><strong>$151</strong></td><td class="num"><strong>$1988B</strong></td><td class="num"><strong>86.6x</strong></td><td class="num"><strong>631.3x</strong></td><td class="num"><strong>161.5x</strong></td><td class="num"><strong>91%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr><td>ROKT</td><td class="num">--</td><td class="num">~$2B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~100%</td><td>Rocket Lab competitor; early-stage launch</td></tr>
-  <tr><td>SPCE</td><td class="num">--</td><td class="num">~$1B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~90%</td><td>Virgin Galactic; suborbital tourism, cash-burn concern</td></tr>
-</tbody>
-</table>
+<tr><td>OKLO</td><td>Batch</td><td>$41.30</td><td>6.63B</td><td>N/A</td><td>-35.2x</td><td>-19.2x</td><td>3442x</td><td>86.6%</td><td>Death Cross (2026-02-19)</td></tr>
+<tr><td><strong>SMR</strong></td><td>Explore</td><td>~$30</td><td>~$7B</td><td>N/A</td><td>N/A</td><td>N/A</td><td>~500x</td><td>~75%</td><td>Research needed</td></tr>
+</tbody></table></div>
+<blockquote><strong>SMR</strong> (NuScale Power) &mdash; small modular reactor peer.</blockquote>
 
-<!-- RKLB / TRAVEL-SPACE -->
-<h3 id="explore-rklb">RKLB (TRAVEL-SPACE) -- See SPCX explore group above</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<!-- Section 4: Sectors -->
+<h2 id="sectors">4. &#127981; Sector Grouping</h2>
+<p>Portfolio median Trailing P/E: <strong>45.6x</strong> (10 tickers with valid P/E) | Portfolio median Fwd P/E: <strong>26.4x</strong> (14 tickers with valid positive Fwd P/E)</p>
+
+<h3>Multi-Ticker Sectors</h3>
+
+<h4>Travel (BKNG, EXPE)</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>P/E</th><th>vs Median</th><th>Fwd P/E</th><th>vs Median</th><th>Dashboard</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>RKLB (benchmark)</strong></td><td class="num"><strong>$64</strong></td><td class="num"><strong>$41B</strong></td><td class="num"><strong>1398x</strong></td><td class="num"><strong>-238.2x</strong></td><td class="num"><strong>46.6x</strong></td><td class="num"><strong>77%</strong></td><td><strong>In batch</strong></td></tr>
-</tbody>
-</table>
+<tr><td>EXPE</td><td>18.5x</td><td>-59.4%</td><td>11.7x</td><td>-55.6%</td><td><span class="pill pill-amber">6.3</span></td></tr>
+<tr><td>BKNG</td><td>19.0x</td><td>-58.3%</td><td>13.9x</td><td>-47.2%</td><td><span class="pill pill-green">7.2</span></td></tr>
+<tr style="font-weight:600;background:#f5f5fa"><td>Sector Median</td><td>18.8x</td><td>-58.8%</td><td>12.8x</td><td>-51.4%</td><td><span class="pill pill-amber">6.8</span></td></tr>
+</tbody></table></div>
+<blockquote>Both travel names trade at deep discounts to portfolio medians. BKNG leads on dashboard quality.</blockquote>
 
-<!-- ASTS / TRAVEL-SPACE -->
-<h3 id="explore-asts">ASTS (TRAVEL-SPACE) -- See SPCX explore group above</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h4>Space (SPCX, RKLB, ASTS)</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>P/E</th><th>vs Median</th><th>Fwd P/E</th><th>vs Median</th><th>Dashboard</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>ASTS (benchmark)</strong></td><td class="num"><strong>$59</strong></td><td class="num"><strong>$23B</strong></td><td class="num"><strong>-46.0x</strong></td><td class="num"><strong>-46.3x</strong></td><td class="num"><strong>163.3x</strong></td><td class="num"><strong>95%</strong></td><td><strong>In batch</strong></td></tr>
-</tbody>
-</table>
+<tr><td>SPCX</td><td>N/A</td><td>N/A</td><td>86.6x</td><td>+228.6%</td><td><span class="pill pill-amber">6.1</span></td></tr>
+<tr><td>RKLB</td><td>N/A</td><td>N/A</td><td>1398.2x</td><td>+5206.5%</td><td><span class="pill pill-amber">5.4</span></td></tr>
+<tr><td>ASTS</td><td>N/A</td><td>N/A</td><td>-46.0x</td><td>N/A</td><td><span class="pill pill-red">2.5</span></td></tr>
+<tr style="font-weight:600;background:#f5f5fa"><td>Sector Median</td><td>N/A</td><td>N/A</td><td>86.6x</td><td>+228.6%</td><td><span class="pill pill-amber">5.4</span></td></tr>
+</tbody></table></div>
+<blockquote>No trailing earnings. Extreme forward multiples reflect pre-revenue models. ASTS is the portfolio's lowest-rated name.</blockquote>
 
-<!-- LULU / RETAIL -->
-<h3 id="explore-lulu">LULU (RETAIL) -- Explore: KSS, COST</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h4>Fintech (HOOD, COIN)</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>P/E</th><th>vs Median</th><th>Fwd P/E</th><th>vs Median</th><th>Dashboard</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>LULU (benchmark)</strong></td><td class="num"><strong>$266</strong></td><td class="num"><strong>$33B</strong></td><td class="num"><strong>10.9x</strong></td><td class="num"><strong>N/A</strong></td><td class="num"><strong>3.4x</strong></td><td class="num"><strong>45%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr><td>KSS</td><td class="num">--</td><td class="num">~$2B</td><td class="num">~6x</td><td class="num">~5x</td><td class="num">~0.1x</td><td class="num">~50%</td><td>Kohl's; deep value, challenged retail model</td></tr>
-  <tr><td>COST</td><td class="num">--</td><td class="num">~$400B</td><td class="num">~50x</td><td class="num">~35x</td><td class="num">~1.5x</td><td class="num">~20%</td><td>Costco; premium compounder, membership moat</td></tr>
-</tbody>
-</table>
+<tr><td>HOOD</td><td>48.8x</td><td>+7.1%</td><td>30.9x</td><td>+17.3%</td><td><span class="pill pill-amber">5.8</span></td></tr>
+<tr><td>COIN</td><td>73.7x</td><td>+61.8%</td><td>58.1x</td><td>+120.5%</td><td><span class="pill pill-red">4.8</span></td></tr>
+<tr style="font-weight:600;background:#f5f5fa"><td>Sector Median</td><td>61.3x</td><td>+34.5%</td><td>44.5x</td><td>+68.9%</td><td><span class="pill pill-amber">5.3</span></td></tr>
+</tbody></table></div>
+<blockquote>Both trade at premiums. HOOD is notably cheaper on every metric and scores a full point higher.</blockquote>
 
-<!-- RDDT, INOD / AI-DATA -->
-<h3 id="explore-aidata">RDDT, INOD (AI-DATA) -- No additional tickers outside batch</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h4>Data Center Infrastructure (VRT, IREN)</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>P/E</th><th>vs Median</th><th>Fwd P/E</th><th>vs Median</th><th>Dashboard</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>RDDT (benchmark)</strong></td><td class="num"><strong>$158</strong></td><td class="num"><strong>$30B</strong></td><td class="num"><strong>16.3x</strong></td><td class="num"><strong>34.9x</strong></td><td class="num"><strong>10.1x</strong></td><td class="num"><strong>80%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr class="benchmark-row"><td><strong>INOD (benchmark)</strong></td><td class="num"><strong>$55</strong></td><td class="num"><strong>$2B</strong></td><td class="num"><strong>26.5x</strong></td><td class="num"><strong>27.4x</strong></td><td class="num"><strong>5.1x</strong></td><td class="num"><strong>85%</strong></td><td><strong>In batch</strong></td></tr>
-</tbody>
-</table>
-<p>Both AI-DATA sector tickers are in the batch. No explore suggestions.</p>
+<tr><td>VRT</td><td>54.3x</td><td>+19.2%</td><td>26.2x</td><td>-0.6%</td><td><span class="pill pill-amber">6.8</span></td></tr>
+<tr><td>IREN</td><td>N/A</td><td>N/A</td><td>-160.8x</td><td>N/A</td><td><span class="pill pill-red">3.8</span></td></tr>
+<tr style="font-weight:600;background:#f5f5fa"><td>Sector Median</td><td>54.3x</td><td>+19.2%</td><td>26.2x</td><td>-0.6%</td><td><span class="pill pill-amber">5.3</span></td></tr>
+</tbody></table></div>
+<blockquote>VRT is profitable and fairly valued on forward earnings; IREN is pre-profit with a weak dashboard score.</blockquote>
 
-<!-- BKNG, EXPE / TRAVEL -->
-<h3 id="explore-travel">BKNG, EXPE (TRAVEL) -- No additional tickers outside batch</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<h3>Single-Ticker Sectors (Consolidated)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Sector</th><th>Ticker</th><th>P/E</th><th>vs Med</th><th>Fwd P/E</th><th>vs Med</th><th>EV/Sales</th><th>Vol</th><th>Dashboard</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>BKNG (benchmark)</strong></td><td class="num"><strong>$171</strong></td><td class="num"><strong>$133B</strong></td><td class="num"><strong>13.9x</strong></td><td class="num"><strong>12.7x</strong></td><td class="num"><strong>4.7x</strong></td><td class="num"><strong>33%</strong></td><td><strong>In batch</strong></td></tr>
-  <tr class="benchmark-row"><td><strong>EXPE (benchmark)</strong></td><td class="num"><strong>$287</strong></td><td class="num"><strong>$34B</strong></td><td class="num"><strong>11.7x</strong></td><td class="num"><strong>12.1x</strong></td><td class="num"><strong>2.2x</strong></td><td class="num"><strong>45%</strong></td><td><strong>In batch</strong></td></tr>
-</tbody>
-</table>
-<p>Both TRAVEL sector tickers are in the batch. No explore suggestions.</p>
+<tr><td>Athletic Apparel / Retail</td><td>LULU</td><td>7.9x</td><td>-82.7%</td><td>10.9x</td><td>-58.6%</td><td>1.03x</td><td>41.8%</td><td><span class="pill pill-amber">5.5</span></td></tr>
+<tr><td>Communication Services</td><td>RDDT</td><td>37.2x</td><td>-18.3%</td><td>16.3x</td><td>-38.1%</td><td>10.1x</td><td>79.7%</td><td><span class="pill pill-green">7.0</span></td></tr>
+<tr><td>EDA</td><td>SNPS</td><td>65.9x</td><td>+44.7%</td><td>21.6x</td><td>-18.0%</td><td>8.47x</td><td>36.7%</td><td><span class="pill pill-green">7.6</span></td></tr>
+<tr><td>AI Data Services</td><td>INOD</td><td>42.3x</td><td>-7.1%</td><td>26.5x</td><td>+0.6%</td><td>5.2x</td><td>84.6%</td><td><span class="pill pill-amber">5.5</span></td></tr>
+<tr><td>EV / Auto / Energy / AI</td><td>TSLA</td><td>334.7x</td><td>+634.9%</td><td>165.9x</td><td>+529.7%</td><td>13.3x</td><td>59.4%</td><td><span class="pill pill-amber">5.3</span></td></tr>
+<tr><td>AI Cloud Infrastructure</td><td>CRWV</td><td>N/A</td><td>N/A</td><td>-42.8x</td><td>N/A</td><td>12.1x</td><td>109.7%</td><td><span class="pill pill-red">4.6</span></td></tr>
+<tr><td>Quantum</td><td>IONQ</td><td>N/A</td><td>N/A</td><td>-28.2x</td><td>N/A</td><td>48.6x</td><td>95.4%</td><td><span class="pill pill-red">3.2</span></td></tr>
+<tr><td>Materials / Rare Earth</td><td>MP</td><td>N/A</td><td>N/A</td><td>56.1x</td><td>+112.9%</td><td>20.8x</td><td>70.6%</td><td><span class="pill pill-red">4.5</span></td></tr>
+<tr><td>Uranium / Critical Minerals</td><td>UUUU</td><td>N/A</td><td>N/A</td><td>24.2x</td><td>-8.2%</td><td>25.3x</td><td>72.3%</td><td><span class="pill pill-red">3.5</span></td></tr>
+<tr><td>Advanced Nuclear</td><td>OKLO</td><td>N/A</td><td>N/A</td><td>-35.2x</td><td>N/A</td><td>3442x</td><td>86.6%</td><td><span class="pill pill-red">3.3</span></td></tr>
+<tr><td>Biotech / Gene Therapy</td><td>QURE</td><td>N/A</td><td>N/A</td><td>-14.0x</td><td>N/A</td><td>144.0x</td><td>96.1%</td><td><span class="pill pill-red">3.1</span></td></tr>
+</tbody></table></div>
+<blockquote>LULU is the standout value play. SNPS earns the highest dashboard score. TSLA's trailing P/E is 7x the portfolio median.</blockquote>
 
-<!-- QURE / MISC -->
-<h3 id="explore-qure">QURE (MISC) -- No additional tickers in sector</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+<!-- Section 5: Best/Worst -->
+<h2 id="best-worst">5. &#127942; Best &amp; Worst Across the Portfolio</h2>
+
+<h3>Cheapest Trailing P/E</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Ticker</th><th>P/E</th><th>vs Median (45.6x)</th></tr></thead>
 <tbody>
-  <tr class="benchmark-row"><td><strong>QURE (benchmark)</strong></td><td class="num"><strong>$42</strong></td><td class="num"><strong>$3B</strong></td><td class="num"><strong>-14.0x</strong></td><td class="num"><strong>-14.9x</strong></td><td class="num"><strong>146.3x</strong></td><td class="num"><strong>96%</strong></td><td><strong>In batch -- sole sector member</strong></td></tr>
-</tbody>
-</table>
+<tr><td>1</td><td>LULU</td><td>7.9x</td><td>-82.7%</td></tr>
+<tr><td>2</td><td>EXPE</td><td>18.5x</td><td>-59.4%</td></tr>
+<tr><td>3</td><td>BKNG</td><td>19.0x</td><td>-58.3%</td></tr>
+</tbody></table></div>
 
-<a href="#top" class="back-top">Back to Top</a>
-
-<hr>
-
-<!-- ============ 4. SECTORS ============ -->
-<a id="sectors"></a>
-<h2>4. 🏭 Sector Grouping</h2>
-
-<h3>TRAVEL (2 tickers)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Most Expensive Trailing P/E</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Ticker</th><th>P/E</th><th>vs Median (45.6x)</th></tr></thead>
 <tbody>
-  <tr><td>BKNG</td><td class="num">19.1x</td><td class="num">+0.5x</td><td class="num">13.9x</td><td class="num">+1.1x</td><td class="num"><span class="score-pill pill-green">7.4/10</span></td></tr>
-  <tr><td>EXPE</td><td class="num">18.1x</td><td class="num">-0.5x</td><td class="num">11.7x</td><td class="num">-1.1x</td><td class="num"><span class="score-pill pill-amber">6.0/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>18.6x</strong></td><td class="num">--</td><td class="num"><strong>12.8x</strong></td><td class="num">--</td><td class="num"><strong>6.7</strong></td></tr>
-</tbody>
-</table>
+<tr><td>1</td><td>TSLA</td><td>334.7x</td><td>+634.9%</td></tr>
+<tr><td>2</td><td>COIN</td><td>73.7x</td><td>+61.8%</td></tr>
+<tr><td>3</td><td>SNPS</td><td>65.9x</td><td>+44.7%</td></tr>
+</tbody></table></div>
 
-<h3>AI-DATA (2 tickers)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Cheapest Forward P/E</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Ticker</th><th>Fwd P/E</th><th>vs Median (26.4x)</th></tr></thead>
 <tbody>
-  <tr><td>RDDT</td><td class="num">36.7x</td><td class="num">-3.2x</td><td class="num">16.3x</td><td class="num">-5.1x</td><td class="num"><span class="score-pill pill-green">7.0/10</span></td></tr>
-  <tr><td>INOD</td><td class="num">43.0x</td><td class="num">+3.2x</td><td class="num">26.5x</td><td class="num">+5.1x</td><td class="num"><span class="score-pill pill-amber">5.5/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>39.9x</strong></td><td class="num">--</td><td class="num"><strong>21.4x</strong></td><td class="num">--</td><td class="num"><strong>6.3</strong></td></tr>
-</tbody>
-</table>
+<tr><td>1</td><td>LULU</td><td>10.9x</td><td>-58.6%</td></tr>
+<tr><td>2</td><td>EXPE</td><td>11.7x</td><td>-55.6%</td></tr>
+<tr><td>3</td><td>BKNG</td><td>13.9x</td><td>-47.2%</td></tr>
+</tbody></table></div>
 
-<h3>EDA (1 ticker)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Most Expensive Forward P/E</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Ticker</th><th>Fwd P/E</th><th>vs Median (26.4x)</th></tr></thead>
 <tbody>
-  <tr><td>SNPS</td><td class="num">65.9x</td><td class="num">--</td><td class="num">21.6x</td><td class="num">--</td><td class="num"><span class="score-pill pill-amber">6.8/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>65.9x</strong></td><td class="num">--</td><td class="num"><strong>21.6x</strong></td><td class="num">--</td><td class="num"><strong>6.8</strong></td></tr>
-</tbody>
-</table>
+<tr><td>1</td><td>RKLB</td><td>1398.2x</td><td>+5206.5%</td></tr>
+<tr><td>2</td><td>TSLA</td><td>165.9x</td><td>+529.7%</td></tr>
+<tr><td>3</td><td>SPCX</td><td>86.6x</td><td>+228.6%</td></tr>
+</tbody></table></div>
 
-<h3>DATACENTER-INFRA (2 tickers)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Best Dashboard Score</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Ticker</th><th>Dashboard</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr><td>VRT</td><td class="num">54.3x</td><td class="num">--</td><td class="num">26.2x</td><td class="num">+93.5x</td><td class="num"><span class="score-pill pill-amber">6.6/10</span></td></tr>
-  <tr><td>IREN</td><td class="num">N/A</td><td class="num">--</td><td class="num">-160.8x</td><td class="num">-93.5x</td><td class="num"><span class="score-pill pill-red">3.65/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>54.3x</strong></td><td class="num">--</td><td class="num"><strong>-67.3x</strong></td><td class="num">--</td><td class="num"><strong>5.1</strong></td></tr>
-</tbody>
-</table>
+<tr><td>1</td><td>SNPS</td><td><span class="pill pill-green">7.6</span></td><td><span class="signal signal-green">Bullish</span></td></tr>
+<tr><td>2</td><td>BKNG</td><td><span class="pill pill-green">7.2</span></td><td><span class="signal signal-green">Bullish</span></td></tr>
+<tr><td>3</td><td>RDDT</td><td><span class="pill pill-green">7.0</span></td><td><span class="signal signal-red">Bearish</span></td></tr>
+</tbody></table></div>
 
-<h3>MAG7 (1 ticker)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Worst Dashboard Score</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Ticker</th><th>Dashboard</th><th>Signal</th></tr></thead>
 <tbody>
-  <tr><td>TSLA</td><td class="num">334.7x</td><td class="num">--</td><td class="num">165.9x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">4.6/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>334.7x</strong></td><td class="num">--</td><td class="num"><strong>165.9x</strong></td><td class="num">--</td><td class="num"><strong>4.6</strong></td></tr>
-</tbody>
-</table>
+<tr><td>1</td><td>ASTS</td><td><span class="pill pill-red">2.5</span></td><td><span class="signal signal-red">Bearish</span></td></tr>
+<tr><td>2</td><td>QURE</td><td><span class="pill pill-red">3.1</span></td><td><span class="signal signal-green">Bullish</span></td></tr>
+<tr><td>3</td><td>IONQ</td><td><span class="pill pill-red">3.2</span></td><td><span class="signal signal-red">Bearish</span></td></tr>
+</tbody></table></div>
 
-<h3>AI-INFRA (1 ticker)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Most Volatile (Annualized)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Ticker</th><th>Volatility</th><th>Sector</th></tr></thead>
 <tbody>
-  <tr><td>CRWV</td><td class="num">N/A</td><td class="num">--</td><td class="num">-42.8x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">4.25/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>-42.8x</strong></td><td class="num">--</td><td class="num"><strong>4.25</strong></td></tr>
-</tbody>
-</table>
+<tr><td>1</td><td>IREN</td><td>115.3%</td><td>Data Center Infrastructure</td></tr>
+<tr><td>2</td><td>CRWV</td><td>109.7%</td><td>AI Cloud Infrastructure</td></tr>
+<tr><td>3</td><td>QURE</td><td>96.1%</td><td>Biotech / Gene Therapy</td></tr>
+<tr><td>4</td><td>IONQ</td><td>95.4%</td><td>Quantum</td></tr>
+<tr><td>5</td><td>ASTS</td><td>95.4%</td><td>Space / Telecom</td></tr>
+</tbody></table></div>
 
-<h3>FINTECH (2 tickers)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Least Volatile (Annualized)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Ticker</th><th>Volatility</th><th>Sector</th></tr></thead>
 <tbody>
-  <tr><td>HOOD</td><td class="num">N/A</td><td class="num">--</td><td class="num">30.9x</td><td class="num">-13.6x</td><td class="num"><span class="score-pill pill-amber">5.4/10</span></td></tr>
-  <tr><td>COIN</td><td class="num">N/A</td><td class="num">--</td><td class="num">58.1x</td><td class="num">+13.6x</td><td class="num"><span class="score-pill pill-red">4.7/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>44.5x</strong></td><td class="num">--</td><td class="num"><strong>5.1</strong></td></tr>
-</tbody>
-</table>
+<tr><td>1</td><td>BKNG</td><td>32.9%</td><td>Travel</td></tr>
+<tr><td>2</td><td>SNPS</td><td>36.7%</td><td>EDA</td></tr>
+<tr><td>3</td><td>LULU</td><td>41.8%</td><td>Athletic Apparel / Retail</td></tr>
+</tbody></table></div>
 
-<h3>TRAVEL-SPACE (3 tickers)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Lowest EV/Sales</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Ticker</th><th>EV/Sales</th><th>Sector</th></tr></thead>
 <tbody>
-  <tr><td>SPCX</td><td class="num">N/A</td><td class="num">--</td><td class="num">86.6x</td><td class="num">--</td><td class="num"><span class="score-pill pill-amber">5.9/10</span></td></tr>
-  <tr><td>RKLB</td><td class="num">N/A</td><td class="num">--</td><td class="num">1398x</td><td class="num">+1311.4x</td><td class="num"><span class="score-pill pill-red">4.6/10</span></td></tr>
-  <tr><td>ASTS</td><td class="num">N/A</td><td class="num">--</td><td class="num">-46.0x</td><td class="num">-132.6x</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>86.6x</strong></td><td class="num">--</td><td class="num"><strong>4.6</strong></td></tr>
-</tbody>
-</table>
+<tr><td>1</td><td>LULU</td><td>1.03x</td><td>Athletic Apparel / Retail</td></tr>
+<tr><td>2</td><td>EXPE</td><td>2.2x</td><td>Travel / OTA</td></tr>
+<tr><td>3</td><td>BKNG</td><td>4.7x</td><td>Travel</td></tr>
+</tbody></table></div>
 
-<h3>QUANTUM (1 ticker)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Highest EV/Sales</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Ticker</th><th>EV/Sales</th><th>Sector</th></tr></thead>
 <tbody>
-  <tr><td>IONQ</td><td class="num">N/A</td><td class="num">--</td><td class="num">-28.2x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">3.5/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>-28.2x</strong></td><td class="num">--</td><td class="num"><strong>3.5</strong></td></tr>
-</tbody>
-</table>
+<tr><td>1</td><td>OKLO</td><td>3442x</td><td>Advanced Nuclear</td></tr>
+<tr><td>2</td><td>SPCX</td><td>170.0x</td><td>Space</td></tr>
+<tr><td>3</td><td>ASTS</td><td>163.3x</td><td>Space / Telecom</td></tr>
+<tr><td>4</td><td>QURE</td><td>144.0x</td><td>Biotech / Gene Therapy</td></tr>
+</tbody></table></div>
 
-<h3>ENERGY-NUC (1 ticker)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Entry Signals (Green)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Cross</th><th>Dashboard</th><th>Fwd P/E</th></tr></thead>
 <tbody>
-  <tr><td>OKLO</td><td class="num">N/A</td><td class="num">--</td><td class="num">-35.2x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>-35.2x</strong></td><td class="num">--</td><td class="num"><strong>3.0</strong></td></tr>
-</tbody>
-</table>
+<tr><td>BKNG</td><td>Golden Cross (2026-08-18)</td><td><span class="pill pill-green">7.2</span></td><td>13.9x</td></tr>
+<tr><td>SNPS</td><td>Death Cross (2026-07-30)</td><td><span class="pill pill-green">7.6</span></td><td>21.6x</td></tr>
+<tr><td>VRT</td><td>Golden Cross (2025-07-03)</td><td><span class="pill pill-amber">6.8</span></td><td>26.2x</td></tr>
+<tr><td>HOOD</td><td>Golden Cross (2026-08-07)</td><td><span class="pill pill-amber">5.8</span></td><td>30.9x</td></tr>
+<tr><td>LULU</td><td>Death Cross (2025-04-25)</td><td><span class="pill pill-amber">5.5</span></td><td>10.9x</td></tr>
+<tr><td>UUUU</td><td>Death Cross (2026-06-29)</td><td><span class="pill pill-red">3.5</span></td><td>24.2x</td></tr>
+<tr><td>OKLO</td><td>Death Cross (2026-02-19)</td><td><span class="pill pill-red">3.3</span></td><td>-35.2x</td></tr>
+<tr><td>QURE</td><td>Golden Cross (2026-07-01)</td><td><span class="pill pill-red">3.1</span></td><td>-14.0x</td></tr>
+</tbody></table></div>
+<blockquote>8 tickers carry green signals. Notable: SNPS, LULU, UUUU, and OKLO show green signals despite active Death Crosses.</blockquote>
 
-<h3>RARE-EARTH (2 tickers)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Exit Signals (Red)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Cross</th><th>Dashboard</th><th>Fwd P/E</th></tr></thead>
 <tbody>
-  <tr><td>MP</td><td class="num">N/A</td><td class="num">--</td><td class="num">56.1x</td><td class="num">+15.9x</td><td class="num"><span class="score-pill pill-red">4.5/10</span></td></tr>
-  <tr><td>UUUU</td><td class="num">N/A</td><td class="num">--</td><td class="num">24.2x</td><td class="num">-15.9x</td><td class="num"><span class="score-pill pill-red">3.5/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>40.2x</strong></td><td class="num">--</td><td class="num"><strong>4.0</strong></td></tr>
-</tbody>
-</table>
+<tr><td>RDDT</td><td>Death Cross (2026-03-06)</td><td><span class="pill pill-green">7.0</span></td><td>16.3x</td></tr>
+<tr><td>INOD</td><td>Death Cross (2026-09-16)</td><td><span class="pill pill-amber">5.5</span></td><td>26.5x</td></tr>
+<tr><td>COIN</td><td>Death Cross (2025-12-29)</td><td><span class="pill pill-red">4.8</span></td><td>58.1x</td></tr>
+<tr><td>TSLA</td><td>Death Cross (2026-04-09)</td><td><span class="pill pill-amber">5.3</span></td><td>165.9x</td></tr>
+<tr><td>RKLB</td><td>Death Cross (2026-08-27)</td><td><span class="pill pill-amber">5.4</span></td><td>1398.2x</td></tr>
+<tr><td>MP</td><td>Death Cross (2026-07-02)</td><td><span class="pill pill-red">4.5</span></td><td>56.1x</td></tr>
+<tr><td>CRWV</td><td>Death Cross (2026-07-28)</td><td><span class="pill pill-red">4.6</span></td><td>-42.8x</td></tr>
+<tr><td>IREN</td><td>Death Cross (2026-08-07)</td><td><span class="pill pill-red">3.8</span></td><td>-160.8x</td></tr>
+<tr><td>IONQ</td><td>Death Cross (2026-08-20)</td><td><span class="pill pill-red">3.2</span></td><td>-28.2x</td></tr>
+<tr><td>ASTS</td><td>Death Cross (2026-07-29)</td><td><span class="pill pill-red">2.5</span></td><td>-46.0x</td></tr>
+</tbody></table></div>
+<blockquote>10 tickers carry red signals. RDDT stands out with a strong 7.0 dashboard despite the red signal.</blockquote>
 
-<h3>RETAIL (1 ticker)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Above Bull Target</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Ticker</th><th>Price</th><th>Bull Target</th><th>% Above</th><th>Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>LULU</td><td class="num">7.9x</td><td class="num">--</td><td class="num">10.9x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">4.5/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>7.9x</strong></td><td class="num">--</td><td class="num"><strong>10.9x</strong></td><td class="num">--</td><td class="num"><strong>4.5</strong></td></tr>
-</tbody>
-</table>
+<tr><td>RDDT</td><td>$152.10</td><td>$80-120</td><td>+26.8% (vs $120)</td><td><span class="pill pill-green">7.0</span></td></tr>
+<tr><td>RKLB</td><td>$74.90</td><td>$64-74</td><td>+1.2% (vs $74)</td><td><span class="pill pill-amber">5.4</span></td></tr>
+<tr><td>OKLO</td><td>$41.30</td><td>$34</td><td>+21.5%</td><td><span class="pill pill-red">3.3</span></td></tr>
+</tbody></table></div>
 
-<h3>MISC (1 ticker)</h3>
-<table>
-<thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+<h3>Deepest Discount to 52-Week High</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Rank</th><th>Ticker</th><th>Price</th><th>52W High</th><th>Discount</th></tr></thead>
 <tbody>
-  <tr><td>QURE</td><td class="num">N/A</td><td class="num">--</td><td class="num">-14.0x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td></tr>
-  <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>-14.0x</strong></td><td class="num">--</td><td class="num"><strong>3.0</strong></td></tr>
-</tbody>
-</table>
+<tr><td>1</td><td>ASTS</td><td>$9.77</td><td>$133.09</td><td>-92.7%</td></tr>
+<tr><td>2</td><td>HOOD</td><td>$34.82</td><td>$152.46</td><td>-77.2%</td></tr>
+<tr><td>3</td><td>OKLO</td><td>$41.30</td><td>$174.14</td><td>-76.3%</td></tr>
+<tr><td>4</td><td>BKNG</td><td>$57.92</td><td>$221.01</td><td>-73.8%</td></tr>
+<tr><td>5</td><td>LULU</td><td>$94.00</td><td>$215.88</td><td>-56.5%</td></tr>
+</tbody></table></div>
+<blockquote>ASTS, HOOD, and OKLO have all lost more than 75% from their 52-week highs. BKNG at -74% is a standout given its strong 7.2 dashboard and green signal.</blockquote>
 
-<a href="#top" class="back-top">Back to Top</a>
+<!-- Appendix -->
+<h2 id="worked-example">6. &#128214; How It Works (Appendix)</h2>
 
-<hr>
+<details>
+<summary>Appendix: How the Numbers Work &mdash; EXPE (click to expand)</summary>
+<div class="appendix-body">
 
-<!-- ============ 5. BEST / WORST ============ -->
-<a id="best-worst"></a>
-<h2>5. 🏆 Best / Worst</h2>
+<p>This appendix shows exactly how every metric, model, and score in the EXPE report is calculated, using Expedia Group's real numbers. Each formula is worked step by step so any reader can reproduce the result with a calculator.</p>
 
-<table>
-<thead><tr><th>Category</th><th>Ticker</th><th class="num">Value</th><th>Note</th></tr></thead>
-<tbody>
-  <tr><td>💎 Cheapest (Fwd P/E, positive only)</td><td>LULU</td><td class="num">10.9x</td><td>Retail value play; lowest positive Fwd P/E in batch</td></tr>
-  <tr><td>💎 2nd Cheapest (Fwd P/E)</td><td>EXPE</td><td class="num">11.7x</td><td>Travel recovery, cash generative</td></tr>
-  <tr><td>⚠️ Most Expensive (Fwd P/E)</td><td>RKLB</td><td class="num">1398x</td><td>Space, pre-scale revenue</td></tr>
-  <tr><td>🏆 Highest FCF Yield</td><td>EXPE</td><td class="num">9.0%</td><td>$3.11B FCF / $34.4B MCap -- cash machine</td></tr>
-  <tr><td>🏆 Best Dashboard</td><td>BKNG</td><td class="num"><span class="score-pill pill-green">7.4/10</span></td><td>Quality + value, lowest volatility</td></tr>
-  <tr><td>🟢 2nd Best Dashboard</td><td>RDDT</td><td class="num"><span class="score-pill pill-green">7.0/10</span></td><td>AI data monetization, strong growth</td></tr>
-  <tr><td>🔴 Worst Dashboard (tied)</td><td>ASTS</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td>Space/satellite, pre-revenue, extreme EV/Sales</td></tr>
-  <tr><td>🔴 Worst Dashboard (tied)</td><td>OKLO</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td>Nuclear energy, pre-revenue, EV/Sales 3497x</td></tr>
-  <tr><td>🔴 Worst Dashboard (tied)</td><td>QURE</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td>Gene therapy, speculative, negative Fwd P/E</td></tr>
-  <tr><td>📈 Most Volatile</td><td>IREN</td><td class="num">115%</td><td>AI infra / datacenter; max risk</td></tr>
-  <tr><td>📈 2nd Most Volatile</td><td>CRWV</td><td class="num">110%</td><td>AI infra; newly public</td></tr>
-  <tr><td>📉 Least Volatile</td><td>BKNG</td><td class="num">33%</td><td>Established travel platform</td></tr>
-  <tr><td>💎 Lowest EV/Sales (cheapest revenue)</td><td>EXPE</td><td class="num">2.2x</td><td>Mature travel business</td></tr>
-  <tr><td>⚠️ Highest EV/Sales</td><td>OKLO</td><td class="num">3497.4x</td><td>Nuclear energy, virtually no revenue yet</td></tr>
-</tbody>
-</table>
+<h3>Reference Numbers</h3>
+<p><strong>EXPE reference numbers:</strong> Stock Price = $294 | Shares Outstanding = 117M | Revenue (TTM) = $14.7B | Net Income (TTM) = $1.29B | EPS (Annual) = $9.81 | Forward EPS (analyst est.) = $25.13 | EBITDA = $2.88B | Free Cash Flow = $3.11B | Operating Cash Flow = $3.88B | CapEx = $770M | Market Cap = $34.4B | Enterprise Value = $34.3B | Gross Debt = ~$5.6B | Cash = ~$5.7B (implied) | Net Debt = ~-$0.1B | Annualized Volatility = 44.7% | Max Drawdown = 86.7% | VaR 95% (Daily) = -3.8% | 52-Week High = $338.64 | 52-Week Low = $187.43</p>
 
-<a href="#top" class="back-top">Back to Top</a>
+<h3>Valuation</h3>
 
-<hr>
+<h4>P/E (Price-to-Earnings)</h4>
+<pre>P/E = Stock Price / EPS
+    = $294 / $9.81 = 30.0x
 
+Report states: 18.5x (computed at earlier snapshot price ~$181.5)
+Interpretation: investors pay $18.50 for every $1 of trailing profit.</pre>
 
-<!-- ============ 6. HOW IT WORKS ============ -->
-<a id="how-it-works"></a>
-<a id="worked-example"></a>
-<a id="glossary"></a>
-<h2>6. 📖 Appendix: How the Numbers Work — EXPE (Expedia Group)</h2>
+<h4>Forward P/E</h4>
+<pre>Forward P/E = Price / Forward EPS = 11.7x
+At $294: Forward EPS = $294 / 11.7 = ~$25.13
+The 37% gap implies 156% EPS growth expected.</pre>
 
-<p>This appendix serves two purposes: (1) a glossary of every financial term used in our reports, and (2) a fully worked example showing how each metric is computed -- all using Expedia Group's real numbers. Every calculation is reproducible from the reference data below.</p>
+<h4>Enterprise Value (EV)</h4>
+<pre>EV = Market Cap + Total Debt - Cash
+   = $34.4B + $5.6B - $5.7B = $34.3B
+Net debt near zero: debt offset by cash.</pre>
 
-<h3>EXPE Reference Numbers (as of 2026-09-13)</h3>
-<blockquote>
-<strong>Expedia Group (EXPE) -- Key Financials:</strong><br><br>
-Stock Price = $287 | Shares Outstanding = ~120M | Market Cap = $34.4B<br>
-Revenue (TTM) = $14.73B | Net Income (TTM) = $1.86B | EPS (TTM) = $15.86<br>
-Forward EPS (analyst est.) = $24.50 | EBITDA = ~$2.89B<br>
-Operating Income = ~$2.21B | Gross Profit = ~$5.60B<br>
-OCF = $4.35B | CapEx = $1.24B | FCF = $3.11B<br>
-Total Debt = ~$8.7B | Cash = ~$3.7B | Enterprise Value = $39.4B<br>
-Total Equity = ~$3.80B | Book Value/Share = ~$31.70<br>
-SBC (estimated) = ~$700M (~4.8% of revenue) | Invested Capital = ~$12.5B<br>
-Gross Margin = ~38% | Operating Margin = ~15% | Net Margin = ~12.6%<br>
-ROE = ~49% | Beta = ~1.3 | D/E = ~2.3<br>
-Annualized Volatility = 44.7% | Max Drawdown = 86.7% | VaR 95% = ~-4.0%<br>
-WACC (assumed) = 10% | Dividends = $0 (EXPE does not currently pay a dividend)
-</blockquote>
+<h4>EV/EBITDA</h4>
+<pre>EV/EBITDA = $34.3B / $2.88B = 11.9x
+Valued at 11.9 years of operating cash earnings.</pre>
 
-<h3>Term Index</h3>
-<table>
-<thead><tr><th>Category</th><th>Terms</th><th class="num">Count</th></tr></thead>
-<tbody>
-  <tr><td><strong>Valuation</strong></td><td>P/E, Forward P/E, PEG, EV, EV/EBITDA, EV/Sales, P/S, P/B, FCF Yield, Dividend Yield</td><td class="num">10</td></tr>
-  <tr><td><strong>Profitability</strong></td><td>Gross Margin, Operating Margin, Net Margin, ROE, ROIC</td><td class="num">5</td></tr>
-  <tr><td><strong>Cash Flow</strong></td><td>OCF, FCF, CapEx, FCF/NI</td><td class="num">4</td></tr>
-  <tr><td><strong>Growth</strong></td><td>TTM, YoY, CAGR, EPS</td><td class="num">4</td></tr>
-  <tr><td><strong>Risk</strong></td><td>Annualized Volatility, Max Drawdown, VaR 95%, Beta, Debt/Equity</td><td class="num">5</td></tr>
-  <tr><td><strong>Valuation Models</strong></td><td>Owner-Earnings, DCF, Graham Number, EV/EBITDA Relative, PEG Fair Value</td><td class="num">5</td></tr>
-  <tr><td><strong>Dashboard Scoring</strong></td><td>1-10 scale with labels</td><td class="num">1</td></tr>
-  <tr class="median-row"><td><strong>Total</strong></td><td></td><td class="num"><strong>34</strong></td></tr>
-</tbody>
-</table>
+<h4>EV/Sales &amp; P/S</h4>
+<pre>EV/Sales = $34.3B / $14.7B = 2.33x (report: 2.2x)
+P/S = $34.4B / $14.7B = 2.34x (report: 2.2x)
+Nearly identical because net debt &asymp; 0.</pre>
 
-<h3>1. Valuation Metrics</h3>
+<h4>FCF Yield</h4>
+<pre>FCF Yield = FCF / Market Cap = $3.11B / $34.4B = 9.04%
+S&amp;P 500 average: ~4-5%. EXPE is nearly double.</pre>
 
-<p><strong>P/E (Price-to-Earnings Ratio)</strong><br>
-What the market pays per dollar of earnings. Higher = more expensive relative to current profits.</p>
-<blockquote>P/E = Stock Price / EPS = $287 / $15.86 = <strong>18.1x</strong><br>
-Interpretation: investors pay $18.10 for every $1 of EXPE's annual profit.</blockquote>
+<h3>Profitability</h3>
+<pre>Net Margin = $1.29B / $14.7B = 8.8%
+FCF Margin = $3.11B / $14.7B = 21.2%
+CapEx Intensity = $770M / $14.7B = 5.2% (capital-light)</pre>
 
-<p><strong>Forward P/E</strong><br>
-P/E using <em>next year's estimated</em> earnings instead of trailing. Lower than trailing P/E when earnings are expected to grow.</p>
-<blockquote>Analysts estimate next-year EPS = $24.50:<br>
-Forward P/E = $287 / $24.50 = <strong>11.7x</strong><br>
-The drop from 18.1x trailing to 11.7x forward implies analysts expect ~55% earnings growth.</blockquote>
+<h3>Cash Flow</h3>
+<pre>FCF = OCF - CapEx = $3.88B - $0.77B = $3.11B
+FCF/NI = $3.11B / $1.29B = 241%
+  (strong cash conversion; merchant model float + D&amp;A &gt; CapEx)</pre>
 
-<p><strong>PEG Ratio (Price/Earnings-to-Growth)</strong><br>
-P/E divided by expected EPS growth rate. Adjusts valuation for growth speed. PEG &lt; 1 may suggest undervaluation.</p>
-<blockquote>Forward EPS growth rate = ($24.50 - $15.86) / $15.86 = 54.5%<br>
-PEG = 18.1 / 54.5 = <strong>0.33</strong><br>
-Interpretation: paying well below 1x the growth rate -- potentially very attractive if the growth estimate holds.</blockquote>
+<h3>Growth</h3>
+<pre>Q2 2026 YoY Revenue: ($4.32B - $3.79B) / $3.79B = 14.0%
+TTM Revenue Growth: 7.6%
+3-Year EPS CAGR: ($9.81 / $2.17)^(1/3) - 1 = 65.2%
+Q2 2026 EPS Growth: ($7.16 - $2.48) / $2.48 = 188.7%</pre>
 
-<p><strong>EV (Enterprise Value)</strong><br>
-Total company value including debt, minus cash. What an acquirer would pay to buy the whole business.</p>
-<blockquote>EV = Market Cap + Total Debt - Cash<br>
-EV = $34.4B + $8.7B - $3.7B = <strong>$39.4B</strong></blockquote>
+<h3>Risk</h3>
+<pre>Annualized Volatility: 44.7% (Very High; daily std dev 2.82%)
+Max Drawdown: -86.7% (recovery requires +651%)
+VaR 95%: -3.8% (bad day threshold on $10K = $380 loss)
+52W Range Position: 70.5%</pre>
 
-<p><strong>EV/EBITDA</strong><br>
-Enterprise value per dollar of operating cash earnings. Lower = cheaper. Useful for comparing companies with different debt levels.</p>
-<blockquote>EV/EBITDA = $39.4B / $2.89B = <strong>13.6x</strong><br>
-Interpretation: the business is valued at 13.6 years of its operating cash earnings.</blockquote>
+<h3>Valuation Models</h3>
 
-<p><strong>EV/Sales (EV/Revenue)</strong><br>
-Enterprise value per dollar of revenue. Used for high-growth companies that may not yet be profitable.</p>
-<blockquote>EV/Sales = $39.4B / $14.73B = <strong>2.7x</strong></blockquote>
+<h4>Reverse DCF</h4>
+<pre>Zero-growth perpetuity: $3.11B / 0.07 = $44.4B (vs EV $34.3B)
+Market demands ~12% WACC (200bps above standard 10%)
+Prices in zero real growth at 12% discount rate.</pre>
 
-<p><strong>P/S (Price-to-Sales)</strong><br>
-Market cap per dollar of revenue. Simpler than EV/Sales (ignores debt/cash).</p>
-<blockquote>P/S = Market Cap / Revenue = $34.4B / $14.73B = <strong>2.3x</strong></blockquote>
+<h4>Forward DCF (3 Scenarios)</h4>
+<pre>Bear (-2%/yr): Implied price ~$244 (-17% vs current)
+Base (+5%/yr then +3%): Implied price ~$395 (+34%)
+Bull (+10%/yr then +5%): Implied price ~$537 (+83%)</pre>
 
-<p><strong>P/B (Price-to-Book)</strong><br>
-Market price relative to accounting book value. P/B &lt; 1 means market values the company below its asset base.</p>
-<blockquote>P/B = Stock Price / Book Value per Share = $287 / $31.70 = <strong>9.1x</strong><br>
-EXPE's high P/B reflects intangible-heavy travel tech -- brand value and platform network effects do not appear on the balance sheet.</blockquote>
+<h4>EV/EBITDA Relative</h4>
+<pre>At BKNG's 12.7x: Implied price ~$314 (+7%)
+At sector median 14x: Implied price ~$345 (+18%)</pre>
 
-<p><strong>FCF Yield (Free Cash Flow Yield)</strong><br>
-Free cash flow as a percentage of market cap. Higher = more cash generation per dollar of market value. Inverse of P/FCF.</p>
-<blockquote>FCF Yield = FCF / Market Cap = $3.11B / $34.4B = <strong>9.0%</strong><br>
-Interpretation: EXPE generates 9 cents of free cash for every $1 of market value annually -- among the highest in this batch.</blockquote>
+<h3>Dashboard Scoring</h3>
 
-<p><strong>Dividend Yield</strong><br>
-Annual dividends as a percentage of stock price.</p>
-<blockquote>EXPE does not currently pay a dividend, so Dividend Yield = $0 / $287 = <strong>0.0%</strong><br>
-For context: if EXPE were to pay out 20% of FCF (~$622M, or ~$5.18/share), the yield would be $5.18 / $287 = 1.8%.</blockquote>
-
-<h3>2. Profitability Metrics</h3>
-
-<p><strong>Gross Margin</strong><br>
-Revenue remaining after direct production costs. Measures pricing power and production efficiency.</p>
-<blockquote>Gross Margin = Gross Profit / Revenue = $5.60B / $14.73B = <strong>38.0%</strong><br>
-Interpretation: EXPE keeps 38 cents of every revenue dollar after paying for the services it delivers.</blockquote>
-
-<p><strong>Operating Margin</strong><br>
-Revenue remaining after all operating expenses (but before interest and taxes). Core business profitability.</p>
-<blockquote>Operating Margin = Operating Income / Revenue = $2.21B / $14.73B = <strong>15.0%</strong></blockquote>
-
-<p><strong>Net Margin</strong><br>
-Bottom-line profit per dollar of revenue, after all costs including taxes and interest.</p>
-<blockquote>Net Margin = Net Income / Revenue = $1.86B / $14.73B = <strong>12.6%</strong></blockquote>
-
-<p><strong>ROE (Return on Equity)</strong><br>
-Profit generated per dollar of shareholder equity. Measures how efficiently the company uses shareholder capital.</p>
-<blockquote>ROE = Net Income / Total Equity = $1.86B / $3.80B = <strong>49.0%</strong><br>
-Interpretation: for every $1 of equity, EXPE generates 49 cents of annual profit. This extremely high ROE is partly driven by leverage (D/E = 2.3) -- debt amplifies equity returns.</blockquote>
-
-<p><strong>ROIC (Return on Invested Capital)</strong><br>
-Profit generated per dollar of ALL capital deployed (equity + debt). Better than ROE for comparing companies with different leverage.</p>
-<blockquote>NOPAT = Operating Income x (1 - Effective Tax Rate) = $2.21B x 0.85 = $1.88B<br>
-ROIC = NOPAT / Invested Capital = $1.88B / $12.5B = <strong>15.0%</strong><br>
-Interpretation: EXPE earns 15.0% on every dollar of capital invested. Compare to WACC (10%) -- ROIC &gt; WACC means the company creates value.</blockquote>
-
-<h3>3. Cash Flow Metrics</h3>
-
-<p><strong>OCF (Operating Cash Flow)</strong><br>
-Cash generated from normal business operations. Starts from net income, adds back non-cash charges, adjusts for working capital changes.</p>
-<blockquote>OCF = $4.35B (from cash flow statement)</blockquote>
-
-<p><strong>FCF (Free Cash Flow)</strong><br>
-Cash available after maintaining/expanding the asset base. The cash that could be returned to shareholders or used for growth.</p>
-<blockquote>FCF = Operating Cash Flow - CapEx = $4.35B - $1.24B = <strong>$3.11B</strong></blockquote>
-
-<p><strong>CapEx (Capital Expenditures)</strong><br>
-Spending on physical assets (factories, equipment, data centers). A measure of investment intensity.</p>
-<blockquote>CapEx = $1.24B<br>
-CapEx/Revenue = $1.24B / $14.73B = 8.4% (capital-light if &lt;10%, capital-heavy if &gt;20%)<br>
-EXPE is capital-light -- most spending is on technology, not physical infrastructure.</blockquote>
-
-<p><strong>FCF/NI (FCF-to-Net-Income Ratio)</strong><br>
-Cash quality indicator. FCF/NI &gt; 100% means the company generates more cash than reported profit -- high earnings quality. FCF/NI &lt; 80% may signal aggressive accounting.</p>
-<blockquote>FCF/NI = $3.11B / $1.86B = <strong>167%</strong><br>
-Interpretation: EXPE's cash generation significantly exceeds reported net income -- a strong earnings-quality signal. The gap is driven by depreciation/amortization add-backs exceeding CapEx.</blockquote>
-
-<h3>4. Growth Metrics</h3>
-
-<p><strong>TTM (Trailing Twelve Months)</strong><br>
-Sum of the last four quarters. Used to annualize quarterly data without calendar-year bias.</p>
-<blockquote>TTM Revenue = Q3 + Q4 + Q1 + Q2 = $3.56B + $3.89B + $3.52B + $3.76B = <strong>$14.73B</strong></blockquote>
-
-<p><strong>YoY (Year-over-Year)</strong><br>
-Growth rate comparing the same period to the prior year. Removes seasonality.</p>
-<blockquote>If Q2 2026 revenue = $3.76B and Q2 2025 revenue = $3.32B:<br>
-YoY Growth = ($3.76B - $3.32B) / $3.32B = <strong>13.3%</strong></blockquote>
-
-<p><strong>CAGR (Compound Annual Growth Rate)</strong><br>
-Smoothed annualized growth rate over multiple years. Accounts for compounding.</p>
-<blockquote>If EXPE's revenue was $8.60B five years ago and is $14.73B now:<br>
-CAGR = ($14.73B / $8.60B)^(1/5) - 1 = (1.713)^0.2 - 1 = <strong>11.4%</strong><br>
-Interpretation: revenue grew at an average of 11.4% per year, compounded.</blockquote>
-
-<p><strong>EPS (Earnings Per Share)</strong><br>
-Net income allocated to each share. The denominator for P/E.</p>
-<blockquote>EPS = Net Income / Shares Outstanding = $1.86B / ~120M = <strong>$15.86</strong></blockquote>
-
-<h3>5. Risk Metrics</h3>
-
-<p><strong>Annualized Volatility</strong><br>
-Standard deviation of daily returns, annualized. Higher = more price uncertainty. Typical ranges: &lt;15% low, 15-25% medium, 25-40% high, &gt;40% very high.</p>
-<blockquote>EXPE daily return std dev = ~2.82%:<br>
-Annualized Vol = 2.82% x sqrt(252) = 2.82% x 15.87 = <strong>44.7%</strong> (very high)<br>
-EXPE sits at the top of the "medium risk" tier in this batch -- reflecting travel-sector cyclicality.</blockquote>
-
-<p><strong>Max Drawdown</strong><br>
-Largest peak-to-trough decline in stock price. Measures worst-case historical loss.</p>
-<blockquote>EXPE's historical max drawdown = <strong>-86.7%</strong><br>
-This occurred during the COVID-19 pandemic when travel bookings collapsed. It demonstrates the extreme tail risk in travel stocks during black-swan events.</blockquote>
-
-<p><strong>VaR 95% (Value at Risk, 95th percentile)</strong><br>
-The daily loss that is exceeded only 5% of trading days. A "bad day" threshold.</p>
-<blockquote>EXPE's 5th percentile of daily returns = <strong>-4.0%</strong><br>
-On 95% of trading days, EXPE loses less than 4.0%. On a $287 position, that is ~$11.48 per share.</blockquote>
-
-<p><strong>Beta</strong><br>
-Stock's sensitivity to market movements. Beta 1.0 = moves with market. Beta 1.5 = 50% more volatile than market. Beta 0.7 = 30% less volatile.</p>
-<blockquote>EXPE's beta = 1.3:<br>
-When the S&amp;P 500 falls 10%, EXPE is expected to fall ~13%.<br>
-When the S&amp;P 500 rises 10%, EXPE is expected to rise ~13%.</blockquote>
-
-<p><strong>Debt/Equity</strong><br>
-Total debt relative to shareholder equity. Measures financial leverage.</p>
-<blockquote>D/E = Total Debt / Total Equity = $8.7B / $3.80B = <strong>2.3</strong><br>
-Interpretation: for every $1 of equity, EXPE has $2.30 of debt. This is elevated (&gt;1.0) and reflects the travel industry's capital structure -- EXPE uses debt to fund acquisitions and buybacks. The high leverage amplifies both ROE (49%) and downside risk.</blockquote>
-
-<h3>6. Valuation Models (used in this report)</h3>
-
-<p><strong>Owner-Earnings Value (Buffett method)</strong><br>
-Intrinsic value based on sustainable cash earnings. Conservative -- applies a 25% margin of safety haircut.</p>
-<blockquote>Owner Earnings = Net Income + Depreciation - Maintenance CapEx<br>
-Value = Owner Earnings x Growth Multiplier x (1 - 25% MoS)</blockquote>
-
-<p><strong>DCF (Discounted Cash Flow)</strong><br>
-Projects future free cash flows and discounts them to present value. The "gold standard" of intrinsic value -- but only as good as the assumptions.</p>
-<blockquote>Value = SUM(FCF_t / (1 + WACC)^t) + Terminal Value<br>
-Run three scenarios: Bear (low growth), Base (consensus), Bull (high growth)</blockquote>
-
-<p><strong>Graham Number</strong><br>
-Benjamin Graham's conservative intrinsic value formula. Suitable for stable, profitable companies.</p>
-<blockquote>Graham Number = sqrt(22.5 x EPS x Book Value per Share)<br>
-= sqrt(22.5 x $15.86 x $31.70) = sqrt($11,312) = <strong>$106.36</strong><br>
-Interpretation: Graham would pay no more than $106.36 for EXPE. At $287, the stock trades at 2.7x the Graham Number -- reflecting growth expectations far beyond what Graham's conservative framework accounts for.</blockquote>
-
-<p><strong>EV/EBITDA Relative Value</strong><br>
-Per-share value implied by applying the sector median EV/EBITDA multiple.</p>
-<blockquote>If travel sector median EV/EBITDA = 12x:<br>
-Implied EV = 12 x $2.89B = $34.68B<br>
-Implied Equity = $34.68B - $8.7B + $3.7B = $29.68B<br>
-Implied Price = $29.68B / 120M shares = <strong>$247</strong><br>
-At $287, EXPE trades at a 16% premium to sector-median-implied value.</blockquote>
-
-<p><strong>PEG-Based Fair Value</strong><br>
-Fair P/E = EPS growth rate (Peter Lynch rule of thumb). PEG = 1 means "fair."</p>
-<blockquote>If long-term EPS growth = 15%, fair P/E = 15x<br>
-Fair Price = 15 x $15.86 = <strong>$238</strong><br>
-At $287, EXPE trades 21% above PEG-implied fair value. However, the forward P/E of 11.7x suggests the market sees near-term earnings acceleration closing this gap.</blockquote>
-
-<h3>7. Scoring Terms (used in the Investment Dashboard)</h3>
-<table>
+<div class="table-wrap"><table>
 <thead><tr><th>Score</th><th>Label</th><th>Meaning</th></tr></thead>
 <tbody>
-  <tr><td>9-10</td><td>Exceptional</td><td>Top-decile across public companies</td></tr>
-  <tr><td>7-8</td><td>Strong</td><td>Clearly above average; a competitive advantage</td></tr>
-  <tr><td>5-6</td><td>Average</td><td>In line with peers; no edge or concern</td></tr>
-  <tr><td>3-4</td><td>Below average</td><td>Meaningful weakness vs peers</td></tr>
-  <tr><td>1-2</td><td>Poor</td><td>Significant risk factor or structural deficiency</td></tr>
-</tbody>
-</table>
+<tr><td>9&ndash;10</td><td>Exceptional</td><td>Top-decile across public companies</td></tr>
+<tr><td>7&ndash;8</td><td>Strong</td><td>Clearly above average; competitive advantage</td></tr>
+<tr><td>5&ndash;6</td><td>Average</td><td>In line with peers; no edge or concern</td></tr>
+<tr><td>3&ndash;4</td><td>Below Average</td><td>Meaningful weakness vs peers</td></tr>
+<tr><td>1&ndash;2</td><td>Poor</td><td>Significant risk factor or structural deficiency</td></tr>
+</tbody></table></div>
 
-<hr>
+<pre>EXPE Composite = (7+7+6+5+7+6+8+5+4+7) / 10 = 6.2/10
 
-<h3>Core Computations — Worked Example with EXPE</h3>
+Dimensions: Business Quality (7), Financial Strength (7),
+Competitive Position (6), Durability (5), Growth (7),
+Management (6), Valuation (8), Sentiment (5), Risk (4),
+Bottom Line (7)</pre>
 
-<p>The following three computations are the core analytical steps applied to every ticker. They go beyond surface-level ratios to reveal earnings quality, implied growth expectations, and the true cost of stock-based compensation.</p>
+<h3>Core Computations</h3>
 
-<h3>A. Earnings Quality Computation</h3>
-
-<p><strong>Step 1 -- Derive reported EPS from trailing P/E:</strong></p>
-<ul>
-  <li>Trailing P/E = 18.1x <strong>FACT</strong> [provided data]</li>
-  <li>Reported EPS (TTM) = Price / P/E = $287 / 18.1 = <strong>$15.86</strong> <strong>INFERENCE</strong> [derived]</li>
-</ul>
-
-<p><strong>Step 2 -- Identify SBC impact:</strong></p>
-<ul>
-  <li>Stock-Based Compensation (TTM): ~$700M <strong>INFERENCE</strong> [estimated from Expedia's typical SBC run-rate of 4-5% of revenue]</li>
-  <li>SBC as % of revenue: $700M / $14,730M = <strong>4.8%</strong> -- below the 15% concern threshold</li>
-  <li>SBC per share: $700M / 120M shares = <strong>$5.83</strong></li>
-</ul>
-
-<p><strong>Step 3 -- Compute adjusted EPS:</strong></p>
-<ul>
-  <li>Adjusted EPS = Reported EPS - SBC per share = $15.86 - $5.83 = <strong>$10.03</strong></li>
-  <li>This is the "true" owner-earnings per share after accounting for dilution from equity compensation</li>
-</ul>
-
-<p><strong>Step 4 -- Compare P/E on reported vs adjusted:</strong></p>
-<ul>
-  <li>P/E on reported EPS: $287 / $15.86 = <strong>18.1x</strong> (what the market shows you)</li>
-  <li>P/E on SBC-adjusted EPS: $287 / $10.03 = <strong>28.6x</strong> (what you actually pay)</li>
-  <li><strong>Delta: 10.5x</strong> -- this is the "hidden cost" of SBC. The stock looks 58% more expensive on an SBC-adjusted basis.</li>
-</ul>
-
-<p><strong>Step 5 -- Forward EPS crosscheck:</strong></p>
-<ul>
-  <li>Forward P/E = 11.7x implies forward EPS = $287 / 11.7 = <strong>$24.53</strong></li>
-  <li>The gap between trailing EPS ($15.86) and forward EPS ($24.53) implies analysts expect <strong>+55% earnings growth</strong> over the next 12 months -- a significant acceleration that warrants scrutiny.</li>
-</ul>
-
-<h3>B. Reverse DCF Computation</h3>
-
-<p>The reverse DCF answers: "What FCF growth rate does the current stock price imply?"</p>
-
-<p><strong>Step 1 -- Establish enterprise value:</strong></p>
-<ul>
-  <li>Market Cap: $34.4B <strong>FACT</strong> [provided]</li>
-  <li>Net Debt: $8.7B - $3.7B = $5.0B <strong>INFERENCE</strong> [Total Debt minus Cash]</li>
-  <li>Enterprise Value = MCap + Net Debt = $34.4B + $5.0B = <strong>$39.4B</strong></li>
-</ul>
-
-<p><strong>Step 2 -- Set DCF parameters:</strong></p>
-<ul>
-  <li>Current FCF: $3.11B <strong>FACT</strong> [provided]</li>
-  <li>Discount rate (WACC): 10% (standard for mid-cap travel/tech)</li>
-  <li>Terminal growth rate: 2.5% (GDP-ish long-run growth)</li>
-  <li>Projection period: 5 years</li>
-</ul>
-
-<p><strong>Step 3 -- Solve for implied growth rate g:</strong></p>
-
-<p>The equation: EV = SUM(t=1 to 5) of [FCF_0 x (1+g)^t / (1+WACC)^t] + [FCF_5 x (1+g_terminal) / (WACC - g_terminal)] / (1+WACC)^5</p>
-
-<p>Testing g = 1.0%:</p>
-<table>
-<thead><tr><th>Year</th><th class="num">FCF ($B)</th><th class="num">Discount Factor</th><th class="num">PV ($B)</th></tr></thead>
+<h4>Earnings Quality</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>Factor</th><th>Rating</th><th>Why</th></tr></thead>
 <tbody>
-  <tr><td>1</td><td class="num">3.14</td><td class="num">0.909</td><td class="num">2.86</td></tr>
-  <tr><td>2</td><td class="num">3.17</td><td class="num">0.826</td><td class="num">2.62</td></tr>
-  <tr><td>3</td><td class="num">3.20</td><td class="num">0.751</td><td class="num">2.41</td></tr>
-  <tr><td>4</td><td class="num">3.24</td><td class="num">0.683</td><td class="num">2.21</td></tr>
-  <tr><td>5</td><td class="num">3.27</td><td class="num">0.621</td><td class="num">2.03</td></tr>
-  <tr class="median-row"><td><strong>Sum PV (years 1-5)</strong></td><td class="num"></td><td class="num"></td><td class="num"><strong>12.13</strong></td></tr>
-</tbody>
-</table>
+<tr><td>FCF &gt; Net Income</td><td>Strong</td><td>241% cash conversion</td></tr>
+<tr><td>SBC transparency</td><td>Poor</td><td>Data missing; estimated $0.7&ndash;1.5B</td></tr>
+<tr><td>Working capital quality</td><td>Moderate</td><td>Merchant model inflates OCF; reversible</td></tr>
+<tr><td>Earnings trend</td><td>Strong</td><td>65% EPS CAGR over 3 years</td></tr>
+<tr><td>Operating leverage</td><td>Improving</td><td>Peak-quarter spread compressing</td></tr>
+<tr style="font-weight:600"><td>Overall</td><td>Moderate</td><td>Strong cash offset by SBC opacity</td></tr>
+</tbody></table></div>
 
-<p>Terminal value = $3.27B x 1.025 / (0.10 - 0.025) = $3.35B / 0.075 = $44.7B<br>
-PV of terminal = $44.7B x 0.621 = $27.7B</p>
+<h4>SBC-Adjusted Earnings</h4>
+<pre>Low est. (5% rev):  SBC $735M &rarr; Adj P/E = 62.0x
+Mid est. (7% rev):  SBC $1.03B &rarr; Adj P/E = 132.4x
+High est. (10% rev): SBC $1.47B &rarr; Net loss (P/E N/A)
+FCF unaffected: SBC is non-cash; dilution is the real cost.</pre>
 
-<p><strong>Total implied EV at g=1%: $12.13B + $27.7B = $39.8B</strong></p>
-
-<p>This closely matches EXPE's actual EV of $39.4B.</p>
-
-<p><strong>Result: The market implies ~1% annual FCF growth for EXPE.</strong></p>
-
-<p><strong>Step 4 -- Reality check:</strong></p>
-<ul>
-  <li>Expedia's historical 5-year FCF CAGR: estimated ~8-12% <strong>INFERENCE</strong></li>
-  <li>The market is pricing in near-zero growth -- well below historical rates</li>
-  <li><strong>Verdict:</strong> If you believe EXPE can grow FCF at even 3-5% annually (half of historical), the stock is undervalued. The market appears to be pricing in a permanent growth slowdown that may be overly pessimistic. <strong>INFERENCE</strong></li>
-</ul>
-
-<h3>C. SBC-Adjusted FCF</h3>
-
-<p><strong>Step 1 -- Start from reported FCF:</strong></p>
-<ul>
-  <li>Operating Cash Flow (TTM): $4.35B <strong>FACT</strong> [provided]</li>
-  <li>Capital Expenditures: $1.24B <strong>FACT</strong> [provided]</li>
-  <li><strong>Reported FCF = OCF - CapEx = $4.35B - $1.24B = $3.11B</strong> <strong>FACT</strong> [provided]</li>
-</ul>
-
-<p><strong>Step 2 -- Subtract SBC to get true owner cash flow:</strong></p>
-<ul>
-  <li>Stock-Based Compensation: ~$700M <strong>INFERENCE</strong> [estimated]</li>
-  <li><strong>SBC-Adjusted FCF = $3.11B - $0.70B = $2.41B</strong></li>
-</ul>
-
-<p><strong>Step 3 -- Compute yields:</strong></p>
-<ul>
-  <li>FCF Yield (reported): $3.11B / $34.4B = <strong>9.0%</strong> -- exceptionally high</li>
-  <li>FCF Yield (SBC-adjusted): $2.41B / $34.4B = <strong>7.0%</strong> -- still strong</li>
-  <li><strong>Yield haircut from SBC: 2.0 percentage points</strong> (200 bps)</li>
-</ul>
-
-<p><strong>Step 4 -- Interpret:</strong></p>
-<p>Even after the SBC adjustment, EXPE's 7.0% FCF yield is among the highest in this 20-ticker batch. For comparison, the S&amp;P 500 median FCF yield is roughly 3-4%. This reinforces EXPE's positioning as a value/cash-generation play -- the SBC cost is real but does not destroy the thesis. <strong>INFERENCE</strong></p>
-
-<h3>Summary Table -- EXPE Reported vs Adjusted</h3>
-<table>
-<thead><tr><th>Metric</th><th class="num">Reported</th><th class="num">SBC-Adjusted</th><th>Delta</th></tr></thead>
+<h3>Quick Formula Reference</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Metric</th><th>Formula</th><th>EXPE Result</th></tr></thead>
 <tbody>
-  <tr><td>EPS (TTM)</td><td class="num">$15.86</td><td class="num">$10.03</td><td>-$5.83 (-37%)</td></tr>
-  <tr><td>P/E</td><td class="num">18.1x</td><td class="num">28.6x</td><td>+10.5x (+58%)</td></tr>
-  <tr><td>FCF</td><td class="num">$3.11B</td><td class="num">$2.41B</td><td>-$0.70B (-23%)</td></tr>
-  <tr><td>FCF Yield</td><td class="num">9.0%</td><td class="num">7.0%</td><td>-2.0pp</td></tr>
-  <tr><td>Implied FCF CAGR (reverse DCF)</td><td class="num">~1%</td><td class="num">--</td><td>Market prices near-zero growth</td></tr>
-</tbody>
-</table>
+<tr><td>P/E</td><td>Price / EPS</td><td>18.5x</td></tr>
+<tr><td>Forward P/E</td><td>Price / Fwd EPS</td><td>11.7x</td></tr>
+<tr><td>EV</td><td>MCap + Debt - Cash</td><td>$34.3B</td></tr>
+<tr><td>EV/EBITDA</td><td>EV / EBITDA</td><td>11.9x</td></tr>
+<tr><td>EV/Sales</td><td>EV / Revenue</td><td>2.2x</td></tr>
+<tr><td>FCF Yield</td><td>FCF / MCap</td><td>9.0%</td></tr>
+<tr><td>Net Margin</td><td>NI / Revenue</td><td>8.8%</td></tr>
+<tr><td>FCF Margin</td><td>FCF / Revenue</td><td>21.2%</td></tr>
+<tr><td>FCF</td><td>OCF - CapEx</td><td>$3.11B</td></tr>
+<tr><td>FCF/NI</td><td>FCF / NI</td><td>241%</td></tr>
+<tr><td>CAGR</td><td>(End/Start)^(1/n)-1</td><td>65% (3Y EPS)</td></tr>
+<tr><td>Composite</td><td>Sum 10 scores / 10</td><td>6.2/10</td></tr>
+</tbody></table></div>
 
-<p><strong>Key takeaway:</strong> SBC is a meaningful but not disqualifying cost for EXPE. The stock screens as cheap on both reported and adjusted metrics. The reverse DCF reveals the market expects essentially flat FCF -- any positive surprise on growth would represent upside. <strong>INFERENCE</strong></p>
+</div>
+</details>
 
-<a href="#top" class="back-top">Back to Top</a>
+</div><!-- .wrap -->
 
-</div><!-- /.container -->
-
-<!-- Sortable table JS -->
+<!-- Sort JS for comparison table -->
 <script>
-(function() {
-  var table = document.getElementById('compTable');
-  if (!table) return;
-  var headers = table.querySelectorAll('thead th');
-  var tbody = table.querySelector('tbody');
-
-  function parseVal(td) {
-    var txt = td.textContent.trim().replace(/[,$%xBM]/g, '').replace(/\/10/, '');
-    if (txt === 'N/A' || txt === '--') return -Infinity;
-    var n = parseFloat(txt);
-    return isNaN(n) ? -Infinity : n;
-  }
-
-  headers.forEach(function(th, idx) {
-    if (idx === 0 || idx === 1 || idx === headers.length - 1) return;
-    th.addEventListener('click', function() {
-      var rows = Array.from(tbody.querySelectorAll('tr'));
-      var asc = th.classList.contains('sort-asc');
-      headers.forEach(function(h) { h.classList.remove('sort-asc', 'sort-desc'); });
-      th.classList.add(asc ? 'sort-desc' : 'sort-asc');
-      var dir = asc ? -1 : 1;
-      rows.sort(function(a, b) {
-        var va = parseVal(a.cells[idx]);
-        var vb = parseVal(b.cells[idx]);
-        if (va === vb) return 0;
-        return va > vb ? dir : -dir;
+(function(){
+  const table = document.getElementById('comp-table');
+  if(!table) return;
+  const headers = table.querySelectorAll('th.sortable');
+  let lastCol = -1, asc = true;
+  headers.forEach(th => {
+    th.addEventListener('click', function(){
+      const col = +this.dataset.col;
+      const type = this.dataset.type;
+      if(col === lastCol){ asc = !asc; } else { asc = true; lastCol = col; }
+      headers.forEach(h => { h.classList.remove('sort-asc','sort-desc'); });
+      this.classList.add(asc ? 'sort-asc' : 'sort-desc');
+      const tbody = table.querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      rows.sort((a,b) => {
+        let va = a.cells[col].textContent.trim();
+        let vb = b.cells[col].textContent.trim();
+        if(type === 'num'){
+          const parse = s => {
+            s = s.replace(/[,$%x]/g,'').replace(/N\/A/i,'');
+            if(s === '' || s === '-') return -Infinity;
+            const n = parseFloat(s);
+            return isNaN(n) ? -Infinity : n;
+          };
+          va = parse(va); vb = parse(vb);
+          return asc ? va - vb : vb - va;
+        }
+        return asc ? va.localeCompare(vb) : vb.localeCompare(va);
       });
-      rows.forEach(function(r) { tbody.appendChild(r); });
+      rows.forEach(r => tbody.appendChild(r));
     });
   });
 })();
 </script>
-
 </body>
 </html>

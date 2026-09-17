@@ -177,11 +177,13 @@ If a sector has no other tickers beyond the batch ticker, say "No additional tic
 ### CSS design system (v3)
 
 All HTML reports use the same CSS:
+- **Light background mandatory:** `body { background: #ffffff; }` — pure white, not grey. No dark mode. All section cards, tables, and nav use light/white tones.
 - `max-width: 960px`, font: Inter/-apple-system, `font-size: 15px`, `line-height: 1.75`
-- Sticky nav bar: `position: sticky; top: 0; z-index: 100; rgba(253,253,253,0.92)` + `backdrop-filter: blur(10px)`
+- Sticky nav bar: `position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95)` + `backdrop-filter: blur(10px)`
 - Tables: `font-variant-numeric: lining-nums tabular-nums`, `tr:hover #f5f5f5`
 - Metric cards: `.dashboard` grid, `.metric-card` with colored left-border
 - Responsive at 768px, print-safe (hide nav)
+- **No dark mode / prefers-color-scheme:** always light theme
 
 ### HTML readability polish (master report)
 

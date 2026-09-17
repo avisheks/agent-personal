@@ -280,7 +280,11 @@ Follow this exact structure. Sections are ordered quality-first, then valuation,
 
 1. **Executive Summary** — one page, conclusion-first. Must include quality gate verdict: "passes/fails quality screen on ROIC > WACC, positive FCF, D/E < 1.5." If quality fails, state it upfront. Include valuation range visualization (ASCII bar showing bear/base/bull and where current price sits).
 2. **Earnings Quality** — Reported EPS vs Adjusted EPS (strip SBC, normalize CapEx, exclude one-timers). P/E on reported vs P/E on adjusted. SBC as % of revenue. SBC-adjusted FCF = FCF - SBC. Flag SBC > 15% of revenue. **Operating leverage trajectory**: show gross margin vs operating margin gap and whether it's narrowing over last 8 quarters. For high-gross-margin businesses (>60%), this is THE value driver.
-3. **Company Fundamentals** — current profile + peer comparison. Must include SBC line item and **institutional ownership %** (from Yahoo Finance) with direction (increasing/decreasing/stable). Flag "under-owned by institutions" (<50%) as potential catalyst. **P/E vs historical range**: current P/E vs 5-year average P/E, show percentile ("cheapest/most expensive in 5 years"). Sector-specific primary metric highlighted.
+3. **Company Fundamentals** — current profile + peer comparison. Must include SBC line item and **institutional ownership %** (from Yahoo Finance) with direction (increasing/decreasing/stable). Flag "under-owned by institutions" (<50%) as potential catalyst. **P/E vs historical range**: current P/E vs 5-year average P/E, show percentile ("cheapest/most expensive in 5 years"). Sector-specific primary metric highlighted. **Technical price signals** (mandatory sub-section):
+   - **52-week high / 52-week low**: from price history in research packet. Show current price as % from high and % from low.
+   - **Golden cross / Death cross**: 50-day SMA vs 200-day SMA. State which occurred most recently and the date. Golden cross (50 > 200) = bullish; Death cross (50 < 200) = bearish.
+   - **Entry/Exit recommendation**: Based on valuation range + technical signals, provide one of: 🟢 **Good entry point** (near bear case + golden cross or oversold), 🟡 **Hold / wait** (fair value zone, no strong signal), 🔴 **Consider exit** (above bull case + death cross or overbought). Include a one-sentence rationale.
+   - Data source: compute from `prices` table in research packet (252 trading days for 52-week, 50/200-day SMAs). If insufficient price history, state "N/A — insufficient data" for each.
 4. **Ten-Year Quarterly History** — table with Revenue, YoY Growth, EPS, Adjusted EPS, Margins (gross AND operating — show the gap), FCF, SBC-adjusted FCF, Beat/Miss
 5. **Historical Sentiment (5 years)** — year-by-year: narrative → evidence → outcome → was it correct?
 6. **Sentiment vs. Subsequent Returns** — quantitative: sentiment bucket → forward 1M/3M/6M/12M
@@ -518,7 +522,7 @@ Every individual ticker `.md` file must contain these sections with matching anc
 |---|---------|-----------|-------------------|
 | 1 | Executive Summary | `executive-summary` | Quality gate verdict, key metrics table, ASCII valuation range bar (bear/base/bull) |
 | 2 | Earnings Quality | `earnings-quality` | SBC-adjusted EPS, FCF quality, operating leverage trajectory |
-| 3 | Company Fundamentals | `fundamentals` | Peer comparison table, P/E vs 5yr historical percentile, institutional ownership % |
+| 3 | Company Fundamentals | `fundamentals` | Peer comparison table, P/E vs 5yr historical percentile, institutional ownership %, 52-week high/low, golden/death cross, entry/exit recommendation |
 | 4 | Ten-Year Quarterly History | `history` | Revenue + EPS table (≥8 quarters), gross AND operating margin gap |
 | 5 | Historical Sentiment (5Y) | `sentiment-5y` | Sentiment distribution table |
 | 6 | Sentiment vs Returns | `sentiment-returns` | Bucket analysis |
@@ -560,6 +564,10 @@ for dir in */; do
   # Check Back to Top links
   BTT=$(grep -ci "back to top" "$f")
   [ "$BTT" -lt 8 ] && errors="$errors LOW:BackToTop($BTT)"
+  # Check technical indicators (52-week, cross, entry/exit)
+  grep -qi "52-week\|52.week" "$f" || errors="$errors MISSING:52-week-range"
+  grep -qi "golden cross\|death cross" "$f" || errors="$errors MISSING:golden-death-cross"
+  grep -qi "entry point\|exit point\|entry\|Hold.*wait\|Good entry\|Consider exit" "$f" || errors="$errors MISSING:entry-exit-signal"
 
   if [ -z "$errors" ]; then
     echo "✅ $ticker"; PASS=$((PASS+1))
@@ -572,9 +580,40 @@ echo "PASS: $PASS | FAIL: $FAIL"
 [ "$FAIL" -gt 0 ] && echo "⛔ FIX FAILURES BEFORE GENERATING MASTER REPORT"
 ```
 
-**If ANY ticker fails verification:** Fix the report before proceeding. Do NOT generate the master report with non-conforming individual reports — the master pulls data and scores from individual reports, so format inconsistencies propagate.
+**If ANY ticker fails format verification:** Fix the report before proceeding.
 
-### Stage 3: Master Report (mandatory — fires after all individual reports pass format verification)
+### Numeric Verification Gate (mandatory — after format gate, before master report)
+
+After all reports pass the format gate, run the numeric verifier to catch stale/hallucinated values:
+
+```bash
+cd $REPO_ROOT
+python -m stock_research.report_verifier --date YYYY-MM-DD
+```
+
+**What it checks (3 layers):**
+1. **DuckDB source-of-truth** — report-stated price vs latest price in `prices` table (>5% deviation = FAIL)
+2. **Live spot-check** — report-stated price vs current yfinance price (>5% deviation = FAIL)
+3. **Sanity bounds** — non-positive prices, MCap; vol >200%; dashboard score out of 0-10; 52wk high < low; price >150% of 52wk high
+
+**Exit code:** 0 = all pass, 1 = one or more tickers fail.
+
+**If ANY ticker fails numeric verification:** The report's price/metrics are stale or hallucinated. Re-run the data pipeline (Stage 1) for the failed tickers, regenerate their individual reports (Stage 2), then re-run verification. Do NOT proceed to master report generation until all tickers pass.
+
+**Event emitted:** `report_verification` with pass/fail counts and failed ticker list.
+
+```bash
+# To verify specific tickers only:
+python -m stock_research.report_verifier --date YYYY-MM-DD --tickers RDDT,TSLA
+
+# To skip live yfinance check (offline mode):
+python -m stock_research.report_verifier --date YYYY-MM-DD --no-live
+
+# Custom tolerance (default 5%):
+python -m stock_research.report_verifier --date YYYY-MM-DD --tolerance 0.10
+```
+
+### Stage 3: Master Report (mandatory — fires after all individual reports pass BOTH gates)
 
 **⛔ CRITICAL: The master report must NOT invent, fetch, or synthesize any new data.**
 
@@ -587,6 +626,66 @@ The master report is a **compilation-only** document. Every number, score, metri
 - **Source of truth:** Individual ticker `.md` report → research packet `.json` → tickers.yaml (in that priority order)
 - **Verification:** After generating the master, spot-check 3 random tickers — their master-row values must match their individual report values exactly
 
+#### Mandatory Parallel Agent Pipeline for Master Report Generation
+
+**This is the REQUIRED workflow for generating the master report. Do NOT write the master report inline or with a single agent. Always use this 3-phase pipeline.**
+
+The master report is too large for a single-pass write (typically 35-70KB .md + 60-100KB .html). Single-agent generation causes stalls, context overflow, and data inconsistencies. The pipeline below ensures correctness via separation of concerns.
+
+---
+
+**Phase 1 — Data Extraction (single agent, MUST run first, blocking)**
+
+Launch ONE agent with `run_in_background: false` that:
+1. Reads all individual ticker `.md` reports (header + fundamentals + dashboard + valuation range sections)
+2. Extracts per-ticker: Price, MCap, P/E, Fwd P/E, EV/EBITDA, EV/Sales, Vol%, Dashboard score, Sector, Bear price, Bull price, 52-week High, 52-week Low, Signal (🟢/🟡/🔴), Most recent cross (Golden/Death + date)
+3. Writes a structured pipe-delimited data file to `/tmp/master-data-YYYY-MM-DD.txt`
+4. This file is the **SINGLE SOURCE OF TRUTH** for all Phase 2 agents — no agent reads individual reports directly
+
+**Enforcement:** If `/tmp/master-data-YYYY-MM-DD.txt` does not exist when Phase 2 starts, STOP. Phase 1 was skipped.
+
+---
+
+**Phase 2 — Parallel Section Writers (4 agents, launched simultaneously)**
+
+Launch ALL FOUR agents in a single tool-call message so they run concurrently:
+
+| Agent | Output File | Section(s) | Input |
+|-------|------------|-----------|-------|
+| Agent A | `/tmp/master-A-risk-comparison.md` | §1 Risk Tier Summary + §2 Comparison Table (with Valuation Range) | Data file |
+| Agent B | `/tmp/master-B-explore.md` | §3 Explore These Next | Data file + `config/tickers.yaml` |
+| Agent C | `/tmp/master-C-sectors-bestworst.md` | §4 Sector Grouping + §5 Best/Worst | Data file |
+| Agent D | `/tmp/master-D-appendix.md` | §6+§7 Appendix (worked example + glossary) | EXPE individual report + `config/glossary.md` |
+
+**Rules for each agent:**
+- Output ≤25KB per file
+- Use ONLY data from the extraction file (Phase 1) — no external fetches, no re-reading individual reports
+- Agent B may read `config/tickers.yaml` for explore-ticker sector peers (with `~` approximations)
+- Agent D may read the EXPE individual report and `config/glossary.md` for the appendix content
+- Include proper anchor IDs and Back to Top links in each section
+
+---
+
+**Phase 3 — Compilation + Cross-Check (single agent, MUST run after Phase 2 completes)**
+
+Launch ONE agent that:
+1. Reads all 4 section files from `/tmp/master-{A,B,C,D}-*.md`
+2. Assembles into `YYYY-MM-DD-master.md` with TOC, header, and section ordering
+3. Generates `YYYY-MM-DD-master.html` with CSS design system v3 (score pills, sortable tables, emoji headings, risk badges)
+4. Runs these **mandatory cross-checks:**
+   - [ ] All 20 tickers present in comparison table
+   - [ ] Spot-check 3 random tickers: master-row values match extraction file
+   - [ ] Section numbering is sequential (1-5 + Appendix)
+   - [ ] No "SOP v2" or internal jargon anywhere
+   - [ ] All report links point to existing `.md` files
+   - [ ] HTML has score pill badges, sortable JS, emoji headings, static thead
+5. If any check fails: fix inline before writing final output
+6. Writes both .md (≤25KB chunks) and .html (≤25KB chunks) to the reports directory
+
+---
+
+**Cleanup:** After successful generation, delete `/tmp/master-*.md` and `/tmp/master-data-*.txt`.
+
 After ALL individual ticker reports (.md) are generated AND pass the format verification gate, produce a master comparison doc:
 
 ```
@@ -598,14 +697,19 @@ The date matches the weekly run date (same as the individual report dates).
 
 **Master report structure (sections in this order):**
 
-#### 1. Header + Summary
+#### 1. Header + Signal Summary
 
 ```markdown
 # Weekly Stock Research — Master Comparison (YYYY-MM-DD)
 
-**Tickers:** 19 | **Reports generated:** 19/19
+**Tickers:** N | **Reports generated:** N/N
 **Sectors:** N unique sectors represented
+**Source:** All data extracted from individual ticker .md reports — no external data fetched.
+
+**Signal Breakdown:** 🟢 Good entry (N tickers: AAA, BBB, ...) | 🟡 Hold (N: CCC, ...) | 🔴 Consider exit (N: DDD, ...)
 ```
+
+The signal breakdown is a top-level summary computed from the Entry/Exit Signal in each ticker's Technical Price Signals sub-section. It gives the reader an instant portfolio-level view before they dive into details.
 
 #### 2. Risk Tier Summary (FIRST after header)
 
@@ -622,11 +726,15 @@ Group all tickers into risk tiers. This goes first because it's the quickest way
 
 One row per ticker, sorted by dashboard composite score (highest first). **Links point to .md files** (individual tickers are .md only).
 
-| Ticker | Sector | Price | MCap | P/E | Fwd P/E | EV/EBITDA | EV/Sales | Vol | Valuation Range | Dashboard | Report |
-|--------|--------|-------|------|-----|---------|-----------|----------|-----|-----------------|-----------|--------|
-| BKNG | TRAVEL | $171 | $133B | 19.1x | 13.9x | 12.7x | 4.7x | 33% | $120–$171–$240 | 7.6/10 | [→](BKNG/BKNG_YYYY-MM-DD.md) |
+| Ticker | Sector | Price | 52wk Range | MCap | P/E | Fwd P/E | EV/EBITDA | EV/Sales | Vol | Valuation Range | Signal | Dashboard | Report |
+|--------|--------|-------|-----------|------|-----|---------|-----------|----------|-----|-----------------|--------|-----------|--------|
+| BKNG | TRAVEL | $171 | $120–$195 | $133B | 19.1x | 13.9x | 12.7x | 4.7x | 33% | $120–$171–$240 | 🟢 Entry | 7.6/10 | [→](BKNG/BKNG_YYYY-MM-DD.md) |
 
-**Valuation Range column:** Shows `$Bear–$Current–$Bull` from each ticker's Executive Summary valuation range bar. Format: `$BEAR–$CURRENT–$BULL`. If the current price is below bear, prefix with ⬇️. If above bull, prefix with ⬆️. This gives an at-a-glance view of where each ticker trades within its own valuation envelope.
+**Valuation Range column:** Shows `$Bear–$Current–$Bull` from each ticker's Executive Summary valuation range bar. Format: `$BEAR–$CURRENT–$BULL`. If the current price is below bear, prefix with ⬇️. If above bull, prefix with ⬆️.
+
+**52wk Range column:** Shows `$Low–$High` (52-week low and high) from each ticker's Company Fundamentals section.
+
+**Signal column:** Entry/exit recommendation from each ticker's Company Fundamentals section. One of: 🟢 Entry, 🟡 Hold, 🔴 Exit.
 
 **Rules:**
 - Links use `.md` extension — individual tickers are generated as .md only
