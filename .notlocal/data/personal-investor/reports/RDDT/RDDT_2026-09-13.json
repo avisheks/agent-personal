@@ -1,6 +1,6 @@
 {
   "ticker": "RDDT",
-  "generated_at": "2026-09-17T00:39:26.177375",
+  "generated_at": "2026-09-17T16:21:46.011785",
   "snapshot": {
     "latest_quarter": "Q4 2025",
     "period_end": "2025-12-31",
@@ -20,17 +20,17 @@
     "roe": null,
     "roic": null,
     "valuation_date": "2026-09-17",
-    "market_cap": 30321690624.0,
-    "pe": 37.169815,
-    "forward_pe": 16.268404,
-    "ev_sales": 10.057,
-    "ev_ebitda": 34.867,
-    "price_sales": 10.91166,
+    "market_cap": 29263511552.0,
+    "pe": 35.372093,
+    "forward_pe": 15.700662,
+    "ev_sales": 9.916,
+    "ev_ebitda": 34.38,
+    "price_sales": 10.53086,
     "fcf_yield": null,
-    "enterprise_value": 27946764288.0,
-    "latest_price_date": "2026-09-16",
-    "latest_close": null,
-    "latest_volume": 2899009
+    "enterprise_value": 27556200448.0,
+    "latest_price_date": "2026-09-17",
+    "latest_close": 152.10000610351562,
+    "latest_volume": 3146998
   },
   "fundamentals_10y": [
     {
@@ -276,10 +276,10 @@
         "roe": null,
         "roic": null,
         "free_cash_flow": 684169000.0,
-        "pe": 37.169815,
-        "forward_pe": 16.268404,
-        "ev_sales": 10.057,
-        "ev_ebitda": 34.867,
+        "pe": 35.372093,
+        "forward_pe": 15.700662,
+        "ev_sales": 9.916,
+        "ev_ebitda": 34.38,
         "fcf_yield": null
       },
       {
@@ -291,10 +291,10 @@
         "roe": null,
         "roic": null,
         "free_cash_flow": 35648000.0,
-        "pe": 42.95349,
+        "pe": 42.29771,
         "forward_pe": 26.54155,
-        "ev_sales": 5.116,
-        "ev_ebitda": 27.388,
+        "ev_sales": 5.229,
+        "ev_ebitda": 27.992,
         "fcf_yield": null
       }
     ],
@@ -328,64 +328,39 @@
     }
   },
   "valuation_models": {
-    "intrinsic_value": null,
-    "market_price": 50.439998626708984,
-    "margin_of_safety": null,
-    "models": {
-      "owner_earnings": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "dcf": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "ev_ebitda": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "graham_number": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "peg": {
-        "value": null,
-        "error": "insufficient inputs"
-      }
-    },
-    "verdict": "insufficient data",
-    "models_succeeded": 0
+    "note": "valuation calculation error: name '_WACC' is not defined",
+    "models": []
   },
   "risk_metrics": {
-    "annualized_volatility": 0.7968,
+    "annualized_volatility": 0.7959,
     "max_drawdown": 0.8553,
     "var_95_daily": -0.0755,
     "risk_rating": "very_high",
-    "data_points": 622
+    "data_points": 624
   },
   "recent_sentiment": {
     "6m": {
-      "count": 16,
+      "count": 30,
       "bullish": 0,
       "bearish": 0,
-      "neutral": 16,
-      "avg_strength": 0.781,
+      "neutral": 30,
+      "avg_strength": 0.8,
       "top_narratives": []
     },
     "3m": {
-      "count": 12,
+      "count": 22,
       "bullish": 0,
       "bearish": 0,
-      "neutral": 12,
-      "avg_strength": 0.736,
+      "neutral": 22,
+      "avg_strength": 0.758,
       "top_narratives": []
     },
     "1m": {
-      "count": 8,
+      "count": 11,
       "bullish": 0,
       "bearish": 0,
-      "neutral": 8,
-      "avg_strength": 0.667,
+      "neutral": 11,
+      "avg_strength": 0.606,
       "top_narratives": []
     }
   },
@@ -430,9 +405,9 @@
     "table_record_counts": {
       "company_fundamentals": 15,
       "earnings": 0,
-      "prices": 624,
+      "prices": 625,
       "valuation": 2,
-      "sentiment_observations": 19
+      "sentiment_observations": 44
     }
   }
 }

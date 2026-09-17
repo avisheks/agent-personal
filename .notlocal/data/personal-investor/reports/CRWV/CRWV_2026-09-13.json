@@ -1,6 +1,6 @@
 {
   "ticker": "CRWV",
-  "generated_at": "2026-09-17T00:36:48.262782",
+  "generated_at": "2026-09-17T16:10:44.863003",
   "snapshot": {
     "latest_quarter": "Q4 2025",
     "period_end": "2025-12-31",
@@ -20,17 +20,17 @@
     "roe": null,
     "roic": null,
     "valuation_date": "2026-09-17",
-    "market_cap": 45970571264.0,
+    "market_cap": 44362678272.0,
     "pe": null,
-    "forward_pe": -42.774296,
+    "forward_pe": -41.2782,
     "ev_sales": 12.127,
     "ev_ebitda": 24.293,
-    "price_sales": 6.056729,
+    "price_sales": 5.844885,
     "fcf_yield": null,
     "enterprise_value": 92044574720.0,
-    "latest_price_date": "2026-09-16",
-    "latest_close": null,
-    "latest_volume": 18527767
+    "latest_price_date": "2026-09-17",
+    "latest_close": 80.43470001220703,
+    "latest_volume": 43794718
   },
   "fundamentals_10y": [
     {
@@ -220,7 +220,7 @@
         "roic": null,
         "free_cash_flow": -7251000000.0,
         "pe": null,
-        "forward_pe": -42.774296,
+        "forward_pe": -41.2782,
         "ev_sales": 12.127,
         "ev_ebitda": 24.293,
         "fcf_yield": null
@@ -294,64 +294,39 @@
     }
   },
   "valuation_models": {
-    "intrinsic_value": null,
-    "market_price": 40.0,
-    "margin_of_safety": null,
-    "models": {
-      "owner_earnings": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "dcf": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "ev_ebitda": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "graham_number": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "peg": {
-        "value": null,
-        "error": "insufficient inputs"
-      }
-    },
-    "verdict": "insufficient data",
-    "models_succeeded": 0
+    "note": "valuation calculation error: name '_WACC' is not defined",
+    "models": []
   },
   "risk_metrics": {
-    "annualized_volatility": 1.0974,
+    "annualized_volatility": 1.0951,
     "max_drawdown": 0.8071,
     "var_95_daily": -0.1136,
     "risk_rating": "very_high",
-    "data_points": 367
+    "data_points": 369
   },
   "recent_sentiment": {
     "6m": {
-      "count": 14,
+      "count": 26,
       "bullish": 0,
       "bearish": 0,
-      "neutral": 14,
-      "avg_strength": 0.75,
+      "neutral": 26,
+      "avg_strength": 0.615,
       "top_narratives": []
     },
     "3m": {
-      "count": 14,
+      "count": 26,
       "bullish": 0,
       "bearish": 0,
-      "neutral": 14,
-      "avg_strength": 0.75,
+      "neutral": 26,
+      "avg_strength": 0.615,
       "top_narratives": []
     },
     "1m": {
-      "count": 13,
+      "count": 24,
       "bullish": 0,
       "bearish": 0,
-      "neutral": 13,
-      "avg_strength": 0.731,
+      "neutral": 24,
+      "avg_strength": 0.583,
       "top_narratives": []
     }
   },
@@ -396,9 +371,9 @@
     "table_record_counts": {
       "company_fundamentals": 11,
       "earnings": 0,
-      "prices": 369,
+      "prices": 370,
       "valuation": 3,
-      "sentiment_observations": 38
+      "sentiment_observations": 75
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "IREN",
-  "generated_at": "2026-09-17T00:41:51.979449",
+  "generated_at": "2026-09-17T16:33:07.091842",
   "snapshot": {
     "latest_quarter": "Q4 2025",
     "period_end": "2025-12-31",
@@ -20,17 +20,17 @@
     "roe": null,
     "roic": null,
     "valuation_date": "2026-09-17",
-    "market_cap": 16794779648.0,
+    "market_cap": 17108057088.0,
     "pe": null,
-    "forward_pe": -160.8302,
-    "ev_sales": 25.925,
-    "ev_ebitda": 477.975,
-    "price_sales": 23.754759,
+    "forward_pe": -163.8302,
+    "ev_sales": 26.504,
+    "ev_ebitda": 488.662,
+    "price_sales": 24.197863,
     "fcf_yield": null,
-    "enterprise_value": 18328893440.0,
-    "latest_price_date": "2026-09-16",
-    "latest_close": null,
-    "latest_volume": 33643271
+    "enterprise_value": 18738714624.0,
+    "latest_price_date": "2026-09-17",
+    "latest_close": 43.415000915527344,
+    "latest_volume": 28852998
   },
   "fundamentals_10y": [
     {
@@ -206,9 +206,9 @@
         "roic": null,
         "free_cash_flow": -505997000.0,
         "pe": null,
-        "forward_pe": -160.8302,
-        "ev_sales": 25.925,
-        "ev_ebitda": 477.975,
+        "forward_pe": -163.8302,
+        "ev_sales": 26.504,
+        "ev_ebitda": 488.662,
         "fcf_yield": null
       },
       {
@@ -267,64 +267,39 @@
     }
   },
   "valuation_models": {
-    "intrinsic_value": null,
-    "market_price": 24.450000762939453,
-    "margin_of_safety": null,
-    "models": {
-      "owner_earnings": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "dcf": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "ev_ebitda": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "graham_number": {
-        "value": null,
-        "error": "insufficient inputs"
-      },
-      "peg": {
-        "value": null,
-        "error": "insufficient inputs"
-      }
-    },
-    "verdict": "insufficient data",
-    "models_succeeded": 0
+    "note": "valuation calculation error: name '_WACC' is not defined",
+    "models": []
   },
   "risk_metrics": {
-    "annualized_volatility": 1.1533,
+    "annualized_volatility": 1.1525,
     "max_drawdown": 0.9861,
     "var_95_daily": -0.1189,
     "risk_rating": "very_high",
-    "data_points": 1209
+    "data_points": 1211
   },
   "recent_sentiment": {
     "6m": {
-      "count": 9,
+      "count": 19,
       "bullish": 0,
       "bearish": 0,
-      "neutral": 9,
-      "avg_strength": 0.852,
+      "neutral": 19,
+      "avg_strength": 0.842,
       "top_narratives": []
     },
     "3m": {
-      "count": 9,
+      "count": 19,
       "bullish": 0,
       "bearish": 0,
-      "neutral": 9,
-      "avg_strength": 0.852,
+      "neutral": 19,
+      "avg_strength": 0.842,
       "top_narratives": []
     },
     "1m": {
-      "count": 9,
+      "count": 19,
       "bullish": 0,
       "bearish": 0,
-      "neutral": 9,
-      "avg_strength": 0.852,
+      "neutral": 19,
+      "avg_strength": 0.842,
       "top_narratives": []
     }
   },
@@ -369,9 +344,9 @@
     "table_record_counts": {
       "company_fundamentals": 10,
       "earnings": 0,
-      "prices": 1211,
+      "prices": 1212,
       "valuation": 2,
-      "sentiment_observations": 14
+      "sentiment_observations": 35
     }
   }
 }
