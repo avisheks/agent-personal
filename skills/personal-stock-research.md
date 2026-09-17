@@ -576,6 +576,17 @@ echo "PASS: $PASS | FAIL: $FAIL"
 
 ### Stage 3: Master Report (mandatory — fires after all individual reports pass format verification)
 
+**⛔ CRITICAL: The master report must NOT invent, fetch, or synthesize any new data.**
+
+The master report is a **compilation-only** document. Every number, score, metric, valuation range, risk tier, and sector grouping must be extracted directly from the existing individual ticker `.md` reports and/or research packet `.json` files. Specifically:
+
+- **DO NOT** call any API, scrape any website, or run any data pipeline during master report generation
+- **DO NOT** estimate, interpolate, or guess missing values — if a ticker's report says "N/A", the master says "N/A"
+- **DO NOT** recalculate dashboard scores, valuation ranges, or risk metrics — copy them from the individual reports
+- **DO NOT** add "explore" ticker data (price, MCap, multiples) that isn't already in the individual reports or tickers.yaml — use approximate values with `~` prefix only from tickers.yaml sector peers
+- **Source of truth:** Individual ticker `.md` report → research packet `.json` → tickers.yaml (in that priority order)
+- **Verification:** After generating the master, spot-check 3 random tickers — their master-row values must match their individual report values exactly
+
 After ALL individual ticker reports (.md) are generated AND pass the format verification gate, produce a master comparison doc:
 
 ```
@@ -611,14 +622,17 @@ Group all tickers into risk tiers. This goes first because it's the quickest way
 
 One row per ticker, sorted by dashboard composite score (highest first). **Links point to .md files** (individual tickers are .md only).
 
-| Ticker | Sector | Price | MCap | P/E | Fwd P/E | EV/EBITDA | EV/Sales | Vol | Dashboard | Report |
-|--------|--------|-------|------|-----|---------|-----------|----------|-----|-----------|--------|
-| BKNG | TRAVEL | $171 | $133B | 19.1x | 13.9x | 12.7x | 4.7x | 33% | 7.6/10 | [→](BKNG/BKNG_YYYY-MM-DD.md) |
+| Ticker | Sector | Price | MCap | P/E | Fwd P/E | EV/EBITDA | EV/Sales | Vol | Valuation Range | Dashboard | Report |
+|--------|--------|-------|------|-----|---------|-----------|----------|-----|-----------------|-----------|--------|
+| BKNG | TRAVEL | $171 | $133B | 19.1x | 13.9x | 12.7x | 4.7x | 33% | $120–$171–$240 | 7.6/10 | [→](BKNG/BKNG_YYYY-MM-DD.md) |
+
+**Valuation Range column:** Shows `$Bear–$Current–$Bull` from each ticker's Executive Summary valuation range bar. Format: `$BEAR–$CURRENT–$BULL`. If the current price is below bear, prefix with ⬇️. If above bull, prefix with ⬆️. This gives an at-a-glance view of where each ticker trades within its own valuation envelope.
 
 **Rules:**
 - Links use `.md` extension — individual tickers are generated as .md only
 - All 20 tickers must be present — no omissions
-- Data source: read each ticker's research packet JSON. Do NOT re-derive.
+- Data source: read each ticker's research packet JSON and individual .md report (for valuation range). Do NOT re-derive.
+- Valuation Range: extract bear/bull values from the ASCII valuation bar in each ticker's Executive Summary section
 
 #### 5. Sector Grouping
 
