@@ -458,11 +458,29 @@ python3 -m stock_research.batch_runner --weekly --dry-run
 
 # Custom throttle (5 min instead of 10)
 python3 -m stock_research.batch_runner --weekly --delay 300
+
+# Explicit date (for backfill or corrections)
+python3 -m stock_research.batch_runner --weekly --date 2026-09-13
 ```
+
+### Report Date Convention (IMPORTANT)
+
+**All report filenames use the most recent Sunday date, not the execution date.**
+
+The batch runner defaults to `_most_recent_sunday()` which returns the prior Sunday (or today if today is Sunday). This ensures that a batch fired on Sunday at 9AM, or re-run on Tuesday to fix an issue, produces the same filename date.
+
+Examples:
+- Cron fires Sunday Sep 13 at 9AM → report date: `2026-09-13`
+- Manual re-run on Tuesday Sep 16 → report date: `2026-09-13` (same Sunday)
+- Override with `--date 2026-09-13` to force a specific date
+
+**Why:** Reports are weekly snapshots tied to the Sunday schedule. Using the execution date causes mismatches when re-runs happen mid-week (as happened with the 2026-09-16 dated files that should have been 2026-09-13).
+
+**The LLM report generation (Stage 2) must also use the Sunday date** for .md and .html filenames. When generating reports, use the same date as the research packet JSON — do NOT use `date +%Y-%m-%d`.
 
 ### What it produces
 
-For each ticker: a research packet JSON at `.notlocal/data/personal-investor/reports/TICKER/TICKER_YYYY-MM-DD.json`, plus updated DuckDB records for fundamentals, prices, and sentiment.
+For each ticker: a research packet JSON at `.notlocal/data/personal-investor/reports/TICKER/TICKER_YYYY-MM-DD.json` (where YYYY-MM-DD is the Sunday date), plus updated DuckDB records for fundamentals, prices, and sentiment.
 
 ### Event logging
 

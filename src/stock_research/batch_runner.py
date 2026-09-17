@@ -33,7 +33,7 @@ import logging
 import os
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -42,6 +42,20 @@ _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 _DEFAULT_DELAY_SECONDS = 600  # 10 minutes between tickers
 _REPORTS_DIR = _PROJECT_ROOT / ".notlocal" / "data" / "personal-investor" / "reports"
 _EVENT_LOG = _PROJECT_ROOT / ".local" / "logs" / "super-agent" / "events.jsonl"
+
+
+def _most_recent_sunday(today: datetime | None = None) -> str:
+    """Return the most recent Sunday as YYYY-MM-DD.
+
+    If today IS Sunday, returns today. Otherwise returns the prior Sunday.
+    The weekly batch always uses the Sunday date for filenames, regardless
+    of when the batch actually executes.
+    """
+    if today is None:
+        today = datetime.now()
+    days_since_sunday = (today.weekday() + 1) % 7  # Monday=0 in Python, Sunday=6
+    sunday = today - timedelta(days=days_since_sunday)
+    return sunday.strftime("%Y-%m-%d")
 
 
 def _load_tickers(config_path: Path, specific: list[str] | None = None) -> list[dict]:
@@ -181,8 +195,13 @@ def _ingest_ticker(ticker: str, subreddits: list[str]) -> dict:
     return status
 
 
-def _build_packet(ticker: str, peers: list[str]) -> str | None:
-    """Build research packet and write JSON. Returns the file path."""
+def _build_packet(ticker: str, peers: list[str], report_date: str | None = None) -> str | None:
+    """Build research packet and write JSON. Returns the file path.
+
+    Args:
+        report_date: YYYY-MM-DD string for the filename. If None, uses
+                     the most recent Sunday (weekly batch convention).
+    """
     from stock_research.packet_builder import build_packet
 
     try:
@@ -190,7 +209,7 @@ def _build_packet(ticker: str, peers: list[str]) -> str | None:
         ticker_dir = _REPORTS_DIR / ticker
         ticker_dir.mkdir(parents=True, exist_ok=True)
 
-        date_str = datetime.now().strftime("%Y-%m-%d")
+        date_str = report_date or _most_recent_sunday()
         json_path = ticker_dir / f"{ticker}_{date_str}.json"
         with open(json_path, "w") as f:
             json.dump(packet, f, indent=2, default=str)
@@ -206,13 +225,21 @@ def run_batch(
     tickers: list[dict],
     delay_seconds: int = _DEFAULT_DELAY_SECONDS,
     dry_run: bool = False,
+    report_date: str | None = None,
 ) -> dict:
     """Run the full batch pipeline for all tickers with throttling.
 
+    Args:
+        report_date: YYYY-MM-DD for filenames. Defaults to most recent Sunday.
+
     Returns a summary dict with per-ticker results.
     """
+    report_date = report_date or _most_recent_sunday()
+    logger.info("Report date: %s (most recent Sunday)", report_date)
+
     summary = {
         "start_time": datetime.now(tz=timezone.utc).isoformat(),
+        "report_date": report_date,
         "tickers_total": len(tickers),
         "tickers_succeeded": 0,
         "tickers_failed": 0,
@@ -224,6 +251,7 @@ def run_batch(
         "event": "batch_start",
         "skill": "personal-stock-research",
         "tickers": [t["ticker"] for t in tickers],
+        "report_date": report_date,
         "delay_seconds": delay_seconds,
         "dry_run": dry_run,
     })
@@ -249,7 +277,7 @@ def run_batch(
         ingest_status = _ingest_ticker(ticker, ticker_cfg.get("subreddits", []))
 
         # Stage 1B: Build packet
-        packet_path = _build_packet(ticker, ticker_cfg.get("peers", []))
+        packet_path = _build_packet(ticker, ticker_cfg.get("peers", []), report_date=report_date)
 
         elapsed_ms = int((time.time() - start) * 1000)
 
@@ -369,6 +397,11 @@ def main():
         default=str(_PROJECT_ROOT / "config" / "weekly-batch.yaml"),
         help="Path to weekly-batch.yaml (used with --weekly)"
     )
+    parser.add_argument(
+        "--date", type=str, default=None,
+        help="Report date YYYY-MM-DD for filenames (default: most recent Sunday). "
+             "Use this to backfill or correct dates."
+    )
     args = parser.parse_args()
 
     logging.basicConfig(
@@ -414,7 +447,8 @@ def main():
     for t in tickers:
         logger.info("  %s — %s [%s]", t["ticker"], t["name"], t["sector"])
 
-    summary = run_batch(tickers, delay_seconds=delay, dry_run=args.dry_run)
+    report_date = args.date or _most_recent_sunday()
+    summary = run_batch(tickers, delay_seconds=delay, dry_run=args.dry_run, report_date=report_date)
 
     # Print summary
     print(f"\n{'='*60}")
