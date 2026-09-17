@@ -96,7 +96,31 @@ For each data source, query `research.duckdb` for `last_updated`:
 
 **Reddit subreddit discovery:** The Reddit ingestion automatically searches both general subreddits (wallstreetbets, stocks, investing, StockMarket, options) AND ticker-dedicated subreddits discovered via pattern matching (r/TICKER, r/TICKER_Stock, r/TICKERstock, r/TICKERDiscussion, r/TICKER_investors). Additional subreddits from `tickers.yaml` are also searched. Non-existent subreddits return 0 results and are silently skipped.
 
-**Reddit multi-engine fallback:** Reddit ingestion uses a multi-engine fallback: DuckDuckGo (primary, less rate-limited) -> Reddit JSON API (direct, most reliable but occasionally 429s) -> Google (last resort, frequently CAPTCHAd). The engine that succeeds is logged per subreddit.
+**Reddit fetching strategy (tested Sep 2026):**
+
+Reddit blocks Anthropic/Claude specifically (no API deal unlike Google/OpenAI). Tested workarounds:
+
+| Method | Works? | Notes |
+|--------|--------|-------|
+| **www.reddit.com RSS** | ✅ Yes | Only reliable method. Full post content. Rate limit: ≥5s between requests |
+| old.reddit.com JSON | ❌ No | Returns 403 (blocked) |
+| old.reddit.com RSS | ❌ No | Returns HTML page, not RSS |
+| Reddit JSON API | ❌ No | 403 without OAuth token |
+| DuckDuckGo | ⚠️ Bursts | Works initially then CAPTCHAs after ~5-10 requests |
+| Google | ⚠️ Bursts | Same CAPTCHA issue as DDG |
+| curl (raw) | Same as httpx | curl doesn't bypass — it's the endpoint that matters, not the client |
+
+**Engine order:** RSS (primary) → DDG (burst fallback) → Google (last resort). The Reddit JSON API and old.reddit.com are kept in the code but almost never succeed.
+
+**Critical rate limit rule:** Reddit RSS returns 429 after rapid bursts. The ingestion MUST:
+1. Wait ≥5 seconds between subreddit requests (not 2s as was originally set)
+2. Process tickers sequentially, not in parallel
+3. If 429'd, wait 60+ seconds before retrying
+4. For 20 tickers × 10 subs each = 200 requests → at 5s each = ~17 minutes minimum
+
+**Do NOT use WebFetch for Reddit.** WebFetch routes through a smaller model that compresses and sometimes invents content. Instead, use httpx (curl-style) to fetch raw RSS/JSON and parse it directly. This is why our reddit.py uses httpx+BeautifulSoup, not WebFetch.
+
+**Per community research (Sep 2026):** "WebFetch uses a smaller, cheaper model and then the main model gets a summary. The smaller model compresses, guesses, and sometimes invents details." Fix: "Curl the raw page and grep/read the actual text yourself."
 | Earnings (FMP) | >90 days | `python src/stock_research/ingestion/earnings.py TICKER` |
 
 If `--refresh` flag is set, refresh all sources regardless of staleness.

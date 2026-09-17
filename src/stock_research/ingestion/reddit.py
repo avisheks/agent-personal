@@ -44,7 +44,7 @@ _DEDICATED_SUB_PATTERNS = [
 _REQUEST_TIMEOUT = 15
 _RETRY_ATTEMPTS = 3
 _RETRY_BACKOFF_BASE = 2.0  # exponential: 2, 4, 8 seconds
-_SEARCH_DELAY = 2.0  # seconds between search requests
+_SEARCH_DELAY = 5.0  # seconds between search requests (Reddit 429s at <3s)
 
 _USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -74,6 +74,7 @@ _NEGATIVE_KEYWORDS = [
 
 # Engine names for logging
 _ENGINE_RSS = "reddit_rss"
+_ENGINE_OLD_REDDIT = "old_reddit_json"
 _ENGINE_DDG = "duckduckgo"
 _ENGINE_REDDIT = "reddit_api"
 _ENGINE_GOOGLE = "google"
@@ -180,12 +181,25 @@ async def _search_subreddit(
 ) -> list[dict]:
     """Search a subreddit for ticker mentions using multi-engine fallback.
 
-    Tries engines in order: Reddit RSS -> DuckDuckGo -> Reddit JSON API -> Google.
+    Tries engines in order: RSS -> old.reddit.com JSON -> DDG -> Reddit API -> Google.
     Returns results from the first engine that produces non-empty results.
-    RSS is the most reliable — no CAPTCHA, no rate-limit issues for low-volume.
+
+    Engine rationale (from community research):
+    - RSS: most reliable, no CAPTCHA, no auth, but occasionally rate-limited
+    - old.reddit.com JSON: bypasses some blocks that www.reddit.com triggers
+      (per community finding: "Pointing it at old.reddit.com also seems to help")
+    - DDG: less aggressive than Google but serves CAPTCHA after bursts
+    - Reddit API: direct but returns 403 without OAuth token
+    - Google: last resort, frequently CAPTCHAd
+
+    IMPORTANT: We use raw httpx (curl-style) to fetch and parse JSON/RSS
+    directly — NOT WebFetch, which uses a smaller model that can mangle
+    content (per PSA: "check whether it's actually reading the source or
+    relying on WebFetch summaries").
     """
     engines = [
         (_ENGINE_RSS, _search_subreddit_rss),
+        (_ENGINE_OLD_REDDIT, _search_subreddit_old_reddit),
         (_ENGINE_DDG, _search_subreddit_ddg),
         (_ENGINE_REDDIT, _search_subreddit_reddit_api),
         (_ENGINE_GOOGLE, _search_subreddit_google),
@@ -305,7 +319,102 @@ async def _search_subreddit_rss(
 
 
 # ---------------------------------------------------------------------------
-# Engine 1: DuckDuckGo HTML search
+# Engine 1: old.reddit.com JSON (bypasses some www.reddit.com blocks)
+# ---------------------------------------------------------------------------
+
+async def _search_subreddit_old_reddit(
+    client,  # httpx.AsyncClient
+    ticker: str,
+    subreddit: str,
+    days: int,
+) -> list[dict]:
+    """Fetch posts via old.reddit.com JSON endpoint.
+
+    old.reddit.com sometimes bypasses blocks that www.reddit.com triggers.
+    Uses the .json suffix on old.reddit URLs. Reads raw JSON directly
+    (no WebFetch — curl-style) to avoid content mangling.
+
+    Per community finding: "Pointing it at old.reddit.com also seems to help."
+    """
+    is_dedicated = subreddit.upper() == ticker.upper() or ticker.upper() in subreddit.upper()
+
+    if is_dedicated:
+        url = f"https://old.reddit.com/r/{subreddit}/new/.json?limit=25&raw_json=1"
+    else:
+        time_filter = "month" if days > 7 else "week" if days > 1 else "day"
+        query = quote_plus(ticker)
+        url = (
+            f"https://old.reddit.com/r/{subreddit}/search/.json"
+            f"?q={query}&sort=new&t={time_filter}&restrict_sr=on&limit=10&raw_json=1"
+        )
+
+    # Use a browser-like user-agent (not a bot identifier)
+    resp = await _get_with_retry(
+        client, url,
+        extra_headers={"User-Agent": _USER_AGENT},
+    )
+
+    if resp.status_code != 200:
+        return []
+
+    try:
+        data = resp.json()
+    except Exception:
+        return []
+
+    # old.reddit.com JSON has same structure as www.reddit.com
+    children = data.get("data", {}).get("children", [])
+    if not children:
+        return []
+
+    posts: list[dict] = []
+    now_iso = datetime.now(tz=timezone.utc).isoformat()
+
+    for child in children[:_MAX_RESULTS_PER_SUBREDDIT * 2]:
+        if child.get("kind") != "t3":
+            continue
+        d = child.get("data", {})
+        title = d.get("title", "")
+        selftext = d.get("selftext", "")[:500]
+        score = d.get("score", 0)
+        num_comments = d.get("num_comments", 0)
+        permalink = d.get("permalink", "")
+        created_utc = d.get("created_utc", 0)
+
+        # For general subs, filter posts that don't mention the ticker
+        if not is_dedicated:
+            combined = f"{title} {selftext}".upper()
+            if ticker.upper() not in combined:
+                continue
+
+        direction, strength = _classify_sentiment(title, selftext)
+
+        post_date = ""
+        if created_utc:
+            post_date = datetime.fromtimestamp(created_utc, tz=timezone.utc).strftime("%Y-%m-%d")
+
+        posts.append({
+            "ticker": ticker,
+            "date": post_date or now_iso[:10],
+            "source": "reddit",
+            "source_id": permalink.split("/")[-2] if "/" in permalink else "",
+            "author": d.get("author", ""),
+            "title": title,
+            "snippet": selftext[:500],
+            "engagement_score": float(score + num_comments * 2),
+            "sentiment_direction": direction,
+            "sentiment_strength": strength,
+            "narrative_label": "",
+            "bull_bear": direction if direction != "neutral" else "",
+            "source_url": f"https://reddit.com{permalink}" if permalink else "",
+            "updated_at": now_iso,
+        })
+
+    return posts
+
+
+# ---------------------------------------------------------------------------
+# Engine 2: DuckDuckGo HTML search
 # ---------------------------------------------------------------------------
 
 async def _search_subreddit_ddg(
