@@ -634,6 +634,35 @@ done
 
 **Style guide:** Follow `config/report-style-guide.md` for all formatting decisions (header blocks, evidence labels, table alignment, HTML CSS, color-coding, link extensions). The style guide is the formatting source of truth — this SKILL.md defines *what* to include; the style guide defines *how* it looks.
 
+### Pre-commit checklist (mandatory — do NOT commit until ALL pass)
+
+Before committing any weekly batch output, verify ALL of the following exist:
+
+```bash
+REPORT_DATE="YYYY-MM-DD"  # the Sunday date
+
+# 1. Every ticker has BOTH .json AND .md
+for t in $(cat config/weekly-batch.yaml | grep '^ *- ' | sed 's/.*- //'); do
+  [ ! -f "reports/$t/${t}_${REPORT_DATE}.json" ] && echo "MISSING JSON: $t"
+  [ ! -f "reports/$t/${t}_${REPORT_DATE}.md" ] && echo "MISSING MD: $t"
+done
+
+# 2. Master .md exists
+[ ! -f "reports/${REPORT_DATE}-master.md" ] && echo "MISSING: master .md"
+
+# 3. Master .html exists
+[ ! -f "reports/${REPORT_DATE}-master.html" ] && echo "MISSING: master .html"
+```
+
+**If ANY file is missing, do NOT commit.** Generate the missing file first.
+
+The most common failures:
+- Master .html not generated (agent wrote .md but nobody generated .html)
+- Individual .html not generated (Stage 2 only produced .md)
+- Master .md links to .html files that don't exist
+
+**This checklist is the final gate.** No exceptions.
+
 ## Evidence Rules
 
 ### Labeling (mandatory in every section)
