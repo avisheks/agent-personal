@@ -140,8 +140,7 @@
     <li><a href="#explore">Explore</a></li>
     <li><a href="#sectors">Sectors</a></li>
     <li><a href="#best-worst">Best/Worst</a></li>
-    <li><a href="#worked-example">Worked Example</a></li>
-    <li><a href="#glossary">Glossary</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
   </ul>
 </nav>
 
@@ -607,16 +606,245 @@
 
 <hr>
 
-<!-- ============ 6. WORKED EXAMPLE ============ -->
+
+<!-- ============ 6. HOW IT WORKS ============ -->
+<a id="how-it-works"></a>
 <a id="worked-example"></a>
-<h2>6. Appendix: Worked Example -- EXPE (2026-09-13)</h2>
+<a id="glossary"></a>
+<h2>6. Appendix: How the Numbers Work -- EXPE (Expedia Group)</h2>
 
-<p>This section shows the complete computation chain for key metrics using Expedia Group (EXPE) as the example. The goal is to demonstrate how each metric is calculated so the reader can replicate it for any ticker in the batch.</p>
+<p>This appendix serves two purposes: (1) a glossary of every financial term used in our reports, and (2) a fully worked example showing how each metric is computed -- all using Expedia Group's real numbers. Every calculation is reproducible from the reference data below.</p>
 
+<h3>EXPE Reference Numbers (as of 2026-09-13)</h3>
 <blockquote>
-<strong>EXPE reference numbers (as of 2026-09-13):</strong><br>
-Price = $287 | Shares Outstanding = ~120M | Market Cap = $34.4B | Revenue (TTM) = $14.73B | P/E (trailing) = 18.1x | Forward P/E = 11.7x | FCF = $3.11B | Annualized Volatility = 45%
+<strong>Expedia Group (EXPE) -- Key Financials:</strong><br><br>
+Stock Price = $287 | Shares Outstanding = ~120M | Market Cap = $34.4B<br>
+Revenue (TTM) = $14.73B | Net Income (TTM) = $1.86B | EPS (TTM) = $15.86<br>
+Forward EPS (analyst est.) = $24.50 | EBITDA = ~$2.89B<br>
+Operating Income = ~$2.21B | Gross Profit = ~$5.60B<br>
+OCF = $4.35B | CapEx = $1.24B | FCF = $3.11B<br>
+Total Debt = ~$8.7B | Cash = ~$3.7B | Enterprise Value = $39.4B<br>
+Total Equity = ~$3.80B | Book Value/Share = ~$31.70<br>
+SBC (estimated) = ~$700M (~4.8% of revenue) | Invested Capital = ~$12.5B<br>
+Gross Margin = ~38% | Operating Margin = ~15% | Net Margin = ~12.6%<br>
+ROE = ~49% | Beta = ~1.3 | D/E = ~2.3<br>
+Annualized Volatility = 44.7% | Max Drawdown = 86.7% | VaR 95% = ~-4.0%<br>
+WACC (assumed) = 10% | Dividends = $0 (EXPE does not currently pay a dividend)
 </blockquote>
+
+<h3>Term Index</h3>
+<table>
+<thead><tr><th>Category</th><th>Terms</th><th class="num">Count</th></tr></thead>
+<tbody>
+  <tr><td><strong>Valuation</strong></td><td>P/E, Forward P/E, PEG, EV, EV/EBITDA, EV/Sales, P/S, P/B, FCF Yield, Dividend Yield</td><td class="num">10</td></tr>
+  <tr><td><strong>Profitability</strong></td><td>Gross Margin, Operating Margin, Net Margin, ROE, ROIC</td><td class="num">5</td></tr>
+  <tr><td><strong>Cash Flow</strong></td><td>OCF, FCF, CapEx, FCF/NI</td><td class="num">4</td></tr>
+  <tr><td><strong>Growth</strong></td><td>TTM, YoY, CAGR, EPS</td><td class="num">4</td></tr>
+  <tr><td><strong>Risk</strong></td><td>Annualized Volatility, Max Drawdown, VaR 95%, Beta, Debt/Equity</td><td class="num">5</td></tr>
+  <tr><td><strong>Valuation Models</strong></td><td>Owner-Earnings, DCF, Graham Number, EV/EBITDA Relative, PEG Fair Value</td><td class="num">5</td></tr>
+  <tr><td><strong>Dashboard Scoring</strong></td><td>1-10 scale with labels</td><td class="num">1</td></tr>
+  <tr class="median-row"><td><strong>Total</strong></td><td></td><td class="num"><strong>34</strong></td></tr>
+</tbody>
+</table>
+
+<h3>1. Valuation Metrics</h3>
+
+<p><strong>P/E (Price-to-Earnings Ratio)</strong><br>
+What the market pays per dollar of earnings. Higher = more expensive relative to current profits.</p>
+<blockquote>P/E = Stock Price / EPS = $287 / $15.86 = <strong>18.1x</strong><br>
+Interpretation: investors pay $18.10 for every $1 of EXPE's annual profit.</blockquote>
+
+<p><strong>Forward P/E</strong><br>
+P/E using <em>next year's estimated</em> earnings instead of trailing. Lower than trailing P/E when earnings are expected to grow.</p>
+<blockquote>Analysts estimate next-year EPS = $24.50:<br>
+Forward P/E = $287 / $24.50 = <strong>11.7x</strong><br>
+The drop from 18.1x trailing to 11.7x forward implies analysts expect ~55% earnings growth.</blockquote>
+
+<p><strong>PEG Ratio (Price/Earnings-to-Growth)</strong><br>
+P/E divided by expected EPS growth rate. Adjusts valuation for growth speed. PEG &lt; 1 may suggest undervaluation.</p>
+<blockquote>Forward EPS growth rate = ($24.50 - $15.86) / $15.86 = 54.5%<br>
+PEG = 18.1 / 54.5 = <strong>0.33</strong><br>
+Interpretation: paying well below 1x the growth rate -- potentially very attractive if the growth estimate holds.</blockquote>
+
+<p><strong>EV (Enterprise Value)</strong><br>
+Total company value including debt, minus cash. What an acquirer would pay to buy the whole business.</p>
+<blockquote>EV = Market Cap + Total Debt - Cash<br>
+EV = $34.4B + $8.7B - $3.7B = <strong>$39.4B</strong></blockquote>
+
+<p><strong>EV/EBITDA</strong><br>
+Enterprise value per dollar of operating cash earnings. Lower = cheaper. Useful for comparing companies with different debt levels.</p>
+<blockquote>EV/EBITDA = $39.4B / $2.89B = <strong>13.6x</strong><br>
+Interpretation: the business is valued at 13.6 years of its operating cash earnings.</blockquote>
+
+<p><strong>EV/Sales (EV/Revenue)</strong><br>
+Enterprise value per dollar of revenue. Used for high-growth companies that may not yet be profitable.</p>
+<blockquote>EV/Sales = $39.4B / $14.73B = <strong>2.7x</strong></blockquote>
+
+<p><strong>P/S (Price-to-Sales)</strong><br>
+Market cap per dollar of revenue. Simpler than EV/Sales (ignores debt/cash).</p>
+<blockquote>P/S = Market Cap / Revenue = $34.4B / $14.73B = <strong>2.3x</strong></blockquote>
+
+<p><strong>P/B (Price-to-Book)</strong><br>
+Market price relative to accounting book value. P/B &lt; 1 means market values the company below its asset base.</p>
+<blockquote>P/B = Stock Price / Book Value per Share = $287 / $31.70 = <strong>9.1x</strong><br>
+EXPE's high P/B reflects intangible-heavy travel tech -- brand value and platform network effects do not appear on the balance sheet.</blockquote>
+
+<p><strong>FCF Yield (Free Cash Flow Yield)</strong><br>
+Free cash flow as a percentage of market cap. Higher = more cash generation per dollar of market value. Inverse of P/FCF.</p>
+<blockquote>FCF Yield = FCF / Market Cap = $3.11B / $34.4B = <strong>9.0%</strong><br>
+Interpretation: EXPE generates 9 cents of free cash for every $1 of market value annually -- among the highest in this batch.</blockquote>
+
+<p><strong>Dividend Yield</strong><br>
+Annual dividends as a percentage of stock price.</p>
+<blockquote>EXPE does not currently pay a dividend, so Dividend Yield = $0 / $287 = <strong>0.0%</strong><br>
+For context: if EXPE were to pay out 20% of FCF (~$622M, or ~$5.18/share), the yield would be $5.18 / $287 = 1.8%.</blockquote>
+
+<h3>2. Profitability Metrics</h3>
+
+<p><strong>Gross Margin</strong><br>
+Revenue remaining after direct production costs. Measures pricing power and production efficiency.</p>
+<blockquote>Gross Margin = Gross Profit / Revenue = $5.60B / $14.73B = <strong>38.0%</strong><br>
+Interpretation: EXPE keeps 38 cents of every revenue dollar after paying for the services it delivers.</blockquote>
+
+<p><strong>Operating Margin</strong><br>
+Revenue remaining after all operating expenses (but before interest and taxes). Core business profitability.</p>
+<blockquote>Operating Margin = Operating Income / Revenue = $2.21B / $14.73B = <strong>15.0%</strong></blockquote>
+
+<p><strong>Net Margin</strong><br>
+Bottom-line profit per dollar of revenue, after all costs including taxes and interest.</p>
+<blockquote>Net Margin = Net Income / Revenue = $1.86B / $14.73B = <strong>12.6%</strong></blockquote>
+
+<p><strong>ROE (Return on Equity)</strong><br>
+Profit generated per dollar of shareholder equity. Measures how efficiently the company uses shareholder capital.</p>
+<blockquote>ROE = Net Income / Total Equity = $1.86B / $3.80B = <strong>49.0%</strong><br>
+Interpretation: for every $1 of equity, EXPE generates 49 cents of annual profit. This extremely high ROE is partly driven by leverage (D/E = 2.3) -- debt amplifies equity returns.</blockquote>
+
+<p><strong>ROIC (Return on Invested Capital)</strong><br>
+Profit generated per dollar of ALL capital deployed (equity + debt). Better than ROE for comparing companies with different leverage.</p>
+<blockquote>NOPAT = Operating Income x (1 - Effective Tax Rate) = $2.21B x 0.85 = $1.88B<br>
+ROIC = NOPAT / Invested Capital = $1.88B / $12.5B = <strong>15.0%</strong><br>
+Interpretation: EXPE earns 15.0% on every dollar of capital invested. Compare to WACC (10%) -- ROIC &gt; WACC means the company creates value.</blockquote>
+
+<h3>3. Cash Flow Metrics</h3>
+
+<p><strong>OCF (Operating Cash Flow)</strong><br>
+Cash generated from normal business operations. Starts from net income, adds back non-cash charges, adjusts for working capital changes.</p>
+<blockquote>OCF = $4.35B (from cash flow statement)</blockquote>
+
+<p><strong>FCF (Free Cash Flow)</strong><br>
+Cash available after maintaining/expanding the asset base. The cash that could be returned to shareholders or used for growth.</p>
+<blockquote>FCF = Operating Cash Flow - CapEx = $4.35B - $1.24B = <strong>$3.11B</strong></blockquote>
+
+<p><strong>CapEx (Capital Expenditures)</strong><br>
+Spending on physical assets (factories, equipment, data centers). A measure of investment intensity.</p>
+<blockquote>CapEx = $1.24B<br>
+CapEx/Revenue = $1.24B / $14.73B = 8.4% (capital-light if &lt;10%, capital-heavy if &gt;20%)<br>
+EXPE is capital-light -- most spending is on technology, not physical infrastructure.</blockquote>
+
+<p><strong>FCF/NI (FCF-to-Net-Income Ratio)</strong><br>
+Cash quality indicator. FCF/NI &gt; 100% means the company generates more cash than reported profit -- high earnings quality. FCF/NI &lt; 80% may signal aggressive accounting.</p>
+<blockquote>FCF/NI = $3.11B / $1.86B = <strong>167%</strong><br>
+Interpretation: EXPE's cash generation significantly exceeds reported net income -- a strong earnings-quality signal. The gap is driven by depreciation/amortization add-backs exceeding CapEx.</blockquote>
+
+<h3>4. Growth Metrics</h3>
+
+<p><strong>TTM (Trailing Twelve Months)</strong><br>
+Sum of the last four quarters. Used to annualize quarterly data without calendar-year bias.</p>
+<blockquote>TTM Revenue = Q3 + Q4 + Q1 + Q2 = $3.56B + $3.89B + $3.52B + $3.76B = <strong>$14.73B</strong></blockquote>
+
+<p><strong>YoY (Year-over-Year)</strong><br>
+Growth rate comparing the same period to the prior year. Removes seasonality.</p>
+<blockquote>If Q2 2026 revenue = $3.76B and Q2 2025 revenue = $3.32B:<br>
+YoY Growth = ($3.76B - $3.32B) / $3.32B = <strong>13.3%</strong></blockquote>
+
+<p><strong>CAGR (Compound Annual Growth Rate)</strong><br>
+Smoothed annualized growth rate over multiple years. Accounts for compounding.</p>
+<blockquote>If EXPE's revenue was $8.60B five years ago and is $14.73B now:<br>
+CAGR = ($14.73B / $8.60B)^(1/5) - 1 = (1.713)^0.2 - 1 = <strong>11.4%</strong><br>
+Interpretation: revenue grew at an average of 11.4% per year, compounded.</blockquote>
+
+<p><strong>EPS (Earnings Per Share)</strong><br>
+Net income allocated to each share. The denominator for P/E.</p>
+<blockquote>EPS = Net Income / Shares Outstanding = $1.86B / ~120M = <strong>$15.86</strong></blockquote>
+
+<h3>5. Risk Metrics</h3>
+
+<p><strong>Annualized Volatility</strong><br>
+Standard deviation of daily returns, annualized. Higher = more price uncertainty. Typical ranges: &lt;15% low, 15-25% medium, 25-40% high, &gt;40% very high.</p>
+<blockquote>EXPE daily return std dev = ~2.82%:<br>
+Annualized Vol = 2.82% x sqrt(252) = 2.82% x 15.87 = <strong>44.7%</strong> (very high)<br>
+EXPE sits at the top of the "medium risk" tier in this batch -- reflecting travel-sector cyclicality.</blockquote>
+
+<p><strong>Max Drawdown</strong><br>
+Largest peak-to-trough decline in stock price. Measures worst-case historical loss.</p>
+<blockquote>EXPE's historical max drawdown = <strong>-86.7%</strong><br>
+This occurred during the COVID-19 pandemic when travel bookings collapsed. It demonstrates the extreme tail risk in travel stocks during black-swan events.</blockquote>
+
+<p><strong>VaR 95% (Value at Risk, 95th percentile)</strong><br>
+The daily loss that is exceeded only 5% of trading days. A "bad day" threshold.</p>
+<blockquote>EXPE's 5th percentile of daily returns = <strong>-4.0%</strong><br>
+On 95% of trading days, EXPE loses less than 4.0%. On a $287 position, that is ~$11.48 per share.</blockquote>
+
+<p><strong>Beta</strong><br>
+Stock's sensitivity to market movements. Beta 1.0 = moves with market. Beta 1.5 = 50% more volatile than market. Beta 0.7 = 30% less volatile.</p>
+<blockquote>EXPE's beta = 1.3:<br>
+When the S&amp;P 500 falls 10%, EXPE is expected to fall ~13%.<br>
+When the S&amp;P 500 rises 10%, EXPE is expected to rise ~13%.</blockquote>
+
+<p><strong>Debt/Equity</strong><br>
+Total debt relative to shareholder equity. Measures financial leverage.</p>
+<blockquote>D/E = Total Debt / Total Equity = $8.7B / $3.80B = <strong>2.3</strong><br>
+Interpretation: for every $1 of equity, EXPE has $2.30 of debt. This is elevated (&gt;1.0) and reflects the travel industry's capital structure -- EXPE uses debt to fund acquisitions and buybacks. The high leverage amplifies both ROE (49%) and downside risk.</blockquote>
+
+<h3>6. Valuation Models (used in this report)</h3>
+
+<p><strong>Owner-Earnings Value (Buffett method)</strong><br>
+Intrinsic value based on sustainable cash earnings. Conservative -- applies a 25% margin of safety haircut.</p>
+<blockquote>Owner Earnings = Net Income + Depreciation - Maintenance CapEx<br>
+Value = Owner Earnings x Growth Multiplier x (1 - 25% MoS)</blockquote>
+
+<p><strong>DCF (Discounted Cash Flow)</strong><br>
+Projects future free cash flows and discounts them to present value. The "gold standard" of intrinsic value -- but only as good as the assumptions.</p>
+<blockquote>Value = SUM(FCF_t / (1 + WACC)^t) + Terminal Value<br>
+Run three scenarios: Bear (low growth), Base (consensus), Bull (high growth)</blockquote>
+
+<p><strong>Graham Number</strong><br>
+Benjamin Graham's conservative intrinsic value formula. Suitable for stable, profitable companies.</p>
+<blockquote>Graham Number = sqrt(22.5 x EPS x Book Value per Share)<br>
+= sqrt(22.5 x $15.86 x $31.70) = sqrt($11,312) = <strong>$106.36</strong><br>
+Interpretation: Graham would pay no more than $106.36 for EXPE. At $287, the stock trades at 2.7x the Graham Number -- reflecting growth expectations far beyond what Graham's conservative framework accounts for.</blockquote>
+
+<p><strong>EV/EBITDA Relative Value</strong><br>
+Per-share value implied by applying the sector median EV/EBITDA multiple.</p>
+<blockquote>If travel sector median EV/EBITDA = 12x:<br>
+Implied EV = 12 x $2.89B = $34.68B<br>
+Implied Equity = $34.68B - $8.7B + $3.7B = $29.68B<br>
+Implied Price = $29.68B / 120M shares = <strong>$247</strong><br>
+At $287, EXPE trades at a 16% premium to sector-median-implied value.</blockquote>
+
+<p><strong>PEG-Based Fair Value</strong><br>
+Fair P/E = EPS growth rate (Peter Lynch rule of thumb). PEG = 1 means "fair."</p>
+<blockquote>If long-term EPS growth = 15%, fair P/E = 15x<br>
+Fair Price = 15 x $15.86 = <strong>$238</strong><br>
+At $287, EXPE trades 21% above PEG-implied fair value. However, the forward P/E of 11.7x suggests the market sees near-term earnings acceleration closing this gap.</blockquote>
+
+<h3>7. Scoring Terms (used in the Investment Dashboard)</h3>
+<table>
+<thead><tr><th>Score</th><th>Label</th><th>Meaning</th></tr></thead>
+<tbody>
+  <tr><td>9-10</td><td>Exceptional</td><td>Top-decile across public companies</td></tr>
+  <tr><td>7-8</td><td>Strong</td><td>Clearly above average; a competitive advantage</td></tr>
+  <tr><td>5-6</td><td>Average</td><td>In line with peers; no edge or concern</td></tr>
+  <tr><td>3-4</td><td>Below average</td><td>Meaningful weakness vs peers</td></tr>
+  <tr><td>1-2</td><td>Poor</td><td>Significant risk factor or structural deficiency</td></tr>
+</tbody>
+</table>
+
+<hr>
+
+<h3>SOP v2 Computations -- Worked Example with EXPE</h3>
+
+<p>The following three computations are the core analytical steps applied to every ticker. They go beyond surface-level ratios to reveal earnings quality, implied growth expectations, and the true cost of stock-based compensation.</p>
 
 <h3>A. Earnings Quality Computation</h3>
 
@@ -659,7 +887,7 @@ Price = $287 | Shares Outstanding = ~120M | Market Cap = $34.4B | Revenue (TTM) 
 <p><strong>Step 1 -- Establish enterprise value:</strong></p>
 <ul>
   <li>Market Cap: $34.4B <strong>FACT</strong> [provided]</li>
-  <li>Net Debt (estimated): ~$5.0B <strong>INFERENCE</strong> [Expedia typically carries $7-8B gross debt with $2-3B cash]</li>
+  <li>Net Debt: $8.7B - $3.7B = $5.0B <strong>INFERENCE</strong> [Total Debt minus Cash]</li>
   <li>Enterprise Value = MCap + Net Debt = $34.4B + $5.0B = <strong>$39.4B</strong></li>
 </ul>
 
@@ -693,7 +921,7 @@ PV of terminal = $44.7B x 0.621 = $27.7B</p>
 
 <p><strong>Total implied EV at g=1%: $12.13B + $27.7B = $39.8B</strong></p>
 
-<p>This closely matches the actual EV of $39.4B.</p>
+<p>This closely matches EXPE's actual EV of $39.4B.</p>
 
 <p><strong>Result: The market implies ~1% annual FCF growth for EXPE.</strong></p>
 
@@ -708,9 +936,9 @@ PV of terminal = $44.7B x 0.621 = $27.7B</p>
 
 <p><strong>Step 1 -- Start from reported FCF:</strong></p>
 <ul>
-  <li>Operating Cash Flow (TTM): ~$4.35B <strong>INFERENCE</strong> [derived: FCF + estimated CapEx]</li>
-  <li>Capital Expenditures: ~$1.24B <strong>INFERENCE</strong> [estimated from OCF - FCF]</li>
-  <li><strong>Reported FCF: $3.11B</strong> <strong>FACT</strong> [provided]</li>
+  <li>Operating Cash Flow (TTM): $4.35B <strong>FACT</strong> [provided]</li>
+  <li>Capital Expenditures: $1.24B <strong>FACT</strong> [provided]</li>
+  <li><strong>Reported FCF = OCF - CapEx = $4.35B - $1.24B = $3.11B</strong> <strong>FACT</strong> [provided]</li>
 </ul>
 
 <p><strong>Step 2 -- Subtract SBC to get true owner cash flow:</strong></p>
@@ -727,9 +955,9 @@ PV of terminal = $44.7B x 0.621 = $27.7B</p>
 </ul>
 
 <p><strong>Step 4 -- Interpret:</strong></p>
-<p>Even after the SBC adjustment, EXPE's 7.0% FCF yield is among the highest in this 20-ticker batch. For comparison, the S&P 500 median FCF yield is roughly 3-4%. This reinforces EXPE's positioning as a value/cash-generation play -- the SBC cost is real but does not destroy the thesis. <strong>INFERENCE</strong></p>
+<p>Even after the SBC adjustment, EXPE's 7.0% FCF yield is among the highest in this 20-ticker batch. For comparison, the S&amp;P 500 median FCF yield is roughly 3-4%. This reinforces EXPE's positioning as a value/cash-generation play -- the SBC cost is real but does not destroy the thesis. <strong>INFERENCE</strong></p>
 
-<h3>Summary Table</h3>
+<h3>Summary Table -- EXPE Reported vs Adjusted</h3>
 <table>
 <thead><tr><th>Metric</th><th class="num">Reported</th><th class="num">SBC-Adjusted</th><th>Delta</th></tr></thead>
 <tbody>
@@ -742,228 +970,6 @@ PV of terminal = $44.7B x 0.621 = $27.7B</p>
 </table>
 
 <p><strong>Key takeaway:</strong> SBC is a meaningful but not disqualifying cost for EXPE. The stock screens as cheap on both reported and adjusted metrics. The reverse DCF reveals the market expects essentially flat FCF -- any positive surprise on growth would represent upside. <strong>INFERENCE</strong></p>
-
-<a href="#top" class="back-top">Back to Top</a>
-
-<hr>
-
-<!-- ============ 7. GLOSSARY ============ -->
-<a id="glossary"></a>
-<h2>7. Appendix: Glossary</h2>
-
-<details open>
-<summary>Glossary of Financial Terms</summary>
-<div class="glossary-content">
-
-<p>This glossary is appended to every stock research report. Each term includes a plain-language definition and a worked example using a fictional company "Acme Corp."</p>
-
-<h3>Term Index</h3>
-<table>
-<thead><tr><th>Category</th><th>Terms</th><th class="num">Count</th></tr></thead>
-<tbody>
-  <tr><td><strong>Valuation</strong></td><td>P/E, Forward P/E, PEG, EV, EV/EBITDA, EV/Sales, P/S, P/B, FCF Yield, Dividend Yield</td><td class="num">10</td></tr>
-  <tr><td><strong>Profitability</strong></td><td>Gross Margin, Operating Margin, Net Margin, ROE, ROIC</td><td class="num">5</td></tr>
-  <tr><td><strong>Cash Flow</strong></td><td>OCF, FCF, CapEx, FCF/NI</td><td class="num">4</td></tr>
-  <tr><td><strong>Growth</strong></td><td>TTM, YoY, CAGR, EPS</td><td class="num">4</td></tr>
-  <tr><td><strong>Risk</strong></td><td>Annualized Volatility, Max Drawdown, VaR 95%, Beta, Debt/Equity</td><td class="num">5</td></tr>
-  <tr><td><strong>Valuation Models</strong></td><td>Owner-Earnings, DCF, Graham Number, EV/EBITDA Relative, PEG Fair Value</td><td class="num">5</td></tr>
-  <tr><td><strong>Dashboard Scoring</strong></td><td>1-10 scale with labels</td><td class="num">1</td></tr>
-  <tr class="median-row"><td><strong>Total</strong></td><td></td><td class="num"><strong>34</strong></td></tr>
-</tbody>
-</table>
-
-<h3>Acme Corp -- Worked Example Reference</h3>
-<blockquote>
-<strong>Acme Corp reference numbers:</strong><br>
-Stock Price = $100 | Shares Outstanding = 10M | Revenue (TTM) = $500M | Net Income (TTM) = $50M | Operating Income = $75M | EBITDA = $90M | Free Cash Flow = $40M | Total Debt = $200M | Cash = $50M | Total Equity = $300M | Book Value/Share = $30 | EPS = $5.00 | Dividends/Share = $1.50 | Invested Capital = $450M | CapEx = $30M | Operating Cash Flow = $70M | Gross Profit = $200M | Cost of Capital (WACC) = 10%
-</blockquote>
-
-<h3>1. Valuation Metrics</h3>
-
-<p><strong>P/E (Price-to-Earnings Ratio)</strong><br>
-What the market pays per dollar of earnings. Higher = more expensive relative to current profits.</p>
-<blockquote>P/E = Stock Price / EPS = $100 / $5.00 = <strong>20.0x</strong><br>
-Interpretation: investors pay $20 for every $1 of Acme's annual profit.</blockquote>
-
-<p><strong>Forward P/E</strong><br>
-P/E using <em>next year's estimated</em> earnings instead of trailing. Lower than trailing P/E when earnings are expected to grow.</p>
-<blockquote>If analysts estimate next year EPS = $6.50:<br>
-Forward P/E = $100 / $6.50 = <strong>15.4x</strong></blockquote>
-
-<p><strong>PEG Ratio (Price/Earnings-to-Growth)</strong><br>
-P/E divided by expected EPS growth rate. Adjusts valuation for growth speed. PEG &lt; 1 may suggest undervaluation.</p>
-<blockquote>If EPS growth rate = 25%:<br>
-PEG = 20.0 / 25 = <strong>0.80</strong><br>
-Interpretation: paying less than 1x the growth rate -- potentially attractive.</blockquote>
-
-<p><strong>EV (Enterprise Value)</strong><br>
-Total company value including debt, minus cash. What an acquirer would pay to buy the whole business.</p>
-<blockquote>EV = Market Cap + Total Debt - Cash<br>
-EV = ($100 x 10M) + $200M - $50M = $1,000M + $200M - $50M = <strong>$1,150M</strong></blockquote>
-
-<p><strong>EV/EBITDA</strong><br>
-Enterprise value per dollar of operating cash earnings. Lower = cheaper. Useful for comparing companies with different debt levels.</p>
-<blockquote>EV/EBITDA = $1,150M / $90M = <strong>12.8x</strong><br>
-Interpretation: the business is valued at 12.8 years of its operating cash earnings.</blockquote>
-
-<p><strong>EV/Sales (EV/Revenue)</strong><br>
-Enterprise value per dollar of revenue. Used for high-growth companies that may not yet be profitable.</p>
-<blockquote>EV/Sales = $1,150M / $500M = <strong>2.3x</strong></blockquote>
-
-<p><strong>P/S (Price-to-Sales)</strong><br>
-Market cap per dollar of revenue. Simpler than EV/Sales (ignores debt/cash).</p>
-<blockquote>P/S = Market Cap / Revenue = $1,000M / $500M = <strong>2.0x</strong></blockquote>
-
-<p><strong>P/B (Price-to-Book)</strong><br>
-Market price relative to accounting book value. P/B &lt; 1 means market values the company below its asset base.</p>
-<blockquote>P/B = Stock Price / Book Value per Share = $100 / $30 = <strong>3.3x</strong></blockquote>
-
-<p><strong>FCF Yield (Free Cash Flow Yield)</strong><br>
-Free cash flow as a percentage of market cap. Higher = more cash generation per dollar of market value. Inverse of P/FCF.</p>
-<blockquote>FCF Yield = FCF / Market Cap = $40M / $1,000M = <strong>4.0%</strong><br>
-Interpretation: Acme generates 4 cents of free cash for every $1 of market value annually.</blockquote>
-
-<p><strong>Dividend Yield</strong><br>
-Annual dividends as a percentage of stock price.</p>
-<blockquote>Dividend Yield = Dividends/Share / Price = $1.50 / $100 = <strong>1.5%</strong></blockquote>
-
-<h3>2. Profitability Metrics</h3>
-
-<p><strong>Gross Margin</strong><br>
-Revenue remaining after direct production costs. Measures pricing power and production efficiency.</p>
-<blockquote>Gross Margin = Gross Profit / Revenue = $200M / $500M = <strong>40.0%</strong><br>
-Interpretation: Acme keeps 40 cents of every revenue dollar after paying for what it sells.</blockquote>
-
-<p><strong>Operating Margin</strong><br>
-Revenue remaining after all operating expenses (but before interest and taxes). Core business profitability.</p>
-<blockquote>Operating Margin = Operating Income / Revenue = $75M / $500M = <strong>15.0%</strong></blockquote>
-
-<p><strong>Net Margin</strong><br>
-Bottom-line profit per dollar of revenue, after all costs including taxes and interest.</p>
-<blockquote>Net Margin = Net Income / Revenue = $50M / $500M = <strong>10.0%</strong></blockquote>
-
-<p><strong>ROE (Return on Equity)</strong><br>
-Profit generated per dollar of shareholder equity. Measures how efficiently the company uses shareholder capital.</p>
-<blockquote>ROE = Net Income / Total Equity = $50M / $300M = <strong>16.7%</strong><br>
-Interpretation: for every $1 of equity, Acme generates 16.7 cents of annual profit.</blockquote>
-
-<p><strong>ROIC (Return on Invested Capital)</strong><br>
-Profit generated per dollar of ALL capital deployed (equity + debt). Better than ROE for comparing companies with different leverage.</p>
-<blockquote>NOPAT = Operating Income x (1 - Tax Rate) = $75M x 0.75 = $56.25M<br>
-ROIC = NOPAT / Invested Capital = $56.25M / $450M = <strong>12.5%</strong><br>
-Interpretation: Acme earns 12.5% on every dollar of capital invested. Compare to WACC (10%) -- if ROIC &gt; WACC, the company creates value.</blockquote>
-
-<h3>3. Cash Flow Metrics</h3>
-
-<p><strong>OCF (Operating Cash Flow)</strong><br>
-Cash generated from normal business operations. Starts from net income, adds back non-cash charges, adjusts for working capital changes.</p>
-<blockquote>OCF = $70M (from cash flow statement)</blockquote>
-
-<p><strong>FCF (Free Cash Flow)</strong><br>
-Cash available after maintaining/expanding the asset base. The cash that could be returned to shareholders or used for growth.</p>
-<blockquote>FCF = Operating Cash Flow - CapEx = $70M - $30M = <strong>$40M</strong></blockquote>
-
-<p><strong>CapEx (Capital Expenditures)</strong><br>
-Spending on physical assets (factories, equipment, data centers). A measure of investment intensity.</p>
-<blockquote>CapEx = $30M<br>
-CapEx/Revenue = $30M / $500M = 6.0% (capital-light if &lt;10%, capital-heavy if &gt;20%)</blockquote>
-
-<p><strong>FCF/NI (FCF-to-Net-Income Ratio)</strong><br>
-Cash quality indicator. FCF/NI &gt; 100% means the company generates more cash than reported profit -- high earnings quality. FCF/NI &lt; 80% may signal aggressive accounting.</p>
-<blockquote>FCF/NI = $40M / $50M = <strong>80%</strong></blockquote>
-
-<h3>4. Growth Metrics</h3>
-
-<p><strong>TTM (Trailing Twelve Months)</strong><br>
-Sum of the last four quarters. Used to annualize quarterly data without calendar-year bias.</p>
-<blockquote>TTM Revenue = Q3 + Q4 + Q1 + Q2 = $120M + $130M + $125M + $125M = <strong>$500M</strong></blockquote>
-
-<p><strong>YoY (Year-over-Year)</strong><br>
-Growth rate comparing the same period to the prior year. Removes seasonality.</p>
-<blockquote>If Q2 2026 revenue = $125M and Q2 2025 revenue = $100M:<br>
-YoY Growth = ($125M - $100M) / $100M = <strong>25.0%</strong></blockquote>
-
-<p><strong>CAGR (Compound Annual Growth Rate)</strong><br>
-Smoothed annualized growth rate over multiple years. Accounts for compounding.</p>
-<blockquote>If revenue was $200M five years ago and is $500M now:<br>
-CAGR = ($500M/$200M)^(1/5) - 1 = (2.5)^0.2 - 1 = <strong>20.1%</strong><br>
-Interpretation: revenue grew at an average of 20.1% per year, compounded.</blockquote>
-
-<p><strong>EPS (Earnings Per Share)</strong><br>
-Net income allocated to each share. The denominator for P/E.</p>
-<blockquote>EPS = Net Income / Shares Outstanding = $50M / 10M = <strong>$5.00</strong></blockquote>
-
-<h3>5. Risk Metrics</h3>
-
-<p><strong>Annualized Volatility</strong><br>
-Standard deviation of daily returns, annualized. Higher = more price uncertainty. Typical ranges: &lt;15% low, 15-25% medium, 25-40% high, &gt;40% very high.</p>
-<blockquote>If daily return std dev = 2.0%:<br>
-Annualized Vol = 2.0% x sqrt(252) = 2.0% x 15.87 = <strong>31.7%</strong> (high)</blockquote>
-
-<p><strong>Max Drawdown</strong><br>
-Largest peak-to-trough decline in stock price. Measures worst-case historical loss.</p>
-<blockquote>If stock peaked at $150 and bottomed at $60:<br>
-Max Drawdown = ($60 - $150) / $150 = <strong>-60%</strong></blockquote>
-
-<p><strong>VaR 95% (Value at Risk, 95th percentile)</strong><br>
-The daily loss that is exceeded only 5% of trading days. A "bad day" threshold.</p>
-<blockquote>If 5th percentile of daily returns = -3.2%:<br>
-VaR 95% = <strong>-3.2%</strong> (on 95% of days, you lose less than 3.2%)</blockquote>
-
-<p><strong>Beta</strong><br>
-Stock's sensitivity to market movements. Beta 1.0 = moves with market. Beta 1.5 = 50% more volatile than market. Beta 0.7 = 30% less volatile.</p>
-<blockquote>If Acme's beta = 1.3:<br>
-When S&amp;P 500 falls 10%, Acme is expected to fall ~13%.</blockquote>
-
-<p><strong>Debt/Equity</strong><br>
-Total debt relative to shareholder equity. Measures financial leverage.</p>
-<blockquote>D/E = Total Debt / Total Equity = $200M / $300M = <strong>0.67</strong><br>
-Interpretation: for every $1 of equity, Acme has $0.67 of debt. Under 1.0 is generally conservative.</blockquote>
-
-<h3>6. Valuation Models (used in this report)</h3>
-
-<p><strong>Owner-Earnings Value (Buffett method)</strong><br>
-Intrinsic value based on sustainable cash earnings. Conservative -- applies a 25% margin of safety haircut.</p>
-<blockquote>Owner Earnings = Net Income + Depreciation - Maintenance CapEx<br>
-Value = Owner Earnings x Growth Multiplier x (1 - 25% MoS)</blockquote>
-
-<p><strong>DCF (Discounted Cash Flow)</strong><br>
-Projects future free cash flows and discounts them to present value. The "gold standard" of intrinsic value -- but only as good as the assumptions.</p>
-<blockquote>Value = SUM(FCF_t / (1 + WACC)^t) + Terminal Value<br>
-Run three scenarios: Bear (low growth), Base (consensus), Bull (high growth)</blockquote>
-
-<p><strong>Graham Number</strong><br>
-Benjamin Graham's conservative intrinsic value formula. Suitable for stable, profitable companies.</p>
-<blockquote>Graham Number = sqrt(22.5 x EPS x Book Value per Share)<br>
-= sqrt(22.5 x $5.00 x $30) = sqrt($3,375) = <strong>$58.09</strong><br>
-Interpretation: Graham would pay no more than $58.09 for Acme.</blockquote>
-
-<p><strong>EV/EBITDA Relative Value</strong><br>
-Per-share value implied by applying the sector median EV/EBITDA multiple.</p>
-<blockquote>If sector median EV/EBITDA = 10x:<br>
-Implied EV = 10 x $90M = $900M<br>
-Implied Equity = $900M - $200M + $50M = $750M<br>
-Implied Price = $750M / 10M shares = <strong>$75.00</strong></blockquote>
-
-<p><strong>PEG-Based Fair Value</strong><br>
-Fair P/E = EPS growth rate (Peter Lynch rule of thumb). PEG = 1 means "fair."</p>
-<blockquote>If growth = 25%, fair P/E = 25x<br>
-Fair Price = 25 x $5.00 = <strong>$125.00</strong></blockquote>
-
-<h3>7. Scoring Terms (used in the Investment Dashboard)</h3>
-<table>
-<thead><tr><th>Score</th><th>Label</th><th>Meaning</th></tr></thead>
-<tbody>
-  <tr><td>9-10</td><td>Exceptional</td><td>Top-decile across public companies</td></tr>
-  <tr><td>7-8</td><td>Strong</td><td>Clearly above average; a competitive advantage</td></tr>
-  <tr><td>5-6</td><td>Average</td><td>In line with peers; no edge or concern</td></tr>
-  <tr><td>3-4</td><td>Below average</td><td>Meaningful weakness vs peers</td></tr>
-  <tr><td>1-2</td><td>Poor</td><td>Significant risk factor or structural deficiency</td></tr>
-</tbody>
-</table>
-
-</div>
-</details>
 
 <a href="#top" class="back-top">Back to Top</a>
 
@@ -985,7 +991,7 @@ Fair Price = 25 x $5.00 = <strong>$125.00</strong></blockquote>
   }
 
   headers.forEach(function(th, idx) {
-    if (idx === 0 || idx === 1 || idx === headers.length - 1) return; // skip Ticker, Sector, Report
+    if (idx === 0 || idx === 1 || idx === headers.length - 1) return;
     th.addEventListener('click', function() {
       var rows = Array.from(tbody.querySelectorAll('tr'));
       var asc = th.classList.contains('sort-asc');
