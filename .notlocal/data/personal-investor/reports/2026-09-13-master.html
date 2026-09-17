@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Stock Research — Master Comparison (2026-09-13)</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px; line-height: 1.75;
+    color: #1a1a1a; background: #fafafa;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* Sticky nav */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(253,253,253,0.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e5e5e5;
+    padding: 12px 0;
+  }
+  nav .nav-inner {
+    max-width: 960px; margin: 0 auto; padding: 0 20px;
+    display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+  }
+  nav a {
+    color: #4a5568; text-decoration: none; font-size: 14px; font-weight: 500;
+    transition: color 0.15s;
+  }
+  nav a:hover { color: #1a1a1a; }
+
+  /* Scroll offset */
+  [id], h2, h3 { scroll-margin-top: 60px; }
+
+  /* Summary cards */
+  .summary-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin: 32px 0 24px;
+  }
+  .summary-card {
+    background: #fff; border: 1px solid #e5e5e5; border-radius: 10px;
+    padding: 20px; text-align: center;
+  }
+  .summary-card .label { font-size: 13px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+  .summary-card .value { font-size: 32px; font-weight: 700; color: #1a1a1a; margin-top: 4px; }
+
+  /* Headings */
+  h1 { font-size: 26px; font-weight: 700; margin: 32px 0 8px; }
+  h2 { font-size: 21px; font-weight: 700; margin: 40px 0 16px; border-bottom: 2px solid #e5e5e5; padding-bottom: 8px; }
+  h3 { font-size: 17px; font-weight: 600; margin: 28px 0 12px; }
+
+  /* Tables */
+  table {
+    width: 100%; border-collapse: collapse; margin: 16px 0 24px;
+    font-variant-numeric: lining-nums tabular-nums;
+    background: #fff; border: 1px solid #e5e5e5; border-radius: 8px;
+    overflow: hidden;
+  }
+  thead { position: static; }
+  thead th {
+    background: #f8f9fa; font-weight: 600; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.03em;
+    padding: 10px 12px; border-bottom: 2px solid #e5e5e5;
+    text-align: left; white-space: nowrap;
+  }
+  thead th.num { text-align: right; }
+  thead th.sortable { cursor: pointer; user-select: none; }
+  thead th.sortable:hover { background: #eef1f5; }
+  thead th.sortable::after { content: ' \2195'; font-size: 11px; color: #9ca3af; }
+  thead th.sort-asc::after { content: ' \2191'; color: #1a1a1a; }
+  thead th.sort-desc::after { content: ' \2193'; color: #1a1a1a; }
+  tbody td { padding: 9px 12px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+  tbody td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody tr:hover { background: #f5f5f5; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr.median-row { font-weight: 700; background: #f8f9fa; }
+
+  /* Benchmark rows in explore section */
+  .benchmark-row { background: #f0f7ff !important; font-weight: 700; }
+
+  /* Dashboard score colors */
+  .score-green { color: #16a34a; font-weight: 700; }
+  .score-amber { color: #d97706; font-weight: 700; }
+  .score-red   { color: #dc2626; font-weight: 700; }
+
+  /* Risk tier badges */
+  .risk-badge {
+    display: inline-block; padding: 3px 10px; border-radius: 12px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+  }
+  .risk-green  { background: #dcfce7; color: #166534; }
+  .risk-amber  { background: #fef3c7; color: #92400e; }
+  .risk-red    { background: #fee2e2; color: #991b1b; }
+
+  /* Sector block cards */
+  .sector-block {
+    background: #fff; border: 1px solid #e5e5e5; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .sector-block h3 { margin-top: 0; border-bottom: none; }
+  .sector-block p { font-size: 14px; color: #6b7280; margin: 4px 0 12px; }
+
+  /* Links */
+  a { color: #2563eb; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .back-top { font-size: 13px; color: #9ca3af; margin-top: 8px; display: inline-block; }
+  .back-top:hover { color: #6b7280; }
+
+  /* Report link */
+  .report-link {
+    display: inline-block; padding: 2px 8px; background: #eff6ff;
+    border-radius: 4px; font-size: 13px; font-weight: 500; color: #2563eb;
+  }
+  .report-link:hover { background: #dbeafe; text-decoration: none; }
+
+  hr { border: none; border-top: 1px solid #e5e5e5; margin: 32px 0; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .summary-cards { grid-template-columns: 1fr; }
+    nav .nav-inner { gap: 12px; }
+    table { font-size: 13px; }
+    thead th, tbody td { padding: 7px 8px; }
+    .container { padding: 0 12px 40px; }
+    h1 { font-size: 22px; }
+  }
+
+  /* Print */
+  @media print {
+    nav { display: none; }
+    body { background: #fff; font-size: 12px; }
+    .container { max-width: 100%; padding: 0; }
+    table { page-break-inside: avoid; }
+    .sector-block { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<a id="top"></a>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#risk-tiers">Risk Tiers</a>
+    <a href="#comparison">Comparison</a>
+    <a href="#explore">Explore Next</a>
+    <a href="#sectors">Sectors</a>
+    <a href="#best-worst">Best/Worst</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<h1>Weekly Stock Research — Master Comparison (2026-09-13)</h1>
+
+<div class="summary-cards">
+  <div class="summary-card">
+    <div class="label">Tickers</div>
+    <div class="value">20</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">Reports Generated</div>
+    <div class="value">20/20</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">Sectors</div>
+    <div class="value">14</div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ============ RISK TIERS ============ -->
+<a id="risk-tiers"></a>
+<h2>1. Risk Tier Summary</h2>
+
+<table>
+  <thead>
+    <tr><th>Risk Tier</th><th>Tickers</th><th>Characteristics</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="risk-badge" style="background:#f3f4f6;color:#6b7280;">Low (&lt;30%)</span></td>
+      <td>&mdash;</td>
+      <td>&mdash;</td>
+    </tr>
+    <tr>
+      <td><span class="risk-badge risk-green">Medium (30-50%)</span></td>
+      <td>BKNG (33%), SNPS (37%), EXPE (45%), LULU (~45%)</td>
+      <td>Profitable, established businesses with positive earnings</td>
+    </tr>
+    <tr>
+      <td><span class="risk-badge risk-amber">High (50-75%)</span></td>
+      <td>VRT (56%), TSLA (59%), UUUU (72%), MP (71%), HOOD (73%)</td>
+      <td>Growth premium, cyclical or emerging profitability</td>
+    </tr>
+    <tr>
+      <td><span class="risk-badge risk-red">Very High (&gt;75%)</span></td>
+      <td>CRWV (110%), IREN (115%), IONQ (95%), ASTS (95%), COIN (84%), INOD (85%), OKLO (87%), QURE (96%), RDDT (80%), RKLB (77%), SPCX (91%)</td>
+      <td>Pre-profit or speculative; high drawdown risk</td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="#top" class="back-top">&uarr; Back to Top</a>
+
+<hr>
+
+<!-- ============ COMPARISON TABLE ============ -->
+<a id="comparison"></a>
+<h2>2. Fundamentals Comparison Table</h2>
+<p style="color:#6b7280;font-size:14px;">Sorted by Dashboard composite score (highest first). Click column headers to sort.</p>
+
+<table id="compTable">
+  <thead>
+    <tr>
+      <th class="sortable">Ticker</th>
+      <th class="sortable">Sector</th>
+      <th class="sortable num">Price</th>
+      <th class="sortable num">MCap</th>
+      <th class="sortable num">P/E</th>
+      <th class="sortable num">Fwd P/E</th>
+      <th class="sortable num">EV/EBITDA</th>
+      <th class="sortable num">EV/Sales</th>
+      <th class="sortable num">Vol</th>
+      <th class="sortable num">Dashboard</th>
+      <th>Report</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>BKNG</strong></td><td>TRAVEL</td>
+      <td class="num">$171</td><td class="num">$133B</td>
+      <td class="num">19.1x</td><td class="num">13.9x</td><td class="num">12.7x</td><td class="num">4.7x</td><td class="num">33%</td>
+      <td class="num"><span class="score-green">7.6</span>/10</td>
+      <td><a href="BKNG/BKNG_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>RDDT</strong></td><td>AI-DATA</td>
+      <td class="num">$158</td><td class="num">$30B</td>
+      <td class="num">36.7x</td><td class="num">16.3x</td><td class="num">34.9x</td><td class="num">10.1x</td><td class="num">80%</td>
+      <td class="num"><span class="score-green">7.5</span>/10</td>
+      <td><a href="RDDT/RDDT_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>SNPS</strong></td><td>EDA</td>
+      <td class="num">$378</td><td class="num">$73B</td>
+      <td class="num">65.9x</td><td class="num">21.6x</td><td class="num">37.4x</td><td class="num">8.3x</td><td class="num">37%</td>
+      <td class="num"><span class="score-amber">6.6</span>/10</td>
+      <td><a href="SNPS/SNPS_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>VRT</strong></td><td>DATACENTER-INFRA</td>
+      <td class="num">$239</td><td class="num">$92B</td>
+      <td class="num">54.3x</td><td class="num">26.2x</td><td class="num">33.8x</td><td class="num">7.9x</td><td class="num">56%</td>
+      <td class="num"><span class="score-amber">6.6</span>/10</td>
+      <td><a href="VRT/VRT_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>EXPE</strong></td><td>TRAVEL</td>
+      <td class="num">$287</td><td class="num">$34B</td>
+      <td class="num">18.1x</td><td class="num">11.7x</td><td class="num">12.1x</td><td class="num">2.2x</td><td class="num">45%</td>
+      <td class="num"><span class="score-amber">6.3</span>/10</td>
+      <td><a href="EXPE/EXPE_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>SPCX</strong></td><td>TRAVEL-SPACE</td>
+      <td class="num">$151</td><td class="num">$1988B</td>
+      <td class="num">N/A</td><td class="num">86.6x</td><td class="num">631.3x</td><td class="num">161.5x</td><td class="num">91%</td>
+      <td class="num"><span class="score-amber">5.9</span>/10</td>
+      <td><a href="SPCX/SPCX_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>CRWV</strong></td><td>AI-INFRA</td>
+      <td class="num">$83</td><td class="num">$46B</td>
+      <td class="num">N/A</td><td class="num">-42.8x</td><td class="num">23.9x</td><td class="num">12.0x</td><td class="num">110%</td>
+      <td class="num"><span class="score-amber">5.5</span>/10</td>
+      <td><a href="CRWV/CRWV_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>HOOD</strong></td><td>FINTECH</td>
+      <td class="num">$104</td><td class="num">$94B</td>
+      <td class="num">46.2x</td><td class="num">30.9x</td><td class="num">N/A</td><td class="num">19.9x</td><td class="num">73%</td>
+      <td class="num"><span class="score-amber">5.4</span>/10</td>
+      <td><a href="HOOD/HOOD_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>INOD</strong></td><td>AI-DATA</td>
+      <td class="num">$55</td><td class="num">$2B</td>
+      <td class="num">43.0x</td><td class="num">26.5x</td><td class="num">27.4x</td><td class="num">5.1x</td><td class="num">85%</td>
+      <td class="num"><span class="score-amber">5.3</span>/10</td>
+      <td><a href="INOD/INOD_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>TSLA</strong></td><td>MAG7</td>
+      <td class="num">$358</td><td class="num">$1414B</td>
+      <td class="num">334.7x</td><td class="num">165.9x</td><td class="num">128.5x</td><td class="num">13.3x</td><td class="num">59%</td>
+      <td class="num"><span class="score-red">4.9</span>/10</td>
+      <td><a href="TSLA/TSLA_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>RKLB</strong></td><td>TRAVEL-SPACE</td>
+      <td class="num">$64</td><td class="num">$41B</td>
+      <td class="num">N/A</td><td class="num">1398.2x</td><td class="num">-238.2x</td><td class="num">46.6x</td><td class="num">77%</td>
+      <td class="num"><span class="score-red">4.6</span>/10</td>
+      <td><a href="RKLB/RKLB_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>UUUU</strong></td><td>RARE-EARTH</td>
+      <td class="num">$12</td><td class="num">$3B</td>
+      <td class="num">N/A</td><td class="num">24.2x</td><td class="num">-37.8x</td><td class="num">25.6x</td><td class="num">72%</td>
+      <td class="num"><span class="score-red">4.6</span>/10</td>
+      <td><a href="UUUU/UUUU_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>COIN</strong></td><td>FINTECH</td>
+      <td class="num">$165</td><td class="num">$43B</td>
+      <td class="num">N/A</td><td class="num">58.1x</td><td class="num">61.9x</td><td class="num">7.2x</td><td class="num">84%</td>
+      <td class="num"><span class="score-red">4.5</span>/10</td>
+      <td><a href="COIN/COIN_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>LULU</strong></td><td>RETAIL</td>
+      <td class="num">$266</td><td class="num">$33B</td>
+      <td class="num">7.9x</td><td class="num">10.9x</td><td class="num">N/A</td><td class="num">3.4x</td><td class="num">~45%</td>
+      <td class="num"><span class="score-red">4.5</span>/10</td>
+      <td><a href="LULU/LULU_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>MP</strong></td><td>RARE-EARTH</td>
+      <td class="num">$49</td><td class="num">$9B</td>
+      <td class="num">N/A</td><td class="num">56.1x</td><td class="num">213.9x</td><td class="num">20.9x</td><td class="num">71%</td>
+      <td class="num"><span class="score-red">3.9</span>/10</td>
+      <td><a href="MP/MP_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>QURE</strong></td><td>MISC</td>
+      <td class="num">$42</td><td class="num">$3B</td>
+      <td class="num">N/A</td><td class="num">-14.0x</td><td class="num">-14.9x</td><td class="num">146.3x</td><td class="num">96%</td>
+      <td class="num"><span class="score-red">3.8</span>/10</td>
+      <td><a href="QURE/QURE_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>IONQ</strong></td><td>QUANTUM</td>
+      <td class="num">$37</td><td class="num">$15B</td>
+      <td class="num">N/A</td><td class="num">-28.2x</td><td class="num">-15.2x</td><td class="num">48.9x</td><td class="num">95%</td>
+      <td class="num"><span class="score-red">3.4</span>/10</td>
+      <td><a href="IONQ/IONQ_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>OKLO</strong></td><td>ENERGY-NUC</td>
+      <td class="num">$36</td><td class="num">$7B</td>
+      <td class="num">N/A</td><td class="num">-35.2x</td><td class="num">-19.5x</td><td class="num">3497.4x</td><td class="num">87%</td>
+      <td class="num"><span class="score-red">3.4</span>/10</td>
+      <td><a href="OKLO/OKLO_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>ASTS</strong></td><td>TRAVEL-SPACE</td>
+      <td class="num">$59</td><td class="num">$23B</td>
+      <td class="num">N/A</td><td class="num">-46.0x</td><td class="num">-46.3x</td><td class="num">163.3x</td><td class="num">95%</td>
+      <td class="num"><span class="score-red">3.0</span>/10</td>
+      <td><a href="ASTS/ASTS_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+    <tr>
+      <td><strong>IREN</strong></td><td>DATACENTER-INFRA</td>
+      <td class="num">$43</td><td class="num">$17B</td>
+      <td class="num">N/A</td><td class="num">-160.8x</td><td class="num">478.0x</td><td class="num">25.9x</td><td class="num">115%</td>
+      <td class="num"><span class="score-red">3.0</span>/10</td>
+      <td><a href="IREN/IREN_2026-09-13.md" class="report-link">&rarr;</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="#top" class="back-top">&uarr; Back to Top</a>
+
+<hr>
+
+<!-- ============ EXPLORE THESE NEXT ============ -->
+<a id="explore"></a>
+<h2>3. Explore These Next</h2>
+<p style="color:#6b7280;font-size:14px;">Same-sector tickers not in the weekly batch. Batch ticker shown as benchmark row for direct comparison.</p>
+
+<!-- SNPS (EDA) -->
+<div class="sector-block">
+  <h3>SNPS (EDA) — Explore: CDNS</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>SNPS (benchmark)</strong></td><td class="num">$378</td><td class="num">$73B</td><td class="num">21.6x</td><td class="num">37.4x</td><td class="num">8.3x</td><td class="num">37%</td><td>In batch</td></tr>
+      <tr><td>CDNS</td><td class="num">&mdash;</td><td class="num">~$80B</td><td class="num">~25x</td><td class="num">~35x</td><td class="num">~15x</td><td class="num">~30%</td><td>EDA duopoly partner; similar margin profile, slightly higher growth premium</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- VRT + IREN (DATACENTER-INFRA) -->
+<div class="sector-block">
+  <h3>VRT (DATACENTER-INFRA) — Explore: CARR, NEE, BE, AAON, WCC, ETN, PWR</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>VRT (benchmark)</strong></td><td class="num">$239</td><td class="num">$92B</td><td class="num">26.2x</td><td class="num">33.8x</td><td class="num">7.9x</td><td class="num">56%</td><td>In batch</td></tr>
+      <tr><td>CARR</td><td class="num">&mdash;</td><td class="num">~$70B</td><td class="num">~25x</td><td class="num">~20x</td><td class="num">~4x</td><td class="num">~30%</td><td>HVAC/thermal peer, lower growth premium</td></tr>
+      <tr><td>NEE</td><td class="num">&mdash;</td><td class="num">~$160B</td><td class="num">~22x</td><td class="num">~15x</td><td class="num">~6x</td><td class="num">~25%</td><td>Utility-scale energy, different risk profile</td></tr>
+      <tr><td>BE</td><td class="num">&mdash;</td><td class="num">~$6B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~4x</td><td class="num">~70%</td><td>Fuel cells; pre-profit, high vol</td></tr>
+      <tr><td>AAON</td><td class="num">&mdash;</td><td class="num">~$12B</td><td class="num">~40x</td><td class="num">~30x</td><td class="num">~8x</td><td class="num">~35%</td><td>HVAC specialist, smaller scale</td></tr>
+      <tr><td>WCC</td><td class="num">&mdash;</td><td class="num">~$10B</td><td class="num">~12x</td><td class="num">~10x</td><td class="num">~0.6x</td><td class="num">~35%</td><td>Electrical distribution, value play</td></tr>
+      <tr><td>ETN</td><td class="num">&mdash;</td><td class="num">~$130B</td><td class="num">~28x</td><td class="num">~22x</td><td class="num">~5x</td><td class="num">~25%</td><td>Power management, similar datacenter exposure</td></tr>
+      <tr><td>PWR</td><td class="num">&mdash;</td><td class="num">~$45B</td><td class="num">~30x</td><td class="num">~18x</td><td class="num">~2x</td><td class="num">~35%</td><td>Infrastructure services, different model</td></tr>
+    </tbody>
+  </table>
+  <h3>IREN (DATACENTER-INFRA) — See VRT explore group above</h3>
+  <p>IREN shares the DATACENTER-INFRA sector with VRT. The same explore tickers (CARR, NEE, BE, AAON, WCC, ETN, PWR) apply.</p>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>IREN (benchmark)</strong></td><td class="num">$43</td><td class="num">$17B</td><td class="num">-160.8x</td><td class="num">478.0x</td><td class="num">25.9x</td><td class="num">115%</td><td>In batch</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- CRWV (AI-INFRA) -->
+<div class="sector-block">
+  <h3>CRWV (AI-INFRA) — Explore: NBIS</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>CRWV (benchmark)</strong></td><td class="num">$83</td><td class="num">$46B</td><td class="num">-42.8x</td><td class="num">23.9x</td><td class="num">12.0x</td><td class="num">110%</td><td>In batch</td></tr>
+      <tr><td>NBIS</td><td class="num">&mdash;</td><td class="num">~$5B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~15x</td><td class="num">~80%</td><td>Nebius (ex-Yandex); AI cloud infra, earlier stage</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- TSLA (MAG7) -->
+<div class="sector-block">
+  <h3>TSLA (MAG7) — Explore: NVDA, GOOG, META, MSFT, AMZN, AAPL</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>TSLA (benchmark)</strong></td><td class="num">$358</td><td class="num">$1414B</td><td class="num">165.9x</td><td class="num">128.5x</td><td class="num">13.3x</td><td class="num">59%</td><td>In batch</td></tr>
+      <tr><td>NVDA</td><td class="num">&mdash;</td><td class="num">~$3200B</td><td class="num">~30x</td><td class="num">~28x</td><td class="num">~25x</td><td class="num">~45%</td><td>AI chip leader; far cheaper on Fwd P/E</td></tr>
+      <tr><td>GOOG</td><td class="num">&mdash;</td><td class="num">~$2100B</td><td class="num">~20x</td><td class="num">~15x</td><td class="num">~7x</td><td class="num">~30%</td><td>Search + Cloud; deep value vs TSLA</td></tr>
+      <tr><td>META</td><td class="num">&mdash;</td><td class="num">~$1500B</td><td class="num">~22x</td><td class="num">~14x</td><td class="num">~8x</td><td class="num">~35%</td><td>Social + AI; strong FCF, lower premium</td></tr>
+      <tr><td>MSFT</td><td class="num">&mdash;</td><td class="num">~$3100B</td><td class="num">~30x</td><td class="num">~23x</td><td class="num">~12x</td><td class="num">~25%</td><td>Enterprise + Cloud; steady compounder</td></tr>
+      <tr><td>AMZN</td><td class="num">&mdash;</td><td class="num">~$2200B</td><td class="num">~32x</td><td class="num">~18x</td><td class="num">~4x</td><td class="num">~30%</td><td>E-commerce + AWS; lower EV/Sales</td></tr>
+      <tr><td>AAPL</td><td class="num">&mdash;</td><td class="num">~$3400B</td><td class="num">~32x</td><td class="num">~25x</td><td class="num">~9x</td><td class="num">~20%</td><td>Consumer hardware + services; lowest vol</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- COIN + HOOD (FINTECH) -->
+<div class="sector-block">
+  <h3>COIN (FINTECH) — Explore: PYPL, V, MA, SQ, AFRM, SOFI</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>COIN (benchmark)</strong></td><td class="num">$165</td><td class="num">$43B</td><td class="num">58.1x</td><td class="num">61.9x</td><td class="num">7.2x</td><td class="num">84%</td><td>In batch</td></tr>
+      <tr><td>PYPL</td><td class="num">&mdash;</td><td class="num">~$80B</td><td class="num">~16x</td><td class="num">~12x</td><td class="num">~2.5x</td><td class="num">~35%</td><td>Payments giant; deep value vs COIN</td></tr>
+      <tr><td>V</td><td class="num">&mdash;</td><td class="num">~$600B</td><td class="num">~28x</td><td class="num">~22x</td><td class="num">~18x</td><td class="num">~20%</td><td>Card network; premium but steady</td></tr>
+      <tr><td>MA</td><td class="num">&mdash;</td><td class="num">~$450B</td><td class="num">~30x</td><td class="num">~25x</td><td class="num">~17x</td><td class="num">~20%</td><td>Card network; similar to V</td></tr>
+      <tr><td>SQ</td><td class="num">&mdash;</td><td class="num">~$50B</td><td class="num">~25x</td><td class="num">~20x</td><td class="num">~2.5x</td><td class="num">~55%</td><td>Payments + crypto exposure</td></tr>
+      <tr><td>AFRM</td><td class="num">&mdash;</td><td class="num">~$18B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~7x</td><td class="num">~70%</td><td>BNPL; pre-GAAP-profit, high growth</td></tr>
+      <tr><td>SOFI</td><td class="num">&mdash;</td><td class="num">~$15B</td><td class="num">~25x</td><td class="num">~15x</td><td class="num">~6x</td><td class="num">~60%</td><td>Neobank; recently profitable</td></tr>
+    </tbody>
+  </table>
+  <h3>HOOD (FINTECH) — See COIN explore group above</h3>
+  <p>HOOD shares the FINTECH sector with COIN. The same explore tickers apply.</p>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>HOOD (benchmark)</strong></td><td class="num">$104</td><td class="num">$94B</td><td class="num">30.9x</td><td class="num">N/A</td><td class="num">19.9x</td><td class="num">73%</td><td>In batch</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- IONQ (QUANTUM) -->
+<div class="sector-block">
+  <h3>IONQ (QUANTUM) — Explore: RGTI, QUBT, QBTS</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>IONQ (benchmark)</strong></td><td class="num">$37</td><td class="num">$15B</td><td class="num">-28.2x</td><td class="num">-15.2x</td><td class="num">48.9x</td><td class="num">95%</td><td>In batch</td></tr>
+      <tr><td>RGTI</td><td class="num">&mdash;</td><td class="num">~$5B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~100x</td><td class="num">~120%</td><td>Rigetti; superconducting qubits, smaller scale</td></tr>
+      <tr><td>QUBT</td><td class="num">&mdash;</td><td class="num">~$2B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~130%</td><td>Quantum Computing Inc; early-stage, minimal revenue</td></tr>
+      <tr><td>QBTS</td><td class="num">&mdash;</td><td class="num">~$3B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~80x</td><td class="num">~110%</td><td>D-Wave; annealing approach, niche commercial use</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- OKLO (ENERGY-NUC) -->
+<div class="sector-block">
+  <h3>OKLO (ENERGY-NUC) — Explore: SMR</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>OKLO (benchmark)</strong></td><td class="num">$36</td><td class="num">$7B</td><td class="num">-35.2x</td><td class="num">-19.5x</td><td class="num">3497.4x</td><td class="num">87%</td><td>In batch</td></tr>
+      <tr><td>SMR</td><td class="num">&mdash;</td><td class="num">~$10B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~80%</td><td>NuScale Power; SMR technology, pre-revenue peer</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- MP + UUUU (RARE-EARTH) -->
+<div class="sector-block">
+  <h3>MP (RARE-EARTH) — Explore: USAR</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>MP (benchmark)</strong></td><td class="num">$49</td><td class="num">$9B</td><td class="num">56.1x</td><td class="num">213.9x</td><td class="num">20.9x</td><td class="num">71%</td><td>In batch</td></tr>
+      <tr><td>USAR</td><td class="num">&mdash;</td><td class="num">~$1B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~90%</td><td>USA Rare Earth; earlier stage, domestic processing</td></tr>
+    </tbody>
+  </table>
+  <h3>UUUU (RARE-EARTH) — See MP explore group above</h3>
+  <p>UUUU shares the RARE-EARTH sector with MP. The same explore ticker (USAR) applies.</p>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>UUUU (benchmark)</strong></td><td class="num">$12</td><td class="num">$3B</td><td class="num">24.2x</td><td class="num">-37.8x</td><td class="num">25.6x</td><td class="num">72%</td><td>In batch</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SPCX + RKLB + ASTS (TRAVEL-SPACE) -->
+<div class="sector-block">
+  <h3>SPCX (TRAVEL-SPACE) — Explore: ROKT, SPCE</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>SPCX (benchmark)</strong></td><td class="num">$151</td><td class="num">$1988B</td><td class="num">86.6x</td><td class="num">631.3x</td><td class="num">161.5x</td><td class="num">91%</td><td>In batch</td></tr>
+      <tr><td>ROKT</td><td class="num">&mdash;</td><td class="num">~$2B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~100%</td><td>Rocket Lab competitor; early-stage launch</td></tr>
+      <tr><td>SPCE</td><td class="num">&mdash;</td><td class="num">~$1B</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~N/A</td><td class="num">~90%</td><td>Virgin Galactic; suborbital tourism, cash-burn concern</td></tr>
+    </tbody>
+  </table>
+  <h3>RKLB (TRAVEL-SPACE) — See SPCX explore group above</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>RKLB (benchmark)</strong></td><td class="num">$64</td><td class="num">$41B</td><td class="num">1398.2x</td><td class="num">-238.2x</td><td class="num">46.6x</td><td class="num">77%</td><td>In batch</td></tr>
+    </tbody>
+  </table>
+  <h3>ASTS (TRAVEL-SPACE) — See SPCX explore group above</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>ASTS (benchmark)</strong></td><td class="num">$59</td><td class="num">$23B</td><td class="num">-46.0x</td><td class="num">-46.3x</td><td class="num">163.3x</td><td class="num">95%</td><td>In batch</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- LULU (RETAIL) -->
+<div class="sector-block">
+  <h3>LULU (RETAIL) — Explore: KSS, COST</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>LULU (benchmark)</strong></td><td class="num">$266</td><td class="num">$33B</td><td class="num">10.9x</td><td class="num">N/A</td><td class="num">3.4x</td><td class="num">~45%</td><td>In batch</td></tr>
+      <tr><td>KSS</td><td class="num">&mdash;</td><td class="num">~$2B</td><td class="num">~6x</td><td class="num">~5x</td><td class="num">~0.1x</td><td class="num">~50%</td><td>Kohl's; deep value, challenged retail model</td></tr>
+      <tr><td>COST</td><td class="num">&mdash;</td><td class="num">~$400B</td><td class="num">~50x</td><td class="num">~35x</td><td class="num">~1.5x</td><td class="num">~20%</td><td>Costco; premium compounder, membership moat</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- RDDT, INOD (AI-DATA) -->
+<div class="sector-block">
+  <h3>RDDT, INOD (AI-DATA) — No additional tickers outside batch</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>RDDT (benchmark)</strong></td><td class="num">$158</td><td class="num">$30B</td><td class="num">16.3x</td><td class="num">34.9x</td><td class="num">10.1x</td><td class="num">80%</td><td>In batch</td></tr>
+      <tr class="benchmark-row"><td><strong>INOD (benchmark)</strong></td><td class="num">$55</td><td class="num">$2B</td><td class="num">26.5x</td><td class="num">27.4x</td><td class="num">5.1x</td><td class="num">85%</td><td>In batch</td></tr>
+    </tbody>
+  </table>
+  <p>Both AI-DATA sector tickers are in the batch. No explore suggestions.</p>
+</div>
+
+<!-- BKNG, EXPE (TRAVEL) -->
+<div class="sector-block">
+  <h3>BKNG, EXPE (TRAVEL) — No additional tickers outside batch</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>BKNG (benchmark)</strong></td><td class="num">$171</td><td class="num">$133B</td><td class="num">13.9x</td><td class="num">12.7x</td><td class="num">4.7x</td><td class="num">33%</td><td>In batch</td></tr>
+      <tr class="benchmark-row"><td><strong>EXPE (benchmark)</strong></td><td class="num">$287</td><td class="num">$34B</td><td class="num">11.7x</td><td class="num">12.1x</td><td class="num">2.2x</td><td class="num">45%</td><td>In batch</td></tr>
+    </tbody>
+  </table>
+  <p>Both TRAVEL sector tickers are in the batch. No explore suggestions.</p>
+</div>
+
+<!-- QURE (MISC) -->
+<div class="sector-block">
+  <h3>QURE (MISC) — No additional tickers in sector</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MCap</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">EV/Sales</th><th class="num">Vol</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="benchmark-row"><td><strong>QURE (benchmark)</strong></td><td class="num">$42</td><td class="num">$3B</td><td class="num">-14.0x</td><td class="num">-14.9x</td><td class="num">146.3x</td><td class="num">96%</td><td>In batch — sole sector member</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<a href="#top" class="back-top">&uarr; Back to Top</a>
+
+<hr>
+
+<!-- ============ SECTORS ============ -->
+<a id="sectors"></a>
+<h2>4. Sector Grouping</h2>
+
+<!-- TRAVEL -->
+<h3>TRAVEL (2 tickers)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>BKNG</td><td class="num">19.1x</td><td class="num">+0.5x</td><td class="num">13.9x</td><td class="num">+1.1x</td><td class="num"><span class="score-green">7.6</span>/10</td></tr>
+    <tr><td>EXPE</td><td class="num">18.1x</td><td class="num">-0.5x</td><td class="num">11.7x</td><td class="num">-1.1x</td><td class="num"><span class="score-amber">6.3</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">18.6x</td><td class="num">&mdash;</td><td class="num">12.8x</td><td class="num">&mdash;</td><td class="num">7.0</td></tr>
+  </tbody>
+</table>
+
+<!-- AI-DATA -->
+<h3>AI-DATA (2 tickers)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>RDDT</td><td class="num">36.7x</td><td class="num">-3.2x</td><td class="num">16.3x</td><td class="num">-5.1x</td><td class="num"><span class="score-green">7.5</span>/10</td></tr>
+    <tr><td>INOD</td><td class="num">43.0x</td><td class="num">+3.2x</td><td class="num">26.5x</td><td class="num">+5.1x</td><td class="num"><span class="score-amber">5.3</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">39.9x</td><td class="num">&mdash;</td><td class="num">21.4x</td><td class="num">&mdash;</td><td class="num">6.4</td></tr>
+  </tbody>
+</table>
+
+<!-- EDA -->
+<h3>EDA (1 ticker)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>SNPS</td><td class="num">65.9x</td><td class="num">&mdash;</td><td class="num">21.6x</td><td class="num">&mdash;</td><td class="num"><span class="score-amber">6.6</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">65.9x</td><td class="num">&mdash;</td><td class="num">21.6x</td><td class="num">&mdash;</td><td class="num">6.6</td></tr>
+  </tbody>
+</table>
+
+<!-- DATACENTER-INFRA -->
+<h3>DATACENTER-INFRA (2 tickers)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>VRT</td><td class="num">54.3x</td><td class="num">&mdash;</td><td class="num">26.2x</td><td class="num">+93.5x</td><td class="num"><span class="score-amber">6.6</span>/10</td></tr>
+    <tr><td>IREN</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">-160.8x</td><td class="num">-93.5x</td><td class="num"><span class="score-red">3.0</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">54.3x</td><td class="num">&mdash;</td><td class="num">-67.3x</td><td class="num">&mdash;</td><td class="num">4.8</td></tr>
+  </tbody>
+</table>
+
+<!-- MAG7 -->
+<h3>MAG7 (1 ticker)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>TSLA</td><td class="num">334.7x</td><td class="num">&mdash;</td><td class="num">165.9x</td><td class="num">&mdash;</td><td class="num"><span class="score-red">4.9</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">334.7x</td><td class="num">&mdash;</td><td class="num">165.9x</td><td class="num">&mdash;</td><td class="num">4.9</td></tr>
+  </tbody>
+</table>
+
+<!-- AI-INFRA -->
+<h3>AI-INFRA (1 ticker)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>CRWV</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">-42.8x</td><td class="num">&mdash;</td><td class="num"><span class="score-amber">5.5</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">-42.8x</td><td class="num">&mdash;</td><td class="num">5.5</td></tr>
+  </tbody>
+</table>
+
+<!-- FINTECH -->
+<h3>FINTECH (2 tickers)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>HOOD</td><td class="num">46.2x</td><td class="num">&mdash;</td><td class="num">30.9x</td><td class="num">-13.6x</td><td class="num"><span class="score-amber">5.4</span>/10</td></tr>
+    <tr><td>COIN</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">58.1x</td><td class="num">+13.6x</td><td class="num"><span class="score-red">4.5</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">46.2x</td><td class="num">&mdash;</td><td class="num">44.5x</td><td class="num">&mdash;</td><td class="num">5.0</td></tr>
+  </tbody>
+</table>
+
+<!-- TRAVEL-SPACE -->
+<h3>TRAVEL-SPACE (3 tickers)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>SPCX</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">86.6x</td><td class="num">&mdash;</td><td class="num"><span class="score-amber">5.9</span>/10</td></tr>
+    <tr><td>RKLB</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">1398.2x</td><td class="num">+1311.6x</td><td class="num"><span class="score-red">4.6</span>/10</td></tr>
+    <tr><td>ASTS</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">-46.0x</td><td class="num">-132.6x</td><td class="num"><span class="score-red">3.0</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">86.6x</td><td class="num">&mdash;</td><td class="num">4.6</td></tr>
+  </tbody>
+</table>
+
+<!-- QUANTUM -->
+<h3>QUANTUM (1 ticker)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>IONQ</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">-28.2x</td><td class="num">&mdash;</td><td class="num"><span class="score-red">3.4</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">-28.2x</td><td class="num">&mdash;</td><td class="num">3.4</td></tr>
+  </tbody>
+</table>
+
+<!-- ENERGY-NUC -->
+<h3>ENERGY-NUC (1 ticker)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>OKLO</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">-35.2x</td><td class="num">&mdash;</td><td class="num"><span class="score-red">3.4</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">-35.2x</td><td class="num">&mdash;</td><td class="num">3.4</td></tr>
+  </tbody>
+</table>
+
+<!-- RARE-EARTH -->
+<h3>RARE-EARTH (2 tickers)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>UUUU</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">24.2x</td><td class="num">-15.9x</td><td class="num"><span class="score-red">4.6</span>/10</td></tr>
+    <tr><td>MP</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">56.1x</td><td class="num">+15.9x</td><td class="num"><span class="score-red">3.9</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">40.2x</td><td class="num">&mdash;</td><td class="num">4.3</td></tr>
+  </tbody>
+</table>
+
+<!-- RETAIL -->
+<h3>RETAIL (1 ticker)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>LULU</td><td class="num">7.9x</td><td class="num">&mdash;</td><td class="num">10.9x</td><td class="num">&mdash;</td><td class="num"><span class="score-red">4.5</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">7.9x</td><td class="num">&mdash;</td><td class="num">10.9x</td><td class="num">&mdash;</td><td class="num">4.5</td></tr>
+  </tbody>
+</table>
+
+<!-- MISC -->
+<h3>MISC (1 ticker)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>QURE</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">-14.0x</td><td class="num">&mdash;</td><td class="num"><span class="score-red">3.8</span>/10</td></tr>
+    <tr class="median-row"><td>Median</td><td class="num">N/A</td><td class="num">&mdash;</td><td class="num">-14.0x</td><td class="num">&mdash;</td><td class="num">3.8</td></tr>
+  </tbody>
+</table>
+
+<a href="#top" class="back-top">&uarr; Back to Top</a>
+
+<hr>
+
+<!-- ============ BEST / WORST ============ -->
+<a id="best-worst"></a>
+<h2>5. Best / Worst</h2>
+
+<table>
+  <thead><tr><th>Category</th><th>Ticker</th><th class="num">Value</th><th>Note</th></tr></thead>
+  <tbody>
+    <tr><td>Cheapest (Fwd P/E, positive only)</td><td><strong>LULU</strong></td><td class="num">10.9x</td><td>Retail value play; lowest positive Fwd P/E in batch</td></tr>
+    <tr><td>2nd Cheapest (Fwd P/E)</td><td><strong>EXPE</strong></td><td class="num">11.7x</td><td>Travel recovery, cash generative</td></tr>
+    <tr><td>Most Expensive (Fwd P/E)</td><td><strong>RKLB</strong></td><td class="num">1398.2x</td><td>Space, pre-scale revenue</td></tr>
+    <tr><td>Best Dashboard</td><td><strong>BKNG</strong></td><td class="num">7.6/10</td><td>Quality + value, lowest volatility</td></tr>
+    <tr><td>2nd Best Dashboard</td><td><strong>RDDT</strong></td><td class="num">7.5/10</td><td>AI data monetization, strong growth</td></tr>
+    <tr><td>Worst Dashboard</td><td><strong>ASTS</strong></td><td class="num">3.0/10</td><td>Space/satellite, pre-revenue, extreme EV/Sales</td></tr>
+    <tr><td>Worst Dashboard (tied)</td><td><strong>IREN</strong></td><td class="num">3.0/10</td><td>Datacenter infra, negative Fwd P/E, 115% vol</td></tr>
+    <tr><td>Most Volatile</td><td><strong>IREN</strong></td><td class="num">115%</td><td>AI infra / datacenter; max risk</td></tr>
+    <tr><td>2nd Most Volatile</td><td><strong>CRWV</strong></td><td class="num">110%</td><td>AI infra; newly public</td></tr>
+    <tr><td>Least Volatile</td><td><strong>BKNG</strong></td><td class="num">33%</td><td>Established travel platform</td></tr>
+    <tr><td>Lowest EV/Sales (cheapest revenue)</td><td><strong>EXPE</strong></td><td class="num">2.2x</td><td>Mature travel business</td></tr>
+    <tr><td>Highest EV/Sales</td><td><strong>OKLO</strong></td><td class="num">3497.4x</td><td>Nuclear energy, virtually no revenue yet</td></tr>
+  </tbody>
+</table>
+
+<a href="#top" class="back-top">&uarr; Back to Top</a>
+
+</div><!-- /container -->
+
+<!-- ============ SORTABLE TABLE JS ============ -->
+<script>
+(function() {
+  const table = document.getElementById('compTable');
+  if (!table) return;
+  const thead = table.querySelector('thead');
+  const tbody = table.querySelector('tbody');
+  const headers = thead.querySelectorAll('th.sortable');
+
+  function parseVal(text) {
+    text = text.trim().replace(/^\$/, '').replace(/,/g, '');
+    if (text === 'N/A' || text === '—' || text === '') return null;
+    // Handle /10 suffix (dashboard scores)
+    text = text.replace(/\/10$/, '');
+    // Handle ~ prefix
+    text = text.replace(/^~/, '');
+    // Handle B/T suffixes for market cap
+    if (text.endsWith('B')) {
+      const n = parseFloat(text);
+      return isNaN(n) ? null : n * 1e9;
+    }
+    if (text.endsWith('T')) {
+      const n = parseFloat(text);
+      return isNaN(n) ? null : n * 1e12;
+    }
+    // Handle x suffix (multiples)
+    text = text.replace(/x$/, '').replace(/%$/, '');
+    const n = parseFloat(text);
+    return isNaN(n) ? null : n;
+  }
+
+  headers.forEach(function(th, colIdx) {
+    th.addEventListener('click', function() {
+      const isAsc = th.classList.contains('sort-asc');
+      headers.forEach(function(h) { h.classList.remove('sort-asc', 'sort-desc'); });
+      const dir = isAsc ? 'desc' : 'asc';
+      th.classList.add('sort-' + dir);
+
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      rows.sort(function(a, b) {
+        const aText = a.children[colIdx] ? a.children[colIdx].textContent : '';
+        const bText = b.children[colIdx] ? b.children[colIdx].textContent : '';
+        const aVal = parseVal(aText);
+        const bVal = parseVal(bText);
+        // Nulls go to bottom
+        if (aVal === null && bVal === null) return 0;
+        if (aVal === null) return 1;
+        if (bVal === null) return -1;
+        if (typeof aVal === 'number' && typeof bVal === 'number') {
+          return dir === 'asc' ? aVal - bVal : bVal - aVal;
+        }
+        // String comparison fallback
+        return dir === 'asc' ? aText.localeCompare(bText) : bText.localeCompare(aText);
+      });
+      rows.forEach(function(row) { tbody.appendChild(row); });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
