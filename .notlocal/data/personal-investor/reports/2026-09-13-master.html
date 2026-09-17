@@ -75,6 +75,21 @@
   .score-amber { color: #d97706; font-weight: 700; }
   .score-red { color: #dc2626; font-weight: 700; }
 
+  /* Score pill badges */
+  .score-pill {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-size: 13px; font-weight: 700; white-space: nowrap;
+  }
+  .score-pill.pill-green { background: #dcfce7; color: #166534; }
+  .score-pill.pill-amber { background: #fef3c7; color: #92400e; }
+  .score-pill.pill-red { background: #fee2e2; color: #991b1b; }
+
+  /* Section cards */
+  .section-card {
+    background: #fff; border-radius: 8px; padding: 20px 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin: 1.5em 0;
+  }
+
   /* Risk tier badges */
   .risk-low { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; background: #dcfce7; color: #166534; }
   .risk-medium { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; background: #dcfce7; color: #166534; }
@@ -135,12 +150,12 @@
 
 <nav>
   <ul>
-    <li><a href="#risk-tiers">Risk Tiers</a></li>
-    <li><a href="#comparison">Comparison</a></li>
-    <li><a href="#explore">Explore</a></li>
-    <li><a href="#sectors">Sectors</a></li>
-    <li><a href="#best-worst">Best/Worst</a></li>
-    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#risk-tiers">⚖️ Risk Tiers</a></li>
+    <li><a href="#comparison">📊 Comparison</a></li>
+    <li><a href="#explore">🔍 Explore</a></li>
+    <li><a href="#sectors">🏭 Sectors</a></li>
+    <li><a href="#best-worst">🏆 Best/Worst</a></li>
+    <li><a href="#how-it-works">📖 How It Works</a></li>
   </ul>
 </nav>
 
@@ -155,7 +170,7 @@
 
 <!-- ============ 1. RISK TIERS ============ -->
 <a id="risk-tiers"></a>
-<h2>1. Risk Tier Summary</h2>
+<h2>1. ⚖️ Risk Tier Summary</h2>
 
 <table>
 <thead>
@@ -191,7 +206,7 @@
 
 <!-- ============ 2. COMPARISON TABLE ============ -->
 <a id="comparison"></a>
-<h2>2. Fundamentals Comparison Table</h2>
+<h2>2. 📊 Fundamentals Comparison Table</h2>
 <p>Sorted by Dashboard composite score (highest first). Links point to individual ticker reports.</p>
 
 <table class="sortable" id="compTable">
@@ -211,26 +226,26 @@
   </tr>
 </thead>
 <tbody>
-  <tr><td>BKNG</td><td>TRAVEL</td><td class="num">$171</td><td class="num">$133B</td><td class="num">19.1x</td><td class="num">13.9x</td><td class="num">12.7x</td><td class="num">4.7x</td><td class="num">33%</td><td class="num"><span class="score-green">7.4</span>/10</td><td><a href="BKNG/BKNG_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>RDDT</td><td>AI-DATA</td><td class="num">$158</td><td class="num">$30B</td><td class="num">36.7x</td><td class="num">16.3x</td><td class="num">34.9x</td><td class="num">10.1x</td><td class="num">80%</td><td class="num"><span class="score-green">7.0</span>/10</td><td><a href="RDDT/RDDT_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>SNPS</td><td>EDA</td><td class="num">$378</td><td class="num">$73B</td><td class="num">65.9x</td><td class="num">21.6x</td><td class="num">37.4x</td><td class="num">8.3x</td><td class="num">37%</td><td class="num"><span class="score-amber">6.8</span>/10</td><td><a href="SNPS/SNPS_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>VRT</td><td>DATACENTER-INFRA</td><td class="num">$239</td><td class="num">$92B</td><td class="num">54.3x</td><td class="num">26.2x</td><td class="num">33.8x</td><td class="num">7.9x</td><td class="num">56%</td><td class="num"><span class="score-amber">6.6</span>/10</td><td><a href="VRT/VRT_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>EXPE</td><td>TRAVEL</td><td class="num">$287</td><td class="num">$34B</td><td class="num">18.1x</td><td class="num">11.7x</td><td class="num">12.1x</td><td class="num">2.2x</td><td class="num">45%</td><td class="num"><span class="score-amber">6.0</span>/10</td><td><a href="EXPE/EXPE_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>SPCX</td><td>TRAVEL-SPACE</td><td class="num">$151</td><td class="num">$1988B</td><td class="num">N/A</td><td class="num">86.6x</td><td class="num">631.3x</td><td class="num">161.5x</td><td class="num">91%</td><td class="num"><span class="score-amber">5.9</span>/10</td><td><a href="SPCX/SPCX_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>INOD</td><td>AI-DATA</td><td class="num">$55</td><td class="num">$2B</td><td class="num">43.0x</td><td class="num">26.5x</td><td class="num">27.4x</td><td class="num">5.1x</td><td class="num">85%</td><td class="num"><span class="score-amber">5.5</span>/10</td><td><a href="INOD/INOD_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>HOOD</td><td>FINTECH</td><td class="num">$104</td><td class="num">$94B</td><td class="num">N/A</td><td class="num">30.9x</td><td class="num">N/A</td><td class="num">19.9x</td><td class="num">73%</td><td class="num"><span class="score-amber">5.4</span>/10</td><td><a href="HOOD/HOOD_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>COIN</td><td>FINTECH</td><td class="num">$165</td><td class="num">$43B</td><td class="num">N/A</td><td class="num">58.1x</td><td class="num">61.9x</td><td class="num">7.2x</td><td class="num">84%</td><td class="num"><span class="score-red">4.7</span>/10</td><td><a href="COIN/COIN_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>TSLA</td><td>MAG7</td><td class="num">$358</td><td class="num">$1414B</td><td class="num">334.7x</td><td class="num">165.9x</td><td class="num">128.5x</td><td class="num">13.3x</td><td class="num">59%</td><td class="num"><span class="score-red">4.6</span>/10</td><td><a href="TSLA/TSLA_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>RKLB</td><td>TRAVEL-SPACE</td><td class="num">$64</td><td class="num">$41B</td><td class="num">N/A</td><td class="num">1398x</td><td class="num">-238.2x</td><td class="num">46.6x</td><td class="num">77%</td><td class="num"><span class="score-red">4.6</span>/10</td><td><a href="RKLB/RKLB_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>LULU</td><td>RETAIL</td><td class="num">$266</td><td class="num">$33B</td><td class="num">7.9x</td><td class="num">10.9x</td><td class="num">N/A</td><td class="num">3.4x</td><td class="num">45%</td><td class="num"><span class="score-red">4.5</span>/10</td><td><a href="LULU/LULU_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>MP</td><td>RARE-EARTH</td><td class="num">$49</td><td class="num">$9B</td><td class="num">N/A</td><td class="num">56.1x</td><td class="num">213.9x</td><td class="num">20.9x</td><td class="num">71%</td><td class="num"><span class="score-red">4.5</span>/10</td><td><a href="MP/MP_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>CRWV</td><td>AI-INFRA</td><td class="num">$83</td><td class="num">$46B</td><td class="num">N/A</td><td class="num">-42.8x</td><td class="num">23.9x</td><td class="num">12.0x</td><td class="num">110%</td><td class="num"><span class="score-red">4.25</span>/10</td><td><a href="CRWV/CRWV_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>IREN</td><td>DATACENTER-INFRA</td><td class="num">$43</td><td class="num">$17B</td><td class="num">N/A</td><td class="num">-160.8x</td><td class="num">478.0x</td><td class="num">25.9x</td><td class="num">115%</td><td class="num"><span class="score-red">3.65</span>/10</td><td><a href="IREN/IREN_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>IONQ</td><td>QUANTUM</td><td class="num">$37</td><td class="num">$15B</td><td class="num">N/A</td><td class="num">-28.2x</td><td class="num">-15.2x</td><td class="num">48.9x</td><td class="num">95%</td><td class="num"><span class="score-red">3.5</span>/10</td><td><a href="IONQ/IONQ_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>UUUU</td><td>RARE-EARTH</td><td class="num">$12</td><td class="num">$3B</td><td class="num">N/A</td><td class="num">24.2x</td><td class="num">-37.8x</td><td class="num">25.6x</td><td class="num">72%</td><td class="num"><span class="score-red">3.5</span>/10</td><td><a href="UUUU/UUUU_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>ASTS</td><td>TRAVEL-SPACE</td><td class="num">$59</td><td class="num">$23B</td><td class="num">N/A</td><td class="num">-46.0x</td><td class="num">-46.3x</td><td class="num">163.3x</td><td class="num">95%</td><td class="num"><span class="score-red">3.0</span>/10</td><td><a href="ASTS/ASTS_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>OKLO</td><td>ENERGY-NUC</td><td class="num">$36</td><td class="num">$7B</td><td class="num">N/A</td><td class="num">-35.2x</td><td class="num">-19.5x</td><td class="num">3497.4x</td><td class="num">87%</td><td class="num"><span class="score-red">3.0</span>/10</td><td><a href="OKLO/OKLO_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
-  <tr><td>QURE</td><td>MISC</td><td class="num">$42</td><td class="num">$3B</td><td class="num">N/A</td><td class="num">-14.0x</td><td class="num">-14.9x</td><td class="num">146.3x</td><td class="num">96%</td><td class="num"><span class="score-red">3.0</span>/10</td><td><a href="QURE/QURE_2026-09-13.html" class="report-link">--&gt;</a></td></tr>
+  <tr><td>BKNG</td><td>TRAVEL</td><td class="num">$171</td><td class="num">$133B</td><td class="num">19.1x</td><td class="num">13.9x</td><td class="num">12.7x</td><td class="num">4.7x</td><td class="num">33%</td><td class="num"><span class="score-pill pill-green">7.4/10</span></td><td><a href="BKNG/BKNG_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>RDDT</td><td>AI-DATA</td><td class="num">$158</td><td class="num">$30B</td><td class="num">36.7x</td><td class="num">16.3x</td><td class="num">34.9x</td><td class="num">10.1x</td><td class="num">80%</td><td class="num"><span class="score-pill pill-green">7.0/10</span></td><td><a href="RDDT/RDDT_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>SNPS</td><td>EDA</td><td class="num">$378</td><td class="num">$73B</td><td class="num">65.9x</td><td class="num">21.6x</td><td class="num">37.4x</td><td class="num">8.3x</td><td class="num">37%</td><td class="num"><span class="score-pill pill-amber">6.8/10</span></td><td><a href="SNPS/SNPS_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>VRT</td><td>DATACENTER-INFRA</td><td class="num">$239</td><td class="num">$92B</td><td class="num">54.3x</td><td class="num">26.2x</td><td class="num">33.8x</td><td class="num">7.9x</td><td class="num">56%</td><td class="num"><span class="score-pill pill-amber">6.6/10</span></td><td><a href="VRT/VRT_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>EXPE</td><td>TRAVEL</td><td class="num">$287</td><td class="num">$34B</td><td class="num">18.1x</td><td class="num">11.7x</td><td class="num">12.1x</td><td class="num">2.2x</td><td class="num">45%</td><td class="num"><span class="score-pill pill-amber">6.0/10</span></td><td><a href="EXPE/EXPE_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>SPCX</td><td>TRAVEL-SPACE</td><td class="num">$151</td><td class="num">$1988B</td><td class="num">N/A</td><td class="num">86.6x</td><td class="num">631.3x</td><td class="num">161.5x</td><td class="num">91%</td><td class="num"><span class="score-pill pill-amber">5.9/10</span></td><td><a href="SPCX/SPCX_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>INOD</td><td>AI-DATA</td><td class="num">$55</td><td class="num">$2B</td><td class="num">43.0x</td><td class="num">26.5x</td><td class="num">27.4x</td><td class="num">5.1x</td><td class="num">85%</td><td class="num"><span class="score-pill pill-amber">5.5/10</span></td><td><a href="INOD/INOD_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>HOOD</td><td>FINTECH</td><td class="num">$104</td><td class="num">$94B</td><td class="num">N/A</td><td class="num">30.9x</td><td class="num">N/A</td><td class="num">19.9x</td><td class="num">73%</td><td class="num"><span class="score-pill pill-amber">5.4/10</span></td><td><a href="HOOD/HOOD_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>COIN</td><td>FINTECH</td><td class="num">$165</td><td class="num">$43B</td><td class="num">N/A</td><td class="num">58.1x</td><td class="num">61.9x</td><td class="num">7.2x</td><td class="num">84%</td><td class="num"><span class="score-pill pill-red">4.7/10</span></td><td><a href="COIN/COIN_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>TSLA</td><td>MAG7</td><td class="num">$358</td><td class="num">$1414B</td><td class="num">334.7x</td><td class="num">165.9x</td><td class="num">128.5x</td><td class="num">13.3x</td><td class="num">59%</td><td class="num"><span class="score-pill pill-red">4.6/10</span></td><td><a href="TSLA/TSLA_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>RKLB</td><td>TRAVEL-SPACE</td><td class="num">$64</td><td class="num">$41B</td><td class="num">N/A</td><td class="num">1398x</td><td class="num">-238.2x</td><td class="num">46.6x</td><td class="num">77%</td><td class="num"><span class="score-pill pill-red">4.6/10</span></td><td><a href="RKLB/RKLB_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>LULU</td><td>RETAIL</td><td class="num">$266</td><td class="num">$33B</td><td class="num">7.9x</td><td class="num">10.9x</td><td class="num">N/A</td><td class="num">3.4x</td><td class="num">45%</td><td class="num"><span class="score-pill pill-red">4.5/10</span></td><td><a href="LULU/LULU_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>MP</td><td>RARE-EARTH</td><td class="num">$49</td><td class="num">$9B</td><td class="num">N/A</td><td class="num">56.1x</td><td class="num">213.9x</td><td class="num">20.9x</td><td class="num">71%</td><td class="num"><span class="score-pill pill-red">4.5/10</span></td><td><a href="MP/MP_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>CRWV</td><td>AI-INFRA</td><td class="num">$83</td><td class="num">$46B</td><td class="num">N/A</td><td class="num">-42.8x</td><td class="num">23.9x</td><td class="num">12.0x</td><td class="num">110%</td><td class="num"><span class="score-pill pill-red">4.25/10</span></td><td><a href="CRWV/CRWV_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>IREN</td><td>DATACENTER-INFRA</td><td class="num">$43</td><td class="num">$17B</td><td class="num">N/A</td><td class="num">-160.8x</td><td class="num">478.0x</td><td class="num">25.9x</td><td class="num">115%</td><td class="num"><span class="score-pill pill-red">3.65/10</span></td><td><a href="IREN/IREN_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>IONQ</td><td>QUANTUM</td><td class="num">$37</td><td class="num">$15B</td><td class="num">N/A</td><td class="num">-28.2x</td><td class="num">-15.2x</td><td class="num">48.9x</td><td class="num">95%</td><td class="num"><span class="score-pill pill-red">3.5/10</span></td><td><a href="IONQ/IONQ_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>UUUU</td><td>RARE-EARTH</td><td class="num">$12</td><td class="num">$3B</td><td class="num">N/A</td><td class="num">24.2x</td><td class="num">-37.8x</td><td class="num">25.6x</td><td class="num">72%</td><td class="num"><span class="score-pill pill-red">3.5/10</span></td><td><a href="UUUU/UUUU_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>ASTS</td><td>TRAVEL-SPACE</td><td class="num">$59</td><td class="num">$23B</td><td class="num">N/A</td><td class="num">-46.0x</td><td class="num">-46.3x</td><td class="num">163.3x</td><td class="num">95%</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td><a href="ASTS/ASTS_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>OKLO</td><td>ENERGY-NUC</td><td class="num">$36</td><td class="num">$7B</td><td class="num">N/A</td><td class="num">-35.2x</td><td class="num">-19.5x</td><td class="num">3497.4x</td><td class="num">87%</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td><a href="OKLO/OKLO_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
+  <tr><td>QURE</td><td>MISC</td><td class="num">$42</td><td class="num">$3B</td><td class="num">N/A</td><td class="num">-14.0x</td><td class="num">-14.9x</td><td class="num">146.3x</td><td class="num">96%</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td><a href="QURE/QURE_2026-09-13.md" class="report-link">--&gt;</a></td></tr>
 </tbody>
 </table>
 
@@ -240,7 +255,7 @@
 
 <!-- ============ 3. EXPLORE THESE NEXT ============ -->
 <a id="explore"></a>
-<h2>3. Explore These Next</h2>
+<h2>3. 🔍 Explore These Next</h2>
 <p>Same-sector tickers not in the weekly batch. Batch ticker shown as <strong>benchmark</strong> row for direct comparison.</p>
 
 <!-- SNPS / EDA -->
@@ -448,14 +463,14 @@
 
 <!-- ============ 4. SECTORS ============ -->
 <a id="sectors"></a>
-<h2>4. Sector Grouping</h2>
+<h2>4. 🏭 Sector Grouping</h2>
 
 <h3>TRAVEL (2 tickers)</h3>
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>BKNG</td><td class="num">19.1x</td><td class="num">+0.5x</td><td class="num">13.9x</td><td class="num">+1.1x</td><td class="num"><span class="score-green">7.4</span>/10</td></tr>
-  <tr><td>EXPE</td><td class="num">18.1x</td><td class="num">-0.5x</td><td class="num">11.7x</td><td class="num">-1.1x</td><td class="num"><span class="score-amber">6.0</span>/10</td></tr>
+  <tr><td>BKNG</td><td class="num">19.1x</td><td class="num">+0.5x</td><td class="num">13.9x</td><td class="num">+1.1x</td><td class="num"><span class="score-pill pill-green">7.4/10</span></td></tr>
+  <tr><td>EXPE</td><td class="num">18.1x</td><td class="num">-0.5x</td><td class="num">11.7x</td><td class="num">-1.1x</td><td class="num"><span class="score-pill pill-amber">6.0/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>18.6x</strong></td><td class="num">--</td><td class="num"><strong>12.8x</strong></td><td class="num">--</td><td class="num"><strong>6.7</strong></td></tr>
 </tbody>
 </table>
@@ -464,8 +479,8 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>RDDT</td><td class="num">36.7x</td><td class="num">-3.2x</td><td class="num">16.3x</td><td class="num">-5.1x</td><td class="num"><span class="score-green">7.0</span>/10</td></tr>
-  <tr><td>INOD</td><td class="num">43.0x</td><td class="num">+3.2x</td><td class="num">26.5x</td><td class="num">+5.1x</td><td class="num"><span class="score-amber">5.5</span>/10</td></tr>
+  <tr><td>RDDT</td><td class="num">36.7x</td><td class="num">-3.2x</td><td class="num">16.3x</td><td class="num">-5.1x</td><td class="num"><span class="score-pill pill-green">7.0/10</span></td></tr>
+  <tr><td>INOD</td><td class="num">43.0x</td><td class="num">+3.2x</td><td class="num">26.5x</td><td class="num">+5.1x</td><td class="num"><span class="score-pill pill-amber">5.5/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>39.9x</strong></td><td class="num">--</td><td class="num"><strong>21.4x</strong></td><td class="num">--</td><td class="num"><strong>6.3</strong></td></tr>
 </tbody>
 </table>
@@ -474,7 +489,7 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>SNPS</td><td class="num">65.9x</td><td class="num">--</td><td class="num">21.6x</td><td class="num">--</td><td class="num"><span class="score-amber">6.8</span>/10</td></tr>
+  <tr><td>SNPS</td><td class="num">65.9x</td><td class="num">--</td><td class="num">21.6x</td><td class="num">--</td><td class="num"><span class="score-pill pill-amber">6.8/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>65.9x</strong></td><td class="num">--</td><td class="num"><strong>21.6x</strong></td><td class="num">--</td><td class="num"><strong>6.8</strong></td></tr>
 </tbody>
 </table>
@@ -483,8 +498,8 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>VRT</td><td class="num">54.3x</td><td class="num">--</td><td class="num">26.2x</td><td class="num">+93.5x</td><td class="num"><span class="score-amber">6.6</span>/10</td></tr>
-  <tr><td>IREN</td><td class="num">N/A</td><td class="num">--</td><td class="num">-160.8x</td><td class="num">-93.5x</td><td class="num"><span class="score-red">3.65</span>/10</td></tr>
+  <tr><td>VRT</td><td class="num">54.3x</td><td class="num">--</td><td class="num">26.2x</td><td class="num">+93.5x</td><td class="num"><span class="score-pill pill-amber">6.6/10</span></td></tr>
+  <tr><td>IREN</td><td class="num">N/A</td><td class="num">--</td><td class="num">-160.8x</td><td class="num">-93.5x</td><td class="num"><span class="score-pill pill-red">3.65/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>54.3x</strong></td><td class="num">--</td><td class="num"><strong>-67.3x</strong></td><td class="num">--</td><td class="num"><strong>5.1</strong></td></tr>
 </tbody>
 </table>
@@ -493,7 +508,7 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>TSLA</td><td class="num">334.7x</td><td class="num">--</td><td class="num">165.9x</td><td class="num">--</td><td class="num"><span class="score-red">4.6</span>/10</td></tr>
+  <tr><td>TSLA</td><td class="num">334.7x</td><td class="num">--</td><td class="num">165.9x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">4.6/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>334.7x</strong></td><td class="num">--</td><td class="num"><strong>165.9x</strong></td><td class="num">--</td><td class="num"><strong>4.6</strong></td></tr>
 </tbody>
 </table>
@@ -502,7 +517,7 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>CRWV</td><td class="num">N/A</td><td class="num">--</td><td class="num">-42.8x</td><td class="num">--</td><td class="num"><span class="score-red">4.25</span>/10</td></tr>
+  <tr><td>CRWV</td><td class="num">N/A</td><td class="num">--</td><td class="num">-42.8x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">4.25/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>-42.8x</strong></td><td class="num">--</td><td class="num"><strong>4.25</strong></td></tr>
 </tbody>
 </table>
@@ -511,8 +526,8 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>HOOD</td><td class="num">N/A</td><td class="num">--</td><td class="num">30.9x</td><td class="num">-13.6x</td><td class="num"><span class="score-amber">5.4</span>/10</td></tr>
-  <tr><td>COIN</td><td class="num">N/A</td><td class="num">--</td><td class="num">58.1x</td><td class="num">+13.6x</td><td class="num"><span class="score-red">4.7</span>/10</td></tr>
+  <tr><td>HOOD</td><td class="num">N/A</td><td class="num">--</td><td class="num">30.9x</td><td class="num">-13.6x</td><td class="num"><span class="score-pill pill-amber">5.4/10</span></td></tr>
+  <tr><td>COIN</td><td class="num">N/A</td><td class="num">--</td><td class="num">58.1x</td><td class="num">+13.6x</td><td class="num"><span class="score-pill pill-red">4.7/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>44.5x</strong></td><td class="num">--</td><td class="num"><strong>5.1</strong></td></tr>
 </tbody>
 </table>
@@ -521,9 +536,9 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>SPCX</td><td class="num">N/A</td><td class="num">--</td><td class="num">86.6x</td><td class="num">--</td><td class="num"><span class="score-amber">5.9</span>/10</td></tr>
-  <tr><td>RKLB</td><td class="num">N/A</td><td class="num">--</td><td class="num">1398x</td><td class="num">+1311.4x</td><td class="num"><span class="score-red">4.6</span>/10</td></tr>
-  <tr><td>ASTS</td><td class="num">N/A</td><td class="num">--</td><td class="num">-46.0x</td><td class="num">-132.6x</td><td class="num"><span class="score-red">3.0</span>/10</td></tr>
+  <tr><td>SPCX</td><td class="num">N/A</td><td class="num">--</td><td class="num">86.6x</td><td class="num">--</td><td class="num"><span class="score-pill pill-amber">5.9/10</span></td></tr>
+  <tr><td>RKLB</td><td class="num">N/A</td><td class="num">--</td><td class="num">1398x</td><td class="num">+1311.4x</td><td class="num"><span class="score-pill pill-red">4.6/10</span></td></tr>
+  <tr><td>ASTS</td><td class="num">N/A</td><td class="num">--</td><td class="num">-46.0x</td><td class="num">-132.6x</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>86.6x</strong></td><td class="num">--</td><td class="num"><strong>4.6</strong></td></tr>
 </tbody>
 </table>
@@ -532,7 +547,7 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>IONQ</td><td class="num">N/A</td><td class="num">--</td><td class="num">-28.2x</td><td class="num">--</td><td class="num"><span class="score-red">3.5</span>/10</td></tr>
+  <tr><td>IONQ</td><td class="num">N/A</td><td class="num">--</td><td class="num">-28.2x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">3.5/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>-28.2x</strong></td><td class="num">--</td><td class="num"><strong>3.5</strong></td></tr>
 </tbody>
 </table>
@@ -541,7 +556,7 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>OKLO</td><td class="num">N/A</td><td class="num">--</td><td class="num">-35.2x</td><td class="num">--</td><td class="num"><span class="score-red">3.0</span>/10</td></tr>
+  <tr><td>OKLO</td><td class="num">N/A</td><td class="num">--</td><td class="num">-35.2x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>-35.2x</strong></td><td class="num">--</td><td class="num"><strong>3.0</strong></td></tr>
 </tbody>
 </table>
@@ -550,8 +565,8 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>MP</td><td class="num">N/A</td><td class="num">--</td><td class="num">56.1x</td><td class="num">+15.9x</td><td class="num"><span class="score-red">4.5</span>/10</td></tr>
-  <tr><td>UUUU</td><td class="num">N/A</td><td class="num">--</td><td class="num">24.2x</td><td class="num">-15.9x</td><td class="num"><span class="score-red">3.5</span>/10</td></tr>
+  <tr><td>MP</td><td class="num">N/A</td><td class="num">--</td><td class="num">56.1x</td><td class="num">+15.9x</td><td class="num"><span class="score-pill pill-red">4.5/10</span></td></tr>
+  <tr><td>UUUU</td><td class="num">N/A</td><td class="num">--</td><td class="num">24.2x</td><td class="num">-15.9x</td><td class="num"><span class="score-pill pill-red">3.5/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>40.2x</strong></td><td class="num">--</td><td class="num"><strong>4.0</strong></td></tr>
 </tbody>
 </table>
@@ -560,7 +575,7 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>LULU</td><td class="num">7.9x</td><td class="num">--</td><td class="num">10.9x</td><td class="num">--</td><td class="num"><span class="score-red">4.5</span>/10</td></tr>
+  <tr><td>LULU</td><td class="num">7.9x</td><td class="num">--</td><td class="num">10.9x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">4.5/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>7.9x</strong></td><td class="num">--</td><td class="num"><strong>10.9x</strong></td><td class="num">--</td><td class="num"><strong>4.5</strong></td></tr>
 </tbody>
 </table>
@@ -569,7 +584,7 @@
 <table>
 <thead><tr><th>Ticker</th><th class="num">P/E</th><th class="num">vs Median</th><th class="num">Fwd P/E</th><th class="num">vs Median</th><th class="num">Dashboard</th></tr></thead>
 <tbody>
-  <tr><td>QURE</td><td class="num">N/A</td><td class="num">--</td><td class="num">-14.0x</td><td class="num">--</td><td class="num"><span class="score-red">3.0</span>/10</td></tr>
+  <tr><td>QURE</td><td class="num">N/A</td><td class="num">--</td><td class="num">-14.0x</td><td class="num">--</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td></tr>
   <tr class="median-row"><td><strong>Median</strong></td><td class="num"><strong>N/A</strong></td><td class="num">--</td><td class="num"><strong>-14.0x</strong></td><td class="num">--</td><td class="num"><strong>3.0</strong></td></tr>
 </tbody>
 </table>
@@ -580,25 +595,25 @@
 
 <!-- ============ 5. BEST / WORST ============ -->
 <a id="best-worst"></a>
-<h2>5. Best / Worst</h2>
+<h2>5. 🏆 Best / Worst</h2>
 
 <table>
 <thead><tr><th>Category</th><th>Ticker</th><th class="num">Value</th><th>Note</th></tr></thead>
 <tbody>
-  <tr><td>Cheapest (Fwd P/E, positive only)</td><td>LULU</td><td class="num">10.9x</td><td>Retail value play; lowest positive Fwd P/E in batch</td></tr>
-  <tr><td>2nd Cheapest (Fwd P/E)</td><td>EXPE</td><td class="num">11.7x</td><td>Travel recovery, cash generative</td></tr>
-  <tr><td>Most Expensive (Fwd P/E)</td><td>RKLB</td><td class="num">1398x</td><td>Space, pre-scale revenue</td></tr>
-  <tr><td>Highest FCF Yield</td><td>EXPE</td><td class="num">9.0%</td><td>$3.11B FCF / $34.4B MCap -- cash machine</td></tr>
-  <tr><td>Best Dashboard</td><td>BKNG</td><td class="num"><span class="score-green">7.4</span>/10</td><td>Quality + value, lowest volatility</td></tr>
-  <tr><td>2nd Best Dashboard</td><td>RDDT</td><td class="num"><span class="score-green">7.0</span>/10</td><td>AI data monetization, strong growth</td></tr>
-  <tr><td>Worst Dashboard (tied)</td><td>ASTS</td><td class="num"><span class="score-red">3.0</span>/10</td><td>Space/satellite, pre-revenue, extreme EV/Sales</td></tr>
-  <tr><td>Worst Dashboard (tied)</td><td>OKLO</td><td class="num"><span class="score-red">3.0</span>/10</td><td>Nuclear energy, pre-revenue, EV/Sales 3497x</td></tr>
-  <tr><td>Worst Dashboard (tied)</td><td>QURE</td><td class="num"><span class="score-red">3.0</span>/10</td><td>Gene therapy, speculative, negative Fwd P/E</td></tr>
-  <tr><td>Most Volatile</td><td>IREN</td><td class="num">115%</td><td>AI infra / datacenter; max risk</td></tr>
-  <tr><td>2nd Most Volatile</td><td>CRWV</td><td class="num">110%</td><td>AI infra; newly public</td></tr>
-  <tr><td>Least Volatile</td><td>BKNG</td><td class="num">33%</td><td>Established travel platform</td></tr>
-  <tr><td>Lowest EV/Sales (cheapest revenue)</td><td>EXPE</td><td class="num">2.2x</td><td>Mature travel business</td></tr>
-  <tr><td>Highest EV/Sales</td><td>OKLO</td><td class="num">3497.4x</td><td>Nuclear energy, virtually no revenue yet</td></tr>
+  <tr><td>💎 Cheapest (Fwd P/E, positive only)</td><td>LULU</td><td class="num">10.9x</td><td>Retail value play; lowest positive Fwd P/E in batch</td></tr>
+  <tr><td>💎 2nd Cheapest (Fwd P/E)</td><td>EXPE</td><td class="num">11.7x</td><td>Travel recovery, cash generative</td></tr>
+  <tr><td>⚠️ Most Expensive (Fwd P/E)</td><td>RKLB</td><td class="num">1398x</td><td>Space, pre-scale revenue</td></tr>
+  <tr><td>🏆 Highest FCF Yield</td><td>EXPE</td><td class="num">9.0%</td><td>$3.11B FCF / $34.4B MCap -- cash machine</td></tr>
+  <tr><td>🏆 Best Dashboard</td><td>BKNG</td><td class="num"><span class="score-pill pill-green">7.4/10</span></td><td>Quality + value, lowest volatility</td></tr>
+  <tr><td>🟢 2nd Best Dashboard</td><td>RDDT</td><td class="num"><span class="score-pill pill-green">7.0/10</span></td><td>AI data monetization, strong growth</td></tr>
+  <tr><td>🔴 Worst Dashboard (tied)</td><td>ASTS</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td>Space/satellite, pre-revenue, extreme EV/Sales</td></tr>
+  <tr><td>🔴 Worst Dashboard (tied)</td><td>OKLO</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td>Nuclear energy, pre-revenue, EV/Sales 3497x</td></tr>
+  <tr><td>🔴 Worst Dashboard (tied)</td><td>QURE</td><td class="num"><span class="score-pill pill-red">3.0/10</span></td><td>Gene therapy, speculative, negative Fwd P/E</td></tr>
+  <tr><td>📈 Most Volatile</td><td>IREN</td><td class="num">115%</td><td>AI infra / datacenter; max risk</td></tr>
+  <tr><td>📈 2nd Most Volatile</td><td>CRWV</td><td class="num">110%</td><td>AI infra; newly public</td></tr>
+  <tr><td>📉 Least Volatile</td><td>BKNG</td><td class="num">33%</td><td>Established travel platform</td></tr>
+  <tr><td>💎 Lowest EV/Sales (cheapest revenue)</td><td>EXPE</td><td class="num">2.2x</td><td>Mature travel business</td></tr>
+  <tr><td>⚠️ Highest EV/Sales</td><td>OKLO</td><td class="num">3497.4x</td><td>Nuclear energy, virtually no revenue yet</td></tr>
 </tbody>
 </table>
 
@@ -611,7 +626,7 @@
 <a id="how-it-works"></a>
 <a id="worked-example"></a>
 <a id="glossary"></a>
-<h2>6. Appendix: How the Numbers Work -- EXPE (Expedia Group)</h2>
+<h2>6. 📖 Appendix: How the Numbers Work — EXPE (Expedia Group)</h2>
 
 <p>This appendix serves two purposes: (1) a glossary of every financial term used in our reports, and (2) a fully worked example showing how each metric is computed -- all using Expedia Group's real numbers. Every calculation is reproducible from the reference data below.</p>
 
@@ -842,7 +857,7 @@ At $287, EXPE trades 21% above PEG-implied fair value. However, the forward P/E 
 
 <hr>
 
-<h3>SOP v2 Computations -- Worked Example with EXPE</h3>
+<h3>Core Computations — Worked Example with EXPE</h3>
 
 <p>The following three computations are the core analytical steps applied to every ticker. They go beyond surface-level ratios to reveal earnings quality, implied growth expectations, and the true cost of stock-based compensation.</p>
 

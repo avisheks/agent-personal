@@ -263,12 +263,14 @@ This enables longitudinal comparison: "You told me this last year. Was it right?
 
 | File | Description |
 |------|-------------|
-| `TICKER_YYYY-MM-DD.md` | Markdown report (source of truth) |
-| `TICKER_YYYY-MM-DD.html` | Styled HTML report with charts |
+| `TICKER_YYYY-MM-DD.md` | Markdown report (source of truth, individual tickers) |
 | `TICKER_YYYY-MM-DD.json` | Research packet snapshot (for longitudinal comparison) |
 | `research-packet.json` | Latest research packet (overwritten each run) |
+| `YYYY-MM-DD-master.md` | Master comparison report (markdown) |
+| `YYYY-MM-DD-master.html` | Master comparison report (styled HTML with sortable tables) |
 
-All outputs go to `.notlocal/data/personal-investor/reports/TICKER/`.
+Individual ticker outputs go to `.notlocal/data/personal-investor/reports/TICKER/`.
+Master report goes to `.notlocal/data/personal-investor/reports/`.
 
 Naming convention mirrors options-pnl-v3: `{ticker}_{date}.{ext}` — no `-latest` alias needed since the research packet snapshot serves as the canonical state.
 
@@ -504,9 +506,77 @@ The batch runner emits events to `.local/logs/super-agent/events.jsonl`:
 - `batch_ticker_complete` — per-ticker: sources refreshed/failed, record counts, duration
 - `batch_end` — success/failure counts
 
-### Stage 3: Master Report (mandatory — fires after all individual reports complete)
+### Format Verification Gate (mandatory — between Stage 2 and Stage 3)
 
-After ALL individual ticker reports (.md) are generated, produce a master comparison doc:
+**Before generating the master report, verify that ALL individual ticker reports follow the standardized format.** The master report compilation MUST NOT begin until every ticker report passes this check.
+
+#### Standardized Report Format (16 sections, in order)
+
+Every individual ticker `.md` file must contain these sections with matching anchor IDs:
+
+| # | Section | Anchor ID | Required Elements |
+|---|---------|-----------|-------------------|
+| 1 | Executive Summary | `executive-summary` | Quality gate verdict, key metrics table, ASCII valuation range bar (bear/base/bull) |
+| 2 | Earnings Quality | `earnings-quality` | SBC-adjusted EPS, FCF quality, operating leverage trajectory |
+| 3 | Company Fundamentals | `fundamentals` | Peer comparison table, P/E vs 5yr historical percentile, institutional ownership % |
+| 4 | Ten-Year Quarterly History | `history` | Revenue + EPS table (≥8 quarters), gross AND operating margin gap |
+| 5 | Historical Sentiment (5Y) | `sentiment-5y` | Sentiment distribution table |
+| 6 | Sentiment vs Returns | `sentiment-returns` | Bucket analysis |
+| 7 | Recent Sentiment | `recent-sentiment` | Last 30-day posts |
+| 8 | Reddit / Community | `reddit` | Sub-reddit sources, narrative themes |
+| 9 | Valuation vs Expectations | `valuation` | Reverse DCF, forward DCF (bear/base/bull), sector comparison |
+| 10 | 3/6/12-Month Outlook | `outlook` | Probability-weighted scenarios |
+| 11 | Contrarian Analysis | `contrarian` | Counter-arguments, insider buying signal |
+| 12 | Things Market May Miss | `market-missing` | ≥3 underappreciated factors |
+| 13 | Risk Analysis | `risk` | Top risks ranked by probability × impact |
+| 14 | Catalysts | `catalysts` | Near/medium/long-term buckets |
+| 15 | Investment Dashboard | `dashboard` | 10 dimensions (incl. durability), composite score |
+| 16 | Appendix: What Changed | `what-changed` | Delta vs prior report (or "First report") |
+
+#### Verification Script
+
+```bash
+# Run from reports/ directory after all individual .md files are generated
+PASS=0; FAIL=0; DATE="YYYY-MM-DD"
+for dir in */; do
+  ticker="${dir%/}"
+  f="$ticker/${ticker}_${DATE}.md"
+  [ ! -f "$f" ] && continue
+  errors=""
+  # Check all 16 required sections exist
+  for section in "Executive Summary" "Earnings Quality" "Company Fundamentals" \
+    "Ten-Year Quarterly History" "Historical Sentiment" "Sentiment vs Returns" \
+    "Recent Sentiment" "Reddit" "Valuation" "Outlook" "Contrarian" \
+    "Market May Be Missing" "Risk Analysis" "Catalysts" "Investment Dashboard" \
+    "What Changed"; do
+    grep -qi "$section" "$f" || errors="$errors MISSING:$section"
+  done
+  # Check no SOP v2 jargon
+  grep -qi "SOP v2\|SOPv2" "$f" && errors="$errors HAS:SOP-v2-jargon"
+  # Check no glossary (individual reports)
+  grep -qi "## Glossary\|## Appendix.*Glossary" "$f" && errors="$errors HAS:glossary"
+  # Check TOC exists
+  grep -qi "Contents\|Table of Contents" "$f" || errors="$errors MISSING:TOC"
+  # Check Back to Top links
+  BTT=$(grep -ci "back to top" "$f")
+  [ "$BTT" -lt 8 ] && errors="$errors LOW:BackToTop($BTT)"
+
+  if [ -z "$errors" ]; then
+    echo "✅ $ticker"; PASS=$((PASS+1))
+  else
+    echo "❌ $ticker:$errors"; FAIL=$((FAIL+1))
+  fi
+done
+echo "---"
+echo "PASS: $PASS | FAIL: $FAIL"
+[ "$FAIL" -gt 0 ] && echo "⛔ FIX FAILURES BEFORE GENERATING MASTER REPORT"
+```
+
+**If ANY ticker fails verification:** Fix the report before proceeding. Do NOT generate the master report with non-conforming individual reports — the master pulls data and scores from individual reports, so format inconsistencies propagate.
+
+### Stage 3: Master Report (mandatory — fires after all individual reports pass format verification)
+
+After ALL individual ticker reports (.md) are generated AND pass the format verification gate, produce a master comparison doc:
 
 ```
 .notlocal/data/personal-investor/reports/YYYY-MM-DD-master.md
@@ -539,15 +609,15 @@ Group all tickers into risk tiers. This goes first because it's the quickest way
 
 #### 3. Fundamentals Comparison Table
 
-One row per ticker, sorted by dashboard composite score (highest first). **Links point to .html files (not .md).**
+One row per ticker, sorted by dashboard composite score (highest first). **Links point to .md files** (individual tickers are .md only).
 
 | Ticker | Sector | Price | MCap | P/E | Fwd P/E | EV/EBITDA | EV/Sales | Vol | Dashboard | Report |
 |--------|--------|-------|------|-----|---------|-----------|----------|-----|-----------|--------|
-| BKNG | TRAVEL | $171 | $133B | 19.1x | 13.9x | 12.7x | 4.7x | 33% | 7.6/10 | [→](BKNG/BKNG_YYYY-MM-DD.html) |
+| BKNG | TRAVEL | $171 | $133B | 19.1x | 13.9x | 12.7x | 4.7x | 33% | 7.6/10 | [→](BKNG/BKNG_YYYY-MM-DD.md) |
 
 **Rules:**
-- Links use `.html` extension (not `.md`) — the HTML is the user-facing report
-- All 19 tickers must be present — no omissions
+- Links use `.md` extension — individual tickers are generated as .md only
+- All 20 tickers must be present — no omissions
 - Data source: read each ticker's research packet JSON. Do NOT re-derive.
 
 #### 5. Sector Grouping
@@ -630,22 +700,12 @@ Read the `sectors:` section of `config/tickers.yaml` to find sector members. The
 ```bash
 # Run from the reports/ directory
 cd .notlocal/data/personal-investor/reports
-for link in $(grep -oP '\]\(\K[^)]+\.html' YYYY-MM-DD-master.md); do
+for link in $(grep -oP '\]\(\K[^)]+\.md' YYYY-MM-DD-master.md); do
   if [ ! -f "$link" ]; then echo "BROKEN: $link"; fi
 done
 ```
 
-If ANY link is broken, the master report is WRONG — do not commit it. The most common cause: `.html` files were not generated for individual tickers (Stage 2 only produced `.md`). Fix: generate the missing `.html` files before regenerating the master.
-
-**HTML generation is mandatory for every ticker before the master is generated.** The weekly pipeline must produce `.md` AND `.html` for each ticker. The master links to `.html` — if only `.md` exists, the link breaks. Add this check to the batch pipeline:
-
-```bash
-# After Stage 2, verify all tickers have .html
-for ticker in $(cat config/weekly-batch.yaml | grep '^ *- ' | sed 's/.*- //'); do
-  f="reports/$ticker/${ticker}_YYYY-MM-DD.html"
-  if [ ! -f "$f" ]; then echo "MISSING HTML: $ticker"; fi
-done
-```
+If ANY link is broken, the master report is WRONG — do not commit it. Individual tickers are `.md` only; only the master report itself has both `.md` and `.html` versions.
 
 #### 7. Appendix: How the Numbers Work — Using EXPE
 

@@ -125,7 +125,7 @@ YYYY-MM-DD-master.html   ← styled derivative with sortable tables
 ### Fundamentals comparison table
 
 - Sorted by dashboard composite score (highest first)
-- Report links point to **.html** files (not .md): `[→](TICKER/TICKER_YYYY-MM-DD.html)`
+- Report links point to **.md** files (individual tickers are .md only): `[→](TICKER/TICKER_YYYY-MM-DD.md)`
 - All 19 tickers present with no omissions
 - Color-code dashboard scores in HTML: green (≥7), amber (5-6.9), red (<5)
 
