@@ -616,48 +616,51 @@ for ticker in $(cat config/weekly-batch.yaml | grep '^ *- ' | sed 's/.*- //'); d
 done
 ```
 
-#### 7. Appendix: How the Numbers Work (Glossary + Worked Example)
+#### 7. Appendix: How the Numbers Work — Using EXPE
 
-A single appendix with two parts:
+**The entire appendix uses ONE real ticker's numbers.** No fictional "Acme Corp" — every definition, formula, and worked example uses EXPE's actual financials from the current batch. This makes the appendix a single coherent reference where the reader follows one company from start to finish.
 
-**Part A — Glossary (verbatim from `config/glossary.md`)**
+**Ticker selection:** Use the most "textbook" profitable ticker in the batch — one with positive earnings, positive FCF, reasonable multiples, and enough data to compute all metrics. EXPE is the default; if EXPE is removed from a future batch, substitute BKNG or VRT.
 
-All 34 financial terms with Acme Corp worked examples. Appended verbatim — never modified. This is the reference for what each metric means and how to compute it generically.
-
-**Part B — Worked Example (one real ticker from the batch)**
-
-Pick ONE profitable ticker (preferably BKNG, EXPE, or VRT) and show the complete computation chain using that ticker's actual numbers. This demonstrates how the glossary formulas apply to a real company.
-
-Required computations:
-1. **Earnings Quality**: Reported EPS vs SBC-adjusted EPS, P/E on both, the delta
-2. **Reverse DCF**: From current price → implied FCF CAGR → "is that realistic?"
-3. **SBC-Adjusted FCF**: Reported FCF → subtract SBC → adjusted FCF yield
+**Structure:** Every glossary term gets a one-line definition followed by the computation using EXPE's real numbers. Group by category (same 7 categories as `config/glossary.md`). Then add the three SOP v2 computation chains at the end.
 
 ```markdown
-## Appendix: How the Numbers Work
+## Appendix: How the Numbers Work — EXPE (Expedia Group)
 
-### Part A: Glossary of Financial Terms
-[verbatim contents of config/glossary.md]
+**Reference numbers (from research packet):**
+> Price = $287 | Shares = 120M | Revenue (TTM) = $14.73B | Net Income (TTM) = $1.86B
+> EBITDA = $2.89B | FCF = $3.11B | OCF = $4.35B | CapEx = $1.24B | Total Debt = $8.7B
+> Cash = $3.7B | Equity = ~$3.8B | EPS = $15.86 | Market Cap = $34.4B | EV = $39.4B
+> SBC (est.) = ~$700M | Fwd EPS (est.) = $24.50
 
-### Part B: Worked Example — EXPE (2026-09-13)
+### 1. Valuation Metrics
+**P/E** = Price ÷ EPS = $287 ÷ $15.86 = **18.1x**
+**Forward P/E** = Price ÷ Fwd EPS = $287 ÷ $24.50 = **11.7x**
+**EV/EBITDA** = EV ÷ EBITDA = $39.4B ÷ $2.89B = **13.6x**
+**EV/Sales** = EV ÷ Revenue = $39.4B ÷ $14.73B = **2.7x**
+**FCF Yield** = FCF ÷ Market Cap = $3.11B ÷ $34.4B = **9.0%**
+[... all 34 terms computed with EXPE numbers ...]
+
+### SOP v2 Computations
 
 #### Earnings Quality
 - Reported EPS: $15.86 → P/E = 18.1x
-- SBC estimate: ~$700M → SBC/share = ~$5.83
-- Adjusted EPS: $15.86 - $5.83 = $10.03 → Adjusted P/E = 28.6x
-- Delta: 10.5x — the hidden cost of SBC
+- SBC: ~$700M → SBC/share = $5.83 → Adjusted EPS = $10.03 → Adj P/E = 28.6x
+- Delta: 10.5x — this is the hidden cost of SBC
 
 #### Reverse DCF
-- EV = $39.4B, FCF = $3.11B, WACC = 10%, Terminal growth = 2.5%
-- Solving: market implies ~1% annual FCF growth
-- Historical FCF CAGR: ~8-12% → stock is priced for near-zero growth
+- EV = $39.4B, FCF = $3.11B, WACC = 10%, terminal = 2.5%
+- Market implies ~1% annual FCF growth for 5 years
+- Historical: ~8-12% → stock is priced for near-zero growth (potential upside)
 
 #### SBC-Adjusted FCF
-- FCF: $3.11B, SBC: ~$700M → Adjusted FCF: $2.41B
-- FCF yield: 9.0% reported → 7.0% adjusted (still strong)
+- FCF $3.11B − SBC $0.70B = Adjusted FCF $2.41B
+- Yield: 9.0% reported → 7.0% adjusted (still strong)
 ```
 
-In HTML: render Part A (glossary) inside `<details open>` and Part B (worked example) as a visible section above it.
+**Implementation:** Do NOT use `config/glossary.md` (which has Acme Corp). Instead, generate the glossary content fresh each week using the selected ticker's actual numbers from its research packet JSON. The 34 term definitions stay the same; only the numbers change.
+
+**In HTML:** Render inside a `<details open>` collapsible section with nav bar link "How It Works".
 
 **Style guide:** Follow `config/report-style-guide.md` for all formatting decisions (header blocks, evidence labels, table alignment, HTML CSS, color-coding, link extensions). The style guide is the formatting source of truth — this SKILL.md defines *what* to include; the style guide defines *how* it looks.
 
