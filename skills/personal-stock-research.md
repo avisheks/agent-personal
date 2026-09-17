@@ -276,10 +276,10 @@ Naming convention mirrors options-pnl-v3: `{ticker}_{date}.{ext}` — no `-lates
 
 Follow this exact structure. Sections are ordered quality-first, then valuation, then sentiment, then synthesis.
 
-1. **Executive Summary** — one page, conclusion-first. Must include quality gate verdict: "passes/fails quality screen on ROIC > WACC, positive FCF, D/E < 1.5." If quality fails, state it upfront.
-2. **Earnings Quality** — NEW. Reported EPS vs Adjusted EPS (strip SBC, normalize CapEx, exclude one-timers). P/E on reported vs P/E on adjusted. SBC as % of revenue. SBC-adjusted FCF = FCF - SBC. Flag SBC > 15% of revenue as concern.
-3. **Company Fundamentals** — current profile + peer comparison. Must include SBC line item. Sector-specific primary metric highlighted (EV/Sales for SaaS, P/B for financials, cash runway for pre-revenue, EV/EBITDA for industrials).
-4. **Ten-Year Quarterly History** — table with Revenue, YoY Growth, EPS, Adjusted EPS, Margins, FCF, SBC-adjusted FCF, Beat/Miss
+1. **Executive Summary** — one page, conclusion-first. Must include quality gate verdict: "passes/fails quality screen on ROIC > WACC, positive FCF, D/E < 1.5." If quality fails, state it upfront. Include valuation range visualization (ASCII bar showing bear/base/bull and where current price sits).
+2. **Earnings Quality** — Reported EPS vs Adjusted EPS (strip SBC, normalize CapEx, exclude one-timers). P/E on reported vs P/E on adjusted. SBC as % of revenue. SBC-adjusted FCF = FCF - SBC. Flag SBC > 15% of revenue. **Operating leverage trajectory**: show gross margin vs operating margin gap and whether it's narrowing over last 8 quarters. For high-gross-margin businesses (>60%), this is THE value driver.
+3. **Company Fundamentals** — current profile + peer comparison. Must include SBC line item and **institutional ownership %** (from Yahoo Finance) with direction (increasing/decreasing/stable). Flag "under-owned by institutions" (<50%) as potential catalyst. **P/E vs historical range**: current P/E vs 5-year average P/E, show percentile ("cheapest/most expensive in 5 years"). Sector-specific primary metric highlighted.
+4. **Ten-Year Quarterly History** — table with Revenue, YoY Growth, EPS, Adjusted EPS, Margins (gross AND operating — show the gap), FCF, SBC-adjusted FCF, Beat/Miss
 5. **Historical Sentiment (5 years)** — year-by-year: narrative → evidence → outcome → was it correct?
 6. **Sentiment vs. Subsequent Returns** — quantitative: sentiment bucket → forward 1M/3M/6M/12M
 7. **Recent Sentiment** — 6m/3m/1m narratives with evidence quality assessment
@@ -288,12 +288,19 @@ Follow this exact structure. Sections are ordered quality-first, then valuation,
    - (a) **Reverse DCF**: Given current price, what revenue CAGR and margin does the market imply? Is that realistic?
    - (b) **Forward DCF**: Bear/base/bull 5-year projections (our existing 5-model approach)
    - (c) **Sector-appropriate metric**: Lead with the primary metric for this sector (not always P/E)
+   - (d) **Valuation range**: Present as a visual range, not a point estimate:
+     ```
+     $150 ───[████████████████████]─── $450
+              Bear    Base    Bull
+              $180    $280    $420
+              Current: $287 ← sits here
+     ```
 10. **3/6/12-Month Outlook** — per-horizon scenarios with probabilities and key drivers
-11. **Contrarian Analysis** — mandatory: for every consensus claim, the counter-evidence. Include insider buying/selling signal if available.
+11. **Contrarian Analysis** — mandatory: for every consensus claim, the counter-evidence. **Insider buying/selling**: check for recent insider transactions (cite OpenInsider.com). Cluster buys (3+ insiders in same month) are the strongest signal per community consensus.
 12. **Things the Market May Be Missing** — underestimated risks AND opportunities
 13. **Risk Analysis** — top 10 risks ranked by probability × impact
 14. **Catalysts** — 0-3m / 3-6m / 6-12m with timing and confirmation/invalidation signals
-15. **Investment Dashboard** — scores (1-10) ordered QUALITY FIRST: business quality, financial strength, competitive position, THEN growth, management, valuation, sentiment, risk + bottom line
+15. **Investment Dashboard** — scores (1-10) ordered QUALITY FIRST: business quality, financial strength, competitive position, **durability** (NEW: 10+ year compounder probability — switching costs, network effects, regulatory moat, disruption risk), THEN growth, management, valuation, sentiment, risk + bottom line. **10 dimensions total** (was 8).
 16. **Appendix: What Changed** — mandatory if a prior report exists; diff vs previous report
 
 **NOTE: Individual ticker reports NO LONGER include the Glossary appendix.** The glossary lives in the master report only (see Stage 3). This reduces per-report size by ~200 lines while keeping the glossary available as a shared reference.

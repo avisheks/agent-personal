@@ -168,6 +168,7 @@ If a sector has no other tickers beyond the batch ticker, say "No additional tic
 
 - ~10 categories covering valuation, quality, risk, size extremes
 - Include the ticker, value, and a one-line note
+- Use emojis for quick scanning: 🏆 best, 💎 cheapest, ⚠️ most expensive, 🔴 worst, 📈 most volatile, 📉 least volatile
 
 ---
 
@@ -181,6 +182,40 @@ All HTML reports use the same CSS:
 - Tables: `font-variant-numeric: lining-nums tabular-nums`, `tr:hover #f5f5f5`
 - Metric cards: `.dashboard` grid, `.metric-card` with colored left-border
 - Responsive at 768px, print-safe (hide nav)
+
+### HTML readability polish (master report)
+
+The master HTML should be **scannable at a glance**. Use these visual aids:
+
+**Emojis in headings and tables:**
+- 🟢 Pass / strong → green scores (≥7/10), Medium risk tier
+- 🟡 Caution / moderate → amber scores (5-6.9/10), High risk tier
+- 🔴 Fail / weak → red scores (<5/10), Very High risk tier
+- 🏆 Best in category (Best/Worst table)
+- 💎 Cheapest / best value
+- ⚠️ Most expensive / highest risk
+- 📊 Data-driven sections
+- 🔍 Explore suggestions
+
+**Dashboard score badges:**
+- In HTML comparison table, render scores as colored pill badges, not plain text
+- `<span class="score-pill score-green">7.4</span>` for ≥7
+- `<span class="score-pill score-amber">5.5</span>` for 5-6.9
+- `<span class="score-pill score-red">3.0</span>` for <5
+
+**Valuation range bar (in comparison table or per-ticker detail):**
+```html
+<div class="val-range">
+  <div class="val-bar" style="left: 20%; width: 60%;"></div>
+  <div class="val-marker" style="left: 45%;" title="Current $287">▼</div>
+</div>
+```
+
+**Section card styling:**
+- Each major section (Risk Tiers, Comparison, Explore, etc.) wrapped in a card with subtle shadow
+- Section headers include emoji: "📊 Fundamentals Comparison", "🔍 Explore These Next", "⚖️ Risk Tiers"
+
+**No "SOP v2" or internal jargon in user-facing reports.** Remove all references to SOP versions, internal processes, or implementation details. The report reads as a professional investment research document, not an engineering artifact.
 
 ### Table header rendering (IMPORTANT — prevents hidden header rows)
 
