@@ -250,56 +250,40 @@ Naming convention mirrors options-pnl-v3: `{ticker}_{date}.{ext}` — no `-lates
 
 ## Report Structure
 
-Follow this exact structure (derived from the seed prompt):
+Follow this exact structure. Sections are ordered quality-first, then valuation, then sentiment, then synthesis.
 
-1. **Executive Summary** — one page, conclusion-first
-2. **Company Fundamentals** — current profile + peer comparison table
-3. **Ten-Year Quarterly History** — table with Revenue, YoY Growth, EPS, Margins, FCF, Beat/Miss
-4. **Historical Sentiment (5 years)** — year-by-year: narrative → evidence → outcome → was it correct?
-5. **Sentiment vs. Subsequent Returns** — quantitative: sentiment bucket → forward 1M/3M/6M/12M
-6. **Recent Sentiment** — 6m/3m/1m narratives with evidence quality assessment
-7. **Reddit/Community Analysis** — signal vs. noise separation; recurring theses with verification status
-8. **Valuation vs. Expectations** — reverse-engineered implied assumptions + bear/base/bull scenarios
-9. **3/6/12-Month Outlook** — per-horizon scenarios with probabilities and key drivers
-10. **Contrarian Analysis** — mandatory: for every consensus claim, the counter-evidence
-11. **Things the Market May Be Missing** — underestimated risks AND opportunities
-12. **Risk Analysis** — top 10 risks ranked by probability × impact
-13. **Catalysts** — 0-3m / 3-6m / 6-12m with timing and confirmation/invalidation signals
-14. **Investment Dashboard** — scores (1-10) for business quality, financial strength, growth, competitive position, management, valuation, sentiment, risk + bottom line
-15. **Appendix: What Changed** — mandatory if a prior report exists; diff vs previous report
-16. **Appendix: Glossary** — mandatory in every report; definitions with worked examples
+1. **Executive Summary** — one page, conclusion-first. Must include quality gate verdict: "passes/fails quality screen on ROIC > WACC, positive FCF, D/E < 1.5." If quality fails, state it upfront.
+2. **Earnings Quality** — NEW. Reported EPS vs Adjusted EPS (strip SBC, normalize CapEx, exclude one-timers). P/E on reported vs P/E on adjusted. SBC as % of revenue. SBC-adjusted FCF = FCF - SBC. Flag SBC > 15% of revenue as concern.
+3. **Company Fundamentals** — current profile + peer comparison. Must include SBC line item. Sector-specific primary metric highlighted (EV/Sales for SaaS, P/B for financials, cash runway for pre-revenue, EV/EBITDA for industrials).
+4. **Ten-Year Quarterly History** — table with Revenue, YoY Growth, EPS, Adjusted EPS, Margins, FCF, SBC-adjusted FCF, Beat/Miss
+5. **Historical Sentiment (5 years)** — year-by-year: narrative → evidence → outcome → was it correct?
+6. **Sentiment vs. Subsequent Returns** — quantitative: sentiment bucket → forward 1M/3M/6M/12M
+7. **Recent Sentiment** — 6m/3m/1m narratives with evidence quality assessment
+8. **Reddit/Community Analysis** — signal vs. noise separation; recurring theses with verification status
+9. **Valuation vs. Expectations** — THREE components:
+   - (a) **Reverse DCF**: Given current price, what revenue CAGR and margin does the market imply? Is that realistic?
+   - (b) **Forward DCF**: Bear/base/bull 5-year projections (our existing 5-model approach)
+   - (c) **Sector-appropriate metric**: Lead with the primary metric for this sector (not always P/E)
+10. **3/6/12-Month Outlook** — per-horizon scenarios with probabilities and key drivers
+11. **Contrarian Analysis** — mandatory: for every consensus claim, the counter-evidence. Include insider buying/selling signal if available.
+12. **Things the Market May Be Missing** — underestimated risks AND opportunities
+13. **Risk Analysis** — top 10 risks ranked by probability × impact
+14. **Catalysts** — 0-3m / 3-6m / 6-12m with timing and confirmation/invalidation signals
+15. **Investment Dashboard** — scores (1-10) ordered QUALITY FIRST: business quality, financial strength, competitive position, THEN growth, management, valuation, sentiment, risk + bottom line
+16. **Appendix: What Changed** — mandatory if a prior report exists; diff vs previous report
 
-## Glossary Appendix (mandatory — every report)
+**NOTE: Individual ticker reports NO LONGER include the Glossary appendix.** The glossary lives in the master report only (see Stage 3). This reduces per-report size by ~200 lines while keeping the glossary available as a shared reference.
 
-Every report MUST end with a glossary appendix. The glossary is hardcoded as a reference file at:
+## Glossary (master report only — NOT in individual reports)
 
-```
-config/glossary.md
-```
+The glossary is hardcoded at `config/glossary.md` (34 terms, 7 categories, Acme Corp worked examples). It is appended **only to the master comparison report**, not to individual ticker reports. This saves ~200 lines per report while keeping one shared reference.
 
-It is **appended verbatim** — never regenerated, rewritten, summarized, or modified per-ticker. The glossary content is identical across ALL reports regardless of ticker.
+**Master report glossary workflow:**
+1. After all master sections are written, read `config/glossary.md`
+2. Append verbatim as a master appendix section
+3. In HTML: render inside `<details open>` with nav bar link "Glossary"
 
-**Structure:** The glossary contains 34 terms organized into 7 numbered categories with a Term Index table at the top:
-1. Valuation Metrics (10 terms)
-2. Profitability Metrics (5 terms)
-3. Cash Flow Metrics (4 terms)
-4. Growth Metrics (4 terms)
-5. Risk Metrics (5 terms)
-6. Valuation Models (5 terms)
-7. Dashboard Scoring (1 scale)
-
-Each term has a plain-language definition and a worked example using "Acme Corp" reference numbers.
-
-**Workflow:**
-1. After writing all report sections (1–15), read `config/glossary.md`
-2. Append its FULL contents as section 16, wrapped in `<a id="glossary"></a>` anchor
-3. Do NOT modify, filter, or rewrite any content — copy the file verbatim
-4. Add a TOC entry: `[Appendix: Glossary](#glossary)`
-5. In HTML: render inside `<details open>`, add nav bar link "Glossary"
-
-**Verification (mandatory):** After appending, the glossary section of every report must produce the same MD5 hash. If two reports for different tickers have different glossary content, one of them was modified instead of appended verbatim — fix it.
-
-**Adding new terms:** If a term used in the report body is not in the glossary, do NOT add it inline to the report. Instead: (1) add it to `config/glossary.md` in the correct category, (2) log it in the event log as `glossary_term_added`, (3) all future reports will pick it up automatically.
+**Adding new terms:** Add to `config/glossary.md` in the correct category. The next master report picks it up automatically.
 
 ## Appendix: What Changed (mandatory for repeat reports)
 
@@ -631,6 +615,50 @@ for ticker in $(cat config/weekly-batch.yaml | grep '^ *- ' | sed 's/.*- //'); d
   if [ ! -f "$f" ]; then echo "MISSING HTML: $ticker"; fi
 done
 ```
+
+#### 7. Appendix: Worked Example
+
+**Mandatory in every master report.** Pick ONE ticker from the batch (preferably a profitable one like BKNG, EXPE, or VRT) and show the complete computation chain for all new metrics introduced in this SOP update:
+
+```markdown
+## Appendix: Worked Example — EXPE (2026-09-13)
+
+### Earnings Quality Computation
+- Reported EPS: $9.81 **FACT** [SEC XBRL]
+- Stock-Based Compensation: $XXM (YY% of revenue) **FACT** [SEC XBRL]
+- SBC per share: $XX
+- Adjusted EPS: Reported EPS - SBC/share = $9.81 - $XX = $YY
+- P/E on reported: $287 / $9.81 = 29.2x
+- P/E on adjusted: $287 / $YY = ZZx
+- Delta: Nx — this is the "hidden cost" of SBC
+
+### Reverse DCF Computation
+- Current price: $287
+- Shares: 120M → Market Cap = $34.4B
+- Net debt: $XB → Enterprise Value = $YB
+- Current FCF: $3.11B
+- Discount rate (WACC): 10%
+- Terminal growth: 2.5%
+- Implied FCF CAGR over 5 years: solve for g where:
+  EV = Σ(FCF₀ × (1+g)^t / (1+WACC)^t) + Terminal
+- Result: market implies g = X% annual FCF growth
+- Verdict: "Is X% realistic? Compare to historical CAGR of Y%"
+
+### SBC-Adjusted FCF
+- Operating Cash Flow: $4.35B
+- CapEx: $1.24B
+- FCF: $3.11B
+- SBC: $XXM
+- SBC-adjusted FCF: $3.11B - $XXM = $YB
+- FCF yield (reported): $3.11B / $34.4B = 9.0%
+- FCF yield (SBC-adjusted): $YB / $34.4B = Z%
+```
+
+This example shows the reader exactly how each metric is computed so they can replicate it for any ticker.
+
+#### 8. Appendix: Glossary
+
+The glossary from `config/glossary.md` is appended verbatim to the master report only. It includes 34 terms with Acme Corp worked examples. Individual ticker reports do NOT include the glossary.
 
 **Style guide:** Follow `config/report-style-guide.md` for all formatting decisions (header blocks, evidence labels, table alignment, HTML CSS, color-coding, link extensions). The style guide is the formatting source of truth — this SKILL.md defines *what* to include; the style guide defines *how* it looks.
 

@@ -14,6 +14,14 @@ TICKER_YYYY-MM-DD.html   ← styled derivative
 TICKER_YYYY-MM-DD.json   ← research packet snapshot
 ```
 
+### Sections changed (v2 — Sep 2026)
+
+- Section 2 is now **Earnings Quality** (NEW — adjusted EPS, SBC %, SBC-adjusted FCF)
+- Section 9 **Valuation** now has 3 sub-components: Reverse DCF, Forward DCF, Sector-appropriate metric
+- Section 15 **Investment Dashboard** is reordered: quality scores FIRST, then growth/valuation/risk
+- **Glossary removed from individual reports** — lives in master report only
+- Individual reports now have 16 sections (was 16 with glossary → now 16 without glossary, with Earnings Quality added)
+
 ### Header block (every report)
 
 ```markdown

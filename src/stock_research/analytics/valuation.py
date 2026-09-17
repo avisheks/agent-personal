@@ -490,10 +490,125 @@ def compute_valuation(fundamentals: dict, market_price: float) -> dict:
         "models_used": [name for name, _, _ in weighted_parts],
     }
 
+    # -- Reverse DCF --
+    reverse_dcf = compute_reverse_dcf(fundamentals, market_price)
+
     return {
         "intrinsic_value": intrinsic_value,
         "market_price": market_price,
         "margin_of_safety": mos,
         "models": models,
+        "reverse_dcf": reverse_dcf,
         "verdict": _verdict(mos) if mos is not None else "insufficient data",
     }
+
+
+# ---------------------------------------------------------------------------
+# Reverse DCF -- what growth does the current price imply?
+# ---------------------------------------------------------------------------
+
+def compute_reverse_dcf(
+    fundamentals: dict,
+    market_price: float,
+    wacc: float = _WACC,
+    terminal_growth: float = _TERMINAL_GROWTH,
+    projection_years: int = _DCF_PROJECTION_YEARS,
+) -> dict:
+    """Reverse DCF: given current price, solve for the implied FCF growth rate.
+
+    Instead of projecting growth → fair value, this starts from the market price
+    and works backward to find what growth rate the market is implying. This is
+    more actionable than forward DCF because it converts valuation into a testable
+    hypothesis.
+
+    Returns:
+        dict with implied_fcf_cagr, implied_revenue_cagr, market_assumptions,
+        and a verdict on whether those assumptions are realistic.
+    """
+    fcf = fundamentals.get("free_cash_flow")
+    shares = fundamentals.get("shares_outstanding")
+    revenue = fundamentals.get("revenue")
+    ev_sales = fundamentals.get("ev_sales")
+    market_cap = fundamentals.get("market_cap")
+    enterprise_value = fundamentals.get("enterprise_value")
+
+    result: dict = {
+        "implied_fcf_cagr": None,
+        "implied_revenue_cagr": None,
+        "current_fcf": fcf,
+        "market_assumptions": None,
+        "verdict": None,
+    }
+
+    if not market_price or market_price <= 0:
+        result["verdict"] = "insufficient data (no market price)"
+        return result
+
+    # Use enterprise value if available, else market cap
+    ev = enterprise_value or market_cap
+    if not ev or ev <= 0:
+        result["verdict"] = "insufficient data (no EV or market cap)"
+        return result
+
+    # --- Implied FCF CAGR ---
+    if fcf and fcf > 0:
+        # Solve: EV = Σ(FCF₀ × (1+g)^t / (1+wacc)^t) + TV
+        # TV = FCF₀ × (1+g)^n × (1+terminal_g) / (wacc - terminal_g) / (1+wacc)^n
+        # Use binary search for g
+        def _ev_at_growth(g: float) -> float:
+            pv = 0.0
+            for t in range(1, projection_years + 1):
+                pv += fcf * ((1 + g) ** t) / ((1 + wacc) ** t)
+            terminal_fcf = fcf * ((1 + g) ** projection_years) * (1 + terminal_growth)
+            tv = terminal_fcf / (wacc - terminal_growth)
+            pv += tv / ((1 + wacc) ** projection_years)
+            return pv
+
+        # Binary search for implied growth rate
+        lo, hi = -0.30, 1.00  # -30% to +100% growth
+        for _ in range(100):
+            mid = (lo + hi) / 2
+            if _ev_at_growth(mid) < ev:
+                lo = mid
+            else:
+                hi = mid
+
+        implied_fcf_cagr = round((lo + hi) / 2, 4)
+        result["implied_fcf_cagr"] = implied_fcf_cagr
+
+        # Historical FCF for comparison
+        historical_cagr = fundamentals.get("fcf_cagr_3y") or fundamentals.get("revenue_cagr_3y")
+
+        result["market_assumptions"] = {
+            "implied_annual_fcf_growth": f"{implied_fcf_cagr*100:.1f}%",
+            "for_years": projection_years,
+            "terminal_growth": f"{terminal_growth*100:.1f}%",
+            "wacc": f"{wacc*100:.1f}%",
+        }
+
+        # Verdict
+        if implied_fcf_cagr > 0.30:
+            result["verdict"] = f"Market implies {implied_fcf_cagr*100:.0f}% annual FCF growth — aggressive, requires exceptional execution"
+        elif implied_fcf_cagr > 0.15:
+            result["verdict"] = f"Market implies {implied_fcf_cagr*100:.0f}% annual FCF growth — optimistic but achievable for strong growers"
+        elif implied_fcf_cagr > 0.05:
+            result["verdict"] = f"Market implies {implied_fcf_cagr*100:.0f}% annual FCF growth — moderate, reasonable for established companies"
+        elif implied_fcf_cagr > 0:
+            result["verdict"] = f"Market implies {implied_fcf_cagr*100:.0f}% annual FCF growth — conservative, potential upside if growth exceeds this"
+        else:
+            result["verdict"] = f"Market implies {implied_fcf_cagr*100:.0f}% FCF decline — priced for deterioration"
+
+    else:
+        result["verdict"] = "insufficient data (negative or zero FCF — reverse DCF requires positive FCF)"
+
+    # --- Implied Revenue CAGR (from EV/Sales) ---
+    if revenue and revenue > 0 and ev_sales:
+        # If EV/Sales stays constant, implied revenue CAGR = price return
+        # More useful: what revenue is needed to justify current EV at a target EV/Sales
+        target_ev_sales = 5.0  # mature company target
+        implied_revenue_at_maturity = ev / target_ev_sales
+        if revenue > 0:
+            implied_rev_cagr = ((implied_revenue_at_maturity / revenue) ** (1.0 / projection_years)) - 1
+            result["implied_revenue_cagr"] = round(implied_rev_cagr, 4)
+
+    return result
