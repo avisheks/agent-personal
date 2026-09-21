@@ -31,4 +31,4 @@ tickers:
   - QCOM    # Qualcomm — AI edge compute, semiconductors
 
 # Batch settings (overridable via CLI flags)
-delay_seconds: 600   # 10 min between tickers
+delay_seconds: 60    # 1 min between tickers (tested 2026-09-20: 21 tickers, no rate limits)
