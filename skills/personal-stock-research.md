@@ -435,15 +435,47 @@ delay_seconds: 600  # 10 min between tickers
 
 ### Schedule
 
-**Cron: Sunday 9:03 AM PT** (durable — survives session restarts)
+**Cron: Sunday 9:03 AM PT** (`3 9 * * 0`, durable, recurring)
 
-The weekly job runs Stage 1 only (deterministic data pipeline):
-- SEC XBRL fundamentals
-- Yahoo Finance prices + valuation
-- Reddit sentiment (RSS → DDG → Reddit API → Google fallback)
-- Research packet JSON assembly
+The cron auto-expires after 7 days. The cron prompt includes a self-renewal step (Step 1) that re-creates itself via CronCreate before doing any work.
 
-The weekly cron job runs both Stage 1 (data ingestion) and Stage 2 (LLM report generation) for all tickers in the weekly batch config.
+**What the cron fires:**
+- **If human present (HITL approval granted):** Full pipeline — Stage 1 + Stage 2 + Stage 3 + commit
+- **If no human present (auto-fired):** Stage 1 only (deterministic data pipeline — safe unattended)
+
+See "Cron Job Safety Gate" below for the mandatory HITL approval flow.
+
+**Delay:** 60 seconds between tickers (tested 2026-09-20, 21 tickers, no rate limits). Config: `config/weekly-batch.yaml`.
+
+### Tool Preference Rules (reduces permission prompts)
+
+**ALWAYS prefer built-in tools over Bash for file operations:**
+- **Write reports:** Use `Write` tool (not `cat > file << 'EOF'` via Bash)
+- **Edit reports:** Use `Edit` tool (not `sed` via Bash)
+- **Read reports:** Use `Read` tool (not `cat`/`head`/`tail` via Bash)
+- **Bash is OK for:** running Python scripts, git commands, grep searches, pipeline commands
+
+**Why:** The Write/Edit/Read tools have broader auto-approval in Claude Code's permission system. Bash heredoc writes trigger individual permission prompts for each file, which blocks the pipeline ~20-40 times per run.
+
+**Permission allowlist:** `.claude/settings.local.json` auto-approves safe Bash patterns (grep, ls, git, Python pipeline commands). Run `/fewer-permission-prompts` periodically to update the allowlist based on actual usage patterns.
+
+### Cron Job Safety Gate
+
+**⚠️🔴 IMPORTANT — READ BEFORE EVERY CRON RUN 🔴⚠️**
+
+The weekly cron job operates with reduced permission prompts. Before the pipeline begins ANY write operations, it MUST:
+
+1. **Display this warning in RED:**
+   ```
+   ⛔🔴 AUTOMATED PIPELINE — REDUCED PERMISSIONS ACTIVE 🔴⛔
+   This run will write to .notlocal/data/personal-investor/ only.
+   No files outside this directory will be modified.
+   ```
+2. **Seek HITL (human-in-the-loop) approval** — pause and wait for explicit user confirmation before proceeding
+3. **Log the approval** to events.jsonl: `{"event": "hitl_approval", "scope": ".notlocal/data/personal-investor/"}`
+4. **If no human is present** (cron fired automatically): skip Stage 2 and Stage 3 (LLM reports). Only run Stage 1 (deterministic data pipeline) which is safe to run unattended.
+
+**Scope restriction:** Write operations are limited to `.notlocal/data/personal-investor/` directory. The pipeline must NOT write to any other directory without explicit permission.
 
 ### Prerequisites
 
