@@ -48,4 +48,4 @@ skills/
 - `render_html.py` for news reports, `compute_pnl.py` / `render_report.py` for options PnL
 - Stock research requires: `pip install duckdb yfinance httpx beautifulsoup4 pyyaml`
 - Stock research env vars: `EDGAR_USER_AGENT` (required), `FMP_API_KEY` / `ALPHA_VANTAGE_API_KEY` (optional)
-- AWS credentials (for Bedrock LLM): `ada credentials update --account=237287177058 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --profile=default --once`
+- AWS credentials (for Bedrock LLM): `ada credentials update --account=801953956576 --provider=conduit --role=AdsNovaScientist --profile=adsnova --once`

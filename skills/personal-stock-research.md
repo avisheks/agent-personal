@@ -451,7 +451,7 @@ Before running any batch or research command, ensure:
 
 1. **AWS credentials** (needed for Bedrock LLM calls in Stage 2):
    ```bash
-   ada credentials update --account=237287177058 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --profile=default --once
+   ada credentials update --account=801953956576 --provider=conduit --role=AdsNovaScientist --profile=adsnova --once
    ```
 
 2. **SEC EDGAR User-Agent** (required by SEC for API access):
