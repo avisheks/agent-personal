@@ -93,50 +93,58 @@ Activated when the user prompt asks for a science design doc, training recipe, m
 
    | Col | Header | Content |
    |-----|--------|---------|
-   | A | ID | Sequential integer (1, 2, 3...) |
-   | B | Phase | Sequential stage grouping with lettered prefix: `(A) Data foundation`, `(B) Scorers`, `(C) Curation`, etc. Phases represent the sequential pipeline of work — what must happen in what order. Multiple tasks share a Phase. Use `—` for tasks that don't fit a phase. |
-   | C | Capability | The feature or system area (e.g., "Product Knowledge", "AAO Planning", "Campaign Intent", "Model Consolidation") |
-   | D | Category | One of: Data Collection, Training, Evaluation, Infrastructure, Modeling Capability |
-   | E | Milestone | Prefixed with M-number: e.g., "M1: PK-KB Integration" |
-   | F | User Story | Specific, measurable outcome with Tk placeholders for unknown values. Format: "As [role], I get [specific deliverable] with [measurable bar]." Example: "As KB Agent team, Qwen checkpoint achieves >= Tk% E2E resolution rate on 458-question eval." |
-   | G | Description | Action statement describing the task. Verb + what + key detail. Example: "Data sourcing (prod/beta conversation traces, Console telemetry logs, E2E Eval traces that are being collected every day)" |
-   | H | Acceptance Criteria | Detailed, measurable criteria with specific thresholds, file paths, and technical specs. Should be precise enough that a reviewer can unambiguously judge pass/fail. Example: "≥3 source streams ingested in format scientist can consume easily; eval trajectories (≥N pairs); closed-beta logs joined on session_id; unified schema at S3 location". Use `Tk` for values that need to be filled in later. |
-   | I | Artifact Deliverables | Multi-line bullet list of concrete output artifacts for the task. Each bullet names a tangible deliverable: docs, code, datasets, SOPs. Example: `- short doc (2 pager) on data join strategy + final schema\n- code checked in, data dumped in S3\n- versioning of code+data`. Use `—` if the task has no distinct artifact (e.g., pure analysis). |
-   | J | T-shirt Size | Format: `N (duration)` — e.g., "3 (1-2 Weeks)", "5 (1 Month)", "8 (2-3 Months)" |
-   | K | Estimated (#days) | Integer count of working days. Example: `3`, `7`. This is a concrete complement to T-shirt Size — T-shirt gives relative complexity, Estimated gives calendar commitment. |
-   | L | Task Type | One of: `Sci` (research, modeling, evaluation, data science) or `Engg` (infrastructure, pipeline, deployment, integration) |
-   | M | Priority | Per-task priority: `P0` (must ship, blocks others), `P0.5` (must ship, some flexibility), `P1` (important, not on critical path), `P2` (stretch — below the line). Tasks above the BELOW THE LINE separator are committed (P0–P1); tasks below are stretch (P2). |
-   | N | Start | `YYYY-MM-DD (Day)` format. Example: `2026-09-01 (Tue)`. Day-of-week aids working-day math. |
-   | O | ECD | `YYYY-MM-DD (Day)` format. Example: `2026-09-04 (Fri)`. |
-   | P | Concurrent with (wait-time) | What useful work can be done in parallel while this task's dependencies are in progress. References other task numbers. Format: `T3 (rubric doc during pipeline waits)`. Use `—` if nothing is concurrent. This column captures idle-time utilization: when task X is blocked waiting for task Y, what can person Z do meanwhile? |
-   | Q | Demo prep | Which demo or review milestone this task feeds into. Format: `Demo N (YYYY-MM-DD) artifact-name`. Example: `Demo 1 (2026-09-14) source-data slide`. Use `—` if no demo link. |
-   | R | Allocation (AS) | Which AS is assigned. Format: `AS 1`, `AS 2`, `AS 1 (0.5)` for half-time. Use named slots (AS 1, AS 2, AS 3) consistently across rows so peak-load is visible. |
-   | S | Allocation (SDE) | Which SDE is assigned. Format: `SDE 1`, `SDE 2`, `SDE 1 (0.5)` for half-time. Use named slots consistently. |
-   | T | Contributors | Named contributors by initials, separated by ` / `. Example: `TZ / JS / NV`. Complements the abstract Allocation columns — Contributors names who, Allocation tracks capacity. |
-   | U | Dependencies | Explicit: other task IDs ("T3"), milestone names ("M1 complete"), or external blockers ("KB team eval pipeline"). Use `—` for tasks with no dependencies. |
+   | A | Phase | Sequential stage grouping with lettered prefix: `(A) Design`, `(B) Data foundations`, `(C) Eval improvements`, etc. Phases represent the sequential pipeline of work. Multiple rows share a Phase. Only set on the first row of each phase group; leave blank on subsequent rows in the same phase. |
+   | B | Category | Sub-category within the phase (e.g., "Data ingestion", "Data creation", "GT", "Scoring", "Attribution", "Reliability"). Groups related milestones within a phase. |
+   | C | User Story | What the user/team needs, written in first-person desire format: `... I want to [specific outcome]`. Example: `... I want to ingest E2E eval offline traces`. The ellipsis prefix is intentional — it continues from a preamble row (Row 2) that establishes the persona. |
+   | D | Goal | Which goal and key project this milestone maps to. Format: `Goal #N\n(Key Project #M: name)`. Example: `Goal #1\n(Key Project #1: Data pipeline)`. Leave blank if the milestone is not directly tied to a goal. |
+   | E | Milestone | Prefixed with M-number: e.g., `M4: Data ingestion`, `M12: Deterministic scoring checks`. Sequential across the entire plan. |
+   | F | Description | Detailed action statement describing the work. Include: what will be built, key technical details, phasing (Phase 1/Phase 2 if applicable), and references to prior art or literature where relevant. |
+   | G | Type (Sc / Engg) | Who does the work: `Sc` (science/research), `Engg` (engineering/infrastructure), or `Sc + Engg` (joint). |
+   | H | Dependency | What this milestone depends on: other milestone IDs (`M4`), row references (`Row 7`), or external blockers (`Pod 2 (Data Pod)`). Use `--` for no dependencies. |
+   | I | Priority | `P0` (must ship, blocks others), `P0.5` (must ship, some flexibility), `P1` (important, not critical path), `P2` (stretch). |
+   | J | Owner | Who owns delivery of this milestone. **Leave blank by default.** Only fill when the user explicitly assigns owners. |
+   | K | ECD | Estimated completion date. Format: `MM/DD` (e.g., `09/30`). **Leave blank by default.** Only fill when the user explicitly provides or requests dates. |
+   | L | Status | One of: `Not Started`, `In Progress`, `Completed`, `Blocked`. Default to `Not Started` for new plans. |
+   | M | Acceptance Criteria | Detailed, measurable criteria with specific thresholds, file paths, and technical specs. Should be precise enough that a reviewer can unambiguously judge pass/fail. Example: "≥3 source streams ingested in format scientist can consume easily; eval trajectories (≥N pairs); closed-beta logs joined on session_id; unified schema at S3 location". Use `Tk` for values that need to be filled in later. |
+   | N | Artifact Deliverables | Multi-line bullet list of concrete output artifacts for the task. Each bullet names a tangible deliverable: docs, code, datasets, SOPs. Example: `- short doc (2 pager) on data join strategy + final schema\n- code checked in, data dumped in S3\n- versioning of code+data`. Use `—` if the task has no distinct artifact (e.g., pure analysis). |
+   | O | T-shirt Size | Format: `N (duration)` — e.g., "3 (1-2 Weeks)", "5 (1 Month)", "8 (2-3 Months)" |
+   | P | Estimated (#days) | Integer count of working days. Example: `3`, `7`. Concrete complement to T-shirt Size — T-shirt gives relative complexity, Estimated gives calendar commitment. |
+   | Q | Concurrent with (wait-time) | What useful work can be done in parallel while this task's dependencies are in progress. References other milestone numbers. Format: `M3 (rubric doc during pipeline waits)`. Use `—` if nothing is concurrent. Captures idle-time utilization: when milestone X is blocked on Y, what can the team do meanwhile? |
+   | R | Demo prep | Which demo or review milestone this task feeds into. Format: `Demo N (YYYY-MM-DD) artifact-name`. Example: `Demo 1 (2026-09-14) source-data slide`. Use `—` if no demo link. |
+   | S | Allocation (AS) | Which AS is assigned. Format: `AS 1`, `AS 2`, `AS 1 (0.5)` for half-time. Use named slots consistently across rows so peak-load is visible. |
+   | T | Allocation (SDE) | Which SDE is assigned. Format: `SDE 1`, `SDE 2`, `SDE 1 (0.5)` for half-time. Use named slots consistently. |
+   | U | Contributors | Named contributors by initials, separated by ` / `. Example: `TZ / JS / NV`. Complements the abstract Allocation columns — Contributors names who, Allocation tracks capacity. |
    | V | Risk | Format: `H/M/L (explanation)` — all on one line. Example: "H (KB team eval pipeline may not be ready by 7/31; blocks all downstream eval)". Use "L (minimal)" for low-risk items. |
    | W | Derisking Approach | One sentence: what to do first to reduce the risk. For H-risk items, describe the POC or gate. Use "N/A" for L-risk. |
-   | X | comments | Freeform discussion column for open questions, clarifications, and collaboration notes. Seed with known open questions or policy concerns during generation. Example: "we need to check the data policies — certain adv data can't be kept on S3". Use `—` if nothing to note. |
+   | X | comments | Freeform discussion column for open questions, clarifications, and collaboration notes. Seed with known open questions or policy concerns during generation. Use `—` if nothing to note. |
 
-5. **Row ordering and grouping.** Keep all rows for the same Phase together as a contiguous block. Within each Phase, order by dependency chain. Separate Phase blocks with visual whitespace (empty row between blocks is optional but recommended for readability). Capability and Milestone provide additional sub-grouping within a Phase.
+5. **Preamble row.** Row 2 (immediately below the header) contains a persona statement in the User Story column (e.g., "As the supporting science team, ...") and optionally a link to the goals document in the Goal column. All other cells in this row are blank.
 
-6. **No row-level color coding.** Data rows (row 2+) have NO background fill. Only the header row (row 1) uses dark blue fill with white bold text. Row grouping is achieved by contiguous ordering, not by color.
+6. **Use `Tk` for all placeholder values.** When a threshold, count, percentage, duration, or target is not yet determined, use `Tk` as a placeholder. Examples: `≥Tk cases`, `<Tk min`, `≥Tk%`, `Cohen's kappa ≥Tk`. Never invent specific numeric values — use `Tk` and let the team fill them in. This applies to Description, User Story, and any other column containing quantitative targets.
 
-7. **Include dependency chains.** Each row explicitly states what it depends on (other task IDs, milestone names, external blockers, team capacity).
+7. **ECD is opt-in.** The ECD column must always be present in the schema, but values should be left blank unless the user explicitly provides dates or asks for a timeline. This prevents plans from shipping with fabricated deadlines.
 
-8. **Gates between milestones.** The last row of a milestone should be an evaluation/gate task whose outcome determines whether the next milestone proceeds. Document pass/fail criteria in the Acceptance Criteria or Derisking Approach.
+8. **Row ordering and grouping.** Keep all rows for the same Phase together as a contiguous block. Within each Phase, order by dependency chain. Separate Phase blocks with an empty row for readability. Category provides additional sub-grouping within a Phase.
 
-9. **Reference file for format.** When a prior `.xlsx` output exists in the project's `out/` directory, read it with `openpyxl` to match exact styling (column widths, row heights, border styles). The reference is the source of truth for visual formatting.
+9. **No row-level color coding.** Data rows have NO background fill. Only the header row uses dark blue (`2F5496`) fill with white bold text. Row grouping is achieved by contiguous ordering, not by color.
 
-10. **BELOW THE LINE separator.** Insert a row with Phase = `BELOW THE LINE` (all other cells empty) between committed and stretch tasks. Tasks above the separator are committed (P0–P1); tasks below are stretch (P2). Priority is the single source of truth for commitment level.
+10. **Include dependency chains.** Each row explicitly states what it depends on (other milestone IDs, external blockers, team capacity).
 
-11. **Artifact Deliverables are concrete.** Every task that produces an output must list its deliverables as a bulleted list in the Artifact Deliverables column. Each bullet names a tangible artifact: a doc (with page count), code (with repo/path), a dataset (with location), or an SOP/skill. Tasks that are pure analysis or coordination may use `—`.
+11. **Gates between milestones.** The last row of a milestone should be an evaluation/gate task whose outcome determines whether the next milestone proceeds.
 
-12. **Acceptance Criteria are pass/fail.** Write Acceptance Criteria so a reviewer can unambiguously judge done vs. not-done. Include: specific thresholds (≥N pairs, ≥X% accuracy), file paths or artifact locations, and technical constraints. Use `Tk` as a placeholder for values that depend on upstream results. Acceptance Criteria complement User Stories — the User Story states the intent, the Acceptance Criteria state the bar.
+12. **Reference file for format.** When a prior `.xlsx` output exists in the project's `out/` directory, read it with `openpyxl` to match exact styling (column widths, row heights, border styles). The reference is the source of truth for visual formatting.
 
-13. **Concurrent-with captures idle-time utilization.** When a task is blocked waiting for a dependency, the Concurrent with column names what useful work the same contributor(s) can do during the wait. Format: `T<id> (<brief description of fill work>)`. This prevents dead calendar time between dependent tasks.
+13. **Goal column creates traceability.** Every P0 milestone should map to a goal and key project. P1/P2 milestones may leave the Goal column blank if they are backlog items not yet attached to a goal.
 
-14. **Demo prep ties tasks to review cadence.** If the project has a recurring demo or review schedule, map each task to the demo it feeds. Format: `Demo N (YYYY-MM-DD) <artifact name>`. This answers "what can I show at the next review?" and creates natural intermediate deadlines.
+14. **Acceptance Criteria are pass/fail.** Write Acceptance Criteria so a reviewer can unambiguously judge done vs. not-done. Include: specific thresholds (≥N pairs, ≥X% accuracy), file paths or artifact locations, and technical constraints. Use `Tk` as a placeholder for values that depend on upstream results. Acceptance Criteria complement User Stories — the User Story states the intent, the Acceptance Criteria state the bar.
+
+15. **Artifact Deliverables are concrete.** Every task that produces an output must list its deliverables as a bulleted list. Each bullet names a tangible artifact: a doc (with page count), code (with repo/path), a dataset (with location), or an SOP/skill. Tasks that are pure analysis or coordination may use `—`.
+
+16. **Concurrent-with captures idle-time utilization.** When a task is blocked waiting for a dependency, the Concurrent with column names what useful work the same contributor(s) can do during the wait. Format: `M<id> (<brief description of fill work>)`. This prevents dead calendar time between dependent tasks.
+
+17. **Demo prep ties tasks to review cadence.** If the project has a recurring demo or review schedule, map each task to the demo it feeds. Format: `Demo N (YYYY-MM-DD) <artifact name>`. This answers "what can I show at the next review?" and creates natural intermediate deadlines.
+
+18. **BELOW THE LINE separator.** Insert a row with Phase = `BELOW THE LINE` (all other cells empty) between committed and stretch tasks. Tasks above the separator are committed (P0–P1); tasks below are stretch (P2). Priority is the single source of truth for commitment level.
 
 #### Planner Implementation
 
@@ -151,7 +159,7 @@ Key formatting:
 - Data rows: NO background fill (white)
 - All cells: wrap text, top-aligned, thin borders
 - Row height: ~50px for readability
-- Column widths: ID=4, Phase=20, Capability=18, Category=14, Milestone=28, User Story=45, Description=55, Acceptance Criteria=55, Artifact Deliverables=45, T-shirt=14, Estimated (#days)=8, Task Type=8, Priority=8, Start=16, ECD=16, Concurrent with=35, Demo prep=30, AS=6, SDE=6, Contributors=14, Dependencies=35, Risk=30, Derisking=40, comments=40
+- Column widths: Phase=18, Category=16, User Story=45, Goal=22, Milestone=28, Description=60, Type=10, Dependency=30, Priority=8, Owner=14, ECD=10, Status=12, Acceptance Criteria=55, Artifact Deliverables=45, T-shirt=14, Estimated (#days)=8, Concurrent with=35, Demo prep=30, AS=6, SDE=6, Contributors=14, Risk=30, Derisking=40, comments=40
 
 ### Science Design Doc
 
