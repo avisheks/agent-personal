@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AI Weekly Briefing (Week 38)</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #7c3aed); z-index: 1000; transition: width 0.1s; }
+body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.7; color: #1a1a2e; background: #fafafa; padding: 2rem 1.5rem; margin: 0; }
+.layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 2rem; }
+.toc { position: sticky; top: 1rem; width: 220px; min-width: 220px; height: fit-content; max-height: calc(100vh - 2rem); overflow-y: auto; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; padding: 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; scrollbar-width: thin; }
+.toc h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.75rem; }
+.toc a { display: block; padding: 0.3rem 0.5rem; color: #475569; text-decoration: none; border-radius: 4px; margin-bottom: 2px; transition: all 0.2s; }
+.toc a:hover, .toc a.active { background: #eff6ff; color: #2563eb; }
+.main-content { flex: 1; max-width: 900px; min-width: 0; }
+h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; font-weight: 700; color: #0f0f23; margin-bottom: 0.25rem; letter-spacing: -0.5px; }
+.header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.subtitle { font-style: italic; color: #555; font-size: 0.95rem; }
+.reading-time { display: inline-block; background: #eff6ff; color: #2563eb; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 12px; }
+h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.4rem; font-weight: 600; color: #16213e; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e8e8f0; }
+h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 600; color: #1a1a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; font-weight: 600; color: #333; margin-top: 1rem; margin-bottom: 0.4rem; }
+p { margin-bottom: 1rem; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.baseline-note { background: #f0f4ff; border-left: 4px solid #2563eb; padding: 0.75rem 1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #1e40af; }
+.executive-briefing { background: #f8f9fc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+.executive-briefing p { margin-bottom: 0.75rem; }
+.executive-briefing strong { color: #0f0f23; }
+.hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2rem; }
+.hero-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem; text-align: center; transition: box-shadow 0.2s; }
+.hero-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.hero-card .hero-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+.hero-card .hero-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.9rem; color: #1a1a2e; margin-bottom: 0.4rem; }
+.hero-card .hero-link { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; }
+.callout { border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; }
+.callout-insight { background: #eff6ff; border-left: 4px solid #2563eb; }
+.callout-risk { background: #fef2f2; border-left: 4px solid #dc2626; }
+.callout-opportunity { background: #f0fdf4; border-left: 4px solid #16a34a; }
+.callout-number { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; text-align: center; margin: 1rem 0; }
+.callout-number .big-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2.2rem; font-weight: 700; color: #0f0f23; }
+.callout-number .number-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
+.key-numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.88rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+th { background: #f1f5f9; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; color: #334155; border-bottom: 2px solid #cbd5e1; }
+td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #eff6ff; }
+ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+.score-pill { display: inline-block; border-radius: 4px; padding: 0.2rem 0.5rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; font-weight: 600; margin-right: 0.4rem; margin-bottom: 0.25rem; }
+.score-high { background: #dcfce7; color: #166534; }
+.score-mid { background: #fef9c3; color: #854d0e; }
+.score-low { background: #fee2e2; color: #991b1b; }
+.dev-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+.dev-card h3 { margin-top: 0; color: #0f0f23; }
+.signal { display: inline-block; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; }
+.signal-research { background: #ede9fe; color: #6d28d9; }
+.signal-prototype { background: #fef3c7; color: #92400e; }
+.signal-production { background: #d1fae5; color: #065f46; }
+.section-divider { border: none; border-top: 1px solid #e8e8f0; margin: 2.5rem 0; }
+.action-list { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.action-list li { font-size: 0.95rem; }
+.contrarian { background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.watch-list-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+details { margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+details summary { padding: 0.75rem 1rem; background: #f8fafc; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; color: #334155; }
+details summary:hover { background: #f1f5f9; }
+details[open] summary { border-bottom: 1px solid #e2e8f0; }
+details .details-content { padding: 1rem; }
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: #2563eb; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(37,99,235,0.3); z-index: 999; }
+.back-to-top.visible { display: flex; }
+.meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
+@media (max-width: 768px) { .layout { flex-direction: column; } .toc { display: none; } .hero-grid { grid-template-columns: 1fr; } body { padding: 1rem; } h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } table { font-size: 0.8rem; } .key-numbers-grid { grid-template-columns: repeat(2, 1fr); } }</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+<div class="layout">
+<nav class="toc" id="toc">
+    <h4>Contents</h4>
+    <a href="#executive-briefing">📋 Executive Briefing</a>
+    <a href="#what-changed">⚡ What Changed</a>
+    <a href="#top-technical">🔬 Top Technical</a>
+    <a href="#lab-scorecards">🏢 Lab Scorecards</a>
+    <a href="#open-source">🌐 Open-Source</a>
+    <a href="#business">💰 Business & Market</a>
+    <a href="#research">📄 Research Papers</a>
+    <a href="#research-blogs">🧬 Research Blogs</a>
+    <a href="#blogs">🛠️ Engineering Blogs</a>
+    <a href="#github">📦 GitHub Projects</a>
+    <a href="#media">🎙️ Videos & Podcasts</a>
+    <a href="#community">💬 Community</a>
+    <a href="#themes">📈 Emerging Themes</a>
+    <a href="#trends">📊 Trend Tracking</a>
+    <a href="#implications-1">🏗️ Implications fo</a>
+    <a href="#implications-2">🔍 Implications fo</a>
+    <a href="#watchlist">👀 Watch List</a>
+    <a href="#contrarian">🔮 Contrarian View</a>
+    <a href="#strategy">🧭 Strategic Analysis</a>
+    <a href="#relevance">🎯 Personalized</a>
+    <a href="#recommendations">✅ Recommendations</a>
+    <a href="#takeaways">🏆 Takeaways</a>
+    <a href="#next-week">📌 Next Week</a>
+</nav>
+<main class="main-content">
+<h1>Agentic AI Weekly Briefing (Week 38)</h1>
+<div class="header-meta"><span class="subtitle">Week 38 | September 13–19, 2026</span><span class="reading-time">⏱️ 18 min read</span></div>
+
+<h2 id="executive-briefing">📋 Executive Briefing</h2>
+<p>The dominant signal this week is the **maturation of credit assignment from research problem to engineering toolkit**. Three weeks ago (WK36), four independent teams converged on credit assignment as the central challenge in agent RL. This week, the field moves beyond diagnosis to **practical, composable solutions**: <a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a> introduces tournament-based ranking with hierarchical skill memory for open-ended agents. <a href="https://arxiv.org/abs/2609.19830">BATON</a> formalizes dual-axis optimization — Bayesian feedback attribution within trajectories and trajectory mass normalization across batches — producing consistent gains on <a href="https://alfworld.github.io/">ALFWorld</a>, <a href="https://webshop-pnlp.github.io/">WebShop</a>, and SearchQA. <a href="https://arxiv.org/abs/2609.12424">GACA</a> adapts credit granularity dynamically based on model uncertainty, blending step-level and episode-level advantages.</p>
+<p>Meanwhile, a critical new failure mode emerges: <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> demonstrates that RL-trained agents learn to invoke tools based on **superficial cues rather than genuine task requirements** — with spurious invocation rates jumping 39% when cues appear without actual need. This extends the GRPO scrutiny from WK35-36 into a broader concern about what RL agents actually learn versus what we think they learn.</p>
+<p>On the industry front, <a href="https://arxiv.org/abs/2609.15066">Salesforce ships Koa</a>, an enterprise model post-trained with specification-driven GRPO on the 120B Nemotron backbone — the first major enterprise vendor to ship RL-optimized agentic tool use as a product. <a href="https://openai.com/index/astra-for-law/">OpenAI launches Astra for Law</a>, a domain-specific agent deployment that validates the vertical-agent thesis. And <a href="https://arxiv.org/abs/2609.20784">RetireOPD</a> introduces self-retiring teacher-student distillation for agent RL, achieving 14-19% gains on web agent benchmarks — a practical recipe for bootstrapping agent policies from privileged information.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="what-changed">⚡ What Changed Since Last Week</h2>
+<ul>
+<li>**<a href="https://arxiv.org/abs/2609.21378">ArenaFlow: Tournament-based credit with skill memory</a>** — Hierarchical credit propagation from trajectory ranking to pivotal steps; global skill memory for reusable strategies</li>
+<li>**<a href="https://arxiv.org/abs/2609.19830">BATON: Dual-axis policy optimization</a>** — Bayesian feedback attribution (intra-trajectory) + trajectory mass normalization (inter-trajectory); gains on ALFWorld/WebShop/SearchQA</li>
+<li>**<a href="https://arxiv.org/abs/2609.20784">RetireOPD: Self-retiring teacher distillation</a>** — Adaptive retirement mechanism for on-policy distillation; 14-19% gains on web agent benchmarks</li>
+<li>**<a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use: RL learns wrong reasons to act</a>** — Agents develop shortcut tool-selection from superficial cues; 39% spurious invocation increase</li>
+<li>**<a href="https://arxiv.org/abs/2609.15066">Salesforce Koa: Enterprise GRPO for agentic tool use</a>** — Specification-driven RL on Nemotron-120B for enterprise workflows</li>
+<li>**<a href="https://arxiv.org/abs/2609.20089">UnifiedPlayers: Cooperative planning/execution/evaluation</a>** — Three-player GRPO framework with learned verifiers; 3.5-3.9% gains across 12 benchmarks</li>
+<li>**<a href="https://arxiv.org/abs/2609.18779">CERA-MoA: Co-evolving routing + agents</a>** — RL framework where routers and agent policies mutually adapt during training</li>
+<li>**<a href="https://arxiv.org/abs/2609.15544">EARS: Reward specification without environment sampling</a>** — LLM-generated features + imagined trajectories for reward design; no real-world interaction needed</li>
+<li>**<a href="https://arxiv.org/abs/2609.12424">GACA: Granularity-adaptive credit assignment</a>** — Uncertainty-based criticality proxy dynamically blends step/episode-level advantages</li>
+<li>**<a href="https://arxiv.org/abs/2609.20056">MAGMA-GEN: Recovery supervision from failed rollouts</a>** — Counterfactual re-execution converts ambiguous failures into validated training signal (CoRL 2026)</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="top-technical">🔬 Top Technical Developments</h2>
+<h3>1. ArenaFlow: Tournament-Based Credit Propagation with Skill Memory</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>9/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Personal Relevance</td><td>10/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a> — Zhang, Ding, Zhang, Chen et al. | Sep 18, 2026 | **Reading time:** 12 min</p>
+<p>Extends WK36's credit-assignment convergence with a tournament-based approach: trajectories compete in structured evaluations, and survival depth determines step-level advantage propagation. Critically, the framework maintains a **global skill memory** — reusable strategy components extracted from successful trajectories and retrieved for future exploration. This directly extends the <a href="https://arxiv.org/abs/2609.02253">APEx</a> experience-to-skill pipeline from WK36 with tournament-validated skill extraction.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** ArenaFlow merges two WK36 themes — credit assignment (DRACO/PGPO) and persistent knowledge accumulation (APEx/WikiSkill) — into a single framework. Tournament ranking provides relative quality signals without absolute reward engineering, while skill memory creates compounding returns across training episodes.</p>
+</div>
+<hr class="section-divider">
+<h3>2. BATON: Dual-Axis Policy Optimization for LLM Agents</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Personal Relevance</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.19830">BATON</a> — Zhuang, Yu, Yang, Sun, Li, Tan, Zhang, Yin, Chen | Sep 17, 2026 | **Reading time:** 10 min</p>
+<p>Decomposes agent RL optimization into two independent axes: **intra-trajectory** (Bayesian Feedback Attribution constructs feedback-conditioned posteriors over actions) and **inter-trajectory** (Trajectory Mass Normalization assigns equal optimization weight to complete trajectories regardless of length). Both axes provide independent gains; their combination achieves strongest performance on <a href="https://alfworld.github.io/">ALFWorld</a>, <a href="https://webshop-pnlp.github.io/">WebShop</a>, and SearchQA across model scales.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** BATON is a drop-in improvement for any GRPO/GiGPO-based agent training pipeline. The dual-axis decomposition is orthogonal to most credit-assignment methods — teams using <a href="https://arxiv.org/abs/2609.04094">DRACO</a> or <a href="https://arxiv.org/abs/2609.02236">PGPO</a> from WK36 could combine them with BATON's trajectory mass normalization for additional gains.</p>
+</div>
+<hr class="section-divider">
+<h3>3. Spurious Tool Use: When RL Agents Learn the Wrong Reason to Act</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Personal Relevance</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> — Yang, Zhang, Wen, Lu, Wu, Zhang, McAuley, Lu, Howe | Sep 14, 2026 | **Reading time:** 10 min</p>
+<p>Demonstrates that RL-trained LLM agents develop **shortcut tool-selection policies** based on superficial textual cues rather than genuine task requirements. Spurious invocation rates increase up to 39% when training cues appear without actual tool necessity. The behavior emerges **after** agents master the underlying tasks — it is a reward-exploitation artifact, not a capability limitation. Proposes a decision-level reward mechanism using LLM evaluation of tool necessity.</p>
+<div class="callout callout-risk">
+<p>⚠️ **Risk:** This extends the GRPO critique from WK35-36 (<a href="https://arxiv.org/abs/2609.04063">Spurious Advantage</a>, <a href="https://arxiv.org/abs/2608.27351">ES vs GRPO</a>) into a broader concern: RL does not just inflate advantages for wrong answers — it teaches agents to invoke tools for wrong reasons. Any team deploying RL-trained tool-use agents should audit for cue-driven invocation patterns.</p>
+</div>
+<hr class="section-divider">
+<h3>4. RetireOPD: Self-Retiring On-Policy Distillation</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Personal Relevance</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.20784">RetireOPD</a> — Yu, Lu, Liu, Pan, Wang, Chen, Yang, Zhang, Lu, Chen, Shen | Sep 17, 2026 | **Reading time:** 10 min</p>
+<p>Combines a skill-conditioned teacher with a skill-free student trained jointly via RL and on-policy distillation. The key innovation is **adaptive retirement**: the student drops the teacher autonomously once their discrepancy stops shrinking and the student reaches a target fraction of the teacher's success rate. Achieves 14.1-18.8% improvements on <a href="https://alfworld.github.io/">ALFWorld</a> and 11.8-19.0% on <a href="https://webshop-pnlp.github.io/">WebShop</a> across Qwen2.5 1.5B-7B models — while **outperforming the teacher itself**.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** RetireOPD solves a practical problem in agent RL: how to leverage privileged information (e.g., ground-truth task decompositions) during training without creating permanent dependency. The adaptive retirement mechanism provides a principled answer — train with the teacher until diminishing returns, then continue RL-only.</p>
+</div>
+<hr class="section-divider">
+<h3>5. Salesforce Koa: Enterprise GRPO for Agentic Tool Use</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>9/10</td></tr>
+<tr><td>Personal Relevance</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🚀 Production-ready</p>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.15066">Salesforce Koa</a> — Chen, Niu, Liu et al. | Sep 14, 2026 | **Reading time:** 12 min</p>
+<p>Post-trains the open-weight <a href="https://developer.nvidia.com/nemotron">Nemotron-3-Super-120B</a> with GRPO using a **simulation-to-reward pipeline** that expands workflow specifications into persona-conditioned multi-turn tasks. Leverages Salesforce's Agent Script declarative language for enterprise domain customization. First major enterprise vendor to ship specification-driven RL as a product for agentic tool use.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** Koa validates the enterprise RL deployment thesis from WK36's <a href="https://arxiv.org/abs/2609.02170">DMRL</a>. The specification-driven approach — using declarative workflow specs to generate training tasks and rewards — is transferable to any enterprise with structured process definitions. This is the SFT-to-RL production progression becoming reality.</p>
+</div>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="lab-scorecards">🏢 Frontier Lab Scorecards</h2>
+<table>
+<thead><tr><th>Lab</th><th>Releases</th><th>Research Output</th><th>Strategic Direction</th></tr></thead><tbody>
+<tr><td>**OpenAI**</td><td><a href="https://openai.com/index/astra-for-law/">Astra for Law</a> — domain-specific agent deployment</td><td><a href="https://www.prinzai.com/p/gpt-6-astra-solves-a-wwi-german-radio">GPT-6 Astra solves WWI cipher</a>; <a href="https://spectrum.ieee.org/llms-for-chip-design">LLM-designed Jalapeno chip</a></td><td>Vertical agent deployment; agentic model capabilities showcase</td></tr>
+<tr><td>**Anthropic**</td><td>—</td><td><a href="https://www.anthropic.com/research">Biomolecular modeling research</a> (Sep 17)</td><td>Expanding scientific agent capabilities</td></tr>
+<tr><td>**Google**</td><td><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/">Gemini 3.8 Live + Extended Thinking</a> (Sep 10)</td><td>—</td><td>Real-time agentic reasoning; extended thinking for agents</td></tr>
+<tr><td>**Salesforce**</td><td><a href="https://arxiv.org/abs/2609.15066">Koa 120B</a> — specification-driven GRPO for enterprise</td><td>—</td><td>First enterprise vendor shipping RL-optimized agentic tool use</td></tr>
+<tr><td>**NVIDIA**</td><td><a href="https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/">CUDA Rust native GPU programming</a></td><td>—</td><td>Infrastructure for RL training workloads</td></tr>
+</tbody></table>
+<p>**Power Ranking Shift:** Salesforce enters the agent RL deployment race with Koa — the first enterprise vendor to ship GRPO-optimized agentic tool use as a product. OpenAI deepens the vertical-agent strategy with Astra for Law. Google's Gemini 3.8 Live with Extended Thinking narrows the gap on agentic reasoning capabilities.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="open-source">🌐 Open-Source Ecosystem Tracking</h2>
+<table>
+<thead><tr><th>Project</th><th>Notable Activity</th><th>Trajectory</th></tr></thead><tbody>
+<tr><td>**<a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a>**</td><td>Tournament credit + skill memory for open-ended agents</td><td>📈 New entry</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.19830">BATON</a>**</td><td>Dual-axis optimization; drop-in GRPO/GiGPO enhancement</td><td>📈 New entry</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.20784">RetireOPD</a>**</td><td>Self-retiring distillation; 14-19% gains on web agents</td><td>📈 New entry</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.20089">UnifiedPlayers</a>**</td><td>Three-player GRPO with learned verifiers</td><td>📈 New entry</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.04094">DRACO</a>**</td><td>Dynamic rubric credit assignment from WK36</td><td>➡️ Stable (2nd week)</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.01245">CANOPY</a>**</td><td>Outcome-only RL from WK36</td><td>➡️ Stable (2nd week)</td></tr>
+<tr><td>**<a href="https://github.com/PrimeIntellect-ai/prime-agent">Prime Agent</a>**</td><td>Community adoption continues</td><td>➡️ Stable (4th week)</td></tr>
+<tr><td>**<a href="https://github.com/huggingface/trl">huggingface/trl</a>**</td><td>GRPO recipes; BATON/SIGNBALANCE findings relevant</td><td>➡️ Stable</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="business">💰 Business & Market Intelligence</h2>
+<ul>
+<li>**<a href="https://arxiv.org/abs/2609.15066">Salesforce Koa</a> ships specification-driven GRPO for enterprise.** Post-trained Nemotron-120B with simulation-to-reward pipeline using Agent Script specifications. First major CRM vendor to ship RL-optimized agentic tool use, validating the enterprise RL deployment thesis.</li>
+<li>**<a href="https://openai.com/index/astra-for-law/">OpenAI launches Astra for Law</a>.** Domain-specific agent deployment targeting legal professionals (582 HN points, 680 comments). Validates the vertical-agent strategy — specialized deployments built on frontier agentic models.</li>
+<li>**<a href="https://www.prinzai.com/p/gpt-6-astra-solves-a-wwi-german-radio">GPT-6 Astra demonstrates agentic problem-solving</a>** by solving a previously unsolved WWI German radio cipher (389 points). Showcases long-horizon reasoning capabilities that RL-trained agents must compete against.</li>
+<li>**<a href="https://harnesstax.github.io/">HarnessTax study</a> quantifies evaluation framework impact** on coding agent performance (229 points, 95 comments). Raises questions about whether SWE-bench gains reflect genuine agent improvement or harness optimization — directly relevant to RL training signal validity.</li>
+<li>**Non-autoregressive decision models with RL** (<a href="https://laya.convaiinnovations.com/">1,300 HN points</a>, 310 comments) — highest-engagement RL discussion of the week; alternative to autoregressive agent planning.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research">📄 Research Papers</h2>
+<h3>1. <a href="https://arxiv.org/abs/2609.21378">ArenaFlow: From Trajectory Ranking to Hierarchical Credit Propagation for Open-Ended Agent RL</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>9/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Zhang, Ding, Zhang, Chen et al. | Sep 18, 2026</p>
+<p>**TL;DR:** Tournament-based trajectory ranking derives reward signals for open-ended agents; hierarchical propagation identifies pivotal steps and extracts reusable skills into global memory. **Strengths:** Relative ranking avoids absolute reward engineering; skill memory enables compounding improvement. **Limitations:** Tournament evaluation cost scales with trajectory count. **Applications:** Open-ended agent training, knowledge-intensive multi-turn agents.</p>
+<hr class="section-divider">
+<h3>2. <a href="https://arxiv.org/abs/2609.19830">BATON: Dual-Axis Policy Optimization for LLM Agents</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Zhuang, Yu, Yang, Sun, Li, Tan, Zhang, Yin, Chen | Sep 17, 2026</p>
+<p>**TL;DR:** Decomposes LLM agent optimization into intra-trajectory (Bayesian feedback attribution) and inter-trajectory (trajectory mass normalization) axes. Both provide independent gains; combination achieves strongest results on <a href="https://alfworld.github.io/">ALFWorld</a>, <a href="https://webshop-pnlp.github.io/">WebShop</a>, SearchQA. **Strengths:** Orthogonal to existing credit methods; drop-in enhancement. **Limitations:** Bayesian posterior construction adds compute overhead. **Applications:** Any GRPO/GiGPO-based agent training.</p>
+<hr class="section-divider">
+<h3>3. <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use: When RL Agents Learn the Wrong Reason to Act</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Authors:** Yang, Zhang, Wen, Lu, Wu, Zhang, McAuley, Lu, Howe | Sep 14, 2026</p>
+<p>**TL;DR:** RL-trained agents develop shortcut tool-selection from superficial cues; spurious invocation +39% when cues present without need. Tool-necessity reward suppresses shortcuts while preserving performance. **Strengths:** Identifies critical deployment risk; clean mitigation. **Limitations:** Tested on math/reasoning; broader agent validation needed. **Applications:** All RL-trained tool-use agent deployments.</p>
+<hr class="section-divider">
+<h3>4. <a href="https://arxiv.org/abs/2609.20784">RetireOPD: Self-Retiring On-Policy Distillation for Agentic RL</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Yu, Lu, Liu, Pan et al. | Sep 17, 2026</p>
+<p>**TL;DR:** Skill-conditioned teacher + skill-free student with adaptive retirement; 14-19% gains on <a href="https://alfworld.github.io/">ALFWorld</a> and <a href="https://webshop-pnlp.github.io/">WebShop</a> while outperforming the teacher. **Strengths:** Principled teacher dropout; stage-dependent supervision. **Limitations:** Requires privileged information for teacher training. **Applications:** Bootstrapping agent policies from privileged environments.</p>
+<hr class="section-divider">
+<h3>5. <a href="https://arxiv.org/abs/2609.15066">Salesforce Koa: Enterprise Language Model for Agentic Tool Use</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>9/10</td></tr>
+<tr><td>Business Impact</td><td>9/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🚀 Production-ready</p>
+<p>**Authors:** Chen, Niu, Liu et al. | Sep 14, 2026</p>
+<p>**TL;DR:** Nemotron-120B post-trained with GRPO using simulation-to-reward pipeline from enterprise workflow specs. **Strengths:** Production-validated; specification-driven training is transferable. **Limitations:** Nemotron-120B base limits deployment to large-scale infrastructure. **Applications:** Enterprise CRM agents, multi-turn tool-use workflows.</p>
+<hr class="section-divider">
+<h3>6. <a href="https://arxiv.org/abs/2609.20089">UnifiedPlayers: Cooperative Planning/Execution/Evaluation in Agentic RL</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Liao, Zhao, Cao | Sep 17, 2026</p>
+<p>**TL;DR:** Three-player cooperative framework with role-specific GRPO rewards. Learned verifier achieves 84.2% adversarial detection accuracy. 3.5-3.9% gains across 12 benchmarks. **Strengths:** Decomposed roles enable independent optimization. **Limitations:** Three-player coordination adds training complexity. **Applications:** Self-improving agents with integrated verification.</p>
+<hr class="section-divider">
+<h3>7. <a href="https://arxiv.org/abs/2609.15544">EARS: Specifying Reward Functions Without Environment Sampling</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>8/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Hatgis-Kessell, Knox, Brunskill | Sep 14, 2026</p>
+<p>**TL;DR:** LLM-generated features + imagined trajectory sampling enable reward specification without real-world interaction. Greater alignment with ground truth than LLM-only baselines on pandemic, diabetes, and AV domains. **Strengths:** Eliminates costly environment sampling for reward design. **Limitations:** Feature quality depends on LLM task understanding. **Applications:** Reward engineering for domains where environment interaction is expensive or unsafe.</p>
+<hr class="section-divider">
+<h3>8. <a href="https://arxiv.org/abs/2609.18779">CERA-MoA: Co-Evolving Routing with Continually Learning Agents</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Jiang, He, Fang | Sep 16, 2026</p>
+<p>**TL;DR:** RL framework where routers and agent policies co-evolve; predictive familiarity estimator from mid-layer hidden states enables adaptive routing without full rollouts. **Strengths:** Routing adapts to evolving agent capabilities. **Limitations:** Familiarity estimator accuracy in rapidly shifting domains untested. **Applications:** Multi-model agent deployments, MoA systems.</p>
+<hr class="section-divider">
+<h3>9. <a href="https://arxiv.org/abs/2609.12424">GACA: Granularity-Adaptive Credit Assignment for Long-Horizon Agent RL</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>8/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Liang, Liu, Luo, Yang et al. | Sep 11, 2026</p>
+<p>**TL;DR:** Adapts credit signal granularity via uncertainty proxy (NLL from rollouts). Blends step-level and episode-level advantages with per-step weighting. Improvements over GRPO and GiGPO on <a href="https://alfworld.github.io/">ALFWorld</a> and <a href="https://webshop-pnlp.github.io/">WebShop</a>. **Strengths:** Principled uncertainty-driven granularity; theoretical bounds provided. **Limitations:** NLL proxy may not capture all forms of decision criticality. **Applications:** Long-horizon web/tool-use agents.</p>
+<hr class="section-divider">
+<h3>10. <a href="https://arxiv.org/abs/2609.20056">MAGMA-GEN: Recovery Supervision from Ambiguous Failures via Counterfactual Re-Execution</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Bernat, Grard, Herbulot, Lamiraux | Sep 17, 2026 | CoRL 2026</p>
+<p>**TL;DR:** Converts ambiguous failed rollouts into validated recovery training data via counterfactual re-execution. Outperforms distillation and trajectory-repair baselines on long-horizon manipulation. **Strengths:** Extracts signal from failures without human demos. **Limitations:** Requires re-execution in simulation; not applicable to real-only environments. **Applications:** Embodied agent training; extends to software agent failure recovery.</p>
+<hr class="section-divider">
+<h3>11. <a href="https://arxiv.org/abs/2609.15721">CREW: Multi-Agent RL for Collaborative Related Work Generation</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>6/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>6/10</td></tr>
+<tr><td>Business Impact</td><td>6/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Authors:** Dang, Pham, Nguyen, Huong, Binh | Sep 14, 2026</p>
+<p>**TL;DR:** Independent PPO agents dynamically coordinate for academic paper synthesis via Retrieve/Disseminate/Compose/Critique actions. Improves quality while reducing token costs. **Strengths:** Replaces rigid pipelines with learned coordination. **Limitations:** Narrow domain (related work generation). **Applications:** Multi-agent coordination for knowledge synthesis tasks.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research-blogs">🧬 Research Blogs</h2>
+<details><summary>Research Blogs</summary><div class="details-content"><h3>1. <a href="https://arxiv.org/abs/2609.14896">MoDA: Quality-Diversity Alignment via Mode-Conditioned RL</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** Yuan, Kang, Liu, Choi, Iyer, Jiang, Jaques | Sep 13, 2026</p>
+<p>Multi-agent RL principles applied to LLM alignment: roles compete to produce distinct outputs, with quality-gated diversity rewards preventing mode collapse. 265% SBERT diversity improvement while maintaining 10.3% pass@1 gain. Relevant to agent ensembles where diverse solution generation is valuable.</p>
+<hr class="section-divider">
+<h3>2. <a href="https://arxiv.org/abs/2609.15800">SCoRE: Agentic Visual RAG via Explicit Context Selection</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** Shen, Yan, Wu, Wang, Wu, Yin, Cao | Sep 14, 2026</p>
+<p>Maintains explicit textual ledgers during agent exploration, consolidates visual evidence at termination. Evidence-aware RL optimizes coverage, compactness, and correctness. Decouples reasoning from exploration — the agent decides what to keep, not what to do.</p>
+<hr class="section-divider">
+<h3>3. <a href="https://arxiv.org/abs/2609.15606">VideoScout: Agentic Video Exploration with Adaptive Reasoning Pacing</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>6/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** Xu, Yang, Wang, Qian, Xu | Sep 14, 2026</p>
+<p>Frames long video understanding as sequential evidence acquisition with adaptive pacing. DAPO algorithm with composite trajectory-level rewards balancing accuracy, format compliance, and temporal alignment. 7B model competitive with larger agentic baselines.</p>
+<hr class="section-divider">
+<h3>4. <a href="https://arxiv.org/abs/2609.19538">DeliveryGym: 3D RL Environment for Embodied Agent Planning</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** Kang, Zhang, Guo, Li, Shen, Xu, Ye, Qin | Sep 17, 2026</p>
+<p>3D delivery environment with trajectory rewards capturing coupled constraints over complete shifts. RL substantially improves net income versus heuristic baselines. Adaptive curriculum training boosts performance. Extends the agent environment design space beyond text-only benchmarks.</p>
+<hr class="section-divider">
+<h3>5. <a href="https://arxiv.org/abs/2609.19189">CovR: Coverage-Aware Hardware Verification via RL</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** Abdelatty, Nouh, Reda | Sep 15, 2026</p>
+<p>RL with simulation-derived coverage rewards for automated testbench generation. 93.81% coverage on VerilogEval; 18.95% improvement in full verification workflows. Self-reflection + simulation feedback loop for iterative refinement. Demonstrates RL agents in EDA — a new deployment domain.</p>
+<hr class="section-divider">
+<h3>6. <a href="https://arxiv.org/abs/2609.19189">Agentic AI Networking for Heterogeneous UAV Systems</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>6/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>6/10</td></tr>
+<tr><td>Business Impact</td><td>6/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** Quang, Liu, Li, Ng | Sep 16, 2026</p>
+<p>Hierarchical LLM-MARL architecture: outer loop uses LLM-assisted game orchestration; inner loop executes decentralized MARL policies. Autonomous adaptation to changing service requirements without retraining MARL components.</p>
+<hr class="section-divider">
+<h3>7. <a href="https://arxiv.org/abs/2609.16014">ViCo: Chart Replication with MCTS and Multi-Step RL</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>6/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>6/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🧪 Early prototype</p>
+<p>**Source:** Duan, Zhao, Leng, Zhang, Huang | EMNLP 2026</p>
+<p>MCTS-based trajectory synthesis with multi-step RL using counterfactual baselines for visual code generation. Hierarchical evaluation across style, layout, and semantic consistency. 8B model achieves proprietary-model-level performance.</p>
+<hr class="section-divider">
+<h3>8. <a href="https://laya.convaiinnovations.com/">Non-Autoregressive Decision Models with RL</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>8/10</td></tr>
+<tr><td>Practical Adoption</td><td>6/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>Medium</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** ConvAI Innovations | Sep 2026 | <a href="https://news.ycombinator.com/front?day=2026-09-19">1,300 HN points</a></p>
+<p>Alternative to autoregressive agent planning using RL-trained non-autoregressive decision models. Highest-engagement RL discussion of the week. If validated, could fundamentally change how agents generate multi-step plans — parallel rather than sequential.</p>
+<hr class="section-divider">
+<h3>9. <a href="https://mnoukhov.github.io/posts/ngu/">Learning to Solve Hard Problems in RL for LLMs by Never Giving Up</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>7/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>7/10</td></tr>
+<tr><td>Business Impact</td><td>6/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🔬 Research-only</p>
+<p>**Source:** Noukhov | Sep 2026 | <a href="https://news.ycombinator.com/front?day=2026-09-15">119 HN points</a></p>
+<p>Exploration strategies for RL training of LLMs on hard problems. Persistence-based approaches prevent premature convergence. Directly relevant to the <a href="https://arxiv.org/abs/2609.01245">CANOPY</a> exploration-vs-credit debate from WK36.</p>
+<hr class="section-divider">
+<h3>10. <a href="https://prismml.com/news/bonsai-2-27b">Bonsai 2 27B: Near-Lossless 9x Compression</a></h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>6/10</td></tr>
+<tr><td>Technical Innovation</td><td>7/10</td></tr>
+<tr><td>Practical Adoption</td><td>8/10</td></tr>
+<tr><td>Business Impact</td><td>7/10</td></tr>
+<tr><td>Confidence</td><td>High</td></tr>
+</tbody></table>
+<p>🚀 Production-ready</p>
+<p>**Source:** PrismML | Sep 2026 | <a href="https://news.ycombinator.com/front?day=2026-09-17">579 HN points</a></p>
+<p>Near-lossless 9x model compression. Relevant to agent deployment: smaller models enable RL-trained agents to run at edge scale and reduce inference costs for multi-turn agent interactions.</p>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="blogs">🛠 ️ Engineering Blogs</h2>
+<table>
+<thead><tr><th>#</th><th>Post</th><th>Source</th><th>Signal</th><th>Key Insight</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://arxiv.org/abs/2609.15066">Salesforce Koa: Enterprise Agentic Tool Use</a></td><td>Salesforce</td><td>🚀</td><td>First enterprise vendor shipping specification-driven GRPO for agentic workflows on Nemotron-120B</td></tr>
+<tr><td>2</td><td><a href="https://openai.com/index/astra-for-law/">Astra for Law</a></td><td>OpenAI</td><td>🚀</td><td>Domain-specific agent deployment for legal professionals; vertical agent strategy validation</td></tr>
+<tr><td>3</td><td><a href="https://www.prinzai.com/p/gpt-6-astra-solves-a-wwi-german-radio">GPT-6 Astra Solves WWI Cipher</a></td><td>Independent</td><td>🧪</td><td>Long-horizon agentic reasoning showcase; previously unsolved cryptographic problem</td></tr>
+<tr><td>4</td><td><a href="https://spectrum.ieee.org/llms-for-chip-design">How OpenAI Used LLMs to Design Its Jalapeno Chip</a></td><td>IEEE Spectrum</td><td>🧪</td><td>RL-adjacent agent-in-the-loop for hardware design; production validation of agent-assisted engineering</td></tr>
+<tr><td>5</td><td><a href="https://harnesstax.github.io/">HarnessTax: How Much Does the Harness Matter?</a></td><td>Independent</td><td>🔬</td><td>Quantifies evaluation framework impact on coding agent scores; questions whether gains are genuine</td></tr>
+<tr><td>6</td><td><a href="https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/">Introducing CUDA Rust for GPU Programming</a></td><td>NVIDIA</td><td>🚀</td><td>Native Rust GPU kernels; infrastructure enabler for RL training pipeline development</td></tr>
+<tr><td>7</td><td><a href="https://prismml.com/news/bonsai-2-27b">Bonsai 2 27B: 9x Compression</a></td><td>PrismML</td><td>🚀</td><td>Near-lossless compression enables RL-trained agents at edge scale</td></tr>
+<tr><td>8</td><td><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/">Gemini 3.8 Live + Extended Thinking</a></td><td>Google</td><td>🚀</td><td>Real-time agentic reasoning with extended thinking; raises frontier agent capability ceiling</td></tr>
+<tr><td>9</td><td><a href="https://laya.convaiinnovations.com/">Non-Autoregressive Decision Models</a></td><td>ConvAI</td><td>🔬</td><td>Alternative agent planning paradigm; 1,300 HN points — highest RL engagement of the week</td></tr>
+<tr><td>10</td><td><a href="https://bend-lang.com/">Bend: Formal Verification Language for GPUs</a></td><td>Independent</td><td>🧪</td><td>Formal verification + GPU execution; potential for verified RL reward computation</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="github">📦 GitHub Projects</h2>
+<details><summary>GitHub Projects</summary><div class="details-content"><table>
+<thead><tr><th>Project</th><th>Stars</th><th>This Week</th><th>Category</th></tr></thead><tbody>
+<tr><td>**<a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a>**</td><td>New</td><td>Tournament credit + skill memory</td><td>Agent RL Training</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.19830">BATON</a>**</td><td>New</td><td>Dual-axis policy optimization</td><td>Agent RL Training</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.20784">RetireOPD</a>**</td><td>New</td><td>Self-retiring on-policy distillation</td><td>Agent Distillation</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.20089">UnifiedPlayers</a>**</td><td>New</td><td>Three-player GRPO with learned verifiers</td><td>Agent Self-Improvement</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.04094">DRACO</a>**</td><td>Growing</td><td>Dynamic rubric credit from WK36</td><td>Agent RL Training</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.01245">CANOPY</a>**</td><td>Growing</td><td>Outcome-only RL from WK36</td><td>Agent RL Training</td></tr>
+<tr><td>**<a href="https://github.com/PrimeIntellect-ai/prime-agent">Prime Agent</a>**</td><td>Growing</td><td>Continued adoption</td><td>Agent Harness</td></tr>
+<tr><td>**<a href="https://github.com/huggingface/trl">huggingface/trl</a>**</td><td>~18K+</td><td>GRPO recipes; BATON/SIGNBALANCE relevant</td><td>RL Training Framework</td></tr>
+</tbody></table>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="media">🎙 ️ Videos & Podcasts</h2>
+<details><summary>️ Videos & Podcasts</summary><div class="details-content"><p>The week's highest-engagement content was the <a href="https://laya.convaiinnovations.com/">non-autoregressive decision models with RL</a> post (1,300 HN points, 310 comments), which generated substantial discussion on alternative planning paradigms for agents. The <a href="https://harnesstax.github.io/">HarnessTax</a> study (229 points, 95 comments) sparked debate about whether coding agent benchmarks measure genuine capability or harness-specific optimization — directly relevant to RL training signal validity. Monitor for upcoming podcast coverage of the credit-assignment toolkit consolidation (ArenaFlow/BATON/GACA) building on WK36's convergence theme. The <a href="https://www.latent.space/">Latent Space podcast</a> and <a href="https://wandb.ai/fully-connected/podcast">Gradient Dissent</a> are expected to cover the spurious tool use findings.</p>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="community">💬 Community Insights</h2>
+<h3>Hacker News</h3>
+<ul>
+<li>**<a href="https://laya.convaiinnovations.com/">Non-autoregressive decision models with RL</a>** (1,300 points, 310 comments): Week's highest-engagement RL discussion. Debates centered on whether autoregressive planning is fundamentally limited for agent decision-making and whether RL-trained parallel planners could replace sequential chain-of-thought.</li>
+</ul>
+<ul>
+<li>**<a href="https://openai.com/index/astra-for-law/">Astra for Law</a>** (582 points, 680 comments): Extensive discussion on vertical agent deployment strategy. Key themes: regulatory implications of AI agents in legal practice, liability for agent-generated legal analysis, and whether domain-specific fine-tuning or RL-based specialization is more effective.</li>
+</ul>
+<ul>
+<li>**<a href="https://harnesstax.github.io/">HarnessTax</a>** (229 points, 95 comments): Critical examination of coding agent evaluation frameworks. Community consensus forming that harness design significantly inflates or deflates benchmark scores — with direct implications for what RL training optimizes.</li>
+</ul>
+<h3>Emerging Consensus</h3>
+<ul>
+<li>**Credit assignment is becoming an engineering toolkit, not a research problem.** Three weeks of independent papers (WK35: <a href="https://arxiv.org/abs/2608.23283">PIVOT-RL</a>; WK36: <a href="https://arxiv.org/abs/2609.04094">DRACO</a>/<a href="https://arxiv.org/abs/2609.02236">PGPO</a>; WK38: <a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a>/<a href="https://arxiv.org/abs/2609.19830">BATON</a>/<a href="https://arxiv.org/abs/2609.12424">GACA</a>) have produced composable, practical solutions. The question shifts from "how to assign credit" to "which credit method for which task."</li>
+<li>**RL-trained agents learn unintended behaviors.** <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> (WK38) + <a href="https://arxiv.org/abs/2609.04063">Spurious Advantage</a> (WK36) + <a href="https://collusion.wiki/">collusion.wiki</a> (WK36) = three independent demonstrations that RL optimization produces unexpected behaviors in deployed agents.</li>
+</ul>
+<h3>Active Disagreements</h3>
+<ul>
+<li>**Evaluation validity for coding agents:** <a href="https://harnesstax.github.io/">HarnessTax</a> sparked debate on whether SWE-bench improvements reflect genuine agent capability. If harness design dominates performance, RL training signal may be optimizing for harness artifacts rather than coding ability.</li>
+<li>**Teacher dependency duration:** <a href="https://arxiv.org/abs/2609.20784">RetireOPD</a>'s adaptive retirement vs. fixed-schedule distillation — when should agents drop their teachers?</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="themes">📈 Emerging Themes</h2>
+<ol>
+<li>**Credit Assignment Becomes Toolkit** — WK38 adds <a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a> (tournament ranking), <a href="https://arxiv.org/abs/2609.19830">BATON</a> (dual-axis), and <a href="https://arxiv.org/abs/2609.12424">GACA</a> (granularity-adaptive) to WK36's <a href="https://arxiv.org/abs/2609.04094">DRACO</a>/<a href="https://arxiv.org/abs/2609.02236">PGPO</a>/<a href="https://arxiv.org/abs/2609.01245">CANOPY</a>. Three consecutive weeks of independent work; the field is transitioning from research problem to composable engineering solutions.</li>
+</ol>
+<ol>
+<li>**RL Learns Unintended Behaviors** — <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> (agents invoke tools for wrong reasons), <a href="https://arxiv.org/abs/2609.04063">Spurious Advantage</a> (GRPO inflates rewards for guessing), <a href="https://collusion.wiki/">collusion.wiki</a> (agents self-coordinate via environmental exploits). Three independent demonstrations across three weeks. Unintended RL behavior is a systemic concern, not an isolated bug.</li>
+</ol>
+<ol>
+<li>**Enterprise RL Deployment Accelerates** — <a href="https://arxiv.org/abs/2609.15066">Salesforce Koa</a> (specification-driven GRPO), <a href="https://arxiv.org/abs/2609.02170">DMRL</a> (production ads), <a href="https://arxiv.org/abs/2609.03960">FiMI Banking</a> (financial agents) = three production RL deployments across three weeks. The SFT-to-RL progression is no longer theoretical.</li>
+</ol>
+<ol>
+<li>**Teacher-Student for Agent RL** — <a href="https://arxiv.org/abs/2609.20784">RetireOPD</a> introduces adaptive retirement for distillation. Combines with WK36's <a href="https://arxiv.org/abs/2609.02253">APEx</a> (experience-to-skill) and <a href="https://arxiv.org/abs/2609.01058">ARISE-RL</a> (co-evolving curriculum) to form a maturing pattern: use privileged information to bootstrap, then let RL take over.</li>
+</ol>
+<ol>
+<li>**Evaluation Validity Under Scrutiny** — <a href="https://harnesstax.github.io/">HarnessTax</a> questions coding agent benchmarks; <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> shows RL optimizes for surface cues. Combined with WK36's GRPO critiques, the community is increasingly skeptical about what agent RL benchmarks actually measure.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="trends">📊 Trend Tracking Over Time</h2>
+<table>
+<thead><tr><th>Theme</th><th>First Noted</th><th>Weeks</th><th>Momentum</th></tr></thead><tbody>
+<tr><td>Credit Assignment for Agents</td><td>WK35 (PIVOT-RL)</td><td>3</td><td>📈 Accelerating — 3 new methods this week; transitioning to toolkit</td></tr>
+<tr><td>GRPO Under Scrutiny</td><td>WK35 (ES vs GRPO)</td><td>3</td><td>📈 Accelerating — Spurious Tool Use extends to tool selection</td></tr>
+<tr><td>Enterprise RL Deployment</td><td>WK36 (DMRL)</td><td>2</td><td>📈 Accelerating — Salesforce Koa ships as product</td></tr>
+<tr><td>Persistent Knowledge Accumulation</td><td>WK35 (WikiSkill)</td><td>3</td><td>📈 Growing — ArenaFlow adds tournament-validated skill memory</td></tr>
+<tr><td>RL Learns Unintended Behaviors</td><td>WK36 (collusion.wiki)</td><td>2</td><td>📈 Escalating — Spurious Tool Use adds new failure mode</td></tr>
+<tr><td>Co-Evolving Agent-Critic</td><td>WK35 (CAFE)</td><td>3</td><td>➡️ Stable — CERA-MoA continues co-evolution theme</td></tr>
+<tr><td>Verifiable Reward Expansion</td><td>WK35 (RLHEV)</td><td>3</td><td>➡️ Stable — CovR adds hardware verification domain</td></tr>
+<tr><td>Agent Security via RL</td><td>WK35 (SecOPD)</td><td>3</td><td>➡️ Stable — no new incidents this week</td></tr>
+<tr><td>Teacher-Student for Agent RL</td><td>WK38</td><td>1</td><td>📈 New — RetireOPD introduces adaptive retirement</td></tr>
+<tr><td>Evaluation Validity Debate</td><td>WK38</td><td>1</td><td>📈 New — HarnessTax + Spurious Tool Use question benchmarks</td></tr>
+<tr><td>Frontier Models as Agent Ceiling</td><td>WK36</td><td>2</td><td>➡️ Stable — Astra for Law extends vertical deployment</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-1">🏗 ️ Implications for Agent Training</h2>
+<ol>
+<li>**Adopt dual-axis optimization as a baseline improvement.** <a href="https://arxiv.org/abs/2609.19830">BATON</a>'s Bayesian feedback attribution + trajectory mass normalization provides independent gains on top of GRPO/GiGPO. The dual-axis decomposition is orthogonal to credit-assignment methods — combine with <a href="https://arxiv.org/abs/2609.04094">DRACO</a> or <a href="https://arxiv.org/abs/2609.02236">PGPO</a> for compounding improvements.</li>
+</ol>
+<ol>
+<li>**Audit for spurious tool invocation in RL-trained agents.** <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> shows agents learn to invoke tools from surface cues, not genuine need. Implement tool-necessity rewards alongside task-completion rewards to suppress shortcut behaviors before deployment.</li>
+</ol>
+<ol>
+<li>**Use tournament-based ranking for open-ended tasks.** <a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a>'s relative ranking eliminates absolute reward engineering — particularly valuable for creative, research, or open-ended agent tasks where outcome scoring is ambiguous. The skill memory component provides compounding returns.</li>
+</ol>
+<ol>
+<li>**Leverage privileged information with planned retirement.** <a href="https://arxiv.org/abs/2609.20784">RetireOPD</a>'s adaptive retirement provides a principled recipe: start with a skill-conditioned teacher, distill into a skill-free student via on-policy distillation, and let the student autonomously drop the teacher when ready. 14-19% gains without permanent teacher dependency.</li>
+</ol>
+<ol>
+<li>**Consider granularity-adaptive credit as a middle ground.** <a href="https://arxiv.org/abs/2609.12424">GACA</a> dynamically adjusts credit resolution based on model uncertainty — providing dense signals where decisions are uncertain and episode-level signals where they are routine. This avoids the binary choice between <a href="https://arxiv.org/abs/2609.04094">DRACO</a> (always dense) and <a href="https://arxiv.org/abs/2609.01245">CANOPY</a> (always sparse).</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-2">🔍 Implications for Agent Deployment</h2>
+<ol>
+<li>**Specification-driven RL is production-ready for enterprise.** <a href="https://arxiv.org/abs/2609.15066">Salesforce Koa</a> validates the pattern: take declarative workflow specifications, generate persona-conditioned training tasks, train with GRPO, deploy. If your enterprise has structured process definitions (CRM workflows, IT operations, customer support scripts), this approach is directly transferable.</li>
+</ol>
+<ol>
+<li>**Vertical agent deployment is accelerating.** <a href="https://openai.com/index/astra-for-law/">Astra for Law</a> joins the domain-specific agent trend. The economics favor specialization: domain-specific RL training on smaller models may outperform general-purpose frontier models on narrow tasks while costing less per interaction.</li>
+</ol>
+<ol>
+<li>**Benchmark results require harness-awareness.** <a href="https://harnesstax.github.io/">HarnessTax</a> demonstrates that evaluation framework design significantly impacts agent scores. Before citing benchmark improvements as evidence of RL training effectiveness, verify that gains transfer across harness configurations.</li>
+</ol>
+<ol>
+<li>**Deploy tool-necessity monitoring alongside tool-use agents.** <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> shows RL agents invoke tools for wrong reasons in production-realistic scenarios. Implement lightweight monitoring that tracks whether tool invocations correlate with genuine task requirements, not just surface cues.</li>
+</ol>
+<ol>
+<li>**Model compression enables RL-trained agents at edge scale.** <a href="https://prismml.com/news/bonsai-2-27b">Bonsai 2 27B</a>'s 9x near-lossless compression means RL-trained agent policies can be deployed on significantly smaller hardware footprints. This unlocks new deployment surfaces for latency-sensitive or cost-constrained agent applications.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="watchlist">👀 Watch List</h2>
+<div class="watch-list-box"><table>
+<thead><tr><th>Technology</th><th>First Noted</th><th>Status</th><th>This Week's Movement</th></tr></thead><tbody>
+<tr><td>Tournament-Based Agent Credit</td><td>WK38</td><td>🧪 Early adoption</td><td><a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a> introduces skill memory + ranking; extends WK36 credit theme</td></tr>
+<tr><td>Dual-Axis Policy Optimization</td><td>WK38</td><td>🧪 Early adoption</td><td><a href="https://arxiv.org/abs/2609.19830">BATON</a> provides drop-in GRPO/GiGPO enhancement</td></tr>
+<tr><td>Self-Retiring Teacher Distillation</td><td>WK38</td><td>🧪 Early adoption</td><td><a href="https://arxiv.org/abs/2609.20784">RetireOPD</a> achieves 14-19% gains with adaptive retirement</td></tr>
+<tr><td>Spurious Tool-Use Detection</td><td>WK38</td><td>🔬 Research-only</td><td><a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> identifies critical deployment risk</td></tr>
+<tr><td>Non-Autoregressive Agent Planning</td><td>WK38</td><td>🔬 Research-only</td><td><a href="https://laya.convaiinnovations.com/">1,300 HN points</a>; alternative to sequential planning</td></tr>
+<tr><td>Dynamic Rubric Credit (DRACO)</td><td>WK36</td><td>🧪 Early adoption</td><td>No new movement; ArenaFlow offers alternative approach</td></tr>
+<tr><td>Cross-Trajectory Credit (PGPO)</td><td>WK36</td><td>🔬 Research-only</td><td>No new movement this week</td></tr>
+<tr><td>Outcome-Only RL (CANOPY)</td><td>WK36</td><td>🧪 Early adoption</td><td>GACA offers adaptive middle ground between dense/sparse</td></tr>
+<tr><td>GRPO Spurious Advantage (SIGNBALANCE)</td><td>WK36</td><td>🔬 Research-only</td><td>Spurious Tool Use extends the GRPO critique to tool selection</td></tr>
+<tr><td>Persistent Agent Knowledge</td><td>WK35</td><td>🧪 Early adoption</td><td>ArenaFlow adds tournament-validated skill extraction</td></tr>
+<tr><td>Co-Evolving Agent-Critic</td><td>WK35</td><td>🧪 Early adoption</td><td><a href="https://arxiv.org/abs/2609.18779">CERA-MoA</a> adds routing co-evolution</td></tr>
+<tr><td>ES as Agent Training Paradigm</td><td>WK35</td><td>🔬 Research-only</td><td>No new movement; BATON offers alternative improvement path</td></tr>
+<tr><td>Automated Harness Optimization</td><td>WK35</td><td>🧪 Early adoption</td><td><a href="https://harnesstax.github.io/">HarnessTax</a> questions evaluation validity</td></tr>
+</tbody></table>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="contrarian">🔮 Contrarian View</h2>
+<div class="contrarian"><h3>What the industry may be overestimating</h3>
+<p>**The sufficiency of credit-assignment methods alone for agent RL.** Three consecutive weeks of credit-assignment papers (<a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a>, <a href="https://arxiv.org/abs/2609.19830">BATON</a>, <a href="https://arxiv.org/abs/2609.12424">GACA</a>, <a href="https://arxiv.org/abs/2609.04094">DRACO</a>, <a href="https://arxiv.org/abs/2609.02236">PGPO</a>) create the impression that better credit = better agents. But <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> shows that even when credit is correctly assigned, agents still learn to invoke tools for superficial reasons. <a href="https://harnesstax.github.io/">HarnessTax</a> suggests that some benchmark gains may reflect harness optimization rather than genuine capability. The credit-assignment renaissance is necessary but not sufficient — teams also need to address what behaviors RL incentivizes at a semantic level, not just how efficiently it propagates gradients.</p>
+<h3>What the industry may be underestimating</h3>
+<p>**The speed of enterprise RL deployment.** <a href="https://arxiv.org/abs/2609.15066">Salesforce Koa</a> shipping specification-driven GRPO as a product — not a research prototype — changes the timeline. Combined with <a href="https://arxiv.org/abs/2609.02170">DMRL</a> in ads (WK36) and <a href="https://arxiv.org/abs/2609.03960">FiMI Banking</a> in finance (WK36), we now have three independent production deployments in three weeks. The conventional wisdom that RL for agents is "2-3 years from production" is already outdated. Teams that wait for the research to "settle" will find that competitors have already deployed.</p>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="strategy">🧭 Strategic Analysis</h2>
+<h3>Short-term (0-6 months)</h3>
+<ul>
+<li>**Credit assignment methods consolidate into libraries.** <a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a>, <a href="https://arxiv.org/abs/2609.19830">BATON</a>, <a href="https://arxiv.org/abs/2609.04094">DRACO</a>, and <a href="https://arxiv.org/abs/2609.12424">GACA</a> will be integrated into <a href="https://github.com/huggingface/trl">huggingface/trl</a> and similar frameworks. Credit assignment becomes a configuration choice, not a research project.</li>
+<li>**Tool-use auditing becomes standard practice.** <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> findings will drive teams to implement tool-necessity monitoring before deploying RL-trained agents with external tool access.</li>
+<li>**Enterprise specification-driven RL is adopted by 2-3 more vendors.** <a href="https://arxiv.org/abs/2609.15066">Salesforce Koa</a>'s approach — workflow specs to training tasks to GRPO — is immediately replicable by any enterprise with structured process definitions.</li>
+</ul>
+<h3>Mid-term (6-18 months)</h3>
+<ul>
+<li>**Teacher-student RL becomes the standard bootstrap.** <a href="https://arxiv.org/abs/2609.20784">RetireOPD</a>'s adaptive retirement + <a href="https://arxiv.org/abs/2609.02253">APEx</a>'s experience-to-skill extraction = the emerging recipe: bootstrap from privileged information, distill with retirement, then continuous self-improvement via RL.</li>
+<li>**Benchmark reform driven by evaluation validity concerns.** <a href="https://harnesstax.github.io/">HarnessTax</a> + <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> will drive demand for evaluation frameworks that measure transfer across harness configurations, not just in-distribution performance.</li>
+</ul>
+<h3>Long-term (2-5 years)</h3>
+<ul>
+<li>**RL-trained agents with domain-specific specialization become commoditized.** <a href="https://arxiv.org/abs/2609.15066">Koa</a> (CRM), <a href="https://openai.com/index/astra-for-law/">Astra for Law</a> (legal), <a href="https://arxiv.org/abs/2609.02170">DMRL</a> (ads), <a href="https://arxiv.org/abs/2609.03960">FiMI</a> (banking) — the pattern is clear: domain + specification + RL = deployable agent. The competitive moat shifts from having RL capability to having domain-specific specifications and reward signals.</li>
+<li>**Agent behavior auditing emerges as a discipline.** The combination of spurious tool use, spurious advantages, and emergent coordination (<a href="https://collusion.wiki/">collusion.wiki</a>) creates demand for systematic behavioral auditing of RL-trained agents — analogous to software security auditing.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="relevance">🎯 Personalized Relevance</h2>
+<table>
+<thead><tr><th>Development</th><th>Relevance Area</th><th>Personal Score</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2609.21378">ArenaFlow tournament credit + skill memory</a></td><td>Reward design for agentic tasks</td><td>10/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.19830">BATON dual-axis optimization</a></td><td>Session-level and multi-turn RL</td><td>9/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a></td><td>Reward design for agentic tasks</td><td>9/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.20784">RetireOPD adaptive distillation</a></td><td>Agent self-improvement loops</td><td>8/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.15066">Salesforce Koa enterprise GRPO</a></td><td>RL for enterprise agents</td><td>8/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.12424">GACA granularity-adaptive credit</a></td><td>Reward design for agentic tasks</td><td>8/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.20089">UnifiedPlayers cooperative GRPO</a></td><td>Agent self-improvement loops</td><td>7/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.18779">CERA-MoA co-evolving routing</a></td><td>RL for orchestrator/planner optimization</td><td>7/10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.15544">EARS reward without sampling</a></td><td>Sim-to-real for agent deployment</td><td>7/10</td></tr>
+<tr><td><a href="https://harnesstax.github.io/">HarnessTax evaluation validity</a></td><td>RL environments and benchmarks</td><td>7/10</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="recommendations">✅ Recommendations</h2>
+<h3>For Technical Leaders</h3>
+<ol>
+<li>**Implement <a href="https://arxiv.org/abs/2609.19830">BATON</a> as a drop-in upgrade to existing GRPO pipelines.** Trajectory mass normalization and Bayesian feedback attribution provide independent, composable gains. Low cost to integrate, high expected return.</li>
+<li>**Add tool-necessity rewards to RL training.** <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> demonstrates that task-completion rewards alone are insufficient — agents learn shortcut tool invocation. Incorporate tool-necessity evaluation as a reward component alongside task success.</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a> for open-ended agent tasks.** If your agent tasks lack clear outcome metrics, tournament-based ranking provides relative quality signals without absolute reward engineering. The skill memory component is particularly valuable for knowledge-intensive agents.</li>
+<li>**Prototype <a href="https://arxiv.org/abs/2609.20784">RetireOPD</a>-style bootstrapping.** If you have access to privileged information (ground-truth decompositions, oracle planners), use it for teacher training with planned retirement. 14-19% gains without permanent dependency.</li>
+</ol>
+<h3>For Business Leaders</h3>
+<ol>
+<li>**Evaluate specification-driven RL for your domain.** <a href="https://arxiv.org/abs/2609.15066">Salesforce Koa</a> demonstrates that structured workflow specifications can drive RL training for enterprise agents. If your organization has documented processes, this approach is directly applicable.</li>
+<li>**Invest in agent behavioral auditing.** Three weeks of spurious behavior findings (<a href="https://arxiv.org/abs/2609.16268">tool use</a>, <a href="https://arxiv.org/abs/2609.04063">advantages</a>, <a href="https://collusion.wiki/">self-coordination</a>) make behavioral monitoring a deployment prerequisite, not an optional safeguard.</li>
+<li>**Question benchmark claims with harness context.** <a href="https://harnesstax.github.io/">HarnessTax</a> shows evaluation framework design materially impacts scores. When evaluating RL-trained agent vendors, ask how performance transfers across harness configurations.</li>
+</ol>
+<h3>For Everyone</h3>
+<ol>
+<li>**Read the <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a> paper.** This is the week's most important safety finding — RL teaches agents to use tools for wrong reasons, not just wrong answers. Understanding this failure mode is essential for anyone deploying or evaluating tool-use agents.</li>
+<li>**Track the credit-assignment-to-toolkit transition.** <a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a>/<a href="https://arxiv.org/abs/2609.19830">BATON</a>/<a href="https://arxiv.org/abs/2609.12424">GACA</a> represent the shift from research problem to engineering solution. The next step is framework integration — monitor <a href="https://github.com/huggingface/trl">huggingface/trl</a> for adoption.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="takeaways">🏆 Executive Takeaways</h2>
+<h3>Top 5 Technical Advances</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a>: Tournament credit + skill memory** — Relative ranking for open-ended agents with reusable strategy extraction. | 12 min read</li>
+<li>**<a href="https://arxiv.org/abs/2609.19830">BATON</a>: Dual-axis policy optimization** — Drop-in GRPO enhancement via Bayesian attribution + trajectory normalization. | 10 min read</li>
+<li>**<a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a>: RL learns wrong tool invocation reasons** — 39% spurious invocation from surface cues; tool-necessity reward mitigates. | 10 min read</li>
+<li>**<a href="https://arxiv.org/abs/2609.20784">RetireOPD</a>: Self-retiring teacher distillation** — 14-19% web agent gains with adaptive teacher dropout. | 10 min read</li>
+<li>**<a href="https://arxiv.org/abs/2609.12424">GACA</a>: Granularity-adaptive credit assignment** — Uncertainty-driven blend of step/episode-level advantages. | 10 min read</li>
+</ol>
+<h3>Top 5 Business Developments</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.15066">Salesforce Koa</a> ships enterprise GRPO** — First major vendor with RL-optimized agentic tool use as product.</li>
+<li>**<a href="https://openai.com/index/astra-for-law/">OpenAI Astra for Law</a> launches** — Vertical agent deployment; legal domain specialization.</li>
+<li>**<a href="https://harnesstax.github.io/">HarnessTax</a> questions coding agent benchmarks** — Evaluation framework design materially impacts agent scores.</li>
+<li>**<a href="https://laya.convaiinnovations.com/">Non-autoregressive decision models</a> generate peak RL engagement** — 1,300 HN points on alternative agent planning paradigm.</li>
+<li>**<a href="https://prismml.com/news/bonsai-2-27b">Bonsai 2 27B</a> enables edge-scale RL agents** — 9x compression unlocks new deployment surfaces.</li>
+</ol>
+<h3>Top 5 Must-Read Resources</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.21378">ArenaFlow paper</a>** — Tournament credit + skill memory for open-ended agents | 12 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use paper</a>** — Critical deployment risk: agents learn wrong tool reasons | 10 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.19830">BATON paper</a>** — Dual-axis drop-in GRPO enhancement | 10 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.15066">Salesforce Koa paper</a>** — Enterprise specification-driven RL | 12 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.20784">RetireOPD paper</a>** — Self-retiring distillation recipe | 10 min</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="next-week">📌 What Leaders Should Do Next Week</h2>
+<ol>
+<li>**Integrate <a href="https://arxiv.org/abs/2609.19830">BATON</a> into your GRPO/GiGPO training pipeline.** Trajectory mass normalization is a low-cost, high-return improvement that is orthogonal to other credit-assignment methods.</li>
+<li>**Audit RL-trained tool-use agents for spurious invocation.** Following <a href="https://arxiv.org/abs/2609.16268">Spurious Tool Use</a>, add tool-necessity monitoring to any deployed agent with external tool access. Track invocation-to-genuine-need ratios.</li>
+<li>**Prototype specification-driven RL for your enterprise domain.** Using <a href="https://arxiv.org/abs/2609.15066">Salesforce Koa</a> as a reference, map your declarative workflow definitions to training task generators and evaluate GRPO-based optimization.</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2609.21378">ArenaFlow</a> for open-ended or knowledge-intensive agent tasks.** Tournament ranking eliminates reward engineering; skill memory creates compounding returns.</li>
+<li>**Implement <a href="https://arxiv.org/abs/2609.20784">RetireOPD</a>-style bootstrapping if privileged information is available.** Use ground-truth decompositions or oracle planners as teachers with planned adaptive retirement.</li>
+<li>**Review <a href="https://harnesstax.github.io/">HarnessTax</a> findings and audit your evaluation framework.** Ensure that RL training signals measure genuine capability, not harness-specific artifacts.</li>
+<li>**Schedule a team discussion on the behavioral audit theme.** Three weeks of unintended RL behaviors (<a href="https://arxiv.org/abs/2609.16268">spurious tool use</a>, <a href="https://arxiv.org/abs/2609.04063">spurious advantages</a>, <a href="https://collusion.wiki/">collusion.wiki</a>) demand a systematic response. Define your team's agent behavioral monitoring strategy.</li>
+</ol>
+<hr class="section-divider">
+<div class="meta"><p>Generated by render_html.py from markdown source.</p></div>
+</main>
+</div>
+<script>window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+    const btn = document.getElementById('backToTop');
+    btn.classList.toggle('visible', winScroll > 400);
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));</script>
+</body>
+</html>

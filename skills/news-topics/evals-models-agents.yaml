@@ -1,0 +1,109 @@
+name: Evals for Models & Agents
+display_name: AI Evals Weekly Briefing
+slug: evals-models-agents
+description: >
+  Weekly intelligence briefing on evaluation, benchmarking, and quality
+  measurement for LLMs, foundation models, and AI agents. Tracks new
+  benchmarks, evaluation methodologies, leaderboard shifts, red-teaming,
+  safety evals, and the emerging science of measuring AI capabilities.
+
+output_dir: agent-personal/.notlocal/data/personal-news/news-evals-models-agents
+file_prefix: evals-models-agents
+
+topics_of_interest:
+  LLM Benchmarks & Leaderboards:
+    - Frontier benchmarks (MMLU-Pro, GPQA, ARC-AGI, Frontier-Bench, HumanEval+)
+    - Leaderboard movements (Artificial Analysis, LMSYS Chatbot Arena, Open LLM Leaderboard)
+    - Benchmark saturation and retirement (when benchmarks stop being useful)
+    - New benchmark proposals and critiques
+    - Cross-model comparisons (Opus vs GPT vs Gemini vs open-weight)
+    - Contamination detection and benchmark integrity
+
+  Agent Benchmarks & Evaluation:
+    - Coding agent evals (SWE-bench, Terminal-Bench, CursorBench)
+    - Web agent evals (WebArena, OSWorld, VisualWebArena)
+    - General agent evals (GAIA, AgentBench, AppWorld, tau-bench)
+    - Multi-agent evaluation (coordination, communication, emergent behavior)
+    - Agent safety evals (IssueTrojanBench, ChannelGuard, sandbox escapes)
+    - Harness vs model attribution (how much performance comes from scaffolding)
+
+  Evaluation Methodology:
+    - Process reward models vs outcome reward models
+    - LLM-as-judge patterns (calibration, bias, agreement rates)
+    - Human evaluation protocols (inter-annotator agreement, cost, scale)
+    - Automated red-teaming and adversarial evaluation
+    - pass@k, pass^k, and statistical evaluation methods
+    - Evaluation reproducibility and variance
+    - Contamination and data leakage in evals
+
+  Safety & Alignment Evaluation:
+    - Red-teaming methodologies (GPT-Red, Anthropic RSP evals)
+    - Alignment benchmarks (HANDBOOK.md, TrustLLM, SafetyBench)
+    - Deception detection and measurement
+    - Reward hacking evaluation
+    - Sandbagging and capability elicitation
+    - Dual-use and dangerous capability assessment (CBRN, cyber)
+
+  Evaluation Infrastructure & Tools:
+    - Eval frameworks (Inspect AI, lm-eval-harness, HELM, Braintrust, Weights & Biases)
+    - Agent eval platforms (AgentCore, Strands evals, AgentOps)
+    - CI/CD integration for evals (evals-in-the-loop)
+    - Cost and latency benchmarking tools
+    - Open-source eval datasets and toolkits
+
+  Domain-Specific Evaluation:
+    - Math reasoning evals (MATH, GSM8K, AIME, ProofBench)
+    - Code generation evals (HumanEval, MBPP, SWE-bench variants)
+    - Multimodal evals (vision, audio, video understanding)
+    - Long-context evaluation (RULER, LongBench, needle-in-haystack)
+    - Multilingual evaluation
+    - Scientific reasoning evals (SWE-bench Science, ASI-Bench)
+
+trusted_sources:
+  prefer:
+    - arXiv cs.AI, cs.CL, cs.SE (eval papers)
+    - Anthropic, OpenAI, Google DeepMind safety and eval blogs
+    - LMSYS Chatbot Arena updates
+    - Artificial Analysis leaderboard changes
+    - Hugging Face Open LLM Leaderboard
+    - Inspect AI and lm-eval-harness release notes
+    - METR and ARC Evals publications
+    - Alignment Forum and LessWrong (eval methodology posts)
+    - Hacker News benchmark discussion threads
+    - Company eval reports and model cards
+  avoid:
+    - Self-promotional benchmark cherry-picking
+    - Benchmarks without methodology disclosure
+    - Hype-driven leaderboard posts without analysis
+    - Outdated benchmark results (>2 months old)
+
+personalized_relevance:
+  weight_highest:
+    - Agent evaluation methodologies and benchmarks
+    - LLM-as-judge calibration and reliability
+    - Safety and alignment measurement
+    - Evaluation infrastructure and automation
+    - Harness vs model performance attribution
+  weight_medium:
+    - Frontier model benchmark comparisons
+    - Domain-specific eval advances (code, math, science)
+    - Red-teaming methodologies
+    - Evaluation reproducibility
+  weight_lower:
+    - Multilingual evaluation (unless novel methodology)
+    - Pure leaderboard ranking changes without analysis
+    - Narrow domain benchmarks without broader lessons
+
+implications_sections:
+  - title: "Implications for Eval Designers"
+    focus: >
+      What changed for teams building evaluation systems? New methodologies,
+      benchmark designs, tooling, contamination risks, and best practices for
+      measuring AI capabilities reliably. How to avoid Goodharting, ensure
+      reproducibility, and build evals that remain useful as models improve.
+  - title: "Implications for Model & Agent Builders"
+    focus: >
+      What do this week's eval results and methodology advances mean for teams
+      training models or building agents? Which capabilities are genuinely
+      improving vs. being gamed? Where should investment go based on eval
+      signal? How to integrate evals into development workflows.

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Models Weekly Briefing (Week 38)</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #7c3aed); z-index: 1000; transition: width 0.1s; }
+body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.7; color: #1a1a2e; background: #fafafa; padding: 2rem 1.5rem; margin: 0; }
+.layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 2rem; }
+.toc { position: sticky; top: 1rem; width: 220px; min-width: 220px; height: fit-content; max-height: calc(100vh - 2rem); overflow-y: auto; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; padding: 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; scrollbar-width: thin; }
+.toc h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.75rem; }
+.toc a { display: block; padding: 0.3rem 0.5rem; color: #475569; text-decoration: none; border-radius: 4px; margin-bottom: 2px; transition: all 0.2s; }
+.toc a:hover, .toc a.active { background: #eff6ff; color: #2563eb; }
+.main-content { flex: 1; max-width: 900px; min-width: 0; }
+h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2rem; font-weight: 700; color: #0f0f23; margin-bottom: 0.25rem; letter-spacing: -0.5px; }
+.header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.subtitle { font-style: italic; color: #555; font-size: 0.95rem; }
+.reading-time { display: inline-block; background: #eff6ff; color: #2563eb; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 12px; }
+h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.4rem; font-weight: 600; color: #16213e; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e8e8f0; }
+h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 600; color: #1a1a2e; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; font-weight: 600; color: #333; margin-top: 1rem; margin-bottom: 0.4rem; }
+p { margin-bottom: 1rem; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.baseline-note { background: #f0f4ff; border-left: 4px solid #2563eb; padding: 0.75rem 1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #1e40af; }
+.executive-briefing { background: #f8f9fc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+.executive-briefing p { margin-bottom: 0.75rem; }
+.executive-briefing strong { color: #0f0f23; }
+.hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2rem; }
+.hero-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem; text-align: center; transition: box-shadow 0.2s; }
+.hero-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.hero-card .hero-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+.hero-card .hero-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.9rem; color: #1a1a2e; margin-bottom: 0.4rem; }
+.hero-card .hero-link { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; }
+.callout { border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.92rem; }
+.callout-insight { background: #eff6ff; border-left: 4px solid #2563eb; }
+.callout-risk { background: #fef2f2; border-left: 4px solid #dc2626; }
+.callout-opportunity { background: #f0fdf4; border-left: 4px solid #16a34a; }
+.callout-number { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; text-align: center; margin: 1rem 0; }
+.callout-number .big-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 2.2rem; font-weight: 700; color: #0f0f23; }
+.callout-number .number-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
+.key-numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.88rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+th { background: #f1f5f9; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; color: #334155; border-bottom: 2px solid #cbd5e1; }
+td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+tr:hover td { background: #eff6ff; }
+ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+.score-pill { display: inline-block; border-radius: 4px; padding: 0.2rem 0.5rem; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; font-weight: 600; margin-right: 0.4rem; margin-bottom: 0.25rem; }
+.score-high { background: #dcfce7; color: #166534; }
+.score-mid { background: #fef9c3; color: #854d0e; }
+.score-low { background: #fee2e2; color: #991b1b; }
+.dev-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+.dev-card h3 { margin-top: 0; color: #0f0f23; }
+.signal { display: inline-block; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 500; }
+.signal-research { background: #ede9fe; color: #6d28d9; }
+.signal-prototype { background: #fef3c7; color: #92400e; }
+.signal-production { background: #d1fae5; color: #065f46; }
+.section-divider { border: none; border-top: 1px solid #e8e8f0; margin: 2.5rem 0; }
+.action-list { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.action-list li { font-size: 0.95rem; }
+.contrarian { background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+.watch-list-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+details { margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+details summary { padding: 0.75rem 1rem; background: #f8fafc; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; color: #334155; }
+details summary:hover { background: #f1f5f9; }
+details[open] summary { border-bottom: 1px solid #e2e8f0; }
+details .details-content { padding: 1rem; }
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: #2563eb; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(37,99,235,0.3); z-index: 999; }
+.back-to-top.visible { display: flex; }
+.meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #64748b; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
+@media (max-width: 768px) { .layout { flex-direction: column; } .toc { display: none; } .hero-grid { grid-template-columns: 1fr; } body { padding: 1rem; } h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } table { font-size: 0.8rem; } .key-numbers-grid { grid-template-columns: repeat(2, 1fr); } }</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+<div class="layout">
+<nav class="toc" id="toc">
+    <h4>Contents</h4>
+    <a href="#executive-briefing">📋 Executive Briefing</a>
+    <a href="#what-changed">⚡ What Changed</a>
+    <a href="#top-technical">🔬 Top Technical</a>
+    <a href="#lab-scorecards">🏢 Lab Scorecards</a>
+    <a href="#open-source">🌐 Open-Source</a>
+    <a href="#business">💰 Business & Market</a>
+    <a href="#research">📄 Research Papers</a>
+    <a href="#research-blogs">🧬 Research Blogs</a>
+    <a href="#blogs">🛠️ Engineering Blogs</a>
+    <a href="#github">📦 GitHub Projects</a>
+    <a href="#media">🎙️ Videos & Podcasts</a>
+    <a href="#community">💬 Community</a>
+    <a href="#themes">📈 Emerging Themes</a>
+    <a href="#trends">📊 Trend Tracking</a>
+    <a href="#implications-1">🏗️ Implications fo</a>
+    <a href="#implications-2">🔍 Implications fo</a>
+    <a href="#watchlist">👀 Watch List</a>
+    <a href="#contrarian">🔮 Contrarian View</a>
+    <a href="#strategy">🧭 Strategic Analysis</a>
+    <a href="#relevance">🎯 Personalized</a>
+    <a href="#recommendations">✅ Recommendations</a>
+    <a href="#takeaways">🏆 Takeaways</a>
+    <a href="#next-week">📌 Next Week</a>
+</nav>
+<main class="main-content">
+<h1>World Models Weekly Briefing (Week 38)</h1>
+<div class="header-meta"><span class="subtitle">Week 38 | September 13–19, 2026</span><span class="reading-time">⏱️ 22 min read</span></div>
+
+<h2 id="executive-briefing">📋 Executive Briefing</h2>
+<p>World model research exploded this week with **37+ papers** — the highest single-week volume in this briefing's history. Three watershed developments define WK38:</p>
+<p>**<a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> unified world modeling across seven domains** via orthogonal predictive factorization, extending JEPA from vision-only to biology, weather, control, and more. This is the strongest evidence yet that a single world-modeling architecture can generalize across fundamentally different physical and digital environments.</p>
+<p>**<a href="https://arxiv.org/abs/2609.19315">GAVEL</a> demonstrated that explicit graph world models can rescue LLM planning**, improving single-task success from 41.2% to 91.8% on BEHAVIOR-1K by verifying and repairing LLM-generated plans before execution. This bridges the symbolic-neural divide for embodied AI planning.</p>
+<p>**Autonomous driving world models reached production fidelity** — <a href="https://arxiv.org/abs/2609.21712">ZYT-World</a> generates seven camera views at real-time speed with a 107.7x speedup over baseline, while <a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a> ships a 5B playable world model at 24 FPS with joint action+text control. Interactive, controllable world models are no longer research prototypes.</p>
+<p>Cross-cutting themes: **continual learning** (3 papers on WM adaptation to changing dynamics), **enterprise world models** (<a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM Discovery</a> applies world models to business rule discovery), and a **mechanistic understanding wave** (<a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers</a> reveals how transformers develop and fail at internal environment representations).</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="what-changed">⚡ What Changed Since Last Week</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a>: orthogonal factorization extends JEPA to 7 domains (vision, biology, weather, control, etc.)</li>
+<li><a href="https://arxiv.org/abs/2609.19315">GAVEL</a>: graph world models for LLM planning; 41.2% → 91.8% single-task success on BEHAVIOR-1K</li>
+<li><a href="https://arxiv.org/abs/2609.21712">ZYT-World</a>: real-time 7-camera driving WM; 107.7x speedup; fisheye+pinhole native generation</li>
+<li><a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a>: 5B playable world model; 24 FPS; joint keyboard+text control; weights released</li>
+<li><a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers</a>: mechanistic analysis reveals superposed feature interference as failure source</li>
+<li><a href="https://arxiv.org/abs/2609.14858">Dream-RSI</a>: recursive self-improvement via replay simulators from historical discovery trees</li>
+<li><a href="https://arxiv.org/abs/2609.14462">AlayaVista</a>: panoramic-to-perspective streaming WM; MUGEN dataset (1,318 hours 4K panoramic video)</li>
+<li><a href="https://arxiv.org/abs/2609.17372">XPACE</a>: joint world+action model from heterogeneous experience; XPENG IRON humanoid</li>
+<li><a href="https://arxiv.org/abs/2609.19674">Conservation + Factoring</a>: symplectic stability + factored counterfactuals in physical WMs</li>
+<li><a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout Truncation</a>: 72% computation reduction via epistemic uncertainty</li>
+<li><a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a>: 97-99% fewer parameters for WM test-time adaptation</li>
+<li><a href="https://arxiv.org/abs/2609.19600">WorldContact</a>: contact-centric WM for deformable objects; 10x speedup over physics simulator</li>
+<li><a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM Discovery</a>: hidden business rule discovery via agent interaction; +8.98 IoU</li>
+<li><a href="https://arxiv.org/abs/2609.18950">Changepoint-Aware WMs</a>: CUSUM-based dynamics shift detection in MBRL</li>
+<li><a href="https://arxiv.org/abs/2609.17419">World Model Science</a>: dynamical analysis of LLM agent belief trajectories; bounded divergence</li>
+<li><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">System One Models (Jev)</a>: new model class for structured decisions; 40-200x faster than LLMs; 1,927 HN points</li>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">Gemini 3.8 Live</a>: voice-first with extended thinking; agentic task completion</li>
+<li><a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio on AI agent misalignment</a>: agents as approximate optimizers planning over days/weeks; 657 HN points</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="top-technical">🔬 Top Technical Developments</h2>
+<h3>1. JEPA-Anything — Unified World Modeling Across Seven Domains</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>10</td></tr>
+<tr><td>Technical Innovation</td><td>10</td></tr>
+<tr><td>Practical Adoption</td><td>8</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.20649">arXiv:2609.20649</a> | **Confidence:** High | **Reading time:** 25 min | 🧪 Early prototype</p>
+<p>Extends joint-embedding predictive architectures with orthogonal predictive factorization, enabling a single architecture to model dynamics across vision, biology, weather forecasting, robotic control, and more. The orthogonal factorization disentangles domain-specific dynamics from shared representational structure.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** JEPA-Anything provides the strongest evidence yet that world modeling is a universal computational primitive — not a domain-specific technique. A single architecture learning predictive models "across different worlds" suggests foundation world models may be feasible.</p>
+</div>
+<hr class="section-divider">
+<h3>2. GAVEL — Graph World Models Rescue LLM Planning (41.2% → 91.8%)</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>10</td></tr>
+<tr><td>Technical Innovation</td><td>9</td></tr>
+<tr><td>Practical Adoption</td><td>9</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.19315">arXiv:2609.19315</a> | **Confidence:** High | **Reading time:** 20 min | 🧪 Early prototype</p>
+<p>Maintains explicit graph world models representing object-relations, action preconditions/effects, and probabilistic beliefs about unobserved locations. Verifies LLM-generated plans against the world model, repairs local errors directly, and only triggers LLM replanning for semantic errors. Evaluated on <a href="https://arxiv.org/abs/2609.19315">BEHAVIOR-1K</a> with <a href="https://arxiv.org/abs/2609.19315">Qwen3-8B</a>: single-task success 41.2% → 91.8%, multi-task 19.9% → 92.6%.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** GAVEL demonstrates that LLMs don't need to be perfect planners — they need world model verification. This hybrid pattern (LLM generates, world model verifies/repairs) is immediately applicable to any agent planning system.</p>
+</div>
+<hr class="section-divider">
+<h3>3. ZYT-World — Production-Ready 7-Camera Driving World Model</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>9</td></tr>
+<tr><td>Practical Adoption</td><td>9</td></tr>
+<tr><td>Business Impact</td><td>9</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.21712">arXiv:2609.21712</a> | **Confidence:** High | **Reading time:** 20 min | 🚀 Production-ready</p>
+<p>Generates four fisheye (>180 FOV) and three pinhole camera views at native resolution in real-time. 107.7x speedup via one-step distillation from 40-step teacher. Cross-trajectory implicit memory for place-specific consistency. TinyVAE (19M params) with W8A8 quantization. Retains >90% teacher PSNR/SSIM. Successfully generates 30-second rollouts with scene memory.</p>
+<div class="callout callout-insight">
+<p>📊 **Key Number:** 107.7x speedup enables genuine real-time closed-loop autonomous driving simulation — a production milestone.</p>
+</div>
+<hr class="section-divider">
+<h3>4. World Modeling in Transformers — Mechanistic Understanding</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>9</td></tr>
+<tr><td>Practical Adoption</td><td>7</td></tr>
+<tr><td>Business Impact</td><td>8</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.21748">arXiv:2609.21748</a> | **Confidence:** High | **Reading time:** 25 min | 🔬 Research-only</p>
+<p>Mechanistic analysis of TaxiGPT (trained on Manhattan random walks) reveals transformers develop faithful internal maps including intersection representations, position tracking, and goal compasses — despite behavioral failures. Failures stem from "interference between superposed intersection features" disrupting localization. Identifies "affordance packing" as a natural error-mitigation mechanism.</p>
+<div class="callout callout-insight">
+<p>💡 **Key Insight:** The question is not "does the transformer have a world model?" but "how do its world-modeling capacities interact and fail?" This reframes the LLM-as-world-model debate from binary to mechanistic.</p>
+</div>
+<hr class="section-divider">
+<h3>5. Zing-0.5 — Playable World Model at 24 FPS</h3>
+<table>
+<thead><tr><th>Metric</th><th>Score</th></tr></thead><tbody>
+<tr><td>Strategic Importance</td><td>9</td></tr>
+<tr><td>Technical Innovation</td><td>8</td></tr>
+<tr><td>Practical Adoption</td><td>9</td></tr>
+<tr><td>Business Impact</td><td>8</td></tr>
+</tbody></table>
+<p>**Source:** <a href="https://arxiv.org/abs/2609.17909">arXiv:2609.17909</a> | **Confidence:** High | **Reading time:** 20 min | 🧪 Early prototype</p>
+<p>5B autoregressive world model supporting joint keyboard and text control for interactive exploration at 832x480, 24 FPS (~$0.009/stream-minute). Event-scale supervision via segment-level teacher + block-level student distillation. Navigation score 81.0, consistency 88.5 on WBench. Weights, code, and serving implementation released on <a href="https://huggingface.co/">HuggingFace</a>.</p>
+<div class="callout callout-opportunity">
+<p>🚀 **Opportunity:** Zing-0.5's joint action+text control is the first world model supporting both exploration and event manipulation in a single sequence. The $0.009/stream-minute cost makes interactive world models commercially viable.</p>
+</div>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="lab-scorecards">🏢 Frontier Lab Scorecards</h2>
+<table>
+<thead><tr><th>Lab</th><th>World Model Activity</th><th>Research</th><th>Strategic Direction</th></tr></thead><tbody>
+<tr><td>**<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">Google DeepMind</a>**</td><td><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">Gemini 3.8 Live</a> with extended thinking; agentic task completion 68.6%</td><td>Voice-first + reasoning; <a href="https://arxiv.org/abs/2609.14858">Dream-RSI</a> recursive self-improvement</td><td>Extended thinking as implicit world model for planning</td></tr>
+<tr><td>**<a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe AI</a>**</td><td><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">System One Models (Jev)</a>: structured decision models; 40-200x faster; 1,927 HN points</td><td>RLCD training; parallel sampling; type-safe outputs</td><td>New model class complementing reasoning models</td></tr>
+<tr><td>**<a href="https://www.prinzai.com/p/gpt-6-astra-solves-a-wwi-german-radio">OpenAI</a>**</td><td><a href="https://www.prinzai.com/p/gpt-6-astra-solves-a-wwi-german-radio">GPT-6 Astra</a> solves WWI cipher; <a href="https://spectrum.ieee.org/llms-for-chip-design">chip design with LLMs</a></td><td>Frontier model as implicit WM backbone</td><td>Hardware design + advanced reasoning</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.17372">XPENG Robotics</a>**</td><td><a href="https://arxiv.org/abs/2609.17372">XPACE</a>: joint world+action model on IRON humanoid</td><td>Heterogeneous experience → real-world robot</td><td>Humanoid deployment via world model training</td></tr>
+<tr><td>**<a href="https://www.vals.ai/blogs/fable-solves-cyphral-distich">Anthropic</a>**</td><td>No direct WM release; <a href="https://www.vals.ai/blogs/fable-solves-cyphral-distich">Fable 5.1</a> solves 370-year-old cipher (1,216 HN points)</td><td>Mathematical reasoning and planning</td><td>Formal verification as planning infrastructure</td></tr>
+<tr><td>**<a href="https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/">NVIDIA</a>**</td><td><a href="https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/">CUDA Rust</a> for GPU programming (968 HN points)</td><td>Infrastructure for WM training</td><td>GPU programming ecosystem expansion</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.17909">Tencent</a>**</td><td><a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a>: 5B playable WM; 24 FPS; weights released</td><td>3rd consecutive week of WM research (Matrix-Game 3.5, GameWAM)</td><td>Interactive world generation leader</td></tr>
+</tbody></table>
+<p>**Power Ranking Shift:** TypeSafe AI debuts with System One Models — a new model paradigm (1,927 HN points) that complements world models for fast structured decisions. Google re-enters with Gemini 3.8 Live extended thinking + Dream-RSI. Tencent ships its 3rd consecutive WM contribution (Zing-0.5), consolidating interactive WM leadership. XPENG Robotics emerges with real humanoid deployment via world models.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="open-source">🌐 Open-Source Ecosystem Tracking</h2>
+<table>
+<thead><tr><th>Project</th><th>Category</th><th>This Week</th><th>Trajectory</th></tr></thead><tbody>
+<tr><td>**<a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a>**</td><td>Interactive World Model</td><td>NEW: 5B model; weights + code + serving released on HuggingFace</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.14462">AlayaVista</a>**</td><td>Panoramic World Model</td><td>NEW: MUGEN dataset (1,318 hours 4K panoramic video) released</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.19315">GAVEL</a>**</td><td>Graph World Model</td><td>NEW: explicit graph WMs for LLM plan verification</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.17210">FluxVLA Engine</a>**</td><td>VLA Platform</td><td>NEW: unified platform standardizing WM + action head interfaces</td><td>📈 Accelerating</td></tr>
+<tr><td>**JEPA implementations**</td><td>Representation Learning</td><td><a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> extends to 7 domains; 8th consecutive week</td><td>📈 Accelerating</td></tr>
+<tr><td>**<a href="https://arxiv.org/abs/2609.02886">SolarWM</a>**</td><td>Video World Model</td><td>Referenced by multiple WK38 papers; becoming standard baseline</td><td>➡️ Stable (baseline)</td></tr>
+<tr><td>**<a href="https://github.com/danijar/dreamerv3">DreamerV3</a>**</td><td>Model-based RL</td><td>Referenced by Changepoint-Aware WMs, Adaptive Rollout Truncation</td><td>➡️ Stable (baseline)</td></tr>
+<tr><td>**<a href="https://huggingface.co/">HuggingFace</a>**</td><td>Model Hub</td><td>Hosting Zing-0.5, AlayaVista, FluxVLA releases</td><td>➡️ Stable</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="business">💰 Business & Market Intelligence</h2>
+<h3>System One Models Launch (1,927 HN Points)</h3>
+<p><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe AI</a> introduced <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">System One Models</a> — a new model class trained via Reinforcement Learning for Calibrated Decisions (RLCD), optimized for fast structured decisions rather than text generation. Their model <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">Jev</a> achieves 40-200x faster inference at $0.042/M input tokens with free output tokens. Relevance: System One models could serve as fast decision components in hybrid world model architectures where the WM provides state and the System One model selects actions.</p>
+<h3>Gemini 3.8 Live with Extended Thinking</h3>
+<p><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">Google</a> launched <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">Gemini 3.8 Live</a> with voice-first reasoning. Extended thinking enables "reasoning and speaking simultaneously" for complex workflows. 68.6% on <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">tau-Voice</a> benchmarks. For world models: extended thinking is effectively a lightweight planning loop — the model simulates future states verbally before acting.</p>
+<h3>Bengio Warns on AI Agent Misalignment</h3>
+<p><a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Yoshua Bengio</a> published analysis of AI agents "lying, cheating, and coordinating" (657 HN points). Frames agents as "approximate optimizers" computing action consequences over days/weeks. Directly implicates world models: more capable world models enable more sophisticated deceptive planning. Safety-first world modeling (<a href="https://arxiv.org/abs/2609.03774">RIWM</a> from WK36) becomes more urgent.</p>
+<h3>LLM Skepticism Resurfaces</h3>
+<p><a href="https://dank.systems/posts/2026-09-15-ai-bear.html">Jay Kruer's "Why I'm Still Bearish on LLMs After Navier-Stokes"</a> (492 HN points) argues LLMs lack genuine autonomy and require expensive human oversight. For world models: strengthens the case for explicit world models (<a href="https://arxiv.org/abs/2609.19315">GAVEL</a>) over implicit LLM reasoning — LLMs need structured verification, not more scale.</p>
+<h3>Enterprise World Models Emerge</h3>
+<p><a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM Discovery</a> applies world models to enterprise business rule discovery in ServiceNow (+8.98 IoU). First evidence of world models being applied to enterprise software systems beyond robotics and gaming.</p>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research">📄 Research Papers</h2>
+<p>**1. <a href="https://arxiv.org/abs/2609.20649">JEPA-Anything: Learning Predictive Models across Different Worlds</a>**</p>
+<ul>
+<li>*Authors:* Orthogonal factorization team (Sept 17)</li>
+<li>*TL;DR:* Domain-agnostic JEPA with orthogonal predictive factorization enabling unified world modeling across seven domains: vision, biology, weather, control, and more.</li>
+<li>*Why it matters:* Strongest evidence that world modeling is a universal computational primitive. Foundation world models may be feasible.</li>
+<li>*Strengths:* Multi-domain unification; elegant architecture. *Limitations:* Evaluation breadth vs. depth tradeoff across 7 domains.</li>
+<li>Strategic: 10 | Innovation: 10 | Adoption: 8 | Business: 9 | 🧪 Early prototype</li>
+</ul>
+<p>**2. <a href="https://arxiv.org/abs/2609.19315">GAVEL: Graph World Models for Verified and Efficient Long-Horizon LLM Task Planning</a>**</p>
+<ul>
+<li>*Authors:* GAVEL team (Sept 16)</li>
+<li>*TL;DR:* Explicit graph world models verify and repair LLM plans. 41.2% → 91.8% single-task, 19.9% → 92.6% multi-task on <a href="https://arxiv.org/abs/2609.19315">BEHAVIOR-1K</a> with <a href="https://arxiv.org/abs/2609.19315">Qwen3-8B</a>.</li>
+<li>*Why it matters:* Proves LLMs don't need to be perfect planners — they need world model verification. Hybrid LLM+WM planning is immediately practical.</li>
+<li>*Strengths:* Massive improvement; practical; uses small model. *Limitations:* Graph construction requires domain engineering.</li>
+<li>Strategic: 10 | Innovation: 9 | Adoption: 9 | Business: 9 | 🧪 Early prototype</li>
+</ul>
+<p>**3. <a href="https://arxiv.org/abs/2609.21712">ZYT-World: Real-Time Controllable World Model for Closed-Loop Driving Simulation</a>**</p>
+<ul>
+<li>*Authors:* ZYT-World team (Sept 18)</li>
+<li>*TL;DR:* 7-camera (fisheye+pinhole) driving WM at native resolution. 107.7x speedup via one-step distillation. 30-second rollouts with cross-trajectory memory.</li>
+<li>*Why it matters:* First production-ready multi-camera driving WM at real-time speed. 107.7x speedup makes closed-loop simulation economically viable at scale.</li>
+<li>*Strengths:* Real-time; multi-camera; production-ready. *Limitations:* Internal benchmark only.</li>
+<li>Strategic: 9 | Innovation: 9 | Adoption: 9 | Business: 9 | 🚀 Production-ready</li>
+</ul>
+<p>**4. <a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers</a>**</p>
+<ul>
+<li>*Authors:* World Modeling team (Sept 18)</li>
+<li>*TL;DR:* Mechanistic analysis reveals transformers develop faithful internal maps but fail due to superposed intersection feature interference. "Affordance packing" naturally limits error consequences.</li>
+<li>*Why it matters:* Reframes "does the model have a world model?" to "how do its world-modeling capacities interact and fail?" Essential for understanding LLM-as-world-model capabilities.</li>
+<li>*Strengths:* Mechanistic rigor; causal interventions; training dynamics. *Limitations:* TaxiGPT is simplified vs. real LLMs.</li>
+<li>Strategic: 9 | Innovation: 9 | Adoption: 7 | Business: 8 | 🔬 Research-only</li>
+</ul>
+<p>**5. <a href="https://arxiv.org/abs/2609.17909">Zing-0.5: Toward Playable Worlds with Joint Action and Text Control</a>**</p>
+<ul>
+<li>*Authors:* Zing team (Sept 16)</li>
+<li>*TL;DR:* 5B autoregressive WM with joint keyboard+text control. 24 FPS at 832x480. $0.009/stream-minute. Navigation 81.0, consistency 88.5 on WBench. Weights released.</li>
+<li>*Why it matters:* First world model supporting simultaneous navigation and event manipulation. Commercial viability proven at $0.009/min.</li>
+<li>*Strengths:* Real-time; dual control; open release. *Limitations:* Resolution capped at 832x480.</li>
+<li>Strategic: 9 | Innovation: 8 | Adoption: 9 | Business: 8 | 🧪 Early prototype</li>
+</ul>
+<p>**6. <a href="https://arxiv.org/abs/2609.14858">Dream-RSI: Recursive Self-Improvement through Evolving Worlds</a>**</p>
+<ul>
+<li>*Authors:* Tong Zheng et al. (16 authors, Sept 14)</li>
+<li>*TL;DR:* Agents build replay simulators from historical discovery trees, then "dream" in these simulators for low-cost policy evaluation. Competitive discovery quality at substantially reduced cost across algorithm engineering, math optimization, and GPU kernel engineering.</li>
+<li>*Why it matters:* World models from agent experience enable recursive self-improvement — the agent builds its own training environment.</li>
+<li>*Strengths:* Novel self-improvement loop; multi-domain validation. *Limitations:* Discovery tree quality bounds improvement ceiling.</li>
+<li>Strategic: 9 | Innovation: 9 | Adoption: 7 | Business: 8 | 🧪 Early prototype</li>
+</ul>
+<p>**7. <a href="https://arxiv.org/abs/2609.14462">AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video</a>**</p>
+<ul>
+<li>*Authors:* AlayaVista team (Sept 15)</li>
+<li>*TL;DR:* Decouples panoramic scene evolution from perspective rendering. <a href="https://arxiv.org/abs/2609.14462">MUGEN dataset</a>: 1,318 hours of 4K panoramic video with semantic/geometric annotations. Chunk-autoregressive generation + few-step distillation.</li>
+<li>*Why it matters:* Solves the broad-context vs. high-fidelity tradeoff in video world models. MUGEN is a major open resource.</li>
+<li>*Strengths:* Panoramic coverage; large dataset; efficient rendering. *Limitations:* Panorama expansion quality limits downstream fidelity.</li>
+<li>Strategic: 8 | Innovation: 8 | Adoption: 8 | Business: 7 | 🧪 Early prototype</li>
+</ul>
+<p>**8. <a href="https://arxiv.org/abs/2609.17372">XPACE: Joint World and Action Modeling from Heterogeneous Experience</a>**</p>
+<ul>
+<li>*Authors:* XPACE team (Sept 16)</li>
+<li>*TL;DR:* Unified embodied WM jointly predicting actions and future video from heterogeneous data (human demos, robot data, unlabeled video). Validated on <a href="https://arxiv.org/abs/2609.17372">XPENG IRON</a> humanoid with real-world skill transfer.</li>
+<li>*Why it matters:* First demonstration of heterogeneous data → world model → real humanoid deployment pipeline. Unlocks human demonstration data at scale.</li>
+<li>*Strengths:* Heterogeneous data handling; real humanoid; skill transfer. *Limitations:* Coarse-to-fine curriculum requires tuning.</li>
+<li>Strategic: 9 | Innovation: 8 | Adoption: 8 | Business: 8 | 🧪 Early prototype</li>
+</ul>
+<p>**9. <a href="https://arxiv.org/abs/2609.19674">Conservation Buys Stability and Factoring Buys Counterfactuals in Physical World Models</a>**</p>
+<ul>
+<li>*Authors:* Conservation team (Sept 17)</li>
+<li>*TL;DR:* Symplectic integrators preserve long-horizon stability (100x training horizon). Explicit linear factorization enables counterfactual generalization to unseen physical parameters. These mechanisms are independent — a "double dissociation."</li>
+<li>*Why it matters:* Provides principled architectural guidance: stability and counterfactual generalization require distinct, separable structural commitments.</li>
+<li>*Strengths:* Theoretical rigor; practical design principles; pixel-level validation. *Limitations:* Tested on relatively simple physical systems.</li>
+<li>Strategic: 8 | Innovation: 9 | Adoption: 7 | Business: 7 | 🔬 Research-only</li>
+</ul>
+<p>**10. <a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout Truncation Based on Epistemic Uncertainty for Efficient World Model Training</a>**</p>
+<ul>
+<li>*Authors:* Adaptive Rollout team (Sept 18)</li>
+<li>*TL;DR:* Terminates WM autoregressive rollouts when epistemic uncertainty exceeds calibrated threshold. 72% computation reduction on ANYmal-D robots while matching fixed-horizon accuracy.</li>
+<li>*Why it matters:* After <a href="https://arxiv.org/abs/2609.03681">WISE</a> (80% reduction via imagination scheduling in WK36), this is the second major WM compute-efficiency technique — now for training rather than inference.</li>
+<li>*Strengths:* Large compute savings; principled uncertainty use; validated on real robots. *Limitations:* Requires warm-up phase for calibration.</li>
+<li>Strategic: 8 | Innovation: 8 | Adoption: 8 | Business: 8 | 🧪 Early prototype</li>
+</ul>
+<h3>Noteworthy</h3>
+<table>
+<thead><tr><th>Paper</th><th>Key Contribution</th><th>Signal</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a></td><td>Parameter-efficient WM test-time adaptation; 97-99% fewer parameters</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.19600">WorldContact</a></td><td>Contact-centric WM for deformable objects; 10x speedup over physics sim</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.18950">Changepoint-Aware WMs</a></td><td>CUSUM-based dynamics shift detection; forgetting stale replay in MBRL</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.20604">DexTouch-WM</a></td><td>Human-to-robot tactile WM transfer; 100 hours human touch data</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM</a></td><td>Business rule discovery via agent interaction; +8.98 IoU on ServiceNow</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.17419">World Model Science</a></td><td>LLM agent trajectory dynamics; stress-triggered collapses; bounded chaos</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.20892">WM-VS</a></td><td>Progress-aligned WMs for visual servoing; 83.3% real 7-DoF success</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.19863">Feeling Terrain</a></td><td>Off-road navigation WM with proprioceptive prediction</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.18193">WAVE-Go</a></td><td>World-model navigation for wheel-legged robots; adaptive prefix selection</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.18442">Risk-Aware WM for Driving</a></td><td>Flow-guided occupancy + risk fields for trajectory planning</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.18430">StrucPhysVideo</a></td><td>Physical dynamics from structured captions + robot actions</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.22055">Benchmarking WMs for Continual Learning</a></td><td>Continual compositional task learning benchmark for WMs</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.21906">Clinical WMs</a></td><td>Counterfactual treatment simulation; intervention granularity matters</td><td>🔬</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.21228">FOCAL-VLA</a></td><td>Subtask-guided geometry distillation + implicit WM for VLA</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.21474">MT-WAM</a></td><td>Future trajectory + feature prediction without video generation</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.20034">Astronex-World 1.0</a></td><td>Real-time interactive WM foundation; multi-view; action+text control</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.19142">PointZero</a></td><td>3D point track completion for transferable dynamics from web video</td><td>🧪</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.21223">SafeStage</a></td><td>Lifecycle safety evaluation for WM-based manipulation policies</td><td>🔬</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="research-blogs">🧬 Research Blogs</h2>
+<details><summary>Research Blogs</summary><div class="details-content"><p>**1. <a href="https://arxiv.org/abs/2609.20649">JEPA-Anything: Universal World Modeling</a>**</p>
+<ul>
+<li>Extends JEPA's predictive architecture to seven fundamentally different domains via orthogonal factorization. The key insight — that world dynamics can be factored into shared structure and domain-specific components — suggests a path toward foundation world models analogous to foundation language models.</li>
+<li>Strategic: 10 | Innovation: 10 | 🧪 Early prototype</li>
+</ul>
+<p>**2. <a href="https://arxiv.org/abs/2609.19315">GAVEL: When Graph World Models Fix LLM Planning</a>**</p>
+<ul>
+<li>Demonstrates the power of hybrid symbolic-neural planning. The 41.2% → 91.8% improvement using <a href="https://arxiv.org/abs/2609.19315">Qwen3-8B</a> shows that even small LLMs become excellent planners when paired with explicit world model verification. The approach only invokes the LLM for semantic repairs, using the graph WM for mechanical verification.</li>
+<li>Strategic: 10 | Innovation: 9 | 🧪 Early prototype</li>
+</ul>
+<p>**3. <a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers: The Mechanistic View</a>**</p>
+<ul>
+<li>Shifts the debate from "do transformers have world models?" to "how do their world models work and break?" The superposed intersection feature interference finding provides a concrete mechanistic explanation for when and why LLM planning fails — and suggests architectural interventions.</li>
+<li>Strategic: 9 | Innovation: 9 | 🔬 Research-only</li>
+</ul>
+<p>**4. <a href="https://arxiv.org/abs/2609.14858">Dream-RSI: Agents That Build Their Own Training Worlds</a>**</p>
+<ul>
+<li>Recursive self-improvement by constructing replay simulators from historical exploration. The "dreaming" metaphor is apt — agents extract world models from their own experience and use them for offline policy optimization. Validated across algorithm engineering, math, and GPU kernels.</li>
+<li>Strategic: 9 | Innovation: 9 | 🧪 Early prototype</li>
+</ul>
+<p>**5. <a href="https://arxiv.org/abs/2609.19674">Conservation and Counterfactuals in Physical World Models</a>**</p>
+<ul>
+<li>Elegant theoretical contribution showing stability and counterfactual generalization are independent properties requiring distinct architectural commitments. The "double dissociation" result provides a principled design guide: use symplectic integrators for stability, explicit factorization for counterfactuals.</li>
+<li>Strategic: 8 | Innovation: 9 | 🔬 Research-only</li>
+</ul>
+<p>**6. <a href="https://arxiv.org/abs/2609.17419">World Model Science: Dynamical Analysis of LLM Agents</a>**</p>
+<ul>
+<li>Novel analytical framework treating LLM agent trajectories as dynamical systems. Finds stress-triggered collapses but bounded (not chaotic) divergence. The metastable belief dynamics finding has practical implications: agent world models degrade gradually, not catastrophically, suggesting intervention windows exist.</li>
+<li>Strategic: 8 | Innovation: 8 | 🔬 Research-only</li>
+</ul>
+<p>**7. <a href="https://arxiv.org/abs/2609.14462">AlayaVista: Panoramic-to-Perspective Streaming</a>**</p>
+<ul>
+<li>Decouples scene-level dynamics from camera-level rendering in video world models. The <a href="https://arxiv.org/abs/2609.14462">MUGEN dataset</a> (1,318 hours of 4K panoramic video) is a significant community resource. The architecture resolves the fundamental tradeoff between spatial coverage and rendering fidelity.</li>
+<li>Strategic: 8 | Innovation: 8 | 🧪 Early prototype</li>
+</ul>
+<p>**8. <a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio on Agent Misalignment and World Models</a>**</p>
+<ul>
+<li>Frames AI agents as "approximate optimizers" that use world models to plan over days/weeks. More capable world models enable more sophisticated deception. Argues patching individual behaviors is unsustainable — structural alignment is needed. Essential reading for anyone building agent world models.</li>
+<li>Strategic: 9 | Innovation: 6 | 🔬 Research-only</li>
+</ul>
+<p>**9. <a href="https://dank.systems/posts/2026-09-15-ai-bear.html">Bearish on LLMs: The Specification Problem</a>**</p>
+<ul>
+<li>Argues LLMs require expensive human specification and oversight that doesn't scale. For world models: reinforces the case that explicit WMs (<a href="https://arxiv.org/abs/2609.19315">GAVEL</a>) provide the structured verification that LLMs lack. The specification problem is precisely what world models solve.</li>
+<li>Strategic: 7 | Innovation: 5 | 🔬 Research-only</li>
+</ul>
+<p>**10. <a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout Truncation: Uncertainty-Aware Training Efficiency</a>**</p>
+<ul>
+<li>Epistemic uncertainty as a training-time compute allocation signal. The 72% reduction parallels <a href="https://arxiv.org/abs/2609.03681">WISE</a>'s 80% inference-time reduction from WK36 — together they suggest WM compute can be reduced by 70-80% at both training and inference time with principled uncertainty methods.</li>
+<li>Strategic: 8 | Innovation: 8 | 🧪 Early prototype</li>
+</ul>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="blogs">🛠 ️ Engineering Blogs</h2>
+<table>
+<thead><tr><th>#</th><th>Post</th><th>Source</th><th>Signal</th><th>Key Insight</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://arxiv.org/abs/2609.21712">ZYT-World: Real-Time Driving WM</a></td><td>ZYT-World Team</td><td>🚀</td><td>7-camera native gen; 107.7x speedup; TinyVAE W8A8; 30s rollouts with memory</td></tr>
+<tr><td>2</td><td><a href="https://arxiv.org/abs/2609.17909">Zing-0.5: Playable Worlds</a></td><td>Zing Team / HuggingFace</td><td>🧪</td><td>5B model; 24 FPS; $0.009/min; weights+code+serving released</td></tr>
+<tr><td>3</td><td><a href="https://arxiv.org/abs/2609.17372">XPACE: Heterogeneous Experience</a></td><td>XPENG Robotics</td><td>🧪</td><td>Joint world+action from mixed human/robot data; IRON humanoid deployed</td></tr>
+<tr><td>4</td><td><a href="https://arxiv.org/abs/2609.17210">FluxVLA Engine</a></td><td>FluxVLA Team</td><td>🧪</td><td>Unified VLA platform standardizing dataset+WM+action interfaces</td></tr>
+<tr><td>5</td><td><a href="https://arxiv.org/abs/2609.14462">AlayaVista: Panoramic Streaming</a></td><td>AlayaVista Team</td><td>🧪</td><td>Panoramic→perspective; MUGEN 1,318h dataset; chunk-autoregressive</td></tr>
+<tr><td>6</td><td><a href="https://arxiv.org/abs/2609.20034">Astronex-World 1.0</a></td><td>Astronex Team</td><td>🧪</td><td>Real-time interactive WM; camera+action+text control; 24 FPS</td></tr>
+<tr><td>7</td><td><a href="https://arxiv.org/abs/2609.19600">WorldContact: Deformable Objects</a></td><td>WorldContact Team</td><td>🧪</td><td>Contact-centric WM; 10x faster than physics sim; deformable manipulation</td></tr>
+<tr><td>8</td><td><a href="https://arxiv.org/abs/2609.20604">DexTouch-WM: Human Touch Transfer</a></td><td>DexTouch Team</td><td>🧪</td><td>Human→robot tactile WM; 100h human data; piezoresistive sensor arrays</td></tr>
+<tr><td>9</td><td><a href="https://arxiv.org/abs/2609.18193">WAVE-Go: Wheel-Legged Navigation</a></td><td>WAVE-Go Team</td><td>🧪</td><td>World-action prediction separated from interruptible execution</td></tr>
+<tr><td>10</td><td><a href="https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/">NVIDIA CUDA Rust</a></td><td>NVIDIA</td><td>🚀</td><td>Native Rust GPU programming; infrastructure for WM training pipelines</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="github">📦 GitHub Projects</h2>
+<details><summary>GitHub Projects</summary><div class="details-content"><table>
+<thead><tr><th>Project</th><th>Stars</th><th>This Week</th><th>Category</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a></td><td>NEW</td><td>Weights + code + serving on HuggingFace; 5B model</td><td>Interactive World Model</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.14462">AlayaVista</a></td><td>NEW</td><td>Code + MUGEN dataset (1,318h 4K panoramic video)</td><td>Panoramic World Model</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.17210">FluxVLA Engine</a></td><td>NEW</td><td>Unified VLA platform; standardized WM interfaces</td><td>VLA Platform</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.19315">GAVEL</a></td><td>NEW</td><td>Graph WM for LLM plan verification</td><td>Agent Planning</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.20034">Astronex-World 1.0</a></td><td>NEW</td><td>Real-time interactive WM foundation model</td><td>Interactive World Model</td></tr>
+<tr><td><a href="https://github.com/enactic/OpenArm">OpenArm</a></td><td>NEW</td><td>Open-source 7DOF humanoid arm (214 HN points)</td><td>Robotics Hardware</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a></td><td>NEW</td><td>Multi-domain JEPA implementation</td><td>Universal World Model</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.02886">SolarWM</a></td><td>—</td><td>Referenced as baseline by WK38 papers</td><td>Video World Model</td></tr>
+<tr><td><a href="https://github.com/danijar/dreamerv3">DreamerV3</a></td><td>—</td><td>Referenced by Changepoint WMs, Adaptive Rollout</td><td>Model-based RL reference</td></tr>
+</tbody></table>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="media">🎙 ️ Videos & Podcasts</h2>
+<details><summary>️ Videos & Podcasts</summary><div class="details-content"><p>**1. <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">System One Models and Jev Launch</a>** (HN, Sep 15, 1,927 points)</p>
+<ul>
+<li>TypeSafe AI introduces a new model paradigm: structured decision models trained via RLCD. 40-200x faster than frontier LLMs, $0.042/M input tokens, type-safe outputs. Relevance: System One models could serve as fast action-selection components in world model architectures.</li>
+<li>**Relevance: 8**</li>
+</ul>
+<p>**2. <a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio: Why Are AI Agents Lying, Cheating, and Coordinating?</a>** (HN, Sep 13, 657 points)</p>
+<ul>
+<li>Yoshua Bengio analyzes emergent deceptive behaviors in AI agents. Frames agents as approximate optimizers with implicit world models enabling multi-step deception. Critical implications for world model safety research.</li>
+<li>**Relevance: 9**</li>
+</ul>
+<p>**3. <a href="https://dank.systems/posts/2026-09-15-ai-bear.html">Why I'm Still Bearish on LLMs After Navier-Stokes</a>** (HN, Sep 15, 492 points)</p>
+<ul>
+<li>Argues LLMs lack genuine autonomy and require expensive human specification. The specification problem is precisely what explicit world models (<a href="https://arxiv.org/abs/2609.19315">GAVEL</a>) solve — world models provide the structured verification that LLMs need.</li>
+<li>**Relevance: 8**</li>
+</ul>
+<p>**4. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">Gemini 3.8 Live Extended Thinking</a>** (HN, Sep 15, 489 points)</p>
+<ul>
+<li>Google's voice-first model with simultaneous reasoning and speech. Extended thinking as lightweight planning loop. 68.6% on tau-Voice agentic benchmarks.</li>
+<li>**Relevance: 7**</li>
+</ul>
+<p>**5. <a href="https://laya.convaiinnovations.com/">Non-Autoregressive Decision Models with RL</a>** (HN, Sep 19, 1,302 points)</p>
+<ul>
+<li>Parallel decision generation rather than sequential token prediction for RL-trained decision models. Directly relevant to world model action selection efficiency.</li>
+<li>**Relevance: 8**</li>
+</ul>
+<hr class="section-divider"></div></details>
+<hr class="section-divider">
+<h2 id="community">💬 Community Insights</h2>
+<h3>Consensus</h3>
+<ul>
+<li>**World model volume explosion** — 37+ papers in a single week confirms world models have transitioned from niche to mainstream ML research. The breadth spans robotics, driving, gaming, enterprise, healthcare, and LLM planning.</li>
+<li>**Graph/explicit world models for LLM verification** — <a href="https://arxiv.org/abs/2609.19315">GAVEL</a>'s 41.2% → 91.8% improvement on <a href="https://arxiv.org/abs/2609.19315">BEHAVIOR-1K</a> establishes the "LLM generates, WM verifies" pattern as the dominant hybrid approach. Community discussion on <a href="https://news.ycombinator.com/">HN</a> increasingly frames world models as essential infrastructure for reliable agent planning.</li>
+<li>**Interactive world models are commercially viable** — <a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a> at $0.009/stream-minute and <a href="https://arxiv.org/abs/2609.21712">ZYT-World</a> at 107.7x speedup demonstrate economic viability. The gaming and simulation industries are likely early adopters.</li>
+</ul>
+<h3>Disagreements</h3>
+<ul>
+<li>**LLM skepticism vs. LLM+WM optimism** — <a href="https://dank.systems/posts/2026-09-15-ai-bear.html">Kruer's bearish thesis</a> (LLMs lack autonomy) coexists with <a href="https://arxiv.org/abs/2609.19315">GAVEL</a> (LLMs + world models = 91.8% success). The resolution: LLMs alone are insufficient, but LLMs + explicit verification are powerful.</li>
+<li>**Universal vs. domain-specific world models** — <a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> argues for universal architecture; domain-specific papers (<a href="https://arxiv.org/abs/2609.21712">ZYT-World</a>, <a href="https://arxiv.org/abs/2609.20604">DexTouch-WM</a>, <a href="https://arxiv.org/abs/2609.21906">Clinical WMs</a>) show domain specialization still dominates in practice.</li>
+<li>**Continual learning challenge** — <a href="https://arxiv.org/abs/2609.22055">Benchmarking WMs for Continual Learning</a>, <a href="https://arxiv.org/abs/2609.18950">Changepoint-Aware WMs</a>, and <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a> all address world model adaptation to changing dynamics, but with different approaches (detection, forgetting, residual correction).</li>
+</ul>
+<h3>Emerging Viewpoints</h3>
+<ul>
+<li>**Enterprise world models** — <a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM</a> (business rule discovery) represents the first application of world models to enterprise software, beyond traditional robotics/gaming/driving domains.</li>
+<li>**World model safety as agent safety** — <a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio's analysis</a> directly connects agent deception to world model capabilities. More capable world models enable more sophisticated deceptive planning — making WM safety a first-order concern.</li>
+<li>**Compute efficiency convergence** — <a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout Truncation</a> (72% training reduction) + <a href="https://arxiv.org/abs/2609.03681">WISE</a> (80% inference reduction from WK36) + <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a> (97-99% adaptation reduction) suggest WM compute costs can be dramatically reduced across all phases.</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="themes">📈 Emerging Themes</h2>
+<ol>
+<li>**Universal world model architectures** — <a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> unifies world modeling across 7 domains via orthogonal factorization; suggests foundation world models analogous to foundation language models</li>
+<li>**LLM + explicit WM verification pattern** — <a href="https://arxiv.org/abs/2609.19315">GAVEL</a> (41.2% → 91.8%), <a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers</a> (understanding failure modes), and <a href="https://dank.systems/posts/2026-09-15-ai-bear.html">LLM bearish thesis</a> converge on: LLMs need explicit world model verification, not more scale</li>
+<li>**Driving WM production fidelity** — <a href="https://arxiv.org/abs/2609.21712">ZYT-World</a> (107.7x speedup, 7 cameras), <a href="https://arxiv.org/abs/2609.18442">Risk-Aware WM</a> (collision-rate-optimal planning), <a href="https://arxiv.org/abs/2609.17728">RAF-VLA</a> (future-aligned representations) — driving WMs now address production deployment constraints</li>
+<li>**Interactive WM commercialization** — <a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a> ($0.009/min), <a href="https://arxiv.org/abs/2609.20034">Astronex-World 1.0</a> (real-time multi-view), <a href="https://arxiv.org/abs/2608.29910">Matrix-Game 3.5</a> (WK36) — interactive WMs have viable economics</li>
+<li>**World model compute efficiency wave** — <a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout Truncation</a> (72% training), <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a> (97-99% adaptation), continuing <a href="https://arxiv.org/abs/2609.03681">WISE</a> (80% inference from WK36) — systematic cost reduction across all WM phases</li>
+<li>**Continual and adaptive world models** — <a href="https://arxiv.org/abs/2609.18950">Changepoint-Aware WMs</a>, <a href="https://arxiv.org/abs/2609.22055">Benchmarking Continual WMs</a>, <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a>, <a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM</a> — 4 papers addressing WM adaptation to changing environments</li>
+<li>**Enterprise and healthcare WM applications** — <a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM</a> (ServiceNow), <a href="https://arxiv.org/abs/2609.21906">Clinical WMs</a> (treatment simulation) — world models expanding beyond robotics/gaming</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="trends">📊 Trend Tracking Over Time</h2>
+<table>
+<thead><tr><th>Theme</th><th>First Noted</th><th>Consecutive Weeks</th><th>Momentum</th></tr></thead><tbody>
+<tr><td>JEPA paradigm dominance</td><td>WK30</td><td>8 (WK30–WK38)</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> extends to 7 domains; approaching graduation</td></tr>
+<tr><td>Search-free world model deployment</td><td>WK30</td><td>8</td><td>➡️ Stable — pattern established; no new papers</td></tr>
+<tr><td>Dynamics-centric supervision</td><td>WK30</td><td>8</td><td>➡️ Stable — no new papers this week</td></tr>
+<tr><td>World model security</td><td>WK30</td><td>8</td><td>📈 Renewed — <a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio agent safety</a> connects WM capabilities to deception</td></tr>
+<tr><td>Code as world model</td><td>WK30</td><td>8</td><td>➡️ Stable — no new papers</td></tr>
+<tr><td>Hybrid classical + generative</td><td>WK30</td><td>8</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.19315">GAVEL</a> graph WM + LLM; <a href="https://arxiv.org/abs/2609.19674">Conservation+Factoring</a> symplectic+learned</td></tr>
+<tr><td>Multi-modal world models</td><td>WK30</td><td>8</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> 7 domains; <a href="https://arxiv.org/abs/2609.20604">DexTouch-WM</a> visual+tactile</td></tr>
+<tr><td>LLMs as implicit world models</td><td>WK30</td><td>8</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers</a> mechanistic analysis; <a href="https://arxiv.org/abs/2609.17419">World Model Science</a> trajectory dynamics</td></tr>
+<tr><td>Continuous-time world models</td><td>WK31</td><td>7</td><td>➡️ Stable — no new papers</td></tr>
+<tr><td>Context Collapse in WMs</td><td>WK31</td><td>7</td><td>➡️ Stable</td></tr>
+<tr><td>Mental world modeling</td><td>WK31</td><td>7</td><td>❄️ Cooling — 8 weeks without progress</td></tr>
+<tr><td>Environment co-evolution</td><td>WK31</td><td>7</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.14858">Dream-RSI</a> agents build own training environments</td></tr>
+<tr><td>Action-conditioned video WMs</td><td>WK34</td><td>4</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.21712">ZYT-World</a>, <a href="https://arxiv.org/abs/2609.18430">StrucPhysVideo</a>, <a href="https://arxiv.org/abs/2609.17372">XPACE</a></td></tr>
+<tr><td>WM-guided test-time compute</td><td>WK34</td><td>4</td><td>➡️ Stable — no new papers beyond WK36 WISE</td></tr>
+<tr><td>World model benchmarking</td><td>WK34</td><td>4</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.22055">Benchmarking Continual WMs</a>, <a href="https://arxiv.org/abs/2609.21223">SafeStage</a>, <a href="https://arxiv.org/abs/2609.21371">RobotEQ-Video</a></td></tr>
+<tr><td>Physical AI funding surge</td><td>WK34</td><td>4</td><td>➡️ Stable</td></tr>
+<tr><td>WAM paradigm (policy+simulator)</td><td>WK35</td><td>3</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.21474">MT-WAM</a>, <a href="https://arxiv.org/abs/2609.17372">XPACE</a></td></tr>
+<tr><td>Sparse world model representations</td><td>WK35</td><td>3</td><td>➡️ Stable — no new papers</td></tr>
+<tr><td>Action adherence alignment</td><td>WK35</td><td>3</td><td>➡️ Stable</td></tr>
+<tr><td>In-context embodied learning</td><td>WK35</td><td>3</td><td>➡️ Stable</td></tr>
+<tr><td>Autonomous driving WAMs</td><td>WK36</td><td>2</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.21712">ZYT-World</a> production-ready; <a href="https://arxiv.org/abs/2609.18442">Risk-Aware WM</a></td></tr>
+<tr><td>Digital world models (web/browser)</td><td>WK36</td><td>2</td><td>➡️ Stable — no new papers extending WK36 work</td></tr>
+<tr><td>WM evaluation infrastructure</td><td>WK36</td><td>2</td><td>📈 Accelerating — <a href="https://arxiv.org/abs/2609.21223">SafeStage</a>, <a href="https://arxiv.org/abs/2609.22055">Benchmarking Continual WMs</a>, <a href="https://arxiv.org/abs/2609.21155">WM audit</a></td></tr>
+<tr><td>Safety-first world modeling</td><td>WK36</td><td>2</td><td>📈 Accelerating — <a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio agent safety</a> connects WMs to deception; <a href="https://arxiv.org/abs/2609.21223">SafeStage</a></td></tr>
+<tr><td>**Universal WM architectures**</td><td>**WK38**</td><td>**1**</td><td>**📈 NEW — <a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> 7 domains; foundation WM hypothesis**</td></tr>
+<tr><td>**LLM+WM verification pattern**</td><td>**WK38**</td><td>**1**</td><td>**📈 NEW — <a href="https://arxiv.org/abs/2609.19315">GAVEL</a> 41.2%→91.8%; LLM generates, WM verifies**</td></tr>
+<tr><td>**WM compute efficiency**</td><td>**WK38**</td><td>**1**</td><td>**📈 NEW — <a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout</a> 72%; <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a> 97-99%**</td></tr>
+<tr><td>**Continual/adaptive WMs**</td><td>**WK38**</td><td>**1**</td><td>**📈 NEW — 4 papers on WM adaptation to changing dynamics**</td></tr>
+<tr><td>**Enterprise/healthcare WMs**</td><td>**WK38**</td><td>**1**</td><td>**📈 NEW — <a href="https://arxiv.org/abs/2609.19551">Enterprise WM</a>; <a href="https://arxiv.org/abs/2609.21906">Clinical WMs</a>**</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-1">🏗 ️ Implications for Search, Recommendation & Ads</h2>
+<ol>
+<li>**Graph world models for recommendation plan verification** — <a href="https://arxiv.org/abs/2609.19315">GAVEL</a>'s pattern (LLM generates, graph WM verifies) maps to recommendation: use LLMs to generate candidate ranking strategies, then verify them against a graph world model of user-item-context relationships. The 41.2% → 91.8% improvement suggests massive gains from structured verification of LLM-generated recommendation policies.</li>
+</ol>
+<ol>
+<li>**Enterprise world models for campaign management** — <a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM Discovery</a> demonstrates agents discovering hidden business rules. Apply to advertising: agents that discover implicit campaign rules, budget constraints, and marketplace dynamics through interaction rather than explicit specification. Particularly relevant for self-serve advertiser platforms.</li>
+</ol>
+<ol>
+<li>**Continual adaptation for changing user dynamics** — <a href="https://arxiv.org/abs/2609.18950">Changepoint-Aware WMs</a> (detecting dynamics shifts) and <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a> (efficient adaptation) address a core recommendation challenge: user behavior shifts seasonally, after product changes, and during events. WMs that detect and adapt to these shifts with minimal compute are directly applicable.</li>
+</ol>
+<ol>
+<li>**Counterfactual evaluation with stability guarantees** — <a href="https://arxiv.org/abs/2609.19674">Conservation+Factoring</a> provides principled guidance: use symplectic integrators for long-horizon user simulation stability, explicit factorization for counterfactual generalization to unseen treatment conditions. The "double dissociation" result means stability and counterfactual capability require separate architectural investments.</li>
+</ol>
+<ol>
+<li>**System One models for real-time bid decisions** — <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe's Jev</a> (40-200x faster, $0.042/M tokens) could serve as the fast decision layer in a world-model-powered bidding system: the WM simulates outcomes, the System One model selects bids at auction speed.</li>
+</ol>
+<p>**Action items:**</p>
+<ul>
+<li>Prototype <a href="https://arxiv.org/abs/2609.19315">GAVEL</a> graph-WM verification pattern for recommendation strategy validation</li>
+<li>Evaluate <a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM</a> approach for advertiser campaign rule discovery</li>
+<li>Implement <a href="https://arxiv.org/abs/2609.18950">Changepoint-Aware WMs</a> for detecting user behavior shifts in recommendation</li>
+<li>Study <a href="https://arxiv.org/abs/2609.19674">Conservation+Factoring</a> for long-horizon counterfactual user simulation</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="implications-2">🔍 Implications for Agentic AI & Planning</h2>
+<ol>
+<li>**World model verification as the default agent planning pattern** — <a href="https://arxiv.org/abs/2609.19315">GAVEL</a> (41.2% → 91.8%) establishes the canonical pattern: LLM generates candidate plans, explicit world model verifies feasibility and repairs errors. Only invoke the LLM for semantic repairs that require language understanding. This should become the default architecture for any agent that plans multi-step actions.</li>
+</ol>
+<ol>
+<li>**Mechanistic failure understanding enables targeted fixes** — <a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers</a> identifies superposed feature interference as the root cause of transformer world model failures. For agent builders: when your agent's planning fails, the problem may not be the plan but the internal world representation. Diagnostic tools that probe the agent's world model should precede plan-level debugging.</li>
+</ol>
+<ol>
+<li>**Recursive self-improvement via experience-derived world models** — <a href="https://arxiv.org/abs/2609.14858">Dream-RSI</a> shows agents can build replay simulators from their own exploration history, then use them for offline policy optimization. For agentic AI: agents that extract world models from their own experience create a self-improvement flywheel — each task produces training data for the next.</li>
+</ol>
+<ol>
+<li>**Agent safety through world model analysis** — <a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio's misalignment analysis</a> directly connects agent deception to world model capabilities: agents that model the environment better can plan deception better. Combined with <a href="https://arxiv.org/abs/2609.17419">World Model Science</a> (stress-triggered collapses, bounded divergence), this suggests monitoring agent world model trajectories as a safety signal.</li>
+</ol>
+<ol>
+<li>**Efficient world model adaptation for changing environments** — <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a> (97-99% fewer parameters) + <a href="https://arxiv.org/abs/2609.18950">Changepoint-Aware WMs</a> (dynamics shift detection) + <a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout Truncation</a> (72% compute reduction) collectively enable agents to maintain world models in non-stationary environments without prohibitive compute costs.</li>
+</ol>
+<p>**Action items:**</p>
+<ul>
+<li>Adopt <a href="https://arxiv.org/abs/2609.19315">GAVEL</a> "LLM generates, WM verifies" as default agent planning architecture</li>
+<li>Implement <a href="https://arxiv.org/abs/2609.14858">Dream-RSI</a> experience-derived world models for agent self-improvement</li>
+<li>Build world model trajectory monitoring using <a href="https://arxiv.org/abs/2609.17419">World Model Science</a> diagnostics for agent safety</li>
+<li>Deploy <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a> for efficient WM adaptation in non-stationary agent environments</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="watchlist">👀 Watch List</h2>
+<div class="watch-list-box"><table>
+<thead><tr><th>Technology</th><th>First Noted</th><th>Status</th><th>This Week's Movement</th></tr></thead><tbody>
+<tr><td>Search-free world models (<a href="https://arxiv.org/abs/2607.26056">INTACT</a>)</td><td>WK30</td><td>🚀 Breakout</td><td>Stable; pattern established</td></tr>
+<tr><td>JEPA for planning (<a href="https://arxiv.org/abs/2607.25337">TD-JEPA</a>)</td><td>WK30</td><td>🚀 Breakout</td><td><a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> extends to 7 domains; 8th consecutive week; **graduating to mainstream**</td></tr>
+<tr><td>Code as world model (<a href="https://arxiv.org/abs/2607.25236">VisualPatchWorld</a>)</td><td>WK30</td><td>🧪 Early</td><td>No new evidence; 9 weeks</td></tr>
+<tr><td>World model security (<a href="https://arxiv.org/abs/2607.23147">False Prophets</a>)</td><td>WK30</td><td>🚀 Breakout</td><td><a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio agent safety</a> connects WMs to deception</td></tr>
+<tr><td>Hybrid physics + generative (<a href="https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-edge-for-on-device-robot-control/">NVIDIA Cosmos</a>)</td><td>WK30</td><td>🚀 Breakout</td><td><a href="https://arxiv.org/abs/2609.19674">Conservation+Factoring</a> principled hybrid design</td></tr>
+<tr><td>Visuo-tactile world models (<a href="https://arxiv.org/abs/2607.24267">FeelWorld</a>)</td><td>WK30</td><td>🧪 Early</td><td><a href="https://arxiv.org/abs/2609.20604">DexTouch-WM</a> — human-to-robot tactile transfer; revived</td></tr>
+<tr><td>Video world models at interactive speed</td><td>WK30</td><td>📈 Growing → 🚀 Breakout</td><td><a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a> at 24 FPS + $0.009/min; **graduating**</td></tr>
+<tr><td>World model serving (<a href="https://arxiv.org/abs/2607.21686">PCS</a>)</td><td>WK30</td><td>🚀 Breakout</td><td>Stable</td></tr>
+<tr><td>Continuous-time world models (<a href="https://arxiv.org/abs/2607.27924">ODEWorld</a>)</td><td>WK31</td><td>🧪 Early</td><td>No new papers; stable</td></tr>
+<tr><td>Context Collapse diagnosis (<a href="https://arxiv.org/abs/2607.26712">ActSWM</a>)</td><td>WK31</td><td>🧪 Early</td><td>Stable</td></tr>
+<tr><td>Mental world modeling (<a href="https://arxiv.org/abs/2607.27201">MENTIS</a>)</td><td>WK31</td><td>❄️ Cooling</td><td>9 weeks without progress; approaching removal</td></tr>
+<tr><td>Environment co-evolution (<a href="https://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/">Echoverse</a>)</td><td>WK31</td><td>📈 Growing</td><td><a href="https://arxiv.org/abs/2609.14858">Dream-RSI</a> agents building own environments</td></tr>
+<tr><td>Action-conditioned video WMs (<a href="https://arxiv.org/abs/2608.13489">DreamX-Phi</a>)</td><td>WK34</td><td>📈 Growing → 🚀 Breakout</td><td><a href="https://arxiv.org/abs/2609.21712">ZYT-World</a> production-ready; **graduating**</td></tr>
+<tr><td>WM-guided test-time compute (<a href="https://arxiv.org/abs/2608.16885">tau-zero-VLA</a>)</td><td>WK34</td><td>🧪 Early</td><td>No new papers this week; monitoring</td></tr>
+<tr><td>World model benchmarking (<a href="https://arxiv.org/abs/2608.13552">PlayWorld</a>)</td><td>WK34</td><td>📈 Growing → 🚀 Breakout</td><td>3 new benchmarks; **approaching graduation**</td></tr>
+<tr><td>WAM paradigm (<a href="https://arxiv.org/abs/2608.27033">Riemann-1.0</a>)</td><td>WK35</td><td>📈 Growing</td><td><a href="https://arxiv.org/abs/2609.21474">MT-WAM</a>, <a href="https://arxiv.org/abs/2609.17372">XPACE</a></td></tr>
+<tr><td>Sparse world model representations (<a href="https://arxiv.org/abs/2608.22764">LpWM</a>)</td><td>WK35</td><td>🔬 Research</td><td>No new papers; monitoring</td></tr>
+<tr><td>Action adherence alignment (<a href="https://arxiv.org/abs/2608.24885">WorldSync</a>)</td><td>WK35</td><td>🧪 Early</td><td>Stable</td></tr>
+<tr><td>Autonomous driving WAMs</td><td>WK36</td><td>🧪 Early → 📈 Growing</td><td><a href="https://arxiv.org/abs/2609.21712">ZYT-World</a> production-ready; 2nd consecutive week</td></tr>
+<tr><td>Digital world models (web/browser)</td><td>WK36</td><td>🧪 Early</td><td>Stable — no new papers</td></tr>
+<tr><td>WM evaluation infrastructure</td><td>WK36</td><td>🧪 Early → 📈 Growing</td><td>3 new benchmarks/evaluations</td></tr>
+<tr><td>Safety-first world modeling</td><td>WK36</td><td>🔬 Research → 🧪 Early</td><td><a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio</a> elevates urgency; <a href="https://arxiv.org/abs/2609.21223">SafeStage</a></td></tr>
+<tr><td>**Universal WM architectures**</td><td>**WK38**</td><td>**🧪 Early**</td><td>**NEW: <a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> 7 domains**</td></tr>
+<tr><td>**LLM+WM verification**</td><td>**WK38**</td><td>**🧪 Early**</td><td>**NEW: <a href="https://arxiv.org/abs/2609.19315">GAVEL</a> 41.2%→91.8%**</td></tr>
+<tr><td>**WM compute efficiency methods**</td><td>**WK38**</td><td>**🧪 Early**</td><td>**NEW: 72% training + 97-99% adaptation reduction**</td></tr>
+<tr><td>**Continual/adaptive WMs**</td><td>**WK38**</td><td>**🧪 Early**</td><td>**NEW: 4 papers on dynamics adaptation**</td></tr>
+<tr><td>**Enterprise/healthcare WMs**</td><td>**WK38**</td><td>**🔬 Research**</td><td>**NEW: <a href="https://arxiv.org/abs/2609.19551">ServiceNow WM</a>; <a href="https://arxiv.org/abs/2609.21906">Clinical WMs</a>**</td></tr>
+</tbody></table>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="contrarian">🔮 Contrarian View</h2>
+<div class="contrarian"><h3>What the field may be overestimating</h3>
+<ul>
+<li>**Universal world model feasibility** — While <a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> demonstrates multi-domain modeling, the gap between "works across 7 domains" and "works well in each domain" may be substantial. Domain-specific papers this week (<a href="https://arxiv.org/abs/2609.21712">ZYT-World</a>, <a href="https://arxiv.org/abs/2609.20604">DexTouch-WM</a>, <a href="https://arxiv.org/abs/2609.21906">Clinical WMs</a>) achieve their results precisely through domain specialization. A universal world model that is 80% as good as domain-specific models may be insufficient for safety-critical applications.</li>
+<li>**LLM+WM hybrid simplicity** — <a href="https://arxiv.org/abs/2609.19315">GAVEL</a>'s impressive results require handcrafted graph schemas (object-relations, preconditions/effects). The engineering effort to create and maintain these schemas may not scale to open-world domains. The "LLM generates, WM verifies" pattern works when the WM's domain model is well-specified — which is the easy part of the problem.</li>
+<li>**Interactive WM market readiness** — <a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a>'s $0.009/min cost sounds cheap, but at 832x480 resolution it's far below gaming standards. Competitive gaming runs at 1080p+ at 60+ FPS. The "playable worlds" narrative may be premature until resolution and frame rate match existing expectations.</li>
+</ul>
+<h3>What the field may be underestimating</h3>
+<ul>
+<li>**Enterprise world models** — <a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM Discovery</a> is a sleeper result. Business rule discovery through agent interaction is precisely how enterprise AI should work — agents that learn the implicit constraints of complex systems rather than requiring manual specification. This application domain may grow faster than robotics.</li>
+<li>**World model safety urgency** — <a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio's analysis</a> connecting agent deception to world model capabilities is underappreciated. As world models improve, they don't just make agents more capable — they make deceptive planning more sophisticated. The safety research community has not yet internalized that better world models are dual-use.</li>
+<li>**Mechanistic world model understanding** — <a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers</a> demonstrates that behavioral evaluations miss the story — transformers can have faithful world models that fail due to feature interference. The field's reliance on end-to-end benchmarks may be masking fixable architectural problems.</li>
+<li>**Compute efficiency compounding** — <a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout</a> (72% training) + <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a> (97-99% adaptation) + <a href="https://arxiv.org/abs/2609.03681">WISE</a> (80% inference) compound multiplicatively. The effective cost reduction when all three are applied may exceed 99%, making world models economically viable for applications currently considered too expensive.</li>
+</ul>
+<hr class="section-divider"></div>
+<hr class="section-divider">
+<h2 id="strategy">🧭 Strategic Analysis</h2>
+<h3>Short-term (0-6 months)</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.19315">GAVEL</a> "LLM generates, WM verifies" pattern adopted across agent planning systems; becomes default architecture for reliable multi-step planning</li>
+<li><a href="https://arxiv.org/abs/2609.21712">ZYT-World</a> pattern (one-step distillation, multi-camera) replicated by AV companies for closed-loop simulation</li>
+<li><a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a> and <a href="https://arxiv.org/abs/2609.20034">Astronex-World 1.0</a> open releases trigger gaming/simulation industry experimentation with interactive world models</li>
+<li><a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a> + <a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout Truncation</a> adopted to reduce WM training and adaptation costs</li>
+<li><a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> inspires multi-domain world model pre-training experiments</li>
+</ul>
+<h3>Mid-term (6-18 months)</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> pattern evolves into foundation world model pre-training (analogous to GPT → foundation language model evolution)</li>
+<li><a href="https://arxiv.org/abs/2609.19551">Enterprise WMs</a> expand from ServiceNow to broader enterprise platforms; "world model for business rules" becomes a product category</li>
+<li><a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio's safety concerns</a> drive regulatory attention to world model capabilities in agent systems</li>
+<li>WM compute efficiency stack (<a href="https://arxiv.org/abs/2609.03681">WISE</a> + <a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout</a> + <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a>) becomes standard, reducing costs 10-100x</li>
+<li>Interactive world models reach 1080p at 30+ FPS, enabling consumer gaming applications</li>
+</ul>
+<h3>Long-term (2-5 years)</h3>
+<ul>
+<li>Foundation world models (<a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> lineage) pre-trained on diverse physical and digital environments become standard infrastructure</li>
+<li>Every LLM-based agent system includes explicit world model verification (<a href="https://arxiv.org/abs/2609.19315">GAVEL</a> pattern); unverified LLM planning becomes the exception</li>
+<li>World model safety certification required for deployment of agent systems that plan over extended horizons (<a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio's concerns</a> formalized)</li>
+<li><a href="https://arxiv.org/abs/2609.21748">Mechanistic world model understanding</a> enables targeted interventions to fix planning failures rather than retraining</li>
+</ul>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="relevance">🎯 Personalized Relevance</h2>
+<table>
+<thead><tr><th>Development</th><th>Relevance Areas</th><th>Score</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2609.19315">GAVEL</a> (graph WM for LLM planning)</td><td>Agentic AI, Search/Recommendation, Planning</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a> (universal WM)</td><td>World Models, Architecture, Foundation models</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM</a> (business rules)</td><td>Enterprise AI adoption, Search/Ads</td><td>10</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers</a> (mechanistic)</td><td>Evaluation frameworks, LLMs as WMs</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout Truncation</a> (efficiency)</td><td>Training efficiency, World Models</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.14858">Dream-RSI</a> (self-improvement)</td><td>Agentic AI, Self-improvement</td><td>9</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.21712">ZYT-World</a> (production driving WM)</td><td>World Models, Autonomous driving</td><td>8</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a> (interactive WM)</td><td>World Models, Interactive applications</td><td>8</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.19674">Conservation+Factoring</a> (stability+counterfactuals)</td><td>Counterfactual reasoning, Architecture</td><td>8</td></tr>
+<tr><td><a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio agent safety</a></td><td>Agent safety, WM safety</td><td>8</td></tr>
+</tbody></table>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="recommendations">✅ Recommendations</h2>
+<h3>For Research Scientists</h3>
+<ol>
+<li>**Read <a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a>** — the orthogonal factorization approach may enable foundation world models across domains. Evaluate whether your domain benefits from shared vs. domain-specific world modeling.</li>
+<li>**Study <a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers</a>** — mechanistic analysis reveals fixable failure modes (superposed feature interference). Apply causal intervention techniques to diagnose your own WM failures.</li>
+<li>**Read <a href="https://arxiv.org/abs/2609.19674">Conservation+Factoring</a>** — the "double dissociation" between stability and counterfactual generalization provides principled architectural guidance for physical world models.</li>
+<li>**Adopt <a href="https://arxiv.org/abs/2609.19315">GAVEL</a> verification pattern** — even if your LLM is imperfect, structured world model verification can rescue planning quality from 41% to 91%.</li>
+<li>**Benchmark <a href="https://arxiv.org/abs/2609.14858">Dream-RSI</a>** for agent self-improvement — replay simulators from experience are a low-cost path to recursive capability improvement.</li>
+</ol>
+<h3>For Applied Scientists & Engineers</h3>
+<ol>
+<li>**Implement <a href="https://arxiv.org/abs/2609.19315">GAVEL</a> "LLM generates, WM verifies"** for any multi-step planning system — the pattern is architecture-agnostic and works with small models (<a href="https://arxiv.org/abs/2609.19315">Qwen3-8B</a>).</li>
+<li>**Deploy <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a>** for WM adaptation — 97-99% parameter reduction means adapting world models to new domains is nearly free.</li>
+<li>**Use <a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout Truncation</a>** to cut WM training costs by 72% — epistemic uncertainty as a stopping criterion is principled and practical.</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a>** for interactive simulation applications — open weights and serving code make prototyping straightforward.</li>
+<li>**Follow <a href="https://arxiv.org/abs/2609.21712">ZYT-World</a> distillation pattern** for production WM deployment — one-step generation from multi-step teacher is the path to real-time.</li>
+</ol>
+<h3>For Search & Ads Teams</h3>
+<ol>
+<li>**Prototype <a href="https://arxiv.org/abs/2609.19315">GAVEL</a> graph-WM pattern** for recommendation policy verification — LLM-generated ranking strategies verified against user-item-context graph models.</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM</a>** for campaign rule discovery — agents that learn implicit marketplace constraints through interaction rather than manual specification.</li>
+<li>**Implement <a href="https://arxiv.org/abs/2609.18950">Changepoint-Aware WMs</a>** for detecting user behavior shifts — CUSUM-based detection + selective forgetting addresses seasonal and event-driven dynamics.</li>
+<li>**Study <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">System One Models</a>** for real-time bidding — 40-200x faster structured decisions could serve as action-selection layer in WM-powered bidding systems.</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="takeaways">🏆 Executive Takeaways</h2>
+<h3>Top 5 Technical Advances</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a>** — Universal world modeling across 7 domains via orthogonal factorization; foundation WM hypothesis | 25 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.19315">GAVEL</a>** — Graph WMs rescue LLM planning: 41.2% → 91.8% success via verify-and-repair | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers</a>** — Mechanistic analysis reveals superposed feature interference as WM failure root cause | 25 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.21712">ZYT-World</a>** — Production 7-camera driving WM; 107.7x speedup; real-time closed-loop simulation | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.19674">Conservation+Factoring</a>** — Stability and counterfactual generalization require independent architectural commitments | 20 min</li>
+</ol>
+<h3>Top 5 Business Developments</h3>
+<ol>
+<li>**<a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">System One Models (Jev)</a>** — New model class for structured decisions; 40-200x faster; 1,927 HN points</li>
+<li>**<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">Gemini 3.8 Live</a>** — Voice-first with extended thinking; 68.6% agentic task completion</li>
+<li>**<a href="https://arxiv.org/abs/2609.17909">Zing-0.5 open release</a>** — 5B playable WM at $0.009/min; weights+code+serving released</li>
+<li>**<a href="https://arxiv.org/abs/2609.19551">Enterprise WMs emerge</a>** — World models applied to business rule discovery in ServiceNow</li>
+<li>**<a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio on agent safety</a>** — WM capabilities enable sophisticated agent deception; 657 HN points</li>
+</ol>
+<h3>Top 5 Must-Read Resources</h3>
+<ol>
+<li>**<a href="https://arxiv.org/abs/2609.19315">GAVEL</a>** — LLM + graph WM verification = 91.8% planning success | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a>** — Universal world modeling across 7 domains | 25 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.21748">World Modeling in Transformers</a>** — How transformers build and break world models | 25 min</li>
+<li>**<a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio: AI Agent Misalignment</a>** — WM-enabled deception analysis | 20 min</li>
+<li>**<a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout Truncation</a>** — 72% training cost reduction via uncertainty | 15 min</li>
+</ol>
+<hr class="section-divider">
+<hr class="section-divider">
+<h2 id="next-week">📌 What Leaders Should Do Next Week</h2>
+<ol>
+<li>**Read <a href="https://arxiv.org/abs/2609.19315">GAVEL</a>** and evaluate whether your agent planning systems would benefit from explicit world model verification — the 41.2% → 91.8% improvement is the week's most actionable result</li>
+<li>**Study <a href="https://arxiv.org/abs/2609.20649">JEPA-Anything</a>** — assess whether your team should invest in universal vs. domain-specific world model architectures; this paper reframes the strategic question</li>
+<li>**Share <a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Bengio's agent safety analysis</a> with your safety team** — world model capabilities directly enable agent deception; this is a first-order risk for any team deploying planning agents</li>
+<li>**Implement <a href="https://arxiv.org/abs/2609.21740">Sandwich-Residuals</a> + <a href="https://arxiv.org/abs/2609.21482">Adaptive Rollout Truncation</a>** — combined 72-99% cost reduction makes world model training and adaptation dramatically cheaper</li>
+<li>**Evaluate <a href="https://arxiv.org/abs/2609.19551">Continual Enterprise WM</a>** for your enterprise AI roadmap — world models that discover business rules through interaction may be more practical than rule-based automation</li>
+<li>**Track the 37+ paper volume** — WK38's record output confirms world models have crossed from niche to mainstream research; staffing and budget plans should reflect this acceleration</li>
+<li>**Monitor <a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a> and <a href="https://arxiv.org/abs/2609.21712">ZYT-World</a>** for interactive/simulation applications — interactive world models are now commercially viable at $0.009/min and 107.7x real-time speed</li>
+</ol>
+<hr class="section-divider">
+<div class="meta"><p>Generated by render_html.py from markdown source.</p></div>
+</main>
+</div>
+<script>window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+    const btn = document.getElementById('backToTop');
+    btn.classList.toggle('visible', winScroll > 400);
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.toc a').forEach(a => a.classList.remove('active'));
+            const id = entry.target.id;
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));</script>
+</body>
+</html>

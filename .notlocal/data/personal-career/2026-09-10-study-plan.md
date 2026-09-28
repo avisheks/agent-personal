@@ -189,6 +189,104 @@ Agents that combine vision, text, and action (GUI interaction, document understa
 | Thu | Paper-to-product: "Would I use multi-agent for a research assistant? When does single-agent win?" | 90 min |
 | Fri | System design practice (verbalize): "Design a coding agent that can debug production issues autonomously." | 90 min |
 
+#### Agent Design Pattern Selection Framework
+
+When designing an agent system, the first architectural decision is the **composition pattern**. This is a Principal-level signal — junior candidates jump to "I'd use LangGraph with a supervisor agent." Principal candidates ask "what pattern does this problem actually require?"
+
+##### The Three Patterns
+
+```
+Pattern Spectrum (increasing autonomy & complexity)
+────────────────────────────────────────────────────────────────────────────
+Tool-Call Agent          Skill-Based Agent              Subagent + Orchestrator
+──────────────          ─────────────────              ───────────────────────
+Single LLM + tools      LLM dispatches to packaged     Parent agent delegates to
+in a ReAct loop.        skill SOPs, each with own      child agents, each with own
+LLM decides which       instructions, tools, and       context window, tools, and
+tool to call and when.  output schemas.                 potentially different models.
+
+Use when:               Use when:                      Use when:
+• Task is well-scoped   • Domain has stable,           • Tasks need parallel execution
+• <10 tool calls          reusable workflows           • Child tasks need different
+• Tools are reliable    • Skills are human-curated       expertise or tool sets
+• Single context          and independently testable   • Context isolation is critical
+  window suffices       • You want deterministic         (one subtask's context would
+                          routing + auditable paths       pollute another's)
+                        • Reliability > flexibility     • Scale requires fan-out
+
+Failure mode:           Failure mode:                  Failure mode:
+Tool selection errors   Rigid — can't handle tasks     Coordination overhead,
+compound over steps;    outside predefined skills;     context loss at handoffs,
+context window bloat    skill routing errors            high cost (N× model calls)
+on long trajectories
+
+Production examples:    Production examples:           Production examples:
+Claude Code (bash +     Your super-agent (career,      OpenHands (delegator +
+editor + file read),    news, researcher skills),      coder + verifier),
+ChatGPT with plugins,   Anthropic's agent routing,     AutoGen conversations,
+basic ReAct agents      enterprise workflow agents     CrewAI teams
+```
+
+##### Selection Decision Tree
+
+```
+Start here: What does the task look like?
+│
+├── Single well-defined task, <10 steps, tools are reliable?
+│   └── → Tool-call agent (simplest, cheapest, most debuggable)
+│
+├── Multiple distinct task types that recur, each with known workflows?
+│   └── → Skill-based agent (route to the right skill, execute its SOP)
+│       └── Within each skill: tool-call agent or deterministic workflow
+│
+├── Task requires parallel work OR different expertise per subtask?
+│   └── → Subagent + orchestrator
+│       └── Each subagent can be tool-call or skill-based internally
+│
+├── Task is open-ended, environment is unpredictable, steps unknown in advance?
+│   └── → Autonomous agent (tool-call with extended planning + memory)
+│       └── But ask: "Can I decompose this into skill-sized chunks instead?"
+│
+└── Unsure?
+    └── → Start with tool-call. Graduate to skills when patterns stabilize.
+         Graduate to subagents when you hit context/parallelism limits.
+```
+
+##### Selection Criteria Matrix
+
+| Criterion | Tool-Call | Skill-Based | Subagent + Orchestrator |
+|-----------|-----------|-------------|-------------------------|
+| **Task scope** | Single, bounded | Multiple known types | Complex, decomposable |
+| **Reliability** | Medium (LLM decides everything) | High (human-curated SOPs) | Medium (coordination risk) |
+| **Testability** | Test tools individually | Test each skill independently | Test subagents + integration |
+| **Context efficiency** | One context window | One per skill invocation | N separate windows (isolated) |
+| **Parallelism** | Sequential (mostly) | Sequential per skill | Parallel by design |
+| **Cost** | Lowest (1 LLM stream) | Low-medium (1 stream + routing) | Highest (N concurrent streams) |
+| **Debuggability** | Trace one trajectory | Trace routing + skill execution | Trace N trajectories + handoffs |
+| **Flexibility** | High (LLM improvises) | Low (predefined skills) | High (per-subagent) |
+
+##### Reading List
+
+| # | Resource | Type | Time | Read this for |
+|---|----------|------|------|---------------|
+| 1 | Anthropic — "Building Effective Agents" (blog, Dec 2024) | Blog | 30 min | *The canonical decision framework:* augmented LLM → prompt chaining → routing → parallelization → orchestrator-workers → evaluator-optimizer → autonomous agents. The graduated-complexity principle: "add complexity only when it demonstrably improves outcomes." |
+| 2 | Masterman et al. — "The Landscape of Emerging AI Agent Architectures for Reasoning, Planning, and Tool Calling: A Survey" (2024) | Paper | 60 min | *The academic survey:* systematic analysis of single-agent vs. multi-agent design patterns, leadership dynamics, communication protocols, and the planning→execution→reflection lifecycle. Covers when each pattern works and fails. |
+| 3 | Wu et al. — "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation" (Microsoft Research, 2023) | Paper | 60 min | *The multi-agent conversation paradigm:* how AutoGen models inter-agent communication as conversations with customizable roles. The key design tension: flexible multi-agent conversation vs. predictable workflow orchestration. |
+| 4 | Guo et al. — "Large Language Model based Multi-Agents: A Survey of Progress and Challenges" (2024) | Paper | 60 min | *The comprehensive multi-agent survey:* agent characterization, interaction mechanisms, coordination patterns, and capacity enhancement techniques across domains. Covers the design space you're choosing from. |
+| 5 | LangChain — "What is an Agent?" (blog, Jul 2026) | Blog | 20 min | *The practitioner's graduated autonomy model:* single LLM → chain → router → state machine → autonomous agent. Key principle: "graduate to multi-agent only when you hit clear limits" — context overflow, capability sprawl, or team boundaries. |
+| 6 | OpenAI — "A Practical Guide to Building Agents" (blog, 2025) | Blog | 30 min | *The production-first perspective:* start with a single agent + tools, add handoffs for specialization, orchestrate only when single-agent can't hold context. The "handoff" pattern as a lightweight alternative to full multi-agent. |
+| 7 | Andrew Ng — "Agentic Design Patterns" (DeepLearning.AI, 2024) | Video | 45 min | *The four foundational patterns:* reflection, tool use, planning, and multi-agent collaboration — and how they compose into production systems. Useful mental model for which pattern to reach for first. |
+
+##### Practice Questions
+
+> **Q1:** "You're designing an agent platform for a company with 15 different internal workflows (IT support, expense approvals, meeting scheduling, code review, etc.). Would you build one big agent, 15 specialized agents, or something else?"
+
+The Principal answer: skill-based routing. Each workflow is a skill with its own SOP, tools, and validation. A thin routing layer classifies intent and dispatches. This gives you: independent testability per skill, human-curated reliability, and the ability to add/modify skills without touching the router. You graduate individual skills to subagents only if they need parallel execution or isolated context.
+
+> **Q2:** "Your coding agent works well on single-file bugs but fails on cross-repository tasks that require coordinating changes across 3 services. How do you evolve the architecture?"
+
+The answer reveals pattern migration: the single tool-call agent hits context limits when it needs to hold 3 repos simultaneously. Option A: orchestrator that delegates each repo to a subagent (context isolation, parallel work, but coordination overhead). Option B: skill-based — one skill per service, orchestrated sequentially (simpler, but no parallelism). The decision depends on whether the cross-repo changes are independent (parallelize → subagents) or sequential (serialize → skills).
+
 #### SOTA / Frontier Topics
 
 ##### 🚀 Computer Use / GUI Agents
@@ -918,6 +1016,123 @@ After each mock, identify:
 - [ ] 6 mocks completed with self-scores recorded
 - [ ] No dimension consistently below 3 across mocks
 - [ ] Identified and closed top 3 gaps from mock feedback
+
+---
+
+### Supplemental Week: Harness Engineering (can run parallel with Weeks 7-8)
+
+**Objective:** Master the discipline of improving agent performance by optimizing everything *surrounding* the model — prompts, context assembly, workflow orchestration, memory, tools, verification, and execution control — without changing model weights. At Principal level, the interview question is not "write a better prompt" but "your agent succeeds 85% of the time — how do you get it to 95% without retraining?"
+
+#### The Core Mental Model
+
+```
+Agent Performance = Model × Harness
+```
+
+When the model is frozen (API-only, too expensive to fine-tune, or already frontier-capable), all improvement comes from the harness. The harness is the product. The model is a component.
+
+#### Harness Engineering Maturity Spectrum
+
+```
+Level 0       Level 1-2        Level 3-4          Level 5-6         Level 7
+Prompt Eng    Context/Flow     Memory/Verify      Observability     Self-Evolving
+──────────    ────────────     ─────────────      ─────────────     ────────────
+Manual        Semi-manual      Semi-automated     Data-driven       Fully autonomous
+Diminishing   Moderate gains   Large gains        Systematic        Compounding
+returns                                           improvement       improvement
+```
+
+#### Core Concepts to Master
+
+- **Level 0 — Prompt engineering**: Chain-of-thought, structured reasoning, role prompting — and its ceiling
+- **Level 1 — Context engineering**: Dynamic context assembly (CLAUDE.md, codebase indexing, conversation compression). Anthropic's principle: *what* goes into the prompt matters more than *how* it's phrased
+- **Level 2 — Workflow / orchestration engineering**: Multi-step execution graphs (ReAct, plan-and-execute, LangGraph). The execution graph as a first-class engineering artifact.
+- **Level 3 — Retrieval & memory engineering**: Working memory (scratchpads), episodic memory (trajectories), semantic memory (facts/skills), procedural memory (tool patterns). Memory as cross-session compounding.
+- **Level 4 — Verification & self-correction**: Rule-based validators → LLM-as-Judge → execution tests → business-rule validation → repair loop. Verification as a mandatory pipeline stage.
+- **Level 5 — Observability-driven optimization**: Trace-driven failure analysis (LangSmith, Langfuse). The shift from "improve my prompt" to "where does the execution pipeline fail?"
+- **Level 6 — Automatic harness optimization**: DSPy (programmatic pipeline optimization), SPEAR (autonomous prompt optimization agent), RHO (retrospective harness optimization from trajectory replay)
+- **Level 7 — Self-evolving harnesses**: The harness continuously improves itself — generates patches, evaluates against benchmarks, rolls back regressions, accumulates improvements over time
+
+#### Reading List
+
+| Resource | Type | Time | Priority |
+|----|----|----|-----|
+| Anthropic — "Building Effective Agents" (blog, Dec 2024) | Blog | 30 min | Must-read |
+| Simon Willison — "Context Engineering" (blog, 2025) | Blog | 20 min | Must-read |
+| Khattab et al. — "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines" (ICLR 2024) | Paper | 60 min | Must-read |
+| Pan et al. — "Retrospective Harness Optimization (RHO): Improving LLM Agents via Self-Preference over Trajectory Rollouts" (2026) | Paper | 60 min | Must-read |
+| SPEAR — "Autonomous Prompt Optimization via Agentic Search" (2026) | Paper | 45 min | Must-read |
+| Shinn et al. — "Reflexion: Language Agents with Verbal Reinforcement Learning" (NeurIPS 2023) | Paper | 45 min | Read |
+| Wang et al. — "Voyager: An Open-Ended Embodied Agent with LLMs" (2023) | Paper | 45 min | Read |
+| Park et al. — "Generative Agents: Interactive Simulacra of Human Behavior" (UIST 2023) | Paper | 30 min | Read |
+| Packer et al. — "MemGPT: Towards LLMs as Operating Systems" (2023) | Paper | 45 min | Read |
+| Harrison Chase — "What is Context Engineering?" (LangChain blog, 2025) | Blog | 20 min | Read |
+| LangSmith documentation — agent observability and evaluation | Docs | 30 min | Skim |
+
+#### Daily Schedule
+
+| Day | Activity | Duration |
+|-----|----------|----------|
+| Mon | Read: Anthropic "Building Effective Agents" + Simon Willison "Context Engineering." Map the maturity spectrum (Level 0-7). | 90 min |
+| Tue | Read: DSPy paper. Deep-dive: how does programmatic pipeline optimization differ from prompt engineering? Trace through a DSPy compilation step by step. | 90 min |
+| Wed | Read: RHO + SPEAR papers. Design exercise: "Your agent succeeds 85% of the time. You cannot retrain the model. Walk through each maturity level and explain what improvement each level unlocks." | 90 min |
+| Thu | Read: Reflexion + Voyager + MemGPT. Paper-to-product: map each paper to a maturity level. For each: "What failure mode does this level address that the previous level couldn't?" | 90 min |
+| Fri | Verbalize: Walk through a complete harness engineering strategy aloud (30 min). Practice question: "Design a harness improvement plan for a customer support agent that handles 10K queries/day and currently resolves 70%." (60 min) | 90 min |
+
+#### Key Interview Questions
+
+> **Q1:** "Your agent succeeds 85% of the time. How do you get to 95% without retraining?"
+
+Your answer should walk up the maturity spectrum: first check prompt/context quality (Level 0-1), then examine the execution workflow for missing verification steps (Level 2-4), then use observability to find systematic failure clusters (Level 5), then automate the fix-eval-deploy loop (Level 6-7). The Principal signal is *diagnostic reasoning*, not jumping to "try a better prompt."
+
+> **Q2:** "What's the difference between context engineering and prompt engineering?"
+
+Prompt engineering optimizes *wording*; context engineering optimizes *information assembly*. Context engineering includes: what documents to retrieve, how to rank/filter them, what system context to include, how to compress conversation history, what tools to expose, and how to structure the input for the model. Anthropic and OpenAI have converged on context engineering as the higher-leverage discipline.
+
+> **Q3:** "How would you design a self-improving agent system that doesn't require human prompt engineering?"
+
+This is the Level 6-7 question. Your answer should cover: automated failure clustering from traces → root-cause inference → candidate patch generation → regression testing → deployment gating → rollback. Reference RHO (trajectory replay) and SPEAR (agentic search over prompt space). Name the risks: reward hacking, compounding regressions, and the need for held-out test sets.
+
+#### SOTA / Frontier Topics
+
+##### 🧪 Retrospective Harness Optimization (RHO)
+Automated harness improvement from historical trajectory replay — the most concrete instantiation of Level 6-7.
+
+**Reading list:**
+1. Pan et al. — "Retrospective Harness Optimization (RHO): Improving LLM Agents via Self-Preference over Trajectory Rollouts" (Microsoft Research, 2026) | Paper | 60 min | *Read this for:* the three-mechanism loop: trajectory replay → candidate generation → self-preference evaluation → selective retention. SWE-Bench Pro improved from 59% to 78% in one unsupervised cycle.
+2. SPEAR — "Autonomous Prompt Optimization via Agentic Search" (2026) | Paper | 45 min | *Read this for:* the fully autonomous prompt optimizer — an agent that analyzes benchmark failures, generates prompt patches, writes helper code, and auto-rolls-back regressions
+3. Khattab et al. — "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines" (ICLR 2024) | Paper | 60 min | *Read this for:* the programmatic optimization paradigm — treat LLM pipelines as compilable programs with typed signatures and automated search over prompt/demo space
+4. Opsahl-Ong et al. — "Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs" (MIPRO, 2024) | Paper | 45 min | *Read this for:* how to automatically optimize multi-stage LLM pipelines end-to-end — the successor to manual prompt tuning at each stage
+5. Yuan et al. — "Self-Rewarding Language Models" (Meta, 2024) | Paper | 45 min | *Read this for:* the self-reward loop — models judging their own output to generate training/optimization signal, and the reward hacking risks when the judge and subject share parameters
+
+**Practice question:** "Your coding agent resolves 60% of GitHub issues. You have 10,000 trajectory traces from past runs. Design a harness optimization pipeline that improves resolution rate without retraining. What do you optimize (prompts, tools, workflow, memory), how do you generate candidates, how do you evaluate, and how do you prevent regressions?"
+
+##### 🚀 Context Engineering
+The emerging discipline that replaces prompt engineering as the primary lever for production agent performance.
+
+**Reading list:**
+1. Anthropic — "Building Effective Agents" (blog, Dec 2024) | Blog | 30 min | *Read this for:* the design principles — start simple, add complexity only when it demonstrably improves outcomes, and invest in tool/context design over prompt tricks
+2. Simon Willison — "Context Engineering" (blog, 2025) | Blog | 20 min | *Read this for:* the clearest articulation of why context > prompt — the practitioner framing that industry has converged on
+3. Harrison Chase — "What is Context Engineering?" (LangChain blog, 2025) | Blog | 20 min | *Read this for:* the framework-builder perspective — how LangChain's architecture reflects the shift from prompt templates to dynamic context assembly
+4. Anthropic — Claude Code architecture (CLAUDE.md, conversation compression, codebase indexing) | Docs | 30 min | *Read this for:* the most visible production implementation of context engineering — dynamic file loading, project memory, and conversation summarization as context management primitives
+5. OpenAI — Codex Agent architecture (2025) | Blog | 30 min | *Read this for:* structured context hierarchy — immutable policies separated from mutable task context, and how this architecture enables safe autonomous coding
+
+**Practice question:** "You're building a production agent that assists enterprise customers with complex multi-step workflows. The model is fixed (API). Walk me through your context engineering strategy: what goes in the system prompt (immutable), what's dynamically assembled per-request, how do you decide what to retrieve vs. what to include statically, and how do you know if your context assembly is working?"
+
+#### KB Resources
+📖 [Harness Engineering](../personal-researcher/reports/v2/notes/harness-engineering--notes.md)
+📖 [Self-Improving Agents](../personal-researcher/reports/v2/notes/self-improving-agents--notes.md)
+📖 [Claude Code](../personal-researcher/reports/v2/notes/claude-code.md)
+📖 [AI Planning & Orchestration](../personal-researcher/reports/v2/notes/ai-planning-orchestration.md)
+🃏 [agents/](../personal-researcher/reports/v2/notes/anki/agents/)
+
+#### Milestone Gate
+
+- [ ] Can draw the harness engineering maturity spectrum (Level 0-7) and explain what each level optimizes
+- [ ] Can articulate why context engineering > prompt engineering with 3+ specific examples
+- [ ] Can design a self-improving harness pipeline (failure analysis → patch generation → regression testing → deployment)
+- [ ] Can explain RHO's three-mechanism loop and when trajectory replay beats manual prompt iteration
+- [ ] Can answer: "Your agent succeeds 85% — get to 95% without retraining" with a structured diagnostic walk through the maturity spectrum
 
 ---
 
