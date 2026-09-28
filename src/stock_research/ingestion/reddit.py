@@ -44,7 +44,7 @@ _DEDICATED_SUB_PATTERNS = [
 _REQUEST_TIMEOUT = 15
 _RETRY_ATTEMPTS = 3
 _RETRY_BACKOFF_BASE = 2.0  # exponential: 2, 4, 8 seconds
-_SEARCH_DELAY = 5.0  # seconds between search requests (Reddit 429s at <3s)
+_SEARCH_DELAY = 2.0  # seconds between search requests (reduced from 5.0; RSS is primary engine and tolerates 2s)
 
 _USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -147,25 +147,35 @@ async def _fetch_all(
 
     posts: list[dict] = []
     errors: list[str] = []
+    _SEM_LIMIT = 3  # max concurrent subreddit searches
+
+    sem = asyncio.Semaphore(_SEM_LIMIT)
+
+    async def _bounded_search(client, sub: str) -> list[dict]:
+        async with sem:
+            await asyncio.sleep(_SEARCH_DELAY)
+            try:
+                sub_posts = await _search_subreddit(client, ticker, sub, days)
+                if sub_posts:
+                    logger.info(
+                        "  r/%s: %d posts found", sub, len(sub_posts)
+                    )
+                return sub_posts or []
+            except Exception as exc:
+                logger.warning("Failed to search r/%s for %s: %s", sub, ticker, exc)
+                errors.append(f"r/{sub}: {exc}")
+                return []
 
     async with httpx.AsyncClient(
         timeout=_REQUEST_TIMEOUT,
         headers={"User-Agent": _USER_AGENT},
         follow_redirects=True,
     ) as client:
-        for i, subreddit in enumerate(subreddits):
-            if i > 0:
-                await asyncio.sleep(_SEARCH_DELAY)
-            try:
-                sub_posts = await _search_subreddit(client, ticker, subreddit, days)
-                if sub_posts:
-                    logger.info(
-                        "  r/%s: %d posts found", subreddit, len(sub_posts)
-                    )
-                posts.extend(sub_posts)
-            except Exception as exc:
-                logger.warning("Failed to search r/%s for %s: %s", subreddit, ticker, exc)
-                errors.append(f"r/{subreddit}: {exc}")
+        results = await asyncio.gather(
+            *[_bounded_search(client, sub) for sub in subreddits]
+        )
+        for sub_posts in results:
+            posts.extend(sub_posts)
 
     if errors and not posts:
         logger.warning("All subreddit searches failed: %s", "; ".join(errors))

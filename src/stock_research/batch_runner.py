@@ -135,11 +135,15 @@ def _emit_event(event: dict) -> None:
 
 
 def _ingest_ticker(ticker: str, subreddits: list[str]) -> dict:
-    """Run full data ingestion for a single ticker. Returns a status dict."""
+    """Run full data ingestion for a single ticker. Returns a status dict.
+
+    SEC, Yahoo, and Reddit are fetched in parallel (they hit independent APIs).
+    DB writes happen sequentially after all fetches complete.
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
     from stock_research import db
     from stock_research.ingestion import sec, market_data, reddit
 
-    conn = db.get_connection()
     status = {
         "ticker": ticker,
         "sources_refreshed": [],
@@ -147,23 +151,58 @@ def _ingest_ticker(ticker: str, subreddits: list[str]) -> dict:
         "record_counts": {},
     }
 
-    # SEC XBRL
-    try:
-        fund = sec.fetch_fundamentals(ticker)
-        if fund:
-            db.upsert_fundamentals(conn, fund)
-            db.update_freshness(conn, ticker, "sec_xbrl", len(fund))
-            status["sources_refreshed"].append("sec_xbrl")
-            status["record_counts"]["sec_xbrl"] = len(fund)
-            logger.info("  SEC: %d quarterly records", len(fund))
-    except Exception as e:
-        status["sources_failed"].append(f"sec_xbrl: {e}")
-        logger.warning("  SEC failed: %s", e)
+    # Fetch all sources in parallel
+    def _fetch_sec():
+        return sec.fetch_fundamentals(ticker)
 
-    # Yahoo Finance
-    try:
+    def _fetch_yahoo():
         prices = market_data.fetch_prices(ticker, years=10)
         info = market_data.fetch_info(ticker)
+        return prices, info
+
+    def _fetch_reddit():
+        return reddit.fetch_reddit_posts(ticker, days=30, extra_subreddits=subreddits)
+
+    fund, prices, info, posts = None, None, None, None
+    sec_err, yahoo_err, reddit_err = None, None, None
+
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        fut_sec = pool.submit(_fetch_sec)
+        fut_yahoo = pool.submit(_fetch_yahoo)
+        fut_reddit = pool.submit(_fetch_reddit)
+
+        try:
+            fund = fut_sec.result()
+        except Exception as e:
+            sec_err = e
+
+        try:
+            prices, info = fut_yahoo.result()
+        except Exception as e:
+            yahoo_err = e
+
+        try:
+            posts = fut_reddit.result()
+        except Exception as e:
+            reddit_err = e
+
+    # Write to DB sequentially (single connection)
+    conn = db.get_connection()
+
+    if sec_err:
+        status["sources_failed"].append(f"sec_xbrl: {sec_err}")
+        logger.warning("  SEC failed: %s", sec_err)
+    elif fund:
+        db.upsert_fundamentals(conn, fund)
+        db.update_freshness(conn, ticker, "sec_xbrl", len(fund))
+        status["sources_refreshed"].append("sec_xbrl")
+        status["record_counts"]["sec_xbrl"] = len(fund)
+        logger.info("  SEC: %d quarterly records", len(fund))
+
+    if yahoo_err:
+        status["sources_failed"].append(f"yahoo_finance: {yahoo_err}")
+        logger.warning("  Yahoo failed: %s", yahoo_err)
+    else:
         if prices:
             db.upsert_prices(conn, prices)
             db.update_freshness(conn, ticker, "yahoo_finance", len(prices))
@@ -172,13 +211,11 @@ def _ingest_ticker(ticker: str, subreddits: list[str]) -> dict:
             logger.info("  Yahoo: %d price records", len(prices))
         if info:
             db.upsert_valuation(conn, [info])
-    except Exception as e:
-        status["sources_failed"].append(f"yahoo_finance: {e}")
-        logger.warning("  Yahoo failed: %s", e)
 
-    # Reddit
-    try:
-        posts = reddit.fetch_reddit_posts(ticker, days=30, extra_subreddits=subreddits)
+    if reddit_err:
+        status["sources_failed"].append(f"reddit: {reddit_err}")
+        logger.warning("  Reddit failed: %s", reddit_err)
+    else:
         db.update_freshness(conn, ticker, "reddit", len(posts) if posts else 0)
         if posts:
             db.upsert_sentiment(conn, posts)
@@ -187,9 +224,6 @@ def _ingest_ticker(ticker: str, subreddits: list[str]) -> dict:
             logger.info("  Reddit: %d posts", len(posts))
         else:
             logger.info("  Reddit: 0 posts")
-    except Exception as e:
-        status["sources_failed"].append(f"reddit: {e}")
-        logger.warning("  Reddit failed: %s", e)
 
     conn.close()
     return status

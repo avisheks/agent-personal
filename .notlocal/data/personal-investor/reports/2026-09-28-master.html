@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Portfolio Report -- 2026-09-28</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px; line-height: 1.75; color: #1a1a2e;
+    background: #ffffff; max-width: 960px; margin: 0 auto; padding: 20px 24px 60px;
+  }
+  h1 { font-size: 1.8rem; font-weight: 700; margin: 32px 0 8px; color: #0d1117; }
+  h2 { font-size: 1.4rem; font-weight: 700; margin: 28px 0 12px; color: #0d1117; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
+  h3 { font-size: 1.15rem; font-weight: 600; margin: 20px 0 8px; color: #1e293b; }
+  h4 { font-size: 1rem; font-weight: 600; margin: 16px 0 6px; color: #334155; }
+  p { margin: 8px 0; }
+  a { color: #2563eb; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  hr { border: none; border-top: 1px solid #e2e8f0; margin: 24px 0; }
+
+  /* Sticky nav */
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: #ffffff; border-bottom: 1px solid #e2e8f0;
+    padding: 10px 0; margin-bottom: 20px;
+    display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center;
+  }
+  .sticky-nav a {
+    font-size: 13px; font-weight: 500; color: #475569;
+    padding: 4px 10px; border-radius: 6px; transition: background 0.15s;
+  }
+  .sticky-nav a:hover { background: #f1f5f9; text-decoration: none; color: #1e293b; }
+
+  /* Banner */
+  .banner {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: 16px 20px; margin: 16px 0;
+  }
+  .banner-title { font-size: 0.85rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .banner-tickers { font-size: 0.82rem; color: #475569; line-height: 1.6; }
+  .banner-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .stat-chip {
+    font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+
+  /* Signal badges */
+  .signal-good { background: #dcfce7; color: #166534; }
+  .signal-hold { background: #fef9c3; color: #854d0e; }
+  .signal-exit { background: #fee2e2; color: #991b1b; }
+  .cross-golden { background: #fef3c7; color: #92400e; }
+  .cross-death { background: #e0e7ff; color: #3730a3; }
+  .cross-na { background: #f1f5f9; color: #64748b; }
+
+  /* Score pills */
+  .pill {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-size: 12px; font-weight: 700; min-width: 48px; text-align: center;
+  }
+  .pill-strong { background: #166534; color: #fff; }
+  .pill-moderate { background: #2563eb; color: #fff; }
+  .pill-elevated { background: #d97706; color: #fff; }
+  .pill-high { background: #dc2626; color: #fff; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  thead th {
+    background: #f8fafc; border-bottom: 2px solid #cbd5e1;
+    padding: 8px 6px; text-align: left; font-weight: 600; color: #334155;
+    white-space: nowrap; position: relative;
+  }
+  thead th.sortable { cursor: pointer; user-select: none; padding-right: 18px; }
+  thead th.sortable::after { content: '\25B4\25BE'; position: absolute; right: 3px; top: 50%; transform: translateY(-50%); font-size: 9px; color: #94a3b8; }
+  thead th.sort-asc::after { content: '\25B4'; color: #2563eb; }
+  thead th.sort-desc::after { content: '\25BE'; color: #2563eb; }
+  tbody td { padding: 6px 6px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  tbody tr:hover { background: #f8fafc; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Tier table */
+  .tier-table td:first-child { font-weight: 600; }
+
+  /* TOC */
+  .toc { background: #f8fafc; border-radius: 8px; padding: 14px 20px; margin: 16px 0; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin: 4px 0; font-size: 14px; }
+
+  /* Details / Appendix */
+  details { margin: 16px 0; }
+  details summary {
+    font-size: 1.2rem; font-weight: 700; cursor: pointer; padding: 12px 16px;
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+    list-style: none; display: flex; align-items: center; gap: 8px;
+  }
+  details summary::before { content: '\25B6'; font-size: 12px; transition: transform 0.2s; }
+  details[open] summary::before { transform: rotate(90deg); }
+  details summary::-webkit-details-marker { display: none; }
+  details .appendix-content { padding: 16px 0; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    body { padding: 12px 14px 40px; font-size: 14px; }
+    h1 { font-size: 1.4rem; }
+    h2 { font-size: 1.2rem; }
+    .sticky-nav { gap: 4px 10px; }
+    .sticky-nav a { font-size: 12px; padding: 3px 7px; }
+    table { font-size: 11px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .banner-stats { gap: 5px; }
+    .stat-chip { font-size: 11px; padding: 2px 7px; }
+  }
+
+  /* Print */
+  @media print {
+    .sticky-nav { position: static; }
+    details { open: true; }
+    body { max-width: 100%; }
+  }
+
+  .new-badge {
+    font-size: 10px; font-weight: 700; background: #8b5cf6; color: #fff;
+    padding: 1px 6px; border-radius: 4px; margin-left: 4px; vertical-align: middle;
+  }
+  .anomaly { background: #fffbeb; border-left: 3px solid #f59e0b; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; font-size: 13px; }
+  .takeaway { background: #f0fdf4; border-left: 3px solid #22c55e; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; font-size: 13px; }
+  .code-block { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 16px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; overflow-x: auto; white-space: pre; margin: 10px 0; }
+  strong { font-weight: 600; }
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<!-- Sticky Navigation -->
+<nav class="sticky-nav">
+  <a href="#s1">1. Risk Tiers</a>
+  <a href="#s2">2. Fundamentals</a>
+  <a href="#s3">3. Explore Next</a>
+  <a href="#s4">4. Sectors</a>
+  <a href="#s5">5. Best & Worst</a>
+  <a href="#appendix">Appendix</a>
+  <a href="#top" style="margin-left:auto; color:#94a3b8;">Top</a>
+</nav>
+
+<!-- Header -->
+<h1>Master Portfolio Report -- 2026-09-28</h1>
+<div class="banner">
+  <div class="banner-title">27 Tickers (1 new: VLO<span class="new-badge">NEW</span>)</div>
+  <div class="banner-tickers">BKNG, RDDT, SNPS, VRT, EXPE, SPCX, INOD, HOOD, COIN, TSLA, RKLB, LULU, MP, CRWV, IREN, IONQ, UUUU, ASTS, OKLO, QURE, QCOM, INTU, EBAY, XOM, COP, OXY, VLO</div>
+  <div class="banner-stats">
+    <span class="stat-chip signal-good">9 Good Entry</span>
+    <span class="stat-chip signal-hold">7 Hold / Wait</span>
+    <span class="stat-chip signal-exit">11 Consider Exit</span>
+    <span class="stat-chip" style="background:#e2e8f0;color:#475569;">|</span>
+    <span class="stat-chip cross-golden">11 Golden Cross</span>
+    <span class="stat-chip cross-death">15 Death Cross</span>
+    <span class="stat-chip cross-na">1 N/A</span>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <ol>
+    <li><a href="#s1">Risk Tier Summary</a></li>
+    <li><a href="#s2">Fundamentals Comparison</a></li>
+    <li><a href="#s3">Explore These Next</a></li>
+    <li><a href="#s4">Sector Grouping (with Medians)</a></li>
+    <li><a href="#s5">Best & Worst Across 14 Categories</a></li>
+    <li><a href="#appendix">Appendix -- EXPE Deep Dive</a></li>
+  </ol>
+</div>
+
+<hr>
+
+<!-- Section 1: Risk Tiers -->
+<h2 id="s1">1. Risk Tier Summary</h2>
+<table class="tier-table">
+  <thead>
+    <tr><th>Tier</th><th>Dashboard</th><th class="num">Count</th><th>Tickers</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="pill pill-strong">Strong</span></td>
+      <td>&ge; 7.0</td>
+      <td class="num">3</td>
+      <td>SNPS (8.06), BKNG (7.4), COP (7.10)</td>
+    </tr>
+    <tr>
+      <td><span class="pill pill-moderate">Moderate</span></td>
+      <td>5.0 -- 6.99</td>
+      <td class="num">16</td>
+      <td>XOM (6.80), VLO (6.8)<span class="new-badge">NEW</span>, RDDT (6.7), VRT (6.6), EXPE (6.6), INTU (6.5), SPCX (6.30), QCOM (6.1), HOOD (5.9), LULU (5.5), EBAY (5.3), RKLB (5.2), COIN (5.2), OXY (5.1), INOD (5.0), TSLA (5.0)</td>
+    </tr>
+    <tr>
+      <td><span class="pill pill-elevated">Elevated</span></td>
+      <td>3.0 -- 4.99</td>
+      <td class="num">6</td>
+      <td>MP (4.6), CRWV (4.50), UUUU (3.8), IREN (3.75), QURE (3.3), IONQ (3.0)</td>
+    </tr>
+    <tr>
+      <td><span class="pill pill-high">High Risk</span></td>
+      <td>&lt; 3.0</td>
+      <td class="num">2</td>
+      <td>ASTS (2.50), OKLO (2.20)</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>Total: 27 tickers</strong> -- 3 Strong, 16 Moderate, 6 Elevated, 2 High Risk</p>
+
+<hr>
+
+<!-- Section 2: Fundamentals -->
+<h2 id="s2">2. Fundamentals Comparison</h2>
+<p>Sorted by <strong>Dashboard</strong> score descending. Click column headers to re-sort.</p>
+<table id="fundamentals-table">
+  <thead>
+    <tr>
+      <th class="sortable" data-col="0" data-type="num">#</th>
+      <th class="sortable" data-col="1" data-type="str">Ticker</th>
+      <th class="sortable" data-col="2" data-type="dollar">Price</th>
+      <th class="sortable" data-col="3" data-type="mcap">MCap</th>
+      <th class="sortable" data-col="4" data-type="mult">P/E</th>
+      <th class="sortable" data-col="5" data-type="mult">Fwd P/E</th>
+      <th class="sortable" data-col="6" data-type="mult">EV/EBITDA</th>
+      <th class="sortable" data-col="7" data-type="mult">EV/Sales</th>
+      <th class="sortable" data-col="8" data-type="pct">Vol%</th>
+      <th>52wk Range</th>
+      <th>Valuation</th>
+      <th class="sortable" data-col="11" data-type="signal">Signal</th>
+      <th class="sortable" data-col="12" data-type="str">Cross</th>
+      <th class="sortable" data-col="13" data-type="num">Dashboard</th>
+      <th>Sector</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="num">1</td><td><strong>SNPS</strong></td><td class="num">$425.76</td><td class="num">$81.6B</td><td class="num">74x</td><td class="num">24.06x</td><td class="num">42.80x</td><td class="num">9.43x</td><td class="num">36.7%</td><td>$367.70 -- $534.56</td><td>$340 -- $620</td><td><span class="stat-chip signal-exit">Consider exit</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-strong">8.06</span></td><td>Semiconductor Software / EDA</td></tr>
+    <tr><td class="num">2</td><td><strong>BKNG</strong></td><td class="num">$162.59</td><td class="num">$126.0B</td><td class="num">18.07x</td><td class="num">13.15x</td><td class="num">12.19x</td><td class="num">4.49x</td><td class="num">32.9%</td><td>$153.37 -- $219.91</td><td>$120 -- $240</td><td><span class="stat-chip signal-good">Good entry</span></td><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num"><span class="pill pill-strong">7.4</span></td><td>Travel</td></tr>
+    <tr><td class="num">3</td><td><strong>COP</strong></td><td class="num">$127.30</td><td class="num">$152.93B</td><td class="num">16.8x</td><td class="num">13.2x</td><td class="num">6.3x</td><td class="num">2.6x</td><td class="num">37.8%</td><td>$83.04 -- $141.22</td><td>$90 -- $150</td><td><span class="stat-chip signal-hold">Hold / wait</span></td><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num"><span class="pill pill-strong">7.10</span></td><td>Energy / E&P</td></tr>
+    <tr><td class="num">4</td><td><strong>XOM</strong></td><td class="num">$160.59</td><td class="num">$660.33B</td><td class="num">20.7x</td><td class="num">15x</td><td class="num">10.3x</td><td class="num">1.9x</td><td class="num">28.4%</td><td>$107.52 -- $169.32</td><td>$120 -- $185</td><td><span class="stat-chip signal-hold">Hold / wait</span></td><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num"><span class="pill pill-moderate">6.80</span></td><td>Energy / Integrated Oil</td></tr>
+    <tr><td class="num">5</td><td><strong>VLO</strong> <span class="new-badge">NEW</span></td><td class="num">$387.18</td><td class="num">$111.48B</td><td class="num">16.15x</td><td class="num">10.18x</td><td class="num">8.84x</td><td class="num">0.89x</td><td class="num">40.46%</td><td>$153.14 -- $413.28</td><td>$280 -- $500</td><td><span class="stat-chip signal-hold">Hold / wait</span></td><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num"><span class="pill pill-moderate">6.8</span></td><td>Energy -- Refining</td></tr>
+    <tr><td class="num">6</td><td><strong>RDDT</strong></td><td class="num">$149.84</td><td class="num">$28.8B</td><td class="num">34.8x</td><td class="num">15.5x</td><td class="num">32.5x</td><td class="num">N/A</td><td class="num">79.3%</td><td>$121.84 -- $258.93</td><td>$38 -- $95</td><td><span class="stat-chip signal-exit">Consider exit</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-moderate">6.7</span></td><td>Social Media</td></tr>
+    <tr><td class="num">7</td><td><strong>VRT</strong></td><td class="num">$253.28</td><td class="num">$97.5B</td><td class="num">57.3x</td><td class="num">27.8x</td><td class="num">36.5x</td><td class="num">N/A</td><td class="num">56.4%</td><td>$138.47 -- $376.06</td><td>$110 -- $320</td><td><span class="stat-chip signal-good">Good entry</span></td><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num"><span class="pill pill-moderate">6.6</span></td><td>Data Center Infra</td></tr>
+    <tr><td class="num">8</td><td><strong>EXPE</strong></td><td class="num">$264.17</td><td class="num">$31.7B</td><td class="num">16.6x</td><td class="num">10.8x</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">44.7%</td><td>$187.43 -- $338.64</td><td>$145 -- $380</td><td><span class="stat-chip signal-good">Good entry</span></td><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num"><span class="pill pill-moderate">6.6</span></td><td>Online Travel</td></tr>
+    <tr><td class="num">9</td><td><strong>INTU</strong></td><td class="num">$275.79</td><td class="num">$73.7B</td><td class="num">16.8x</td><td class="num">10.2x</td><td class="num">10.94x</td><td class="num">3.49x</td><td class="num">34.8%</td><td>$253.95 -- $690.50</td><td>$200 -- $520</td><td><span class="stat-chip signal-good">Good entry</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-moderate">6.5</span></td><td>Financial Software</td></tr>
+    <tr><td class="num">10</td><td><strong>SPCX</strong></td><td class="num">$148.68</td><td class="num">$1.959T</td><td class="num">85.3x</td><td class="num">60x</td><td class="num">654.5x</td><td class="num">167.5x</td><td class="num">87.4%</td><td>$108.27 -- $211.39</td><td>$23 -- $194</td><td><span class="stat-chip signal-hold">Hold / wait</span></td><td><span class="stat-chip cross-na">N/A</span></td><td class="num"><span class="pill pill-moderate">6.30</span></td><td>Space Launch</td></tr>
+    <tr><td class="num">11</td><td><strong>QCOM</strong></td><td class="num">$201.97</td><td class="num">$215.7B</td><td class="num">23.08x</td><td class="num">25x</td><td class="num">18.26x</td><td class="num">4.97x</td><td class="num">39.76%</td><td>$122.94 -- $248.74</td><td>$145 -- $260</td><td><span class="stat-chip signal-hold">Hold / wait</span></td><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num"><span class="pill pill-moderate">6.1</span></td><td>Semiconductors</td></tr>
+    <tr><td class="num">12</td><td><strong>HOOD</strong></td><td class="num">$119.40</td><td class="num">$107.4B</td><td class="num">52.8x</td><td class="num">35.3x</td><td class="num">N/A</td><td class="num">21.6x</td><td class="num">72.6%</td><td>$65.16 -- $152.46</td><td>$55 -- $170</td><td><span class="stat-chip signal-good">Good entry</span></td><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num"><span class="pill pill-moderate">5.9</span></td><td>Fintech</td></tr>
+    <tr><td class="num">13</td><td><strong>LULU</strong></td><td class="num">$101.30</td><td class="num">$11.2B</td><td class="num">8.34x</td><td class="num">N/A</td><td class="num">5.02x</td><td class="num">1.08x</td><td class="num">41.75%</td><td>$95.98 -- $215.88</td><td>$55 -- $220</td><td><span class="stat-chip signal-good">Good entry</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-moderate">5.5</span></td><td>Athletic Apparel</td></tr>
+    <tr><td class="num">14</td><td><strong>EBAY</strong></td><td class="num">$107.90</td><td class="num">$48.0B</td><td class="num">22.7x</td><td class="num">16.1x</td><td class="num">16.7x</td><td class="num">4.32x</td><td class="num">31.3%</td><td>$78.69 -- $118.27</td><td>$72 -- $140</td><td><span class="stat-chip signal-hold">Hold / wait</span></td><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num"><span class="pill pill-moderate">5.3</span></td><td>E-Commerce</td></tr>
+    <tr><td class="num">15</td><td><strong>RKLB</strong></td><td class="num">$73.95</td><td class="num">$47.3B</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">54.7x</td><td class="num">76.82%</td><td>$39.48 -- $150.23</td><td>$25 -- $100</td><td><span class="stat-chip signal-exit">Consider exit</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-moderate">5.2</span></td><td>Space Launch</td></tr>
+    <tr><td class="num">16</td><td><strong>COIN</strong></td><td class="num">$195.11</td><td class="num">$51.5B</td><td class="num">68.8x</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">84.2%</td><td>$141.09 -- $387.27</td><td>$70 -- $400</td><td><span class="stat-chip signal-exit">Consider exit</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-moderate">5.2</span></td><td>Crypto Exchange</td></tr>
+    <tr><td class="num">17</td><td><strong>OXY</strong></td><td class="num">$56.86</td><td class="num">$56.84B</td><td class="num">16.77x</td><td class="num">14.15x</td><td class="num">5.56x</td><td class="num">3.19x</td><td class="num">51.14%</td><td>$38.38 -- $65.63</td><td>$42 -- $72</td><td><span class="stat-chip signal-hold">Hold / wait</span></td><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num"><span class="pill pill-moderate">5.1</span></td><td>Oil & Gas E&P</td></tr>
+    <tr><td class="num">18</td><td><strong>INOD</strong></td><td class="num">$69.21</td><td class="num">$2.38B</td><td class="num">53.7x</td><td class="num">33.2x</td><td class="num">36.0x</td><td class="num">6.7x</td><td class="num">84.6%</td><td>$34.45 -- $121.50</td><td>$45 -- $95</td><td><span class="stat-chip signal-exit">Consider exit</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-moderate">5.0</span></td><td>IT Services</td></tr>
+    <tr><td class="num">19</td><td><strong>TSLA</strong></td><td class="num">$372.11</td><td class="num">$1,470B</td><td class="num">345x</td><td class="num">172x</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">59.4%</td><td>$298.32 -- $489.88</td><td>$100 -- $750</td><td><span class="stat-chip signal-exit">Consider exit</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-moderate">5.0</span></td><td>EVs & Energy</td></tr>
+    <tr><td class="num">20</td><td><strong>MP</strong></td><td class="num">$48.83</td><td class="num">$8.7B</td><td class="num">55.88x</td><td class="num">55.88x</td><td class="num">212.39x</td><td class="num">20.76x</td><td class="num">70.49%</td><td>$38.10 -- $98.65</td><td>$5 -- $60</td><td><span class="stat-chip signal-exit">Consider exit</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-elevated">4.6</span></td><td>Rare Earth Mining</td></tr>
+    <tr><td class="num">21</td><td><strong>CRWV</strong></td><td class="num">$87.59</td><td class="num">$48.3B</td><td class="num">27.8x</td><td class="num">N/A</td><td class="num">24.9x</td><td class="num">12.4x</td><td class="num">108.8%</td><td>$60.82 -- $143.08</td><td>$15 -- $100</td><td><span class="stat-chip signal-exit">Consider exit</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-elevated">4.50</span></td><td>AI Infrastructure</td></tr>
+    <tr><td class="num">22</td><td><strong>UUUU</strong></td><td class="num">$11.35</td><td class="num">$3.01B</td><td class="num">23.4x</td><td class="num">23.4x</td><td class="num">N/A</td><td class="num">24.4x</td><td class="num">72.2%</td><td>$10.74 -- $27.72</td><td>$4 -- $20</td><td><span class="stat-chip signal-good">Good entry</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-elevated">3.8</span></td><td>Uranium-REE</td></tr>
+    <tr><td class="num">23</td><td><strong>IREN</strong></td><td class="num">$44.12</td><td class="num">$17.4B</td><td class="num">27.8x</td><td class="num">N/A</td><td class="num">504.1x</td><td class="num">27.3x</td><td class="num">115.1%</td><td>$29.31 -- $76.41</td><td>$18 -- $75</td><td><span class="stat-chip signal-exit">Consider exit</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-elevated">3.75</span></td><td>Digital Infrastructure</td></tr>
+    <tr><td class="num">24</td><td><strong>QURE</strong></td><td class="num">$38.23</td><td class="num">$2.65B</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">128.2x</td><td class="num">96.0%</td><td>$9.03 -- $70.59</td><td>$18 -- $80</td><td><span class="stat-chip signal-good">Good entry</span></td><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num"><span class="pill pill-elevated">3.3</span></td><td>Biotech-Gene-Therapy</td></tr>
+    <tr><td class="num">25</td><td><strong>IONQ</strong></td><td class="num">$45.48</td><td class="num">$18.43B</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">62.0x</td><td class="num">95.2%</td><td>$26.59 -- $82.09</td><td>$10 -- $80</td><td><span class="stat-chip signal-exit">Consider exit</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-elevated">3.0</span></td><td>Quantum</td></tr>
+    <tr><td class="num">26</td><td><strong>ASTS</strong></td><td class="num">$61.81</td><td class="num">$24.05B</td><td class="num">85.3x</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">171.2x</td><td class="num">95.3%</td><td>$48.84 -- $133.09</td><td>$15 -- $200</td><td><span class="stat-chip signal-exit">Consider exit</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-high">2.50</span></td><td>Space / Telecom</td></tr>
+    <tr><td class="num">27</td><td><strong>OKLO</strong></td><td class="num">$38.04</td><td class="num">$7.08B</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">86.6%</td><td>$35.62 -- $174.14</td><td>$10 -- $80</td><td><span class="stat-chip signal-good">Good entry</span></td><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num"><span class="pill pill-high">2.20</span></td><td>Nuclear Energy</td></tr>
+  </tbody>
+</table>
+
+<h3>Signal Distribution</h3>
+<table>
+  <thead><tr><th>Signal</th><th class="num">Count</th><th>Tickers</th></tr></thead>
+  <tbody>
+    <tr><td><span class="stat-chip signal-good">Good entry</span></td><td class="num">9</td><td>BKNG, VRT, EXPE, INTU, HOOD, LULU, UUUU, QURE, OKLO</td></tr>
+    <tr><td><span class="stat-chip signal-hold">Hold / wait</span></td><td class="num">7</td><td>SPCX, QCOM, EBAY, XOM, COP, OXY, VLO</td></tr>
+    <tr><td><span class="stat-chip signal-exit">Consider exit</span></td><td class="num">11</td><td>RDDT, SNPS, INOD, COIN, TSLA, RKLB, MP, CRWV, IREN, IONQ, ASTS</td></tr>
+  </tbody>
+</table>
+
+<h3>Cross Distribution</h3>
+<table>
+  <thead><tr><th>Cross</th><th class="num">Count</th><th>Tickers</th></tr></thead>
+  <tbody>
+    <tr><td><span class="stat-chip cross-golden">Golden Cross</span></td><td class="num">11</td><td>BKNG, VRT, EXPE, HOOD, QCOM, EBAY, XOM, COP, OXY, VLO, QURE</td></tr>
+    <tr><td><span class="stat-chip cross-death">Death Cross</span></td><td class="num">15</td><td>RDDT, SNPS, INOD, COIN, TSLA, RKLB, LULU, MP, CRWV, IREN, IONQ, UUUU, ASTS, OKLO, INTU</td></tr>
+    <tr><td><span class="stat-chip cross-na">N/A</span></td><td class="num">1</td><td>SPCX</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<!-- Section 3: Explore These Next -->
+<h2 id="s3">3. Explore These Next</h2>
+<p>Tickers grouped by signal strength and benchmarked against sector medians. <code>~FV</code> = Bear/Bull midpoint. <code>Discount%</code> = how far current price sits below ~FV (negative = premium).</p>
+
+<h3>Good Entry + Golden Cross (strongest technical setup)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">~FV</th><th class="num">Discount%</th><th class="num">Peer Fwd P/E</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><strong>BKNG</strong></td><td class="num">$162.59</td><td class="num">13.15x</td><td class="num">12.19x</td><td class="num">~$180</td><td class="num">-9.7%</td><td class="num">~18x</td><td>Cheapest large-cap travel; golden cross; dashboard 7.4/10</td></tr>
+    <tr><td><strong>EXPE</strong></td><td class="num">$264.17</td><td class="num">10.8x</td><td class="num">N/A</td><td class="num">~$262</td><td class="num">+0.8%</td><td class="num">~18x</td><td>Cheapest fwd P/E in travel; golden cross confirms momentum</td></tr>
+    <tr><td><strong>VRT</strong></td><td class="num">$253.28</td><td class="num">27.8x</td><td class="num">36.5x</td><td class="num">~$215</td><td class="num">-17.8%</td><td class="num">~22x</td><td>Premium but AI/power tailwind; golden cross; explore on pullbacks</td></tr>
+  </tbody>
+</table>
+<div class="takeaway"><strong>Takeaway:</strong> BKNG is the cleanest value-plus-momentum setup. EXPE is cheaper on fwd P/E but lower dashboard (6.6). VRT is above its midpoint -- only explore on pullbacks.</div>
+
+<h3>Good Entry + Death Cross (value emerging, trend not confirmed)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">~FV</th><th class="num">Discount%</th><th class="num">Peer Fwd P/E</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><strong>LULU</strong></td><td class="num">$101.30</td><td class="num">N/A</td><td class="num">5.02x</td><td class="num">~$137</td><td class="num">-26.4%</td><td class="num">~20x</td><td>P/E 8.3x absurdly cheap for premium retail; death cross = trend risk</td></tr>
+    <tr><td><strong>INTU</strong></td><td class="num">$275.79</td><td class="num">10.2x</td><td class="num">10.94x</td><td class="num">~$360</td><td class="num">-23.4%</td><td class="num">~28x</td><td>SaaS bellwether at half-sector fwd P/E; 52w high $690</td></tr>
+    <tr><td><strong>QURE</strong></td><td class="num">$38.23</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">~$49</td><td class="num">-22.0%</td><td class="num">N/A</td><td>Gene therapy pure play; signal inconsistency -- verify</td></tr>
+    <tr><td><strong>UUUU</strong></td><td class="num">$11.35</td><td class="num">23.4x</td><td class="num">N/A</td><td class="num">~$12</td><td class="num">-5.4%</td><td class="num">~18x</td><td>Uranium/REE dual exposure; cheaper than MP by wide margin</td></tr>
+    <tr><td><strong>OKLO</strong></td><td class="num">$38.04</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">~$45</td><td class="num">-15.5%</td><td class="num">N/A</td><td>~78% off 52w high; nuclear tailwinds; dashboard 2.2/10 highest-risk</td></tr>
+  </tbody>
+</table>
+<div class="takeaway"><strong>Takeaway:</strong> LULU and INTU are the standouts -- established businesses at deep discounts. Set alerts at $90 (LULU) and $250 (INTU) for capitulation entries.</div>
+
+<h3>Hold / Wait (neutral, watch for catalyst)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">~FV</th><th class="num">Discount%</th><th class="num">Peer Fwd P/E</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><strong>QCOM</strong></td><td class="num">$201.97</td><td class="num">25.0x</td><td class="num">18.26x</td><td class="num">~$202</td><td class="num">~0%</td><td class="num">~22x</td><td>Fair-valued; golden cross; catalyst needed (AI edge)</td></tr>
+    <tr><td><strong>EBAY</strong></td><td class="num">$107.90</td><td class="num">16.1x</td><td class="num">16.7x</td><td class="num">~$106</td><td class="num">-1.8%</td><td class="num">~20x</td><td>Slight discount; golden cross; stable but low-growth</td></tr>
+    <tr><td><strong>XOM</strong></td><td class="num">$160.59</td><td class="num">15.0x</td><td class="num">10.3x</td><td class="num">~$152</td><td class="num">+5.6%</td><td class="num">~13x</td><td>Slight premium; at 52w high zone; golden cross</td></tr>
+    <tr><td><strong>COP</strong></td><td class="num">$127.30</td><td class="num">13.2x</td><td class="num">6.3x</td><td class="num">~$120</td><td class="num">+6.1%</td><td class="num">~13x</td><td>Highest dashboard (7.1); golden cross; near fair value</td></tr>
+    <tr><td><strong>OXY</strong></td><td class="num">$56.86</td><td class="num">14.15x</td><td class="num">5.56x</td><td class="num">~$57</td><td class="num">~0%</td><td class="num">~13x</td><td>Cheapest EV/EBITDA in energy; Buffett-backed</td></tr>
+    <tr><td><strong>VLO</strong> <span class="new-badge">NEW</span></td><td class="num">$387.18</td><td class="num">10.18x</td><td class="num">8.84x</td><td class="num">~$390</td><td class="num">~0%</td><td class="num">~10x</td><td>Lowest fwd P/E in energy; refining margins cyclical</td></tr>
+    <tr><td><strong>SPCX</strong></td><td class="num">$148.68</td><td class="num">60.0x</td><td class="num">654.5x</td><td class="num">~$108</td><td class="num">-37.5%</td><td class="num">N/A</td><td>Extremely expensive; hold only if long-term space thesis</td></tr>
+  </tbody>
+</table>
+<div class="takeaway"><strong>Takeaway:</strong> Energy cluster (XOM/COP/OXY/VLO) is fairly valued with golden crosses -- portfolio ballast. VLO lowest fwd P/E (10.2x). COP best dashboard (7.1/10).</div>
+
+<h3>Consider Exit (overvalued or deteriorating)</h3>
+<table>
+  <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">~FV</th><th class="num">Premium%</th><th class="num">Dashboard</th><th>Key Risk</th></tr></thead>
+  <tbody>
+    <tr><td><strong>RDDT</strong></td><td class="num">$149.84</td><td class="num">15.5x</td><td class="num">32.5x</td><td class="num">~$66</td><td class="num">+127%</td><td class="num">6.7</td><td>2.3x above midpoint; death cross; vol 79%</td></tr>
+    <tr><td><strong>SNPS</strong></td><td class="num">$425.76</td><td class="num">24.06x</td><td class="num">42.80x</td><td class="num">~$480</td><td class="num">-11.3%</td><td class="num">8.06</td><td>Discounted to midpoint; death cross concern but highest dashboard</td></tr>
+    <tr><td><strong>TSLA</strong></td><td class="num">$372.11</td><td class="num">172.0x</td><td class="num">N/A</td><td class="num">~$425</td><td class="num">-12.4%</td><td class="num">5.0</td><td>Below midpoint but fwd P/E 172x extreme; death cross</td></tr>
+    <tr><td><strong>COIN</strong></td><td class="num">$195.11</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">~$235</td><td class="num">-17.0%</td><td class="num">5.2</td><td>Below midpoint; crypto-correlated; death cross</td></tr>
+    <tr><td><strong>HOOD</strong></td><td class="num">$119.40</td><td class="num">35.3x</td><td class="num">N/A</td><td class="num">~$112</td><td class="num">+6.6%</td><td class="num">5.9</td><td>Slight premium; golden cross positive; borderline hold</td></tr>
+    <tr><td><strong>RKLB</strong></td><td class="num">$73.95</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">~$62</td><td class="num">+19.3%</td><td class="num">5.2</td><td>Premium; no earnings; 51% off 52w high; death cross</td></tr>
+    <tr><td><strong>INOD</strong></td><td class="num">$69.21</td><td class="num">33.2x</td><td class="num">36.0x</td><td class="num">~$70</td><td class="num">-1.1%</td><td class="num">5.0</td><td>Near midpoint but fwd P/E 33x rich for IT services</td></tr>
+    <tr><td><strong>MP</strong></td><td class="num">$48.83</td><td class="num">55.88x</td><td class="num">212.39x</td><td class="num">~$32</td><td class="num">+52.6%</td><td class="num">4.6</td><td>Massive premium; P/E 55x extreme for a miner</td></tr>
+    <tr><td><strong>CRWV</strong></td><td class="num">$87.59</td><td class="num">N/A</td><td class="num">24.9x</td><td class="num">~$57</td><td class="num">+53.7%</td><td class="num">4.50</td><td>53% above midpoint; death cross; AI-infra hype</td></tr>
+    <tr><td><strong>IREN</strong></td><td class="num">$44.12</td><td class="num">N/A</td><td class="num">504.1x</td><td class="num">~$46</td><td class="num">-4.1%</td><td class="num">3.75</td><td>EV/EBITDA 504x absurd; death cross</td></tr>
+    <tr><td><strong>IONQ</strong></td><td class="num">$45.48</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">~$45</td><td class="num">+1.1%</td><td class="num">3.0</td><td>No earnings; lowest dashboard tier; pure speculation</td></tr>
+    <tr><td><strong>ASTS</strong></td><td class="num">$61.81</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">~$107</td><td class="num">-42.2%</td><td class="num">2.50</td><td>Pre-revenue; deep discount but dashboard 2.5/10</td></tr>
+  </tbody>
+</table>
+
+<div class="anomaly"><strong>Anomaly flags:</strong><br>
+<strong>SNPS</strong> (dashboard 8.06/10, discount to midpoint) may be miscategorized -- death cross could be sector-wide EDA pullback.<br>
+<strong>HOOD</strong> has golden cross despite "Consider exit" -- conflicting indicators; may be transitioning to Hold.<br>
+<strong>ASTS</strong> is 42% below midpoint with $200 bull case -- contrarian deep value at extreme risk.</div>
+
+<h3>Benchmark Summary</h3>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Portfolio Median (27)</th><th class="num">~S&P 500</th><th class="num">~Nasdaq 100</th></tr></thead>
+  <tbody>
+    <tr><td>Fwd P/E</td><td class="num">~23x</td><td class="num">~19x</td><td class="num">~25x</td></tr>
+    <tr><td>EV/EBITDA</td><td class="num">~18x</td><td class="num">~14x</td><td class="num">~20x</td></tr>
+    <tr><td>Volatility %</td><td class="num">~72%</td><td class="num">~18%</td><td class="num">~25%</td></tr>
+    <tr><td>Dashboard Score</td><td class="num">5.2/10</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+  </tbody>
+</table>
+<p>Portfolio skews significantly more volatile and expensive than broad benchmarks. Median vol ~72% is 4x the S&P 500 norm.</p>
+
+<h3>Priority Research Queue</h3>
+<ol>
+  <li><strong>LULU</strong> -- Deep value in quality retail; wait for death cross to resolve or set limit at $90</li>
+  <li><strong>INTU</strong> -- SaaS at value prices; fwd P/E 10.2x vs sector 28x unprecedented</li>
+  <li><strong>BKNG</strong> -- Cleanest setup (value + momentum + high dashboard)</li>
+  <li><strong>SNPS</strong> -- Highest dashboard; "exit" signal may be wrong; verify EDA dynamics</li>
+  <li><strong>COP/VLO</strong> -- Best energy pair for income/stability; both golden cross</li>
+</ol>
+
+<hr>
+
+<!-- Section 4: Sectors -->
+<h2 id="s4">4. Sector Grouping (with Medians)</h2>
+
+<h3>Energy (4) -- XOM, COP, OXY, VLO</h3>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Median</th></tr></thead>
+  <tbody>
+    <tr><td>P/E</td><td class="num">16.8x</td></tr>
+    <tr><td>Fwd P/E</td><td class="num">13.7x</td></tr>
+    <tr><td>EV/EBITDA</td><td class="num">7.6x</td></tr>
+    <tr><td>EV/Sales</td><td class="num">2.2x</td></tr>
+    <tr><td>Volatility</td><td class="num">39.1%</td></tr>
+    <tr><td>Dashboard Score</td><td class="num">6.8/10</td></tr>
+  </tbody>
+</table>
+
+<h3>Technology (6) -- SNPS, INOD, CRWV, IREN, QCOM, INTU</h3>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Median</th></tr></thead>
+  <tbody>
+    <tr><td>P/E</td><td class="num">27.8x</td></tr>
+    <tr><td>Fwd P/E</td><td class="num">24.5x</td></tr>
+    <tr><td>EV/EBITDA</td><td class="num">30.4x</td></tr>
+    <tr><td>EV/Sales</td><td class="num">8.1x</td></tr>
+    <tr><td>Volatility</td><td class="num">62.2%</td></tr>
+    <tr><td>Dashboard Score</td><td class="num">5.5/10</td></tr>
+  </tbody>
+</table>
+
+<h3>Aerospace & Space (3) -- SPCX, RKLB, ASTS</h3>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Median</th></tr></thead>
+  <tbody>
+    <tr><td>P/E</td><td class="num">85.3x</td></tr>
+    <tr><td>Fwd P/E</td><td class="num">60.0x</td></tr>
+    <tr><td>EV/EBITDA</td><td class="num">654.5x</td></tr>
+    <tr><td>EV/Sales</td><td class="num">167.5x</td></tr>
+    <tr><td>Volatility</td><td class="num">87.4%</td></tr>
+    <tr><td>Dashboard Score</td><td class="num">5.2/10</td></tr>
+  </tbody>
+</table>
+
+<h3>Travel & Leisure (2) -- BKNG, EXPE</h3>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Median</th></tr></thead>
+  <tbody>
+    <tr><td>P/E</td><td class="num">17.3x</td></tr>
+    <tr><td>Fwd P/E</td><td class="num">12.0x</td></tr>
+    <tr><td>EV/EBITDA</td><td class="num">12.2x</td></tr>
+    <tr><td>EV/Sales</td><td class="num">4.5x</td></tr>
+    <tr><td>Volatility</td><td class="num">38.8%</td></tr>
+    <tr><td>Dashboard Score</td><td class="num">7.0/10</td></tr>
+  </tbody>
+</table>
+
+<h3>Consumer Discretionary (3) -- TSLA, LULU, EBAY</h3>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Median</th></tr></thead>
+  <tbody>
+    <tr><td>P/E</td><td class="num">22.7x</td></tr>
+    <tr><td>Fwd P/E</td><td class="num">94.0x</td></tr>
+    <tr><td>EV/EBITDA</td><td class="num">10.9x</td></tr>
+    <tr><td>EV/Sales</td><td class="num">2.7x</td></tr>
+    <tr><td>Volatility</td><td class="num">41.8%</td></tr>
+    <tr><td>Dashboard Score</td><td class="num">5.3/10</td></tr>
+  </tbody>
+</table>
+
+<h3>Fintech & Crypto (2) -- HOOD, COIN</h3>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Median</th></tr></thead>
+  <tbody>
+    <tr><td>P/E</td><td class="num">60.8x</td></tr>
+    <tr><td>Fwd P/E</td><td class="num">35.3x</td></tr>
+    <tr><td>EV/EBITDA</td><td class="num">N/A</td></tr>
+    <tr><td>EV/Sales</td><td class="num">21.6x</td></tr>
+    <tr><td>Volatility</td><td class="num">78.4%</td></tr>
+    <tr><td>Dashboard Score</td><td class="num">5.6/10</td></tr>
+  </tbody>
+</table>
+
+<h3>Materials & Mining (2) -- MP, UUUU</h3>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Median</th></tr></thead>
+  <tbody>
+    <tr><td>P/E</td><td class="num">39.6x</td></tr>
+    <tr><td>Fwd P/E</td><td class="num">39.6x</td></tr>
+    <tr><td>EV/EBITDA</td><td class="num">212.4x</td></tr>
+    <tr><td>EV/Sales</td><td class="num">22.6x</td></tr>
+    <tr><td>Volatility</td><td class="num">71.3%</td></tr>
+    <tr><td>Dashboard Score</td><td class="num">4.2/10</td></tr>
+  </tbody>
+</table>
+
+<h3>Single-Ticker Sectors</h3>
+<table>
+  <thead><tr><th>Sector</th><th>Ticker</th><th class="num">P/E</th><th class="num">Fwd P/E</th><th class="num">EV/EBITDA</th><th class="num">Vol%</th><th class="num">Dashboard</th></tr></thead>
+  <tbody>
+    <tr><td>Industrials</td><td>VRT</td><td class="num">57.3x</td><td class="num">27.8x</td><td class="num">36.5x</td><td class="num">56.4%</td><td class="num">6.6/10</td></tr>
+    <tr><td>Communication</td><td>RDDT</td><td class="num">34.8x</td><td class="num">15.5x</td><td class="num">32.5x</td><td class="num">79.3%</td><td class="num">6.7/10</td></tr>
+    <tr><td>Quantum</td><td>IONQ</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">95.2%</td><td class="num">3.0/10</td></tr>
+    <tr><td>Nuclear</td><td>OKLO</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">86.6%</td><td class="num">2.2/10</td></tr>
+    <tr><td>Biotech</td><td>QURE</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">N/A</td><td class="num">96.0%</td><td class="num">3.3/10</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<!-- Section 5: Best & Worst -->
+<h2 id="s5">5. Best & Worst Across 14 Categories</h2>
+<table>
+  <thead><tr><th>#</th><th>Category</th><th>Best</th><th class="num">Value</th><th>Worst</th><th class="num">Value</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Lowest P/E (Value)</td><td><strong>LULU</strong></td><td class="num">8.3x</td><td><strong>TSLA</strong></td><td class="num">345.0x</td></tr>
+    <tr><td>2</td><td>Lowest Fwd P/E</td><td><strong>VLO</strong> <span class="new-badge">NEW</span></td><td class="num">10.2x</td><td><strong>TSLA</strong></td><td class="num">172.0x</td></tr>
+    <tr><td>3</td><td>Lowest EV/EBITDA</td><td><strong>LULU</strong></td><td class="num">5.0x</td><td><strong>SPCX</strong></td><td class="num">654.5x</td></tr>
+    <tr><td>4</td><td>Lowest EV/Sales</td><td><strong>VLO</strong> <span class="new-badge">NEW</span></td><td class="num">0.9x</td><td><strong>ASTS</strong></td><td class="num">171.2x</td></tr>
+    <tr><td>5</td><td>Highest Dashboard Score</td><td><strong>SNPS</strong></td><td class="num">8.1/10</td><td><strong>OKLO</strong></td><td class="num">2.2/10</td></tr>
+    <tr><td>6</td><td>Lowest Volatility</td><td><strong>XOM</strong></td><td class="num">28.4%</td><td><strong>IREN</strong></td><td class="num">115.1%</td></tr>
+    <tr><td>7</td><td>Highest Volatility</td><td><strong>IREN</strong></td><td class="num">115.1%</td><td><strong>XOM</strong></td><td class="num">28.4%</td></tr>
+    <tr><td>8</td><td>Greatest Bull Upside %</td><td><strong>ASTS</strong></td><td class="num">+224%</td><td><strong>RDDT</strong></td><td class="num">-37%</td></tr>
+    <tr><td>9</td><td>Smallest Bear Cushion %</td><td><strong>SNPS</strong></td><td class="num">20%</td><td><strong>MP</strong></td><td class="num">90%</td></tr>
+    <tr><td>10</td><td>Furthest from 52w High</td><td><strong>OKLO</strong></td><td class="num">-78%</td><td><strong>XOM</strong></td><td class="num">-5%</td></tr>
+    <tr><td>11</td><td>Closest to 52w High</td><td><strong>XOM</strong></td><td class="num">-5%</td><td><strong>OKLO</strong></td><td class="num">-78%</td></tr>
+    <tr><td>12</td><td>Most Above 52w Low</td><td><strong>QURE</strong></td><td class="num">+323%</td><td><strong>LULU</strong></td><td class="num">+6%</td></tr>
+    <tr><td>13</td><td>Nearest to 52w Low</td><td><strong>LULU</strong></td><td class="num">+6%</td><td><strong>QURE</strong></td><td class="num">+323%</td></tr>
+    <tr><td>14</td><td>Largest Market Cap</td><td><strong>SPCX</strong></td><td class="num">$1,959B</td><td><strong>INOD</strong></td><td class="num">$2B</td></tr>
+  </tbody>
+</table>
+
+<h3>Key Takeaways</h3>
+<ul>
+  <li><strong>Value lives in Energy:</strong> All four energy names cluster at median P/E ~17x and Fwd P/E ~13x -- cheapest sector.</li>
+  <li><strong>Highest conviction:</strong> SNPS leads at 8.06/10; COP (7.1) and BKNG (7.4) round out the top three.</li>
+  <li><strong>Speculative extremes:</strong> SPCX (654x EV/EBITDA), ASTS (171x EV/Sales), TSLA (345x P/E) carry richest valuations.</li>
+  <li><strong>Volatility spectrum:</strong> Energy (28-51%) calm; IREN (115%), CRWV (109%), QURE (96%) turbulent.</li>
+  <li><strong>Upside vs. risk:</strong> QURE and OKLO offer ~110% bull upside but sit in pre-revenue territory.</li>
+</ul>
+
+<hr>
+
+<!-- Appendix -->
+<details id="appendix">
+  <summary>Appendix -- EXPE (Expedia Group, Inc.) Deep Dive</summary>
+  <div class="appendix-content">
+
+<table>
+  <tbody>
+    <tr><td><strong>Ticker</strong></td><td>EXPE</td></tr>
+    <tr><td><strong>Sector</strong></td><td>Consumer Discretionary / Online Travel</td></tr>
+    <tr><td><strong>Price</strong></td><td>$264.17</td></tr>
+    <tr><td><strong>Market Cap</strong></td><td>~$31.7B</td></tr>
+    <tr><td><strong>Enterprise Value</strong></td><td>~$31.5B</td></tr>
+    <tr><td><strong>Report Date</strong></td><td>2026-09-28</td></tr>
+  </tbody>
+</table>
+
+<h3>Executive Summary</h3>
+<p>EXPE is a mature, cash-generative online travel platform trading at a forward P/E of 10.8x with solid FCF ($3.1B), moderate growth (7.6% revenue), and a recent Golden Cross. A textbook GARP candidate in an improving technical setup.</p>
+
+<h4>Valuation Range</h4>
+<div class="code-block">EXPE Price: $264.17
+
+$120      $150       $180       $220       $280       $340
+ |---------|----------|----------|----------|----------|--*
+ |  BEAR ($120-150)  |   BASE ($180-220)  | BULL ($280-340)|
+                                                     CURRENT</div>
+
+<h4>Quality Gate</h4>
+<table>
+  <thead><tr><th>Check</th><th>Pass?</th><th>Detail</th></tr></thead>
+  <tbody>
+    <tr><td>Positive FCF</td><td>Yes</td><td>$3,110M FCF (FY2025)</td></tr>
+    <tr><td>Profitable (NI > 0)</td><td>Yes</td><td>$1,294M NI, $9.81 EPS (FY2025)</td></tr>
+    <tr><td>D/E Ratio</td><td>N/A</td><td>Debt data unavailable</td></tr>
+    <tr><td>ROIC</td><td>N/A</td><td>Not available</td></tr>
+  </tbody>
+</table>
+<p><strong>Verdict: PASSES.</strong> FCF exceeds net income by 2.4x, indicating high-quality earnings.</p>
+
+<h4>Valuation Snapshot</h4>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Value</th><th>Context</th></tr></thead>
+  <tbody>
+    <tr><td>P/E (Trailing)</td><td class="num">16.6x</td><td>Reasonable for travel</td></tr>
+    <tr><td>Forward P/E</td><td class="num">10.8x</td><td>Cheap; implies significant earnings growth</td></tr>
+    <tr><td>EV/Sales</td><td class="num">2.0x</td><td>Very low for tech-enabled platform</td></tr>
+    <tr><td>EV/EBITDA</td><td class="num">10.9x</td><td>Below S&P 500 average</td></tr>
+    <tr><td>P/Sales</td><td class="num">2.0x</td><td>Low valuation multiple</td></tr>
+  </tbody>
+</table>
+
+<h4>Implied Metrics</h4>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Value</th><th>Basis</th></tr></thead>
+  <tbody>
+    <tr><td>Implied Forward EPS</td><td class="num">~$24.46</td><td>Price / Forward P/E</td></tr>
+    <tr><td>FCF Yield</td><td class="num">~9.8%</td><td>FCF / Market Cap</td></tr>
+    <tr><td>FCF/NI Ratio</td><td class="num">240%</td><td>$3,110M / $1,294M</td></tr>
+    <tr><td>CapEx/Revenue</td><td class="num">5.2%</td><td>$770M / $14,733M</td></tr>
+    <tr><td>EV/FCF</td><td class="num">10.1x</td><td>$31.5B / $3,110M</td></tr>
+  </tbody>
+</table>
+
+<h3>Earnings Quality</h3>
+
+<h4>Revenue Trajectory</h4>
+<table>
+  <thead><tr><th>Fiscal Year</th><th class="num">Revenue</th><th class="num">YoY Growth</th></tr></thead>
+  <tbody>
+    <tr><td>FY2020</td><td class="num">$0.92B</td><td class="num">-66.5%</td></tr>
+    <tr><td>FY2021</td><td class="num">$8.60B</td><td class="num">+834%</td></tr>
+    <tr><td>FY2022</td><td class="num">$11.67B</td><td class="num">+35.7%</td></tr>
+    <tr><td>FY2023</td><td class="num">$12.84B</td><td class="num">+10.0%</td></tr>
+    <tr><td>FY2024</td><td class="num">$13.69B</td><td class="num">+6.6%</td></tr>
+    <tr><td>FY2025</td><td class="num">$14.73B</td><td class="num">+7.6%</td></tr>
+  </tbody>
+</table>
+
+<h4>Cash Flow Quality</h4>
+<table>
+  <thead><tr><th>Metric</th><th class="num">FY2024</th><th class="num">FY2025</th><th class="num">Growth</th></tr></thead>
+  <tbody>
+    <tr><td>Operating Cash Flow</td><td class="num">$3,085M</td><td class="num">$3,880M</td><td class="num">+26%</td></tr>
+    <tr><td>CapEx</td><td class="num">$756M</td><td class="num">$770M</td><td class="num">+2%</td></tr>
+    <tr><td>Free Cash Flow</td><td class="num">$2,329M</td><td class="num">$3,110M</td><td class="num">+34%</td></tr>
+    <tr><td>FCF/NI Ratio</td><td class="num">189%</td><td class="num">240%</td><td class="num">Improving</td></tr>
+  </tbody>
+</table>
+
+<h4>Q2 2026 Earnings Acceleration</h4>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Q2 2026</th><th>Comparison</th></tr></thead>
+  <tbody>
+    <tr><td>Revenue</td><td class="num">$4,315M</td><td>+14.0% YoY (vs. +6.4% Q2 2025)</td></tr>
+    <tr><td>EPS</td><td class="num">$7.16</td><td>vs. $2.48 Q2 2025 (+189%)</td></tr>
+    <tr><td>OCF YTD</td><td class="num">$5,409M</td><td>vs. $4,073M through Q2 2025</td></tr>
+    <tr><td>FCF YTD</td><td class="num">$5,026M</td><td>On track for stronger FY2026</td></tr>
+  </tbody>
+</table>
+<p><strong>Earnings Quality Score: 8/10</strong> -- Exceptional FCF conversion, accelerating revenue and earnings.</p>
+
+<h3>Company Fundamentals</h3>
+<p>Expedia Group operates online travel brands: Expedia, Hotels.com, Vrbo, Travelocity, Orbitz. One of two dominant OTAs globally alongside Booking Holdings.</p>
+
+<h4>Technical Price Signals</h4>
+<table>
+  <thead><tr><th>Indicator</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Current Price</td><td>$264.17</td></tr>
+    <tr><td>52-Week High</td><td>$338.64 (22.0% below)</td></tr>
+    <tr><td>52-Week Low</td><td>$187.43 (40.9% above)</td></tr>
+    <tr><td>50-Day SMA</td><td>$297.69</td></tr>
+    <tr><td>200-Day SMA</td><td>$259.54</td></tr>
+    <tr><td>Most Recent Cross</td><td>Golden Cross (2026-07-28)</td></tr>
+  </tbody>
+</table>
+<p><strong>Entry/Exit Signal: <span class="stat-chip signal-good">Good entry</span></strong> -- Golden Cross confirmed July 28. Price above 200-day SMA but below 50-day SMA, suggesting pullback within uptrend.</p>
+
+<h3>Quarterly History</h3>
+<table>
+  <thead><tr><th>Period</th><th class="num">Revenue</th><th class="num">Rev YoY</th><th class="num">Net Income</th><th class="num">EPS</th></tr></thead>
+  <tbody>
+    <tr><td>Q3 2020</td><td class="num">$1,504M</td><td class="num">-57.7%</td><td class="num">-$192M</td><td class="num">-$1.56</td></tr>
+    <tr><td>Q3 2021</td><td class="num">$2,962M</td><td class="num">+96.9%</td><td class="num">$376M</td><td class="num">$2.26</td></tr>
+    <tr><td>Q3 2022</td><td class="num">$3,619M</td><td class="num">+22.2%</td><td class="num">$482M</td><td class="num">$2.98</td></tr>
+    <tr><td>Q3 2023</td><td class="num">$3,929M</td><td class="num">+8.6%</td><td class="num">$425M</td><td class="num">$2.87</td></tr>
+    <tr><td>Q3 2024</td><td class="num">$4,060M</td><td class="num">+3.3%</td><td class="num">$684M</td><td class="num">$5.04</td></tr>
+    <tr><td>Q3 2025</td><td class="num">$4,412M</td><td class="num">+8.7%</td><td class="num">$959M</td><td class="num">$7.33</td></tr>
+    <tr><td>Q2 2026</td><td class="num">$4,315M</td><td class="num">+14.0%</td><td class="num">$878M</td><td class="num">$7.16</td></tr>
+  </tbody>
+</table>
+
+<h4>Annual Summary</h4>
+<table>
+  <thead><tr><th>Fiscal Year</th><th class="num">Revenue</th><th class="num">Net Income</th><th class="num">EPS</th><th class="num">FCF</th></tr></thead>
+  <tbody>
+    <tr><td>FY2022</td><td class="num">$11,667M</td><td class="num">$352M</td><td class="num">$2.17</td><td class="num">$2,778M</td></tr>
+    <tr><td>FY2023</td><td class="num">$12,839M</td><td class="num">$797M</td><td class="num">$5.31</td><td class="num">$1,844M</td></tr>
+    <tr><td>FY2024</td><td class="num">$13,691M</td><td class="num">$1,234M</td><td class="num">$8.95</td><td class="num">$2,329M</td></tr>
+    <tr><td>FY2025</td><td class="num">$14,733M</td><td class="num">$1,294M</td><td class="num">$9.81</td><td class="num">$3,110M</td></tr>
+  </tbody>
+</table>
+
+<h3>Valuation vs Expectations</h3>
+<p>At $31.7B market cap and $3.1B FCF (WACC 9%, terminal growth 2.5%), the market prices in ~0-3% annualized FCF growth. For a company growing at 7-14% with expanding FCF margins, this appears overly conservative.</p>
+
+<h4>Forward DCF Scenarios</h4>
+<table>
+  <thead><tr><th>Scenario</th><th class="num">Rev Growth (Y1-3)</th><th class="num">Rev Growth (Y4-5)</th><th class="num">FCF Margin</th><th class="num">Terminal</th><th class="num">Fair Value</th><th class="num">vs. $264</th></tr></thead>
+  <tbody>
+    <tr><td>Bear</td><td class="num">3%</td><td class="num">2%</td><td class="num">18%</td><td class="num">10x FCF</td><td class="num">~$145</td><td class="num">-45%</td></tr>
+    <tr><td>Base</td><td class="num">8%</td><td class="num">5%</td><td class="num">22%</td><td class="num">14x FCF</td><td class="num">~$250</td><td class="num">-5%</td></tr>
+    <tr><td>Bull</td><td class="num">12%</td><td class="num">8%</td><td class="num">25%</td><td class="num">18x FCF</td><td class="num">~$380</td><td class="num">+44%</td></tr>
+  </tbody>
+</table>
+
+<h3>Outlook (3/6/12-Month)</h3>
+<table>
+  <thead><tr><th>Horizon</th><th>Range</th><th>Bias</th><th>Key Factor</th></tr></thead>
+  <tbody>
+    <tr><td>3-Month</td><td>$230-310</td><td>Moderately bullish</td><td>Q3 earnings confirmation</td></tr>
+    <tr><td>6-Month</td><td>$210-340</td><td>Bullish</td><td>Cheap valuation + Golden Cross</td></tr>
+    <tr><td>12-Month</td><td>$200-380</td><td>Bullish</td><td>9.8% FCF yield + upside optionality</td></tr>
+  </tbody>
+</table>
+
+<h3>Contrarian Analysis</h3>
+<h4>Bull Case</h4>
+<ol>
+  <li><strong>FCF yield of 9.8% is deeply cheap.</strong> Even with zero growth, buybacks alone provide compelling return.</li>
+  <li><strong>Q2 2026 may mark an inflection.</strong> 14.0% revenue growth suggests operational improvements accelerating.</li>
+  <li><strong>AI-driven efficiency.</strong> Travel platforms are early AI adopters -- margin expansion potential.</li>
+  <li><strong>Share buybacks compound value.</strong> $3.1B+ annual FCF could drive 5-8% annual EPS growth on flat revenue.</li>
+</ol>
+
+<h4>Bear Case</h4>
+<ol>
+  <li><strong>Cyclical exposure.</strong> Recession would hit discretionary travel spending.</li>
+  <li><strong>Google competition.</strong> Expanding travel search could disintermediate OTAs.</li>
+  <li><strong>Single-digit growth.</strong> 7.6% does not attract growth investors.</li>
+  <li><strong>Vrbo turnaround uncertainty.</strong> Underperforming Airbnb in vacation rentals.</li>
+</ol>
+
+<h3>Risk Analysis</h3>
+<table>
+  <thead><tr><th>Risk Factor</th><th>Severity</th><th>Probability</th><th>Impact</th></tr></thead>
+  <tbody>
+    <tr><td>Recession / travel demand</td><td>HIGH</td><td>LOW-MED</td><td>VERY HIGH</td></tr>
+    <tr><td>Google disintermediation</td><td>MEDIUM</td><td>MEDIUM</td><td>HIGH</td></tr>
+    <tr><td>Currency headwinds</td><td>LOW</td><td>MEDIUM</td><td>LOW</td></tr>
+    <tr><td>Regulatory risk</td><td>LOW</td><td>LOW</td><td>LOW</td></tr>
+    <tr><td>Price volatility</td><td>HIGH</td><td>CERTAIN</td><td>MEDIUM</td></tr>
+  </tbody>
+</table>
+
+<table>
+  <thead><tr><th>Quantitative Metric</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Annualized Volatility</td><td>44.7%</td></tr>
+    <tr><td>Max Drawdown</td><td>86.7%</td></tr>
+    <tr><td>VaR 95% (Daily)</td><td>-3.8%</td></tr>
+    <tr><td>Risk Rating</td><td>Very High</td></tr>
+  </tbody>
+</table>
+
+<h3>Catalysts</h3>
+<table>
+  <thead><tr><th>Catalyst</th><th>Timeframe</th><th>Direction</th><th>Probability</th><th>Impact</th></tr></thead>
+  <tbody>
+    <tr><td>Q3 2026 earnings</td><td>Oct-Nov 2026</td><td>Bullish</td><td>High</td><td>HIGH</td></tr>
+    <tr><td>Share buyback acceleration</td><td>Ongoing</td><td>Bullish</td><td>High</td><td>MEDIUM</td></tr>
+    <tr><td>Vrbo turnaround</td><td>6-12 months</td><td>Bullish</td><td>Medium</td><td>MEDIUM</td></tr>
+    <tr><td>AI margin expansion</td><td>Ongoing</td><td>Bullish</td><td>Medium</td><td>MEDIUM</td></tr>
+    <tr><td>Recession / demand shock</td><td>Anytime</td><td>Bearish</td><td>Low-Med</td><td>HIGH</td></tr>
+    <tr><td>Google Travel expansion</td><td>Ongoing</td><td>Bearish</td><td>Medium</td><td>MEDIUM</td></tr>
+  </tbody>
+</table>
+
+<h3>Investment Dashboard</h3>
+<table>
+  <thead><tr><th>#</th><th>Dimension</th><th class="num">Score</th><th>Assessment</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Earnings Quality</td><td class="num">8/10</td><td>Exceptional FCF conversion (240%), accelerating</td></tr>
+    <tr><td>2</td><td>Business Quality</td><td class="num">7/10</td><td>Scale, brands, data advantage; OTA competition</td></tr>
+    <tr><td>3</td><td>Financial Strength</td><td class="num">8/10</td><td>$3.1B FCF, strong OCF growth</td></tr>
+    <tr><td>4</td><td>Growth</td><td class="num">6/10</td><td>7.6% rev; Q2 acceleration to 14.0%</td></tr>
+    <tr><td>5</td><td>Valuation</td><td class="num">9/10</td><td>Fwd P/E 10.8x, FCF yield 9.8%</td></tr>
+    <tr><td>6</td><td>Risk</td><td class="num">5/10</td><td>44.7% vol, 86.7% max drawdown</td></tr>
+    <tr><td>7</td><td>Sentiment</td><td class="num">3/10</td><td>Zero retail coverage</td></tr>
+    <tr><td>8</td><td>Catalyst Density</td><td class="num">6/10</td><td>Q3 earnings, buybacks, Vrbo</td></tr>
+    <tr><td>9</td><td>Management</td><td class="num">7/10</td><td>Consistent earnings growth, strong FCF</td></tr>
+    <tr><td>10</td><td>Durability</td><td class="num">7/10</td><td>Secular travel; brand diversification</td></tr>
+    <tr><td></td><td><strong>Composite</strong></td><td class="num"><strong><span class="pill pill-moderate">6.6/10</span></strong></td><td><strong>Attractively valued travel platform with strong cash generation</strong></td></tr>
+  </tbody>
+</table>
+
+  </div>
+</details>
+
+<hr>
+<p style="font-size:12px;color:#94a3b8;text-align:center;margin-top:32px;">Report generated 2026-09-28. Data sources: public filings, market data feeds, analyst estimates. All forward-looking statements are estimates and subject to change.</p>
+
+<!-- Sortable JS -->
+<script>
+(function(){
+  const table = document.getElementById('fundamentals-table');
+  if (!table) return;
+  const headers = table.querySelectorAll('thead th.sortable');
+  let currentCol = -1, currentDir = 'asc';
+
+  function parseVal(td, type) {
+    const txt = td.textContent.trim();
+    if (type === 'num') {
+      const n = parseFloat(txt.replace(/[^0-9.\-]/g, ''));
+      return isNaN(n) ? -Infinity : n;
+    }
+    if (type === 'dollar') {
+      const n = parseFloat(txt.replace(/[$,]/g, ''));
+      return isNaN(n) ? -Infinity : n;
+    }
+    if (type === 'mcap') {
+      const m = txt.match(/([\d,.]+)\s*(T|B|M)?/i);
+      if (!m) return -Infinity;
+      let v = parseFloat(m[1].replace(/,/g, ''));
+      if (m[2] === 'T') v *= 1e12;
+      else if (m[2] === 'B') v *= 1e9;
+      else if (m[2] === 'M') v *= 1e6;
+      return v;
+    }
+    if (type === 'mult') {
+      if (txt === 'N/A') return Infinity;
+      const n = parseFloat(txt.replace(/[^0-9.\-]/g, ''));
+      return isNaN(n) ? Infinity : n;
+    }
+    if (type === 'pct') {
+      const n = parseFloat(txt.replace(/[^0-9.\-]/g, ''));
+      return isNaN(n) ? Infinity : n;
+    }
+    if (type === 'signal') {
+      if (txt.includes('Good')) return 1;
+      if (txt.includes('Hold')) return 2;
+      return 3;
+    }
+    return txt.toLowerCase();
+  }
+
+  headers.forEach(function(th) {
+    th.addEventListener('click', function() {
+      const col = parseInt(th.dataset.col);
+      const type = th.dataset.type;
+      if (currentCol === col) {
+        currentDir = currentDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        currentDir = 'asc';
+        currentCol = col;
+      }
+      headers.forEach(function(h) { h.classList.remove('sort-asc', 'sort-desc'); });
+      th.classList.add(currentDir === 'asc' ? 'sort-asc' : 'sort-desc');
+
+      const tbody = table.querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      rows.sort(function(a, b) {
+        const va = parseVal(a.cells[col], type);
+        const vb = parseVal(b.cells[col], type);
+        if (typeof va === 'string') {
+          return currentDir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+        }
+        return currentDir === 'asc' ? va - vb : vb - va;
+      });
+      rows.forEach(function(r) { tbody.appendChild(r); });
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -112,11 +112,11 @@ Reddit blocks Anthropic/Claude specifically (no API deal unlike Google/OpenAI). 
 
 **Engine order:** RSS (primary) → DDG (burst fallback) → Google (last resort). The Reddit JSON API and old.reddit.com are kept in the code but almost never succeed.
 
-**Critical rate limit rule:** Reddit RSS returns 429 after rapid bursts. The ingestion MUST:
-1. Wait ≥5 seconds between subreddit requests (not 2s as was originally set)
-2. Process tickers sequentially, not in parallel
-3. If 429'd, wait 60+ seconds before retrying
-4. For 20 tickers × 10 subs each = 200 requests → at 5s each = ~17 minutes minimum
+**Critical rate limit rule:** Reddit can return 429 after rapid bursts. The ingestion MUST:
+1. Wait ≥2 seconds between subreddit requests (RSS primary engine tolerates 2s; JSON API needs 5s+)
+2. Use semaphore-bounded concurrency (max 3 concurrent subreddit searches per ticker)
+3. If 429'd, wait 60+ seconds before retrying (exponential backoff built into retry logic)
+4. For 27 tickers × ~10 subs each = ~270 requests → with 3-way parallelism at 2s each = ~6 minutes for Reddit
 
 **Do NOT use WebFetch for Reddit.** WebFetch routes through a smaller model that compresses and sometimes invents content. Instead, use httpx (curl-style) to fetch raw RSS/JSON and parse it directly. This is why our reddit.py uses httpx+BeautifulSoup, not WebFetch.
 
@@ -445,7 +445,13 @@ The cron auto-expires after 7 days. The cron prompt includes a self-renewal step
 
 See "Cron Job Safety Gate" below for the mandatory HITL approval flow.
 
-**Delay:** 60 seconds between tickers (tested 2026-09-20, 21 tickers, no rate limits). Config: `config/weekly-batch.yaml`.
+**Delay:** 30 seconds between tickers via `--delay 30` CLI flag. Config default in `config/weekly-batch.yaml` is 60s but CLI override is preferred.
+
+**Performance optimizations (implemented 2026-09-28):**
+- **Parallel source fetching:** SEC, Yahoo, Reddit run concurrently within each ticker via ThreadPoolExecutor (3 workers). Reddit no longer blocks Yahoo/SEC.
+- **Parallel subreddit searches:** Reddit searches run 3-at-a-time via asyncio.Semaphore instead of sequentially. Reduces Reddit time from ~50s to ~15-20s per ticker.
+- **Reduced Reddit delay:** `_SEARCH_DELAY` reduced from 5.0s to 2.0s (RSS is primary engine, tolerates 2s).
+- **Expected total:** 27 tickers × ~25s = **~11 minutes** (down from ~45 min).
 
 ### Tool Preference Rules (reduces permission prompts)
 

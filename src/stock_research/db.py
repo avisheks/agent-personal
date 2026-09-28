@@ -292,9 +292,21 @@ def upsert_sentiment(conn: duckdb.DuckDBPyConnection, records: list[dict]) -> in
         return 0
 
     now = datetime.utcnow()
-    columns = list(records[0].keys())
+
+    # Get actual table columns to filter out any extra keys from source data
+    table_cols = {
+        row[0]
+        for row in conn.execute(
+            "SELECT column_name FROM information_schema.columns "
+            "WHERE table_name = 'sentiment_observations'"
+        ).fetchall()
+    }
+
+    columns = [k for k in records[0].keys() if k in table_cols]
     for rec in records:
         rec.setdefault("updated_at", now)
+    if "updated_at" not in columns and "updated_at" in table_cols:
+        columns.append("updated_at")
 
     placeholders = ", ".join(["?"] * len(columns))
     col_list = ", ".join(columns)
