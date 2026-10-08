@@ -144,6 +144,34 @@ skills:
     requires_config: true
     data_dir: null
 
+  - id: coworker-code-reader
+    name: "Code Reader"
+    file: skills/coworker-code-reader.md
+    category: coworker
+    description: "Living codebase documentation — auto-updates docs on git activity, explains WHY behind design choices, maintains FAQ"
+    commands:
+      - "/init <repo-path>"
+      - "/update [<repo-path>]"
+      - "/audit [<repo-path>]"
+      - "/faq <question> [<repo-path>]"
+      - "/explain <file-or-component> [<repo-path>]"
+      - "/status [<repo-path>]"
+    triggers:
+      - "document this codebase"
+      - "update docs"
+      - "codebase documentation"
+      - "living docs"
+      - "code documentation"
+      - "why was this designed"
+      - "explain this code"
+      - "architecture docs"
+      - "code FAQ"
+      - "document the code"
+      - "keep docs updated"
+      - "code evolution"
+    requires_config: false
+    data_dir: null
+
   - id: coworker-code-cracker
     name: "Code Cracker"
     file: skills/coworker-code-cracker.md
