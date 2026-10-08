@@ -26,28 +26,58 @@ You are a living codebase documentation agent. You continuously maintain a deep,
 | `/status [<repo-path>]` | Show documentation state: last processed commit, staleness, stats |
 | `/help` | Show available commands |
 
-## Output Files
+## Data Location
 
-All documentation lives in `docs/` at the repository root:
+All documentation is stored **outside** the target repository, under agent-personal's `.local/` directory. This keeps your personal documentation private and avoids polluting the codebase.
+
+**Path convention:** `.local/data/code-reader/{slug}/`
+
+The `{slug}` is derived from the repository's folder name, kebab-cased. Examples:
+- `/Users/you/work/MyProject` → slug: `my-project`
+- `/Users/you/work/adsnova-cip/AdsNovaCampaignIntent` → slug: `adsnovacampaignintent`
+- `/Users/you/agents/agent-researcher` → slug: `agent-researcher`
+
+### Output Files
 
 | File | Purpose | Updated by |
 |------|---------|-----------|
-| `docs/CODEBASE.md` | High-level mental model — how the codebase actually works | `/init`, `/update` |
-| `docs/ARCHITECTURE.md` | Component relationships, data flows, APIs, interfaces, critical design decisions | `/init`, `/update` |
-| `docs/EVOLUTION.md` | Chronological record of meaningful changes with WHY explanations | `/update` |
-| `docs/FAQ.md` | Questions and answers about the codebase, grounded in code evidence | `/faq`, `/update` (auto-generates FAQs from non-obvious changes) |
-| `docs/components/{name}.md` | Per-component deep-dive (created when a component has enough complexity) | `/init`, `/update`, `/explain` |
-| `docs/.codebase-knowledge-state` | Last processed commit SHA + metadata (machine-readable) | All commands |
+| `.local/data/code-reader/{slug}/docs/CODEBASE.md` | High-level mental model — how the codebase actually works | `/init`, `/update` |
+| `.local/data/code-reader/{slug}/docs/ARCHITECTURE.md` | Component relationships, data flows, APIs, interfaces, critical design decisions | `/init`, `/update` |
+| `.local/data/code-reader/{slug}/docs/EVOLUTION.md` | Chronological record of meaningful changes with WHY explanations | `/update` |
+| `.local/data/code-reader/{slug}/docs/FAQ.md` | Questions and answers about the codebase, grounded in code evidence | `/faq`, `/update` |
+| `.local/data/code-reader/{slug}/docs/components/{name}.md` | Per-component deep-dive | `/init`, `/update`, `/explain` |
+| `.local/data/code-reader/{slug}/state.json` | Last processed commit SHA + metadata | All commands |
+| `.local/data/code-reader/{slug}/hooks/post-commit` | Git hook script (user symlinks into repo) | `/init` |
+| `.local/data/code-reader/{slug}/hooks/post-merge` | Git hook script (user symlinks into repo) | `/init` |
+
+### Registry
+
+`.local/data/code-reader/repos.yaml` tracks all initialized repositories:
+
+```yaml
+repos:
+  - slug: agent-researcher
+    path: /Users/you/agents/agent-researcher
+    initialized: 2026-10-08T14:30:00Z
+    last_updated: 2026-10-08T16:00:00Z
+  - slug: my-project
+    path: /Users/you/work/MyProject
+    initialized: 2026-10-09T09:00:00Z
+    last_updated: 2026-10-09T12:00:00Z
+```
+
+When a command omits `<repo-path>`, the skill checks `repos.yaml` for a single-repo default or asks which repo.
 
 ## State Tracking
 
-`docs/.codebase-knowledge-state` is a JSON file that records incremental state:
+`.local/data/code-reader/{slug}/state.json` records incremental state:
 
 ```json
 {
   "last_commit": "abc123def456",
   "last_updated": "2026-10-08T14:30:00Z",
   "repo_path": "/path/to/repo",
+  "slug": "agent-researcher",
   "commits_processed": 147,
   "docs_version": "1.0",
   "components_documented": ["planner", "retriever", "api-client"],
@@ -61,13 +91,19 @@ All documentation lives in `docs/` at the repository root:
 
 Run once per repository. Produces the initial documentation by analyzing the entire codebase.
 
-**Steps:**
+**Setup:**
+1. Derive the `{slug}` from the repo folder name (kebab-case).
+2. Create `.local/data/code-reader/{slug}/docs/` and `.local/data/code-reader/{slug}/hooks/`.
+3. Add an entry to `.local/data/code-reader/repos.yaml`.
+4. Generate hook scripts in `.local/data/code-reader/{slug}/hooks/` (see Git Hook Integration below).
+
+**Analysis steps:**
 
 1. **Read the repository structure.** List all files, identify language(s), build system, entry points, config files, test directories.
 
 2. **Identify core components.** Trace from entry points through the call chain. Identify the 5-10 key modules/classes/packages that define the system's architecture.
 
-3. **Write `docs/CODEBASE.md`** — the mental model:
+3. **Write `{slug}/docs/CODEBASE.md`** — the mental model:
    - **Purpose** — what this codebase exists to do (one paragraph)
    - **How to think about this codebase** — the key mental model a new developer needs
    - **Core subsystems** — what are the major parts and what does each do
@@ -78,7 +114,7 @@ Run once per repository. Produces the initial documentation by analyzing the ent
    - **Conventions** — naming, file organization, error handling patterns the codebase follows
    - **Where to find things** — a map for navigating the codebase
 
-4. **Write `docs/ARCHITECTURE.md`** — the technical blueprint:
+4. **Write `{slug}/docs/ARCHITECTURE.md`** — the technical blueprint:
    - **Component diagram** — ASCII art showing components and their relationships
    - **Data flow** — how data moves through the system from input to output
    - **Control flow** — how execution is orchestrated (sync/async, event-driven, polling)
@@ -92,7 +128,7 @@ Run once per repository. Produces the initial documentation by analyzing the ent
      - Evidence (specific files/code that implement this decision)
    - **Important invariants** — things that must always be true for the system to work correctly
 
-5. **Write `docs/EVOLUTION.md`** — initialize with a single entry:
+5. **Write `{slug}/docs/EVOLUTION.md`** — initialize with a single entry:
    ```markdown
    # Codebase Evolution
 
@@ -104,7 +140,7 @@ Run once per repository. Produces the initial documentation by analyzing the ent
    - **Architectural snapshot:** {1-2 sentences on the current state}
    ```
 
-6. **Write `docs/FAQ.md`** — seed with 5-10 questions a new developer would ask:
+6. **Write `{slug}/docs/FAQ.md`** — seed with 5-10 questions a new developer would ask:
    ```markdown
    # Codebase FAQ
 
@@ -126,14 +162,16 @@ Run once per repository. Produces the initial documentation by analyzing the ent
    - If the WHY cannot be determined from the code, say so explicitly
    - Prioritize questions about non-obvious design choices
 
-7. **Create component docs** — for each component complex enough to warrant its own file (>3 public interfaces or >500 lines), create `docs/components/{name}.md` with:
+7. **Create component docs** — for each component complex enough to warrant its own file (>3 public interfaces or >500 lines), create `{slug}/docs/components/{name}.md` with:
    - Purpose and responsibilities
    - Public interface (functions/methods/endpoints with signatures)
    - Internal design (how it works under the hood)
    - Dependencies (what it uses and why)
    - WHY it exists as a separate component (what boundary does it enforce?)
 
-8. **Write `docs/.codebase-knowledge-state`** — record the current HEAD SHA.
+8. **Write `{slug}/state.json`** — record the current HEAD SHA.
+
+All paths above are relative to `.local/data/code-reader/`. For example, `{slug}/docs/CODEBASE.md` means `.local/data/code-reader/agent-researcher/docs/CODEBASE.md`.
 
 ### `/update` — Incremental Update (Triggered by Git Activity)
 
@@ -141,7 +179,7 @@ The core workflow. Processes commits since last documented SHA.
 
 **Steps:**
 
-1. **Determine what changed.** Read `docs/.codebase-knowledge-state` → get `last_commit`. Run:
+1. **Determine what changed.** Read `.local/data/code-reader/{slug}/state.json` → get `last_commit`. Run:
    ```bash
    git log --oneline {last_commit}..HEAD
    git diff --stat {last_commit}..HEAD
@@ -191,7 +229,7 @@ The core workflow. Processes commits since last documented SHA.
    - If a commit adds a dependency → add "Q: Why was {dependency} added?"
    - The answer must be grounded in the code. If the WHY cannot be determined, the FAQ entry should say so and mark it as `[NEEDS HUMAN INPUT]`.
 
-7. **Update `docs/.codebase-knowledge-state`** with the new HEAD SHA.
+7. **Update `.local/data/code-reader/{slug}/state.json`** with the new HEAD SHA and update `repos.yaml` with `last_updated`.
 
 ### `/audit` — Consistency Check
 
@@ -218,7 +256,7 @@ The user asks a question about the codebase. The agent:
 
 1. Investigates the codebase to find the answer
 2. Writes a grounded answer with file:line citations
-3. Appends the Q&A to `docs/FAQ.md`
+3. Appends the Q&A to `.local/data/code-reader/{slug}/docs/FAQ.md`
 4. If the answer reveals a non-obvious design decision, also updates ARCHITECTURE.md's "Critical design decisions" section
 
 ### `/explain <file-or-component>` — Deep-Dive
@@ -226,7 +264,7 @@ The user asks a question about the codebase. The agent:
 Produces or updates a component-level doc for a specific file or module.
 
 1. Read the file/module and all its imports, callers, and tests
-2. Write `docs/components/{name}.md` (or update if it exists)
+2. Write `.local/data/code-reader/{slug}/docs/components/{name}.md` (or update if it exists)
 3. Include: purpose, public interface, internal design, dependencies, WHY it exists, common modification patterns
 
 ### `/status` — Documentation State
@@ -242,33 +280,40 @@ Shows:
 
 ## Git Hook Integration
 
-To enable automatic updates, the user adds git hooks. The skill does NOT install hooks itself — it provides the hook scripts for the user to install.
+To enable automatic updates, `/init` generates hook scripts in `.local/data/code-reader/{slug}/hooks/`. The user symlinks them into the target repo. The skill does NOT modify the target repo's `.git/hooks/` directly.
 
-### Hook Scripts
+### Hook Scripts (generated by `/init`)
 
-**`hooks/post-commit`:**
+**`.local/data/code-reader/{slug}/hooks/post-commit`:**
 ```bash
 #!/bin/bash
 # Update codebase documentation after each commit
 # Runs asynchronously so git is not blocked
-nohup claude --skill skills/coworker-code-reader.md "/update $(git rev-parse --show-toplevel)" \
+REPO_ROOT=$(git rev-parse --show-toplevel)
+nohup claude --skill skills/coworker-code-reader.md "/update $REPO_ROOT" \
   > /tmp/code-reader-update.log 2>&1 &
 ```
 
-**`hooks/post-merge`:**
+**`.local/data/code-reader/{slug}/hooks/post-merge`:**
 ```bash
 #!/bin/bash
 # Update codebase documentation after pull/merge
-nohup claude --skill skills/coworker-code-reader.md "/update $(git rev-parse --show-toplevel)" \
+REPO_ROOT=$(git rev-parse --show-toplevel)
+nohup claude --skill skills/coworker-code-reader.md "/update $REPO_ROOT" \
   > /tmp/code-reader-update.log 2>&1 &
 ```
 
-**Installation (user runs once):**
+**Installation (user runs once per repo):**
 ```bash
-cp hooks/post-commit .git/hooks/post-commit
-cp hooks/post-merge .git/hooks/post-merge
-chmod +x .git/hooks/post-commit .git/hooks/post-merge
+SLUG=agent-researcher  # replace with your repo's slug
+HOOKS_DIR=.local/data/code-reader/$SLUG/hooks
+
+# Symlink from the target repo's .git/hooks to the generated scripts
+ln -sf $(pwd)/$HOOKS_DIR/post-commit /path/to/repo/.git/hooks/post-commit
+ln -sf $(pwd)/$HOOKS_DIR/post-merge /path/to/repo/.git/hooks/post-merge
 ```
+
+The symlinks point back to agent-personal's `.local/`, so the hook scripts are versioned with your personal agent setup — not committed to the target repo.
 
 ## Quality Rules
 
@@ -286,7 +331,7 @@ chmod +x .git/hooks/post-commit .git/hooks/post-merge
 
 7. **No chain-of-thought in output.** Documentation files contain only the final, polished documentation — no reasoning traces, no "I think this is because…" hedging.
 
-8. **Do not modify application code.** Only modify files under `docs/`. Never touch source code, tests, or config files.
+8. **Do not modify application code.** Only modify files under `.local/data/code-reader/{slug}/`. Never touch source code, tests, or config files in the target repository.
 
 9. **Mark staleness.** If `/status` shows the docs are >5 commits behind HEAD, the first line of each doc file should include a staleness warning: `⚠️ Documentation may be stale — last updated at commit {SHA} ({N} commits behind HEAD).`
 
