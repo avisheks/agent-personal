@@ -39,16 +39,145 @@ The `{slug}` is derived from the repository's folder name, kebab-cased. Examples
 
 ### Output Files
 
+Every `.md` file has a co-located `.html` companion. The `.md` is the source of truth; the `.html` is a styled, self-contained derivative for easy reading in a browser.
+
 | File | Purpose | Updated by |
 |------|---------|-----------|
 | `.local/data/code-reader/{slug}/docs/CODEBASE.md` | High-level mental model — how the codebase actually works | `/init`, `/update` |
+| `.local/data/code-reader/{slug}/docs/CODEBASE.html` | Styled HTML of CODEBASE.md | `/init`, `/update` |
 | `.local/data/code-reader/{slug}/docs/ARCHITECTURE.md` | Component relationships, data flows, APIs, interfaces, critical design decisions | `/init`, `/update` |
+| `.local/data/code-reader/{slug}/docs/ARCHITECTURE.html` | Styled HTML of ARCHITECTURE.md | `/init`, `/update` |
 | `.local/data/code-reader/{slug}/docs/EVOLUTION.md` | Chronological record of meaningful changes with WHY explanations | `/update` |
+| `.local/data/code-reader/{slug}/docs/EVOLUTION.html` | Styled HTML of EVOLUTION.md | `/update` |
 | `.local/data/code-reader/{slug}/docs/FAQ.md` | Questions and answers about the codebase, grounded in code evidence | `/faq`, `/update` |
+| `.local/data/code-reader/{slug}/docs/FAQ.html` | Styled HTML of FAQ.md | `/faq`, `/update` |
 | `.local/data/code-reader/{slug}/docs/components/{name}.md` | Per-component deep-dive | `/init`, `/update`, `/explain` |
+| `.local/data/code-reader/{slug}/docs/components/{name}.html` | Styled HTML of component doc | `/init`, `/update`, `/explain` |
 | `.local/data/code-reader/{slug}/state.json` | Last processed commit SHA + metadata | All commands |
 | `.local/data/code-reader/{slug}/hooks/post-commit` | Git hook script (user symlinks into repo) | `/init` |
 | `.local/data/code-reader/{slug}/hooks/post-merge` | Git hook script (user symlinks into repo) | `/init` |
+
+### HTML Generation (Mandatory)
+
+**Invariant: every `.md` file must have a matching `.html` file.** Whenever a `.md` file is created or updated, the corresponding `.html` MUST be regenerated immediately. Never leave them out of sync.
+
+Each `.html` file is a **single self-contained file** — all CSS inline, no external dependencies. It must render correctly when opened directly in a browser or shared via Slack/email.
+
+**HTML Design Specification:**
+
+```html
+<style>
+  :root {
+    --bg: #fcfcfb;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #2563eb;
+    --green: #059669;
+    --amber: #d97706;
+    --red: #dc2626;
+    --purple: #7c3aed;
+    --code-bg: #f4f4f5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.7; max-width: 960px; margin: 0 auto; padding: 2rem;
+  }
+  h1 { font-size: 1.8rem; margin: 2rem 0 0.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.3rem; }
+  h2 { font-size: 1.4rem; margin: 1.8rem 0 0.5rem; color: var(--accent); }
+  h3 { font-size: 1.15rem; margin: 1.4rem 0 0.4rem; }
+  h4 { font-size: 1rem; margin: 1rem 0 0.3rem; color: var(--text-muted); }
+  p { margin: 0.6rem 0; }
+  ul, ol { margin: 0.5rem 0 0.5rem 1.5rem; }
+  li { margin: 0.2rem 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code {
+    background: var(--code-bg); padding: 0.15rem 0.4rem; border-radius: 4px;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 0.88rem;
+  }
+  pre {
+    background: #1e1e2e; color: #cdd6f4; padding: 1rem; border-radius: 8px;
+    overflow-x: auto; margin: 0.8rem 0; font-size: 0.85rem; line-height: 1.5;
+  }
+  pre code { background: none; padding: 0; color: inherit; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8rem 0; }
+  th { background: var(--accent); color: white; padding: 0.5rem 0.8rem; text-align: left; font-size: 0.9rem; }
+  td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  tr:nth-child(even) { background: #f9fafb; }
+  blockquote {
+    border-left: 4px solid var(--accent); padding: 0.8rem 1rem; margin: 0.8rem 0;
+    background: #eff6ff; border-radius: 0 6px 6px 0; font-style: italic;
+  }
+  .badge {
+    display: inline-block; padding: 0.15rem 0.6rem; border-radius: 12px;
+    font-size: 0.78rem; font-weight: 600; color: white;
+  }
+  .badge-green { background: var(--green); }
+  .badge-amber { background: var(--amber); }
+  .badge-red { background: var(--red); }
+  .badge-purple { background: var(--purple); }
+  .badge-blue { background: var(--accent); }
+  .callout {
+    padding: 1rem; margin: 0.8rem 0; border-radius: 8px;
+    border-left: 4px solid var(--accent); background: #eff6ff;
+  }
+  .callout-warn { border-left-color: var(--amber); background: #fffbeb; }
+  .callout-good { border-left-color: var(--green); background: #ecfdf5; }
+  .callout-danger { border-left-color: var(--red); background: #fef2f2; }
+  details { margin: 0.6rem 0; }
+  summary {
+    cursor: pointer; font-weight: 600; padding: 0.5rem;
+    background: #f3f4f6; border-radius: 6px;
+  }
+  summary:hover { background: #e5e7eb; }
+  .meta {
+    color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+  }
+  hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+  .evidence { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem; }
+  .needs-input {
+    background: #fffbeb; border: 1px solid var(--amber); padding: 0.5rem 0.8rem;
+    border-radius: 6px; margin: 0.4rem 0;
+  }
+</style>
+```
+
+**Content rendering rules:**
+
+1. **Emojis** — use liberally for visual scanning:
+   - 📋 for sections/purpose, 🏗️ for architecture, 📊 for data flow, 🔌 for APIs
+   - ✅ for decisions/invariants, ❓ for FAQ questions, ⚠️ for warnings/needs-input
+   - 🔍 for evidence citations, 📁 for file references, 🔄 for execution flows
+   - 📈 for evolution entries, 🧩 for components, 🔗 for dependencies
+
+2. **Color-coded badges** for status/severity:
+   - `<span class="badge badge-green">` — decided, stable, confirmed
+   - `<span class="badge badge-amber">` — needs input, uncertain, temporary
+   - `<span class="badge badge-red">` — critical invariant, warning
+   - `<span class="badge badge-purple">` — design decision
+   - `<span class="badge badge-blue">` — component, subsystem
+
+3. **Callout boxes** for key information:
+   - `.callout` (blue) — key insights, mental model tips
+   - `.callout-good` (green) — confirmed design decisions, strengths
+   - `.callout-warn` (amber) — needs human input, uncertainty, gotchas
+   - `.callout-danger` (red) — critical invariants, breaking changes
+
+4. **Collapsible sections** for detail:
+   - Wrap long code examples, detailed evidence, and component internals in `<details><summary>...</summary>...</details>`
+
+5. **File references** as inline code with 📁: `📁 <code>src/planner.py:42</code>`
+
+6. **FAQ entries** in `.html`: each question gets a styled card with the evidence in a muted `.evidence` div. `[NEEDS HUMAN INPUT]` entries get the `.needs-input` class.
+
+7. **Navigation** — add a `<nav>` table of contents at the top of each HTML file linking to all `<h2>` sections.
+
+**Generation order:** Always write `.md` first, then generate `.html` from it. The `.md` is the source of truth.
 
 ### Registry
 
