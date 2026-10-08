@@ -300,6 +300,35 @@ Run once per repository. Produces the initial documentation by analyzing the ent
 
 8. **Write `{slug}/state.json`** — record the current HEAD SHA.
 
+9. **Write git hook scripts (MANDATORY).** Generate both hook files in `{slug}/hooks/`:
+
+   **`{slug}/hooks/post-commit`:**
+   ```bash
+   #!/bin/bash
+   REPO_ROOT=$(git rev-parse --show-toplevel)
+   nohup claude --skill skills/coworker-code-reader.md "/update $REPO_ROOT" \
+     > /tmp/code-reader-update.log 2>&1 &
+   ```
+
+   **`{slug}/hooks/post-merge`:**
+   ```bash
+   #!/bin/bash
+   REPO_ROOT=$(git rev-parse --show-toplevel)
+   nohup claude --skill skills/coworker-code-reader.md "/update $REPO_ROOT" \
+     > /tmp/code-reader-update.log 2>&1 &
+   ```
+
+   Make both executable: `chmod +x {slug}/hooks/post-commit {slug}/hooks/post-merge`.
+
+   Print installation instructions to the user:
+   ```
+   🔗 Hook scripts generated. To enable auto-updates, symlink them:
+      ln -sf $(pwd)/.local/data/code-reader/{slug}/hooks/post-commit {repo-path}/.git/hooks/post-commit
+      ln -sf $(pwd)/.local/data/code-reader/{slug}/hooks/post-merge {repo-path}/.git/hooks/post-merge
+   ```
+
+   **This step is NOT optional.** Every `/init` must produce both hook files. If they are missing, the documentation cannot auto-update on git activity.
+
 All paths above are relative to `.local/data/code-reader/`. For example, `{slug}/docs/CODEBASE.md` means `.local/data/code-reader/agent-researcher/docs/CODEBASE.md`.
 
 ### `/update` — Incremental Update (Triggered by Git Activity)
