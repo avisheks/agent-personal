@@ -172,7 +172,7 @@ Before generating the report, ingest ALL of the following for the target project
 
 4. **Prior daily statuses (last 7 days)** — read all `*-daily-status.md` files from the project's data directory.
 
-5. **Prior weekly report** — read the most recent `*-weekly-report.md` for this project to enable week-over-week cross-check.
+5. **Prior weekly report** — read the most recent `.md` file in `.local/data/tpm/{slug}/weekly-reports/` to enable week-over-week cross-check.
 
 6. **All deep-dives** — read all `*-ddive-*.md` files (permanent, no age limit).
 
@@ -199,7 +199,13 @@ If no clear justification exists for an item, mark it: `⚠️ [NEEDS JUSTIFICAT
 
 ### Report Generation (Step 3)
 
-Write the report to `.local/data/tpm/{slug}/{YYYY-MM-DD}-weekly-report.md` with this structure:
+Write the report to `.local/data/tpm/{slug}/weekly-reports/{YYYY}-W{WW}-weekly-report.md` where `{YYYY}-W{WW}` is the ISO week (e.g., `2026-W41`). This groups reports by week name for easy scanning.
+
+**Output files (always both):**
+- `.local/data/tpm/{slug}/weekly-reports/{YYYY}-W{WW}-weekly-report.md` — source of truth
+- `.local/data/tpm/{slug}/weekly-reports/{YYYY}-W{WW}-weekly-report.html` — styled HTML derivative
+
+Report structure:
 
 ```markdown
 # 📊 Weekly Report: {Project Display Name}
@@ -293,13 +299,89 @@ state-of-the-art.}
 
 ### HTML Generation (Step 4)
 
-After writing the `.md`, generate a co-located `.html` file using the same CSS and design rules as the progress report:
-- Self-contained (all CSS inline)
-- Light theme, system font stack, max-width 960px
-- Color-coded P0/P1/P2 sections (red/yellow/green backgrounds)
-- Asana links as clickable hyperlinks
-- Collapsible appendix via `<details>`
-- Print the file paths when done
+After writing the `.md`, generate `.local/data/tpm/{slug}/weekly-reports/{YYYY}-W{WW}-weekly-report.html`. The `.md` is the source of truth; the `.html` is a styled derivative. **Invariant: both files must always exist and match in content.**
+
+The `.html` is a **single self-contained file** — all CSS inline, no external dependencies. Opens in any browser or Slack share.
+
+**CSS (copy verbatim into every weekly report HTML):**
+
+```html
+<style>
+  :root {
+    --bg: #fcfcfb; --surface: #ffffff; --text: #1a1a1a; --text-muted: #6b7280;
+    --border: #e5e7eb; --accent: #2563eb; --green: #059669; --amber: #d97706;
+    --red: #dc2626; --purple: #7c3aed; --code-bg: #f4f4f5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.7; max-width: 960px; margin: 0 auto; padding: 2rem;
+  }
+  h1 { font-size: 1.8rem; margin: 2rem 0 0.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.3rem; }
+  h2 { font-size: 1.4rem; margin: 1.8rem 0 0.5rem; color: var(--accent); }
+  h3 { font-size: 1.15rem; margin: 1.4rem 0 0.4rem; }
+  p { margin: 0.6rem 0; }
+  ul, ol { margin: 0.5rem 0 0.5rem 1.5rem; } li { margin: 0.2rem 0; }
+  a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+  code { background: var(--code-bg); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: 'SF Mono', 'Consolas', monospace; font-size: 0.88rem; }
+  pre { background: #1e1e2e; color: #cdd6f4; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 0.8rem 0; }
+  pre code { background: none; padding: 0; color: inherit; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8rem 0; }
+  th { background: var(--accent); color: white; padding: 0.5rem 0.8rem; text-align: left; font-size: 0.9rem; }
+  td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  tr:nth-child(even) { background: #f9fafb; }
+  blockquote { border-left: 4px solid var(--accent); padding: 0.8rem 1rem; margin: 0.8rem 0; background: #eff6ff; border-radius: 0 6px 6px 0; }
+  .badge { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 12px; font-size: 0.78rem; font-weight: 600; color: white; }
+  .badge-green { background: var(--green); } .badge-amber { background: var(--amber); } .badge-red { background: var(--red); } .badge-purple { background: var(--purple); } .badge-blue { background: var(--accent); }
+  details { margin: 0.6rem 0; }
+  summary { cursor: pointer; font-weight: 600; padding: 0.5rem; background: #f3f4f6; border-radius: 6px; }
+  summary:hover { background: #e5e7eb; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+  nav { background: #f8fafc; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid var(--border); }
+  nav ul { list-style: none; margin: 0; padding: 0; } nav li { margin: 0.2rem 0; }
+  .meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .p0-section { background: #fef2f2; border-left: 4px solid var(--red); padding: 1rem; border-radius: 0 8px 8px 0; margin: 1rem 0; }
+  .p1-section { background: #fffbeb; border-left: 4px solid var(--amber); padding: 1rem; border-radius: 0 8px 8px 0; margin: 1rem 0; }
+  .p2-section { background: #ecfdf5; border-left: 4px solid var(--green); padding: 1rem; border-radius: 0 8px 8px 0; margin: 1rem 0; }
+  .status-green { color: var(--green); font-weight: 700; }
+  .status-amber { color: var(--amber); font-weight: 700; }
+  .status-red { color: var(--red); font-weight: 700; }
+  .why-tag { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 4px; font-size: 0.78rem; font-weight: 500; margin-right: 0.3rem; }
+  .why-partner { background: #dbeafe; color: #1e40af; }
+  .why-pm { background: #fce7f3; color: #9d174d; }
+  .why-industry { background: #e0e7ff; color: #3730a3; }
+  .why-quality { background: #fef3c7; color: #92400e; }
+  .needs-justification { background: #fffbeb; border: 1px dashed var(--amber); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.85rem; }
+  .carried-over { font-style: italic; color: var(--text-muted); }
+  .new-this-week { font-weight: 700; color: var(--accent); }
+</style>
+```
+
+**HTML rendering rules:**
+
+1. **TOC** — add a `<nav>` at the top linking to all `<h2>` sections
+2. **Priority sections** — wrap P0 table in `.p0-section`, P1 in `.p1-section`, P2 in `.p2-section`
+3. **Status badge** — render the status color as `<span class="status-{color}">{emoji} {Status}</span>`
+4. **WHY tags** — render each justification type as a colored tag:
+   - Partner: `<span class="why-tag why-partner">🤝 Partner</span>`
+   - PM: `<span class="why-tag why-pm">📋 PM</span>`
+   - Industry: `<span class="why-tag why-industry">📊 Industry</span>`
+   - Quality: `<span class="why-tag why-quality">🔧 Quality</span>`
+5. **Carried-over items** — wrap in `<span class="carried-over">🔁 Carried over — N weeks</span>`
+6. **New items** — wrap in `<span class="new-this-week">🆕 New this week</span>`
+7. **Needs justification** — wrap in `<span class="needs-justification">⚠️ NEEDS JUSTIFICATION</span>`
+8. **Asana links** — clickable `<a href="https://app.asana.com/0/0/{GID}">{task name}</a>`
+9. **Appendix** — wrap the lit survey in `<details><summary>📎 Appendix: Literature Survey & Gaps</summary>...</details>`
+10. **Week-over-Week table** — use alternating row colors; highlight deltas with green (improvement) or red (regression) text color
+11. **Emojis** — preserve all emojis from the markdown headings in the HTML headings
+
+**Print output paths when done:**
+```
+📋 Weekly report generated:
+   📄 .local/data/tpm/e2e-evals/weekly-reports/2026-W41-weekly-report.md
+   🌐 .local/data/tpm/e2e-evals/weekly-reports/2026-W41-weekly-report.html
+```
 
 ### Cross-Check Rules (Step 5)
 
