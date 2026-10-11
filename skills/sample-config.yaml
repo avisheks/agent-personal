@@ -62,8 +62,20 @@ tpm:
       asana_name: "E2E Evals"
       display_name: "E2E Evals"
       slack_channels:
-        - name: "your-evals-channel"
+        - name: "ads-agent-offline-evals-dev"
           filter: all
+        - name: "ads-nova-e2e-evals-internal-wg"
+          filter: all
+        - name: "aao-e2e-evals-internal"
+          filter: all
+      slack_dms:
+        - "dineshjk, kacshree, ramasud, seabrum"
+        - "alfonson, dineshjk, khavtar, nvichare"
+        - "cmilos, dineshjk, khavtar"
+      code_packages:
+        - name: "AdsAgentFabricCrossAgentEvals"
+          url: "https://code.amazon.com/packages/AdsAgentFabricCrossAgentEvals/trees/mainline"
+          branch: "mainline"
   cron:
     daily_script: "scripts/run-daily-status.sh"
     weekly_script: "scripts/run-weekly-status.sh"

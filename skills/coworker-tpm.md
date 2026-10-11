@@ -176,6 +176,56 @@ Before generating the report, ingest ALL of the following for the target project
 
 6. **All deep-dives** — read all `*-ddive-*.md` files (permanent, no age limit).
 
+7. **Code commits (last 7 days)** — for each code package configured in `code_packages` for this project, read recent commits using `ReadInternalWebsites` on the package's code.amazon.com URL:
+   ```
+   ReadInternalWebsites: https://code.amazon.com/packages/{PackageName}/commits/mainline
+   ```
+   Extract: commit messages, authors, files changed, PR descriptions. Use this to:
+   - Verify which Asana tasks are actually reflected in code (closed in tracker but not in code → flag)
+   - Identify code changes that don't have corresponding Asana tasks (code activity without tickets → flag as untracked work)
+   - Reference specific commits in the P0/P1/P2 WHY justifications when relevant
+   - Note what's been merged vs. what's still in CR review
+
+   If `code_packages` is not configured for the project, skip this step and note: "📦 No code packages configured — add `code_packages` to config for commit-level context."
+
+### Sub-Agent Parallelization Strategy
+
+The weekly report is generated using **parallel sub-agents** for independent sections, then stitched by the orchestrator. This reduces wall-clock time from ~10 minutes to ~4 minutes.
+
+**Phase 1 — Data Ingestion (sequential, orchestrator):**
+The orchestrator runs Step 1 (data ingestion) sequentially, collecting all raw context into a shared context bundle: Slack messages, email digests, Asana tasks, prior reports, deep-dives, code commits. This bundle is passed to all sub-agents.
+
+**Phase 2 — Section Generation (parallel, 4 sub-agents):**
+
+| Sub-Agent | Sections Produced | Input |
+|-----------|------------------|-------|
+| **Agent A: Executive Summary** | 📋 Executive Summary + 🎯 Action Items for Next Week | Full context bundle + prior weekly report |
+| **Agent B: P0/P1/P2 Prioritization** | 🔴 P0 + 🟡 P1 + 🟢 P2 tables with WHY justifications | Asana tasks + Slack/email context + code commits |
+| **Agent C: Appendix** | 📎 Literature Survey & Gaps | personal-researcher KB + reference docs |
+| **Agent D: Cross-Check + Completions** | 📊 Week-over-Week Cross-Check + Completed Tasks list | Prior weekly report + Asana completed tasks + code commits |
+
+Each sub-agent receives:
+- The shared context bundle
+- Its specific section template (from the report structure above)
+- The WHY justification rules (for Agent B)
+- The cross-check rules (for Agent D)
+
+Each sub-agent returns its section(s) as raw markdown text.
+
+**Phase 3 — Assembly (sequential, orchestrator):**
+1. Collect all sub-agent outputs
+2. Stitch into the full report in the prescribed section order
+3. Resolve any cross-references (Agent A may reference P0 counts from Agent B)
+4. Write the `.md` file
+5. Generate the `.html` file (can be delegated to a 5th sub-agent)
+6. Print file paths
+
+**Sub-agent rules:**
+- Each sub-agent produces ONLY its assigned sections — no full-report wrappers
+- Each sub-agent receives the full context bundle but is told to focus on its sections
+- If a sub-agent needs information from another sub-agent's output (e.g., Executive Summary needs P0 count), the orchestrator fills it in during assembly
+- Sub-agents do NOT write files — they return text to the orchestrator
+
 ### Priority Classification (Step 2)
 
 Classify every open Asana task into P0/P1/P2 based on these rules:
