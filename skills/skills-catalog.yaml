@@ -29,6 +29,8 @@ skills:
       - "/status-all"
       - "/weekly-status [SLUG]"
       - "/weekly-status-all"
+      - "/weekly-report [SLUG]"
+      - "/weekly-report-all"
       - "/progress-report [SLUG]"
       - "/refresh"
     triggers:
@@ -42,10 +44,14 @@ skills:
       - "workstream"
       - "progress report"
       - "weekly status"
+      - "weekly report"
       - "what changed this week"
       - "at risk"
       - "escalation"
       - "overdue"
+      - "P0"
+      - "priorities"
+      - "action items"
     requires_config: true
     data_dir: ".local/data/tpm/"
 

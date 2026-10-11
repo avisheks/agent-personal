@@ -38,6 +38,8 @@ python3 -m venv .venv && .venv/bin/pip install -e ".[dev]"
 | `/status-all` | Run daily status questions for ALL projects | Yes |
 | `/weekly-status [SLUG]` | Pull weekly status from Asana Overview tab (cron: Fridays 9:30 AM) | No |
 | `/weekly-status-all` | Pull weekly status from Overview tab for ALL projects | No |
+| `/weekly-report [SLUG]` | Synthesized weekly report: executive summary, AIs, P0/P1/P2 with WHY, lit survey appendix (cron: Fridays 4 PM) | Yes |
+| `/weekly-report-all` | Run weekly report for ALL projects | Yes |
 | `/progress-report [SLUG]` | Generate comprehensive progress report for a project (md + html) | Yes |
 | `/refresh` | Re-aggregate context from all sources (Asana, Slack, Git, docs) | No |
 | `/help` | Show available commands | No |
@@ -55,6 +57,7 @@ Free-form questions also supported (requires LLM): "Why is the auth service bloc
 | **Git** | `CodebaseScanner` | Branches, commits, changed files, PR activity | No |
 | **Meeting Notes** | `MeetingNotesParser` | Action items, decisions, owners | No |
 | **Design Docs** | `DesignDocsParser` | Scope, open questions, architecture decisions | No |
+| **Email Digests** | Manual → `.local/data/tpm/{slug}/email-digests/{date}.md` | Partner asks, PM decisions, stakeholder context (last 7 days) | No |
 
 **Critical source:** If Asana fails, the agent cannot function. All other sources degrade gracefully — analysis proceeds with available data.
 
@@ -133,6 +136,210 @@ If a template is configured in `ref_docs` (tag: matching template), the output f
 - All content goes into `sections` array (not `detailed_description`)
 - Each section has `heading` + `content` (bullet points starting with `* `)
 - No narrative paragraphs — only bullet points
+
+## Output Format & Workflow (/weekly-report)
+
+### Purpose
+
+Synthesized weekly narrative report that goes beyond the raw Asana status pull (`/weekly-status`). Combines Slack messages, email digests, Asana task progress, and prior daily statuses into a prioritized report with P0/P1/P2 items, each with explicit WHY justification.
+
+**Report hierarchy:**
+- `/weekly-status` = quick Asana Overview pull (30 seconds, 3 sections)
+- **`/weekly-report` = synthesized weekly narrative (this command — 5-10 minutes, 7 sections)**
+- `/progress-report` = deep milestone report with appendix narratives (30+ minutes)
+
+### Data Ingestion (Step 1)
+
+Before generating the report, ingest ALL of the following for the target project:
+
+1. **Slack messages (last 7 days)** — read all configured Slack channels for the project. Extract: decisions made, blockers raised, partner requests, PM asks, action items committed to.
+
+2. **Email digests (last 7 days)** — read all `.md` files in `.local/data/tpm/{slug}/email-digests/` with dates in the last 7 days. These are user-pasted summaries of relevant emails.
+   - **Email digest format** (user creates these manually):
+     ```markdown
+     # Email Digest — {YYYY-MM-DD}
+     ## From: {sender}
+     **Subject:** {subject}
+     **Key points:**
+     - {point 1}
+     - {point 2}
+     **Action requested:** {what they want}
+     ```
+   - If no email digests exist, note in the report: "📧 No email digests found — drop relevant emails into `.local/data/tpm/{slug}/email-digests/` for richer context."
+   - **Future upgrade:** When Outlook→SharePoint forwarding rule is set up, use `sharepoint_list_files` + `sharepoint_read_file` to read from SharePoint instead of local files.
+
+3. **Asana tasks** — via MCP tools: `GetTasksFromProject` (all tasks with assignee, due date, completion status, section) + `GetStatusUpdatesFromObject` (latest status narrative).
+
+4. **Prior daily statuses (last 7 days)** — read all `*-daily-status.md` files from the project's data directory.
+
+5. **Prior weekly report** — read the most recent `*-weekly-report.md` for this project to enable week-over-week cross-check.
+
+6. **All deep-dives** — read all `*-ddive-*.md` files (permanent, no age limit).
+
+### Priority Classification (Step 2)
+
+Classify every open Asana task into P0/P1/P2 based on these rules:
+
+| Priority | Criteria | Color |
+|----------|----------|-------|
+| **🔴 P0 — Must ship this sprint** | Blocks a partner deliverable, PM has explicitly asked for it, overdue, or on the critical path for a committed date | Red |
+| **🟡 P1 — Important, not blocking** | Improves quality/coverage, aligns with roadmap, has a clear owner but flexible timeline | Yellow |
+| **🟢 P2 — Stretch / next quarter** | Nice-to-have, exploratory, no external commitment, or depends on P0/P1 completing first | Green |
+
+**WHY justification rules — every item MUST have one of these justification types:**
+
+| Justification Type | Format | Example |
+|-------------------|--------|---------|
+| **Partner ask** | "Partner: {team} requested {what} by {when}" | "Partner: Ads-Campaign-Team requested eval coverage for new campaign types by Q4" |
+| **PM ask** | "PM: {name} prioritized {what} in {context}" | "PM: Sarah prioritized latency benchmarks in sprint planning (Oct 6)" |
+| **Industry standard** | "Industry: {standard/benchmark} requires {what}" | "Industry: BFCL benchmark coverage is standard for tool-use evals" |
+| **Tech debt / quality** | "Quality: {what} is needed because {risk}" | "Quality: Flaky test suite causes false negatives, blocking reliable CI" |
+
+If no clear justification exists for an item, mark it: `⚠️ [NEEDS JUSTIFICATION — no partner/PM/industry driver identified]`
+
+### Report Generation (Step 3)
+
+Write the report to `.local/data/tpm/{slug}/{YYYY-MM-DD}-weekly-report.md` with this structure:
+
+```markdown
+# 📊 Weekly Report: {Project Display Name}
+> **Week of {Mon date} – {Fri date}** | Generated: {timestamp}
+> **Previous report:** [{prev-filename}]({prev-filename})
+
+---
+
+## 📋 Executive Summary
+
+{2-3 paragraphs synthesizing the week's progress. MUST reference last week's
+report by name and call out what changed vs what didn't move.}
+
+**Status: {🟢 On Track / 🟡 At Risk / 🔴 Off Track}**
+**Key metric:** {one headline number — e.g., "12/18 eval cases passing (67%)" }
+**Biggest win this week:** {one sentence}
+**Biggest risk this week:** {one sentence}
+
+---
+
+## 🎯 Action Items for Next Week
+
+| # | Action | Owner | ECD | Depends On |
+|---|--------|-------|-----|------------|
+| 1 | {specific, actionable item} | {name} | {date} | {blocker or "—"} |
+
+---
+
+## 🔴 P0 — Must Ship This Sprint
+
+| # | Item | WHY | Owner | ECD | Asana |
+|---|------|-----|-------|-----|-------|
+| 1 | {item} | {Partner/PM/Industry/Quality justification} | {name} | {date} | [{task}](https://app.asana.com/0/0/{GID}) |
+
+**P0 narrative:** {1-2 sentences explaining why these are P0 and what happens if they slip}
+
+---
+
+## 🟡 P1 — Important, Not Blocking
+
+| # | Item | WHY | Owner | ECD | Asana |
+|---|------|-----|-------|-----|-------|
+| 1 | {item} | {justification} | {name} | {date} | [{task}](link) |
+
+---
+
+## 🟢 P2 — Stretch / Next Quarter
+
+| # | Item | WHY | Owner | ECD | Asana |
+|---|------|-----|-------|-----|-------|
+| 1 | {item} | {justification} | {name} | {date} | [{task}](link) |
+
+---
+
+## 📎 Appendix: Literature Survey & Gaps
+
+{Query the personal-researcher skill's knowledge base for recent developments
+relevant to this project's domain. If the researcher KB has relevant topics,
+summarize findings and identify gaps between current approach and industry
+state-of-the-art.}
+
+### Industry Benchmarks & Coverage Gaps
+
+| Benchmark / Standard | Our Coverage | Gap | Priority |
+|---------------------|-------------|-----|----------|
+| {benchmark name} | {status} | {what's missing} | P0/P1/P2 |
+
+### Recent Literature
+
+| Paper / Resource | Relevance | Implication for Us |
+|-----------------|-----------|-------------------|
+| {title} | {why it matters} | {what we should do} |
+
+{If personal-researcher KB has no relevant topics, note:
+"📚 No researcher KB coverage for this domain yet. Consider running
+`/ingest` + `/compile` for relevant eval/governance literature."}
+
+---
+
+## 📊 Week-over-Week Cross-Check
+
+| Dimension | Last Week | This Week | Delta |
+|-----------|-----------|-----------|-------|
+| Status color | {color} | {color} | {→ or ↑ or ↓} |
+| P0 items | {count} | {count} | {+N or -N} |
+| Tasks completed | {count} | {count} | {+N} |
+| Overdue tasks | {count} | {count} | {+N or -N} |
+| Open blockers | {count} | {count} | {+N or -N} |
+| Key metric | {value} | {value} | {delta} |
+```
+
+### HTML Generation (Step 4)
+
+After writing the `.md`, generate a co-located `.html` file using the same CSS and design rules as the progress report:
+- Self-contained (all CSS inline)
+- Light theme, system font stack, max-width 960px
+- Color-coded P0/P1/P2 sections (red/yellow/green backgrounds)
+- Asana links as clickable hyperlinks
+- Collapsible appendix via `<details>`
+- Print the file paths when done
+
+### Cross-Check Rules (Step 5)
+
+After generating, verify against last week's report:
+1. Any P0 item from last week that is still P0 this week → flag as "🔁 Carried over — {N} weeks"
+2. Any P0 from last week that dropped to P1/P2 → explain why in the Executive Summary
+3. Any new P0 this week that wasn't in last week's report → mark as "🆕 New this week"
+4. If status color changed from last week → the Executive Summary MUST explain why
+
+### Cron Setup
+
+Add a third cron entry for weekly reports (Fridays at 4 PM):
+
+```
+0 16 * * 5 {base_path}/scripts/run-weekly-report.sh >> /tmp/agent-tpm-weekly-report.log 2>&1
+```
+
+The script runs `/weekly-report-all` (or `/weekly-report {slug}` for a single project).
+
+### Email Digest Folder
+
+Create `.local/data/tpm/{slug}/email-digests/` when the project is initialized. The user drops email summaries here as markdown files named `{YYYY-MM-DD}.md` or `{YYYY-MM-DD}-{topic}.md`.
+
+**Upgrade path:** When an Outlook rule forwards relevant emails to a SharePoint folder, replace the local file read with:
+```
+sharepoint_list_files → filter by date → sharepoint_read_file for each
+```
+This requires adding `email_sharepoint_folder` to the project config in `skills-config.yaml`.
+
+### Lit Survey Appendix — Researcher Integration
+
+The appendix queries the `personal-researcher` skill's knowledge base. The TPM skill does this by:
+
+1. Checking if `.notlocal/data/personal-researcher/knowledge/` has relevant topic directories
+2. If yes: reading the index and relevant knowledge pages, synthesizing industry context
+3. If no: noting the gap and suggesting the user run `/ingest` + `/compile` for relevant literature
+
+This is a read-only integration — the TPM skill reads the researcher's output but does not trigger researcher commands. The user runs the researcher skill separately to build up the knowledge base.
+
+---
 
 ## Drift Detection
 

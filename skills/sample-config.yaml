@@ -57,11 +57,20 @@ tpm:
       gid: "000000000000003"
       asana_name: "Your Project Gamma"
       display_name: "Project Gamma"
+    e2e-evals:
+      gid: "000000000000004"
+      asana_name: "E2E Evals"
+      display_name: "E2E Evals"
+      slack_channels:
+        - name: "your-evals-channel"
+          filter: all
   cron:
     daily_script: "scripts/run-daily-status.sh"
     weekly_script: "scripts/run-weekly-status.sh"
+    weekly_report_script: "scripts/run-weekly-report.sh"
     daily_schedule: "3 9 * * 1-5"
     weekly_schedule: "27 8 * * 1"
+    weekly_report_schedule: "0 16 * * 5"
     daily_log: "/tmp/agent-tpm-daily.log"
     weekly_log: "/tmp/agent-tpm-weekly.log"
     base_path: "/path/to/your/agent-coworker-local"
