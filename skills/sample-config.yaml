@@ -105,6 +105,10 @@ tpm:
         - path: ".local/data/tpm/e2e-evals/ref-docs/Ads Agent Evals Governance DVA.docx"
           type: "governance"
           description: "Evals governance model — review process, certification, partner roles"
+      lit_survey:
+        researcher_topics: ["evaluation-safety", "agentic-systems", "agent-access-controls"]
+        researcher_reports: ["evaluation-safety.md", "agentic-eval-stack.md"]
+        news_topics: ["news-evals-models-agents", "news-agentic-ai"]
       style_guide: |
         - Use "scorer" not "predicate" when referring to deterministic checks in stakeholder-facing text
         - Reference the v2 critique doc when justifying P0 items

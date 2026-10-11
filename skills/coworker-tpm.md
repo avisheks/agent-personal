@@ -226,7 +226,7 @@ The orchestrator runs Step 1 (data ingestion) sequentially, collecting all raw c
 |-----------|------------------|-------|
 | **Agent A: Executive Summary** | 📋 Executive Summary + 🎯 Action Items for Next Week | Full context bundle + prior weekly report |
 | **Agent B: P0/P1/P2 Prioritization** | 🔴 P0 + 🟡 P1 + 🟢 P2 tables with WHY justifications | Asana tasks + Slack/email context + code commits |
-| **Agent C: Appendix** | 📎 Literature Survey & Gaps | personal-researcher KB + reference docs |
+| **Agent C: Appendix** | 📎 Literature Survey & Gaps | **Previous week's appendix** (baseline) + personal-researcher KB + news-summarizer reports + reference docs. Agent C **updates** the prior appendix, does not regenerate it. |
 | **Agent D: Cross-Check + Completions** | 📊 Week-over-Week Cross-Check + Completed Tasks list | Prior weekly report + Asana completed tasks + code commits |
 
 Each sub-agent receives:
@@ -569,15 +569,47 @@ sharepoint_list_files → filter by date → sharepoint_read_file for each
 ```
 This requires adding `email_sharepoint_folder` to the project config in `skills-config.yaml`.
 
-### Lit Survey Appendix — Researcher Integration
+### Lit Survey Appendix — Cross-Skill Integration
 
-The appendix queries the `personal-researcher` skill's knowledge base. The TPM skill does this by:
+The appendix is **not written from scratch each week.** It is a persistent, accumulating section that is updated incrementally — new findings are appended, existing content is preserved, and only factual corrections or status updates modify prior entries. This ensures institutional knowledge accumulates rather than being regenerated (and potentially lost) each cycle.
 
-1. Checking if `.notlocal/data/personal-researcher/knowledge/` has relevant topic directories
-2. If yes: reading the index and relevant knowledge pages, synthesizing industry context
-3. If no: noting the gap and suggesting the user run `/ingest` + `/compile` for relevant literature
+**Source hierarchy (read in this order, merge into the appendix):**
 
-This is a read-only integration — the TPM skill reads the researcher's output but does not trigger researcher commands. The user runs the researcher skill separately to build up the knowledge base.
+1. **Personal-researcher KB** — the primary knowledge source. Read:
+   - `.notlocal/data/personal-researcher/knowledge/evaluation-safety/` — knowledge pages on eval frameworks, safety, benchmarks
+   - `.notlocal/data/personal-researcher/knowledge/agentic-systems/` — agent architecture patterns relevant to eval design
+   - `.notlocal/data/personal-researcher/reports/v2/notes/evaluation-safety.md` — synthesized report on eval + safety
+   - `.notlocal/data/personal-researcher/reports/v2/notes/agentic-eval-stack.md` — agentic eval stack analysis
+   - `.notlocal/data/personal-researcher/knowledge/index.md` — scan for any other relevant topics
+
+2. **News-summarizer reports** — recent industry developments. Read:
+   - `.notlocal/data/personal-news/news-evals-models-agents/` — latest weekly briefing on eval/model/agent news
+   - `.notlocal/data/personal-news/news-agentic-ai/` — latest agentic AI briefing (may have eval-relevant items)
+   - Only read the most recent report (latest `*-WK*-news.md`); extract items relevant to the project's eval domain
+
+3. **Previous week's appendix** — the baseline to update. Read the `## 📎 Appendix` section from the prior weekly report in `.local/data/tpm/{slug}/weekly-reports/`.
+
+**Update rules (CRITICAL — content preservation):**
+
+- **Never regenerate the appendix from scratch.** Start from the previous week's appendix as the baseline.
+- **Preserve all existing entries** in the Industry Benchmarks table, Key Findings list, and Strategy Milestone Tracker. Only modify them to update the "Status" column or add new evidence.
+- **Append new findings** from researcher KB or news-summarizer at the bottom of the relevant sub-section, marked with `🆕 W{WW}:` prefix.
+- **Update status badges** (🔴→🟡→🟢) when evidence from this week's code commits, Asana, or researcher KB shows progress.
+- **Add a "Recent Literature" sub-section** with items from news-summarizer reports that are relevant to the project's eval domain. Each entry: title, source, relevance to this project. Only include items from the past 2 weeks.
+- **If no researcher KB or news content exists** for this project's domain, note: "📚 No researcher KB coverage for eval topics. Consider running `/ingest` + `/compile` for relevant literature."
+
+**What this produces:** A growing appendix that accumulates industry context, benchmarks, and findings over weeks — not a point-in-time snapshot that loses prior context on each regeneration.
+
+**Config: topic mapping for cross-skill lookup:**
+```yaml
+tpm:
+  projects:
+    e2e-evals:
+      lit_survey:
+        researcher_topics: ["evaluation-safety", "agentic-systems", "agent-access-controls"]
+        researcher_reports: ["evaluation-safety.md", "agentic-eval-stack.md"]
+        news_topics: ["news-evals-models-agents", "news-agentic-ai"]
+```
 
 ---
 
