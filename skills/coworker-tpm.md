@@ -204,14 +204,32 @@ Before generating the report, ingest ALL of the following for the target project
              description: "Evals governance model — review process, certification, partner roles"
    ```
 
+   **Auto-detection of new ref-docs (MANDATORY before every report):**
+
+   Before reading configured ref-docs, **always scan the ref-docs directory** for files not yet listed in the config:
+
+   ```
+   1. List all files in .local/data/tpm/{slug}/ref-docs/
+   2. Compare against the ref_docs list in config
+   3. Any file on disk but NOT in config → flag as NEW:
+      "📄 New ref-doc detected: {filename} — not in prior reports. Reading and incorporating."
+   4. Read the new doc, extract key context (milestones, decisions, partners, metrics)
+   5. Include its content in the current report's WHY justifications and appendix
+   6. Print a summary of new docs found at the start of report generation:
+      "📄 Ref-docs: 2 configured + 1 new ({filename})"
+   ```
+
+   This ensures that when someone drops a new document into the ref-docs folder, it is automatically picked up in the next report cycle — no config update needed. The config list serves as the baseline; the directory scan catches additions.
+
    **How to use ref-docs:**
    - Read each document at the start of report generation (Phase 1 ingestion)
    - Use the content to inform WHY justifications — e.g., "Partner: per the Evals Governance DVA, all test cases require SME certification before launch"
    - Reference specific doc content when it provides context that Asana/Slack/code alone does not
    - If a ref-doc is `.docx` or `.pdf`, read it using the Read tool (which handles these formats natively)
    - Ref-docs are long-lived context — unlike Slack/email which are 7-day windows, ref-docs persist and are re-read every report cycle
+   - For **new (auto-detected) docs**, add a `🆕 New ref-doc this week:` note in the Executive Summary identifying the document and its key contribution to this report
 
-   If `ref_docs` is not configured for the project, skip this step.
+   If the ref-docs directory does not exist for the project, skip this step.
 
 ### Sub-Agent Parallelization Strategy
 
