@@ -135,6 +135,18 @@ summary:hover { background: #e5e7eb; }
 .overdue { color: var(--red); font-weight: 600; }
 .carried { font-style: italic; }
 .new-item { font-weight: 700; color: var(--accent); }
+
+/* Asana and code review links */
+a[href*="app.asana.com"] {
+  background: #f0f4ff; padding: .1rem .4rem; border-radius: 4px;
+  font-size: .85rem; border: 1px solid #dbeafe;
+}
+a[href*="app.asana.com"]::before { content: "📋 "; }
+a[href*="code.amazon.com/reviews"] {
+  background: #f0fdf4; padding: .1rem .4rem; border-radius: 4px;
+  font-size: .85rem; border: 1px solid #bbf7d0;
+}
+a[href*="code.amazon.com/reviews"]::before { content: "🔗 "; }
 """
 
 

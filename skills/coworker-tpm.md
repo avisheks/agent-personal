@@ -188,6 +188,31 @@ Before generating the report, ingest ALL of the following for the target project
 
    If `code_packages` is not configured for the project, skip this step and note: "📦 No code packages configured — add `code_packages` to config for commit-level context."
 
+8. **Reference documents** — read all files in `.local/data/tpm/{slug}/ref-docs/` configured for this project. These are authoritative context documents (presentations, strategy docs, governance docs) that inform prioritization and WHY justifications.
+
+   **Config format:**
+   ```yaml
+   tpm:
+     projects:
+       e2e-evals:
+         ref_docs:
+           - path: ".local/data/tpm/e2e-evals/ref-docs/[Presented] Ads Agent Evaluations.docx"
+             type: "strategy"
+             description: "Ads Agent Evaluations presentation — scope, milestones, team structure"
+           - path: ".local/data/tpm/e2e-evals/ref-docs/Ads Agent Evals Governance DVA.docx"
+             type: "governance"
+             description: "Evals governance model — review process, certification, partner roles"
+   ```
+
+   **How to use ref-docs:**
+   - Read each document at the start of report generation (Phase 1 ingestion)
+   - Use the content to inform WHY justifications — e.g., "Partner: per the Evals Governance DVA, all test cases require SME certification before launch"
+   - Reference specific doc content when it provides context that Asana/Slack/code alone does not
+   - If a ref-doc is `.docx` or `.pdf`, read it using the Read tool (which handles these formats natively)
+   - Ref-docs are long-lived context — unlike Slack/email which are 7-day windows, ref-docs persist and are re-read every report cycle
+
+   If `ref_docs` is not configured for the project, skip this step.
+
 ### Sub-Agent Parallelization Strategy
 
 The weekly report is generated using **parallel sub-agents** for independent sections, then stitched by the orchestrator. This reduces wall-clock time from ~10 minutes to ~4 minutes.
