@@ -226,6 +226,80 @@ Each sub-agent returns its section(s) as raw markdown text.
 - If a sub-agent needs information from another sub-agent's output (e.g., Executive Summary needs P0 count), the orchestrator fills it in during assembly
 - Sub-agents do NOT write files — they return text to the orchestrator
 
+### Topic Grouping (Step 1.5 — Project-Specific Style Guide)
+
+Each project can define a **topic taxonomy** in `.local/skills-config.yaml` under `tpm.projects.{slug}.topics`. Topics organize the P0/P1/P2 items into thematic groups rather than a flat list — making the report scannable by workstream.
+
+**Config format:**
+```yaml
+tpm:
+  projects:
+    e2e-evals:
+      topics:
+        - slug: scorecard
+          name: "Scorecard Improvements"
+          emoji: "📊"
+          description: "G/P/C scoring framework, HTML scorecard rendering, unified dashboard"
+        - slug: jtbd-scoring
+          name: "JTBD Scoring Improvements"
+          emoji: "🎯"
+          description: "Goal predicates, deterministic evals per JTBD, PARTIAL scoring"
+        - slug: partner-gov
+          name: "Partner Evals / Gov Model"
+          emoji: "🤝"
+          description: "Eval governance, partner certification, testcase review flow"
+        - slug: fai-annotations
+          name: "FAI Annotations"
+          emoji: "🏷️"
+          description: "SME annotations, LLM-jury GT extraction, constraint audit"
+        - slug: misc
+          name: "Misc"
+          emoji: "📦"
+          description: "v2-vs-v3 scoring, repo hygiene, infrastructure"
+          subtopics: ["v2-vs-v3 scoring", "repo hygiene", "infra"]
+```
+
+**How topics change the report structure:**
+
+When `topics` is configured for a project, the P0/P1/P2 sections are **grouped by topic** instead of presented as flat tables. The structure becomes:
+
+```markdown
+## 🔴 P0 — Must Ship This Sprint
+
+### 📊 Scorecard Improvements
+| # | Item | WHY | Owner | ECD | Asana |
+...
+
+### 🎯 JTBD Scoring Improvements
+| # | Item | WHY | Owner | ECD | Asana |
+...
+
+### 🤝 Partner Evals / Gov Model
+(no P0 items this week)
+```
+
+**Topic assignment rules:**
+1. Each Asana task is assigned to exactly one topic based on its name prefix (e.g., `[Dashboard]` → scorecard, `[LLMJ]` → fai-annotations) or content match against the topic's `description`
+2. If a task doesn't match any topic, assign it to "Misc"
+3. Topics with zero items in a priority tier show "(no items this week)" — don't omit the topic
+4. The topic order in the report matches the config order
+
+**Style guide per project (optional):**
+
+If the project config includes a `style_guide` field, the agent reads it before generating the report and follows any project-specific tone, terminology, or formatting instructions:
+
+```yaml
+tpm:
+  projects:
+    e2e-evals:
+      style_guide: |
+        - Use "scorer" not "predicate" when referring to deterministic checks in stakeholder-facing text
+        - Reference the v2 critique doc when justifying P0 items
+        - Always distinguish "code merged" from "feature validated" — merging is not shipping
+        - Use "JTBD" (not "use case") for test scenario categories
+        - When referencing the Oct 19 milestone, call it "M1: 19 October launch (release cohort 1)"
+```
+
 ### Priority Classification (Step 2)
 
 Classify every open Asana task into P0/P1/P2 based on these rules:
@@ -349,7 +423,16 @@ state-of-the-art.}
 
 ### HTML Generation (Step 4)
 
-After writing the `.md`, generate `.local/data/tpm/{slug}/weekly-reports/{YYYY}-W{WW}-weekly-report.html`. The `.md` is the source of truth; the `.html` is a styled derivative. **Invariant: both files must always exist and match in content.**
+After writing the `.md`, generate the `.html` using the render script:
+
+```bash
+python3 src/skills/tpm/render_weekly_report.py \
+  --input .local/data/tpm/{slug}/weekly-reports/{YYYY}-W{WW}-weekly-report.md
+```
+
+This renders in <1 second (vs ~4 minutes for LLM-generated HTML). The script reads the `.md`, converts via the `markdown` Python library, applies the CSS template, and writes the `.html` alongside the source. **Always use the script — never generate HTML via LLM.**
+
+**Invariant: both files must always exist and match in content.** The `.md` is the source of truth; the `.html` is a styled derivative.
 
 The `.html` is a **single self-contained file** — all CSS inline, no external dependencies. Opens in any browser or Slack share.
 

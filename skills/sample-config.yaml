@@ -76,6 +76,34 @@ tpm:
         - name: "AdsAgentFabricCrossAgentEvals"
           url: "https://code.amazon.com/packages/AdsAgentFabricCrossAgentEvals/trees/mainline"
           branch: "mainline"
+      topics:
+        - slug: scorecard
+          name: "Scorecard Improvements"
+          emoji: "📊"
+          description: "G/P/C scoring framework, HTML scorecard rendering, unified dashboard, scorecard page split"
+        - slug: jtbd-scoring
+          name: "JTBD Scoring Improvements"
+          emoji: "🎯"
+          description: "Goal predicates, deterministic evals per JTBD, PARTIAL scoring, daily eval workflow"
+        - slug: partner-gov
+          name: "Partner Evals / Gov Model"
+          emoji: "🤝"
+          description: "Eval governance, partner certification, testcase review flow, JTBD coverage mapping"
+        - slug: fai-annotations
+          name: "FAI Annotations"
+          emoji: "🏷️"
+          description: "SME annotations, LLM-jury GT extraction, constraint audit, reliability measurements"
+        - slug: misc
+          name: "Misc"
+          emoji: "📦"
+          description: "v2-vs-v3 scoring, repo hygiene, infrastructure, preflight, trace stitching"
+          subtopics: ["v2-vs-v3 scoring", "repo hygiene", "infra"]
+      style_guide: |
+        - Use "scorer" not "predicate" when referring to deterministic checks in stakeholder-facing text
+        - Reference the v2 critique doc when justifying P0 items
+        - Always distinguish "code merged" from "feature validated" — merging is not shipping
+        - Use "JTBD" (not "use case") for test scenario categories
+        - When referencing the Oct 19 milestone, call it "M1: 19 October launch (release cohort 1)"
   cron:
     daily_script: "scripts/run-daily-status.sh"
     weekly_script: "scripts/run-weekly-status.sh"
