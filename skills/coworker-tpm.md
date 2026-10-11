@@ -229,6 +229,24 @@ Before generating the report, ingest ALL of the following for the target project
    - Ref-docs are long-lived context — unlike Slack/email which are 7-day windows, ref-docs persist and are re-read every report cycle
    - For **new (auto-detected) docs**, add a `🆕 New ref-doc this week:` note in the Executive Summary identifying the document and its key contribution to this report
 
+   **Citation extraction from ref-docs (MANDATORY):**
+
+   When reading a ref-doc, **extract all references, citations, and source links** it contains. These are typically found in appendices, footnotes, bibliography sections, or inline hyperlinks. For each extracted reference:
+
+   1. **Add to the appendix's "References from Ref-Docs" sub-section** — a persistent table that accumulates across report cycles:
+      ```markdown
+      ### 📖 References from Ref-Docs
+      | # | Source | URL | Cited In | Key Contribution |
+      |---|--------|-----|----------|-----------------|
+      | 1 | Anthropic: Demystifying Evals for AI Agents | https://... | Critique v2, Governance DVA | G/P/C separation, pass@k, grader taxonomy |
+      ```
+
+   2. **Cross-check against the Industry Benchmarks table** — if a ref-doc cites a source that maps to an existing gap row, note the connection. If it cites a source not yet in any appendix table, add it.
+
+   3. **Preserve across cycles** — once a reference is extracted from a ref-doc, it stays in the appendix permanently (per the incremental-update rule). New ref-docs add new references; existing references are never removed.
+
+   This ensures that the institutional knowledge embedded in ref-docs (which sources they relied on, which frameworks they benchmarked against) flows into the weekly report and is not lost to the reader.
+
    If the ref-docs directory does not exist for the project, skip this step.
 
 ### Sub-Agent Parallelization Strategy
