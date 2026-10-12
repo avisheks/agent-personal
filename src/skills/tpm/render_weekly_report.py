@@ -388,15 +388,70 @@ def apply_overdue(html: str) -> str:
     return html
 
 
-def wrap_appendix(html: str) -> str:
-    """Wrap the Appendix section in a collapsible details element."""
-    html = re.sub(
-        r'(<h2[^>]*id="[^"]*appendix[^"]*"[^>]*>)(.*?)(</h2>)',
-        r'<details><summary>\2</summary>',
-        html,
-        flags=re.IGNORECASE,
-    )
-    return html
+COLLAPSIBLE_PATTERNS = [
+    "appendix",
+    "scorecard-improvements",
+    "scorecard improvements",
+    "jtbd-scoring",
+    "jtbd scoring",
+    "partner-evals",
+    "partner evals",
+    "fai-annotations",
+    "fai annotations",
+    "misc",
+    "completed-this-week",
+    "completed this week",
+]
+
+
+def wrap_collapsible_sections(html: str) -> str:
+    """Wrap appendix, topic task sections, and Completed in <details>.
+
+    Each matching <h2> becomes a <details><summary> and is properly closed
+    before the next <h2> (whether collapsible or not) to prevent nesting.
+    """
+    parts = re.split(r"(<h2[^>]*>.*?</h2>)", html, flags=re.DOTALL)
+    result = []
+    in_details = False
+
+    for part in parts:
+        h2_match = re.match(r'<h2[^>]*id="([^"]*)"[^>]*>(.*?)</h2>', part, re.DOTALL)
+        if not h2_match:
+            h2_match_noid = re.match(r"<h2>(.*?)</h2>", part)
+            if h2_match_noid:
+                h2_id = re.sub(r"[^\w\s-]", "", h2_match_noid.group(1).lower()).strip()
+                h2_id = re.sub(r"\s+", "-", h2_id)
+                h2_text = h2_match_noid.group(1)
+            else:
+                h2_id = None
+                h2_text = None
+        else:
+            h2_id = h2_match.group(1)
+            h2_text = h2_match.group(2)
+
+        if h2_id is not None:
+            should_collapse = any(p in h2_id.lower() for p in COLLAPSIBLE_PATTERNS)
+            if not should_collapse and h2_text:
+                should_collapse = any(
+                    p in h2_text.lower() for p in COLLAPSIBLE_PATTERNS
+                )
+
+            if in_details:
+                result.append("</details>\n")
+                in_details = False
+
+            if should_collapse:
+                result.append(f'<details><summary>{h2_text}</summary>\n')
+                in_details = True
+            else:
+                result.append(part)
+        else:
+            result.append(part)
+
+    if in_details:
+        result.append("</details>\n")
+
+    return "".join(result)
 
 
 def add_back_to_top(html: str) -> str:
@@ -453,7 +508,7 @@ def render(md_path: Path, out_path: Path) -> None:
     body = apply_overdue(body)
     body = apply_task_type_badges(body)
     body = apply_citations(body)
-    body = wrap_appendix(body)
+    body = wrap_collapsible_sections(body)
     body = apply_warning_boxes(body)
     body = add_back_to_top(body)
 
