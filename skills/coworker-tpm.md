@@ -448,6 +448,51 @@ Write the report to `.local/data/tpm/{slug}/weekly-reports/{YYYY}-W{WW}-weekly-r
 - `.local/data/tpm/{slug}/weekly-reports/{YYYY}-W{WW}-weekly-report.md` — source of truth
 - `.local/data/tpm/{slug}/weekly-reports/{YYYY}-W{WW}-weekly-report.html` — styled HTML derivative
 
+### Inline Citation Rules (MANDATORY — applies to ALL report sections)
+
+Every factual claim in the report that comes from a specific source MUST include an inline `[^source-id]` citation **immediately after the claim**, not in a separate appendix. The reader should never have to wonder "where did this number/date/decision come from?"
+
+**What to cite (cite inline, not in appendix):**
+- Dates and deadlines: "M2 (Oct 15) [^strategy-doc]"
+- Metrics and thresholds: ">=80% judge-SME agreement [^strategy-doc]"
+- Scoring formulas: "G = 100 × Σ(w_i × s_i) / Σ(w_i) [^framework-proposal]"
+- Governance rules: "Gate 1 requires L7+ review [^governance-dva]"
+- Bugs and gaps: "P denominator incorrect [^weekly-notes-personal]"
+- Owner assignments: "Jay→SPB, Yuching→DVA [^weekly-notes-asana]"
+- Decisions: "present only GSR at L2 framing [^weekly-notes-personal]"
+- Code evidence: "869 tests passing [^code-commits]"
+- Task status: "20 completions [^asana]"
+
+**Where citations appear in the report:**
+- Executive Summary bullets: cite after each factual bullet
+- Bottleneck table: cite in the "Why Top" column
+- Action Items: cite in the Notes column
+- P0/P1/P2 WHY column: cite the source of the justification
+- Appendix: cite sources for each gap, benchmark, and milestone
+
+**Standard citation IDs:**
+
+| ID | Source | Type |
+|----|--------|------|
+| `[^strategy-doc]` | [Presented] Ads Agent Evaluations.docx | Milestones, maturity targets, success criteria |
+| `[^governance-dva]` | Ads Agent Evals Governance DVA.docx | Gates, promotion model, Constitution |
+| `[^framework-proposal]` | AdsAgent E2E Scoring Framework (Vichare/Sotelo) | G/P/C/T formulas, metrics, test cases |
+| `[^critique-v2]` | agentic-evals-critique-and-roadmap-v2.md | 16 gaps, industry alignment, roadmap |
+| `[^weekly-notes-personal]` | USWk{N}-personal-notes.md | Gaps, assignments, mental models |
+| `[^weekly-notes-asana]` | USWk{N}-asana-tasks.md | Meeting commitments, ECDs |
+| `[^asana]` | Asana project (live query) | Task status, completions, overdue |
+| `[^code-commits]` | AdsAgentFabricCrossAgentEvals mainline | Code changes, test counts, CRs |
+| `[^researcher-kb]` | personal-researcher knowledge base | Eval frameworks, benchmarks |
+| `[^news-wk{N}]` | News briefing for week N | Industry developments |
+
+**Example of a well-cited executive summary bullet:**
+
+```
+- **M2 (Oct 15) [^strategy-doc] at risk** — no calibration data in hand; >=80% judge-SME agreement required [^strategy-doc]; P denominator bug [^weekly-notes-personal] inflates scores; 0% G coverage [^critique-v2]
+```
+
+**The HTML renderer** converts `[^source-id]` to styled superscript with a dotted underline and hover tooltip showing the source name.
+
 Report structure:
 
 ```markdown
@@ -612,31 +657,7 @@ All claims in the report that reference external sources use `[^source-name]` in
 
 ---
 
-**Citation format in the report body:**
-
-Every factual claim that originates from a specific source MUST include an inline citation. Use `[^source-id]` syntax where `source-id` matches a row in Appendix A. Examples:
-
-- "M2 requires >=80% judge-SME agreement [^strategy-doc]"
-- "The G/P/C/T scoring uses PASS(1.0)/PARTIAL(0.5)/FAIL(0.0) [^framework-proposal]"
-- "CVR at 33.3% from 2 noisy predicates [^critique-v2]"
-- "Gate 1 requires schema compliance and L7+ review [^governance-dva]"
-- "P scoring denominator is incorrect [^weekly-notes-personal]"
-- "Jay owns SPB, Yuching owns DVA [^weekly-notes-asana]"
-
-**Standard citation IDs:**
-
-| ID | Maps To |
-|----|---------|
-| `[^strategy-doc]` | [Presented] Ads Agent Evaluations.docx |
-| `[^governance-dva]` | Ads Agent Evals Governance DVA.docx |
-| `[^framework-proposal]` | AdsAgent E2E Evaluation Scoring Framework (Vichare/Sotelo) |
-| `[^critique-v2]` | agentic-evals-critique-and-roadmap-v2.md |
-| `[^weekly-notes-personal]` | USWk{N}-personal-notes.md |
-| `[^weekly-notes-asana]` | USWk{N}-asana-tasks.md |
-| `[^asana]` | Asana project data (live query) |
-| `[^code-commits]` | AdsAgentFabricCrossAgentEvals mainline commits |
-| `[^researcher-kb]` | personal-researcher knowledge base |
-| `[^news-wk{N}]` | News briefing for week N |
+*Citation IDs for this appendix are defined in the report-wide Inline Citation Rules (see above).*
 
 ---
 
