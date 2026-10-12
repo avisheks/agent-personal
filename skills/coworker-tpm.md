@@ -506,6 +506,21 @@ The `(#ref-source-id)` part makes the citation a clickable link to the matching 
 
 **The HTML renderer** converts `[^source-id]` to styled superscript with a dotted underline and hover tooltip showing the source name.
 
+### Milestone Ordering Rule (MANDATORY)
+
+**Always list milestones in chronological order by target date**, not by label number. Milestone labels (M1, M2, etc.) are identifiers, not sequence numbers. A milestone with a later label but earlier date comes first.
+
+If milestone B is a **prerequisite gate** for milestone A (i.e., B must pass before A can launch), note the dependency explicitly:
+
+```markdown
+- **M2 (Oct 15):** 🔴 AT RISK — calibration gate; must pass before M1 can launch [^strategy-doc](#ref-strategy-doc)
+- **M1 (Oct 19):** 🟡 IN PROGRESS — launch blocked by M2 [^strategy-doc](#ref-strategy-doc)
+- **M3 (Nov 15):** 🔴 NOT STARTED
+- **M4 (Dec 31):** 🔴 NOT STARTED
+```
+
+This applies everywhere milestones appear: Executive Summary, Bottleneck table, Milestone Tracker, Action Items.
+
 Report structure:
 
 ```markdown
@@ -522,7 +537,11 @@ Grouped into 5 blocks for fast scanning. Each bullet has inline `[^source](#ref-
 **📌 Status**
 - **{🟢 On Track / 🟡 At Risk / 🔴 Off Track}** — {one-sentence rationale with citation}
 - **Key metric:** {headline number} [^source](#ref-source)
-- **Milestone posture:** M1 {status} [^strategy-doc](#ref-strategy-doc) · M2 {status} · M3 {status} · M4 {status}
+- **Milestone posture (chronological by date, not by label):**
+  - {earliest-date milestone}: {status} [^strategy-doc](#ref-strategy-doc)
+  - {next-date milestone}: {status} — {dependency note if it gates another milestone}
+  - {next}: {status}
+  - {last}: {status}
 
 **✅ Highlights**
 - {Biggest win this week — one sentence with citation}
@@ -704,20 +723,35 @@ All claims in the report that reference external sources use `[^source-name]` in
 
 ### 📖 References
 
-Each row has an HTML anchor `id="ref-{citation-id}"` so inline citations link directly here.
+Each entry is on its own line with an HTML anchor `id="ref-{id}"` so inline `[^source](#ref-source)` citations link here. **One entry per line — never combine on a single line.**
 
 ```markdown
-| # | Citation ID | Source | URL / Location |
-|---|------------|--------|----------------|
-| <a id="ref-strategy-doc"></a> R1 | `[^strategy-doc]` | [Presented] Ads Agent Evaluations.docx | .local/data/tpm/{slug}/ref-docs/ |
-| <a id="ref-governance-dva"></a> R2 | `[^governance-dva]` | Ads Agent Evals Governance DVA.docx | .local/data/tpm/{slug}/ref-docs/ |
-| <a id="ref-framework-proposal"></a> R3 | `[^framework-proposal]` | AdsAgent E2E Scoring Framework (Vichare/Sotelo) | .local/data/tpm/{slug}/ref-docs/ |
-| <a id="ref-critique-v2"></a> R4 | `[^critique-v2]` | agentic-evals-critique-and-roadmap-v2.md | adsnova-aao/ |
-| <a id="ref-weekly-notes-personal"></a> R5 | `[^weekly-notes-personal]` | USWk{N}-personal-notes.md | .local/data/tpm/{slug}/weekly-notes/ |
-| <a id="ref-weekly-notes-asana"></a> R6 | `[^weekly-notes-asana]` | USWk{N}-asana-tasks.md | .local/data/tpm/{slug}/weekly-notes/ |
-| <a id="ref-asana"></a> R7 | `[^asana]` | Asana project (live MCP query) | app.asana.com/0/0/{project-gid} |
-| <a id="ref-code-commits"></a> R8 | `[^code-commits]` | AdsAgentFabricCrossAgentEvals mainline | code.amazon.com/packages/AdsAgentFabricCrossAgentEvals |
-| <a id="ref-researcher-kb"></a> R9 | `[^researcher-kb]` | personal-researcher KB | .notlocal/data/personal-researcher/ |
+<a id="ref-strategy-doc"></a>
+**R1 `[^strategy-doc]`** — [Presented] Ads Agent Evaluations.docx — `.local/data/tpm/{slug}/ref-docs/`
+
+<a id="ref-governance-dva"></a>
+**R2 `[^governance-dva]`** — Ads Agent Evals Governance DVA.docx — `.local/data/tpm/{slug}/ref-docs/`
+
+<a id="ref-framework-proposal"></a>
+**R3 `[^framework-proposal]`** — AdsAgent E2E Scoring Framework (Vichare/Sotelo) — `.local/data/tpm/{slug}/ref-docs/`
+
+<a id="ref-critique-v2"></a>
+**R4 `[^critique-v2]`** — agentic-evals-critique-and-roadmap-v2.md — `adsnova-aao/`
+
+<a id="ref-weekly-notes-personal"></a>
+**R5 `[^weekly-notes-personal]`** — USWk{N}-personal-notes.md — `.local/data/tpm/{slug}/weekly-notes/`
+
+<a id="ref-weekly-notes-asana"></a>
+**R6 `[^weekly-notes-asana]`** — USWk{N}-asana-tasks.md — `.local/data/tpm/{slug}/weekly-notes/`
+
+<a id="ref-asana"></a>
+**R7 `[^asana]`** — Asana project (live MCP query) — `app.asana.com/0/0/{project-gid}`
+
+<a id="ref-code-commits"></a>
+**R8 `[^code-commits]`** — AdsAgentFabricCrossAgentEvals mainline — `code.amazon.com/packages/AdsAgentFabricCrossAgentEvals`
+
+<a id="ref-researcher-kb"></a>
+**R9 `[^researcher-kb]`** — personal-researcher KB — `.notlocal/data/personal-researcher/`
 | <a id="ref-news-wk39"></a> R10 | `[^news-wk39]` | WK39 news briefing | .notlocal/data/personal-news/ |
 ```
 
