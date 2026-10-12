@@ -297,7 +297,7 @@ The orchestrator runs Step 1 (data ingestion) sequentially, collecting all raw c
 
 | Sub-Agent | Sections Produced | Input |
 |-----------|------------------|-------|
-| **Agent A: Executive Summary** | 📋 Executive Summary + 🎯 Action Items for Next Week | Full context bundle + prior weekly report |
+| **Agent A: Executive Summary** | 📋 Executive Summary (bullet-pointed) + 🚧 Top 3 Bottlenecks + 🎯 Action Items for Next Week | Full context bundle + prior weekly report + weekly notes |
 | **Agent B: P0/P1/P2 Prioritization** | 🔴 P0 + 🟡 P1 + 🟢 P2 tables with WHY justifications | Asana tasks + Slack/email context + code commits |
 | **Agent C: Appendix** | 📎 Literature Survey & Gaps | **Previous week's appendix** (baseline) + personal-researcher KB + news-summarizer reports + reference docs. Agent C **updates** the prior appendix, does not regenerate it. |
 | **Agent D: Cross-Check + Completions** | 📊 Week-over-Week Cross-Check + Completed Tasks list | Prior weekly report + Asana completed tasks + code commits |
@@ -438,13 +438,41 @@ Report structure:
 
 ## 📋 Executive Summary
 
-{2-3 paragraphs synthesizing the week's progress. MUST reference last week's
-report by name and call out what changed vs what didn't move.}
+Bullet-pointed format for fast scanning. Each bullet is one complete thought — no sub-bullets.
 
-**Status: {🟢 On Track / 🟡 At Risk / 🔴 Off Track}**
-**Key metric:** {one headline number — e.g., "12/18 eval cases passing (67%)" }
-**Biggest win this week:** {one sentence}
-**Biggest risk this week:** {one sentence}
+- **Status: {🟢 On Track / 🟡 At Risk / 🔴 Off Track}** — {one-sentence rationale}
+- **Key metric:** {headline number — e.g., "12/18 eval cases passing (67%)"}
+- **Biggest win this week:** {one sentence}
+- **Biggest risk this week:** {one sentence}
+- **What moved vs last week:** {delta — what changed, what didn't. Reference prior report by name.}
+- **Code velocity:** {commits merged, tests passing}
+- **Validation velocity:** {calibration status, scorer coverage, Asana completion count}
+- **Milestone posture:** {M1/M2/M3/M4 one-line status each}
+- **Weekly-notes signal:** {key decisions, assignments, or gaps from weekly notes — 1-2 bullets}
+- **🆕 New ref-doc this week:** {if any auto-detected — name + key contribution, or "none"}
+
+---
+
+## 🚧 Top 3 Bottlenecks (highest ROI for upcoming week)
+
+Identify the 3 items that, if unblocked, would have the largest cascading impact on the project. For each:
+
+| # | Bottleneck | Why It's #1/#2/#3 | Who's Blocked | Unblock Action | Owner | ECD |
+|---|-----------|-------------------|---------------|---------------|-------|-----|
+| 1 | {bottleneck} | {what it blocks downstream — name the cascade} | {list of people/tasks waiting} | {specific action to unblock} | {name} | {date} |
+| 2 | {bottleneck} | {cascade} | {blocked} | {action} | {name} | {date} |
+| 3 | {bottleneck} | {cascade} | {action} | {action} | {name} | {date} |
+
+**Selection criteria (in order):**
+1. **Longest blocking chain** — the bottleneck that blocks the most downstream tasks
+2. **Closest milestone impact** — blocks the nearest milestone (M2 before M3 before M4)
+3. **Easiest to unblock** — if two bottlenecks have equal impact, prefer the one that can be resolved this week
+
+**Format rules:**
+- Each bottleneck MUST name the specific downstream tasks it blocks (not vague "blocks progress")
+- Each MUST have a concrete unblock action (not "investigate" or "follow up")
+- Carried-over bottlenecks from prior weeks get a `🔁 Week {N}` prefix
+- New bottlenecks get `🆕`
 
 ---
 
