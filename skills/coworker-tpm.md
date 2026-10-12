@@ -517,18 +517,31 @@ Report structure:
 
 ## 📋 Executive Summary
 
-Bullet-pointed format for fast scanning. Each bullet is one complete thought — no sub-bullets.
+Grouped into 5 blocks for fast scanning. Each bullet has inline `[^source](#ref-source)` citations.
 
-- **Status: {🟢 On Track / 🟡 At Risk / 🔴 Off Track}** — {one-sentence rationale}
-- **Key metric:** {headline number — e.g., "12/18 eval cases passing (67%)"}
-- **Biggest win this week:** {one sentence}
-- **Biggest risk this week:** {one sentence}
-- **What moved vs last week:** {delta — what changed, what didn't. Reference prior report by name.}
-- **Code velocity:** {commits merged, tests passing}
-- **Validation velocity:** {calibration status, scorer coverage, Asana completion count}
-- **Milestone posture:** {M1/M2/M3/M4 one-line status each}
-- **Weekly-notes signal:** {key decisions, assignments, or gaps from weekly notes — 1-2 bullets}
-- **🆕 New ref-doc this week:** {if any auto-detected — name + key contribution, or "none"}
+**📌 Status**
+- **{🟢 On Track / 🟡 At Risk / 🔴 Off Track}** — {one-sentence rationale with citation}
+- **Key metric:** {headline number} [^source](#ref-source)
+- **Milestone posture:** M1 {status} [^strategy-doc](#ref-strategy-doc) · M2 {status} · M3 {status} · M4 {status}
+
+**✅ Highlights**
+- {Biggest win this week — one sentence with citation}
+- {Second highlight if applicable}
+- **Code velocity:** {commits merged, tests passing} [^code-commits](#ref-code-commits)
+
+**⚠️ Lowlights**
+- {Biggest risk — one sentence with citation}
+- {Second lowlight if applicable}
+- **Validation velocity:** {calibration status, scorer coverage} [^asana](#ref-asana)
+
+**🔑 Risks (preview)**
+- {Top risk — one sentence with citation. Full detail in Key Risks section below.}
+- {Second risk preview}
+
+**📝 Misc**
+- **What moved vs last week:** {delta — reference prior report by name}
+- **Weekly-notes signal:** {key decisions, gaps from notes} [^weekly-notes-personal](#ref-weekly-notes-personal)
+- **🆕 New ref-doc:** {name + key contribution, or "none"}
 
 ---
 

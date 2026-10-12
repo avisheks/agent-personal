@@ -37,7 +37,7 @@ CSS = """\
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   background: var(--bg); color: var(--text);
-  line-height: 1.7; max-width: 1040px; margin: 0 auto; padding: 2rem;
+  line-height: 1.7; max-width: 1092px; margin: 0 auto; padding: 2rem;
   padding-top: 0;
 }
 .content { }
@@ -203,8 +203,48 @@ def extract_title(md_text: str) -> str:
     return m.group(1).strip() if m else "Weekly Report"
 
 
+SHORT_LABELS = {
+    "executive summary": "📋 Summary",
+    "top 3 bottlenecks": "🚧 Bottlenecks",
+    "key risks": "🔑 Risks",
+    "action items for next week": "🎯 AIs",
+    "scorecard improvements": "📊 Scorecard",
+    "jtbd scoring improvements": "🎯 JTBD",
+    "partner evals / gov model": "🤝 Partner",
+    "partner evals  gov model": "🤝 Partner",
+    "fai annotations": "🏷️ FAI",
+    "misc": "📦 Misc",
+    "untracked commitments": "⚠️ Untracked",
+    "appendix a: references & citations": "📎 Refs",
+    "appendix a references  citations": "📎 Refs",
+    "appendix b: gaps & maturity": "📎 Gaps",
+    "appendix b gaps  maturity": "📎 Gaps",
+    "appendix c: literature & news": "📎 Lit",
+    "appendix c literature  news": "📎 Lit",
+    "week-over-week cross-check": "📊 WoW",
+    "completed this week": "✅ Done",
+    "p0": "🔴 P0",
+    "p1": "🟡 P1",
+    "p2": "🟢 P2",
+    "week-over-week": "📊 WoW",
+}
+
+
+def _shorten_toc_label(text: str) -> str:
+    """Map a heading to a short TOC label for the sticky top-bar."""
+    clean = re.sub(r"[^\w\s]", "", text.lower()).strip()
+    for key, short in SHORT_LABELS.items():
+        if key in clean:
+            return short
+    # Fallback: take first 2 words + emoji if present
+    emoji = re.match(r"^([^\w\s]+)", text)
+    prefix = emoji.group(1) + " " if emoji else ""
+    words = re.sub(r"^[^\w\s]+\s*", "", text).split()
+    return prefix + " ".join(words[:2])
+
+
 def build_toc(html_body: str) -> str:
-    """Build a nav TOC from all <h2> elements in the rendered HTML."""
+    """Build a nav TOC from all <h2> elements with short labels for top-bar."""
     headings = re.findall(r'<h2[^>]*id="([^"]*)"[^>]*>(.*?)</h2>', html_body, re.DOTALL)
     if not headings:
         headings = re.findall(r"<h2>(.*?)</h2>", html_body)
@@ -218,8 +258,11 @@ def build_toc(html_body: str) -> str:
     if not headings:
         return ""
 
-    links = "\n".join(f'  <li><a href="#{slug}">{text}</a></li>' for slug, text in headings)
-    return f'<nav id="toc">\n<div class="toc-title">📑 Contents</div>\n<ul>\n{links}\n</ul>\n</nav>\n'
+    links = "\n".join(
+        f'  <li><a href="#{slug}">{_shorten_toc_label(text)}</a></li>'
+        for slug, text in headings
+    )
+    return f'<nav id="toc">\n<ul>\n{links}\n</ul>\n</nav>\n'
 
 
 def add_ids_to_headings(html_body: str) -> str:
