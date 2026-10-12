@@ -100,12 +100,20 @@ nav .toc-title {
   color: var(--text-muted); font-size: .85rem;
   margin-bottom: 1.5rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border);
 }
-details { margin: .6rem 0; }
+details { margin: .6rem 0; font-size: .95rem; }
+details table { font-size: .9rem; }
+details h3 { font-size: 1.1rem; }
 summary {
-  cursor: pointer; font-weight: 600; padding: .5rem;
-  background: #f3f4f6; border-radius: 6px;
+  cursor: pointer; font-weight: 600; padding: .6rem .8rem;
+  background: #f3f4f6; border-radius: 6px; font-size: 1rem;
 }
 summary:hover { background: #e5e7eb; }
+.citation {
+  font-size: .75rem; color: var(--text-muted); vertical-align: super;
+  text-decoration: none; border-bottom: 1px dotted var(--text-muted);
+  margin-left: .1rem;
+}
+.citation:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* Priority sections */
 .p0-section {
@@ -289,6 +297,15 @@ def apply_item_markers(html: str) -> str:
     return html
 
 
+def apply_citations(html: str) -> str:
+    """Convert [^source-name] citation markers to styled superscript links."""
+    return re.sub(
+        r"\[\^([^\]]+)\]",
+        r'<a class="citation" title="\1">[\1]</a>',
+        html,
+    )
+
+
 def apply_task_type_badges(html: str) -> str:
     """Convert [Sci], [Engg], [Str], [Tac] markers to colored badges."""
     for marker, cls, label in [
@@ -383,6 +400,7 @@ def render(md_path: Path, out_path: Path) -> None:
     body = apply_item_markers(body)
     body = apply_overdue(body)
     body = apply_task_type_badges(body)
+    body = apply_citations(body)
     body = wrap_appendix(body)
     body = apply_warning_boxes(body)
     body = add_back_to_top(body)

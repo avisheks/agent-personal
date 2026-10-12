@@ -299,7 +299,7 @@ The orchestrator runs Step 1 (data ingestion) sequentially, collecting all raw c
 |-----------|------------------|-------|
 | **Agent A: Executive Summary** | 📋 Executive Summary (bullet-pointed) + 🚧 Top 3 Bottlenecks + 🎯 Action Items for Next Week | Full context bundle + prior weekly report + weekly notes |
 | **Agent B: P0/P1/P2 Prioritization** | 🔴 P0 + 🟡 P1 + 🟢 P2 tables with WHY justifications | Asana tasks + Slack/email context + code commits |
-| **Agent C: Appendix** | 📎 Literature Survey & Gaps | **Previous week's appendix** (baseline) + personal-researcher KB + news-summarizer reports + reference docs. Agent C **updates** the prior appendix, does not regenerate it. |
+| **Agent C: Appendices** | 📎 Appendix A (References & Citations) + Appendix B (Gaps & Maturity) + Appendix C (Literature & News) | **Previous week's appendices** (baseline) + personal-researcher KB + news-summarizer + ref-docs. Updates incrementally. |
 | **Agent D: Cross-Check + Completions** | 📊 Week-over-Week Cross-Check + Completed Tasks list | Prior weekly report + Asana completed tasks + code commits |
 
 Each sub-agent receives:
@@ -567,28 +567,76 @@ Every AI must be tagged `[Str]` (strategic) or `[Tac]` (tactical):
 
 ---
 
-## 📎 Appendix: Literature Survey & Gaps
+## 📎 Appendix A: References & Citations
 
-{Query the personal-researcher skill's knowledge base for recent developments
-relevant to this project's domain. If the researcher KB has relevant topics,
-summarize findings and identify gaps between current approach and industry
-state-of-the-art.}
+All claims in the report that reference external sources use `[^source-name]` inline citation markers. This appendix collects them. The HTML renderer converts `[^source]` to styled superscript links.
 
-### Industry Benchmarks & Coverage Gaps
+### 📖 References from Ref-Docs
 
-| Benchmark / Standard | Our Coverage | Gap | Priority |
-|---------------------|-------------|-----|----------|
-| {benchmark name} | {status} | {what's missing} | P0/P1/P2 |
+{16 citations extracted from the 3 ref-docs — one row per source}
 
-### Recent Literature
+| # | Citation ID | Source | URL / Location |
+|---|------------|--------|----------------|
+| R1 | `[^anthropic-evals]` | Anthropic — Demystifying Evals for AI Agents | https://... |
+| R2 | `[^hamel-evals]` | Hamel Husain — Your AI Product Needs Evals | https://... |
 
-| Paper / Resource | Relevance | Implication for Us |
-|-----------------|-----------|-------------------|
-| {title} | {why it matters} | {what we should do} |
+---
 
-{If personal-researcher KB has no relevant topics, note:
-"📚 No researcher KB coverage for this domain yet. Consider running
-`/ingest` + `/compile` for relevant eval/governance literature."}
+## 📎 Appendix B: Gaps & Maturity
+
+### Gaps Observed (from weekly notes)
+
+{8 gaps from personal notes — P0 bugs, P1 gaps, P2 experimental}
+
+### Industry Benchmarks & Known Gaps
+
+{8 industry benchmark rows with Status/Milestone/Gate}
+
+### Strategy Milestone Tracker
+
+{M1-M4 table}
+
+---
+
+## 📎 Appendix C: Literature & Industry News
+
+### Recent Literature (Researcher KB)
+
+{11 items from evaluation-safety.md + agentic-eval-stack.md}
+
+### Recent Industry News
+
+{10 items from WK39 news briefings}
+
+{If no KB or news content: "📚 No researcher KB coverage. Run `/ingest` + `/compile`."}
+
+---
+
+**Citation format in the report body:**
+
+Every factual claim that originates from a specific source MUST include an inline citation. Use `[^source-id]` syntax where `source-id` matches a row in Appendix A. Examples:
+
+- "M2 requires >=80% judge-SME agreement [^strategy-doc]"
+- "The G/P/C/T scoring uses PASS(1.0)/PARTIAL(0.5)/FAIL(0.0) [^framework-proposal]"
+- "CVR at 33.3% from 2 noisy predicates [^critique-v2]"
+- "Gate 1 requires schema compliance and L7+ review [^governance-dva]"
+- "P scoring denominator is incorrect [^weekly-notes-personal]"
+- "Jay owns SPB, Yuching owns DVA [^weekly-notes-asana]"
+
+**Standard citation IDs:**
+
+| ID | Maps To |
+|----|---------|
+| `[^strategy-doc]` | [Presented] Ads Agent Evaluations.docx |
+| `[^governance-dva]` | Ads Agent Evals Governance DVA.docx |
+| `[^framework-proposal]` | AdsAgent E2E Evaluation Scoring Framework (Vichare/Sotelo) |
+| `[^critique-v2]` | agentic-evals-critique-and-roadmap-v2.md |
+| `[^weekly-notes-personal]` | USWk{N}-personal-notes.md |
+| `[^weekly-notes-asana]` | USWk{N}-asana-tasks.md |
+| `[^asana]` | Asana project data (live query) |
+| `[^code-commits]` | AdsAgentFabricCrossAgentEvals mainline commits |
+| `[^researcher-kb]` | personal-researcher knowledge base |
+| `[^news-wk{N}]` | News briefing for week N |
 
 ---
 
