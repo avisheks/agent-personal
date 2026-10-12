@@ -166,6 +166,15 @@ summary:hover { background: #e5e7eb; }
 .task-sci { background: #ede9fe; color: #5b21b6; } /* purple tint for science */
 .task-engg { background: #dbeafe; color: #1e40af; } /* blue tint for engineering */
 
+/* Strategic vs Tactical badges */
+.ai-type {
+  display: inline-block; padding: .1rem .45rem; border-radius: 4px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+  margin-right: .3rem; vertical-align: middle;
+}
+.ai-str { background: #ccfbf1; color: #0f766e; } /* teal for strategic */
+.ai-tac { background: #ffedd5; color: #9a3412; } /* orange for tactical */
+
 /* Asana and code review links */
 a[href*="app.asana.com"] {
   background: #f0f4ff; padding: .1rem .4rem; border-radius: 4px;
@@ -281,13 +290,22 @@ def apply_item_markers(html: str) -> str:
 
 
 def apply_task_type_badges(html: str) -> str:
-    """Convert [Sci] and [Engg] markers to colored badges."""
-    html = html.replace("[Sci]", '<span class="task-type task-sci">Sci</span>')
-    html = html.replace("[Engg]", '<span class="task-type task-engg">Engg</span>')
-    html = html.replace("[sci]", '<span class="task-type task-sci">Sci</span>')
-    html = html.replace("[engg]", '<span class="task-type task-engg">Engg</span>')
-    html = html.replace("[SCI]", '<span class="task-type task-sci">Sci</span>')
-    html = html.replace("[ENGG]", '<span class="task-type task-engg">Engg</span>')
+    """Convert [Sci], [Engg], [Str], [Tac] markers to colored badges."""
+    for marker, cls, label in [
+        ("[Sci]", "task-type task-sci", "Sci"),
+        ("[sci]", "task-type task-sci", "Sci"),
+        ("[SCI]", "task-type task-sci", "Sci"),
+        ("[Engg]", "task-type task-engg", "Engg"),
+        ("[engg]", "task-type task-engg", "Engg"),
+        ("[ENGG]", "task-type task-engg", "Engg"),
+        ("[Str]", "ai-type ai-str", "Str"),
+        ("[str]", "ai-type ai-str", "Str"),
+        ("[STR]", "ai-type ai-str", "Str"),
+        ("[Tac]", "ai-type ai-tac", "Tac"),
+        ("[tac]", "ai-type ai-tac", "Tac"),
+        ("[TAC]", "ai-type ai-tac", "Tac"),
+    ]:
+        html = html.replace(marker, f'<span class="{cls}">{label}</span>')
     return html
 
 

@@ -499,9 +499,45 @@ Identify the 3 items that, if unblocked, would have the largest cascading impact
 
 ## 🎯 Action Items for Next Week
 
-| # | Action | Owner | ECD | Depends On |
-|---|--------|-------|-----|------------|
-| 1 | {specific, actionable item} | {name} | {date} | {blocker or "—"} |
+Action Items are grouped by the **same 5 topics** as P0/P1/P2. Do NOT combine topics (e.g., keep "JTBD Scoring" and "FAI Annotations" as separate sub-sections even if they share owners). **Strategic items come first.**
+
+Every AI must be tagged `[Str]` (strategic) or `[Tac]` (tactical):
+
+| Tag | Meaning | Color | Examples |
+|-----|---------|-------|---------|
+| `[Str]` | Strategic — framing decisions, methodology choices, milestone scoping, mental models, go/no-go criteria | Teal | "L2 maturity framing for M1", "Define YAML contract for partners", "Scope v2 vs v3 methodology" |
+| `[Tac]` | Tactical — concrete deliverables, code tasks, reviews, filings, fixes | Orange | "Fix P denominator bug", "Land 7 CRs", "File 24 FAI requests" |
+
+**Section order (Strategic always first):**
+
+```markdown
+### 🧭 Strategic
+| Due | Action | Type | Owner | Notes |
+|-----|--------|------|-------|-------|
+| ... | [Str] ... | ... | ... | ... |
+
+### 📊 Scorecard
+| Due | Action | Type | Owner | Notes |
+| ... | [Tac] ... | ... | ... | ... |
+
+### 🎯 JTBD Scoring
+| Due | Action | Type | Owner | Notes |
+
+### 🤝 Partner/Gov
+| Due | Action | Type | Owner | Notes |
+
+### 🏷️ FAI Annotations
+| Due | Action | Type | Owner | Notes |
+
+### 📦 Misc
+| Due | Action | Type | Owner | Notes |
+```
+
+**Rules:**
+- Strategic comes first because it frames the tactical work below
+- Each topic gets its own sub-section — never merge topics
+- An AI can be both `[Str]` and `[Tac]` if it has both aspects — list it under Strategic with a note pointing to the tactical sub-section
+- Items within each topic are ordered by ECD (earliest first)
 
 ---
 
