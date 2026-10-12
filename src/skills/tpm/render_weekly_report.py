@@ -298,12 +298,21 @@ def apply_item_markers(html: str) -> str:
 
 
 def apply_citations(html: str) -> str:
-    """Convert [^source-name] citation markers to styled superscript links."""
-    return re.sub(
+    """Convert [^source](#ref-source) citation markers to hyperlinked superscript.
+    Also handles bare [^source] without explicit link (falls back to title-only)."""
+    # First: handle [^source](#ref-source) — linked citations
+    html = re.sub(
+        r'\[\^([^\]]+)\]\(#(ref-[^\)]+)\)',
+        r'<a class="citation" href="#\2" title="\1">[\1]</a>',
+        html,
+    )
+    # Then: handle bare [^source] — unlinked (title-only tooltip)
+    html = re.sub(
         r"\[\^([^\]]+)\]",
         r'<a class="citation" title="\1">[\1]</a>',
         html,
     )
+    return html
 
 
 def apply_task_type_badges(html: str) -> str:

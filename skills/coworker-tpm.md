@@ -458,20 +458,22 @@ M2 is at risk with 5 days remaining. No calibration data. P denominator is broke
 [^strategy-doc] [^weekly-notes-personal]    ← BAD: citations clubbed at the end
 ```
 
-**Correct pattern:**
+**Correct pattern (citation is a hyperlink to Appendix A):**
 ```
-M2 (Oct 15) [^strategy-doc] is at risk — no calibration data; P denominator is broken [^weekly-notes-personal]; 0% G coverage [^critique-v2]
+M2 (Oct 15) [^strategy-doc](#ref-strategy-doc) is at risk — P denominator broken [^weekly-notes-personal](#ref-weekly-notes-personal); 0% G [^critique-v2](#ref-critique-v2)
 ```
 
-**What to cite (cite inline, not in appendix):**
-- Dates and deadlines: "M2 (Oct 15) [^strategy-doc]"
-- Metrics and thresholds: ">=80% judge-SME agreement [^strategy-doc]"
-- Scoring formulas: "G = 100 × Σ(w_i × s_i) / Σ(w_i) [^framework-proposal]"
-- Governance rules: "Gate 1 requires L7+ review [^governance-dva]"
-- Bugs and gaps: "P denominator incorrect [^weekly-notes-personal]"
-- Owner assignments: "Jay→SPB, Yuching→DVA [^weekly-notes-asana]"
-- Decisions: "present only GSR at L2 framing [^weekly-notes-personal]"
-- Code evidence: "869 tests passing [^code-commits]"
+The `(#ref-source-id)` part makes the citation a clickable link to the matching row in Appendix A, where the actual document URL/path is listed. This gives the reader two things: (1) inline provenance — they see the source name immediately, (2) one click to the full reference with URL.
+
+**What to cite (cite inline with hyperlink to Appendix A):**
+- Dates and deadlines: "M2 (Oct 15) [^strategy-doc](#ref-strategy-doc)"
+- Metrics and thresholds: ">=80% agreement [^strategy-doc](#ref-strategy-doc)"
+- Scoring formulas: "G = 100 × Σ(w_i × s_i) / Σ(w_i) [^framework-proposal](#ref-framework-proposal)"
+- Governance rules: "Gate 1 requires L7+ review [^governance-dva](#ref-governance-dva)"
+- Bugs and gaps: "P denominator incorrect [^weekly-notes-personal](#ref-weekly-notes-personal)"
+- Owner assignments: "Jay→SPB [^weekly-notes-asana](#ref-weekly-notes-asana)"
+- Decisions: "present only GSR [^weekly-notes-personal](#ref-weekly-notes-personal)"
+- Code evidence: "869 tests passing [^code-commits](#ref-code-commits)"
 - Task status: "20 completions [^asana]"
 
 **Where citations appear in the report:**
@@ -615,29 +617,71 @@ Every AI must be tagged `[Str]` (strategic) or `[Tac]` (tactical):
 
 ---
 
-## 🔴 P0 — Must Ship This Sprint
+## 📊 Scorecard Improvements
 
-| # | Item | WHY | Owner | ECD | Asana |
-|---|------|-----|-------|-----|-------|
-| 1 | {item} | {Partner/PM/Industry/Quality justification} | {name} | {date} | [{task}](https://app.asana.com/0/0/{GID}) |
+{Topic narrative: 1-2 sentences on the state of scorecard work this week.}
 
-**P0 narrative:** {1-2 sentences explaining why these are P0 and what happens if they slip}
+### Derek
+
+| # | Pri | Type | Item | WHY | ECD | Asana |
+|---|:---:|------|------|-----|-----|-------|
+| 1 | 🔴 | [Engg] | JSON contract + S3 layout | PM: Gates dashboard [^weekly-notes-asana](#ref-weekly-notes-asana) | Oct 12 | [link] |
+| 2 | 🔴 | [Engg] | Upload runs JSON | PM: Bridges scorer to dashboard [^weekly-notes-asana](#ref-weekly-notes-asana) | Oct 13 | [link] |
+| 3 | 🟡 | [Engg] | Compare two runs | PM: Regression comparison [^weekly-notes-asana](#ref-weekly-notes-asana) | Oct 16 | [link] |
+
+### Jay + Avi
+
+| # | Pri | Type | Item | WHY | ECD | Asana |
+|---|:---:|------|------|-----|-----|-------|
+| 1 | 🔴 | [Engg] | verify-*/det-* inconsistency | Quality: Silent mis-routing [^weekly-notes-personal](#ref-weekly-notes-personal) | Oct 14 | ⚠️ No Asana |
+
+### TBD (needs owner)
+
+| # | Pri | Type | Item | WHY | ECD | Asana |
+|---|:---:|------|------|-----|-----|-------|
+| 1 | 🔴 | [Engg] | P scoring denominator bug | Quality: Inflates scores [^weekly-notes-personal](#ref-weekly-notes-personal) | ASAP | ⚠️ No Asana |
 
 ---
 
-## 🟡 P1 — Important, Not Blocking
+## 🎯 JTBD Scoring Improvements
 
-| # | Item | WHY | Owner | ECD | Asana |
-|---|------|-----|-------|-----|-------|
-| 1 | {item} | {justification} | {name} | {date} | [{task}](link) |
+{Topic narrative.}
+
+### Shree (oversees all JTBD reviews)
+
+| # | Pri | Type | Item | WHY | ECD | Asana |
+|---|:---:|------|------|-----|-----|-------|
+| 1 | 🔴 | [Engg] | Daily eval workflow script | PM: **OVERDUE** — blocks regression [^weekly-notes-asana](#ref-weekly-notes-asana) | Oct 8 ⚠️ | [link] |
+
+{...continue for each owner with their tasks...}
 
 ---
 
-## 🟢 P2 — Stretch / Next Quarter
+## 🤝 Partner Evals / Gov Model
 
-| # | Item | WHY | Owner | ECD | Asana |
-|---|------|-----|-------|-----|-------|
-| 1 | {item} | {justification} | {name} | {date} | [{task}](link) |
+{...same structure: owner sub-groups, priority badges, inline citations...}
+
+---
+
+## 🏷️ FAI Annotations
+
+{...same structure...}
+
+---
+
+## 📦 Misc
+
+{...same structure...}
+
+**Structure rules:**
+
+1. **Top-level = topics** (same 5 topics from the catalog: 📊 Scorecard, 🎯 JTBD, 🤝 Partner/Gov, 🏷️ FAI, 📦 Misc). NO priority-level grouping at top level.
+2. **Within each topic = owner sub-sections** (### Owner Name). Group all tasks for the same person together regardless of priority.
+3. **Within each owner = tasks sorted by priority** (🔴 P0 first, then 🟡 P1, then 🟢 P2).
+4. **Priority shown as a badge in the Pri column** (🔴/🟡/🟢), NOT as a separate section heading.
+5. **Each topic gets a 1-2 sentence narrative** at the top summarizing the state of that workstream this week.
+6. **"TBD (needs owner)"** is a valid sub-section for unassigned tasks.
+7. Every item still gets `[Sci]`/`[Engg]` type tag and `[^source](#ref-source)` inline citation.
 
 ---
 
@@ -645,14 +689,26 @@ Every AI must be tagged `[Str]` (strategic) or `[Tac]` (tactical):
 
 All claims in the report that reference external sources use `[^source-name]` inline citation markers. This appendix collects them. The HTML renderer converts `[^source]` to styled superscript links.
 
-### 📖 References from Ref-Docs
+### 📖 References
 
-{16 citations extracted from the 3 ref-docs — one row per source}
+Each row has an HTML anchor `id="ref-{citation-id}"` so inline citations link directly here.
 
+```markdown
 | # | Citation ID | Source | URL / Location |
 |---|------------|--------|----------------|
-| R1 | `[^anthropic-evals]` | Anthropic — Demystifying Evals for AI Agents | https://... |
-| R2 | `[^hamel-evals]` | Hamel Husain — Your AI Product Needs Evals | https://... |
+| <a id="ref-strategy-doc"></a> R1 | `[^strategy-doc]` | [Presented] Ads Agent Evaluations.docx | .local/data/tpm/{slug}/ref-docs/ |
+| <a id="ref-governance-dva"></a> R2 | `[^governance-dva]` | Ads Agent Evals Governance DVA.docx | .local/data/tpm/{slug}/ref-docs/ |
+| <a id="ref-framework-proposal"></a> R3 | `[^framework-proposal]` | AdsAgent E2E Scoring Framework (Vichare/Sotelo) | .local/data/tpm/{slug}/ref-docs/ |
+| <a id="ref-critique-v2"></a> R4 | `[^critique-v2]` | agentic-evals-critique-and-roadmap-v2.md | adsnova-aao/ |
+| <a id="ref-weekly-notes-personal"></a> R5 | `[^weekly-notes-personal]` | USWk{N}-personal-notes.md | .local/data/tpm/{slug}/weekly-notes/ |
+| <a id="ref-weekly-notes-asana"></a> R6 | `[^weekly-notes-asana]` | USWk{N}-asana-tasks.md | .local/data/tpm/{slug}/weekly-notes/ |
+| <a id="ref-asana"></a> R7 | `[^asana]` | Asana project (live MCP query) | app.asana.com/0/0/{project-gid} |
+| <a id="ref-code-commits"></a> R8 | `[^code-commits]` | AdsAgentFabricCrossAgentEvals mainline | code.amazon.com/packages/AdsAgentFabricCrossAgentEvals |
+| <a id="ref-researcher-kb"></a> R9 | `[^researcher-kb]` | personal-researcher KB | .notlocal/data/personal-researcher/ |
+| <a id="ref-news-wk39"></a> R10 | `[^news-wk39]` | WK39 news briefing | .notlocal/data/personal-news/ |
+```
+
+Additional ref-doc citations (R11-R16) are added per-report from the sources each ref-doc itself cites (Anthropic, Hamel, Eugene Yan, OpenAI, LangSmith, HuggingFace, etc.).
 
 ---
 
