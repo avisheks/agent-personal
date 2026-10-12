@@ -168,15 +168,52 @@ Before generating the report, ingest ALL of the following for the target project
    - If no email digests exist, note in the report: "📧 No email digests found — drop relevant emails into `.local/data/tpm/{slug}/email-digests/` for richer context."
    - **Future upgrade:** When Outlook→SharePoint forwarding rule is set up, use `sharepoint_list_files` + `sharepoint_read_file` to read from SharePoint instead of local files.
 
-3. **Asana tasks** — via MCP tools: `GetTasksFromProject` (all tasks with assignee, due date, completion status, section) + `GetStatusUpdatesFromObject` (latest status narrative).
+3. **Weekly notes (last 7 days)** — read all `.md` files in `.local/data/tpm/{slug}/weekly-notes/` with dates in the last 7 days. These capture meeting decisions, owner assignments, tactical instructions, code-level observations, and strategic framing that don't exist in Asana, Slack, or code commits.
 
-4. **Prior daily statuses (last 7 days)** — read all `*-daily-status.md` files from the project's data directory.
+   **Weekly notes format** (user creates before report generation):
+   ```markdown
+   # Weekly Notes — {YYYY-MM-DD}
 
-5. **Prior weekly report** — read the most recent `.md` file in `.local/data/tpm/{slug}/weekly-reports/` to enable week-over-week cross-check.
+   ## Decisions Made
+   - {decision with context}
 
-6. **All deep-dives** — read all `*-ddive-*.md` files (permanent, no age limit).
+   ## Owner Assignments
+   - {person} → {responsibility} ({scope/count})
 
-7. **Code commits (last 7 days)** — for each code package configured in `code_packages` for this project, read recent commits using `ReadInternalWebsites` on the package's code.amazon.com URL:
+   ## Gaps Observed (code-level)
+   - {specific gap with file/function reference if available}
+
+   ## Mental Models / Strategic Framing
+   - {framing principle — e.g., "for 10/19, think in L2 maturity matrix terms"}
+
+   ## Partner Interactions
+   - {partner team}: {what was discussed, what was agreed}
+
+   ## Tactical Instructions
+   - {instruction — e.g., "don't do their work, audit and cross-check with SOPs"}
+   ```
+
+   **How to use weekly notes in the report:**
+   - **Owner assignments** → map to P0/P1/P2 tables (fill in Owner column from notes when Asana is unassigned)
+   - **Decisions** → reference in Executive Summary and WHY justifications
+   - **Gaps observed** → promote to P0/P1 items if not already tracked in Asana
+   - **Mental models** → use as framing in Executive Summary (e.g., "L2 maturity lens")
+   - **Partner interactions** → feed into 🤝 Partner/Gov topic section
+   - **Tactical instructions** → include in Action Items for next week
+
+   Weekly notes have the **highest authority** for owner assignments and tactical decisions — if a note says "Jay owns SPB" but Asana shows no assignee, use the note.
+
+   If no weekly notes exist, note: "📝 No weekly notes found — drop meeting decisions and observations into `.local/data/tpm/{slug}/weekly-notes/`"
+
+4. **Asana tasks** — via MCP tools: `GetTasksFromProject` (all tasks with assignee, due date, completion status, section) + `GetStatusUpdatesFromObject` (latest status narrative).
+
+5. **Prior daily statuses (last 7 days)** — read all `*-daily-status.md` files from the project's data directory.
+
+6. **Prior weekly report** — read the most recent `.md` file in `.local/data/tpm/{slug}/weekly-reports/` to enable week-over-week cross-check.
+
+7. **All deep-dives** — read all `*-ddive-*.md` files (permanent, no age limit).
+
+8. **Code commits (last 7 days)** — for each code package configured in `code_packages` for this project, read recent commits using `ReadInternalWebsites` on the package's code.amazon.com URL:
    ```
    ReadInternalWebsites: https://code.amazon.com/packages/{PackageName}/commits/mainline
    ```
@@ -188,7 +225,7 @@ Before generating the report, ingest ALL of the following for the target project
 
    If `code_packages` is not configured for the project, skip this step and note: "📦 No code packages configured — add `code_packages` to config for commit-level context."
 
-8. **Reference documents** — read all files in `.local/data/tpm/{slug}/ref-docs/` configured for this project. These are authoritative context documents (presentations, strategy docs, governance docs) that inform prioritization and WHY justifications.
+9. **Reference documents** — read all files in `.local/data/tpm/{slug}/ref-docs/` configured for this project. These are authoritative context documents (presentations, strategy docs, governance docs) that inform prioritization and WHY justifications.
 
    **Config format:**
    ```yaml
