@@ -440,6 +440,64 @@ Classify every open Asana task into P0/P1/P2 based on these rules:
 
 If no clear justification exists for an item, mark it: `⚠️ [NEEDS JUSTIFICATION — no partner/PM/industry driver identified]`
 
+### EDD Alignment Check (Step 2c)
+
+Before writing the report, check the project's work against **Eval Driven Development (EDD)** best practices from the researcher KB. This ensures the report surfaces where the project aligns with industry standards and where it diverges.
+
+**Step 1: Locate or create the EDD KB entry.**
+
+Check if `.notlocal/data/personal-researcher/knowledge/` has a page covering "Eval Driven Development" or "EDD":
+```bash
+grep -rl 'eval.driven.development\|EDD' .notlocal/data/personal-researcher/knowledge/
+```
+
+- **If found:** Read it and extract the key EDD principles, practices, and anti-patterns.
+- **If NOT found:** Note in the report: "📚 No EDD KB entry exists. Recommend running personal-researcher `/ingest` + `/compile` for EDD literature." Then use the governance DVA's EDD model description [^governance-dva](#ref-governance-dva) as the baseline (it defines EDD as "all new features start as evaluations anchored on JTBDs").
+
+**Step 2: For each topic section in the report, add an EDD alignment callout.**
+
+After the topic narrative (before the owner tables), add a callout block:
+
+```markdown
+> **EDD alignment [^researcher-kb](#ref-researcher-kb):**
+> - ✅ **Aligned:** {what this topic does that matches EDD best practice — cite specific KB principle}
+> - ⚠️ **Gap:** {what this topic does NOT do that EDD recommends — cite specific KB principle}
+```
+
+**EDD principles to check against (from governance DVA + industry):**
+
+| # | EDD Principle | What to Check | Aligned if... | Gap if... |
+|---|--------------|---------------|---------------|-----------|
+| 1 | Features start as evaluations | Are new capabilities defined as eval cases before code? | JTBD test cases authored before implementation | Code ships without corresponding eval case |
+| 2 | JTBDs are the unit of work | Are tasks organized around JTBDs, not components? | Asana tasks reference specific JTBDs | Tasks reference code modules but not JTBDs |
+| 3 | Evals gate deployment | Do eval results block or gate releases? | CI/pipeline checks eval scores before merge | Evals run post-merge or manually |
+| 4 | Scoring is deterministic-first | Are deterministic checks preferred over LLM judges? | ≥50% deterministic scoring per case | <50% deterministic or 100% LLM-judge |
+| 5 | Ground truth is SME-validated | Are scorer outputs calibrated against SME labels? | Judge-SME agreement measured and tracked | No calibration data collected |
+| 6 | Eval suite grows with features | Does adding a feature also add eval cases? | Every new JTBD has a corresponding eval case | Feature ships, eval added later (or never) |
+| 7 | Partner teams contribute evals | Do partner teams author their own eval cases? | Partner-authored cases in the test suite | All cases authored by the eval team |
+| 8 | Results feed back into design | Do eval failures inform the next iteration? | Failure analysis drives backlog prioritization | Failures logged but not acted on |
+
+**Example callout in a topic section:**
+
+```markdown
+## 📊 Scorecard Improvements
+
+G/P/C scoring core merged but two bugs block trust...
+
+> **EDD alignment [^governance-dva](#ref-governance-dva):**
+> - ✅ **Aligned:** G/P/C/T framework separates outcome from process (EDD principle #1: features start as evaluations) [^framework-proposal](#ref-framework-proposal)
+> - ✅ **Aligned:** 50% deterministic scoring target in governance (EDD principle #4) [^governance-dva](#ref-governance-dva)
+> - ⚠️ **Gap:** No eval currently gates deployment — evals run post-hoc, not in CI (EDD principle #3) [^critique-v2](#ref-critique-v2)
+> - ⚠️ **Gap:** P denominator bug means scoring is not trustworthy — violates EDD principle #5 (SME-validated ground truth) [^weekly-notes-personal](#ref-weekly-notes-personal)
+```
+
+**Rules:**
+- Every topic section MUST have an EDD alignment callout (even if all aligned — state that explicitly)
+- Cite the specific EDD principle number
+- Cite the source (`[^researcher-kb]`, `[^governance-dva]`, `[^framework-proposal]`, `[^critique-v2]`)
+- If no KB entry exists, cite `[^governance-dva]` for the EDD model and note the KB gap
+- Gaps should be specific and actionable, not vague ("not aligned with EDD" is not acceptable — say which principle and what's missing)
+
 ### Report Generation (Step 3)
 
 Write the report to `.local/data/tpm/{slug}/weekly-reports/{YYYY}-W{WW}-weekly-report.md` where `{YYYY}-W{WW}` is the ISO week (e.g., `2026-W41`). This groups reports by week name for easy scanning.
