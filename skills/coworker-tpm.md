@@ -450,7 +450,18 @@ Write the report to `.local/data/tpm/{slug}/weekly-reports/{YYYY}-W{WW}-weekly-r
 
 ### Inline Citation Rules (MANDATORY — applies to ALL report sections)
 
-Every factual claim in the report that comes from a specific source MUST include an inline `[^source-id]` citation **immediately after the claim**, not in a separate appendix. The reader should never have to wonder "where did this number/date/decision come from?"
+Every factual claim in the report that comes from a specific source MUST include an inline `[^source-id]` citation **immediately after the claim** — right there in the sentence, not collected at the end of the paragraph, not at the end of the section, not in the appendix. The citation travels with its claim. The reader should never have to look anywhere else to find the source of a number, date, or decision.
+
+**Anti-pattern (DO NOT do this):**
+```
+M2 is at risk with 5 days remaining. No calibration data. P denominator is broken.
+[^strategy-doc] [^weekly-notes-personal]    ← BAD: citations clubbed at the end
+```
+
+**Correct pattern:**
+```
+M2 (Oct 15) [^strategy-doc] is at risk — no calibration data; P denominator is broken [^weekly-notes-personal]; 0% G coverage [^critique-v2]
+```
 
 **What to cite (cite inline, not in appendix):**
 - Dates and deadlines: "M2 (Oct 15) [^strategy-doc]"
@@ -539,6 +550,24 @@ Identify the 3 items that, if unblocked, would have the largest cascading impact
 - Each MUST have a concrete unblock action (not "investigate" or "follow up")
 - Carried-over bottlenecks from prior weeks get a `🔁 Week {N}` prefix
 - New bottlenecks get `🆕`
+
+---
+
+## 🔑 Key Risks
+
+Numbered list of 4-6 risks. Each risk is one sentence with an inline citation to its source. Placed here (after Bottlenecks, before Action Items) so leadership reads risks early — not buried at the end.
+
+```markdown
+1. **M2 (Oct 15) at risk [^strategy-doc]** — 5 days, no calibration data, P denominator bug [^weekly-notes-personal]
+2. **P scoring denominator [^weekly-notes-personal]** — no Asana task, no owner; blocks all scorecard trust
+3. **verify-*/det-* inconsistency [^weekly-notes-personal]** — YAML/scorecard mismatch; no Asana task
+```
+
+**Rules:**
+- Each risk MUST have at least one `[^source]` citation
+- Risks are ordered by impact (highest first)
+- Carried-over risks from prior weeks get `🔁`; new risks get `🆕`
+- If a risk was in last week's report and is still here, note how many weeks it's been open
 
 ---
 

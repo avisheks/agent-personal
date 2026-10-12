@@ -37,7 +37,7 @@ CSS = """\
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   background: var(--bg); color: var(--text);
-  line-height: 1.7; max-width: 960px; margin: 0 auto; padding: 2rem;
+  line-height: 1.7; max-width: 1040px; margin: 0 auto; padding: 2rem;
   padding-top: 0;
 }
 .content { }
