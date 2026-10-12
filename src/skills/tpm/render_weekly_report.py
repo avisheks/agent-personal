@@ -37,8 +37,10 @@ CSS = """\
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   background: var(--bg); color: var(--text);
-  line-height: 1.7; max-width: 960px; margin: 0 auto; padding: 2rem;
+  line-height: 1.7; display: flex; gap: 2rem; padding: 2rem;
+  max-width: 1200px; margin: 0 auto;
 }
+.content { flex: 1; min-width: 0; max-width: 960px; }
 h1 { font-size: 1.8rem; margin: 2rem 0 .5rem; border-bottom: 2px solid var(--accent); padding-bottom: .3rem; }
 h2 { font-size: 1.4rem; margin: 1.8rem 0 .5rem; color: var(--accent); }
 h3 { font-size: 1.15rem; margin: 1.4rem 0 .4rem; }
@@ -70,11 +72,27 @@ blockquote {
 }
 hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
 nav {
-  background: #f8fafc; padding: 1rem; border-radius: 8px;
-  margin-bottom: 2rem; border: 1px solid var(--border);
+  position: sticky; top: 1rem; align-self: flex-start;
+  width: 220px; min-width: 220px; max-height: calc(100vh - 2rem);
+  overflow-y: auto; background: #f8fafc; padding: .8rem;
+  border-radius: 8px; border: 1px solid var(--border);
+  font-size: .82rem; line-height: 1.4;
 }
 nav ul { list-style: none; margin: 0; padding: 0; }
-nav li { margin: .2rem 0; }
+nav li { margin: .15rem 0; }
+nav a { display: block; padding: .15rem .3rem; border-radius: 4px; }
+nav a:hover { background: #e5e7eb; }
+nav .toc-title { font-weight: 700; font-size: .85rem; margin-bottom: .5rem; color: var(--accent); }
+.back-to-top {
+  display: block; text-align: right; font-size: .78rem;
+  color: var(--text-muted); margin-top: .5rem; padding-top: .3rem;
+  border-top: 1px solid var(--border);
+}
+.back-to-top:hover { color: var(--accent); }
+@media (max-width: 800px) {
+  body { flex-direction: column; }
+  nav { position: static; width: 100%; min-width: 0; max-height: none; }
+}
 .meta {
   color: var(--text-muted); font-size: .85rem;
   margin-bottom: 1.5rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border);
@@ -172,7 +190,7 @@ def build_toc(html_body: str) -> str:
         return ""
 
     links = "\n".join(f'  <li><a href="#{slug}">{text}</a></li>' for slug, text in headings)
-    return f'<nav>\n<ul>\n{links}\n</ul>\n</nav>\n'
+    return f'<nav id="toc">\n<div class="toc-title">📑 Contents</div>\n<ul>\n{links}\n</ul>\n</nav>\n'
 
 
 def add_ids_to_headings(html_body: str) -> str:
@@ -271,6 +289,22 @@ def wrap_appendix(html: str) -> str:
     return html
 
 
+def add_back_to_top(html: str) -> str:
+    """Insert a 'back to top' link before each <h2> (except the first) and at the end."""
+    parts = re.split(r"(<h2[^>]*>)", html)
+    result = []
+    h2_count = 0
+    for part in parts:
+        if re.match(r"<h2[^>]*>", part):
+            h2_count += 1
+            if h2_count > 1:
+                result.append('<a href="#toc" class="back-to-top">↑ Back to top</a>\n')
+        result.append(part)
+    # Add one at the very end
+    result.append('<a href="#toc" class="back-to-top">↑ Back to top</a>\n')
+    return "".join(result)
+
+
 def apply_warning_boxes(html: str) -> str:
     """Style blockquotes containing ⚠️ as warning boxes."""
     html = re.sub(
@@ -309,6 +343,7 @@ def render(md_path: Path, out_path: Path) -> None:
     body = apply_overdue(body)
     body = wrap_appendix(body)
     body = apply_warning_boxes(body)
+    body = add_back_to_top(body)
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -322,7 +357,9 @@ def render(md_path: Path, out_path: Path) -> None:
 </head>
 <body>
 {toc}
+<div class="content">
 {body}
+</div>
 </body>
 </html>
 """
