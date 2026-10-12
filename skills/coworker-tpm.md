@@ -622,6 +622,34 @@ After generating, verify against last week's report:
 3. Any new P0 this week that wasn't in last week's report → mark as "🆕 New this week"
 4. If status color changed from last week → the Executive Summary MUST explain why
 
+### Task Reconciliation (Step 6)
+
+After generating the report, compare **weekly-notes items** against **Asana tasks** to find untracked commitments.
+
+**Procedure:**
+
+1. **Extract commitments from weekly-notes.** Any item in weekly-notes that has an owner and an ECD (explicit or implied) is a "commitment." Parse from the Owner Assignments, Decisions Made, and Partner Interactions sections.
+
+2. **Match against Asana.** For each commitment, search the Asana task list for a matching task (by keyword, owner name, or description similarity).
+
+3. **Flag untracked commitments.** For any commitment with no matching Asana task, add to a new report section:
+
+```markdown
+## ⚠️ Untracked Commitments (from weekly notes — no Asana task found)
+
+| # | Commitment | Owner | ECD | Source | Recommended Action |
+|---|-----------|-------|-----|--------|-------------------|
+| 1 | Det-only scorecard sample run (100% det, 0% LLMJ) | Jay | Oct 9 | 10/8 kickoff | Create Asana task under 📊 Scorecard |
+| 2 | Dev vs release scorecard split (drop EBSR/OPSR for 10/19) | Avi | Oct 16 | 10/8 kickoff | Create Asana task under 📊 Scorecard |
+| 3 | Partner eval YAML contract (v0 schema for external use) | Avi + Jay | Oct 14 | 10/8 kickoff | Create Asana task under 🤝 Partner/Gov |
+```
+
+4. **Flag Asana tasks with no weekly-notes context.** If an Asana task exists but has no matching weekly-note entry and is assigned to someone who was in the meeting, note it as potentially stale or needing a refresh.
+
+**Purpose:** Weekly-notes capture verbal commitments that may not be in Asana yet. This reconciliation step surfaces the gap so the TPM can create missing Asana tasks before the next cycle. Over time, this shrinks the gap between what was agreed and what is tracked.
+
+**Where in the report:** The "Untracked Commitments" section appears after the P2 section and before the Appendix. It is NOT a priority tier — it is a reconciliation artifact that feeds the next Asana grooming session.
+
 ### Cron Setup
 
 Add a third cron entry for weekly reports (Fridays at 4 PM):
