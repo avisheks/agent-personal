@@ -398,7 +398,28 @@ tpm:
         - When referencing the Oct 19 milestone, call it "M1: 19 October launch (release cohort 1)"
 ```
 
-### Priority Classification (Step 2)
+### Task Type Classification (Step 2a)
+
+Every task in the P0/P1/P2 tables MUST be tagged as either **[Sci]** (science) or **[Engg]** (engineering). Add the tag at the start of the Item column in the markdown. The HTML renderer converts these to colored badges automatically.
+
+| Tag | Meaning | Color | Examples |
+|-----|---------|-------|---------|
+| `[Sci]` | Science task — scorer design, evaluation methodology, calibration, annotation, rubric authoring, JTBD review, statistical analysis | Purple | Goal scorer authoring, SME annotation, pass@k measurement |
+| `[Engg]` | Engineering task — infrastructure, pipeline, dashboard, CI/CD, harness, deployment, code migration | Blue | JSON contract, Lambda, dashboard pages, preflight, cron scripts |
+
+**Classification rules:**
+- If a task involves designing *what* to measure → `[Sci]`
+- If a task involves building *how* to measure it → `[Engg]`
+- If a task is both (e.g., "implement PARTIAL scoring") → use the dominant aspect. If the task is primarily about defining the scoring logic → `[Sci]`; if it's primarily about wiring the code → `[Engg]`
+- Partner/governance tasks → classify by the work being done, not the audience
+
+**Example in markdown:**
+```markdown
+| 1 | 🆕 [Engg] JSON contract + S3 layout | 📋 PM: Gates dashboard | Derek | Oct 12 | [link] |
+| 2 | 🆕 [Sci] Goal scorers for write-path JTBDs | 🔧 Quality: 0% G coverage | Dhinesh | Oct 14 | [link] |
+```
+
+### Priority Classification (Step 2b)
 
 Classify every open Asana task into P0/P1/P2 based on these rules:
 

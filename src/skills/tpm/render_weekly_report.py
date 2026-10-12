@@ -37,10 +37,10 @@ CSS = """\
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   background: var(--bg); color: var(--text);
-  line-height: 1.7; display: flex; gap: 2rem; padding: 2rem;
-  max-width: 1200px; margin: 0 auto;
+  line-height: 1.7; max-width: 960px; margin: 0 auto; padding: 2rem;
+  padding-top: 0;
 }
-.content { flex: 1; min-width: 0; max-width: 960px; }
+.content { }
 h1 { font-size: 1.8rem; margin: 2rem 0 .5rem; border-bottom: 2px solid var(--accent); padding-bottom: .3rem; }
 h2 { font-size: 1.4rem; margin: 1.8rem 0 .5rem; color: var(--accent); }
 h3 { font-size: 1.15rem; margin: 1.4rem 0 .4rem; }
@@ -72,27 +72,30 @@ blockquote {
 }
 hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
 nav {
-  position: sticky; top: 1rem; align-self: flex-start;
-  width: 220px; min-width: 220px; max-height: calc(100vh - 2rem);
-  overflow-y: auto; background: #f8fafc; padding: .8rem;
-  border-radius: 8px; border: 1px solid var(--border);
-  font-size: .82rem; line-height: 1.4;
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(248, 250, 252, 0.95); backdrop-filter: blur(8px);
+  padding: .6rem 1rem; margin: 0 -2rem 1.5rem -2rem;
+  border-bottom: 1px solid var(--border);
+  font-size: .8rem; line-height: 1.3;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
-nav ul { list-style: none; margin: 0; padding: 0; }
-nav li { margin: .15rem 0; }
-nav a { display: block; padding: .15rem .3rem; border-radius: 4px; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem .6rem; }
+nav li { margin: 0; }
+nav a {
+  display: inline-block; padding: .2rem .5rem; border-radius: 4px;
+  white-space: nowrap;
+}
 nav a:hover { background: #e5e7eb; }
-nav .toc-title { font-weight: 700; font-size: .85rem; margin-bottom: .5rem; color: var(--accent); }
+nav .toc-title {
+  font-weight: 700; font-size: .82rem; color: var(--accent);
+  margin-right: .6rem; display: inline;
+}
 .back-to-top {
   display: block; text-align: right; font-size: .78rem;
   color: var(--text-muted); margin-top: .5rem; padding-top: .3rem;
   border-top: 1px solid var(--border);
 }
 .back-to-top:hover { color: var(--accent); }
-@media (max-width: 800px) {
-  body { flex-direction: column; }
-  nav { position: static; width: 100%; min-width: 0; max-height: none; }
-}
 .meta {
   color: var(--text-muted); font-size: .85rem;
   margin-bottom: 1.5rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border);
@@ -153,6 +156,15 @@ summary:hover { background: #e5e7eb; }
 .overdue { color: var(--red); font-weight: 600; }
 .carried { font-style: italic; }
 .new-item { font-weight: 700; color: var(--accent); }
+
+/* Science vs Engineering task badges */
+.task-type {
+  display: inline-block; padding: .1rem .45rem; border-radius: 4px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+  margin-right: .3rem; vertical-align: middle;
+}
+.task-sci { background: #ede9fe; color: #5b21b6; } /* purple tint for science */
+.task-engg { background: #dbeafe; color: #1e40af; } /* blue tint for engineering */
 
 /* Asana and code review links */
 a[href*="app.asana.com"] {
@@ -268,6 +280,17 @@ def apply_item_markers(html: str) -> str:
     return html
 
 
+def apply_task_type_badges(html: str) -> str:
+    """Convert [Sci] and [Engg] markers to colored badges."""
+    html = html.replace("[Sci]", '<span class="task-type task-sci">Sci</span>')
+    html = html.replace("[Engg]", '<span class="task-type task-engg">Engg</span>')
+    html = html.replace("[sci]", '<span class="task-type task-sci">Sci</span>')
+    html = html.replace("[engg]", '<span class="task-type task-engg">Engg</span>')
+    html = html.replace("[SCI]", '<span class="task-type task-sci">Sci</span>')
+    html = html.replace("[ENGG]", '<span class="task-type task-engg">Engg</span>')
+    return html
+
+
 def apply_overdue(html: str) -> str:
     """Highlight OVERDUE items."""
     html = re.sub(
@@ -341,6 +364,7 @@ def render(md_path: Path, out_path: Path) -> None:
     body = apply_status_badges(body)
     body = apply_item_markers(body)
     body = apply_overdue(body)
+    body = apply_task_type_badges(body)
     body = wrap_appendix(body)
     body = apply_warning_boxes(body)
     body = add_back_to_top(body)
